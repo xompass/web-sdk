@@ -1,0 +1,55 @@
+import { Admin } from "./Admin";
+import { AssetConfig } from "./AssetConfig";
+import { AssetStateTemplate } from "./AssetStateTemplate";
+import { AssetWizardType } from "./AssetWizardType";
+import { Customer } from "./Customer";
+import { EventGroupTemplate } from "./EventGroupTemplate";
+import { EventTriggerTemplate } from "./EventTriggerTemplate";
+import { Log } from "./Log";
+import { Manager } from "./Manager";
+import { Project } from "./Project";
+import { SensorTemplate } from "./SensorTemplate";
+
+export type AssetTemplate = {
+  type: string;
+  name?: string;
+  icon?: string;
+  description?: string;
+  uri?: string;
+  tags?: string[];
+  created?: Date;
+  modified?: Date;
+  deleted?: Date;
+  id?: string;
+  assetTemplateId?: string;
+  _config?: AssetConfig;
+  defaultStateId?: string;
+  assetWizardTypeId?: string;
+  customerId?: string;
+  projectId?: string;
+  assetTemplates?: AssetTemplate[];
+  assetTemplate?: AssetTemplate;
+  assetStateTemplates?: AssetStateTemplate[];
+  defaultState?: AssetStateTemplate;
+  container?: AssetTemplateStorageContainer;
+  assetWizardType?: AssetWizardType;
+  defaultResponsibleAdmins?: Admin[];
+  customer?: Customer;
+  eventGroupTemplates?: EventGroupTemplate[];
+  eventTriggerTemplates?: EventTriggerTemplate[];
+  trackingLogs?: Log[];
+  defaultResponsibleManagers?: Manager[];
+  project?: Project;
+  sensorTemplates?: SensorTemplate[];
+};
+
+export type AssetTemplateStorageContainer = {
+  id?: string;
+  created?: Date;
+  modified?: Date;
+  deleted?: Date;
+  assetTemplateId?: string;
+  _picture?: File;
+  _background?: File;
+  _files?: File[];
+};

@@ -1,0 +1,54 @@
+import { Asset } from "./Asset";
+import { EventSummary } from "./EventSummary";
+import { EventSummaryForProject } from "./EventSummaryForProject";
+import { Log } from "./Log";
+import { BasedOnRulesEventSummaryForAsset } from "./eventTypes/BasedOnRulesEventSummaryForAsset";
+import { BlacklistSearchEventSummaryForAsset } from "./eventTypes/BlacklistSearchEventSummaryForAsset";
+
+export type EventSummaryForAsset = {
+  0?: BasedOnRulesEventSummaryForAsset | BlacklistSearchEventSummaryForAsset;
+  1?: BasedOnRulesEventSummaryForAsset | BlacklistSearchEventSummaryForAsset;
+  2?: BasedOnRulesEventSummaryForAsset | BlacklistSearchEventSummaryForAsset;
+  3?: BasedOnRulesEventSummaryForAsset | BlacklistSearchEventSummaryForAsset;
+  4?: BasedOnRulesEventSummaryForAsset | BlacklistSearchEventSummaryForAsset;
+  5?: BasedOnRulesEventSummaryForAsset | BlacklistSearchEventSummaryForAsset;
+  6?: BasedOnRulesEventSummaryForAsset | BlacklistSearchEventSummaryForAsset;
+  7?: BasedOnRulesEventSummaryForAsset | BlacklistSearchEventSummaryForAsset;
+  8?: BasedOnRulesEventSummaryForAsset | BlacklistSearchEventSummaryForAsset;
+  9?: BasedOnRulesEventSummaryForAsset | BlacklistSearchEventSummaryForAsset;
+  10?: BasedOnRulesEventSummaryForAsset | BlacklistSearchEventSummaryForAsset;
+  11?: BasedOnRulesEventSummaryForAsset | BlacklistSearchEventSummaryForAsset;
+  12?: BasedOnRulesEventSummaryForAsset | BlacklistSearchEventSummaryForAsset;
+  13?: BasedOnRulesEventSummaryForAsset | BlacklistSearchEventSummaryForAsset;
+  14?: BasedOnRulesEventSummaryForAsset | BlacklistSearchEventSummaryForAsset;
+  15?: BasedOnRulesEventSummaryForAsset | BlacklistSearchEventSummaryForAsset;
+  16?: BasedOnRulesEventSummaryForAsset | BlacklistSearchEventSummaryForAsset;
+  17?: BasedOnRulesEventSummaryForAsset | BlacklistSearchEventSummaryForAsset;
+  18?: BasedOnRulesEventSummaryForAsset | BlacklistSearchEventSummaryForAsset;
+  19?: BasedOnRulesEventSummaryForAsset | BlacklistSearchEventSummaryForAsset;
+  20?: BasedOnRulesEventSummaryForAsset | BlacklistSearchEventSummaryForAsset;
+  21?: BasedOnRulesEventSummaryForAsset | BlacklistSearchEventSummaryForAsset;
+  22?: BasedOnRulesEventSummaryForAsset | BlacklistSearchEventSummaryForAsset;
+  23?: BasedOnRulesEventSummaryForAsset | BlacklistSearchEventSummaryForAsset;
+  type: string;
+  date: Date;
+  from?: Date;
+  to?: Date;
+  year: number;
+  month: number;
+  day: number;
+  detail:
+    | BasedOnRulesEventSummaryForAsset
+    | BlacklistSearchEventSummaryForAsset;
+  updated: boolean;
+  created?: Date;
+  modified?: Date;
+  deleted?: Date;
+  id?: string;
+  assetId?: string;
+  eventSummaryForProjectId?: string;
+  asset?: Asset;
+  eventSummaries?: EventSummary[];
+  eventSummaryForProject?: EventSummaryForProject;
+  trackingLogs?: Log[];
+};

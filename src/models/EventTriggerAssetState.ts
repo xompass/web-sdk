@@ -1,0 +1,30 @@
+import { AssetState } from "./AssetState";
+import { EmergencyContact } from "./EmergencyContact";
+import { EventTrigger } from "./EventTrigger";
+import { EventTriggerAssetStateTemplate } from "./EventTriggerAssetStateTemplate";
+import { EventTriggerRule } from "./EventTriggerRule";
+import { Log } from "./Log";
+
+export type EventTriggerAssetState = {
+  type?: string;
+  name?: string;
+  enabled?: boolean;
+  eventGroupingByMinutes?: number;
+  muted?: boolean;
+  hidden?: boolean;
+  starred?: boolean;
+  notifications?: any;
+  created?: Date;
+  modified?: Date;
+  deleted?: Date;
+  id?: string;
+  assetStateId?: string;
+  eventTriggerId?: string;
+  templateId?: string;
+  _rules?: EventTriggerRule[];
+  assetState?: AssetState;
+  emergencyContacts?: EmergencyContact[];
+  eventTrigger?: EventTrigger;
+  template?: EventTriggerAssetStateTemplate;
+  trackingLogs?: Log[];
+};

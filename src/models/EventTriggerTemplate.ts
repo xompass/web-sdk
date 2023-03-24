@@ -1,0 +1,31 @@
+import { AssetStateTemplate } from "./AssetStateTemplate";
+import { AssetTemplate } from "./AssetTemplate";
+import { EventGroupTemplate } from "./EventGroupTemplate";
+import { EventTriggerAssetStateTemplate } from "./EventTriggerAssetStateTemplate";
+import { EventTriggerRuleTemplate } from "./EventTriggerRuleTemplate";
+import { Log } from "./Log";
+
+export type EventTriggerTemplate = {
+  type: string;
+  name: string;
+  description?: string;
+  subject?: string;
+  enabled: boolean;
+  eventGroupingByMinutes: number;
+  muted: boolean;
+  hidden: boolean;
+  starred: boolean;
+  notifications?: any;
+  created?: Date;
+  modified?: Date;
+  deleted?: Date;
+  id?: string;
+  assetTemplateId?: string;
+  eventGroupTemplateId?: string;
+  _ruleTemplates?: EventTriggerRuleTemplate[];
+  assetTemplate?: AssetTemplate;
+  eventGroupTemplate?: EventGroupTemplate;
+  assetStateTemplates?: AssetStateTemplate[];
+  stateTemplates?: EventTriggerAssetStateTemplate[];
+  trackingLogs?: Log[];
+};
