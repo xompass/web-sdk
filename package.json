@@ -1,6 +1,6 @@
 {
   "name": "@xompass/web-sdk",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -8,6 +8,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsup src/index.ts --format cjs,esm --dts",
+    "publish": "pnpm run build && pnpm publish",
     "lint": "tsc"
   },
   "keywords": [],
