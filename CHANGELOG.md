@@ -1,5 +1,11 @@
 # @xompass/web-sdk
 
+## 0.0.5
+
+### Patch Changes
+
+- 8c1df16: pipeline fixes
+
 ## 0.0.3
 
 ### Patch Changes
