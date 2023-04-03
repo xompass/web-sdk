@@ -1,6 +1,7 @@
-import { Log } from "./Log";
-import { Manager } from "./Manager";
-import { Project } from "./Project";
+import { File } from './File';
+import { Log } from './Log';
+import { Manager } from './Manager';
+import { Project } from './Project';
 
 export type StoreVideoAnalyticDashboard = {
   name: string;

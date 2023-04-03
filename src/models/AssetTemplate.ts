@@ -1,14 +1,15 @@
-import { Admin } from "./Admin";
-import { AssetConfig } from "./AssetConfig";
-import { AssetStateTemplate } from "./AssetStateTemplate";
-import { AssetWizardType } from "./AssetWizardType";
-import { Customer } from "./Customer";
-import { EventGroupTemplate } from "./EventGroupTemplate";
-import { EventTriggerTemplate } from "./EventTriggerTemplate";
-import { Log } from "./Log";
-import { Manager } from "./Manager";
-import { Project } from "./Project";
-import { SensorTemplate } from "./SensorTemplate";
+import { Admin } from './Admin';
+import { AssetConfig } from './AssetConfig';
+import { AssetStateTemplate } from './AssetStateTemplate';
+import { AssetWizardType } from './AssetWizardType';
+import { Customer } from './Customer';
+import { EventGroupTemplate } from './EventGroupTemplate';
+import { EventTriggerTemplate } from './EventTriggerTemplate';
+import { File } from './File';
+import { Log } from './Log';
+import { Manager } from './Manager';
+import { Project } from './Project';
+import { SensorTemplate } from './SensorTemplate';
 
 export type AssetTemplate = {
   type: string;
