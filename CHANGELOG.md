@@ -1,5 +1,11 @@
 # @xompass/web-sdk
 
+## 0.0.6
+
+### Patch Changes
+
+- f211048: Fix the type of all "Files" in the sdk
+
 ## 0.0.5
 
 ### Patch Changes
