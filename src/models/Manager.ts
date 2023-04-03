@@ -1,16 +1,17 @@
-import { Asset } from "./Asset";
-import { CctvDashboard } from "./CctvDashboard";
-import { CommonAccessToken } from "./CommonAccessToken";
-import { Country } from "./Country";
-import { Credential } from "./Credential";
-import { Customer } from "./Customer";
-import { EventDashboard } from "./EventDashboard";
-import { Log } from "./Log";
-import { PeopleCounterReport } from "./PeopleCounterReport";
-import { Report } from "./Report";
-import { TimeZone } from "./TimeZone";
-import { TrafficFlowAnalysis } from "./TrafficFlowAnalysis";
-import { View } from "./View";
+import { Asset } from './Asset';
+import { CctvDashboard } from './CctvDashboard';
+import { CommonAccessToken } from './CommonAccessToken';
+import { Country } from './Country';
+import { Credential } from './Credential';
+import { Customer } from './Customer';
+import { EventDashboard } from './EventDashboard';
+import { File } from './File';
+import { Log } from './Log';
+import { PeopleCounterReport } from './PeopleCounterReport';
+import { Report } from './Report';
+import { TimeZone } from './TimeZone';
+import { TrafficFlowAnalysis } from './TrafficFlowAnalysis';
+import { View } from './View';
 
 export type Manager = {
   name: string;

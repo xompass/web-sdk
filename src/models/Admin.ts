@@ -1,10 +1,11 @@
-import { Asset } from "./Asset";
-import { CommonAccessToken } from "./CommonAccessToken";
-import { Country } from "./Country";
-import { Credential } from "./Credential";
-import { Log } from "./Log";
-import { TimeZone } from "./TimeZone";
-import { Var } from "./Var";
+import { Asset } from './Asset';
+import { CommonAccessToken } from './CommonAccessToken';
+import { Country } from './Country';
+import { Credential } from './Credential';
+import { File } from './File';
+import { Log } from './Log';
+import { TimeZone } from './TimeZone';
+import { Var } from './Var';
 
 export type Admin = {
   name: string;
