@@ -101,6 +101,31 @@ export type ApiFetchOptions = {
   body?: any;
 };
 
+const DateFields = [
+  'created',
+  'modified',
+  'deleted',
+  'from',
+  'to',
+  'requested',
+  'expiresAt',
+  'birthday',
+];
+
+const Reviver = (key: string, value: any) => {
+  if (typeof value === 'string' && DateFields.includes(key)) {
+    const date = new Date(value);
+
+    if (date.toString() !== 'Invalid Date') {
+      return date;
+    }
+
+    return value;
+  }
+
+  return value;
+};
+
 /**
  * A generic fetch function to call the API
  */
@@ -167,13 +192,25 @@ export async function ApiFetch(options: ApiFetchOptions): Promise<any> {
     fetchOptions.body = JSON.stringify(body);
   }
 
-  return fetch(url, fetchOptions).then((res) => {
-    if (res.status < 200 || res.status >= 300) {
-      throw new Error(res.statusText);
-    }
+  return fetch(url, fetchOptions)
+    .then((res) => {
+      if (res.status < 200 || res.status >= 300) {
+        throw new Error(res.statusText);
+      }
 
-    return res.json();
-  });
+      return res.text();
+    })
+    .then((text) => {
+      if (!text) {
+        return undefined;
+      }
+
+      try {
+        return JSON.parse(text, Reviver);
+      } catch (e) {
+        return text;
+      }
+    });
 }
 
 function prepareOrderFilter<T>(order: Order<T>) {
