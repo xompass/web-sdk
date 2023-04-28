@@ -1,5 +1,15 @@
 # @xompass/web-sdk
 
+## 0.1.0
+
+### Minor Changes
+
+- 4c8d904: Improve typing
+
+### Patch Changes
+
+- f569ee5: add started to the list of date fields
+
 ## 0.0.6
 
 ### Patch Changes
