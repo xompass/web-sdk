@@ -91,3 +91,9 @@ export type AssetStorageContainer = {
   _background?: File;
   _files?: File[];
 };
+
+export type AssetWithUptimes = {
+  id: string;
+  type: string;
+  sensorUptimes: SensorUptime[];
+};

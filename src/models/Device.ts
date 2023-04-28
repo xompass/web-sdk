@@ -1,9 +1,9 @@
-import { Customer } from "./Customer";
-import { DeviceEvent } from "./DeviceEvent";
-import { DeviceToken } from "./DeviceToken";
-import { EdgeAgent } from "./EdgeAgent";
-import { Log } from "./Log";
-import { TelegramChat } from "./TelegramChat";
+import { Customer } from './Customer';
+import { DeviceEvent } from './DeviceEvent';
+import { DeviceToken } from './DeviceToken';
+import { EdgeAgent } from './EdgeAgent';
+import { Log } from './Log';
+import { TelegramChat } from './TelegramChat';
 
 export type Device = {
   id?: string;
@@ -30,4 +30,32 @@ export type DeviceConfig = {
   created?: Date;
   modified?: Date;
   deleted?: Date;
+};
+
+export type DeviceLogs = {
+  id: string;
+  type: string;
+  agent?: string[];
+  modules?: Record<string, string[]>;
+};
+
+export type DeviceUptime = {
+  id: string;
+  started: Date;
+  uptime: number;
+  version: string;
+};
+
+export type DeviceVersion = {
+  id: string;
+  type: string;
+  content: {
+    v: string;
+  };
+};
+
+export type DeviceStatusError = {
+  message: string;
+  name: string;
+  statusCode: number;
 };

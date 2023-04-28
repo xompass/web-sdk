@@ -1,63 +1,74 @@
-import { ApiFetch, Filter } from "../core/ApiFetch";
-import { Customer } from "../models/Customer";
-import { AssetTag } from "../models/AssetTag";
-import { Asset } from "../models/Asset";
-import { AssetTemplate } from "../models/AssetTemplate";
-import { Credential } from "../models/Credential";
-import { ApiKey } from "../models/ApiKey";
-import { Country } from "../models/Country";
-import { CustomerRestrictionTable } from "../models/CustomerRestrictionTable";
-import { DefaultEventComment } from "../models/DefaultEventComment";
-import { Device } from "../models/Device";
-import { DeviceEventType } from "../models/DeviceEventType";
-import { EdgeAgent } from "../models/EdgeAgent";
-import { EmergencyContact } from "../models/EmergencyContact";
-import { EventState } from "../models/EventState";
-import { Log } from "../models/Log";
-import { Manager } from "../models/Manager";
-import { Project } from "../models/Project";
-import { SensorUptime } from "../models/SensorUptime";
-import { SensorUptimeCollector } from "../models/SensorUptimeCollector";
-import { TelegramChat } from "../models/TelegramChat";
-import { TimeZone } from "../models/TimeZone";
-import { Toolkit } from "../models/Toolkit";
-import { Var } from "../models/Var";
-import { YoloClass } from "../models/YoloClass";
-import { YoloClassCustomer } from "../models/YoloClassCustomer";
-import { Sensor } from "../models/Sensor";
-import { Tool } from "../models/Tool";
-import { AssetType } from "../models/AssetType";
-import { Dataset } from "../models/Dataset";
-import { Event } from "../models/Event";
-import { AssetMilestone } from "../models/AssetMilestone";
-import { AssetStaff } from "../models/AssetStaff";
-import { AssetState } from "../models/AssetState";
-import { Admin } from "../models/Admin";
-import { EventGroup } from "../models/EventGroup";
-import { EventSummary } from "../models/EventSummary";
-import { EventSummaryForAsset } from "../models/EventSummaryForAsset";
-import { EventTrigger } from "../models/EventTrigger";
-import { Summary } from "../models/Summary";
-import { AssetStateTemplate } from "../models/AssetStateTemplate";
-import { EventGroupTemplate } from "../models/EventGroupTemplate";
-import { EventTriggerTemplate } from "../models/EventTriggerTemplate";
-import { SensorTemplate } from "../models/SensorTemplate";
-import { CctvDashboard } from "../models/CctvDashboard";
-import { EventDashboard } from "../models/EventDashboard";
-import { EventSummaryForProject } from "../models/EventSummaryForProject";
-import { EmbeddedReport } from "../models/EmbeddedReport";
-import { BIPanel } from "../models/BIPanel";
-import { PeopleCounterReport } from "../models/PeopleCounterReport";
-import { ProjectTag } from "../models/ProjectTag";
-import { Report } from "../models/Report";
-import { SensorType } from "../models/SensorType";
-import { ProjectAllowedSensorType } from "../models/ProjectAllowedSensorType";
-import { StoreVideoAnalyticDashboard } from "../models/StoreVideoAnalyticDashboard";
-import { TrafficFlowAnalysis } from "../models/TrafficFlowAnalysis";
-import { VirtualExpression } from "../models/VirtualExpression";
-import { VirtualGroup } from "../models/VirtualGroup";
-import { VirtualVariable } from "../models/VirtualVariable";
-import { YoloClassProject } from "../models/YoloClassProject";
+import { ApiFetch, Filter } from '../core/ApiFetch';
+import {
+  Customer,
+  CustomerConfig,
+  CustomerStorageContainer,
+} from '../models/Customer';
+import { AssetTag } from '../models/AssetTag';
+import { Asset, AssetWithUptimes } from '../models/Asset';
+import { AssetTemplate } from '../models/AssetTemplate';
+import { Credential } from '../models/Credential';
+import { ApiKey } from '../models/ApiKey';
+import { Country } from '../models/Country';
+import { CustomerRestrictionTable } from '../models/CustomerRestrictionTable';
+import { DefaultEventComment } from '../models/DefaultEventComment';
+import {
+  Device,
+  DeviceLogs,
+  DeviceStatusError,
+  DeviceUptime,
+  DeviceVersion,
+} from '../models/Device';
+import { DeviceEventType } from '../models/DeviceEventType';
+import { EdgeAgent } from '../models/EdgeAgent';
+import { EmergencyContact } from '../models/EmergencyContact';
+import { EventState } from '../models/EventState';
+import { Log } from '../models/Log';
+import { Manager } from '../models/Manager';
+import { Project } from '../models/Project';
+import { SensorUptime } from '../models/SensorUptime';
+import { SensorUptimeCollector } from '../models/SensorUptimeCollector';
+import { TelegramChat } from '../models/TelegramChat';
+import { TimeZone } from '../models/TimeZone';
+import { Toolkit } from '../models/Toolkit';
+import { Var } from '../models/Var';
+import { YoloClass } from '../models/YoloClass';
+import { YoloClassCustomer } from '../models/YoloClassCustomer';
+import { Sensor } from '../models/Sensor';
+import { Tool } from '../models/Tool';
+import { AssetType } from '../models/AssetType';
+import { Dataset } from '../models/Dataset';
+import { Event } from '../models/Event';
+import { AssetMilestone } from '../models/AssetMilestone';
+import { AssetStaff } from '../models/AssetStaff';
+import { AssetState } from '../models/AssetState';
+import { Admin } from '../models/Admin';
+import { EventGroup } from '../models/EventGroup';
+import { EventSummary } from '../models/EventSummary';
+import { EventSummaryForAsset } from '../models/EventSummaryForAsset';
+import { EventTrigger } from '../models/EventTrigger';
+import { Summary } from '../models/Summary';
+import { AssetStateTemplate } from '../models/AssetStateTemplate';
+import { EventGroupTemplate } from '../models/EventGroupTemplate';
+import { EventTriggerTemplate } from '../models/EventTriggerTemplate';
+import { SensorTemplate } from '../models/SensorTemplate';
+import { CctvDashboard } from '../models/CctvDashboard';
+import { EventDashboard } from '../models/EventDashboard';
+import { EventSummaryForProject } from '../models/EventSummaryForProject';
+import { EmbeddedReport } from '../models/EmbeddedReport';
+import { BIPanel } from '../models/BIPanel';
+import { PeopleCounterReport } from '../models/PeopleCounterReport';
+import { ProjectTag } from '../models/ProjectTag';
+import { Report } from '../models/Report';
+import { SensorType } from '../models/SensorType';
+import { ProjectAllowedSensorType } from '../models/ProjectAllowedSensorType';
+import { StoreVideoAnalyticDashboard } from '../models/StoreVideoAnalyticDashboard';
+import { TrafficFlowAnalysis } from '../models/TrafficFlowAnalysis';
+import { VirtualExpression } from '../models/VirtualExpression';
+import { VirtualGroup } from '../models/VirtualGroup';
+import { VirtualVariable } from '../models/VirtualVariable';
+import { YoloClassProject } from '../models/YoloClassProject';
+import { AssetConfig } from '../models/AssetConfig';
 
 /**
  * Api services for the `Customer` model.
@@ -72,8 +83,8 @@ export async function Customer_FindByIdAssets(
   fk: string
 ): Promise<Asset> {
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/assets/:fk",
+    method: 'GET',
+    url: '/Customers/:id/assets/:fk',
     routeParams: {
       id,
       fk,
@@ -89,8 +100,8 @@ export async function Customer_FindByIdAssetTemplates(
   fk: string
 ): Promise<AssetTemplate> {
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/assetTemplates/:fk",
+    method: 'GET',
+    url: '/Customers/:id/assetTemplates/:fk',
     routeParams: {
       id,
       fk,
@@ -106,8 +117,8 @@ export async function Customer_FindByIdCredentials(
   fk: string
 ): Promise<Credential> {
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/credentials/:fk",
+    method: 'GET',
+    url: '/Customers/:id/credentials/:fk',
     routeParams: {
       id,
       fk,
@@ -121,10 +132,10 @@ export async function Customer_FindByIdCredentials(
 export async function Customer_DestroyByIdCredentials(
   id: string,
   fk: string
-): Promise<any> {
+): Promise<void> {
   return ApiFetch({
-    method: "DELETE",
-    url: "/Customers/:id/credentials/:fk",
+    method: 'DELETE',
+    url: '/Customers/:id/credentials/:fk',
     routeParams: {
       id,
       fk,
@@ -141,8 +152,8 @@ export async function Customer_UpdateByIdCredentials(
   data: any = {}
 ): Promise<Credential> {
   return ApiFetch({
-    method: "PUT",
-    url: "/Customers/:id/credentials/:fk",
+    method: 'PUT',
+    url: '/Customers/:id/credentials/:fk',
     routeParams: {
       id,
       fk,
@@ -161,8 +172,8 @@ export async function Customer_ExistsCredentials(
   fk: string
 ): Promise<boolean> {
   return ApiFetch({
-    method: "HEAD",
-    url: "/Customers/:id/credentials/rel/:fk",
+    method: 'HEAD',
+    url: '/Customers/:id/credentials/rel/:fk',
     routeParams: {
       id,
       fk,
@@ -178,8 +189,8 @@ export async function Customer_FindByIdApiKeys(
   fk: string
 ): Promise<ApiKey> {
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/apiKeys/:fk",
+    method: 'GET',
+    url: '/Customers/:id/apiKeys/:fk',
     routeParams: {
       id,
       fk,
@@ -193,10 +204,10 @@ export async function Customer_FindByIdApiKeys(
 export async function Customer_DestroyByIdApiKeys(
   id: string,
   fk: string
-): Promise<any> {
+): Promise<void> {
   return ApiFetch({
-    method: "DELETE",
-    url: "/Customers/:id/apiKeys/:fk",
+    method: 'DELETE',
+    url: '/Customers/:id/apiKeys/:fk',
     routeParams: {
       id,
       fk,
@@ -213,8 +224,8 @@ export async function Customer_UpdateByIdApiKeys(
   data: any = {}
 ): Promise<ApiKey> {
   return ApiFetch({
-    method: "PUT",
-    url: "/Customers/:id/apiKeys/:fk",
+    method: 'PUT',
+    url: '/Customers/:id/apiKeys/:fk',
     routeParams: {
       id,
       fk,
@@ -230,8 +241,8 @@ export async function Customer_UpdateByIdApiKeys(
  */
 export async function Customer_GetCountry(id: string): Promise<Country> {
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/country",
+    method: 'GET',
+    url: '/Customers/:id/country',
     routeParams: {
       id,
     },
@@ -241,10 +252,10 @@ export async function Customer_GetCountry(id: string): Promise<Country> {
  * Capta la relación hasOne config.
  * /Customers/:id/config
  */
-export async function Customer_GetConfig(id: string): Promise<any> {
+export async function Customer_GetConfig(id: string): Promise<CustomerConfig> {
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/config",
+    method: 'GET',
+    url: '/Customers/:id/config',
     routeParams: {
       id,
     },
@@ -257,10 +268,10 @@ export async function Customer_GetConfig(id: string): Promise<any> {
 export async function Customer_CreateConfig(
   id: string,
   data: any = {}
-): Promise<any> {
+): Promise<CustomerConfig> {
   return ApiFetch({
-    method: "POST",
-    url: "/Customers/:id/config",
+    method: 'POST',
+    url: '/Customers/:id/config',
     routeParams: {
       id,
     },
@@ -276,10 +287,10 @@ export async function Customer_CreateConfig(
 export async function Customer_UpdateConfig(
   id: string,
   data: any = {}
-): Promise<any> {
+): Promise<CustomerConfig> {
   return ApiFetch({
-    method: "PUT",
-    url: "/Customers/:id/config",
+    method: 'PUT',
+    url: '/Customers/:id/config',
     routeParams: {
       id,
     },
@@ -296,8 +307,8 @@ export async function Customer_GetRestrictionTable(
   id: string
 ): Promise<CustomerRestrictionTable> {
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/restrictionTable",
+    method: 'GET',
+    url: '/Customers/:id/restrictionTable',
     routeParams: {
       id,
     },
@@ -312,8 +323,8 @@ export async function Customer_CreateRestrictionTable(
   data: any = {}
 ): Promise<CustomerRestrictionTable> {
   return ApiFetch({
-    method: "POST",
-    url: "/Customers/:id/restrictionTable",
+    method: 'POST',
+    url: '/Customers/:id/restrictionTable',
     routeParams: {
       id,
     },
@@ -331,8 +342,8 @@ export async function Customer_UpdateRestrictionTable(
   data: any = {}
 ): Promise<CustomerRestrictionTable> {
   return ApiFetch({
-    method: "PUT",
-    url: "/Customers/:id/restrictionTable",
+    method: 'PUT',
+    url: '/Customers/:id/restrictionTable',
     routeParams: {
       id,
     },
@@ -347,10 +358,10 @@ export async function Customer_UpdateRestrictionTable(
  */
 export async function Customer_DestroyRestrictionTable(
   id: string
-): Promise<any> {
+): Promise<void> {
   return ApiFetch({
-    method: "DELETE",
-    url: "/Customers/:id/restrictionTable",
+    method: 'DELETE',
+    url: '/Customers/:id/restrictionTable',
     routeParams: {
       id,
     },
@@ -360,10 +371,12 @@ export async function Customer_DestroyRestrictionTable(
  * Capta la relación hasOne container.
  * /Customers/:id/container
  */
-export async function Customer_GetContainer(id: string): Promise<any> {
+export async function Customer_GetContainer(
+  id: string
+): Promise<CustomerStorageContainer> {
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/container",
+    method: 'GET',
+    url: '/Customers/:id/container',
     routeParams: {
       id,
     },
@@ -376,10 +389,10 @@ export async function Customer_GetContainer(id: string): Promise<any> {
 export async function Customer_CreateContainer(
   id: string,
   data: any = {}
-): Promise<any> {
+): Promise<CustomerStorageContainer> {
   return ApiFetch({
-    method: "POST",
-    url: "/Customers/:id/container",
+    method: 'POST',
+    url: '/Customers/:id/container',
     routeParams: {
       id,
     },
@@ -395,10 +408,10 @@ export async function Customer_CreateContainer(
 export async function Customer_UpdateContainer(
   id: string,
   data: any = {}
-): Promise<any> {
+): Promise<CustomerStorageContainer> {
   return ApiFetch({
-    method: "PUT",
-    url: "/Customers/:id/container",
+    method: 'PUT',
+    url: '/Customers/:id/container',
     routeParams: {
       id,
     },
@@ -411,10 +424,10 @@ export async function Customer_UpdateContainer(
  * Suprime container de este modelo.
  * /Customers/:id/container
  */
-export async function Customer_DestroyContainer(id: string): Promise<any> {
+export async function Customer_DestroyContainer(id: string): Promise<void> {
   return ApiFetch({
-    method: "DELETE",
-    url: "/Customers/:id/container",
+    method: 'DELETE',
+    url: '/Customers/:id/container',
     routeParams: {
       id,
     },
@@ -429,8 +442,8 @@ export async function Customer_FindByIdDefaultEventComments(
   fk: string
 ): Promise<DefaultEventComment> {
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/defaultEventComments/:fk",
+    method: 'GET',
+    url: '/Customers/:id/defaultEventComments/:fk',
     routeParams: {
       id,
       fk,
@@ -444,10 +457,10 @@ export async function Customer_FindByIdDefaultEventComments(
 export async function Customer_DestroyByIdDefaultEventComments(
   id: string,
   fk: string
-): Promise<any> {
+): Promise<void> {
   return ApiFetch({
-    method: "DELETE",
-    url: "/Customers/:id/defaultEventComments/:fk",
+    method: 'DELETE',
+    url: '/Customers/:id/defaultEventComments/:fk',
     routeParams: {
       id,
       fk,
@@ -464,8 +477,8 @@ export async function Customer_UpdateByIdDefaultEventComments(
   data: any = {}
 ): Promise<DefaultEventComment> {
   return ApiFetch({
-    method: "PUT",
-    url: "/Customers/:id/defaultEventComments/:fk",
+    method: 'PUT',
+    url: '/Customers/:id/defaultEventComments/:fk',
     routeParams: {
       id,
       fk,
@@ -484,8 +497,8 @@ export async function Customer_FindByIdDevices(
   fk: string
 ): Promise<Device> {
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/devices/:fk",
+    method: 'GET',
+    url: '/Customers/:id/devices/:fk',
     routeParams: {
       id,
       fk,
@@ -499,10 +512,10 @@ export async function Customer_FindByIdDevices(
 export async function Customer_DestroyByIdDevices(
   id: string,
   fk: string
-): Promise<any> {
+): Promise<void> {
   return ApiFetch({
-    method: "DELETE",
-    url: "/Customers/:id/devices/:fk",
+    method: 'DELETE',
+    url: '/Customers/:id/devices/:fk',
     routeParams: {
       id,
       fk,
@@ -519,8 +532,8 @@ export async function Customer_UpdateByIdDevices(
   data: any = {}
 ): Promise<Device> {
   return ApiFetch({
-    method: "PUT",
-    url: "/Customers/:id/devices/:fk",
+    method: 'PUT',
+    url: '/Customers/:id/devices/:fk',
     routeParams: {
       id,
       fk,
@@ -539,8 +552,8 @@ export async function Customer_FindByIdDeviceEventTypes(
   fk: string
 ): Promise<DeviceEventType> {
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/deviceEventTypes/:fk",
+    method: 'GET',
+    url: '/Customers/:id/deviceEventTypes/:fk',
     routeParams: {
       id,
       fk,
@@ -556,8 +569,8 @@ export async function Customer_FindByIdEdgeAgents(
   fk: string
 ): Promise<EdgeAgent> {
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/edgeAgents/:fk",
+    method: 'GET',
+    url: '/Customers/:id/edgeAgents/:fk',
     routeParams: {
       id,
       fk,
@@ -571,10 +584,10 @@ export async function Customer_FindByIdEdgeAgents(
 export async function Customer_DestroyByIdEdgeAgents(
   id: string,
   fk: string
-): Promise<any> {
+): Promise<void> {
   return ApiFetch({
-    method: "DELETE",
-    url: "/Customers/:id/edgeAgents/:fk",
+    method: 'DELETE',
+    url: '/Customers/:id/edgeAgents/:fk',
     routeParams: {
       id,
       fk,
@@ -591,8 +604,8 @@ export async function Customer_UpdateByIdEdgeAgents(
   data: any = {}
 ): Promise<EdgeAgent> {
   return ApiFetch({
-    method: "PUT",
-    url: "/Customers/:id/edgeAgents/:fk",
+    method: 'PUT',
+    url: '/Customers/:id/edgeAgents/:fk',
     routeParams: {
       id,
       fk,
@@ -611,8 +624,8 @@ export async function Customer_FindByIdEmergencyContacts(
   fk: string
 ): Promise<EmergencyContact> {
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/emergencyContacts/:fk",
+    method: 'GET',
+    url: '/Customers/:id/emergencyContacts/:fk',
     routeParams: {
       id,
       fk,
@@ -626,10 +639,10 @@ export async function Customer_FindByIdEmergencyContacts(
 export async function Customer_DestroyByIdEmergencyContacts(
   id: string,
   fk: string
-): Promise<any> {
+): Promise<void> {
   return ApiFetch({
-    method: "DELETE",
-    url: "/Customers/:id/emergencyContacts/:fk",
+    method: 'DELETE',
+    url: '/Customers/:id/emergencyContacts/:fk',
     routeParams: {
       id,
       fk,
@@ -646,8 +659,8 @@ export async function Customer_UpdateByIdEmergencyContacts(
   data: any = {}
 ): Promise<EmergencyContact> {
   return ApiFetch({
-    method: "PUT",
-    url: "/Customers/:id/emergencyContacts/:fk",
+    method: 'PUT',
+    url: '/Customers/:id/emergencyContacts/:fk',
     routeParams: {
       id,
       fk,
@@ -666,8 +679,8 @@ export async function Customer_FindByIdEventStates(
   fk: string
 ): Promise<EventState> {
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/eventStates/:fk",
+    method: 'GET',
+    url: '/Customers/:id/eventStates/:fk',
     routeParams: {
       id,
       fk,
@@ -681,10 +694,10 @@ export async function Customer_FindByIdEventStates(
 export async function Customer_DestroyByIdEventStates(
   id: string,
   fk: string
-): Promise<any> {
+): Promise<void> {
   return ApiFetch({
-    method: "DELETE",
-    url: "/Customers/:id/eventStates/:fk",
+    method: 'DELETE',
+    url: '/Customers/:id/eventStates/:fk',
     routeParams: {
       id,
       fk,
@@ -701,8 +714,8 @@ export async function Customer_UpdateByIdEventStates(
   data: any = {}
 ): Promise<EventState> {
   return ApiFetch({
-    method: "PUT",
-    url: "/Customers/:id/eventStates/:fk",
+    method: 'PUT',
+    url: '/Customers/:id/eventStates/:fk',
     routeParams: {
       id,
       fk,
@@ -721,8 +734,8 @@ export async function Customer_FindByIdTrackingLogs(
   fk: string
 ): Promise<Log> {
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/trackingLogs/:fk",
+    method: 'GET',
+    url: '/Customers/:id/trackingLogs/:fk',
     routeParams: {
       id,
       fk,
@@ -738,8 +751,8 @@ export async function Customer_FindByIdManagers(
   fk: string
 ): Promise<Manager> {
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/managers/:fk",
+    method: 'GET',
+    url: '/Customers/:id/managers/:fk',
     routeParams: {
       id,
       fk,
@@ -755,8 +768,8 @@ export async function Customer_FindByIdProjects(
   fk: string
 ): Promise<Project> {
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/projects/:fk",
+    method: 'GET',
+    url: '/Customers/:id/projects/:fk',
     routeParams: {
       id,
       fk,
@@ -770,10 +783,10 @@ export async function Customer_FindByIdProjects(
 export async function Customer_DestroyByIdProjects(
   id: string,
   fk: string
-): Promise<any> {
+): Promise<void> {
   return ApiFetch({
-    method: "DELETE",
-    url: "/Customers/:id/projects/:fk",
+    method: 'DELETE',
+    url: '/Customers/:id/projects/:fk',
     routeParams: {
       id,
       fk,
@@ -790,8 +803,8 @@ export async function Customer_UpdateByIdProjects(
   data: any = {}
 ): Promise<Project> {
   return ApiFetch({
-    method: "PUT",
-    url: "/Customers/:id/projects/:fk",
+    method: 'PUT',
+    url: '/Customers/:id/projects/:fk',
     routeParams: {
       id,
       fk,
@@ -810,8 +823,8 @@ export async function Customer_FindByIdTelegramChats(
   fk: string
 ): Promise<TelegramChat> {
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/telegramChats/:fk",
+    method: 'GET',
+    url: '/Customers/:id/telegramChats/:fk',
     routeParams: {
       id,
       fk,
@@ -825,10 +838,10 @@ export async function Customer_FindByIdTelegramChats(
 export async function Customer_DestroyByIdTelegramChats(
   id: string,
   fk: string
-): Promise<any> {
+): Promise<void> {
   return ApiFetch({
-    method: "DELETE",
-    url: "/Customers/:id/telegramChats/:fk",
+    method: 'DELETE',
+    url: '/Customers/:id/telegramChats/:fk',
     routeParams: {
       id,
       fk,
@@ -845,8 +858,8 @@ export async function Customer_UpdateByIdTelegramChats(
   data: any = {}
 ): Promise<TelegramChat> {
   return ApiFetch({
-    method: "PUT",
-    url: "/Customers/:id/telegramChats/:fk",
+    method: 'PUT',
+    url: '/Customers/:id/telegramChats/:fk',
     routeParams: {
       id,
       fk,
@@ -862,8 +875,8 @@ export async function Customer_UpdateByIdTelegramChats(
  */
 export async function Customer_GetTimeZone(id: string): Promise<TimeZone> {
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/timeZone",
+    method: 'GET',
+    url: '/Customers/:id/timeZone',
     routeParams: {
       id,
     },
@@ -878,8 +891,8 @@ export async function Customer_FindByIdToolkits(
   fk: string
 ): Promise<Toolkit> {
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/toolkits/:fk",
+    method: 'GET',
+    url: '/Customers/:id/toolkits/:fk',
     routeParams: {
       id,
       fk,
@@ -895,8 +908,8 @@ export async function Customer_LinkToolkits(
   fk: string
 ): Promise<Toolkit> {
   return ApiFetch({
-    method: "PUT",
-    url: "/Customers/:id/toolkits/rel/:fk",
+    method: 'PUT',
+    url: '/Customers/:id/toolkits/rel/:fk',
     routeParams: {
       id,
       fk,
@@ -911,10 +924,10 @@ export async function Customer_LinkToolkits(
 export async function Customer_UnlinkToolkits(
   id: string,
   fk: string
-): Promise<any> {
+): Promise<void> {
   return ApiFetch({
-    method: "DELETE",
-    url: "/Customers/:id/toolkits/rel/:fk",
+    method: 'DELETE',
+    url: '/Customers/:id/toolkits/rel/:fk',
     routeParams: {
       id,
       fk,
@@ -927,8 +940,8 @@ export async function Customer_UnlinkToolkits(
  */
 export async function Customer_GetVar(id: string): Promise<Var> {
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/var",
+    method: 'GET',
+    url: '/Customers/:id/var',
     routeParams: {
       id,
     },
@@ -943,8 +956,8 @@ export async function Customer_FindByIdYoloClasses(
   fk: string
 ): Promise<YoloClass> {
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/yoloClasses/:fk",
+    method: 'GET',
+    url: '/Customers/:id/yoloClasses/:fk',
     routeParams: {
       id,
       fk,
@@ -961,8 +974,8 @@ export async function Customer_LinkYoloClasses(
   data: any = {}
 ): Promise<YoloClassCustomer> {
   return ApiFetch({
-    method: "PUT",
-    url: "/Customers/:id/yoloClasses/rel/:fk",
+    method: 'PUT',
+    url: '/Customers/:id/yoloClasses/rel/:fk',
     routeParams: {
       id,
       fk,
@@ -979,10 +992,10 @@ export async function Customer_LinkYoloClasses(
 export async function Customer_UnlinkYoloClasses(
   id: string,
   fk: string
-): Promise<any> {
+): Promise<void> {
   return ApiFetch({
-    method: "DELETE",
-    url: "/Customers/:id/yoloClasses/rel/:fk",
+    method: 'DELETE',
+    url: '/Customers/:id/yoloClasses/rel/:fk',
     routeParams: {
       id,
       fk,
@@ -998,8 +1011,8 @@ export async function Customer_ExistsYoloClasses(
   fk: string
 ): Promise<boolean> {
   return ApiFetch({
-    method: "HEAD",
-    url: "/Customers/:id/yoloClasses/rel/:fk",
+    method: 'HEAD',
+    url: '/Customers/:id/yoloClasses/rel/:fk',
     routeParams: {
       id,
       fk,
@@ -1016,12 +1029,12 @@ export async function Customer_GetAssetTags(
 ): Promise<AssetTag[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/assetTags",
+    method: 'GET',
+    url: '/Customers/:id/assetTags',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -1038,12 +1051,12 @@ export async function Customer_GetAssets(
 ): Promise<Asset[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/assets",
+    method: 'GET',
+    url: '/Customers/:id/assets',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -1060,12 +1073,12 @@ export async function Customer_CountAssets(
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams["where"] = where;
+    _urlParams['where'] = where;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/assets/count",
+    method: 'GET',
+    url: '/Customers/:id/assets/count',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -1082,12 +1095,12 @@ export async function Customer_GetAssetTemplates(
 ): Promise<AssetTemplate[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/assetTemplates",
+    method: 'GET',
+    url: '/Customers/:id/assetTemplates',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -1104,12 +1117,12 @@ export async function Customer_CountAssetTemplates(
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams["where"] = where;
+    _urlParams['where'] = where;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/assetTemplates/count",
+    method: 'GET',
+    url: '/Customers/:id/assetTemplates/count',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -1126,12 +1139,12 @@ export async function Customer_GetCredentials(
 ): Promise<Credential[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/credentials",
+    method: 'GET',
+    url: '/Customers/:id/credentials',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -1147,8 +1160,8 @@ export async function Customer_CreateCredentials(
   data: any = {}
 ): Promise<Credential> {
   return ApiFetch({
-    method: "POST",
-    url: "/Customers/:id/credentials",
+    method: 'POST',
+    url: '/Customers/:id/credentials',
     routeParams: {
       id,
     },
@@ -1167,12 +1180,12 @@ export async function Customer_CountCredentials(
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams["where"] = where;
+    _urlParams['where'] = where;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/credentials/count",
+    method: 'GET',
+    url: '/Customers/:id/credentials/count',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -1189,12 +1202,12 @@ export async function Customer_GetApiKeys(
 ): Promise<ApiKey[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/apiKeys",
+    method: 'GET',
+    url: '/Customers/:id/apiKeys',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -1210,8 +1223,8 @@ export async function Customer_CreateApiKeys(
   data: any = {}
 ): Promise<ApiKey> {
   return ApiFetch({
-    method: "POST",
-    url: "/Customers/:id/apiKeys",
+    method: 'POST',
+    url: '/Customers/:id/apiKeys',
     routeParams: {
       id,
     },
@@ -1230,12 +1243,12 @@ export async function Customer_CountApiKeys(
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams["where"] = where;
+    _urlParams['where'] = where;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/apiKeys/count",
+    method: 'GET',
+    url: '/Customers/:id/apiKeys/count',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -1252,12 +1265,12 @@ export async function Customer_GetDefaultEventComments(
 ): Promise<DefaultEventComment[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/defaultEventComments",
+    method: 'GET',
+    url: '/Customers/:id/defaultEventComments',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -1273,8 +1286,8 @@ export async function Customer_CreateDefaultEventComments(
   data: any = {}
 ): Promise<DefaultEventComment> {
   return ApiFetch({
-    method: "POST",
-    url: "/Customers/:id/defaultEventComments",
+    method: 'POST',
+    url: '/Customers/:id/defaultEventComments',
     routeParams: {
       id,
     },
@@ -1293,12 +1306,12 @@ export async function Customer_CountDefaultEventComments(
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams["where"] = where;
+    _urlParams['where'] = where;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/defaultEventComments/count",
+    method: 'GET',
+    url: '/Customers/:id/defaultEventComments/count',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -1315,12 +1328,12 @@ export async function Customer_GetDevices(
 ): Promise<Device[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/devices",
+    method: 'GET',
+    url: '/Customers/:id/devices',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -1336,8 +1349,8 @@ export async function Customer_CreateDevices(
   data: any = {}
 ): Promise<Device> {
   return ApiFetch({
-    method: "POST",
-    url: "/Customers/:id/devices",
+    method: 'POST',
+    url: '/Customers/:id/devices',
     routeParams: {
       id,
     },
@@ -1356,12 +1369,12 @@ export async function Customer_CountDevices(
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams["where"] = where;
+    _urlParams['where'] = where;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/devices/count",
+    method: 'GET',
+    url: '/Customers/:id/devices/count',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -1378,12 +1391,12 @@ export async function Customer_GetDeviceEventTypes(
 ): Promise<DeviceEventType[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/deviceEventTypes",
+    method: 'GET',
+    url: '/Customers/:id/deviceEventTypes',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -1400,12 +1413,12 @@ export async function Customer_CountDeviceEventTypes(
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams["where"] = where;
+    _urlParams['where'] = where;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/deviceEventTypes/count",
+    method: 'GET',
+    url: '/Customers/:id/deviceEventTypes/count',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -1422,12 +1435,12 @@ export async function Customer_GetEdgeAgents(
 ): Promise<EdgeAgent[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/edgeAgents",
+    method: 'GET',
+    url: '/Customers/:id/edgeAgents',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -1443,8 +1456,8 @@ export async function Customer_CreateEdgeAgents(
   data: any = {}
 ): Promise<EdgeAgent> {
   return ApiFetch({
-    method: "POST",
-    url: "/Customers/:id/edgeAgents",
+    method: 'POST',
+    url: '/Customers/:id/edgeAgents',
     routeParams: {
       id,
     },
@@ -1463,12 +1476,12 @@ export async function Customer_CountEdgeAgents(
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams["where"] = where;
+    _urlParams['where'] = where;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/edgeAgents/count",
+    method: 'GET',
+    url: '/Customers/:id/edgeAgents/count',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -1485,12 +1498,12 @@ export async function Customer_GetEmergencyContacts(
 ): Promise<EmergencyContact[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/emergencyContacts",
+    method: 'GET',
+    url: '/Customers/:id/emergencyContacts',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -1506,8 +1519,8 @@ export async function Customer_CreateEmergencyContacts(
   data: any = {}
 ): Promise<EmergencyContact> {
   return ApiFetch({
-    method: "POST",
-    url: "/Customers/:id/emergencyContacts",
+    method: 'POST',
+    url: '/Customers/:id/emergencyContacts',
     routeParams: {
       id,
     },
@@ -1526,12 +1539,12 @@ export async function Customer_CountEmergencyContacts(
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams["where"] = where;
+    _urlParams['where'] = where;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/emergencyContacts/count",
+    method: 'GET',
+    url: '/Customers/:id/emergencyContacts/count',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -1548,12 +1561,12 @@ export async function Customer_GetEventStates(
 ): Promise<EventState[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/eventStates",
+    method: 'GET',
+    url: '/Customers/:id/eventStates',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -1569,8 +1582,8 @@ export async function Customer_CreateEventStates(
   data: any = {}
 ): Promise<EventState> {
   return ApiFetch({
-    method: "POST",
-    url: "/Customers/:id/eventStates",
+    method: 'POST',
+    url: '/Customers/:id/eventStates',
     routeParams: {
       id,
     },
@@ -1589,12 +1602,12 @@ export async function Customer_CountEventStates(
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams["where"] = where;
+    _urlParams['where'] = where;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/eventStates/count",
+    method: 'GET',
+    url: '/Customers/:id/eventStates/count',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -1611,12 +1624,12 @@ export async function Customer_GetTrackingLogs(
 ): Promise<Log[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/trackingLogs",
+    method: 'GET',
+    url: '/Customers/:id/trackingLogs',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -1633,12 +1646,12 @@ export async function Customer_CountTrackingLogs(
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams["where"] = where;
+    _urlParams['where'] = where;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/trackingLogs/count",
+    method: 'GET',
+    url: '/Customers/:id/trackingLogs/count',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -1655,12 +1668,12 @@ export async function Customer_GetManagers(
 ): Promise<Manager[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/managers",
+    method: 'GET',
+    url: '/Customers/:id/managers',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -1676,8 +1689,8 @@ export async function Customer_CreateManagers(
   data: any = {}
 ): Promise<Manager> {
   return ApiFetch({
-    method: "POST",
-    url: "/Customers/:id/managers",
+    method: 'POST',
+    url: '/Customers/:id/managers',
     routeParams: {
       id,
     },
@@ -1696,12 +1709,12 @@ export async function Customer_CountManagers(
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams["where"] = where;
+    _urlParams['where'] = where;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/managers/count",
+    method: 'GET',
+    url: '/Customers/:id/managers/count',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -1718,12 +1731,12 @@ export async function Customer_GetProjects(
 ): Promise<Project[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/projects",
+    method: 'GET',
+    url: '/Customers/:id/projects',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -1740,12 +1753,12 @@ export async function Customer_CountProjects(
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams["where"] = where;
+    _urlParams['where'] = where;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/projects/count",
+    method: 'GET',
+    url: '/Customers/:id/projects/count',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -1762,12 +1775,12 @@ export async function Customer_GetTelegramChats(
 ): Promise<TelegramChat[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/telegramChats",
+    method: 'GET',
+    url: '/Customers/:id/telegramChats',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -1783,8 +1796,8 @@ export async function Customer_CreateTelegramChats(
   data: any = {}
 ): Promise<TelegramChat> {
   return ApiFetch({
-    method: "POST",
-    url: "/Customers/:id/telegramChats",
+    method: 'POST',
+    url: '/Customers/:id/telegramChats',
     routeParams: {
       id,
     },
@@ -1803,12 +1816,12 @@ export async function Customer_CountTelegramChats(
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams["where"] = where;
+    _urlParams['where'] = where;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/telegramChats/count",
+    method: 'GET',
+    url: '/Customers/:id/telegramChats/count',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -1825,12 +1838,12 @@ export async function Customer_GetToolkits(
 ): Promise<Toolkit[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/toolkits",
+    method: 'GET',
+    url: '/Customers/:id/toolkits',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -1847,12 +1860,12 @@ export async function Customer_CountToolkits(
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams["where"] = where;
+    _urlParams['where'] = where;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/toolkits/count",
+    method: 'GET',
+    url: '/Customers/:id/toolkits/count',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -1869,12 +1882,12 @@ export async function Customer_GetYoloClasses(
 ): Promise<YoloClass[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/yoloClasses",
+    method: 'GET',
+    url: '/Customers/:id/yoloClasses',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -1891,12 +1904,12 @@ export async function Customer_CountYoloClasses(
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams["where"] = where;
+    _urlParams['where'] = where;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/yoloClasses/count",
+    method: 'GET',
+    url: '/Customers/:id/yoloClasses/count',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -1909,8 +1922,8 @@ export async function Customer_CountYoloClasses(
  */
 export async function Customer_create(data: any = {}): Promise<Customer> {
   return ApiFetch({
-    method: "POST",
-    url: "/Customers",
+    method: 'POST',
+    url: '/Customers',
     routeParams: {},
     body: {
       data,
@@ -1923,8 +1936,8 @@ export async function Customer_create(data: any = {}): Promise<Customer> {
  */
 export async function Customer_exists(id: string): Promise<boolean> {
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/exists",
+    method: 'GET',
+    url: '/Customers/:id/exists',
     routeParams: {
       id,
     },
@@ -1940,12 +1953,12 @@ export async function Customer_findById(
 ): Promise<Customer> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id",
+    method: 'GET',
+    url: '/Customers/:id',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -1961,12 +1974,12 @@ export async function Customer_find(
 ): Promise<Customer[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers",
+    method: 'GET',
+    url: '/Customers',
     urlParams: _urlParams,
     routeParams: {},
   });
@@ -1980,12 +1993,12 @@ export async function Customer_findOne(
 ): Promise<Customer> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/findOne",
+    method: 'GET',
+    url: '/Customers/findOne',
     urlParams: _urlParams,
     routeParams: {},
   });
@@ -1994,10 +2007,10 @@ export async function Customer_findOne(
  * Delete a model instance by {{id}} from the data source.
  * /Customers/:id
  */
-export async function Customer_deleteById(id: string): Promise<any> {
+export async function Customer_deleteById(id: string): Promise<void> {
   return ApiFetch({
-    method: "DELETE",
-    url: "/Customers/:id",
+    method: 'DELETE',
+    url: '/Customers/:id',
     routeParams: {
       id,
     },
@@ -2010,12 +2023,12 @@ export async function Customer_deleteById(id: string): Promise<any> {
 export async function Customer_count(where: any = {}): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams["where"] = where;
+    _urlParams['where'] = where;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/count",
+    method: 'GET',
+    url: '/Customers/count',
     urlParams: _urlParams,
     routeParams: {},
   });
@@ -2030,8 +2043,8 @@ export async function Customer_InstantiateToolkits(
   data: Project
 ): Promise<Toolkit> {
   return ApiFetch({
-    method: "POST",
-    url: "/Customers/:id/toolkits/:fk/instantiate",
+    method: 'POST',
+    url: '/Customers/:id/toolkits/:fk/instantiate',
     routeParams: {
       id,
       fk,
@@ -2051,12 +2064,12 @@ export async function Customer_assetsWithLastUptimeCollectors(
 ): Promise<SensorUptimeCollector[]> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams["where"] = where;
+    _urlParams['where'] = where;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/assets/withLastUptimeCollectors",
+    method: 'GET',
+    url: '/Customers/:id/assets/withLastUptimeCollectors',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -2073,21 +2086,21 @@ export async function Customer_GetAssetsWithUptimes(
   from: Date,
   to: Date,
   type: string
-): Promise<any[]> {
+): Promise<AssetWithUptimes[]> {
   const _urlParams: any = {};
   if (from != null) {
-    _urlParams["from"] = from;
+    _urlParams['from'] = from;
   }
   if (to != null) {
-    _urlParams["to"] = to;
+    _urlParams['to'] = to;
   }
   if (type != null) {
-    _urlParams["type"] = type;
+    _urlParams['type'] = type;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/assets/:fk/withUptimes",
+    method: 'GET',
+    url: '/Customers/:id/assets/:fk/withUptimes',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -2104,8 +2117,8 @@ export async function Customer_GetLastAssetsSensorsWithUptimeCollectors(
   nk: string
 ): Promise<SensorUptimeCollector[]> {
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/assets/:nk/sensors/withLastUptimeCollectors",
+    method: 'GET',
+    url: '/Customers/:id/assets/:nk/sensors/withLastUptimeCollectors',
     routeParams: {
       id,
       nk,
@@ -2122,12 +2135,12 @@ export async function Customer_GetSensors(
 ): Promise<Sensor[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/sensors",
+    method: 'GET',
+    url: '/Customers/:id/sensors',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -2145,12 +2158,12 @@ export async function Customer_GetProjectsSensors(
 ): Promise<Sensor[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/projects/:nk/sensors",
+    method: 'GET',
+    url: '/Customers/:id/projects/:nk/sensors',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -2168,12 +2181,12 @@ export async function Customer_GetAdminTools(
 ): Promise<Tool[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/adminTools",
+    method: 'GET',
+    url: '/Customers/:id/adminTools',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -2190,12 +2203,12 @@ export async function Customer_GetTools(
 ): Promise<Tool[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/tools",
+    method: 'GET',
+    url: '/Customers/:id/tools',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -2213,12 +2226,12 @@ export async function Customer_GetToolkitsAssetTypes(
 ): Promise<AssetType[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/toolkits/:fk/assetTypes",
+    method: 'GET',
+    url: '/Customers/:id/toolkits/:fk/assetTypes',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -2237,12 +2250,12 @@ export async function Customer_GetProjectsAssetTypes(
 ): Promise<AssetType[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/projects/:fk/assetTypes",
+    method: 'GET',
+    url: '/Customers/:id/projects/:fk/assetTypes',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -2250,70 +2263,7 @@ export async function Customer_GetProjectsAssetTypes(
     },
   });
 }
-/**
- * Get information about specified container
- * /Customers/:id/container/info
- */
-export async function Customer_getContainerInfo(id: string): Promise<any> {
-  return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/container/info",
-    routeParams: {
-      id,
-    },
-  });
-}
-/**
- * List all files within specified container
- * /Customers/:id/container/files
- */
-export async function Customer_getFiles(id: string): Promise<any> {
-  return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/container/files",
-    routeParams: {
-      id,
-    },
-  });
-}
-/**
- * Get information for specified file within specified container
- * /Customers/:id/container/files/:file
- */
-export async function Customer_getFile(id: string, file: string): Promise<any> {
-  return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/container/files/:file",
-    routeParams: {
-      id,
-      file,
-    },
-  });
-}
-/**
- * Delete a file within a given container by name
- * /Customers/:id/container/files/:file
- */
-export async function Customer_removeFile(
-  id: string,
-  property: string,
-  file: string
-): Promise<any> {
-  const _urlParams: any = {};
-  if (property != null) {
-    _urlParams["property"] = property;
-  }
 
-  return ApiFetch({
-    method: "DELETE",
-    url: "/Customers/:id/container/files/:file",
-    urlParams: _urlParams,
-    routeParams: {
-      id,
-      file,
-    },
-  });
-}
 /**
  * Upload one or more files into the specified container. The request body must use multipart/form-data which the file input type for HTML uses
  * /Customers/:id/container/upload
@@ -2324,12 +2274,12 @@ export async function Customer_upload(
 ): Promise<any> {
   const _urlParams: any = {};
   if (property != null) {
-    _urlParams["property"] = property;
+    _urlParams['property'] = property;
   }
 
   return ApiFetch({
-    method: "POST",
-    url: "/Customers/:id/container/upload",
+    method: 'POST',
+    url: '/Customers/:id/container/upload',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -2348,12 +2298,12 @@ export async function Customer_download(
 ): Promise<any> {
   const _urlParams: any = {};
   if (property != null) {
-    _urlParams["property"] = property;
+    _urlParams['property'] = property;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/container/download/:file",
+    method: 'GET',
+    url: '/Customers/:id/container/download/:file',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -2372,12 +2322,12 @@ export async function Customer_subscribeAssets(
 ): Promise<any> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams["where"] = where;
+    _urlParams['where'] = where;
   }
 
   return ApiFetch({
-    method: "PUT",
-    url: "/Customers/:id/sockets/:socketId/subscribe/assets",
+    method: 'PUT',
+    url: '/Customers/:id/sockets/:socketId/subscribe/assets',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -2397,12 +2347,12 @@ export async function Customer_unsubscribeAssets(
 ): Promise<any> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams["where"] = where;
+    _urlParams['where'] = where;
   }
 
   return ApiFetch({
-    method: "DELETE",
-    url: "/Customers/:id/sockets/:socketId/unsubscribe/assets",
+    method: 'DELETE',
+    url: '/Customers/:id/sockets/:socketId/unsubscribe/assets',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -2421,12 +2371,12 @@ export async function Customer_subscribeDevices(
 ): Promise<any> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams["where"] = where;
+    _urlParams['where'] = where;
   }
 
   return ApiFetch({
-    method: "PUT",
-    url: "/Customers/:id/sockets/:socketId/subscribe/devices",
+    method: 'PUT',
+    url: '/Customers/:id/sockets/:socketId/subscribe/devices',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -2446,12 +2396,12 @@ export async function Customer_unsubscribeDevices(
 ): Promise<any> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams["where"] = where;
+    _urlParams['where'] = where;
   }
 
   return ApiFetch({
-    method: "DELETE",
-    url: "/Customers/:id/sockets/:socketId/unsubscribe/devices",
+    method: 'DELETE',
+    url: '/Customers/:id/sockets/:socketId/unsubscribe/devices',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -2469,12 +2419,12 @@ export async function Customer_findAndFilterDatasets(
 ): Promise<Dataset[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/datasets/filter",
+    method: 'GET',
+    url: '/Customers/:id/datasets/filter',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -2491,12 +2441,12 @@ export async function Customer_findAndFilterEvents(
 ): Promise<Event[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/events/filter",
+    method: 'GET',
+    url: '/Customers/:id/events/filter',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -2511,15 +2461,15 @@ export async function Customer_getDeviceLogs(
   id: string,
   nk: string,
   query: any = {}
-): Promise<any> {
+): Promise<DeviceLogs> {
   const _urlParams: any = {};
   if (query != null) {
-    _urlParams["query"] = query;
+    _urlParams['query'] = query;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/devices/:nk/logs",
+    method: 'GET',
+    url: '/Customers/:id/devices/:nk/logs',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -2534,10 +2484,10 @@ export async function Customer_getDeviceLogs(
 export async function Customer_getDeviceUptime(
   id: string,
   nk: string
-): Promise<any> {
+): Promise<{ successfull: DeviceUptime[]; errors: DeviceStatusError[] }> {
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/devices/:nk/uptimes",
+    method: 'GET',
+    url: '/Customers/:id/devices/:nk/uptimes',
     routeParams: {
       id,
       nk,
@@ -2551,10 +2501,10 @@ export async function Customer_getDeviceUptime(
 export async function Customer_getDeviceVersion(
   id: string,
   nk: string
-): Promise<any> {
+): Promise<{ successfull: DeviceVersion[]; errors: DeviceStatusError[] }> {
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/devices/:nk/versions",
+    method: 'GET',
+    url: '/Customers/:id/devices/:nk/versions',
     routeParams: {
       id,
       nk,
@@ -2568,15 +2518,15 @@ export async function Customer_getDeviceVersion(
 export async function Customer_findDeviceUptimes(
   id: string,
   where: any = {}
-): Promise<any> {
+): Promise<{ successfull: DeviceUptime[]; errors: DeviceStatusError[] }> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams["where"] = where;
+    _urlParams['where'] = where;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/devices/uptimes",
+    method: 'GET',
+    url: '/Customers/:id/devices/uptimes',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -2590,15 +2540,15 @@ export async function Customer_findDeviceUptimes(
 export async function Customer_findDeviceVersions(
   id: string,
   where: any = {}
-): Promise<any> {
+): Promise<{ successfull: DeviceVersion[]; errors: DeviceStatusError[] }> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams["where"] = where;
+    _urlParams['where'] = where;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/devices/versions",
+    method: 'GET',
+    url: '/Customers/:id/devices/versions',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -2613,8 +2563,8 @@ export async function Customer_getMergedRestrictionTable(
   id: string
 ): Promise<any> {
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/restrictionTable/merged",
+    method: 'GET',
+    url: '/Customers/:id/restrictionTable/merged',
     routeParams: {
       id,
     },
@@ -2624,6 +2574,28 @@ export async function Customer_getMergedRestrictionTable(
  * Search license plates
  * /Customers/:id/licensePlates/search
  */
+
+export type LicensePlate = {
+  _key: string;
+  customerId: string;
+  assetId: string;
+  sensorId: string;
+  datasetId: string;
+  dataId: string;
+  dataIndex: number;
+  fileName: string;
+  datasourceName: string;
+  from: number;
+  to: number;
+  value: string;
+  class: string;
+  frame: {
+    x: number;
+    y: number;
+    h: number;
+    w: number;
+  };
+};
 export async function Customer_searchLicensePlates(
   id: string,
   licensePlate: string,
@@ -2636,42 +2608,42 @@ export async function Customer_searchLicensePlates(
   sensorId: string,
   class_: string,
   limit: number
-): Promise<any[]> {
+): Promise<LicensePlate[]> {
   const _urlParams: any = {};
   if (licensePlate != null) {
-    _urlParams["licensePlate"] = licensePlate;
+    _urlParams['licensePlate'] = licensePlate;
   }
   if (from != null) {
-    _urlParams["from"] = from;
+    _urlParams['from'] = from;
   }
   if (to != null) {
-    _urlParams["to"] = to;
+    _urlParams['to'] = to;
   }
   if (method != null) {
-    _urlParams["method"] = method;
+    _urlParams['method'] = method;
   }
   if (maxDistance != null) {
-    _urlParams["maxDistance"] = maxDistance;
+    _urlParams['maxDistance'] = maxDistance;
   }
   if (transpositions != null) {
-    _urlParams["transpositions"] = transpositions;
+    _urlParams['transpositions'] = transpositions;
   }
   if (assetId != null) {
-    _urlParams["assetId"] = assetId;
+    _urlParams['assetId'] = assetId;
   }
   if (sensorId != null) {
-    _urlParams["sensorId"] = sensorId;
+    _urlParams['sensorId'] = sensorId;
   }
   if (class_ != null) {
-    _urlParams["class"] = class_;
+    _urlParams['class'] = class_;
   }
   if (limit != null) {
-    _urlParams["limit"] = limit;
+    _urlParams['limit'] = limit;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/licensePlates/search",
+    method: 'GET',
+    url: '/Customers/:id/licensePlates/search',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -2690,30 +2662,30 @@ export async function Customer_getLicensePlates(
   sensorId: string,
   class_: string,
   limit: number
-): Promise<any[]> {
+): Promise<LicensePlate[]> {
   const _urlParams: any = {};
   if (from != null) {
-    _urlParams["from"] = from;
+    _urlParams['from'] = from;
   }
   if (to != null) {
-    _urlParams["to"] = to;
+    _urlParams['to'] = to;
   }
   if (assetId != null) {
-    _urlParams["assetId"] = assetId;
+    _urlParams['assetId'] = assetId;
   }
   if (sensorId != null) {
-    _urlParams["sensorId"] = sensorId;
+    _urlParams['sensorId'] = sensorId;
   }
   if (class_ != null) {
-    _urlParams["class"] = class_;
+    _urlParams['class'] = class_;
   }
   if (limit != null) {
-    _urlParams["limit"] = limit;
+    _urlParams['limit'] = limit;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/licensePlates",
+    method: 'GET',
+    url: '/Customers/:id/licensePlates',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -2729,8 +2701,8 @@ export async function Customer_ExportAssets(
   nk: string
 ): Promise<any> {
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/assets/:nk/export",
+    method: 'GET',
+    url: '/Customers/:id/assets/:nk/export',
     routeParams: {
       id,
       nk,
@@ -2744,10 +2716,10 @@ export async function Customer_ExportAssets(
 export async function Customer_GetAssetsConfig(
   id: string,
   nk: string
-): Promise<any> {
+): Promise<AssetConfig> {
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/assets/:nk/config",
+    method: 'GET',
+    url: '/Customers/:id/assets/:nk/config',
     routeParams: {
       id,
       nk,
@@ -2762,10 +2734,10 @@ export async function Customer_UpdateAssetsConfig(
   id: string,
   nk: string,
   data: any = {}
-): Promise<any> {
+): Promise<AssetConfig> {
   return ApiFetch({
-    method: "PUT",
-    url: "/Customers/:id/assets/:nk/config",
+    method: 'PUT',
+    url: '/Customers/:id/assets/:nk/config',
     routeParams: {
       id,
       nk,
@@ -2784,8 +2756,8 @@ export async function Customer_GetAssetsMilestone(
   nk: string
 ): Promise<AssetMilestone> {
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/assets/:nk/milestone",
+    method: 'GET',
+    url: '/Customers/:id/assets/:nk/milestone',
     routeParams: {
       id,
       nk,
@@ -2802,8 +2774,8 @@ export async function Customer_FindByIdAssetsStaffs(
   fk: string
 ): Promise<AssetStaff> {
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/assets/:nk/staffs/:fk",
+    method: 'GET',
+    url: '/Customers/:id/assets/:nk/staffs/:fk',
     routeParams: {
       id,
       nk,
@@ -2819,10 +2791,10 @@ export async function Customer_DestroyByIdAssetsStaffs(
   id: string,
   nk: string,
   fk: string
-): Promise<any> {
+): Promise<void> {
   return ApiFetch({
-    method: "DELETE",
-    url: "/Customers/:id/assets/:nk/staffs/:fk",
+    method: 'DELETE',
+    url: '/Customers/:id/assets/:nk/staffs/:fk',
     routeParams: {
       id,
       nk,
@@ -2841,8 +2813,8 @@ export async function Customer_UpdateByIdAssetsStaffs(
   data: any = {}
 ): Promise<AssetStaff> {
   return ApiFetch({
-    method: "PUT",
-    url: "/Customers/:id/assets/:nk/staffs/:fk",
+    method: 'PUT',
+    url: '/Customers/:id/assets/:nk/staffs/:fk',
     routeParams: {
       id,
       nk,
@@ -2863,8 +2835,8 @@ export async function Customer_FindByIdAssetsAssetStates(
   fk: string
 ): Promise<AssetState> {
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/assets/:nk/assetStates/:fk",
+    method: 'GET',
+    url: '/Customers/:id/assets/:nk/assetStates/:fk',
     routeParams: {
       id,
       nk,
@@ -2880,10 +2852,10 @@ export async function Customer_DestroyByIdAssetsAssetStates(
   id: string,
   nk: string,
   fk: string
-): Promise<any> {
+): Promise<void> {
   return ApiFetch({
-    method: "DELETE",
-    url: "/Customers/:id/assets/:nk/assetStates/:fk",
+    method: 'DELETE',
+    url: '/Customers/:id/assets/:nk/assetStates/:fk',
     routeParams: {
       id,
       nk,
@@ -2902,8 +2874,8 @@ export async function Customer_UpdateByIdAssetsAssetStates(
   data: any = {}
 ): Promise<AssetState> {
   return ApiFetch({
-    method: "PUT",
-    url: "/Customers/:id/assets/:nk/assetStates/:fk",
+    method: 'PUT',
+    url: '/Customers/:id/assets/:nk/assetStates/:fk',
     routeParams: {
       id,
       nk,
@@ -2923,8 +2895,8 @@ export async function Customer_GetAssetsCurrentState(
   nk: string
 ): Promise<AssetState> {
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/assets/:nk/currentState",
+    method: 'GET',
+    url: '/Customers/:id/assets/:nk/currentState',
     routeParams: {
       id,
       nk,
@@ -2941,8 +2913,8 @@ export async function Customer_FindByIdAssetsCredentials(
   fk: string
 ): Promise<Credential> {
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/assets/:nk/credentials/:fk",
+    method: 'GET',
+    url: '/Customers/:id/assets/:nk/credentials/:fk',
     routeParams: {
       id,
       nk,
@@ -2960,8 +2932,8 @@ export async function Customer_FindByIdAssetsAdmins(
   fk: string
 ): Promise<Admin> {
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/assets/:nk/admins/:fk",
+    method: 'GET',
+    url: '/Customers/:id/assets/:nk/admins/:fk',
     routeParams: {
       id,
       nk,
@@ -2979,8 +2951,8 @@ export async function Customer_FindByIdAssetsEvents(
   fk: string
 ): Promise<Event> {
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/assets/:nk/events/:fk",
+    method: 'GET',
+    url: '/Customers/:id/assets/:nk/events/:fk',
     routeParams: {
       id,
       nk,
@@ -2999,8 +2971,8 @@ export async function Customer_UpdateByIdAssetsEvents(
   data: any = {}
 ): Promise<Event> {
   return ApiFetch({
-    method: "PUT",
-    url: "/Customers/:id/assets/:nk/events/:fk",
+    method: 'PUT',
+    url: '/Customers/:id/assets/:nk/events/:fk',
     routeParams: {
       id,
       nk,
@@ -3021,8 +2993,8 @@ export async function Customer_FindByIdAssetsEventGroups(
   fk: string
 ): Promise<EventGroup> {
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/assets/:nk/eventGroups/:fk",
+    method: 'GET',
+    url: '/Customers/:id/assets/:nk/eventGroups/:fk',
     routeParams: {
       id,
       nk,
@@ -3038,10 +3010,10 @@ export async function Customer_DestroyByIdAssetsEventGroups(
   id: string,
   nk: string,
   fk: string
-): Promise<any> {
+): Promise<void> {
   return ApiFetch({
-    method: "DELETE",
-    url: "/Customers/:id/assets/:nk/eventGroups/:fk",
+    method: 'DELETE',
+    url: '/Customers/:id/assets/:nk/eventGroups/:fk',
     routeParams: {
       id,
       nk,
@@ -3060,8 +3032,8 @@ export async function Customer_UpdateByIdAssetsEventGroups(
   data: any = {}
 ): Promise<EventGroup> {
   return ApiFetch({
-    method: "PUT",
-    url: "/Customers/:id/assets/:nk/eventGroups/:fk",
+    method: 'PUT',
+    url: '/Customers/:id/assets/:nk/eventGroups/:fk',
     routeParams: {
       id,
       nk,
@@ -3082,8 +3054,8 @@ export async function Customer_FindByIdAssetsEventSummaries(
   fk: string
 ): Promise<EventSummary> {
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/assets/:nk/eventSummaries/:fk",
+    method: 'GET',
+    url: '/Customers/:id/assets/:nk/eventSummaries/:fk',
     routeParams: {
       id,
       nk,
@@ -3101,8 +3073,8 @@ export async function Customer_FindByIdAssetsEventSummaryForAssets(
   fk: string
 ): Promise<EventSummaryForAsset> {
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/assets/:nk/eventSummaryForAssets/:fk",
+    method: 'GET',
+    url: '/Customers/:id/assets/:nk/eventSummaryForAssets/:fk',
     routeParams: {
       id,
       nk,
@@ -3120,8 +3092,8 @@ export async function Customer_FindByIdAssetsEventTriggers(
   fk: string
 ): Promise<EventTrigger> {
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/assets/:nk/eventTriggers/:fk",
+    method: 'GET',
+    url: '/Customers/:id/assets/:nk/eventTriggers/:fk',
     routeParams: {
       id,
       nk,
@@ -3137,10 +3109,10 @@ export async function Customer_DestroyByIdAssetsEventTriggers(
   id: string,
   nk: string,
   fk: string
-): Promise<any> {
+): Promise<void> {
   return ApiFetch({
-    method: "DELETE",
-    url: "/Customers/:id/assets/:nk/eventTriggers/:fk",
+    method: 'DELETE',
+    url: '/Customers/:id/assets/:nk/eventTriggers/:fk',
     routeParams: {
       id,
       nk,
@@ -3159,8 +3131,8 @@ export async function Customer_UpdateByIdAssetsEventTriggers(
   data: any = {}
 ): Promise<EventTrigger> {
   return ApiFetch({
-    method: "PUT",
-    url: "/Customers/:id/assets/:nk/eventTriggers/:fk",
+    method: 'PUT',
+    url: '/Customers/:id/assets/:nk/eventTriggers/:fk',
     routeParams: {
       id,
       nk,
@@ -3181,8 +3153,8 @@ export async function Customer_FindByIdAssetsManagers(
   fk: string
 ): Promise<Manager> {
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/assets/:nk/managers/:fk",
+    method: 'GET',
+    url: '/Customers/:id/assets/:nk/managers/:fk',
     routeParams: {
       id,
       nk,
@@ -3200,8 +3172,8 @@ export async function Customer_FindByIdAssetsSensors(
   fk: string
 ): Promise<Sensor> {
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/assets/:nk/sensors/:fk",
+    method: 'GET',
+    url: '/Customers/:id/assets/:nk/sensors/:fk',
     routeParams: {
       id,
       nk,
@@ -3217,10 +3189,10 @@ export async function Customer_DestroyByIdAssetsSensors(
   id: string,
   nk: string,
   fk: string
-): Promise<any> {
+): Promise<void> {
   return ApiFetch({
-    method: "DELETE",
-    url: "/Customers/:id/assets/:nk/sensors/:fk",
+    method: 'DELETE',
+    url: '/Customers/:id/assets/:nk/sensors/:fk',
     routeParams: {
       id,
       nk,
@@ -3239,8 +3211,8 @@ export async function Customer_UpdateByIdAssetsSensors(
   data: any = {}
 ): Promise<Sensor> {
   return ApiFetch({
-    method: "PUT",
-    url: "/Customers/:id/assets/:nk/sensors/:fk",
+    method: 'PUT',
+    url: '/Customers/:id/assets/:nk/sensors/:fk',
     routeParams: {
       id,
       nk,
@@ -3261,8 +3233,8 @@ export async function Customer_FindByIdAssetsSensorUptimes(
   fk: string
 ): Promise<SensorUptime> {
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/assets/:nk/sensorUptimes/:fk",
+    method: 'GET',
+    url: '/Customers/:id/assets/:nk/sensorUptimes/:fk',
     routeParams: {
       id,
       nk,
@@ -3280,8 +3252,8 @@ export async function Customer_FindByIdAssetsSensorUptimeCollectors(
   fk: string
 ): Promise<SensorUptimeCollector> {
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/assets/:nk/sensorUptimeCollectors/:fk",
+    method: 'GET',
+    url: '/Customers/:id/assets/:nk/sensorUptimeCollectors/:fk',
     routeParams: {
       id,
       nk,
@@ -3299,8 +3271,8 @@ export async function Customer_FindByIdAssetsSummaries(
   fk: string
 ): Promise<Summary> {
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/assets/:nk/summaries/:fk",
+    method: 'GET',
+    url: '/Customers/:id/assets/:nk/summaries/:fk',
     routeParams: {
       id,
       nk,
@@ -3319,12 +3291,12 @@ export async function Customer_GetAssetsAssets(
 ): Promise<Asset[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/assets/:nk/assets",
+    method: 'GET',
+    url: '/Customers/:id/assets/:nk/assets',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -3342,8 +3314,8 @@ export async function Customer_CreateAssetsAssets(
   data: any = {}
 ): Promise<Asset> {
   return ApiFetch({
-    method: "POST",
-    url: "/Customers/:id/assets/:nk/assets",
+    method: 'POST',
+    url: '/Customers/:id/assets/:nk/assets',
     routeParams: {
       id,
       nk,
@@ -3364,12 +3336,12 @@ export async function Customer_CountAssetsAssets(
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams["where"] = where;
+    _urlParams['where'] = where;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/assets/:nk/assets/count",
+    method: 'GET',
+    url: '/Customers/:id/assets/:nk/assets/count',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -3388,12 +3360,12 @@ export async function Customer_GetAssetsStaffs(
 ): Promise<AssetStaff[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/assets/:nk/staffs",
+    method: 'GET',
+    url: '/Customers/:id/assets/:nk/staffs',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -3411,8 +3383,8 @@ export async function Customer_CreateAssetsStaffs(
   data: any = {}
 ): Promise<AssetStaff> {
   return ApiFetch({
-    method: "POST",
-    url: "/Customers/:id/assets/:nk/staffs",
+    method: 'POST',
+    url: '/Customers/:id/assets/:nk/staffs',
     routeParams: {
       id,
       nk,
@@ -3433,12 +3405,12 @@ export async function Customer_CountAssetsStaffs(
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams["where"] = where;
+    _urlParams['where'] = where;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/assets/:nk/staffs/count",
+    method: 'GET',
+    url: '/Customers/:id/assets/:nk/staffs/count',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -3457,12 +3429,12 @@ export async function Customer_GetAssetsAssetStates(
 ): Promise<AssetState[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/assets/:nk/assetStates",
+    method: 'GET',
+    url: '/Customers/:id/assets/:nk/assetStates',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -3480,8 +3452,8 @@ export async function Customer_CreateAssetsAssetStates(
   data: any = {}
 ): Promise<AssetState> {
   return ApiFetch({
-    method: "POST",
-    url: "/Customers/:id/assets/:nk/assetStates",
+    method: 'POST',
+    url: '/Customers/:id/assets/:nk/assetStates',
     routeParams: {
       id,
       nk,
@@ -3502,12 +3474,12 @@ export async function Customer_CountAssetsAssetStates(
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams["where"] = where;
+    _urlParams['where'] = where;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/assets/:nk/assetStates/count",
+    method: 'GET',
+    url: '/Customers/:id/assets/:nk/assetStates/count',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -3526,12 +3498,12 @@ export async function Customer_GetAssetsCredentials(
 ): Promise<Credential[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/assets/:nk/credentials",
+    method: 'GET',
+    url: '/Customers/:id/assets/:nk/credentials',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -3550,12 +3522,12 @@ export async function Customer_CountAssetsCredentials(
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams["where"] = where;
+    _urlParams['where'] = where;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/assets/:nk/credentials/count",
+    method: 'GET',
+    url: '/Customers/:id/assets/:nk/credentials/count',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -3574,12 +3546,12 @@ export async function Customer_GetAssetsAdmins(
 ): Promise<Admin[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/assets/:nk/admins",
+    method: 'GET',
+    url: '/Customers/:id/assets/:nk/admins',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -3598,12 +3570,12 @@ export async function Customer_CountAssetsAdmins(
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams["where"] = where;
+    _urlParams['where'] = where;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/assets/:nk/admins/count",
+    method: 'GET',
+    url: '/Customers/:id/assets/:nk/admins/count',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -3622,12 +3594,12 @@ export async function Customer_GetAssetsEvents(
 ): Promise<Event[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/assets/:nk/events",
+    method: 'GET',
+    url: '/Customers/:id/assets/:nk/events',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -3646,12 +3618,12 @@ export async function Customer_CountAssetsEvents(
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams["where"] = where;
+    _urlParams['where'] = where;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/assets/:nk/events/count",
+    method: 'GET',
+    url: '/Customers/:id/assets/:nk/events/count',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -3670,12 +3642,12 @@ export async function Customer_GetAssetsEventGroups(
 ): Promise<EventGroup[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/assets/:nk/eventGroups",
+    method: 'GET',
+    url: '/Customers/:id/assets/:nk/eventGroups',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -3693,8 +3665,8 @@ export async function Customer_CreateAssetsEventGroups(
   data: any = {}
 ): Promise<EventGroup> {
   return ApiFetch({
-    method: "POST",
-    url: "/Customers/:id/assets/:nk/eventGroups",
+    method: 'POST',
+    url: '/Customers/:id/assets/:nk/eventGroups',
     routeParams: {
       id,
       nk,
@@ -3715,12 +3687,12 @@ export async function Customer_CountAssetsEventGroups(
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams["where"] = where;
+    _urlParams['where'] = where;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/assets/:nk/eventGroups/count",
+    method: 'GET',
+    url: '/Customers/:id/assets/:nk/eventGroups/count',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -3739,12 +3711,12 @@ export async function Customer_GetAssetsEventSummaries(
 ): Promise<EventSummary[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/assets/:nk/eventSummaries",
+    method: 'GET',
+    url: '/Customers/:id/assets/:nk/eventSummaries',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -3763,12 +3735,12 @@ export async function Customer_CountAssetsEventSummaries(
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams["where"] = where;
+    _urlParams['where'] = where;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/assets/:nk/eventSummaries/count",
+    method: 'GET',
+    url: '/Customers/:id/assets/:nk/eventSummaries/count',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -3787,12 +3759,12 @@ export async function Customer_GetAssetsEventSummaryForAssets(
 ): Promise<EventSummaryForAsset[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/assets/:nk/eventSummaryForAssets",
+    method: 'GET',
+    url: '/Customers/:id/assets/:nk/eventSummaryForAssets',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -3811,12 +3783,12 @@ export async function Customer_CountAssetsEventSummaryForAssets(
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams["where"] = where;
+    _urlParams['where'] = where;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/assets/:nk/eventSummaryForAssets/count",
+    method: 'GET',
+    url: '/Customers/:id/assets/:nk/eventSummaryForAssets/count',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -3835,12 +3807,12 @@ export async function Customer_GetAssetsEventTriggers(
 ): Promise<EventTrigger[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/assets/:nk/eventTriggers",
+    method: 'GET',
+    url: '/Customers/:id/assets/:nk/eventTriggers',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -3858,8 +3830,8 @@ export async function Customer_CreateAssetsEventTriggers(
   data: any = {}
 ): Promise<EventTrigger> {
   return ApiFetch({
-    method: "POST",
-    url: "/Customers/:id/assets/:nk/eventTriggers",
+    method: 'POST',
+    url: '/Customers/:id/assets/:nk/eventTriggers',
     routeParams: {
       id,
       nk,
@@ -3880,12 +3852,12 @@ export async function Customer_CountAssetsEventTriggers(
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams["where"] = where;
+    _urlParams['where'] = where;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/assets/:nk/eventTriggers/count",
+    method: 'GET',
+    url: '/Customers/:id/assets/:nk/eventTriggers/count',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -3904,12 +3876,12 @@ export async function Customer_GetAssetsManagers(
 ): Promise<Manager[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/assets/:nk/managers",
+    method: 'GET',
+    url: '/Customers/:id/assets/:nk/managers',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -3928,12 +3900,12 @@ export async function Customer_CountAssetsManagers(
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams["where"] = where;
+    _urlParams['where'] = where;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/assets/:nk/managers/count",
+    method: 'GET',
+    url: '/Customers/:id/assets/:nk/managers/count',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -3952,12 +3924,12 @@ export async function Customer_GetAssetsSensors(
 ): Promise<Sensor[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/assets/:nk/sensors",
+    method: 'GET',
+    url: '/Customers/:id/assets/:nk/sensors',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -3975,8 +3947,8 @@ export async function Customer_CreateAssetsSensors(
   data: any = {}
 ): Promise<Sensor> {
   return ApiFetch({
-    method: "POST",
-    url: "/Customers/:id/assets/:nk/sensors",
+    method: 'POST',
+    url: '/Customers/:id/assets/:nk/sensors',
     routeParams: {
       id,
       nk,
@@ -3997,12 +3969,12 @@ export async function Customer_CountAssetsSensors(
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams["where"] = where;
+    _urlParams['where'] = where;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/assets/:nk/sensors/count",
+    method: 'GET',
+    url: '/Customers/:id/assets/:nk/sensors/count',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -4021,12 +3993,12 @@ export async function Customer_GetAssetsSensorUptimes(
 ): Promise<SensorUptime[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/assets/:nk/sensorUptimes",
+    method: 'GET',
+    url: '/Customers/:id/assets/:nk/sensorUptimes',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -4045,12 +4017,12 @@ export async function Customer_CountAssetsSensorUptimes(
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams["where"] = where;
+    _urlParams['where'] = where;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/assets/:nk/sensorUptimes/count",
+    method: 'GET',
+    url: '/Customers/:id/assets/:nk/sensorUptimes/count',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -4069,12 +4041,12 @@ export async function Customer_GetAssetsSensorUptimeCollectors(
 ): Promise<SensorUptimeCollector[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/assets/:nk/sensorUptimeCollectors",
+    method: 'GET',
+    url: '/Customers/:id/assets/:nk/sensorUptimeCollectors',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -4093,12 +4065,12 @@ export async function Customer_CountAssetsSensorUptimeCollectors(
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams["where"] = where;
+    _urlParams['where'] = where;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/assets/:nk/sensorUptimeCollectors/count",
+    method: 'GET',
+    url: '/Customers/:id/assets/:nk/sensorUptimeCollectors/count',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -4117,12 +4089,12 @@ export async function Customer_GetAssetsSummaries(
 ): Promise<Summary[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/assets/:nk/summaries",
+    method: 'GET',
+    url: '/Customers/:id/assets/:nk/summaries',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -4141,12 +4113,12 @@ export async function Customer_CountAssetsSummaries(
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams["where"] = where;
+    _urlParams['where'] = where;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/assets/:nk/summaries/count",
+    method: 'GET',
+    url: '/Customers/:id/assets/:nk/summaries/count',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -4161,10 +4133,10 @@ export async function Customer_CountAssetsSummaries(
 export async function Customer_GetAssetTemplatesConfig(
   id: string,
   nk: string
-): Promise<any> {
+): Promise<AssetConfig> {
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/assetTemplates/:nk/config",
+    method: 'GET',
+    url: '/Customers/:id/assetTemplates/:nk/config',
     routeParams: {
       id,
       nk,
@@ -4179,10 +4151,10 @@ export async function Customer_UpdateAssetTemplatesConfig(
   id: string,
   nk: string,
   data: any = {}
-): Promise<any> {
+): Promise<AssetConfig> {
   return ApiFetch({
-    method: "PUT",
-    url: "/Customers/:id/assetTemplates/:nk/config",
+    method: 'PUT',
+    url: '/Customers/:id/assetTemplates/:nk/config',
     routeParams: {
       id,
       nk,
@@ -4202,8 +4174,8 @@ export async function Customer_FindByIdAssetTemplatesAssetStateTemplates(
   fk: string
 ): Promise<AssetStateTemplate> {
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/assetTemplates/:nk/assetStateTemplates/:fk",
+    method: 'GET',
+    url: '/Customers/:id/assetTemplates/:nk/assetStateTemplates/:fk',
     routeParams: {
       id,
       nk,
@@ -4219,10 +4191,10 @@ export async function Customer_DestroyByIdAssetTemplatesAssetStateTemplates(
   id: string,
   nk: string,
   fk: string
-): Promise<any> {
+): Promise<void> {
   return ApiFetch({
-    method: "DELETE",
-    url: "/Customers/:id/assetTemplates/:nk/assetStateTemplates/:fk",
+    method: 'DELETE',
+    url: '/Customers/:id/assetTemplates/:nk/assetStateTemplates/:fk',
     routeParams: {
       id,
       nk,
@@ -4241,8 +4213,8 @@ export async function Customer_UpdateByIdAssetTemplatesAssetStateTemplates(
   data: any = {}
 ): Promise<AssetStateTemplate> {
   return ApiFetch({
-    method: "PUT",
-    url: "/Customers/:id/assetTemplates/:nk/assetStateTemplates/:fk",
+    method: 'PUT',
+    url: '/Customers/:id/assetTemplates/:nk/assetStateTemplates/:fk',
     routeParams: {
       id,
       nk,
@@ -4262,8 +4234,8 @@ export async function Customer_GetAssetTemplatesDefaultState(
   nk: string
 ): Promise<AssetStateTemplate> {
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/assetTemplates/:nk/defaultState",
+    method: 'GET',
+    url: '/Customers/:id/assetTemplates/:nk/defaultState',
     routeParams: {
       id,
       nk,
@@ -4280,8 +4252,8 @@ export async function Customer_FindByIdAssetTemplatesDefaultResponsibleAdmins(
   fk: string
 ): Promise<Admin> {
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/assetTemplates/:nk/defaultResponsibleAdmins/:fk",
+    method: 'GET',
+    url: '/Customers/:id/assetTemplates/:nk/defaultResponsibleAdmins/:fk',
     routeParams: {
       id,
       nk,
@@ -4299,8 +4271,8 @@ export async function Customer_FindByIdAssetTemplatesEventGroupTemplates(
   fk: string
 ): Promise<EventGroupTemplate> {
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/assetTemplates/:nk/eventGroupTemplates/:fk",
+    method: 'GET',
+    url: '/Customers/:id/assetTemplates/:nk/eventGroupTemplates/:fk',
     routeParams: {
       id,
       nk,
@@ -4316,10 +4288,10 @@ export async function Customer_DestroyByIdAssetTemplatesEventGroupTemplates(
   id: string,
   nk: string,
   fk: string
-): Promise<any> {
+): Promise<void> {
   return ApiFetch({
-    method: "DELETE",
-    url: "/Customers/:id/assetTemplates/:nk/eventGroupTemplates/:fk",
+    method: 'DELETE',
+    url: '/Customers/:id/assetTemplates/:nk/eventGroupTemplates/:fk',
     routeParams: {
       id,
       nk,
@@ -4338,8 +4310,8 @@ export async function Customer_UpdateByIdAssetTemplatesEventGroupTemplates(
   data: any = {}
 ): Promise<EventGroupTemplate> {
   return ApiFetch({
-    method: "PUT",
-    url: "/Customers/:id/assetTemplates/:nk/eventGroupTemplates/:fk",
+    method: 'PUT',
+    url: '/Customers/:id/assetTemplates/:nk/eventGroupTemplates/:fk',
     routeParams: {
       id,
       nk,
@@ -4360,8 +4332,8 @@ export async function Customer_FindByIdAssetTemplatesEventTriggerTemplates(
   fk: string
 ): Promise<EventTriggerTemplate> {
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/assetTemplates/:nk/eventTriggerTemplates/:fk",
+    method: 'GET',
+    url: '/Customers/:id/assetTemplates/:nk/eventTriggerTemplates/:fk',
     routeParams: {
       id,
       nk,
@@ -4377,10 +4349,10 @@ export async function Customer_DestroyByIdAssetTemplatesEventTriggerTemplates(
   id: string,
   nk: string,
   fk: string
-): Promise<any> {
+): Promise<void> {
   return ApiFetch({
-    method: "DELETE",
-    url: "/Customers/:id/assetTemplates/:nk/eventTriggerTemplates/:fk",
+    method: 'DELETE',
+    url: '/Customers/:id/assetTemplates/:nk/eventTriggerTemplates/:fk',
     routeParams: {
       id,
       nk,
@@ -4399,8 +4371,8 @@ export async function Customer_UpdateByIdAssetTemplatesEventTriggerTemplates(
   data: any = {}
 ): Promise<EventTriggerTemplate> {
   return ApiFetch({
-    method: "PUT",
-    url: "/Customers/:id/assetTemplates/:nk/eventTriggerTemplates/:fk",
+    method: 'PUT',
+    url: '/Customers/:id/assetTemplates/:nk/eventTriggerTemplates/:fk',
     routeParams: {
       id,
       nk,
@@ -4421,8 +4393,8 @@ export async function Customer_FindByIdAssetTemplatesDefaultResponsibleManagers(
   fk: string
 ): Promise<Manager> {
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/assetTemplates/:nk/defaultResponsibleManagers/:fk",
+    method: 'GET',
+    url: '/Customers/:id/assetTemplates/:nk/defaultResponsibleManagers/:fk',
     routeParams: {
       id,
       nk,
@@ -4440,8 +4412,8 @@ export async function Customer_FindByIdAssetTemplatesSensorTemplates(
   fk: string
 ): Promise<SensorTemplate> {
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/assetTemplates/:nk/sensorTemplates/:fk",
+    method: 'GET',
+    url: '/Customers/:id/assetTemplates/:nk/sensorTemplates/:fk',
     routeParams: {
       id,
       nk,
@@ -4457,10 +4429,10 @@ export async function Customer_DestroyByIdAssetTemplatesSensorTemplates(
   id: string,
   nk: string,
   fk: string
-): Promise<any> {
+): Promise<void> {
   return ApiFetch({
-    method: "DELETE",
-    url: "/Customers/:id/assetTemplates/:nk/sensorTemplates/:fk",
+    method: 'DELETE',
+    url: '/Customers/:id/assetTemplates/:nk/sensorTemplates/:fk',
     routeParams: {
       id,
       nk,
@@ -4479,8 +4451,8 @@ export async function Customer_UpdateByIdAssetTemplatesSensorTemplates(
   data: any = {}
 ): Promise<SensorTemplate> {
   return ApiFetch({
-    method: "PUT",
-    url: "/Customers/:id/assetTemplates/:nk/sensorTemplates/:fk",
+    method: 'PUT',
+    url: '/Customers/:id/assetTemplates/:nk/sensorTemplates/:fk',
     routeParams: {
       id,
       nk,
@@ -4502,12 +4474,12 @@ export async function Customer_GetAssetTemplatesAssetTemplates(
 ): Promise<AssetTemplate[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/assetTemplates/:nk/assetTemplates",
+    method: 'GET',
+    url: '/Customers/:id/assetTemplates/:nk/assetTemplates',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -4525,8 +4497,8 @@ export async function Customer_CreateAssetTemplatesAssetTemplates(
   data: any = {}
 ): Promise<AssetTemplate> {
   return ApiFetch({
-    method: "POST",
-    url: "/Customers/:id/assetTemplates/:nk/assetTemplates",
+    method: 'POST',
+    url: '/Customers/:id/assetTemplates/:nk/assetTemplates',
     routeParams: {
       id,
       nk,
@@ -4547,12 +4519,12 @@ export async function Customer_CountAssetTemplatesAssetTemplates(
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams["where"] = where;
+    _urlParams['where'] = where;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/assetTemplates/:nk/assetTemplates/count",
+    method: 'GET',
+    url: '/Customers/:id/assetTemplates/:nk/assetTemplates/count',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -4571,12 +4543,12 @@ export async function Customer_GetAssetTemplatesAssetStateTemplates(
 ): Promise<AssetStateTemplate[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/assetTemplates/:nk/assetStateTemplates",
+    method: 'GET',
+    url: '/Customers/:id/assetTemplates/:nk/assetStateTemplates',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -4594,8 +4566,8 @@ export async function Customer_CreateAssetTemplatesAssetStateTemplates(
   data: any = {}
 ): Promise<AssetStateTemplate> {
   return ApiFetch({
-    method: "POST",
-    url: "/Customers/:id/assetTemplates/:nk/assetStateTemplates",
+    method: 'POST',
+    url: '/Customers/:id/assetTemplates/:nk/assetStateTemplates',
     routeParams: {
       id,
       nk,
@@ -4616,12 +4588,12 @@ export async function Customer_CountAssetTemplatesAssetStateTemplates(
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams["where"] = where;
+    _urlParams['where'] = where;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/assetTemplates/:nk/assetStateTemplates/count",
+    method: 'GET',
+    url: '/Customers/:id/assetTemplates/:nk/assetStateTemplates/count',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -4640,12 +4612,12 @@ export async function Customer_GetAssetTemplatesDefaultResponsibleAdmins(
 ): Promise<Admin[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/assetTemplates/:nk/defaultResponsibleAdmins",
+    method: 'GET',
+    url: '/Customers/:id/assetTemplates/:nk/defaultResponsibleAdmins',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -4664,12 +4636,12 @@ export async function Customer_CountAssetTemplatesDefaultResponsibleAdmins(
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams["where"] = where;
+    _urlParams['where'] = where;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/assetTemplates/:nk/defaultResponsibleAdmins/count",
+    method: 'GET',
+    url: '/Customers/:id/assetTemplates/:nk/defaultResponsibleAdmins/count',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -4688,12 +4660,12 @@ export async function Customer_GetAssetTemplatesEventGroupTemplates(
 ): Promise<EventGroupTemplate[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/assetTemplates/:nk/eventGroupTemplates",
+    method: 'GET',
+    url: '/Customers/:id/assetTemplates/:nk/eventGroupTemplates',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -4711,8 +4683,8 @@ export async function Customer_CreateAssetTemplatesEventGroupTemplates(
   data: any = {}
 ): Promise<EventGroupTemplate> {
   return ApiFetch({
-    method: "POST",
-    url: "/Customers/:id/assetTemplates/:nk/eventGroupTemplates",
+    method: 'POST',
+    url: '/Customers/:id/assetTemplates/:nk/eventGroupTemplates',
     routeParams: {
       id,
       nk,
@@ -4733,12 +4705,12 @@ export async function Customer_CountAssetTemplatesEventGroupTemplates(
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams["where"] = where;
+    _urlParams['where'] = where;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/assetTemplates/:nk/eventGroupTemplates/count",
+    method: 'GET',
+    url: '/Customers/:id/assetTemplates/:nk/eventGroupTemplates/count',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -4757,12 +4729,12 @@ export async function Customer_GetAssetTemplatesEventTriggerTemplates(
 ): Promise<EventTriggerTemplate[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/assetTemplates/:nk/eventTriggerTemplates",
+    method: 'GET',
+    url: '/Customers/:id/assetTemplates/:nk/eventTriggerTemplates',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -4780,8 +4752,8 @@ export async function Customer_CreateAssetTemplatesEventTriggerTemplates(
   data: any = {}
 ): Promise<EventTriggerTemplate> {
   return ApiFetch({
-    method: "POST",
-    url: "/Customers/:id/assetTemplates/:nk/eventTriggerTemplates",
+    method: 'POST',
+    url: '/Customers/:id/assetTemplates/:nk/eventTriggerTemplates',
     routeParams: {
       id,
       nk,
@@ -4802,12 +4774,12 @@ export async function Customer_CountAssetTemplatesEventTriggerTemplates(
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams["where"] = where;
+    _urlParams['where'] = where;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/assetTemplates/:nk/eventTriggerTemplates/count",
+    method: 'GET',
+    url: '/Customers/:id/assetTemplates/:nk/eventTriggerTemplates/count',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -4826,12 +4798,12 @@ export async function Customer_GetAssetTemplatesDefaultResponsibleManagers(
 ): Promise<Manager[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/assetTemplates/:nk/defaultResponsibleManagers",
+    method: 'GET',
+    url: '/Customers/:id/assetTemplates/:nk/defaultResponsibleManagers',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -4850,12 +4822,12 @@ export async function Customer_CountAssetTemplatesDefaultResponsibleManagers(
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams["where"] = where;
+    _urlParams['where'] = where;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/assetTemplates/:nk/defaultResponsibleManagers/count",
+    method: 'GET',
+    url: '/Customers/:id/assetTemplates/:nk/defaultResponsibleManagers/count',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -4874,12 +4846,12 @@ export async function Customer_GetAssetTemplatesSensorTemplates(
 ): Promise<SensorTemplate[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/assetTemplates/:nk/sensorTemplates",
+    method: 'GET',
+    url: '/Customers/:id/assetTemplates/:nk/sensorTemplates',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -4897,8 +4869,8 @@ export async function Customer_CreateAssetTemplatesSensorTemplates(
   data: any = {}
 ): Promise<SensorTemplate> {
   return ApiFetch({
-    method: "POST",
-    url: "/Customers/:id/assetTemplates/:nk/sensorTemplates",
+    method: 'POST',
+    url: '/Customers/:id/assetTemplates/:nk/sensorTemplates',
     routeParams: {
       id,
       nk,
@@ -4919,12 +4891,12 @@ export async function Customer_CountAssetTemplatesSensorTemplates(
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams["where"] = where;
+    _urlParams['where'] = where;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/assetTemplates/:nk/sensorTemplates/count",
+    method: 'GET',
+    url: '/Customers/:id/assetTemplates/:nk/sensorTemplates/count',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -4940,10 +4912,10 @@ export async function Customer_DestroyByIdProjectsAssets(
   id: string,
   nk: string,
   fk: string
-): Promise<any> {
+): Promise<void> {
   return ApiFetch({
-    method: "DELETE",
-    url: "/Customers/:id/projects/:nk/assets/:fk",
+    method: 'DELETE',
+    url: '/Customers/:id/projects/:nk/assets/:fk',
     routeParams: {
       id,
       nk,
@@ -4962,8 +4934,8 @@ export async function Customer_UpdateByIdProjectsAssets(
   data: any = {}
 ): Promise<Asset> {
   return ApiFetch({
-    method: "PUT",
-    url: "/Customers/:id/projects/:nk/assets/:fk",
+    method: 'PUT',
+    url: '/Customers/:id/projects/:nk/assets/:fk',
     routeParams: {
       id,
       nk,
@@ -4982,10 +4954,10 @@ export async function Customer_DestroyByIdProjectsAssetTemplates(
   id: string,
   nk: string,
   fk: string
-): Promise<any> {
+): Promise<void> {
   return ApiFetch({
-    method: "DELETE",
-    url: "/Customers/:id/projects/:nk/assetTemplates/:fk",
+    method: 'DELETE',
+    url: '/Customers/:id/projects/:nk/assetTemplates/:fk',
     routeParams: {
       id,
       nk,
@@ -5004,8 +4976,8 @@ export async function Customer_UpdateByIdProjectsAssetTemplates(
   data: any = {}
 ): Promise<AssetTemplate> {
   return ApiFetch({
-    method: "PUT",
-    url: "/Customers/:id/projects/:nk/assetTemplates/:fk",
+    method: 'PUT',
+    url: '/Customers/:id/projects/:nk/assetTemplates/:fk',
     routeParams: {
       id,
       nk,
@@ -5026,8 +4998,8 @@ export async function Customer_FindByIdProjectsCctvDashboards(
   fk: string
 ): Promise<CctvDashboard> {
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/projects/:nk/cctvDashboards/:fk",
+    method: 'GET',
+    url: '/Customers/:id/projects/:nk/cctvDashboards/:fk',
     routeParams: {
       id,
       nk,
@@ -5043,10 +5015,10 @@ export async function Customer_DestroyByIdProjectsCctvDashboards(
   id: string,
   nk: string,
   fk: string
-): Promise<any> {
+): Promise<void> {
   return ApiFetch({
-    method: "DELETE",
-    url: "/Customers/:id/projects/:nk/cctvDashboards/:fk",
+    method: 'DELETE',
+    url: '/Customers/:id/projects/:nk/cctvDashboards/:fk',
     routeParams: {
       id,
       nk,
@@ -5065,8 +5037,8 @@ export async function Customer_UpdateByIdProjectsCctvDashboards(
   data: any = {}
 ): Promise<CctvDashboard> {
   return ApiFetch({
-    method: "PUT",
-    url: "/Customers/:id/projects/:nk/cctvDashboards/:fk",
+    method: 'PUT',
+    url: '/Customers/:id/projects/:nk/cctvDashboards/:fk',
     routeParams: {
       id,
       nk,
@@ -5087,8 +5059,8 @@ export async function Customer_FindByIdProjectsEventDashboards(
   fk: string
 ): Promise<EventDashboard> {
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/projects/:nk/eventDashboards/:fk",
+    method: 'GET',
+    url: '/Customers/:id/projects/:nk/eventDashboards/:fk',
     routeParams: {
       id,
       nk,
@@ -5104,10 +5076,10 @@ export async function Customer_DestroyByIdProjectsEventDashboards(
   id: string,
   nk: string,
   fk: string
-): Promise<any> {
+): Promise<void> {
   return ApiFetch({
-    method: "DELETE",
-    url: "/Customers/:id/projects/:nk/eventDashboards/:fk",
+    method: 'DELETE',
+    url: '/Customers/:id/projects/:nk/eventDashboards/:fk',
     routeParams: {
       id,
       nk,
@@ -5126,8 +5098,8 @@ export async function Customer_UpdateByIdProjectsEventDashboards(
   data: any = {}
 ): Promise<EventDashboard> {
   return ApiFetch({
-    method: "PUT",
-    url: "/Customers/:id/projects/:nk/eventDashboards/:fk",
+    method: 'PUT',
+    url: '/Customers/:id/projects/:nk/eventDashboards/:fk',
     routeParams: {
       id,
       nk,
@@ -5148,8 +5120,8 @@ export async function Customer_FindByIdProjectsEventSummaryForProjects(
   fk: string
 ): Promise<EventSummaryForProject> {
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/projects/:nk/eventSummaryForProjects/:fk",
+    method: 'GET',
+    url: '/Customers/:id/projects/:nk/eventSummaryForProjects/:fk',
     routeParams: {
       id,
       nk,
@@ -5167,8 +5139,8 @@ export async function Customer_FindByIdProjectsEmbeddedReports(
   fk: string
 ): Promise<EmbeddedReport> {
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/projects/:nk/embeddedReports/:fk",
+    method: 'GET',
+    url: '/Customers/:id/projects/:nk/embeddedReports/:fk',
     routeParams: {
       id,
       nk,
@@ -5184,10 +5156,10 @@ export async function Customer_DestroyByIdProjectsEmbeddedReports(
   id: string,
   nk: string,
   fk: string
-): Promise<any> {
+): Promise<void> {
   return ApiFetch({
-    method: "DELETE",
-    url: "/Customers/:id/projects/:nk/embeddedReports/:fk",
+    method: 'DELETE',
+    url: '/Customers/:id/projects/:nk/embeddedReports/:fk',
     routeParams: {
       id,
       nk,
@@ -5206,8 +5178,8 @@ export async function Customer_UpdateByIdProjectsEmbeddedReports(
   data: any = {}
 ): Promise<EmbeddedReport> {
   return ApiFetch({
-    method: "PUT",
-    url: "/Customers/:id/projects/:nk/embeddedReports/:fk",
+    method: 'PUT',
+    url: '/Customers/:id/projects/:nk/embeddedReports/:fk',
     routeParams: {
       id,
       nk,
@@ -5228,8 +5200,8 @@ export async function Customer_FindByIdProjectsBiPanels(
   fk: string
 ): Promise<BIPanel> {
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/projects/:nk/biPanels/:fk",
+    method: 'GET',
+    url: '/Customers/:id/projects/:nk/biPanels/:fk',
     routeParams: {
       id,
       nk,
@@ -5245,10 +5217,10 @@ export async function Customer_DestroyByIdProjectsBiPanels(
   id: string,
   nk: string,
   fk: string
-): Promise<any> {
+): Promise<void> {
   return ApiFetch({
-    method: "DELETE",
-    url: "/Customers/:id/projects/:nk/biPanels/:fk",
+    method: 'DELETE',
+    url: '/Customers/:id/projects/:nk/biPanels/:fk',
     routeParams: {
       id,
       nk,
@@ -5267,8 +5239,8 @@ export async function Customer_UpdateByIdProjectsBiPanels(
   data: any = {}
 ): Promise<BIPanel> {
   return ApiFetch({
-    method: "PUT",
-    url: "/Customers/:id/projects/:nk/biPanels/:fk",
+    method: 'PUT',
+    url: '/Customers/:id/projects/:nk/biPanels/:fk',
     routeParams: {
       id,
       nk,
@@ -5289,8 +5261,8 @@ export async function Customer_FindByIdProjectsPeopleCounterReports(
   fk: string
 ): Promise<PeopleCounterReport> {
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/projects/:nk/peopleCounterReports/:fk",
+    method: 'GET',
+    url: '/Customers/:id/projects/:nk/peopleCounterReports/:fk',
     routeParams: {
       id,
       nk,
@@ -5306,10 +5278,10 @@ export async function Customer_DestroyByIdProjectsPeopleCounterReports(
   id: string,
   nk: string,
   fk: string
-): Promise<any> {
+): Promise<void> {
   return ApiFetch({
-    method: "DELETE",
-    url: "/Customers/:id/projects/:nk/peopleCounterReports/:fk",
+    method: 'DELETE',
+    url: '/Customers/:id/projects/:nk/peopleCounterReports/:fk',
     routeParams: {
       id,
       nk,
@@ -5328,8 +5300,8 @@ export async function Customer_UpdateByIdProjectsPeopleCounterReports(
   data: any = {}
 ): Promise<PeopleCounterReport> {
   return ApiFetch({
-    method: "PUT",
-    url: "/Customers/:id/projects/:nk/peopleCounterReports/:fk",
+    method: 'PUT',
+    url: '/Customers/:id/projects/:nk/peopleCounterReports/:fk',
     routeParams: {
       id,
       nk,
@@ -5350,8 +5322,8 @@ export async function Customer_FindByIdProjectsTags(
   fk: string
 ): Promise<ProjectTag> {
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/projects/:nk/tags/:fk",
+    method: 'GET',
+    url: '/Customers/:id/projects/:nk/tags/:fk',
     routeParams: {
       id,
       nk,
@@ -5369,8 +5341,8 @@ export async function Customer_LinkProjectsTags(
   fk: string
 ): Promise<ProjectTag> {
   return ApiFetch({
-    method: "PUT",
-    url: "/Customers/:id/projects/:nk/tags/rel/:fk",
+    method: 'PUT',
+    url: '/Customers/:id/projects/:nk/tags/rel/:fk',
     routeParams: {
       id,
       nk,
@@ -5387,10 +5359,10 @@ export async function Customer_UnlinkProjectsTags(
   id: string,
   nk: string,
   fk: string
-): Promise<any> {
+): Promise<void> {
   return ApiFetch({
-    method: "DELETE",
-    url: "/Customers/:id/projects/:nk/tags/rel/:fk",
+    method: 'DELETE',
+    url: '/Customers/:id/projects/:nk/tags/rel/:fk',
     routeParams: {
       id,
       nk,
@@ -5408,8 +5380,8 @@ export async function Customer_FindByIdProjectsReports(
   fk: string
 ): Promise<Report> {
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/projects/:nk/reports/:fk",
+    method: 'GET',
+    url: '/Customers/:id/projects/:nk/reports/:fk',
     routeParams: {
       id,
       nk,
@@ -5425,10 +5397,10 @@ export async function Customer_DestroyByIdProjectsReports(
   id: string,
   nk: string,
   fk: string
-): Promise<any> {
+): Promise<void> {
   return ApiFetch({
-    method: "DELETE",
-    url: "/Customers/:id/projects/:nk/reports/:fk",
+    method: 'DELETE',
+    url: '/Customers/:id/projects/:nk/reports/:fk',
     routeParams: {
       id,
       nk,
@@ -5447,8 +5419,8 @@ export async function Customer_UpdateByIdProjectsReports(
   data: any = {}
 ): Promise<Report> {
   return ApiFetch({
-    method: "PUT",
-    url: "/Customers/:id/projects/:nk/reports/:fk",
+    method: 'PUT',
+    url: '/Customers/:id/projects/:nk/reports/:fk',
     routeParams: {
       id,
       nk,
@@ -5469,8 +5441,8 @@ export async function Customer_FindByIdProjectsAllowedSensorTypes(
   fk: string
 ): Promise<SensorType> {
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/projects/:nk/allowedSensorTypes/:fk",
+    method: 'GET',
+    url: '/Customers/:id/projects/:nk/allowedSensorTypes/:fk',
     routeParams: {
       id,
       nk,
@@ -5489,8 +5461,8 @@ export async function Customer_LinkProjectsAllowedSensorTypes(
   data: any = {}
 ): Promise<ProjectAllowedSensorType> {
   return ApiFetch({
-    method: "PUT",
-    url: "/Customers/:id/projects/:nk/allowedSensorTypes/rel/:fk",
+    method: 'PUT',
+    url: '/Customers/:id/projects/:nk/allowedSensorTypes/rel/:fk',
     routeParams: {
       id,
       nk,
@@ -5509,10 +5481,10 @@ export async function Customer_UnlinkProjectsAllowedSensorTypes(
   id: string,
   nk: string,
   fk: string
-): Promise<any> {
+): Promise<void> {
   return ApiFetch({
-    method: "DELETE",
-    url: "/Customers/:id/projects/:nk/allowedSensorTypes/rel/:fk",
+    method: 'DELETE',
+    url: '/Customers/:id/projects/:nk/allowedSensorTypes/rel/:fk',
     routeParams: {
       id,
       nk,
@@ -5530,8 +5502,8 @@ export async function Customer_FindByIdProjectsStoreVideoAnalyticDashboards(
   fk: string
 ): Promise<StoreVideoAnalyticDashboard> {
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/projects/:nk/storeVideoAnalyticDashboards/:fk",
+    method: 'GET',
+    url: '/Customers/:id/projects/:nk/storeVideoAnalyticDashboards/:fk',
     routeParams: {
       id,
       nk,
@@ -5547,10 +5519,10 @@ export async function Customer_DestroyByIdProjectsStoreVideoAnalyticDashboards(
   id: string,
   nk: string,
   fk: string
-): Promise<any> {
+): Promise<void> {
   return ApiFetch({
-    method: "DELETE",
-    url: "/Customers/:id/projects/:nk/storeVideoAnalyticDashboards/:fk",
+    method: 'DELETE',
+    url: '/Customers/:id/projects/:nk/storeVideoAnalyticDashboards/:fk',
     routeParams: {
       id,
       nk,
@@ -5569,8 +5541,8 @@ export async function Customer_UpdateByIdProjectsStoreVideoAnalyticDashboards(
   data: any = {}
 ): Promise<StoreVideoAnalyticDashboard> {
   return ApiFetch({
-    method: "PUT",
-    url: "/Customers/:id/projects/:nk/storeVideoAnalyticDashboards/:fk",
+    method: 'PUT',
+    url: '/Customers/:id/projects/:nk/storeVideoAnalyticDashboards/:fk',
     routeParams: {
       id,
       nk,
@@ -5591,8 +5563,8 @@ export async function Customer_FindByIdProjectsAdminTools(
   fk: string
 ): Promise<Tool> {
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/projects/:nk/adminTools/:fk",
+    method: 'GET',
+    url: '/Customers/:id/projects/:nk/adminTools/:fk',
     routeParams: {
       id,
       nk,
@@ -5610,8 +5582,8 @@ export async function Customer_LinkProjectsAdminTools(
   fk: string
 ): Promise<Tool> {
   return ApiFetch({
-    method: "PUT",
-    url: "/Customers/:id/projects/:nk/adminTools/rel/:fk",
+    method: 'PUT',
+    url: '/Customers/:id/projects/:nk/adminTools/rel/:fk',
     routeParams: {
       id,
       nk,
@@ -5628,10 +5600,10 @@ export async function Customer_UnlinkProjectsAdminTools(
   id: string,
   nk: string,
   fk: string
-): Promise<any> {
+): Promise<void> {
   return ApiFetch({
-    method: "DELETE",
-    url: "/Customers/:id/projects/:nk/adminTools/rel/:fk",
+    method: 'DELETE',
+    url: '/Customers/:id/projects/:nk/adminTools/rel/:fk',
     routeParams: {
       id,
       nk,
@@ -5649,8 +5621,8 @@ export async function Customer_FindByIdProjectsTools(
   fk: string
 ): Promise<Tool> {
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/projects/:nk/tools/:fk",
+    method: 'GET',
+    url: '/Customers/:id/projects/:nk/tools/:fk',
     routeParams: {
       id,
       nk,
@@ -5668,8 +5640,8 @@ export async function Customer_LinkProjectsTools(
   fk: string
 ): Promise<Tool> {
   return ApiFetch({
-    method: "PUT",
-    url: "/Customers/:id/projects/:nk/tools/rel/:fk",
+    method: 'PUT',
+    url: '/Customers/:id/projects/:nk/tools/rel/:fk',
     routeParams: {
       id,
       nk,
@@ -5686,10 +5658,10 @@ export async function Customer_UnlinkProjectsTools(
   id: string,
   nk: string,
   fk: string
-): Promise<any> {
+): Promise<void> {
   return ApiFetch({
-    method: "DELETE",
-    url: "/Customers/:id/projects/:nk/tools/rel/:fk",
+    method: 'DELETE',
+    url: '/Customers/:id/projects/:nk/tools/rel/:fk',
     routeParams: {
       id,
       nk,
@@ -5707,8 +5679,8 @@ export async function Customer_FindByIdProjectsTrafficFlowAnalysis(
   fk: string
 ): Promise<TrafficFlowAnalysis> {
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/projects/:nk/trafficFlowAnalysis/:fk",
+    method: 'GET',
+    url: '/Customers/:id/projects/:nk/trafficFlowAnalysis/:fk',
     routeParams: {
       id,
       nk,
@@ -5724,10 +5696,10 @@ export async function Customer_DestroyByIdProjectsTrafficFlowAnalysis(
   id: string,
   nk: string,
   fk: string
-): Promise<any> {
+): Promise<void> {
   return ApiFetch({
-    method: "DELETE",
-    url: "/Customers/:id/projects/:nk/trafficFlowAnalysis/:fk",
+    method: 'DELETE',
+    url: '/Customers/:id/projects/:nk/trafficFlowAnalysis/:fk',
     routeParams: {
       id,
       nk,
@@ -5746,8 +5718,8 @@ export async function Customer_UpdateByIdProjectsTrafficFlowAnalysis(
   data: any = {}
 ): Promise<TrafficFlowAnalysis> {
   return ApiFetch({
-    method: "PUT",
-    url: "/Customers/:id/projects/:nk/trafficFlowAnalysis/:fk",
+    method: 'PUT',
+    url: '/Customers/:id/projects/:nk/trafficFlowAnalysis/:fk',
     routeParams: {
       id,
       nk,
@@ -5768,8 +5740,8 @@ export async function Customer_FindByIdProjectsVirtualExpressions(
   fk: string
 ): Promise<VirtualExpression> {
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/projects/:nk/virtualExpressions/:fk",
+    method: 'GET',
+    url: '/Customers/:id/projects/:nk/virtualExpressions/:fk',
     routeParams: {
       id,
       nk,
@@ -5787,8 +5759,8 @@ export async function Customer_FindByIdProjectsVirtualGroups(
   fk: string
 ): Promise<VirtualGroup> {
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/projects/:nk/virtualGroups/:fk",
+    method: 'GET',
+    url: '/Customers/:id/projects/:nk/virtualGroups/:fk',
     routeParams: {
       id,
       nk,
@@ -5804,10 +5776,10 @@ export async function Customer_DestroyByIdProjectsVirtualGroups(
   id: string,
   nk: string,
   fk: string
-): Promise<any> {
+): Promise<void> {
   return ApiFetch({
-    method: "DELETE",
-    url: "/Customers/:id/projects/:nk/virtualGroups/:fk",
+    method: 'DELETE',
+    url: '/Customers/:id/projects/:nk/virtualGroups/:fk',
     routeParams: {
       id,
       nk,
@@ -5826,8 +5798,8 @@ export async function Customer_UpdateByIdProjectsVirtualGroups(
   data: any = {}
 ): Promise<VirtualGroup> {
   return ApiFetch({
-    method: "PUT",
-    url: "/Customers/:id/projects/:nk/virtualGroups/:fk",
+    method: 'PUT',
+    url: '/Customers/:id/projects/:nk/virtualGroups/:fk',
     routeParams: {
       id,
       nk,
@@ -5848,8 +5820,8 @@ export async function Customer_FindByIdProjectsVirtualVariables(
   fk: string
 ): Promise<VirtualVariable> {
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/projects/:nk/virtualVariables/:fk",
+    method: 'GET',
+    url: '/Customers/:id/projects/:nk/virtualVariables/:fk',
     routeParams: {
       id,
       nk,
@@ -5867,8 +5839,8 @@ export async function Customer_FindByIdProjectsYoloClasses(
   fk: string
 ): Promise<YoloClass> {
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/projects/:nk/yoloClasses/:fk",
+    method: 'GET',
+    url: '/Customers/:id/projects/:nk/yoloClasses/:fk',
     routeParams: {
       id,
       nk,
@@ -5887,8 +5859,8 @@ export async function Customer_LinkProjectsYoloClasses(
   data: any = {}
 ): Promise<YoloClassProject> {
   return ApiFetch({
-    method: "PUT",
-    url: "/Customers/:id/projects/:nk/yoloClasses/rel/:fk",
+    method: 'PUT',
+    url: '/Customers/:id/projects/:nk/yoloClasses/rel/:fk',
     routeParams: {
       id,
       nk,
@@ -5907,10 +5879,10 @@ export async function Customer_UnlinkProjectsYoloClasses(
   id: string,
   nk: string,
   fk: string
-): Promise<any> {
+): Promise<void> {
   return ApiFetch({
-    method: "DELETE",
-    url: "/Customers/:id/projects/:nk/yoloClasses/rel/:fk",
+    method: 'DELETE',
+    url: '/Customers/:id/projects/:nk/yoloClasses/rel/:fk',
     routeParams: {
       id,
       nk,
@@ -5929,12 +5901,12 @@ export async function Customer_GetProjectsAssets(
 ): Promise<Asset[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/projects/:nk/assets",
+    method: 'GET',
+    url: '/Customers/:id/projects/:nk/assets',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -5952,8 +5924,8 @@ export async function Customer_CreateProjectsAssets(
   data: any = {}
 ): Promise<Asset> {
   return ApiFetch({
-    method: "POST",
-    url: "/Customers/:id/projects/:nk/assets",
+    method: 'POST',
+    url: '/Customers/:id/projects/:nk/assets',
     routeParams: {
       id,
       nk,
@@ -5974,12 +5946,12 @@ export async function Customer_CountProjectsAssets(
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams["where"] = where;
+    _urlParams['where'] = where;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/projects/:nk/assets/count",
+    method: 'GET',
+    url: '/Customers/:id/projects/:nk/assets/count',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -5998,12 +5970,12 @@ export async function Customer_GetProjectsAssetTemplates(
 ): Promise<AssetTemplate[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/projects/:nk/assetTemplates",
+    method: 'GET',
+    url: '/Customers/:id/projects/:nk/assetTemplates',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -6021,8 +5993,8 @@ export async function Customer_CreateProjectsAssetTemplates(
   data: any = {}
 ): Promise<AssetTemplate> {
   return ApiFetch({
-    method: "POST",
-    url: "/Customers/:id/projects/:nk/assetTemplates",
+    method: 'POST',
+    url: '/Customers/:id/projects/:nk/assetTemplates',
     routeParams: {
       id,
       nk,
@@ -6043,12 +6015,12 @@ export async function Customer_CountProjectsAssetTemplates(
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams["where"] = where;
+    _urlParams['where'] = where;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/projects/:nk/assetTemplates/count",
+    method: 'GET',
+    url: '/Customers/:id/projects/:nk/assetTemplates/count',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -6067,12 +6039,12 @@ export async function Customer_GetProjectsCctvDashboards(
 ): Promise<CctvDashboard[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/projects/:nk/cctvDashboards",
+    method: 'GET',
+    url: '/Customers/:id/projects/:nk/cctvDashboards',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -6090,8 +6062,8 @@ export async function Customer_CreateProjectsCctvDashboards(
   data: any = {}
 ): Promise<CctvDashboard> {
   return ApiFetch({
-    method: "POST",
-    url: "/Customers/:id/projects/:nk/cctvDashboards",
+    method: 'POST',
+    url: '/Customers/:id/projects/:nk/cctvDashboards',
     routeParams: {
       id,
       nk,
@@ -6112,12 +6084,12 @@ export async function Customer_CountProjectsCctvDashboards(
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams["where"] = where;
+    _urlParams['where'] = where;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/projects/:nk/cctvDashboards/count",
+    method: 'GET',
+    url: '/Customers/:id/projects/:nk/cctvDashboards/count',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -6136,12 +6108,12 @@ export async function Customer_GetProjectsEventDashboards(
 ): Promise<EventDashboard[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/projects/:nk/eventDashboards",
+    method: 'GET',
+    url: '/Customers/:id/projects/:nk/eventDashboards',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -6159,8 +6131,8 @@ export async function Customer_CreateProjectsEventDashboards(
   data: any = {}
 ): Promise<EventDashboard> {
   return ApiFetch({
-    method: "POST",
-    url: "/Customers/:id/projects/:nk/eventDashboards",
+    method: 'POST',
+    url: '/Customers/:id/projects/:nk/eventDashboards',
     routeParams: {
       id,
       nk,
@@ -6181,12 +6153,12 @@ export async function Customer_CountProjectsEventDashboards(
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams["where"] = where;
+    _urlParams['where'] = where;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/projects/:nk/eventDashboards/count",
+    method: 'GET',
+    url: '/Customers/:id/projects/:nk/eventDashboards/count',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -6205,12 +6177,12 @@ export async function Customer_GetProjectsEventSummaryForProjects(
 ): Promise<EventSummaryForProject[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/projects/:nk/eventSummaryForProjects",
+    method: 'GET',
+    url: '/Customers/:id/projects/:nk/eventSummaryForProjects',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -6229,12 +6201,12 @@ export async function Customer_CountProjectsEventSummaryForProjects(
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams["where"] = where;
+    _urlParams['where'] = where;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/projects/:nk/eventSummaryForProjects/count",
+    method: 'GET',
+    url: '/Customers/:id/projects/:nk/eventSummaryForProjects/count',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -6253,12 +6225,12 @@ export async function Customer_GetProjectsEmbeddedReports(
 ): Promise<EmbeddedReport[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/projects/:nk/embeddedReports",
+    method: 'GET',
+    url: '/Customers/:id/projects/:nk/embeddedReports',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -6276,8 +6248,8 @@ export async function Customer_CreateProjectsEmbeddedReports(
   data: any = {}
 ): Promise<EmbeddedReport> {
   return ApiFetch({
-    method: "POST",
-    url: "/Customers/:id/projects/:nk/embeddedReports",
+    method: 'POST',
+    url: '/Customers/:id/projects/:nk/embeddedReports',
     routeParams: {
       id,
       nk,
@@ -6298,12 +6270,12 @@ export async function Customer_CountProjectsEmbeddedReports(
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams["where"] = where;
+    _urlParams['where'] = where;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/projects/:nk/embeddedReports/count",
+    method: 'GET',
+    url: '/Customers/:id/projects/:nk/embeddedReports/count',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -6322,12 +6294,12 @@ export async function Customer_GetProjectsBiPanels(
 ): Promise<BIPanel[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/projects/:nk/biPanels",
+    method: 'GET',
+    url: '/Customers/:id/projects/:nk/biPanels',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -6345,8 +6317,8 @@ export async function Customer_CreateProjectsBiPanels(
   data: any = {}
 ): Promise<BIPanel> {
   return ApiFetch({
-    method: "POST",
-    url: "/Customers/:id/projects/:nk/biPanels",
+    method: 'POST',
+    url: '/Customers/:id/projects/:nk/biPanels',
     routeParams: {
       id,
       nk,
@@ -6367,12 +6339,12 @@ export async function Customer_CountProjectsBiPanels(
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams["where"] = where;
+    _urlParams['where'] = where;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/projects/:nk/biPanels/count",
+    method: 'GET',
+    url: '/Customers/:id/projects/:nk/biPanels/count',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -6391,12 +6363,12 @@ export async function Customer_GetProjectsPeopleCounterReports(
 ): Promise<PeopleCounterReport[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/projects/:nk/peopleCounterReports",
+    method: 'GET',
+    url: '/Customers/:id/projects/:nk/peopleCounterReports',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -6414,8 +6386,8 @@ export async function Customer_CreateProjectsPeopleCounterReports(
   data: any = {}
 ): Promise<PeopleCounterReport> {
   return ApiFetch({
-    method: "POST",
-    url: "/Customers/:id/projects/:nk/peopleCounterReports",
+    method: 'POST',
+    url: '/Customers/:id/projects/:nk/peopleCounterReports',
     routeParams: {
       id,
       nk,
@@ -6436,12 +6408,12 @@ export async function Customer_CountProjectsPeopleCounterReports(
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams["where"] = where;
+    _urlParams['where'] = where;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/projects/:nk/peopleCounterReports/count",
+    method: 'GET',
+    url: '/Customers/:id/projects/:nk/peopleCounterReports/count',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -6460,12 +6432,12 @@ export async function Customer_GetProjectsTags(
 ): Promise<ProjectTag[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/projects/:nk/tags",
+    method: 'GET',
+    url: '/Customers/:id/projects/:nk/tags',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -6484,12 +6456,12 @@ export async function Customer_CountProjectsTags(
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams["where"] = where;
+    _urlParams['where'] = where;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/projects/:nk/tags/count",
+    method: 'GET',
+    url: '/Customers/:id/projects/:nk/tags/count',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -6508,12 +6480,12 @@ export async function Customer_GetProjectsReports(
 ): Promise<Report[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/projects/:nk/reports",
+    method: 'GET',
+    url: '/Customers/:id/projects/:nk/reports',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -6531,8 +6503,8 @@ export async function Customer_CreateProjectsReports(
   data: any = {}
 ): Promise<Report> {
   return ApiFetch({
-    method: "POST",
-    url: "/Customers/:id/projects/:nk/reports",
+    method: 'POST',
+    url: '/Customers/:id/projects/:nk/reports',
     routeParams: {
       id,
       nk,
@@ -6553,12 +6525,12 @@ export async function Customer_CountProjectsReports(
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams["where"] = where;
+    _urlParams['where'] = where;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/projects/:nk/reports/count",
+    method: 'GET',
+    url: '/Customers/:id/projects/:nk/reports/count',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -6577,12 +6549,12 @@ export async function Customer_GetProjectsAllowedSensorTypes(
 ): Promise<SensorType[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/projects/:nk/allowedSensorTypes",
+    method: 'GET',
+    url: '/Customers/:id/projects/:nk/allowedSensorTypes',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -6601,12 +6573,12 @@ export async function Customer_CountProjectsAllowedSensorTypes(
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams["where"] = where;
+    _urlParams['where'] = where;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/projects/:nk/allowedSensorTypes/count",
+    method: 'GET',
+    url: '/Customers/:id/projects/:nk/allowedSensorTypes/count',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -6625,12 +6597,12 @@ export async function Customer_GetProjectsStoreVideoAnalyticDashboards(
 ): Promise<StoreVideoAnalyticDashboard[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/projects/:nk/storeVideoAnalyticDashboards",
+    method: 'GET',
+    url: '/Customers/:id/projects/:nk/storeVideoAnalyticDashboards',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -6648,8 +6620,8 @@ export async function Customer_CreateProjectsStoreVideoAnalyticDashboards(
   data: any = {}
 ): Promise<StoreVideoAnalyticDashboard> {
   return ApiFetch({
-    method: "POST",
-    url: "/Customers/:id/projects/:nk/storeVideoAnalyticDashboards",
+    method: 'POST',
+    url: '/Customers/:id/projects/:nk/storeVideoAnalyticDashboards',
     routeParams: {
       id,
       nk,
@@ -6670,12 +6642,12 @@ export async function Customer_CountProjectsStoreVideoAnalyticDashboards(
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams["where"] = where;
+    _urlParams['where'] = where;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/projects/:nk/storeVideoAnalyticDashboards/count",
+    method: 'GET',
+    url: '/Customers/:id/projects/:nk/storeVideoAnalyticDashboards/count',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -6694,12 +6666,12 @@ export async function Customer_GetProjectsAdminTools(
 ): Promise<Tool[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/projects/:nk/adminTools",
+    method: 'GET',
+    url: '/Customers/:id/projects/:nk/adminTools',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -6718,12 +6690,12 @@ export async function Customer_CountProjectsAdminTools(
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams["where"] = where;
+    _urlParams['where'] = where;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/projects/:nk/adminTools/count",
+    method: 'GET',
+    url: '/Customers/:id/projects/:nk/adminTools/count',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -6742,12 +6714,12 @@ export async function Customer_GetProjectsTools(
 ): Promise<Tool[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/projects/:nk/tools",
+    method: 'GET',
+    url: '/Customers/:id/projects/:nk/tools',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -6766,12 +6738,12 @@ export async function Customer_CountProjectsTools(
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams["where"] = where;
+    _urlParams['where'] = where;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/projects/:nk/tools/count",
+    method: 'GET',
+    url: '/Customers/:id/projects/:nk/tools/count',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -6790,12 +6762,12 @@ export async function Customer_GetProjectsTrafficFlowAnalysis(
 ): Promise<TrafficFlowAnalysis[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/projects/:nk/trafficFlowAnalysis",
+    method: 'GET',
+    url: '/Customers/:id/projects/:nk/trafficFlowAnalysis',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -6813,8 +6785,8 @@ export async function Customer_CreateProjectsTrafficFlowAnalysis(
   data: any = {}
 ): Promise<TrafficFlowAnalysis> {
   return ApiFetch({
-    method: "POST",
-    url: "/Customers/:id/projects/:nk/trafficFlowAnalysis",
+    method: 'POST',
+    url: '/Customers/:id/projects/:nk/trafficFlowAnalysis',
     routeParams: {
       id,
       nk,
@@ -6835,12 +6807,12 @@ export async function Customer_CountProjectsTrafficFlowAnalysis(
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams["where"] = where;
+    _urlParams['where'] = where;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/projects/:nk/trafficFlowAnalysis/count",
+    method: 'GET',
+    url: '/Customers/:id/projects/:nk/trafficFlowAnalysis/count',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -6859,12 +6831,12 @@ export async function Customer_GetProjectsVirtualExpressions(
 ): Promise<VirtualExpression[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/projects/:nk/virtualExpressions",
+    method: 'GET',
+    url: '/Customers/:id/projects/:nk/virtualExpressions',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -6883,12 +6855,12 @@ export async function Customer_CountProjectsVirtualExpressions(
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams["where"] = where;
+    _urlParams['where'] = where;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/projects/:nk/virtualExpressions/count",
+    method: 'GET',
+    url: '/Customers/:id/projects/:nk/virtualExpressions/count',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -6907,12 +6879,12 @@ export async function Customer_GetProjectsVirtualGroups(
 ): Promise<VirtualGroup[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/projects/:nk/virtualGroups",
+    method: 'GET',
+    url: '/Customers/:id/projects/:nk/virtualGroups',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -6930,8 +6902,8 @@ export async function Customer_CreateProjectsVirtualGroups(
   data: any = {}
 ): Promise<VirtualGroup> {
   return ApiFetch({
-    method: "POST",
-    url: "/Customers/:id/projects/:nk/virtualGroups",
+    method: 'POST',
+    url: '/Customers/:id/projects/:nk/virtualGroups',
     routeParams: {
       id,
       nk,
@@ -6952,12 +6924,12 @@ export async function Customer_CountProjectsVirtualGroups(
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams["where"] = where;
+    _urlParams['where'] = where;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/projects/:nk/virtualGroups/count",
+    method: 'GET',
+    url: '/Customers/:id/projects/:nk/virtualGroups/count',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -6976,12 +6948,12 @@ export async function Customer_GetProjectsVirtualVariables(
 ): Promise<VirtualVariable[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/projects/:nk/virtualVariables",
+    method: 'GET',
+    url: '/Customers/:id/projects/:nk/virtualVariables',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -7000,12 +6972,12 @@ export async function Customer_CountProjectsVirtualVariables(
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams["where"] = where;
+    _urlParams['where'] = where;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/projects/:nk/virtualVariables/count",
+    method: 'GET',
+    url: '/Customers/:id/projects/:nk/virtualVariables/count',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -7024,12 +6996,12 @@ export async function Customer_GetProjectsYoloClasses(
 ): Promise<YoloClass[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/projects/:nk/yoloClasses",
+    method: 'GET',
+    url: '/Customers/:id/projects/:nk/yoloClasses',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -7048,12 +7020,12 @@ export async function Customer_CountProjectsYoloClasses(
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams["where"] = where;
+    _urlParams['where'] = where;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/projects/:nk/yoloClasses/count",
+    method: 'GET',
+    url: '/Customers/:id/projects/:nk/yoloClasses/count',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -7077,24 +7049,24 @@ export async function Customer_EvaluateProjectsVirtualExpressions(
 ): Promise<any> {
   const _urlParams: any = {};
   if (from != null) {
-    _urlParams["from"] = from;
+    _urlParams['from'] = from;
   }
   if (to != null) {
-    _urlParams["to"] = to;
+    _urlParams['to'] = to;
   }
   if (groupIntervals != null) {
-    _urlParams["group_intervals"] = groupIntervals;
+    _urlParams['group_intervals'] = groupIntervals;
   }
   if (groupMode != null) {
-    _urlParams["group_mode"] = groupMode;
+    _urlParams['group_mode'] = groupMode;
   }
   if (groupUtc != null) {
-    _urlParams["group_utc"] = groupUtc;
+    _urlParams['group_utc'] = groupUtc;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/projects/:nk/virtualExpressions/:fk/evaluate",
+    method: 'GET',
+    url: '/Customers/:id/projects/:nk/virtualExpressions/:fk/evaluate',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -7113,8 +7085,8 @@ export async function Customer_FindByIdDevicesEdgeAgents(
   fk: string
 ): Promise<EdgeAgent> {
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/devices/:nk/edgeAgents/:fk",
+    method: 'GET',
+    url: '/Customers/:id/devices/:nk/edgeAgents/:fk',
     routeParams: {
       id,
       nk,
@@ -7130,10 +7102,10 @@ export async function Customer_DestroyByIdDevicesEdgeAgents(
   id: string,
   nk: string,
   fk: string
-): Promise<any> {
+): Promise<void> {
   return ApiFetch({
-    method: "DELETE",
-    url: "/Customers/:id/devices/:nk/edgeAgents/:fk",
+    method: 'DELETE',
+    url: '/Customers/:id/devices/:nk/edgeAgents/:fk',
     routeParams: {
       id,
       nk,
@@ -7152,8 +7124,8 @@ export async function Customer_UpdateByIdDevicesEdgeAgents(
   data: any = {}
 ): Promise<EdgeAgent> {
   return ApiFetch({
-    method: "PUT",
-    url: "/Customers/:id/devices/:nk/edgeAgents/:fk",
+    method: 'PUT',
+    url: '/Customers/:id/devices/:nk/edgeAgents/:fk',
     routeParams: {
       id,
       nk,
@@ -7175,12 +7147,12 @@ export async function Customer_GetDevicesEdgeAgents(
 ): Promise<EdgeAgent[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/devices/:nk/edgeAgents",
+    method: 'GET',
+    url: '/Customers/:id/devices/:nk/edgeAgents',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -7198,8 +7170,8 @@ export async function Customer_CreateDevicesEdgeAgents(
   data: any = {}
 ): Promise<EdgeAgent> {
   return ApiFetch({
-    method: "POST",
-    url: "/Customers/:id/devices/:nk/edgeAgents",
+    method: 'POST',
+    url: '/Customers/:id/devices/:nk/edgeAgents',
     routeParams: {
       id,
       nk,
@@ -7220,12 +7192,12 @@ export async function Customer_CountDevicesEdgeAgents(
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams["where"] = where;
+    _urlParams['where'] = where;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Customers/:id/devices/:nk/edgeAgents/count",
+    method: 'GET',
+    url: '/Customers/:id/devices/:nk/edgeAgents/count',
     urlParams: _urlParams,
     routeParams: {
       id,
