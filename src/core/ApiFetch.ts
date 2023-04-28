@@ -109,6 +109,7 @@ const DateFields = [
   'to',
   'requested',
   'expiresAt',
+  'started',
   'birthday',
 ];
 
