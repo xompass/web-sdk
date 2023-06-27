@@ -1,43 +1,26 @@
-import { ApiFetch, Filter } from "../core/ApiFetch";
-import { Sensor } from "../models/Sensor";
-import { Log } from "../models/Log";
-import { Asset } from "../models/Asset";
-import { Dataset } from "../models/Dataset";
-import { Alert } from "../models/Alert";
-import { AlertHistory } from "../models/AlertHistory";
-import { AssetState } from "../models/AssetState";
-import { SensorAssetState } from "../models/SensorAssetState";
-import { Summary } from "../models/Summary";
+import { ApiFetch, Filter } from '../core/ApiFetch';
+import { Sensor } from '../models/Sensor';
+import { Asset } from '../models/Asset';
+import { Dataset } from '../models/Dataset';
+import { Alert } from '../models/Alert';
+import { AlertHistory } from '../models/AlertHistory';
+import { Data } from '../models/Data';
+import { AssetState } from '../models/AssetState';
+import { SensorAssetState } from '../models/SensorAssetState';
+import { Summary } from '../models/Summary';
 
 /**
  * Api services for the `Sensor` model.
  */
 
 /**
- * Buscar un elemento relacionado por id para trackingLogs.
- * /Sensors/:id/trackingLogs/:fk
- */
-export async function Sensor_FindByIdTrackingLogs(
-  id: string,
-  fk: string
-): Promise<Log> {
-  return ApiFetch({
-    method: "GET",
-    url: "/Sensors/:id/trackingLogs/:fk",
-    routeParams: {
-      id,
-      fk,
-    },
-  });
-}
-/**
  * Capta la relación belongsTo asset.
  * /Sensors/:id/asset
  */
 export async function Sensor_GetAsset(id: string): Promise<Asset> {
   return ApiFetch({
-    method: "GET",
-    url: "/Sensors/:id/asset",
+    method: 'GET',
+    url: '/Sensors/:id/asset',
     routeParams: {
       id,
     },
@@ -52,8 +35,8 @@ export async function Sensor_FindByIdDatasets(
   fk: string
 ): Promise<Dataset> {
   return ApiFetch({
-    method: "GET",
-    url: "/Sensors/:id/datasets/:fk",
+    method: 'GET',
+    url: '/Sensors/:id/datasets/:fk',
     routeParams: {
       id,
       fk,
@@ -70,8 +53,8 @@ export async function Sensor_UpdateByIdDatasets(
   data: any = {}
 ): Promise<Dataset> {
   return ApiFetch({
-    method: "PUT",
-    url: "/Sensors/:id/datasets/:fk",
+    method: 'PUT',
+    url: '/Sensors/:id/datasets/:fk',
     routeParams: {
       id,
       fk,
@@ -90,8 +73,8 @@ export async function Sensor_FindByIdAlerts(
   fk: string
 ): Promise<Alert> {
   return ApiFetch({
-    method: "GET",
-    url: "/Sensors/:id/alerts/:fk",
+    method: 'GET',
+    url: '/Sensors/:id/alerts/:fk',
     routeParams: {
       id,
       fk,
@@ -108,8 +91,8 @@ export async function Sensor_UpdateByIdAlerts(
   data: any = {}
 ): Promise<Alert> {
   return ApiFetch({
-    method: "PUT",
-    url: "/Sensors/:id/alerts/:fk",
+    method: 'PUT',
+    url: '/Sensors/:id/alerts/:fk',
     routeParams: {
       id,
       fk,
@@ -128,8 +111,8 @@ export async function Sensor_FindByIdAlertHistory(
   fk: string
 ): Promise<AlertHistory> {
   return ApiFetch({
-    method: "GET",
-    url: "/Sensors/:id/alertHistory/:fk",
+    method: 'GET',
+    url: '/Sensors/:id/alertHistory/:fk',
     routeParams: {
       id,
       fk,
@@ -146,8 +129,8 @@ export async function Sensor_UpdateByIdAlertHistory(
   data: any = {}
 ): Promise<AlertHistory> {
   return ApiFetch({
-    method: "PUT",
-    url: "/Sensors/:id/alertHistory/:fk",
+    method: 'PUT',
+    url: '/Sensors/:id/alertHistory/:fk',
     routeParams: {
       id,
       fk,
@@ -161,10 +144,10 @@ export async function Sensor_UpdateByIdAlertHistory(
  * Capta la relación hasOne lastData.
  * /Sensors/:id/lastData
  */
-export async function Sensor_GetLastData(id: string): Promise<any> {
+export async function Sensor_GetLastData(id: string): Promise<Data> {
   return ApiFetch({
-    method: "GET",
-    url: "/Sensors/:id/lastData",
+    method: 'GET',
+    url: '/Sensors/:id/lastData',
     routeParams: {
       id,
     },
@@ -174,10 +157,10 @@ export async function Sensor_GetLastData(id: string): Promise<any> {
  * Suprime lastData de este modelo.
  * /Sensors/:id/lastData
  */
-export async function Sensor_DestroyLastData(id: string): Promise<any> {
+export async function Sensor_DestroyLastData(id: string): Promise<void> {
   return ApiFetch({
-    method: "DELETE",
-    url: "/Sensors/:id/lastData",
+    method: 'DELETE',
+    url: '/Sensors/:id/lastData',
     routeParams: {
       id,
     },
@@ -192,8 +175,8 @@ export async function Sensor_FindByIdAssetStates(
   fk: string
 ): Promise<AssetState> {
   return ApiFetch({
-    method: "GET",
-    url: "/Sensors/:id/assetStates/:fk",
+    method: 'GET',
+    url: '/Sensors/:id/assetStates/:fk',
     routeParams: {
       id,
       fk,
@@ -210,8 +193,8 @@ export async function Sensor_LinkAssetStates(
   data: any = {}
 ): Promise<SensorAssetState> {
   return ApiFetch({
-    method: "PUT",
-    url: "/Sensors/:id/assetStates/rel/:fk",
+    method: 'PUT',
+    url: '/Sensors/:id/assetStates/rel/:fk',
     routeParams: {
       id,
       fk,
@@ -228,10 +211,10 @@ export async function Sensor_LinkAssetStates(
 export async function Sensor_UnlinkAssetStates(
   id: string,
   fk: string
-): Promise<any> {
+): Promise<void> {
   return ApiFetch({
-    method: "DELETE",
-    url: "/Sensors/:id/assetStates/rel/:fk",
+    method: 'DELETE',
+    url: '/Sensors/:id/assetStates/rel/:fk',
     routeParams: {
       id,
       fk,
@@ -247,8 +230,8 @@ export async function Sensor_ExistsAssetStates(
   fk: string
 ): Promise<boolean> {
   return ApiFetch({
-    method: "HEAD",
-    url: "/Sensors/:id/assetStates/rel/:fk",
+    method: 'HEAD',
+    url: '/Sensors/:id/assetStates/rel/:fk',
     routeParams: {
       id,
       fk,
@@ -264,8 +247,8 @@ export async function Sensor_FindByIdStates(
   fk: string
 ): Promise<SensorAssetState> {
   return ApiFetch({
-    method: "GET",
-    url: "/Sensors/:id/states/:fk",
+    method: 'GET',
+    url: '/Sensors/:id/states/:fk',
     routeParams: {
       id,
       fk,
@@ -282,8 +265,8 @@ export async function Sensor_UpdateByIdStates(
   data: any = {}
 ): Promise<SensorAssetState> {
   return ApiFetch({
-    method: "PUT",
-    url: "/Sensors/:id/states/:fk",
+    method: 'PUT',
+    url: '/Sensors/:id/states/:fk',
     routeParams: {
       id,
       fk,
@@ -302,55 +285,11 @@ export async function Sensor_FindByIdSummaries(
   fk: string
 ): Promise<Summary> {
   return ApiFetch({
-    method: "GET",
-    url: "/Sensors/:id/summaries/:fk",
+    method: 'GET',
+    url: '/Sensors/:id/summaries/:fk',
     routeParams: {
       id,
       fk,
-    },
-  });
-}
-/**
- * trackingLogs consultas de Sensor.
- * /Sensors/:id/trackingLogs
- */
-export async function Sensor_GetTrackingLogs(
-  id: string,
-  filter: Filter<any> = {}
-): Promise<Log[]> {
-  const _urlParams: any = {};
-  if (filter != null) {
-    _urlParams["filter"] = filter;
-  }
-
-  return ApiFetch({
-    method: "GET",
-    url: "/Sensors/:id/trackingLogs",
-    urlParams: _urlParams,
-    routeParams: {
-      id,
-    },
-  });
-}
-/**
- * Recuentos trackingLogs de Sensor.
- * /Sensors/:id/trackingLogs/count
- */
-export async function Sensor_CountTrackingLogs(
-  id: string,
-  where: any = {}
-): Promise<number> {
-  const _urlParams: any = {};
-  if (where != null) {
-    _urlParams["where"] = where;
-  }
-
-  return ApiFetch({
-    method: "GET",
-    url: "/Sensors/:id/trackingLogs/count",
-    urlParams: _urlParams,
-    routeParams: {
-      id,
     },
   });
 }
@@ -364,12 +303,12 @@ export async function Sensor_GetDatasets(
 ): Promise<Dataset[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Sensors/:id/datasets",
+    method: 'GET',
+    url: '/Sensors/:id/datasets',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -385,8 +324,8 @@ export async function Sensor_CreateDatasets(
   data: any = {}
 ): Promise<Dataset> {
   return ApiFetch({
-    method: "POST",
-    url: "/Sensors/:id/datasets",
+    method: 'POST',
+    url: '/Sensors/:id/datasets',
     routeParams: {
       id,
     },
@@ -405,12 +344,12 @@ export async function Sensor_CountDatasets(
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams["where"] = where;
+    _urlParams['where'] = where;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Sensors/:id/datasets/count",
+    method: 'GET',
+    url: '/Sensors/:id/datasets/count',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -427,12 +366,12 @@ export async function Sensor_GetAlerts(
 ): Promise<Alert[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Sensors/:id/alerts",
+    method: 'GET',
+    url: '/Sensors/:id/alerts',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -449,12 +388,12 @@ export async function Sensor_CountAlerts(
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams["where"] = where;
+    _urlParams['where'] = where;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Sensors/:id/alerts/count",
+    method: 'GET',
+    url: '/Sensors/:id/alerts/count',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -471,12 +410,12 @@ export async function Sensor_GetAlertHistory(
 ): Promise<AlertHistory[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Sensors/:id/alertHistory",
+    method: 'GET',
+    url: '/Sensors/:id/alertHistory',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -493,12 +432,12 @@ export async function Sensor_CountAlertHistory(
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams["where"] = where;
+    _urlParams['where'] = where;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Sensors/:id/alertHistory/count",
+    method: 'GET',
+    url: '/Sensors/:id/alertHistory/count',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -515,12 +454,12 @@ export async function Sensor_GetAssetStates(
 ): Promise<AssetState[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Sensors/:id/assetStates",
+    method: 'GET',
+    url: '/Sensors/:id/assetStates',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -537,12 +476,12 @@ export async function Sensor_CountAssetStates(
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams["where"] = where;
+    _urlParams['where'] = where;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Sensors/:id/assetStates/count",
+    method: 'GET',
+    url: '/Sensors/:id/assetStates/count',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -559,12 +498,12 @@ export async function Sensor_GetStates(
 ): Promise<SensorAssetState[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Sensors/:id/states",
+    method: 'GET',
+    url: '/Sensors/:id/states',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -581,12 +520,12 @@ export async function Sensor_CountStates(
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams["where"] = where;
+    _urlParams['where'] = where;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Sensors/:id/states/count",
+    method: 'GET',
+    url: '/Sensors/:id/states/count',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -603,12 +542,12 @@ export async function Sensor_GetSummaries(
 ): Promise<Summary[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Sensors/:id/summaries",
+    method: 'GET',
+    url: '/Sensors/:id/summaries',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -625,29 +564,15 @@ export async function Sensor_CountSummaries(
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams["where"] = where;
+    _urlParams['where'] = where;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Sensors/:id/summaries/count",
+    method: 'GET',
+    url: '/Sensors/:id/summaries/count',
     urlParams: _urlParams,
     routeParams: {
       id,
-    },
-  });
-}
-/**
- * Create a new instance of the model and persist it into the data source.
- * /Sensors
- */
-export async function Sensor_create(data: any = {}): Promise<Sensor> {
-  return ApiFetch({
-    method: "POST",
-    url: "/Sensors",
-    routeParams: {},
-    body: {
-      data,
     },
   });
 }
@@ -657,8 +582,8 @@ export async function Sensor_create(data: any = {}): Promise<Sensor> {
  */
 export async function Sensor_exists(id: string): Promise<boolean> {
   return ApiFetch({
-    method: "GET",
-    url: "/Sensors/:id/exists",
+    method: 'GET',
+    url: '/Sensors/:id/exists',
     routeParams: {
       id,
     },
@@ -674,82 +599,16 @@ export async function Sensor_findById(
 ): Promise<Sensor> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Sensors/:id",
+    method: 'GET',
+    url: '/Sensors/:id',
     urlParams: _urlParams,
     routeParams: {
       id,
     },
-  });
-}
-/**
- * Find all instances of the model matched by filter from the data source.
- * /Sensors
- */
-export async function Sensor_find(filter: Filter<any> = {}): Promise<Sensor[]> {
-  const _urlParams: any = {};
-  if (filter != null) {
-    _urlParams["filter"] = filter;
-  }
-
-  return ApiFetch({
-    method: "GET",
-    url: "/Sensors",
-    urlParams: _urlParams,
-    routeParams: {},
-  });
-}
-/**
- * Find first instance of the model matched by filter from the data source.
- * /Sensors/findOne
- */
-export async function Sensor_findOne(
-  filter: Filter<any> = {}
-): Promise<Sensor> {
-  const _urlParams: any = {};
-  if (filter != null) {
-    _urlParams["filter"] = filter;
-  }
-
-  return ApiFetch({
-    method: "GET",
-    url: "/Sensors/findOne",
-    urlParams: _urlParams,
-    routeParams: {},
-  });
-}
-/**
- * Delete a model instance by {{id}} from the data source.
- * /Sensors/:id
- */
-export async function Sensor_deleteById(id: string): Promise<any> {
-  return ApiFetch({
-    method: "DELETE",
-    url: "/Sensors/:id",
-    routeParams: {
-      id,
-    },
-  });
-}
-/**
- * Count instances of the model matched by where from the data source.
- * /Sensors/count
- */
-export async function Sensor_count(where: any = {}): Promise<number> {
-  const _urlParams: any = {};
-  if (where != null) {
-    _urlParams["where"] = where;
-  }
-
-  return ApiFetch({
-    method: "GET",
-    url: "/Sensors/count",
-    urlParams: _urlParams,
-    routeParams: {},
   });
 }
 /**
@@ -764,12 +623,12 @@ export async function Sensor_DownloadDatasets(
 ): Promise<any> {
   const _urlParams: any = {};
   if (datasourceName != null) {
-    _urlParams["datasourceName"] = datasourceName;
+    _urlParams['datasourceName'] = datasourceName;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Sensors/:id/datasets/:nk/download/:file",
+    method: 'GET',
+    url: '/Sensors/:id/datasets/:nk/download/:file',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -790,12 +649,12 @@ export async function Sensor_GetSignedUrlDatasets(
 ): Promise<any> {
   const _urlParams: any = {};
   if (datasourceName != null) {
-    _urlParams["datasourceName"] = datasourceName;
+    _urlParams['datasourceName'] = datasourceName;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Sensors/:id/datasets/:nk/signed-url/:file",
+    method: 'GET',
+    url: '/Sensors/:id/datasets/:nk/signed-url/:file',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -808,10 +667,10 @@ export async function Sensor_GetSignedUrlDatasets(
  * Get last sensor data
  * /Sensors/:id/data/last
  */
-export async function Sensor_LastData(id: string): Promise<any> {
+export async function Sensor_LastData(id: string): Promise<Data> {
   return ApiFetch({
-    method: "GET",
-    url: "/Sensors/:id/data/last",
+    method: 'GET',
+    url: '/Sensors/:id/data/last',
     routeParams: {
       id,
     },
@@ -825,8 +684,8 @@ export async function Sensor_getCurrentState(
   id: string
 ): Promise<SensorAssetState> {
   return ApiFetch({
-    method: "GET",
-    url: "/Sensors/:id/currentState",
+    method: 'GET',
+    url: '/Sensors/:id/currentState',
     routeParams: {
       id,
     },
@@ -842,12 +701,12 @@ export async function Sensor_withCurrentState(
 ): Promise<Sensor> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Sensors/:id/withCurrentState",
+    method: 'GET',
+    url: '/Sensors/:id/withCurrentState',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -862,10 +721,10 @@ export async function Sensor_FindByIdDatasetsData(
   id: string,
   nk: string,
   fk: string
-): Promise<any> {
+): Promise<Data> {
   return ApiFetch({
-    method: "GET",
-    url: "/Sensors/:id/datasets/:nk/data/:fk",
+    method: 'GET',
+    url: '/Sensors/:id/datasets/:nk/data/:fk',
     routeParams: {
       id,
       nk,
@@ -881,10 +740,10 @@ export async function Sensor_DestroyByIdDatasetsData(
   id: string,
   nk: string,
   fk: string
-): Promise<any> {
+): Promise<void> {
   return ApiFetch({
-    method: "DELETE",
-    url: "/Sensors/:id/datasets/:nk/data/:fk",
+    method: 'DELETE',
+    url: '/Sensors/:id/datasets/:nk/data/:fk',
     routeParams: {
       id,
       nk,
@@ -901,10 +760,10 @@ export async function Sensor_UpdateByIdDatasetsData(
   nk: string,
   fk: string,
   data: any = {}
-): Promise<any> {
+): Promise<Data> {
   return ApiFetch({
-    method: "PUT",
-    url: "/Sensors/:id/datasets/:nk/data/:fk",
+    method: 'PUT',
+    url: '/Sensors/:id/datasets/:nk/data/:fk',
     routeParams: {
       id,
       nk,
@@ -923,15 +782,15 @@ export async function Sensor_GetDatasetsData(
   id: string,
   nk: string,
   filter: Filter<any> = {}
-): Promise<any> {
+): Promise<Data[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Sensors/:id/datasets/:nk/data",
+    method: 'GET',
+    url: '/Sensors/:id/datasets/:nk/data',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -947,10 +806,10 @@ export async function Sensor_CreateDatasetsData(
   id: string,
   nk: string,
   data: any = {}
-): Promise<any> {
+): Promise<Data> {
   return ApiFetch({
-    method: "POST",
-    url: "/Sensors/:id/datasets/:nk/data",
+    method: 'POST',
+    url: '/Sensors/:id/datasets/:nk/data',
     routeParams: {
       id,
       nk,
@@ -971,12 +830,12 @@ export async function Sensor_CountDatasetsData(
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams["where"] = where;
+    _urlParams['where'] = where;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Sensors/:id/datasets/:nk/data/count",
+    method: 'GET',
+    url: '/Sensors/:id/datasets/:nk/data/count',
     urlParams: _urlParams,
     routeParams: {
       id,

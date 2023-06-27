@@ -1,8 +1,8 @@
-import { Log } from "./Log";
-import { Project } from "./Project";
-import { Sensor } from "./Sensor";
-import { VirtualExpression } from "./VirtualExpression";
-import { VirtualGroup } from "./VirtualGroup";
+import { Log } from './Log';
+import { Project } from './Project';
+import { Sensor } from './Sensor';
+import { VirtualExpression } from './VirtualExpression';
+import { VirtualGroup } from './VirtualGroup';
 
 export type VirtualVariable = {
   type?: string;

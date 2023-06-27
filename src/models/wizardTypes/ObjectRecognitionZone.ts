@@ -6,10 +6,12 @@ export type ObjectRecognitionZoneSurveillanceNVRSettings = {
     password?: string;
     defaultCameraPassword?: string;
   };
+  attributes?: Record<string, undefined>;
 };
 
 export type ObjectRecognitionZoneVSAASFacesSettings = {
   rekognition?: {
     storeId?: string;
   };
+  attributes?: Record<string, undefined>;
 };

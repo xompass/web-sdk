@@ -1,5 +1,5 @@
-import { Asset } from "./Asset";
-import { Log } from "./Log";
+import { Asset } from './Asset';
+import { Log } from './Log';
 
 export type AssetMilestone = {
   creationDate?: Date;

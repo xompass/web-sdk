@@ -1,5 +1,5 @@
-import { EdgeAgentTemplate } from "./EdgeAgentTemplate";
-import { Log } from "./Log";
+import { EdgeAgentTemplate } from './EdgeAgentTemplate';
+import { Log } from './Log';
 
 export type AssetWizardType = {
   type: string;

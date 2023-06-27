@@ -1,7 +1,7 @@
 export type LicensePlateTrigger = {
-  classes?: ("bus" | "car" | "motorbike" | "truck")[];
+  classes?: ('bus' | 'car' | 'motorbike' | 'truck')[];
   value?: number;
-  operator?: "eq" | "neq" | "gt" | "gte" | "lt" | "lte" | "null";
+  operator?: 'eq' | 'neq' | 'gt' | 'gte' | 'lt' | 'lte' | 'null';
   intervalTime?: number;
   advanced?: {
     matchRatio?: number;

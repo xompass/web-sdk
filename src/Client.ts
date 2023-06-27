@@ -67,12 +67,7 @@ export class ApiClient {
   }
 
   public async logout(): Promise<void> {
-    this.accessToken = undefined;
-    this.userId = undefined;
-    this.principalType = undefined;
-
     const storedAccessToken = getLocalStorageValue('vsaas$accessToken');
-
     if (storedAccessToken && this.principalType) {
       try {
         switch (this.principalType) {
@@ -89,6 +84,10 @@ export class ApiClient {
         // Ignore errors
       }
     }
+
+    this.accessToken = undefined;
+    this.userId = undefined;
+    this.principalType = undefined;
 
     setLocalStorageValue('vsaas$accessToken', undefined);
     setLocalStorageValue('vsaas$userId', undefined);

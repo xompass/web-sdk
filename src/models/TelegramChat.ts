@@ -1,8 +1,8 @@
-import { Customer } from "./Customer";
-import { Device } from "./Device";
-import { EdgeAgent } from "./EdgeAgent";
-import { EventTrigger } from "./EventTrigger";
-import { Log } from "./Log";
+import { Customer } from './Customer';
+import { Device } from './Device';
+import { EdgeAgent } from './EdgeAgent';
+import { EventTrigger } from './EventTrigger';
+import { Log } from './Log';
 
 export type TelegramChat = {
   name: string;

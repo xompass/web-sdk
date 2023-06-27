@@ -1,30 +1,12 @@
-import { ApiFetch, Filter } from "../core/ApiFetch";
-import { SensorTemplate } from "../models/SensorTemplate";
-import { Log } from "../models/Log";
-import { AssetStateTemplate } from "../models/AssetStateTemplate";
-import { SensorAssetStateTemplate } from "../models/SensorAssetStateTemplate";
+import { ApiFetch, Filter } from '../core/ApiFetch';
+import { SensorTemplate } from '../models/SensorTemplate';
+import { AssetStateTemplate } from '../models/AssetStateTemplate';
+import { SensorAssetStateTemplate } from '../models/SensorAssetStateTemplate';
 
 /**
  * Api services for the `SensorTemplate` model.
  */
 
-/**
- * Buscar un elemento relacionado por id para trackingLogs.
- * /SensorTemplates/:id/trackingLogs/:fk
- */
-export async function SensorTemplate_FindByIdTrackingLogs(
-  id: string,
-  fk: string
-): Promise<Log> {
-  return ApiFetch({
-    method: "GET",
-    url: "/SensorTemplates/:id/trackingLogs/:fk",
-    routeParams: {
-      id,
-      fk,
-    },
-  });
-}
 /**
  * Buscar un elemento relacionado por id para assetStateTemplates.
  * /SensorTemplates/:id/assetStateTemplates/:fk
@@ -34,8 +16,8 @@ export async function SensorTemplate_FindByIdAssetStateTemplates(
   fk: string
 ): Promise<AssetStateTemplate> {
   return ApiFetch({
-    method: "GET",
-    url: "/SensorTemplates/:id/assetStateTemplates/:fk",
+    method: 'GET',
+    url: '/SensorTemplates/:id/assetStateTemplates/:fk',
     routeParams: {
       id,
       fk,
@@ -52,8 +34,8 @@ export async function SensorTemplate_LinkAssetStateTemplates(
   data: any = {}
 ): Promise<SensorAssetStateTemplate> {
   return ApiFetch({
-    method: "PUT",
-    url: "/SensorTemplates/:id/assetStateTemplates/rel/:fk",
+    method: 'PUT',
+    url: '/SensorTemplates/:id/assetStateTemplates/rel/:fk',
     routeParams: {
       id,
       fk,
@@ -70,10 +52,10 @@ export async function SensorTemplate_LinkAssetStateTemplates(
 export async function SensorTemplate_UnlinkAssetStateTemplates(
   id: string,
   fk: string
-): Promise<any> {
+): Promise<void> {
   return ApiFetch({
-    method: "DELETE",
-    url: "/SensorTemplates/:id/assetStateTemplates/rel/:fk",
+    method: 'DELETE',
+    url: '/SensorTemplates/:id/assetStateTemplates/rel/:fk',
     routeParams: {
       id,
       fk,
@@ -89,8 +71,8 @@ export async function SensorTemplate_ExistsAssetStateTemplates(
   fk: string
 ): Promise<boolean> {
   return ApiFetch({
-    method: "HEAD",
-    url: "/SensorTemplates/:id/assetStateTemplates/rel/:fk",
+    method: 'HEAD',
+    url: '/SensorTemplates/:id/assetStateTemplates/rel/:fk',
     routeParams: {
       id,
       fk,
@@ -106,8 +88,8 @@ export async function SensorTemplate_FindByIdStateTemplates(
   fk: string
 ): Promise<SensorAssetStateTemplate> {
   return ApiFetch({
-    method: "GET",
-    url: "/SensorTemplates/:id/stateTemplates/:fk",
+    method: 'GET',
+    url: '/SensorTemplates/:id/stateTemplates/:fk',
     routeParams: {
       id,
       fk,
@@ -124,58 +106,14 @@ export async function SensorTemplate_UpdateByIdStateTemplates(
   data: any = {}
 ): Promise<SensorAssetStateTemplate> {
   return ApiFetch({
-    method: "PUT",
-    url: "/SensorTemplates/:id/stateTemplates/:fk",
+    method: 'PUT',
+    url: '/SensorTemplates/:id/stateTemplates/:fk',
     routeParams: {
       id,
       fk,
     },
     body: {
       data,
-    },
-  });
-}
-/**
- * trackingLogs consultas de SensorTemplate.
- * /SensorTemplates/:id/trackingLogs
- */
-export async function SensorTemplate_GetTrackingLogs(
-  id: string,
-  filter: Filter<any> = {}
-): Promise<Log[]> {
-  const _urlParams: any = {};
-  if (filter != null) {
-    _urlParams["filter"] = filter;
-  }
-
-  return ApiFetch({
-    method: "GET",
-    url: "/SensorTemplates/:id/trackingLogs",
-    urlParams: _urlParams,
-    routeParams: {
-      id,
-    },
-  });
-}
-/**
- * Recuentos trackingLogs de SensorTemplate.
- * /SensorTemplates/:id/trackingLogs/count
- */
-export async function SensorTemplate_CountTrackingLogs(
-  id: string,
-  where: any = {}
-): Promise<number> {
-  const _urlParams: any = {};
-  if (where != null) {
-    _urlParams["where"] = where;
-  }
-
-  return ApiFetch({
-    method: "GET",
-    url: "/SensorTemplates/:id/trackingLogs/count",
-    urlParams: _urlParams,
-    routeParams: {
-      id,
     },
   });
 }
@@ -189,12 +127,12 @@ export async function SensorTemplate_GetAssetStateTemplates(
 ): Promise<AssetStateTemplate[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/SensorTemplates/:id/assetStateTemplates",
+    method: 'GET',
+    url: '/SensorTemplates/:id/assetStateTemplates',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -211,12 +149,12 @@ export async function SensorTemplate_CountAssetStateTemplates(
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams["where"] = where;
+    _urlParams['where'] = where;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/SensorTemplates/:id/assetStateTemplates/count",
+    method: 'GET',
+    url: '/SensorTemplates/:id/assetStateTemplates/count',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -233,12 +171,12 @@ export async function SensorTemplate_GetStateTemplates(
 ): Promise<SensorAssetStateTemplate[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/SensorTemplates/:id/stateTemplates",
+    method: 'GET',
+    url: '/SensorTemplates/:id/stateTemplates',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -255,31 +193,15 @@ export async function SensorTemplate_CountStateTemplates(
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams["where"] = where;
+    _urlParams['where'] = where;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/SensorTemplates/:id/stateTemplates/count",
+    method: 'GET',
+    url: '/SensorTemplates/:id/stateTemplates/count',
     urlParams: _urlParams,
     routeParams: {
       id,
-    },
-  });
-}
-/**
- * Create a new instance of the model and persist it into the data source.
- * /SensorTemplates
- */
-export async function SensorTemplate_create(
-  data: any = {}
-): Promise<SensorTemplate> {
-  return ApiFetch({
-    method: "POST",
-    url: "/SensorTemplates",
-    routeParams: {},
-    body: {
-      data,
     },
   });
 }
@@ -289,8 +211,8 @@ export async function SensorTemplate_create(
  */
 export async function SensorTemplate_exists(id: string): Promise<boolean> {
   return ApiFetch({
-    method: "GET",
-    url: "/SensorTemplates/:id/exists",
+    method: 'GET',
+    url: '/SensorTemplates/:id/exists',
     routeParams: {
       id,
     },
@@ -306,83 +228,15 @@ export async function SensorTemplate_findById(
 ): Promise<SensorTemplate> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/SensorTemplates/:id",
+    method: 'GET',
+    url: '/SensorTemplates/:id',
     urlParams: _urlParams,
     routeParams: {
       id,
     },
-  });
-}
-/**
- * Find all instances of the model matched by filter from the data source.
- * /SensorTemplates
- */
-export async function SensorTemplate_find(
-  filter: Filter<any> = {}
-): Promise<SensorTemplate[]> {
-  const _urlParams: any = {};
-  if (filter != null) {
-    _urlParams["filter"] = filter;
-  }
-
-  return ApiFetch({
-    method: "GET",
-    url: "/SensorTemplates",
-    urlParams: _urlParams,
-    routeParams: {},
-  });
-}
-/**
- * Find first instance of the model matched by filter from the data source.
- * /SensorTemplates/findOne
- */
-export async function SensorTemplate_findOne(
-  filter: Filter<any> = {}
-): Promise<SensorTemplate> {
-  const _urlParams: any = {};
-  if (filter != null) {
-    _urlParams["filter"] = filter;
-  }
-
-  return ApiFetch({
-    method: "GET",
-    url: "/SensorTemplates/findOne",
-    urlParams: _urlParams,
-    routeParams: {},
-  });
-}
-/**
- * Delete a model instance by {{id}} from the data source.
- * /SensorTemplates/:id
- */
-export async function SensorTemplate_deleteById(id: string): Promise<any> {
-  return ApiFetch({
-    method: "DELETE",
-    url: "/SensorTemplates/:id",
-    routeParams: {
-      id,
-    },
-  });
-}
-/**
- * Count instances of the model matched by where from the data source.
- * /SensorTemplates/count
- */
-export async function SensorTemplate_count(where: any = {}): Promise<number> {
-  const _urlParams: any = {};
-  if (where != null) {
-    _urlParams["where"] = where;
-  }
-
-  return ApiFetch({
-    method: "GET",
-    url: "/SensorTemplates/count",
-    urlParams: _urlParams,
-    routeParams: {},
   });
 }

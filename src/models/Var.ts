@@ -1,7 +1,6 @@
 import { Admin } from './Admin';
 import { Country } from './Country';
 import { Customer } from './Customer';
-import { File } from './File';
 import { Log } from './Log';
 import { Toolkit } from './Toolkit';
 import { ToolkitTemplate } from './ToolkitTemplate';

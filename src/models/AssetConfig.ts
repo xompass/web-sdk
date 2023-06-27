@@ -1,14 +1,14 @@
-import { Feature } from "./GeoJSON";
+import { Feature } from './GeoJSON';
 import {
   ObjectRecognitionCamSurveillanceCameraSettings,
   ObjectRecognitionCamSurveillanceNVRSettings,
   ObjectRecognitionCamVSAASFacesSettings,
-} from "./wizardTypes/ObjectRecognitionCam";
+} from './wizardTypes/ObjectRecognitionCam';
 import {
   ObjectRecognitionZoneSurveillanceNVRSettings,
   ObjectRecognitionZoneVSAASFacesSettings,
-} from "./wizardTypes/ObjectRecognitionZone";
-import { StoreStoreVideoAnalyticsSettings } from "./wizardTypes/Store";
+} from './wizardTypes/ObjectRecognitionZone';
+import { StoreStoreVideoAnalyticsSettings } from './wizardTypes/Store';
 
 export type AssetConfig = {
   id?: string;

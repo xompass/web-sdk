@@ -1,4 +1,4 @@
-import { Log } from "./Log";
+import { Log } from './Log';
 
 export type Country = {
   name: string;

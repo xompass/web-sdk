@@ -10,14 +10,14 @@ export type Geometry =
   | Polygon
   | MultiPolygon
   | GeometryCollection;
-export type GeometryType = Geometry["type"];
+export type GeometryType = Geometry['type'];
 
 /**
  * ...the term "GeoJSON types" refers to nine case-sensitive strings: "Feature", "FeatureCollection", and the
  * geometry types listed above.
  */
 export type GeoJson = Geometry | Feature | FeatureCollection;
-export type GeoJsonType = GeoJson["type"];
+export type GeoJsonType = GeoJson['type'];
 
 // types
 
@@ -62,7 +62,7 @@ export interface GeometryBase extends Record {
 // geometry types
 
 export interface Point extends GeometryBase {
-  type: "Point";
+  type: 'Point';
   /**
    * For type "Point", the "coordinates" member is a single position.
    */
@@ -70,7 +70,7 @@ export interface Point extends GeometryBase {
 }
 
 export interface MultiPoint extends GeometryBase {
-  type: "MultiPoint";
+  type: 'MultiPoint';
   /**
    * For type "MultiPoint", the "coordinates" member is an array of positions.
    */
@@ -78,7 +78,7 @@ export interface MultiPoint extends GeometryBase {
 }
 
 export interface LineString extends GeometryBase {
-  type: "LineString";
+  type: 'LineString';
   /**
    * For type "LineString", the "coordinates" member is an array of two or more positions.
    */
@@ -86,11 +86,11 @@ export interface LineString extends GeometryBase {
 }
 
 export interface MultiLineString extends GeometryBase {
-  type: "MultiLineString";
+  type: 'MultiLineString';
   /**
    *  For type "MultiLineString", the "coordinates" member is an array of LineString coordinate arrays.
    */
-  coordinates: LineString["coordinates"][];
+  coordinates: LineString['coordinates'][];
 }
 
 /**
@@ -110,7 +110,7 @@ export type LinearRing = {
 } & Position[];
 
 export interface Polygon extends GeometryBase {
-  type: "Polygon";
+  type: 'Polygon';
   /**
    * For type "Polygon", the "coordinates" member MUST be an array of linear ring coordinate arrays.
    *
@@ -122,18 +122,18 @@ export interface Polygon extends GeometryBase {
 }
 
 export interface MultiPolygon extends GeometryBase {
-  type: "MultiPolygon";
+  type: 'MultiPolygon';
   /**
    * For type "MultiPolygon", the "coordinates" member is an array of Polygon coordinate arrays.
    */
-  coordinates: Polygon["coordinates"][];
+  coordinates: Polygon['coordinates'][];
 }
 
 export interface GeometryCollection {
   /**
    * A GeoJSON object with type "GeometryCollection" is a Geometry object.
    */
-  type: "GeometryCollection";
+  type: 'GeometryCollection';
   /**
    *  A GeometryCollection has a member with the name "geometries". The value of "geometries" is an array. Each
    *  element of this array is a GeoJSON Geometry object. It is possible for this array to be empty.
@@ -147,7 +147,7 @@ export interface Feature {
   /**
    * A Feature object has a "type" member with the value "Feature".
    */
-  type: "Feature";
+  type: 'Feature';
   /**
    * If a Feature has a commonly used identifier, that identifier SHOULD be included as a member of the Feature object
    * with the name "id", and the value of this member is either a JSON string or number.
@@ -169,7 +169,7 @@ export interface FeatureCollection {
   /**
    * A GeoJSON object with the type "FeatureCollection" is a FeatureCollection object.
    */
-  type: "FeatureCollection";
+  type: 'FeatureCollection';
   /**
    * A FeatureCollection object has a member with the name "features". The value of "features" is a JSON array. Each
    * element of the array is a Feature object as defined above. It is possible for this array to be empty.

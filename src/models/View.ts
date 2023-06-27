@@ -1,5 +1,5 @@
-import { Log } from "./Log";
-import { Manager } from "./Manager";
+import { Log } from './Log';
+import { Manager } from './Manager';
 
 export type View = {
   name: string;

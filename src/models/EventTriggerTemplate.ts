@@ -1,9 +1,9 @@
-import { AssetStateTemplate } from "./AssetStateTemplate";
-import { AssetTemplate } from "./AssetTemplate";
-import { EventGroupTemplate } from "./EventGroupTemplate";
-import { EventTriggerAssetStateTemplate } from "./EventTriggerAssetStateTemplate";
-import { EventTriggerRuleTemplate } from "./EventTriggerRuleTemplate";
-import { Log } from "./Log";
+import { AssetStateTemplate } from './AssetStateTemplate';
+import { AssetTemplate } from './AssetTemplate';
+import { EventGroupTemplate } from './EventGroupTemplate';
+import { EventTriggerAssetStateTemplate } from './EventTriggerAssetStateTemplate';
+import { EventTriggerRuleTemplate } from './EventTriggerRuleTemplate';
+import { Log } from './Log';
 
 export type EventTriggerTemplate = {
   type: string;

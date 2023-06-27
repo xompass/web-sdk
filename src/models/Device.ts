@@ -31,31 +31,3 @@ export type DeviceConfig = {
   modified?: Date;
   deleted?: Date;
 };
-
-export type DeviceLogs = {
-  id: string;
-  type: string;
-  agent?: string[];
-  modules?: Record<string, string[]>;
-};
-
-export type DeviceUptime = {
-  id: string;
-  started: Date;
-  uptime: number;
-  version: string;
-};
-
-export type DeviceVersion = {
-  id: string;
-  type: string;
-  content: {
-    v: string;
-  };
-};
-
-export type DeviceStatusError = {
-  message: string;
-  name: string;
-  statusCode: number;
-};

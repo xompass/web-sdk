@@ -1,8 +1,8 @@
-import { Asset } from "./Asset";
-import { Customer } from "./Customer";
-import { Device } from "./Device";
-import { Log } from "./Log";
-import { TelegramChat } from "./TelegramChat";
+import { Asset } from './Asset';
+import { Customer } from './Customer';
+import { Device } from './Device';
+import { Log } from './Log';
+import { TelegramChat } from './TelegramChat';
 
 export type EdgeAgent = {
   name?: string;

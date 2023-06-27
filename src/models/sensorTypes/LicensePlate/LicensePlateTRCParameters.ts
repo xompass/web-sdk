@@ -25,6 +25,6 @@ export type LicensePlateBasedOnRulesTRCParameters = {
 
 export type LicensePlateBlacklistSearchTRCParameters = {
   minNumOfChars?: number;
-  matchMethod?: "exact" | "prefix" | "contains" | "fuzzy" | "null";
+  matchMethod?: 'exact' | 'prefix' | 'contains' | 'fuzzy' | 'null';
   fuzzyMaxDistance?: number;
 };

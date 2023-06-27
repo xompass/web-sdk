@@ -1,6 +1,3 @@
-import { Admin } from './Admin';
-import { Manager } from './Manager';
-
 export type CommonAccessToken = {
   id?: string;
   ttl?: number;
@@ -8,5 +5,5 @@ export type CommonAccessToken = {
   created?: Date;
   userId?: string;
   principalType?: string;
-  user?: Admin | Manager;
+  user?: any;
 };

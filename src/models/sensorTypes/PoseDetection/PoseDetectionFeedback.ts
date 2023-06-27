@@ -2,7 +2,7 @@ export type PoseDetectionFeedback = {
   image?: {
     container?: string;
     name?: string;
-    type?: "image/jpg" | "image/jpeg" | "image/png";
+    type?: 'image/jpg' | 'image/jpeg' | 'image/png';
     field?: string;
     originalFilename?: string;
     meta?: Record<string, any>;
@@ -12,7 +12,7 @@ export type PoseDetectionFeedback = {
     image?: {
       container?: string;
       name?: string;
-      type?: "image/jpg" | "image/jpeg" | "image/png";
+      type?: 'image/jpg' | 'image/jpeg' | 'image/png';
       field?: string;
       originalFilename?: string;
       meta?: Record<string, any>;
@@ -21,13 +21,14 @@ export type PoseDetectionFeedback = {
   };
   poses?: {
     label:
-      | "NONE"
-      | "HANDS_UP"
-      | "ON_FLOOR"
-      | "RUNNING"
-      | "SEATED"
-      | "STANDING"
-      | "THROWING_THINGS";
+      | 'NONE'
+      | 'HANDS_UP'
+      | 'ON_FLOOR'
+      | 'RUNNING'
+      | 'SEATED'
+      | 'STANDING'
+      | 'THROWING_THINGS'
+      | 'FIGHT';
     probability: number;
     keypoints?: {
       Nose?: {
@@ -162,10 +163,10 @@ export type PoseDetectionFeedback = {
       PROBABILITY?: boolean;
     };
     diagnosis?:
-      | "TRUE_POSITIVE"
-      | "TRUE_NEGATIVE"
-      | "FALSE_POSITIVE"
-      | "FALSE_NEGATIVE";
+      | 'TRUE_POSITIVE'
+      | 'TRUE_NEGATIVE'
+      | 'FALSE_POSITIVE'
+      | 'FALSE_NEGATIVE';
   }[];
   filtered?: boolean;
 };

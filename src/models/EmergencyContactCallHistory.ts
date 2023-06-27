@@ -1,6 +1,6 @@
-import { Customer } from "./Customer";
-import { EmergencyContact } from "./EmergencyContact";
-import { Log } from "./Log";
+import { Customer } from './Customer';
+import { EmergencyContact } from './EmergencyContact';
+import { Log } from './Log';
 
 export type EmergencyContactCallHistory = {
   name?: string;

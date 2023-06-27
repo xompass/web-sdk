@@ -3,7 +3,7 @@ export type MotionDetectionFeedback = {
     gif?: {
       container?: string;
       name?: string;
-      type?: "image/gif";
+      type?: 'image/gif';
       field?: string;
       originalFilename?: string;
       meta?: Record<string, any>;
@@ -12,7 +12,7 @@ export type MotionDetectionFeedback = {
     image?: {
       container?: string;
       name?: string;
-      type?: "image/jpg" | "image/jpeg" | "image/png";
+      type?: 'image/jpg' | 'image/jpeg' | 'image/png';
       field?: string;
       originalFilename?: string;
       meta?: Record<string, any>;
@@ -21,7 +21,7 @@ export type MotionDetectionFeedback = {
     sequence?: {
       container?: string;
       name?: string;
-      type?: "image/jpg" | "image/jpeg" | "image/png";
+      type?: 'image/jpg' | 'image/jpeg' | 'image/png';
       field?: string;
       originalFilename?: string;
       meta?: Record<string, any>;
@@ -41,10 +41,10 @@ export type MotionDetectionFeedback = {
       CLASS?: boolean;
     };
     diagnosis?:
-      | "TRUE_POSITIVE"
-      | "TRUE_NEGATIVE"
-      | "FALSE_POSITIVE"
-      | "FALSE_NEGATIVE";
+      | 'TRUE_POSITIVE'
+      | 'TRUE_NEGATIVE'
+      | 'FALSE_POSITIVE'
+      | 'FALSE_NEGATIVE';
   }[];
   filtered?: boolean;
 };

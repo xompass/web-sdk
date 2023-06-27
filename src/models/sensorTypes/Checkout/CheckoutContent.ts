@@ -1,6 +1,6 @@
 export type CheckoutContent = {
   amount: number;
-  barcode: string;
+  barcode?: string;
   cashierId: string;
   cashRegisterId?: string;
   discount: number;
@@ -8,7 +8,10 @@ export type CheckoutContent = {
   invoiceId: string;
   paymentMethod: string;
   price: number;
-  productColorCode: string;
+  unitPrice: number;
+  tax?: number;
+  netPrice?: number;
+  productColorCode?: string;
   productId: string;
   productName: string;
   productType?: string;

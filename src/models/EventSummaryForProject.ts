@@ -1,8 +1,8 @@
-import { EventSummaryForAsset } from "./EventSummaryForAsset";
-import { Log } from "./Log";
-import { Project } from "./Project";
-import { BasedOnRulesEventSummaryForProject } from "./eventTypes/BasedOnRulesEventSummaryForProject";
-import { BlacklistSearchEventSummaryForProject } from "./eventTypes/BlacklistSearchEventSummaryForProject";
+import { EventSummaryForAsset } from './EventSummaryForAsset';
+import { Log } from './Log';
+import { Project } from './Project';
+import { BasedOnRulesEventSummaryForProject } from './eventTypes/BasedOnRulesEventSummaryForProject';
+import { BlacklistSearchEventSummaryForProject } from './eventTypes/BlacklistSearchEventSummaryForProject';
 
 export type EventSummaryForProject = {
   0?:

@@ -1,8 +1,8 @@
-import { Customer } from "./Customer";
-import { EmergencyContactCallHistory } from "./EmergencyContactCallHistory";
-import { EventTrigger } from "./EventTrigger";
-import { EventTriggerAssetState } from "./EventTriggerAssetState";
-import { Log } from "./Log";
+import { Customer } from './Customer';
+import { EmergencyContactCallHistory } from './EmergencyContactCallHistory';
+import { EventTrigger } from './EventTrigger';
+import { EventTriggerAssetState } from './EventTriggerAssetState';
+import { Log } from './Log';
 
 export type EmergencyContact = {
   name: string;

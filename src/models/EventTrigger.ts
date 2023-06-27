@@ -1,15 +1,15 @@
-import { Asset } from "./Asset";
-import { AssetState } from "./AssetState";
-import { EmergencyContact } from "./EmergencyContact";
-import { Event } from "./Event";
-import { EventDashboard } from "./EventDashboard";
-import { EventGroup } from "./EventGroup";
-import { EventSummary } from "./EventSummary";
-import { EventTriggerAssetState } from "./EventTriggerAssetState";
-import { EventTriggerRule } from "./EventTriggerRule";
-import { EventTriggerTemplate } from "./EventTriggerTemplate";
-import { Log } from "./Log";
-import { TelegramChat } from "./TelegramChat";
+import { Asset } from './Asset';
+import { AssetState } from './AssetState';
+import { EmergencyContact } from './EmergencyContact';
+import { Event } from './Event';
+import { EventDashboard } from './EventDashboard';
+import { EventGroup } from './EventGroup';
+import { EventSummary } from './EventSummary';
+import { EventTriggerAssetState } from './EventTriggerAssetState';
+import { EventTriggerRule } from './EventTriggerRule';
+import { EventTriggerTemplate } from './EventTriggerTemplate';
+import { Log } from './Log';
+import { TelegramChat } from './TelegramChat';
 
 export type EventTrigger = {
   type: string;

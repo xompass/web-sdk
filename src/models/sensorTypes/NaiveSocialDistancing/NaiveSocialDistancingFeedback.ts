@@ -1,10 +1,10 @@
-import { YoloClassLabel } from "../YoloClassLabel";
+import { YoloClassLabel } from '../YoloClassLabel';
 
 export type NaiveSocialDistancingFeedback = {
   image?: {
     container?: string;
     name?: string;
-    type?: "image/jpg" | "image/jpeg" | "image/png";
+    type?: 'image/jpg' | 'image/jpeg' | 'image/png';
     field?: string;
     originalFilename?: string;
     meta?: Record<string, any>;
@@ -14,7 +14,7 @@ export type NaiveSocialDistancingFeedback = {
     image?: {
       container?: string;
       name?: string;
-      type?: "image/jpg" | "image/jpeg" | "image/png";
+      type?: 'image/jpg' | 'image/jpeg' | 'image/png';
       field?: string;
       originalFilename?: string;
       meta?: Record<string, any>;
@@ -34,16 +34,16 @@ export type NaiveSocialDistancingFeedback = {
     colors?: {
       percentage: number;
       label:
-        | "white"
-        | "gray"
-        | "black"
-        | "red"
-        | "yellow"
-        | "brown"
-        | "green"
-        | "cyan"
-        | "blue"
-        | "purple";
+        | 'white'
+        | 'gray'
+        | 'black'
+        | 'red'
+        | 'yellow'
+        | 'brown'
+        | 'green'
+        | 'cyan'
+        | 'blue'
+        | 'purple';
     }[];
     filteredBy?: {
       ZONE?: boolean;
@@ -51,10 +51,10 @@ export type NaiveSocialDistancingFeedback = {
       CLASS?: boolean;
     };
     diagnosis?:
-      | "TRUE_POSITIVE"
-      | "TRUE_NEGATIVE"
-      | "FALSE_POSITIVE"
-      | "FALSE_NEGATIVE";
+      | 'TRUE_POSITIVE'
+      | 'TRUE_NEGATIVE'
+      | 'FALSE_POSITIVE'
+      | 'FALSE_NEGATIVE';
   }[];
   pairs?: any[][];
   filtered?: boolean;

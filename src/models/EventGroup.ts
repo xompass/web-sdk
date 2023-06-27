@@ -1,7 +1,7 @@
-import { Asset } from "./Asset";
-import { EventGroupTemplate } from "./EventGroupTemplate";
-import { EventTrigger } from "./EventTrigger";
-import { Log } from "./Log";
+import { Asset } from './Asset';
+import { EventGroupTemplate } from './EventGroupTemplate';
+import { EventTrigger } from './EventTrigger';
+import { Log } from './Log';
 
 export type EventGroup = {
   name: string;

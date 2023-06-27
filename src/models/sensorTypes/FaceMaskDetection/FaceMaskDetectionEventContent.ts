@@ -3,7 +3,7 @@ export type FaceMaskDetectionEventContent = {
     image?: {
       container?: string;
       name?: string;
-      type?: "image/jpg" | "image/jpeg" | "image/png";
+      type?: 'image/jpg' | 'image/jpeg' | 'image/png';
       field?: string;
       originalFilename?: string;
       meta?: Record<string, any>;
@@ -12,7 +12,7 @@ export type FaceMaskDetectionEventContent = {
     faces?: {
       container?: string;
       name?: string;
-      type?: "image/jpg" | "image/jpeg" | "image/png";
+      type?: 'image/jpg' | 'image/jpeg' | 'image/png';
       field?: string;
       originalFilename?: string;
       meta?: Record<string, any>;

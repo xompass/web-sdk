@@ -1,6 +1,6 @@
-import { Customer } from "./Customer";
-import { Log } from "./Log";
-import { YoloClass } from "./YoloClass";
+import { Customer } from './Customer';
+import { Log } from './Log';
+import { YoloClass } from './YoloClass';
 
 export type YoloClassCustomer = {
   created?: Date;

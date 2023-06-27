@@ -1,5 +1,6 @@
 import { ApiFetch, Filter, Include } from '../core/ApiFetch';
 import { Manager } from '../models/Manager';
+import { CommonAccessToken } from '../models/CommonAccessToken';
 import { Log } from '../models/Log';
 import { Credential } from '../models/Credential';
 import { Customer } from '../models/Customer';
@@ -7,13 +8,15 @@ import { Country } from '../models/Country';
 import { Asset } from '../models/Asset';
 import { CctvDashboard } from '../models/CctvDashboard';
 import { EventDashboard } from '../models/EventDashboard';
+import { ManagerStorageContainer } from '../models/Manager';
 import { PeopleCounterReport } from '../models/PeopleCounterReport';
+import { Permission } from '../models/Manager';
 import { Report } from '../models/Report';
+import { StoreVideoAnalyticDashboard } from '../models/StoreVideoAnalyticDashboard';
 import { TimeZone } from '../models/TimeZone';
 import { TrafficFlowAnalysis } from '../models/TrafficFlowAnalysis';
 import { View } from '../models/View';
-import { UserCrendentials } from '../core/User';
-import { CommonAccessToken } from '../models/CommonAccessToken';
+import { File } from '../models/File';
 
 /**
  * Api services for the `Manager` model.
@@ -26,34 +29,13 @@ import { CommonAccessToken } from '../models/CommonAccessToken';
 export async function Manager_FindByIdAccessTokens(
   id: string,
   fk: string
-): Promise<any> {
+): Promise<CommonAccessToken> {
   return ApiFetch({
     method: 'GET',
     url: '/Managers/:id/accessTokens/:fk',
     routeParams: {
       id,
       fk,
-    },
-  });
-}
-/**
- * Actualizar un elemento relacionado por id para accessTokens.
- * /Managers/:id/accessTokens/:fk
- */
-export async function Manager_UpdateByIdAccessTokens(
-  id: string,
-  fk: string,
-  data: any = {}
-): Promise<any> {
-  return ApiFetch({
-    method: 'PUT',
-    url: '/Managers/:id/accessTokens/:fk',
-    routeParams: {
-      id,
-      fk,
-    },
-    body: {
-      data,
     },
   });
 }
@@ -68,23 +50,6 @@ export async function Manager_FindByIdActivityLogs(
   return ApiFetch({
     method: 'GET',
     url: '/Managers/:id/activityLogs/:fk',
-    routeParams: {
-      id,
-      fk,
-    },
-  });
-}
-/**
- * Buscar un elemento relacionado por id para trackingLogs.
- * /Managers/:id/trackingLogs/:fk
- */
-export async function Manager_FindByIdTrackingLogs(
-  id: string,
-  fk: string
-): Promise<Log> {
-  return ApiFetch({
-    method: 'GET',
-    url: '/Managers/:id/trackingLogs/:fk',
     routeParams: {
       id,
       fk,
@@ -175,7 +140,7 @@ export async function Manager_FindByIdAssets(
 export async function Manager_DestroyByIdAssets(
   id: string,
   fk: string
-): Promise<any> {
+): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
     url: '/Managers/:id/assets/:fk',
@@ -234,7 +199,7 @@ export async function Manager_LinkAssets(
 export async function Manager_UnlinkAssets(
   id: string,
   fk: string
-): Promise<any> {
+): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
     url: '/Managers/:id/assets/rel/:fk',
@@ -268,7 +233,7 @@ export async function Manager_FindByIdCctvDashboards(
 export async function Manager_DestroyByIdCctvDashboards(
   id: string,
   fk: string
-): Promise<any> {
+): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
     url: '/Managers/:id/cctvDashboards/:fk',
@@ -327,7 +292,7 @@ export async function Manager_LinkCctvDashboards(
 export async function Manager_UnlinkCctvDashboards(
   id: string,
   fk: string
-): Promise<any> {
+): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
     url: '/Managers/:id/cctvDashboards/rel/:fk',
@@ -361,7 +326,7 @@ export async function Manager_FindByIdEventDashboards(
 export async function Manager_DestroyByIdEventDashboards(
   id: string,
   fk: string
-): Promise<any> {
+): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
     url: '/Managers/:id/eventDashboards/:fk',
@@ -420,7 +385,7 @@ export async function Manager_LinkEventDashboards(
 export async function Manager_UnlinkEventDashboards(
   id: string,
   fk: string
-): Promise<any> {
+): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
     url: '/Managers/:id/eventDashboards/rel/:fk',
@@ -434,60 +399,11 @@ export async function Manager_UnlinkEventDashboards(
  * Capta la relación hasOne container.
  * /Managers/:id/container
  */
-export async function Manager_GetContainer(id: string): Promise<any> {
+export async function Manager_GetContainer(
+  id: string
+): Promise<ManagerStorageContainer> {
   return ApiFetch({
     method: 'GET',
-    url: '/Managers/:id/container',
-    routeParams: {
-      id,
-    },
-  });
-}
-/**
- * Crea una nueva instancia en container de este modelo.
- * /Managers/:id/container
- */
-export async function Manager_CreateContainer(
-  id: string,
-  data: any = {}
-): Promise<any> {
-  return ApiFetch({
-    method: 'POST',
-    url: '/Managers/:id/container',
-    routeParams: {
-      id,
-    },
-    body: {
-      data,
-    },
-  });
-}
-/**
- * Actualizar container de este modelo.
- * /Managers/:id/container
- */
-export async function Manager_UpdateContainer(
-  id: string,
-  data: any = {}
-): Promise<any> {
-  return ApiFetch({
-    method: 'PUT',
-    url: '/Managers/:id/container',
-    routeParams: {
-      id,
-    },
-    body: {
-      data,
-    },
-  });
-}
-/**
- * Suprime container de este modelo.
- * /Managers/:id/container
- */
-export async function Manager_DestroyContainer(id: string): Promise<any> {
-  return ApiFetch({
-    method: 'DELETE',
     url: '/Managers/:id/container',
     routeParams: {
       id,
@@ -518,7 +434,7 @@ export async function Manager_FindByIdPeopleCounterReports(
 export async function Manager_DestroyByIdPeopleCounterReports(
   id: string,
   fk: string
-): Promise<any> {
+): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
     url: '/Managers/:id/peopleCounterReports/:fk',
@@ -577,7 +493,7 @@ export async function Manager_LinkPeopleCounterReports(
 export async function Manager_UnlinkPeopleCounterReports(
   id: string,
   fk: string
-): Promise<any> {
+): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
     url: '/Managers/:id/peopleCounterReports/rel/:fk',
@@ -591,7 +507,7 @@ export async function Manager_UnlinkPeopleCounterReports(
  * Capta la relación hasOne permission.
  * /Managers/:id/permission
  */
-export async function Manager_GetPermission(id: string): Promise<any> {
+export async function Manager_GetPermission(id: string): Promise<Permission> {
   return ApiFetch({
     method: 'GET',
     url: '/Managers/:id/permission',
@@ -607,7 +523,7 @@ export async function Manager_GetPermission(id: string): Promise<any> {
 export async function Manager_CreatePermission(
   id: string,
   data: any = {}
-): Promise<any> {
+): Promise<Permission> {
   return ApiFetch({
     method: 'POST',
     url: '/Managers/:id/permission',
@@ -626,7 +542,7 @@ export async function Manager_CreatePermission(
 export async function Manager_UpdatePermission(
   id: string,
   data: any = {}
-): Promise<any> {
+): Promise<Permission> {
   return ApiFetch({
     method: 'PUT',
     url: '/Managers/:id/permission',
@@ -662,7 +578,7 @@ export async function Manager_FindByIdReports(
 export async function Manager_DestroyByIdReports(
   id: string,
   fk: string
-): Promise<any> {
+): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
     url: '/Managers/:id/reports/:fk',
@@ -721,10 +637,27 @@ export async function Manager_LinkReports(
 export async function Manager_UnlinkReports(
   id: string,
   fk: string
-): Promise<any> {
+): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
     url: '/Managers/:id/reports/rel/:fk',
+    routeParams: {
+      id,
+      fk,
+    },
+  });
+}
+/**
+ * Buscar un elemento relacionado por id para storeVideoAnalyticDashboards.
+ * /Managers/:id/storeVideoAnalyticDashboards/:fk
+ */
+export async function Manager_FindByIdStoreVideoAnalyticDashboards(
+  id: string,
+  fk: string
+): Promise<StoreVideoAnalyticDashboard> {
+  return ApiFetch({
+    method: 'GET',
+    url: '/Managers/:id/storeVideoAnalyticDashboards/:fk',
     routeParams: {
       id,
       fk,
@@ -738,13 +671,34 @@ export async function Manager_UnlinkReports(
 export async function Manager_DestroyByIdStoreVideoAnalyticDashboards(
   id: string,
   fk: string
-): Promise<any> {
+): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
     url: '/Managers/:id/storeVideoAnalyticDashboards/:fk',
     routeParams: {
       id,
       fk,
+    },
+  });
+}
+/**
+ * Actualizar un elemento relacionado por id para storeVideoAnalyticDashboards.
+ * /Managers/:id/storeVideoAnalyticDashboards/:fk
+ */
+export async function Manager_UpdateByIdStoreVideoAnalyticDashboards(
+  id: string,
+  fk: string,
+  data: any = {}
+): Promise<StoreVideoAnalyticDashboard> {
+  return ApiFetch({
+    method: 'PUT',
+    url: '/Managers/:id/storeVideoAnalyticDashboards/:fk',
+    routeParams: {
+      id,
+      fk,
+    },
+    body: {
+      data,
     },
   });
 }
@@ -776,7 +730,7 @@ export async function Manager_LinkStoreVideoAnalyticDashboards(
 export async function Manager_UnlinkStoreVideoAnalyticDashboards(
   id: string,
   fk: string
-): Promise<any> {
+): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
     url: '/Managers/:id/storeVideoAnalyticDashboards/rel/:fk',
@@ -823,7 +777,7 @@ export async function Manager_FindByIdTrafficFlowAnalysis(
 export async function Manager_DestroyByIdTrafficFlowAnalysis(
   id: string,
   fk: string
-): Promise<any> {
+): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
     url: '/Managers/:id/trafficFlowAnalysis/:fk',
@@ -882,7 +836,7 @@ export async function Manager_LinkTrafficFlowAnalysis(
 export async function Manager_UnlinkTrafficFlowAnalysis(
   id: string,
   fk: string
-): Promise<any> {
+): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
     url: '/Managers/:id/trafficFlowAnalysis/rel/:fk',
@@ -937,7 +891,7 @@ export async function Manager_LinkViews(
 export async function Manager_UnlinkViews(
   id: string,
   fk: string
-): Promise<any> {
+): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
     url: '/Managers/:id/views/rel/:fk',
@@ -985,50 +939,6 @@ export async function Manager_CountActivityLogs(
   return ApiFetch({
     method: 'GET',
     url: '/Managers/:id/activityLogs/count',
-    urlParams: _urlParams,
-    routeParams: {
-      id,
-    },
-  });
-}
-/**
- * trackingLogs consultas de Manager.
- * /Managers/:id/trackingLogs
- */
-export async function Manager_GetTrackingLogs(
-  id: string,
-  filter: Filter<any> = {}
-): Promise<Log[]> {
-  const _urlParams: any = {};
-  if (filter != null) {
-    _urlParams['filter'] = filter;
-  }
-
-  return ApiFetch({
-    method: 'GET',
-    url: '/Managers/:id/trackingLogs',
-    urlParams: _urlParams,
-    routeParams: {
-      id,
-    },
-  });
-}
-/**
- * Recuentos trackingLogs de Manager.
- * /Managers/:id/trackingLogs/count
- */
-export async function Manager_CountTrackingLogs(
-  id: string,
-  where: any = {}
-): Promise<number> {
-  const _urlParams: any = {};
-  if (where != null) {
-    _urlParams['where'] = where;
-  }
-
-  return ApiFetch({
-    method: 'GET',
-    url: '/Managers/:id/trackingLogs/count',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -1300,6 +1210,28 @@ export async function Manager_CountReports(
   });
 }
 /**
+ * storeVideoAnalyticDashboards consultas de Manager.
+ * /Managers/:id/storeVideoAnalyticDashboards
+ */
+export async function Manager_GetStoreVideoAnalyticDashboards(
+  id: string,
+  filter: Filter<any> = {}
+): Promise<StoreVideoAnalyticDashboard[]> {
+  const _urlParams: any = {};
+  if (filter != null) {
+    _urlParams['filter'] = filter;
+  }
+
+  return ApiFetch({
+    method: 'GET',
+    url: '/Managers/:id/storeVideoAnalyticDashboards',
+    urlParams: _urlParams,
+    routeParams: {
+      id,
+    },
+  });
+}
+/**
  * Recuentos storeVideoAnalyticDashboards de Manager.
  * /Managers/:id/storeVideoAnalyticDashboards/count
  */
@@ -1424,19 +1356,6 @@ export async function Manager_create(data: any = {}): Promise<Manager> {
   });
 }
 /**
- * Check whether a model instance exists in the data source.
- * /Managers/:id/exists
- */
-export async function Manager_exists(id: string): Promise<boolean> {
-  return ApiFetch({
-    method: 'GET',
-    url: '/Managers/:id/exists',
-    routeParams: {
-      id,
-    },
-  });
-}
-/**
  * Find a model instance by {{id}} from the data source.
  * /Managers/:id
  */
@@ -1459,48 +1378,10 @@ export async function Manager_findById(
   });
 }
 /**
- * Find all instances of the model matched by filter from the data source.
- * /Managers
- */
-export async function Manager_find(
-  filter: Filter<any> = {}
-): Promise<Manager[]> {
-  const _urlParams: any = {};
-  if (filter != null) {
-    _urlParams['filter'] = filter;
-  }
-
-  return ApiFetch({
-    method: 'GET',
-    url: '/Managers',
-    urlParams: _urlParams,
-    routeParams: {},
-  });
-}
-/**
- * Find first instance of the model matched by filter from the data source.
- * /Managers/findOne
- */
-export async function Manager_findOne(
-  filter: Filter<any> = {}
-): Promise<Manager> {
-  const _urlParams: any = {};
-  if (filter != null) {
-    _urlParams['filter'] = filter;
-  }
-
-  return ApiFetch({
-    method: 'GET',
-    url: '/Managers/findOne',
-    urlParams: _urlParams,
-    routeParams: {},
-  });
-}
-/**
  * Delete a model instance by {{id}} from the data source.
  * /Managers/:id
  */
-export async function Manager_deleteById(id: string): Promise<any> {
+export async function Manager_deleteById(id: string): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
     url: '/Managers/:id',
@@ -1510,34 +1391,17 @@ export async function Manager_deleteById(id: string): Promise<any> {
   });
 }
 /**
- * Count instances of the model matched by where from the data source.
- * /Managers/count
- */
-export async function Manager_count(where: any = {}): Promise<number> {
-  const _urlParams: any = {};
-  if (where != null) {
-    _urlParams['where'] = where;
-  }
-
-  return ApiFetch({
-    method: 'GET',
-    url: '/Managers/count',
-    urlParams: _urlParams,
-    routeParams: {},
-  });
-}
-/**
  * Login a user with username/email and password.
  * /Managers/login
  */
 export async function Manager_login(
-  credentials: UserCrendentials,
+  credentials: any,
   include: Include<any> = {
     relation: 'user',
     scope: { include: ['container'] },
   },
   rememberMe = true
-): Promise<CommonAccessToken> {
+): Promise<any> {
   const _urlParams: any = {};
   if (include != null) {
     _urlParams['include'] = include;
@@ -1549,8 +1413,7 @@ export async function Manager_login(
     urlParams: _urlParams,
     routeParams: {},
     body: {
-      ...credentials,
-      rememberMe,
+      credentials,
     },
   });
 }
@@ -1688,7 +1551,7 @@ export async function Manager_getContainerInfo(id: string): Promise<any> {
  * List all files within specified container
  * /Managers/:id/container/files
  */
-export async function Manager_getFiles(id: string): Promise<any> {
+export async function Manager_getFiles(id: string): Promise<File[]> {
   return ApiFetch({
     method: 'GET',
     url: '/Managers/:id/container/files',
@@ -1701,7 +1564,7 @@ export async function Manager_getFiles(id: string): Promise<any> {
  * Get information for specified file within specified container
  * /Managers/:id/container/files/:file
  */
-export async function Manager_getFile(id: string, file: string): Promise<any> {
+export async function Manager_getFile(id: string, file: string): Promise<File> {
   return ApiFetch({
     method: 'GET',
     url: '/Managers/:id/container/files/:file',
@@ -1719,7 +1582,7 @@ export async function Manager_removeFile(
   id: string,
   property: string,
   file: string
-): Promise<any> {
+): Promise<void> {
   const _urlParams: any = {};
   if (property != null) {
     _urlParams['property'] = property;

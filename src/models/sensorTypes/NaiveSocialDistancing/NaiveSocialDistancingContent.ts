@@ -1,10 +1,10 @@
-import { YoloClassLabel } from "../YoloClassLabel";
+import { YoloClassLabel } from '../YoloClassLabel';
 
 export type NaiveSocialDistancingContent = {
   image?: {
     container?: string;
     name?: string;
-    type?: "image/jpg" | "image/jpeg" | "image/png";
+    type?: 'image/jpg' | 'image/jpeg' | 'image/png';
     field?: string;
     originalFilename?: string;
     meta?: Record<string, any>;
@@ -14,7 +14,7 @@ export type NaiveSocialDistancingContent = {
     image?: {
       container?: string;
       name?: string;
-      type?: "image/jpg" | "image/jpeg" | "image/png";
+      type?: 'image/jpg' | 'image/jpeg' | 'image/png';
       field?: string;
       originalFilename?: string;
       meta?: Record<string, any>;
@@ -33,16 +33,16 @@ export type NaiveSocialDistancingContent = {
     colors?: {
       percentage: number;
       label:
-        | "white"
-        | "gray"
-        | "black"
-        | "red"
-        | "yellow"
-        | "brown"
-        | "green"
-        | "cyan"
-        | "blue"
-        | "purple";
+        | 'white'
+        | 'gray'
+        | 'black'
+        | 'red'
+        | 'yellow'
+        | 'brown'
+        | 'green'
+        | 'cyan'
+        | 'blue'
+        | 'purple';
     }[];
   }[];
   pairs?: any[][];

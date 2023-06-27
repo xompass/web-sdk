@@ -1,5 +1,5 @@
 export type FaceDetectionTrigger = {
   value?: number;
-  operator?: "eq" | "neq" | "gt" | "gte" | "lt" | "lte" | "null";
+  operator?: 'eq' | 'neq' | 'gt' | 'gte' | 'lt' | 'lte' | 'null';
   intervalTime?: number;
 }[][];

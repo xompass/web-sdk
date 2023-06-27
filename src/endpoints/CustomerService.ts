@@ -1,33 +1,26 @@
 import { ApiFetch, Filter } from '../core/ApiFetch';
-import {
-  Customer,
-  CustomerConfig,
-  CustomerStorageContainer,
-} from '../models/Customer';
+import { Customer } from '../models/Customer';
 import { AssetTag } from '../models/AssetTag';
-import { Asset, AssetWithUptimes } from '../models/Asset';
+import { Asset } from '../models/Asset';
 import { AssetTemplate } from '../models/AssetTemplate';
 import { Credential } from '../models/Credential';
 import { ApiKey } from '../models/ApiKey';
 import { Country } from '../models/Country';
+import { CustomerConfig } from '../models/Customer';
 import { CustomerRestrictionTable } from '../models/CustomerRestrictionTable';
+import { CustomerStorageContainer } from '../models/Customer';
 import { DefaultEventComment } from '../models/DefaultEventComment';
-import {
-  Device,
-  DeviceLogs,
-  DeviceStatusError,
-  DeviceUptime,
-  DeviceVersion,
-} from '../models/Device';
+import { Device } from '../models/Device';
 import { DeviceEventType } from '../models/DeviceEventType';
 import { EdgeAgent } from '../models/EdgeAgent';
 import { EmergencyContact } from '../models/EmergencyContact';
 import { EventState } from '../models/EventState';
-import { Log } from '../models/Log';
 import { Manager } from '../models/Manager';
 import { Project } from '../models/Project';
 import { SensorUptime } from '../models/SensorUptime';
 import { SensorUptimeCollector } from '../models/SensorUptimeCollector';
+import { Storyline } from '../models/Storyline';
+import { StorylineCategory } from '../models/StorylineCategory';
 import { TelegramChat } from '../models/TelegramChat';
 import { TimeZone } from '../models/TimeZone';
 import { Toolkit } from '../models/Toolkit';
@@ -37,8 +30,10 @@ import { YoloClassCustomer } from '../models/YoloClassCustomer';
 import { Sensor } from '../models/Sensor';
 import { Tool } from '../models/Tool';
 import { AssetType } from '../models/AssetType';
+import { File } from '../models/File';
 import { Dataset } from '../models/Dataset';
 import { Event } from '../models/Event';
+import { AssetConfig } from '../models/AssetConfig';
 import { AssetMilestone } from '../models/AssetMilestone';
 import { AssetStaff } from '../models/AssetStaff';
 import { AssetState } from '../models/AssetState';
@@ -68,7 +63,7 @@ import { VirtualExpression } from '../models/VirtualExpression';
 import { VirtualGroup } from '../models/VirtualGroup';
 import { VirtualVariable } from '../models/VirtualVariable';
 import { YoloClassProject } from '../models/YoloClassProject';
-import { AssetConfig } from '../models/AssetConfig';
+import { Storypoint } from '../models/Storypoint';
 
 /**
  * Api services for the `Customer` model.
@@ -122,44 +117,6 @@ export async function Customer_FindByIdCredentials(
     routeParams: {
       id,
       fk,
-    },
-  });
-}
-/**
- * Suprimir un elemento relacionado por id para credentials.
- * /Customers/:id/credentials/:fk
- */
-export async function Customer_DestroyByIdCredentials(
-  id: string,
-  fk: string
-): Promise<void> {
-  return ApiFetch({
-    method: 'DELETE',
-    url: '/Customers/:id/credentials/:fk',
-    routeParams: {
-      id,
-      fk,
-    },
-  });
-}
-/**
- * Actualizar un elemento relacionado por id para credentials.
- * /Customers/:id/credentials/:fk
- */
-export async function Customer_UpdateByIdCredentials(
-  id: string,
-  fk: string,
-  data: any = {}
-): Promise<Credential> {
-  return ApiFetch({
-    method: 'PUT',
-    url: '/Customers/:id/credentials/:fk',
-    routeParams: {
-      id,
-      fk,
-    },
-    body: {
-      data,
     },
   });
 }
@@ -262,25 +219,6 @@ export async function Customer_GetConfig(id: string): Promise<CustomerConfig> {
   });
 }
 /**
- * Crea una nueva instancia en config de este modelo.
- * /Customers/:id/config
- */
-export async function Customer_CreateConfig(
-  id: string,
-  data: any = {}
-): Promise<CustomerConfig> {
-  return ApiFetch({
-    method: 'POST',
-    url: '/Customers/:id/config',
-    routeParams: {
-      id,
-    },
-    body: {
-      data,
-    },
-  });
-}
-/**
  * Actualizar config de este modelo.
  * /Customers/:id/config
  */
@@ -315,59 +253,6 @@ export async function Customer_GetRestrictionTable(
   });
 }
 /**
- * Crea una nueva instancia en restrictionTable de este modelo.
- * /Customers/:id/restrictionTable
- */
-export async function Customer_CreateRestrictionTable(
-  id: string,
-  data: any = {}
-): Promise<CustomerRestrictionTable> {
-  return ApiFetch({
-    method: 'POST',
-    url: '/Customers/:id/restrictionTable',
-    routeParams: {
-      id,
-    },
-    body: {
-      data,
-    },
-  });
-}
-/**
- * Actualizar restrictionTable de este modelo.
- * /Customers/:id/restrictionTable
- */
-export async function Customer_UpdateRestrictionTable(
-  id: string,
-  data: any = {}
-): Promise<CustomerRestrictionTable> {
-  return ApiFetch({
-    method: 'PUT',
-    url: '/Customers/:id/restrictionTable',
-    routeParams: {
-      id,
-    },
-    body: {
-      data,
-    },
-  });
-}
-/**
- * Suprime restrictionTable de este modelo.
- * /Customers/:id/restrictionTable
- */
-export async function Customer_DestroyRestrictionTable(
-  id: string
-): Promise<void> {
-  return ApiFetch({
-    method: 'DELETE',
-    url: '/Customers/:id/restrictionTable',
-    routeParams: {
-      id,
-    },
-  });
-}
-/**
  * Capta la relación hasOne container.
  * /Customers/:id/container
  */
@@ -376,57 +261,6 @@ export async function Customer_GetContainer(
 ): Promise<CustomerStorageContainer> {
   return ApiFetch({
     method: 'GET',
-    url: '/Customers/:id/container',
-    routeParams: {
-      id,
-    },
-  });
-}
-/**
- * Crea una nueva instancia en container de este modelo.
- * /Customers/:id/container
- */
-export async function Customer_CreateContainer(
-  id: string,
-  data: any = {}
-): Promise<CustomerStorageContainer> {
-  return ApiFetch({
-    method: 'POST',
-    url: '/Customers/:id/container',
-    routeParams: {
-      id,
-    },
-    body: {
-      data,
-    },
-  });
-}
-/**
- * Actualizar container de este modelo.
- * /Customers/:id/container
- */
-export async function Customer_UpdateContainer(
-  id: string,
-  data: any = {}
-): Promise<CustomerStorageContainer> {
-  return ApiFetch({
-    method: 'PUT',
-    url: '/Customers/:id/container',
-    routeParams: {
-      id,
-    },
-    body: {
-      data,
-    },
-  });
-}
-/**
- * Suprime container de este modelo.
- * /Customers/:id/container
- */
-export async function Customer_DestroyContainer(id: string): Promise<void> {
-  return ApiFetch({
-    method: 'DELETE',
     url: '/Customers/:id/container',
     routeParams: {
       id,
@@ -726,23 +560,6 @@ export async function Customer_UpdateByIdEventStates(
   });
 }
 /**
- * Buscar un elemento relacionado por id para trackingLogs.
- * /Customers/:id/trackingLogs/:fk
- */
-export async function Customer_FindByIdTrackingLogs(
-  id: string,
-  fk: string
-): Promise<Log> {
-  return ApiFetch({
-    method: 'GET',
-    url: '/Customers/:id/trackingLogs/:fk',
-    routeParams: {
-      id,
-      fk,
-    },
-  });
-}
-/**
  * Buscar un elemento relacionado por id para managers.
  * /Customers/:id/managers/:fk
  */
@@ -805,6 +622,61 @@ export async function Customer_UpdateByIdProjects(
   return ApiFetch({
     method: 'PUT',
     url: '/Customers/:id/projects/:fk',
+    routeParams: {
+      id,
+      fk,
+    },
+    body: {
+      data,
+    },
+  });
+}
+/**
+ * Buscar un elemento relacionado por id para storylineCategories.
+ * /Customers/:id/storylineCategories/:fk
+ */
+export async function Customer_FindByIdStorylineCategories(
+  id: string,
+  fk: string
+): Promise<StorylineCategory> {
+  return ApiFetch({
+    method: 'GET',
+    url: '/Customers/:id/storylineCategories/:fk',
+    routeParams: {
+      id,
+      fk,
+    },
+  });
+}
+/**
+ * Suprimir un elemento relacionado por id para storylineCategories.
+ * /Customers/:id/storylineCategories/:fk
+ */
+export async function Customer_DestroyByIdStorylineCategories(
+  id: string,
+  fk: string
+): Promise<void> {
+  return ApiFetch({
+    method: 'DELETE',
+    url: '/Customers/:id/storylineCategories/:fk',
+    routeParams: {
+      id,
+      fk,
+    },
+  });
+}
+/**
+ * Actualizar un elemento relacionado por id para storylineCategories.
+ * /Customers/:id/storylineCategories/:fk
+ */
+export async function Customer_UpdateByIdStorylineCategories(
+  id: string,
+  fk: string,
+  data: any = {}
+): Promise<StorylineCategory> {
+  return ApiFetch({
+    method: 'PUT',
+    url: '/Customers/:id/storylineCategories/:fk',
     routeParams: {
       id,
       fk,
@@ -1148,25 +1020,6 @@ export async function Customer_GetCredentials(
     urlParams: _urlParams,
     routeParams: {
       id,
-    },
-  });
-}
-/**
- * Crea una nueva instancia en credentials de este modelo.
- * /Customers/:id/credentials
- */
-export async function Customer_CreateCredentials(
-  id: string,
-  data: any = {}
-): Promise<Credential> {
-  return ApiFetch({
-    method: 'POST',
-    url: '/Customers/:id/credentials',
-    routeParams: {
-      id,
-    },
-    body: {
-      data,
     },
   });
 }
@@ -1615,50 +1468,6 @@ export async function Customer_CountEventStates(
   });
 }
 /**
- * trackingLogs consultas de Customer.
- * /Customers/:id/trackingLogs
- */
-export async function Customer_GetTrackingLogs(
-  id: string,
-  filter: Filter<any> = {}
-): Promise<Log[]> {
-  const _urlParams: any = {};
-  if (filter != null) {
-    _urlParams['filter'] = filter;
-  }
-
-  return ApiFetch({
-    method: 'GET',
-    url: '/Customers/:id/trackingLogs',
-    urlParams: _urlParams,
-    routeParams: {
-      id,
-    },
-  });
-}
-/**
- * Recuentos trackingLogs de Customer.
- * /Customers/:id/trackingLogs/count
- */
-export async function Customer_CountTrackingLogs(
-  id: string,
-  where: any = {}
-): Promise<number> {
-  const _urlParams: any = {};
-  if (where != null) {
-    _urlParams['where'] = where;
-  }
-
-  return ApiFetch({
-    method: 'GET',
-    url: '/Customers/:id/trackingLogs/count',
-    urlParams: _urlParams,
-    routeParams: {
-      id,
-    },
-  });
-}
-/**
  * managers consultas de Customer.
  * /Customers/:id/managers
  */
@@ -1759,6 +1568,91 @@ export async function Customer_CountProjects(
   return ApiFetch({
     method: 'GET',
     url: '/Customers/:id/projects/count',
+    urlParams: _urlParams,
+    routeParams: {
+      id,
+    },
+  });
+}
+/**
+ * storylines consultas de Customer.
+ * /Customers/:id/storylines
+ */
+export async function Customer_GetStorylines(
+  id: string,
+  filter: Filter<any> = {}
+): Promise<Storyline[]> {
+  const _urlParams: any = {};
+  if (filter != null) {
+    _urlParams['filter'] = filter;
+  }
+
+  return ApiFetch({
+    method: 'GET',
+    url: '/Customers/:id/storylines',
+    urlParams: _urlParams,
+    routeParams: {
+      id,
+    },
+  });
+}
+/**
+ * storylineCategories consultas de Customer.
+ * /Customers/:id/storylineCategories
+ */
+export async function Customer_GetStorylineCategories(
+  id: string,
+  filter: Filter<any> = {}
+): Promise<StorylineCategory[]> {
+  const _urlParams: any = {};
+  if (filter != null) {
+    _urlParams['filter'] = filter;
+  }
+
+  return ApiFetch({
+    method: 'GET',
+    url: '/Customers/:id/storylineCategories',
+    urlParams: _urlParams,
+    routeParams: {
+      id,
+    },
+  });
+}
+/**
+ * Crea una nueva instancia en storylineCategories de este modelo.
+ * /Customers/:id/storylineCategories
+ */
+export async function Customer_CreateStorylineCategories(
+  id: string,
+  data: any = {}
+): Promise<StorylineCategory> {
+  return ApiFetch({
+    method: 'POST',
+    url: '/Customers/:id/storylineCategories',
+    routeParams: {
+      id,
+    },
+    body: {
+      data,
+    },
+  });
+}
+/**
+ * Recuentos storylineCategories de Customer.
+ * /Customers/:id/storylineCategories/count
+ */
+export async function Customer_CountStorylineCategories(
+  id: string,
+  where: any = {}
+): Promise<number> {
+  const _urlParams: any = {};
+  if (where != null) {
+    _urlParams['where'] = where;
+  }
+
+  return ApiFetch({
+    method: 'GET',
+    url: '/Customers/:id/storylineCategories/count',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -1917,33 +1811,6 @@ export async function Customer_CountYoloClasses(
   });
 }
 /**
- * Create a new instance of the model and persist it into the data source.
- * /Customers
- */
-export async function Customer_create(data: any = {}): Promise<Customer> {
-  return ApiFetch({
-    method: 'POST',
-    url: '/Customers',
-    routeParams: {},
-    body: {
-      data,
-    },
-  });
-}
-/**
- * Check whether a model instance exists in the data source.
- * /Customers/:id/exists
- */
-export async function Customer_exists(id: string): Promise<boolean> {
-  return ApiFetch({
-    method: 'GET',
-    url: '/Customers/:id/exists',
-    routeParams: {
-      id,
-    },
-  });
-}
-/**
  * Find a model instance by {{id}} from the data source.
  * /Customers/:id
  */
@@ -1966,71 +1833,73 @@ export async function Customer_findById(
   });
 }
 /**
- * Find all instances of the model matched by filter from the data source.
- * /Customers
+ * Upload files to a storyline
+ * /Customers/:id/storylines/:nk/upload
  */
-export async function Customer_find(
-  filter: Filter<any> = {}
-): Promise<Customer[]> {
-  const _urlParams: any = {};
-  if (filter != null) {
-    _urlParams['filter'] = filter;
-  }
-
+export async function Customer_UploadStorylines(
+  id: string,
+  nk: string
+): Promise<any> {
   return ApiFetch({
-    method: 'GET',
-    url: '/Customers',
-    urlParams: _urlParams,
-    routeParams: {},
-  });
-}
-/**
- * Find first instance of the model matched by filter from the data source.
- * /Customers/findOne
- */
-export async function Customer_findOne(
-  filter: Filter<any> = {}
-): Promise<Customer> {
-  const _urlParams: any = {};
-  if (filter != null) {
-    _urlParams['filter'] = filter;
-  }
-
-  return ApiFetch({
-    method: 'GET',
-    url: '/Customers/findOne',
-    urlParams: _urlParams,
-    routeParams: {},
-  });
-}
-/**
- * Delete a model instance by {{id}} from the data source.
- * /Customers/:id
- */
-export async function Customer_deleteById(id: string): Promise<void> {
-  return ApiFetch({
-    method: 'DELETE',
-    url: '/Customers/:id',
+    method: 'POST',
+    url: '/Customers/:id/storylines/:nk/upload',
     routeParams: {
       id,
+      nk,
+    },
+    body: {},
+  });
+}
+/**
+ * Download a file to a storyline
+ * /Customers/:id/storylines/:nk/download/:file
+ */
+export async function Customer_DownloadStorylines(
+  id: string,
+  nk: string,
+  file: string,
+  datasourceName: string
+): Promise<any> {
+  const _urlParams: any = {};
+  if (datasourceName != null) {
+    _urlParams['datasourceName'] = datasourceName;
+  }
+
+  return ApiFetch({
+    method: 'GET',
+    url: '/Customers/:id/storylines/:nk/download/:file',
+    urlParams: _urlParams,
+    routeParams: {
+      id,
+      nk,
+      file,
     },
   });
 }
 /**
- * Count instances of the model matched by where from the data source.
- * /Customers/count
+ * Remove a file from a storyline
+ * /Customers/:id/storylines/:nk/files/:file
  */
-export async function Customer_count(where: any = {}): Promise<number> {
+export async function Customer_RemoveFileStorylines(
+  id: string,
+  nk: string,
+  file: string,
+  datasourceName: string
+): Promise<void> {
   const _urlParams: any = {};
-  if (where != null) {
-    _urlParams['where'] = where;
+  if (datasourceName != null) {
+    _urlParams['datasourceName'] = datasourceName;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/Customers/count',
+    method: 'DELETE',
+    url: '/Customers/:id/storylines/:nk/files/:file',
     urlParams: _urlParams,
-    routeParams: {},
+    routeParams: {
+      id,
+      nk,
+      file,
+    },
   });
 }
 /**
@@ -2086,7 +1955,7 @@ export async function Customer_GetAssetsWithUptimes(
   from: Date,
   to: Date,
   type: string
-): Promise<AssetWithUptimes[]> {
+): Promise<any[]> {
   const _urlParams: any = {};
   if (from != null) {
     _urlParams['from'] = from;
@@ -2263,7 +2132,73 @@ export async function Customer_GetProjectsAssetTypes(
     },
   });
 }
+/**
+ * Get information about specified container
+ * /Customers/:id/container/info
+ */
+export async function Customer_getContainerInfo(id: string): Promise<any> {
+  return ApiFetch({
+    method: 'GET',
+    url: '/Customers/:id/container/info',
+    routeParams: {
+      id,
+    },
+  });
+}
+/**
+ * List all files within specified container
+ * /Customers/:id/container/files
+ */
+export async function Customer_getFiles(id: string): Promise<File[]> {
+  return ApiFetch({
+    method: 'GET',
+    url: '/Customers/:id/container/files',
+    routeParams: {
+      id,
+    },
+  });
+}
+/**
+ * Get information for specified file within specified container
+ * /Customers/:id/container/files/:file
+ */
+export async function Customer_getFile(
+  id: string,
+  file: string
+): Promise<File> {
+  return ApiFetch({
+    method: 'GET',
+    url: '/Customers/:id/container/files/:file',
+    routeParams: {
+      id,
+      file,
+    },
+  });
+}
+/**
+ * Delete a file within a given container by name
+ * /Customers/:id/container/files/:file
+ */
+export async function Customer_removeFile(
+  id: string,
+  property: string,
+  file: string
+): Promise<void> {
+  const _urlParams: any = {};
+  if (property != null) {
+    _urlParams['property'] = property;
+  }
 
+  return ApiFetch({
+    method: 'DELETE',
+    url: '/Customers/:id/container/files/:file',
+    urlParams: _urlParams,
+    routeParams: {
+      id,
+      file,
+    },
+  });
+}
 /**
  * Upload one or more files into the specified container. The request body must use multipart/form-data which the file input type for HTML uses
  * /Customers/:id/container/upload
@@ -2344,7 +2279,7 @@ export async function Customer_unsubscribeAssets(
   id: string,
   socketId: string,
   where: any = {}
-): Promise<any> {
+): Promise<void> {
   const _urlParams: any = {};
   if (where != null) {
     _urlParams['where'] = where;
@@ -2393,7 +2328,7 @@ export async function Customer_unsubscribeDevices(
   id: string,
   socketId: string,
   where: any = {}
-): Promise<any> {
+): Promise<void> {
   const _urlParams: any = {};
   if (where != null) {
     _urlParams['where'] = where;
@@ -2461,7 +2396,7 @@ export async function Customer_getDeviceLogs(
   id: string,
   nk: string,
   query: any = {}
-): Promise<DeviceLogs> {
+): Promise<any> {
   const _urlParams: any = {};
   if (query != null) {
     _urlParams['query'] = query;
@@ -2484,7 +2419,7 @@ export async function Customer_getDeviceLogs(
 export async function Customer_getDeviceUptime(
   id: string,
   nk: string
-): Promise<{ successfull: DeviceUptime[]; errors: DeviceStatusError[] }> {
+): Promise<any> {
   return ApiFetch({
     method: 'GET',
     url: '/Customers/:id/devices/:nk/uptimes',
@@ -2501,7 +2436,7 @@ export async function Customer_getDeviceUptime(
 export async function Customer_getDeviceVersion(
   id: string,
   nk: string
-): Promise<{ successfull: DeviceVersion[]; errors: DeviceStatusError[] }> {
+): Promise<any> {
   return ApiFetch({
     method: 'GET',
     url: '/Customers/:id/devices/:nk/versions',
@@ -2518,7 +2453,7 @@ export async function Customer_getDeviceVersion(
 export async function Customer_findDeviceUptimes(
   id: string,
   where: any = {}
-): Promise<{ successfull: DeviceUptime[]; errors: DeviceStatusError[] }> {
+): Promise<any> {
   const _urlParams: any = {};
   if (where != null) {
     _urlParams['where'] = where;
@@ -2540,7 +2475,7 @@ export async function Customer_findDeviceUptimes(
 export async function Customer_findDeviceVersions(
   id: string,
   where: any = {}
-): Promise<{ successfull: DeviceVersion[]; errors: DeviceStatusError[] }> {
+): Promise<any> {
   const _urlParams: any = {};
   if (where != null) {
     _urlParams['where'] = where;
@@ -2574,28 +2509,6 @@ export async function Customer_getMergedRestrictionTable(
  * Search license plates
  * /Customers/:id/licensePlates/search
  */
-
-export type LicensePlate = {
-  _key: string;
-  customerId: string;
-  assetId: string;
-  sensorId: string;
-  datasetId: string;
-  dataId: string;
-  dataIndex: number;
-  fileName: string;
-  datasourceName: string;
-  from: number;
-  to: number;
-  value: string;
-  class: string;
-  frame: {
-    x: number;
-    y: number;
-    h: number;
-    w: number;
-  };
-};
 export async function Customer_searchLicensePlates(
   id: string,
   licensePlate: string,
@@ -2608,7 +2521,7 @@ export async function Customer_searchLicensePlates(
   sensorId: string,
   class_: string,
   limit: number
-): Promise<LicensePlate[]> {
+): Promise<any[]> {
   const _urlParams: any = {};
   if (licensePlate != null) {
     _urlParams['licensePlate'] = licensePlate;
@@ -2662,7 +2575,7 @@ export async function Customer_getLicensePlates(
   sensorId: string,
   class_: string,
   limit: number
-): Promise<LicensePlate[]> {
+): Promise<any[]> {
   const _urlParams: any = {};
   if (from != null) {
     _urlParams['from'] = from;
@@ -5554,6 +5467,67 @@ export async function Customer_UpdateByIdProjectsStoreVideoAnalyticDashboards(
   });
 }
 /**
+ * Buscar un elemento relacionado por id para storylines.
+ * /Customers/:id/projects/:nk/storylines/:fk
+ */
+export async function Customer_FindByIdProjectsStorylines(
+  id: string,
+  nk: string,
+  fk: string
+): Promise<Storyline> {
+  return ApiFetch({
+    method: 'GET',
+    url: '/Customers/:id/projects/:nk/storylines/:fk',
+    routeParams: {
+      id,
+      nk,
+      fk,
+    },
+  });
+}
+/**
+ * Suprimir un elemento relacionado por id para storylines.
+ * /Customers/:id/projects/:nk/storylines/:fk
+ */
+export async function Customer_DestroyByIdProjectsStorylines(
+  id: string,
+  nk: string,
+  fk: string
+): Promise<void> {
+  return ApiFetch({
+    method: 'DELETE',
+    url: '/Customers/:id/projects/:nk/storylines/:fk',
+    routeParams: {
+      id,
+      nk,
+      fk,
+    },
+  });
+}
+/**
+ * Actualizar un elemento relacionado por id para storylines.
+ * /Customers/:id/projects/:nk/storylines/:fk
+ */
+export async function Customer_UpdateByIdProjectsStorylines(
+  id: string,
+  nk: string,
+  fk: string,
+  data: any = {}
+): Promise<Storyline> {
+  return ApiFetch({
+    method: 'PUT',
+    url: '/Customers/:id/projects/:nk/storylines/:fk',
+    routeParams: {
+      id,
+      nk,
+      fk,
+    },
+    body: {
+      data,
+    },
+  });
+}
+/**
  * Buscar un elemento relacionado por id para adminTools.
  * /Customers/:id/projects/:nk/adminTools/:fk
  */
@@ -6656,6 +6630,75 @@ export async function Customer_CountProjectsStoreVideoAnalyticDashboards(
   });
 }
 /**
+ * storylines consultas de Project.
+ * /Customers/:id/projects/:nk/storylines
+ */
+export async function Customer_GetProjectsStorylines(
+  id: string,
+  nk: string,
+  filter: Filter<any> = {}
+): Promise<Storyline[]> {
+  const _urlParams: any = {};
+  if (filter != null) {
+    _urlParams['filter'] = filter;
+  }
+
+  return ApiFetch({
+    method: 'GET',
+    url: '/Customers/:id/projects/:nk/storylines',
+    urlParams: _urlParams,
+    routeParams: {
+      id,
+      nk,
+    },
+  });
+}
+/**
+ * Crea una nueva instancia en storylines de este modelo.
+ * /Customers/:id/projects/:nk/storylines
+ */
+export async function Customer_CreateProjectsStorylines(
+  id: string,
+  nk: string,
+  data: any = {}
+): Promise<Storyline> {
+  return ApiFetch({
+    method: 'POST',
+    url: '/Customers/:id/projects/:nk/storylines',
+    routeParams: {
+      id,
+      nk,
+    },
+    body: {
+      data,
+    },
+  });
+}
+/**
+ * Recuentos storylines de Project.
+ * /Customers/:id/projects/:nk/storylines/count
+ */
+export async function Customer_CountProjectsStorylines(
+  id: string,
+  nk: string,
+  where: any = {}
+): Promise<number> {
+  const _urlParams: any = {};
+  if (where != null) {
+    _urlParams['where'] = where;
+  }
+
+  return ApiFetch({
+    method: 'GET',
+    url: '/Customers/:id/projects/:nk/storylines/count',
+    urlParams: _urlParams,
+    routeParams: {
+      id,
+      nk,
+    },
+  });
+}
+/**
  * adminTools consultas de Project.
  * /Customers/:id/projects/:nk/adminTools
  */
@@ -7202,6 +7245,132 @@ export async function Customer_CountDevicesEdgeAgents(
     routeParams: {
       id,
       nk,
+    },
+  });
+}
+/**
+ * Añadir un elemento relacionado por id para assets.
+ * /Customers/:id/storylines/:nk/assets/rel/:fk
+ */
+export async function Customer_LinkStorylinesAssets(
+  id: string,
+  nk: string,
+  fk: string
+): Promise<Asset> {
+  return ApiFetch({
+    method: 'PUT',
+    url: '/Customers/:id/storylines/:nk/assets/rel/:fk',
+    routeParams: {
+      id,
+      nk,
+      fk,
+    },
+    body: {},
+  });
+}
+/**
+ * Eliminar la relación assets con un elemento por id.
+ * /Customers/:id/storylines/:nk/assets/rel/:fk
+ */
+export async function Customer_UnlinkStorylinesAssets(
+  id: string,
+  nk: string,
+  fk: string
+): Promise<void> {
+  return ApiFetch({
+    method: 'DELETE',
+    url: '/Customers/:id/storylines/:nk/assets/rel/:fk',
+    routeParams: {
+      id,
+      nk,
+      fk,
+    },
+  });
+}
+/**
+ * Suprimir un elemento relacionado por id para storypoints.
+ * /Customers/:id/storylines/:nk/storypoints/:fk
+ */
+export async function Customer_DestroyByIdStorylinesStorypoints(
+  id: string,
+  nk: string,
+  fk: string
+): Promise<void> {
+  return ApiFetch({
+    method: 'DELETE',
+    url: '/Customers/:id/storylines/:nk/storypoints/:fk',
+    routeParams: {
+      id,
+      nk,
+      fk,
+    },
+  });
+}
+/**
+ * Actualizar un elemento relacionado por id para storypoints.
+ * /Customers/:id/storylines/:nk/storypoints/:fk
+ */
+export async function Customer_UpdateByIdStorylinesStorypoints(
+  id: string,
+  nk: string,
+  fk: string,
+  data: any = {}
+): Promise<Storypoint> {
+  return ApiFetch({
+    method: 'PUT',
+    url: '/Customers/:id/storylines/:nk/storypoints/:fk',
+    routeParams: {
+      id,
+      nk,
+      fk,
+    },
+    body: {
+      data,
+    },
+  });
+}
+/**
+ * storypoints consultas de Storyline.
+ * /Customers/:id/storylines/:nk/storypoints
+ */
+export async function Customer_GetStorylinesStorypoints(
+  id: string,
+  nk: string,
+  filter: Filter<any> = {}
+): Promise<Storypoint[]> {
+  const _urlParams: any = {};
+  if (filter != null) {
+    _urlParams['filter'] = filter;
+  }
+
+  return ApiFetch({
+    method: 'GET',
+    url: '/Customers/:id/storylines/:nk/storypoints',
+    urlParams: _urlParams,
+    routeParams: {
+      id,
+      nk,
+    },
+  });
+}
+/**
+ * Crea una nueva instancia en storypoints de este modelo.
+ * /Customers/:id/storylines/:nk/storypoints
+ */
+export async function Customer_CreateStorylinesStorypoints(
+  id: string,
+  nk: string,
+  data: any = {}
+): Promise<Storypoint> {
+  return ApiFetch({
+    method: 'POST',
+    url: '/Customers/:id/storylines/:nk/storypoints',
+    routeParams: {
+      id,
+      nk,
+    },
+    body: {
+      data,
     },
   });
 }

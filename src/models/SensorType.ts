@@ -1,5 +1,5 @@
-import { Log } from "./Log";
-import { SensorTypeLabel } from "./sensorTypes/SensorTypeLabel";
+import { Log } from './Log';
+import { SensorTypeLabel } from './sensorTypes/SensorTypeLabel';
 
 export type SensorType = {
   type: SensorTypeLabel;

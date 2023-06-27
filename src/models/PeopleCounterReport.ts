@@ -1,6 +1,6 @@
-import { Log } from "./Log";
-import { Manager } from "./Manager";
-import { Project } from "./Project";
+import { Log } from './Log';
+import { Manager } from './Manager';
+import { Project } from './Project';
 
 export type PeopleCounterReport = {
   name: string;

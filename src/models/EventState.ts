@@ -1,6 +1,6 @@
-import { Customer } from "./Customer";
-import { GlobalEventState } from "./GlobalEventState";
-import { Log } from "./Log";
+import { Customer } from './Customer';
+import { GlobalEventState } from './GlobalEventState';
+import { Log } from './Log';
 
 export type EventState = {
   name: string;
