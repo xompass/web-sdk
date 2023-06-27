@@ -1,9 +1,9 @@
-import { Asset } from "./Asset";
-import { Data } from "./Data";
-import { Log } from "./Log";
-import { Sensor } from "./Sensor";
-import { Summary } from "./Summary";
-import { SensorTypeLabel } from "./sensorTypes/SensorTypeLabel";
+import { Asset } from './Asset';
+import { Data } from './Data';
+import { Log } from './Log';
+import { Sensor } from './Sensor';
+import { Summary } from './Summary';
+import { SensorTypeLabel } from './sensorTypes/SensorTypeLabel';
 
 export type Dataset = {
   id?: string;

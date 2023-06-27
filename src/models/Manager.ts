@@ -5,10 +5,10 @@ import { Country } from './Country';
 import { Credential } from './Credential';
 import { Customer } from './Customer';
 import { EventDashboard } from './EventDashboard';
-import { File } from './File';
 import { Log } from './Log';
 import { PeopleCounterReport } from './PeopleCounterReport';
 import { Report } from './Report';
+import { StoreVideoAnalyticDashboard } from './StoreVideoAnalyticDashboard';
 import { TimeZone } from './TimeZone';
 import { TrafficFlowAnalysis } from './TrafficFlowAnalysis';
 import { View } from './View';
@@ -42,6 +42,7 @@ export type Manager = {
   peopleCounterReports?: PeopleCounterReport[];
   permission?: Permission;
   reports?: Report[];
+  storeVideoAnalyticDashboards?: StoreVideoAnalyticDashboard[];
   timeZone?: TimeZone;
   trafficFlowAnalysis?: TrafficFlowAnalysis[];
   views?: View[];
@@ -58,7 +59,6 @@ export type ManagerStorageContainer = {
 
 export type Permission = {
   master?: boolean;
-  agents?: CRUD;
   alerts?: CRUD;
   apiKeys?: CRUD;
   assets?: CRUD;
@@ -66,12 +66,12 @@ export type Permission = {
   assetStates?: CRUD;
   biPanels?: CRUD;
   cctvDashboards?: CRUD;
-  controls?: CRUD;
   credentials?: CRUD;
   dashboards?: CRUD;
   defaultEventComments?: CRUD;
   devices?: CRUD;
   deviceEvents?: CRUD;
+  edgeAgents?: CRUD;
   embeddedReports?: CRUD;
   emergencyContacts?: CRUD;
   events?: CRUD;
@@ -88,8 +88,9 @@ export type Permission = {
   rekognitions?: CRUD;
   reports?: CRUD;
   sensors?: CRUD;
-  storeDashboards?: CRUD;
   storeVideoAnalyticDashboards?: CRUD;
+  storylineCategories?: CRUD;
+  storylines?: CRUD;
   telegramChats?: CRUD;
   trafficFlowAnalysis?: CRUD;
   virtualExpressions?: CRUD;

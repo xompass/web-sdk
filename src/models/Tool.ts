@@ -1,5 +1,5 @@
-import { AssetType } from "./AssetType";
-import { Log } from "./Log";
+import { AssetType } from './AssetType';
+import { Log } from './Log';
 
 export type Tool = {
   name?: string;

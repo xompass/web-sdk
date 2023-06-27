@@ -1,4 +1,3 @@
-import { File } from './File';
 import { Log } from './Log';
 import { Manager } from './Manager';
 import { Project } from './Project';

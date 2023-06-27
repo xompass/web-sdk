@@ -1,94 +1,18 @@
-import { ApiFetch, Filter } from "../core/ApiFetch";
-import { TimeZone } from "../models/TimeZone";
-import { Log } from "../models/Log";
+import { ApiFetch, Filter } from '../core/ApiFetch';
+import { TimeZone } from '../models/TimeZone';
 
 /**
  * Api services for the `TimeZone` model.
  */
 
 /**
- * Buscar un elemento relacionado por id para trackingLogs.
- * /TimeZones/:id/trackingLogs/:fk
- */
-export async function TimeZone_FindByIdTrackingLogs(
-  id: string,
-  fk: string
-): Promise<Log> {
-  return ApiFetch({
-    method: "GET",
-    url: "/TimeZones/:id/trackingLogs/:fk",
-    routeParams: {
-      id,
-      fk,
-    },
-  });
-}
-/**
- * trackingLogs consultas de TimeZone.
- * /TimeZones/:id/trackingLogs
- */
-export async function TimeZone_GetTrackingLogs(
-  id: string,
-  filter: Filter<any> = {}
-): Promise<Log[]> {
-  const _urlParams: any = {};
-  if (filter != null) {
-    _urlParams["filter"] = filter;
-  }
-
-  return ApiFetch({
-    method: "GET",
-    url: "/TimeZones/:id/trackingLogs",
-    urlParams: _urlParams,
-    routeParams: {
-      id,
-    },
-  });
-}
-/**
- * Recuentos trackingLogs de TimeZone.
- * /TimeZones/:id/trackingLogs/count
- */
-export async function TimeZone_CountTrackingLogs(
-  id: string,
-  where: any = {}
-): Promise<number> {
-  const _urlParams: any = {};
-  if (where != null) {
-    _urlParams["where"] = where;
-  }
-
-  return ApiFetch({
-    method: "GET",
-    url: "/TimeZones/:id/trackingLogs/count",
-    urlParams: _urlParams,
-    routeParams: {
-      id,
-    },
-  });
-}
-/**
- * Create a new instance of the model and persist it into the data source.
- * /TimeZones
- */
-export async function TimeZone_create(data: any = {}): Promise<TimeZone> {
-  return ApiFetch({
-    method: "POST",
-    url: "/TimeZones",
-    routeParams: {},
-    body: {
-      data,
-    },
-  });
-}
-/**
  * Check whether a model instance exists in the data source.
  * /TimeZones/:id/exists
  */
 export async function TimeZone_exists(id: string): Promise<boolean> {
   return ApiFetch({
-    method: "GET",
-    url: "/TimeZones/:id/exists",
+    method: 'GET',
+    url: '/TimeZones/:id/exists',
     routeParams: {
       id,
     },
@@ -104,12 +28,12 @@ export async function TimeZone_findById(
 ): Promise<TimeZone> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/TimeZones/:id",
+    method: 'GET',
+    url: '/TimeZones/:id',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -125,12 +49,12 @@ export async function TimeZone_find(
 ): Promise<TimeZone[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/TimeZones",
+    method: 'GET',
+    url: '/TimeZones',
     urlParams: _urlParams,
     routeParams: {},
   });
@@ -144,27 +68,14 @@ export async function TimeZone_findOne(
 ): Promise<TimeZone> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/TimeZones/findOne",
+    method: 'GET',
+    url: '/TimeZones/findOne',
     urlParams: _urlParams,
     routeParams: {},
-  });
-}
-/**
- * Delete a model instance by {{id}} from the data source.
- * /TimeZones/:id
- */
-export async function TimeZone_deleteById(id: string): Promise<any> {
-  return ApiFetch({
-    method: "DELETE",
-    url: "/TimeZones/:id",
-    routeParams: {
-      id,
-    },
   });
 }
 /**
@@ -174,12 +85,12 @@ export async function TimeZone_deleteById(id: string): Promise<any> {
 export async function TimeZone_count(where: any = {}): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams["where"] = where;
+    _urlParams['where'] = where;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/TimeZones/count",
+    method: 'GET',
+    url: '/TimeZones/count',
     urlParams: _urlParams,
     routeParams: {},
   });

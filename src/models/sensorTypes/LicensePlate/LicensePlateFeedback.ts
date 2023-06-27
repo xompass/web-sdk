@@ -2,7 +2,7 @@ export type LicensePlateFeedback = {
   image?: {
     container?: string;
     name?: string;
-    type?: "image/jpg" | "image/jpeg" | "image/png";
+    type?: 'image/jpg' | 'image/jpeg' | 'image/png';
     field?: string;
     originalFilename?: string;
     meta?: Record<string, any>;
@@ -12,7 +12,7 @@ export type LicensePlateFeedback = {
     image?: {
       container?: string;
       name?: string;
-      type?: "image/jpg" | "image/jpeg" | "image/png";
+      type?: 'image/jpg' | 'image/jpeg' | 'image/png';
       field?: string;
       originalFilename?: string;
       meta?: Record<string, any>;
@@ -20,7 +20,7 @@ export type LicensePlateFeedback = {
     }[];
   };
   detections?: {
-    class: "bus" | "car" | "motorbike" | "truck";
+    class: 'bus' | 'car' | 'motorbike' | 'truck';
     tags?: string[];
     probability?: number;
     frame: {
@@ -47,10 +47,10 @@ export type LicensePlateFeedback = {
       BLACKLIST?: boolean;
     };
     diagnosis?:
-      | "TRUE_POSITIVE"
-      | "TRUE_NEGATIVE"
-      | "FALSE_POSITIVE"
-      | "FALSE_NEGATIVE";
+      | 'TRUE_POSITIVE'
+      | 'TRUE_NEGATIVE'
+      | 'FALSE_POSITIVE'
+      | 'FALSE_NEGATIVE';
   }[];
   filtered?: boolean;
 };

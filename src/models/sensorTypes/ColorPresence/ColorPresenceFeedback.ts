@@ -2,7 +2,7 @@ export type ColorPresenceFeedback = {
   image?: {
     container?: string;
     name?: string;
-    type?: "image/jpg" | "image/jpeg" | "image/png";
+    type?: 'image/jpg' | 'image/jpeg' | 'image/png';
     field?: string;
     originalFilename?: string;
     meta?: Record<string, any>;
@@ -12,7 +12,7 @@ export type ColorPresenceFeedback = {
     image?: {
       container?: string;
       name?: string;
-      type?: "image/jpg" | "image/jpeg" | "image/png";
+      type?: 'image/jpg' | 'image/jpeg' | 'image/png';
       field?: string;
       originalFilename?: string;
       meta?: Record<string, any>;
@@ -24,10 +24,10 @@ export type ColorPresenceFeedback = {
     color?: string;
     tags?: string[];
     diagnosis?:
-      | "TRUE_POSITIVE"
-      | "TRUE_NEGATIVE"
-      | "FALSE_POSITIVE"
-      | "FALSE_NEGATIVE";
+      | 'TRUE_POSITIVE'
+      | 'TRUE_NEGATIVE'
+      | 'FALSE_POSITIVE'
+      | 'FALSE_NEGATIVE';
   };
   filtered?: boolean;
 };

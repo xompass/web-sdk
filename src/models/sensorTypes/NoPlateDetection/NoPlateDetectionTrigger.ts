@@ -1,3 +1,3 @@
 export type NoPlateDetectionTrigger = {
-  classes?: ("bus" | "car" | "motorbike" | "truck")[];
+  classes?: ('bus' | 'car' | 'motorbike' | 'truck')[];
 }[][];

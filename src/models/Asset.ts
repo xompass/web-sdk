@@ -18,7 +18,6 @@ import { EventGroup } from './EventGroup';
 import { EventSummary } from './EventSummary';
 import { EventSummaryForAsset } from './EventSummaryForAsset';
 import { EventTrigger } from './EventTrigger';
-import { File } from './File';
 import { Log } from './Log';
 import { Manager } from './Manager';
 import { Project } from './Project';
@@ -90,10 +89,4 @@ export type AssetStorageContainer = {
   _picture?: File;
   _background?: File;
   _files?: File[];
-};
-
-export type AssetWithUptimes = {
-  id: string;
-  type: string;
-  sensorUptimes: SensorUptime[];
 };

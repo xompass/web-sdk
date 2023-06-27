@@ -1,9 +1,8 @@
-import { ApiFetch, Filter } from "../core/ApiFetch";
-import { EventDashboard } from "../models/EventDashboard";
-import { Asset } from "../models/Asset";
-import { EventTrigger } from "../models/EventTrigger";
-import { Log } from "../models/Log";
-import { Manager } from "../models/Manager";
+import { ApiFetch, Filter } from '../core/ApiFetch';
+import { Asset } from '../models/Asset';
+import { EventDashboardEventTrigger } from '../models/EventDashboard';
+import { EventTrigger } from '../models/EventTrigger';
+import { Manager } from '../models/Manager';
 
 /**
  * Api services for the `EventDashboard` model.
@@ -18,8 +17,8 @@ export async function EventDashboard_FindByIdAssets(
   fk: string
 ): Promise<Asset> {
   return ApiFetch({
-    method: "GET",
-    url: "/EventDashboards/:id/assets/:fk",
+    method: 'GET',
+    url: '/EventDashboards/:id/assets/:fk',
     routeParams: {
       id,
       fk,
@@ -35,8 +34,8 @@ export async function EventDashboard_LinkAssets(
   fk: string
 ): Promise<Asset> {
   return ApiFetch({
-    method: "PUT",
-    url: "/EventDashboards/:id/assets/rel/:fk",
+    method: 'PUT',
+    url: '/EventDashboards/:id/assets/rel/:fk',
     routeParams: {
       id,
       fk,
@@ -51,10 +50,10 @@ export async function EventDashboard_LinkAssets(
 export async function EventDashboard_UnlinkAssets(
   id: string,
   fk: string
-): Promise<any> {
+): Promise<void> {
   return ApiFetch({
-    method: "DELETE",
-    url: "/EventDashboards/:id/assets/rel/:fk",
+    method: 'DELETE',
+    url: '/EventDashboards/:id/assets/rel/:fk',
     routeParams: {
       id,
       fk,
@@ -70,8 +69,8 @@ export async function EventDashboard_ExistsAssets(
   fk: string
 ): Promise<boolean> {
   return ApiFetch({
-    method: "HEAD",
-    url: "/EventDashboards/:id/assets/rel/:fk",
+    method: 'HEAD',
+    url: '/EventDashboards/:id/assets/rel/:fk',
     routeParams: {
       id,
       fk,
@@ -85,10 +84,10 @@ export async function EventDashboard_ExistsAssets(
 export async function EventDashboard_FindByIdEventDashboardEventTriggers(
   id: string,
   fk: string
-): Promise<any> {
+): Promise<EventDashboardEventTrigger> {
   return ApiFetch({
-    method: "GET",
-    url: "/EventDashboards/:id/eventDashboardEventTriggers/:fk",
+    method: 'GET',
+    url: '/EventDashboards/:id/eventDashboardEventTriggers/:fk',
     routeParams: {
       id,
       fk,
@@ -103,10 +102,10 @@ export async function EventDashboard_UpdateByIdEventDashboardEventTriggers(
   id: string,
   fk: string,
   data: any = {}
-): Promise<any> {
+): Promise<EventDashboardEventTrigger> {
   return ApiFetch({
-    method: "PUT",
-    url: "/EventDashboards/:id/eventDashboardEventTriggers/:fk",
+    method: 'PUT',
+    url: '/EventDashboards/:id/eventDashboardEventTriggers/:fk',
     routeParams: {
       id,
       fk,
@@ -125,8 +124,8 @@ export async function EventDashboard_FindByIdEventTriggers(
   fk: string
 ): Promise<EventTrigger> {
   return ApiFetch({
-    method: "GET",
-    url: "/EventDashboards/:id/eventTriggers/:fk",
+    method: 'GET',
+    url: '/EventDashboards/:id/eventTriggers/:fk',
     routeParams: {
       id,
       fk,
@@ -141,10 +140,10 @@ export async function EventDashboard_LinkEventTriggers(
   id: string,
   fk: string,
   data: any = {}
-): Promise<any> {
+): Promise<EventDashboardEventTrigger> {
   return ApiFetch({
-    method: "PUT",
-    url: "/EventDashboards/:id/eventTriggers/rel/:fk",
+    method: 'PUT',
+    url: '/EventDashboards/:id/eventTriggers/rel/:fk',
     routeParams: {
       id,
       fk,
@@ -161,10 +160,10 @@ export async function EventDashboard_LinkEventTriggers(
 export async function EventDashboard_UnlinkEventTriggers(
   id: string,
   fk: string
-): Promise<any> {
+): Promise<void> {
   return ApiFetch({
-    method: "DELETE",
-    url: "/EventDashboards/:id/eventTriggers/rel/:fk",
+    method: 'DELETE',
+    url: '/EventDashboards/:id/eventTriggers/rel/:fk',
     routeParams: {
       id,
       fk,
@@ -180,25 +179,8 @@ export async function EventDashboard_ExistsEventTriggers(
   fk: string
 ): Promise<boolean> {
   return ApiFetch({
-    method: "HEAD",
-    url: "/EventDashboards/:id/eventTriggers/rel/:fk",
-    routeParams: {
-      id,
-      fk,
-    },
-  });
-}
-/**
- * Buscar un elemento relacionado por id para trackingLogs.
- * /EventDashboards/:id/trackingLogs/:fk
- */
-export async function EventDashboard_FindByIdTrackingLogs(
-  id: string,
-  fk: string
-): Promise<Log> {
-  return ApiFetch({
-    method: "GET",
-    url: "/EventDashboards/:id/trackingLogs/:fk",
+    method: 'HEAD',
+    url: '/EventDashboards/:id/eventTriggers/rel/:fk',
     routeParams: {
       id,
       fk,
@@ -214,8 +196,8 @@ export async function EventDashboard_FindByIdManagers(
   fk: string
 ): Promise<Manager> {
   return ApiFetch({
-    method: "GET",
-    url: "/EventDashboards/:id/managers/:fk",
+    method: 'GET',
+    url: '/EventDashboards/:id/managers/:fk',
     routeParams: {
       id,
       fk,
@@ -232,12 +214,12 @@ export async function EventDashboard_GetAssets(
 ): Promise<Asset[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/EventDashboards/:id/assets",
+    method: 'GET',
+    url: '/EventDashboards/:id/assets',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -254,12 +236,12 @@ export async function EventDashboard_CountAssets(
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams["where"] = where;
+    _urlParams['where'] = where;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/EventDashboards/:id/assets/count",
+    method: 'GET',
+    url: '/EventDashboards/:id/assets/count',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -273,15 +255,15 @@ export async function EventDashboard_CountAssets(
 export async function EventDashboard_GetEventDashboardEventTriggers(
   id: string,
   filter: Filter<any> = {}
-): Promise<any> {
+): Promise<EventDashboardEventTrigger[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/EventDashboards/:id/eventDashboardEventTriggers",
+    method: 'GET',
+    url: '/EventDashboards/:id/eventDashboardEventTriggers',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -298,12 +280,12 @@ export async function EventDashboard_GetEventTriggers(
 ): Promise<EventTrigger[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/EventDashboards/:id/eventTriggers",
+    method: 'GET',
+    url: '/EventDashboards/:id/eventTriggers',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -320,56 +302,12 @@ export async function EventDashboard_CountEventTriggers(
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams["where"] = where;
+    _urlParams['where'] = where;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/EventDashboards/:id/eventTriggers/count",
-    urlParams: _urlParams,
-    routeParams: {
-      id,
-    },
-  });
-}
-/**
- * trackingLogs consultas de EventDashboard.
- * /EventDashboards/:id/trackingLogs
- */
-export async function EventDashboard_GetTrackingLogs(
-  id: string,
-  filter: Filter<any> = {}
-): Promise<Log[]> {
-  const _urlParams: any = {};
-  if (filter != null) {
-    _urlParams["filter"] = filter;
-  }
-
-  return ApiFetch({
-    method: "GET",
-    url: "/EventDashboards/:id/trackingLogs",
-    urlParams: _urlParams,
-    routeParams: {
-      id,
-    },
-  });
-}
-/**
- * Recuentos trackingLogs de EventDashboard.
- * /EventDashboards/:id/trackingLogs/count
- */
-export async function EventDashboard_CountTrackingLogs(
-  id: string,
-  where: any = {}
-): Promise<number> {
-  const _urlParams: any = {};
-  if (where != null) {
-    _urlParams["where"] = where;
-  }
-
-  return ApiFetch({
-    method: "GET",
-    url: "/EventDashboards/:id/trackingLogs/count",
+    method: 'GET',
+    url: '/EventDashboards/:id/eventTriggers/count',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -386,12 +324,12 @@ export async function EventDashboard_GetManagers(
 ): Promise<Manager[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/EventDashboards/:id/managers",
+    method: 'GET',
+    url: '/EventDashboards/:id/managers',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -408,134 +346,15 @@ export async function EventDashboard_CountManagers(
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams["where"] = where;
+    _urlParams['where'] = where;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/EventDashboards/:id/managers/count",
+    method: 'GET',
+    url: '/EventDashboards/:id/managers/count',
     urlParams: _urlParams,
     routeParams: {
       id,
     },
-  });
-}
-/**
- * Create a new instance of the model and persist it into the data source.
- * /EventDashboards
- */
-export async function EventDashboard_create(
-  data: any = {}
-): Promise<EventDashboard> {
-  return ApiFetch({
-    method: "POST",
-    url: "/EventDashboards",
-    routeParams: {},
-    body: {
-      data,
-    },
-  });
-}
-/**
- * Check whether a model instance exists in the data source.
- * /EventDashboards/:id/exists
- */
-export async function EventDashboard_exists(id: string): Promise<boolean> {
-  return ApiFetch({
-    method: "GET",
-    url: "/EventDashboards/:id/exists",
-    routeParams: {
-      id,
-    },
-  });
-}
-/**
- * Find a model instance by {{id}} from the data source.
- * /EventDashboards/:id
- */
-export async function EventDashboard_findById(
-  id: string,
-  filter: Filter<any> = {}
-): Promise<EventDashboard> {
-  const _urlParams: any = {};
-  if (filter != null) {
-    _urlParams["filter"] = filter;
-  }
-
-  return ApiFetch({
-    method: "GET",
-    url: "/EventDashboards/:id",
-    urlParams: _urlParams,
-    routeParams: {
-      id,
-    },
-  });
-}
-/**
- * Find all instances of the model matched by filter from the data source.
- * /EventDashboards
- */
-export async function EventDashboard_find(
-  filter: Filter<any> = {}
-): Promise<EventDashboard[]> {
-  const _urlParams: any = {};
-  if (filter != null) {
-    _urlParams["filter"] = filter;
-  }
-
-  return ApiFetch({
-    method: "GET",
-    url: "/EventDashboards",
-    urlParams: _urlParams,
-    routeParams: {},
-  });
-}
-/**
- * Find first instance of the model matched by filter from the data source.
- * /EventDashboards/findOne
- */
-export async function EventDashboard_findOne(
-  filter: Filter<any> = {}
-): Promise<EventDashboard> {
-  const _urlParams: any = {};
-  if (filter != null) {
-    _urlParams["filter"] = filter;
-  }
-
-  return ApiFetch({
-    method: "GET",
-    url: "/EventDashboards/findOne",
-    urlParams: _urlParams,
-    routeParams: {},
-  });
-}
-/**
- * Delete a model instance by {{id}} from the data source.
- * /EventDashboards/:id
- */
-export async function EventDashboard_deleteById(id: string): Promise<any> {
-  return ApiFetch({
-    method: "DELETE",
-    url: "/EventDashboards/:id",
-    routeParams: {
-      id,
-    },
-  });
-}
-/**
- * Count instances of the model matched by where from the data source.
- * /EventDashboards/count
- */
-export async function EventDashboard_count(where: any = {}): Promise<number> {
-  const _urlParams: any = {};
-  if (where != null) {
-    _urlParams["where"] = where;
-  }
-
-  return ApiFetch({
-    method: "GET",
-    url: "/EventDashboards/count",
-    urlParams: _urlParams,
-    routeParams: {},
   });
 }

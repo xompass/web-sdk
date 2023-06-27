@@ -1,9 +1,9 @@
-import { AssetState } from "./AssetState";
-import { EmergencyContact } from "./EmergencyContact";
-import { EventTrigger } from "./EventTrigger";
-import { EventTriggerAssetStateTemplate } from "./EventTriggerAssetStateTemplate";
-import { EventTriggerRule } from "./EventTriggerRule";
-import { Log } from "./Log";
+import { AssetState } from './AssetState';
+import { EmergencyContact } from './EmergencyContact';
+import { EventTrigger } from './EventTrigger';
+import { EventTriggerAssetStateTemplate } from './EventTriggerAssetStateTemplate';
+import { EventTriggerRule } from './EventTriggerRule';
+import { Log } from './Log';
 
 export type EventTriggerAssetState = {
   type?: string;

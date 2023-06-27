@@ -3,7 +3,7 @@ export type MotionDetectionEventContent = {
     gif?: {
       container?: string;
       name?: string;
-      type?: "image/gif";
+      type?: 'image/gif';
       field?: string;
       originalFilename?: string;
       meta?: Record<string, any>;
@@ -12,7 +12,7 @@ export type MotionDetectionEventContent = {
     image?: {
       container?: string;
       name?: string;
-      type?: "image/jpg" | "image/jpeg" | "image/png";
+      type?: 'image/jpg' | 'image/jpeg' | 'image/png';
       field?: string;
       originalFilename?: string;
       meta?: Record<string, any>;
@@ -21,7 +21,7 @@ export type MotionDetectionEventContent = {
     sequence?: {
       container?: string;
       name?: string;
-      type?: "image/jpg" | "image/jpeg" | "image/png";
+      type?: 'image/jpg' | 'image/jpeg' | 'image/png';
       field?: string;
       originalFilename?: string;
       meta?: Record<string, any>;

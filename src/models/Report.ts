@@ -1,7 +1,7 @@
-import { Asset } from "./Asset";
-import { Log } from "./Log";
-import { Manager } from "./Manager";
-import { Project } from "./Project";
+import { Asset } from './Asset';
+import { Log } from './Log';
+import { Manager } from './Manager';
+import { Project } from './Project';
 
 export type Report = {
   type: string;

@@ -1,5 +1,5 @@
-import { EdgeAgentTemplateTag } from "./EdgeAgentTemplateTag";
-import { Log } from "./Log";
+import { EdgeAgentTemplateTag } from './EdgeAgentTemplateTag';
+import { Log } from './Log';
 
 export type EdgeAgentTemplate = {
   name?: string;

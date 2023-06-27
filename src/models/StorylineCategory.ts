@@ -1,17 +1,17 @@
 import { Customer } from './Customer';
 import { Log } from './Log';
+import { Storyline } from './Storyline';
 
-export type ApiKey = {
-  name: string;
+export type StorylineCategory = {
   id?: string;
-  ttl?: number;
-  scopes?: string[];
-  enabled?: boolean;
-  testMode?: boolean;
+  name: string;
+  description?: string;
+  colors?: any;
   created?: Date;
   modified?: Date;
   deleted?: Date;
   customerId?: string;
-  customer?: Customer;
   trackingLogs?: Log[];
+  storyline?: Storyline[];
+  customer?: Customer;
 };

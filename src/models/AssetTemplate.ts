@@ -5,7 +5,6 @@ import { AssetWizardType } from './AssetWizardType';
 import { Customer } from './Customer';
 import { EventGroupTemplate } from './EventGroupTemplate';
 import { EventTriggerTemplate } from './EventTriggerTemplate';
-import { File } from './File';
 import { Log } from './Log';
 import { Manager } from './Manager';
 import { Project } from './Project';

@@ -1,5 +1,5 @@
-import { Device } from "./Device";
-import { Log } from "./Log";
+import { Device } from './Device';
+import { Log } from './Log';
 
 export type DeviceToken = {
   id?: string;

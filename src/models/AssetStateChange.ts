@@ -1,7 +1,7 @@
-import { Asset } from "./Asset";
-import { AssetState } from "./AssetState";
-import { Customer } from "./Customer";
-import { Log } from "./Log";
+import { Asset } from './Asset';
+import { AssetState } from './AssetState';
+import { Customer } from './Customer';
+import { Log } from './Log';
 
 export type AssetStateChange = {
   changeAt: Date;

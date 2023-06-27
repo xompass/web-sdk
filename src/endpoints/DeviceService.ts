@@ -1,12 +1,9 @@
-import { ApiFetch, Filter } from "../core/ApiFetch";
-import { Device } from "../models/Device";
-import { EdgeAgent } from "../models/EdgeAgent";
-import { Log } from "../models/Log";
-import { TelegramChat } from "../models/TelegramChat";
-import { DeviceEventComment } from "../models/DeviceEventComment";
-import { DeviceEventData } from "../models/DeviceEventData";
-import { DeviceEventStateChange } from "../models/DeviceEventStateChange";
-import { DeviceEvent } from "../models/DeviceEvent";
+import { ApiFetch, Filter } from '../core/ApiFetch';
+import { DeviceConfig } from '../models/Device';
+import { DeviceEvent } from '../models/DeviceEvent';
+import { DeviceEventComment } from '../models/DeviceEventComment';
+import { DeviceEventData } from '../models/DeviceEventData';
+import { DeviceEventStateChange } from '../models/DeviceEventStateChange';
 
 /**
  * Api services for the `Device` model.
@@ -16,10 +13,10 @@ import { DeviceEvent } from "../models/DeviceEvent";
  * Capta la relación hasOne config.
  * /Devices/:id/config
  */
-export async function Device_GetConfig(id: string): Promise<any> {
+export async function Device_GetConfig(id: string): Promise<DeviceConfig> {
   return ApiFetch({
-    method: "GET",
-    url: "/Devices/:id/config",
+    method: 'GET',
+    url: '/Devices/:id/config',
     routeParams: {
       id,
     },
@@ -32,10 +29,10 @@ export async function Device_GetConfig(id: string): Promise<any> {
 export async function Device_CreateConfig(
   id: string,
   data: any = {}
-): Promise<any> {
+): Promise<DeviceConfig> {
   return ApiFetch({
-    method: "POST",
-    url: "/Devices/:id/config",
+    method: 'POST',
+    url: '/Devices/:id/config',
     routeParams: {
       id,
     },
@@ -51,28 +48,15 @@ export async function Device_CreateConfig(
 export async function Device_UpdateConfig(
   id: string,
   data: any = {}
-): Promise<any> {
+): Promise<DeviceConfig> {
   return ApiFetch({
-    method: "PUT",
-    url: "/Devices/:id/config",
+    method: 'PUT',
+    url: '/Devices/:id/config',
     routeParams: {
       id,
     },
     body: {
       data,
-    },
-  });
-}
-/**
- * Suprime config de este modelo.
- * /Devices/:id/config
- */
-export async function Device_DestroyConfig(id: string): Promise<any> {
-  return ApiFetch({
-    method: "DELETE",
-    url: "/Devices/:id/config",
-    routeParams: {
-      id,
     },
   });
 }
@@ -85,8 +69,8 @@ export async function Device_FindByIdEvents(
   fk: string
 ): Promise<DeviceEvent> {
   return ApiFetch({
-    method: "GET",
-    url: "/Devices/:id/events/:fk",
+    method: 'GET',
+    url: '/Devices/:id/events/:fk',
     routeParams: {
       id,
       fk,
@@ -103,65 +87,14 @@ export async function Device_UpdateByIdEvents(
   data: any = {}
 ): Promise<DeviceEvent> {
   return ApiFetch({
-    method: "PUT",
-    url: "/Devices/:id/events/:fk",
+    method: 'PUT',
+    url: '/Devices/:id/events/:fk',
     routeParams: {
       id,
       fk,
     },
     body: {
       data,
-    },
-  });
-}
-/**
- * Buscar un elemento relacionado por id para edgeAgents.
- * /Devices/:id/edgeAgents/:fk
- */
-export async function Device_FindByIdEdgeAgents(
-  id: string,
-  fk: string
-): Promise<EdgeAgent> {
-  return ApiFetch({
-    method: "GET",
-    url: "/Devices/:id/edgeAgents/:fk",
-    routeParams: {
-      id,
-      fk,
-    },
-  });
-}
-/**
- * Buscar un elemento relacionado por id para trackingLogs.
- * /Devices/:id/trackingLogs/:fk
- */
-export async function Device_FindByIdTrackingLogs(
-  id: string,
-  fk: string
-): Promise<Log> {
-  return ApiFetch({
-    method: "GET",
-    url: "/Devices/:id/trackingLogs/:fk",
-    routeParams: {
-      id,
-      fk,
-    },
-  });
-}
-/**
- * Buscar un elemento relacionado por id para telegramChats.
- * /Devices/:id/telegramChats/:fk
- */
-export async function Device_FindByIdTelegramChats(
-  id: string,
-  fk: string
-): Promise<TelegramChat> {
-  return ApiFetch({
-    method: "GET",
-    url: "/Devices/:id/telegramChats/:fk",
-    routeParams: {
-      id,
-      fk,
     },
   });
 }
@@ -175,8 +108,8 @@ export async function Device_LinkTelegramChats(
   data: any = {}
 ): Promise<any> {
   return ApiFetch({
-    method: "PUT",
-    url: "/Devices/:id/telegramChats/rel/:fk",
+    method: 'PUT',
+    url: '/Devices/:id/telegramChats/rel/:fk',
     routeParams: {
       id,
       fk,
@@ -193,10 +126,10 @@ export async function Device_LinkTelegramChats(
 export async function Device_UnlinkTelegramChats(
   id: string,
   fk: string
-): Promise<any> {
+): Promise<void> {
   return ApiFetch({
-    method: "DELETE",
-    url: "/Devices/:id/telegramChats/rel/:fk",
+    method: 'DELETE',
+    url: '/Devices/:id/telegramChats/rel/:fk',
     routeParams: {
       id,
       fk,
@@ -213,12 +146,12 @@ export async function Device_GetEvents(
 ): Promise<DeviceEvent[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Devices/:id/events",
+    method: 'GET',
+    url: '/Devices/:id/events',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -235,263 +168,16 @@ export async function Device_CountEvents(
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams["where"] = where;
+    _urlParams['where'] = where;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Devices/:id/events/count",
+    method: 'GET',
+    url: '/Devices/:id/events/count',
     urlParams: _urlParams,
     routeParams: {
       id,
     },
-  });
-}
-/**
- * edgeAgents consultas de Device.
- * /Devices/:id/edgeAgents
- */
-export async function Device_GetEdgeAgents(
-  id: string,
-  filter: Filter<any> = {}
-): Promise<EdgeAgent[]> {
-  const _urlParams: any = {};
-  if (filter != null) {
-    _urlParams["filter"] = filter;
-  }
-
-  return ApiFetch({
-    method: "GET",
-    url: "/Devices/:id/edgeAgents",
-    urlParams: _urlParams,
-    routeParams: {
-      id,
-    },
-  });
-}
-/**
- * Recuentos edgeAgents de Device.
- * /Devices/:id/edgeAgents/count
- */
-export async function Device_CountEdgeAgents(
-  id: string,
-  where: any = {}
-): Promise<number> {
-  const _urlParams: any = {};
-  if (where != null) {
-    _urlParams["where"] = where;
-  }
-
-  return ApiFetch({
-    method: "GET",
-    url: "/Devices/:id/edgeAgents/count",
-    urlParams: _urlParams,
-    routeParams: {
-      id,
-    },
-  });
-}
-/**
- * trackingLogs consultas de Device.
- * /Devices/:id/trackingLogs
- */
-export async function Device_GetTrackingLogs(
-  id: string,
-  filter: Filter<any> = {}
-): Promise<Log[]> {
-  const _urlParams: any = {};
-  if (filter != null) {
-    _urlParams["filter"] = filter;
-  }
-
-  return ApiFetch({
-    method: "GET",
-    url: "/Devices/:id/trackingLogs",
-    urlParams: _urlParams,
-    routeParams: {
-      id,
-    },
-  });
-}
-/**
- * Recuentos trackingLogs de Device.
- * /Devices/:id/trackingLogs/count
- */
-export async function Device_CountTrackingLogs(
-  id: string,
-  where: any = {}
-): Promise<number> {
-  const _urlParams: any = {};
-  if (where != null) {
-    _urlParams["where"] = where;
-  }
-
-  return ApiFetch({
-    method: "GET",
-    url: "/Devices/:id/trackingLogs/count",
-    urlParams: _urlParams,
-    routeParams: {
-      id,
-    },
-  });
-}
-/**
- * telegramChats consultas de Device.
- * /Devices/:id/telegramChats
- */
-export async function Device_GetTelegramChats(
-  id: string,
-  filter: Filter<any> = {}
-): Promise<TelegramChat[]> {
-  const _urlParams: any = {};
-  if (filter != null) {
-    _urlParams["filter"] = filter;
-  }
-
-  return ApiFetch({
-    method: "GET",
-    url: "/Devices/:id/telegramChats",
-    urlParams: _urlParams,
-    routeParams: {
-      id,
-    },
-  });
-}
-/**
- * Recuentos telegramChats de Device.
- * /Devices/:id/telegramChats/count
- */
-export async function Device_CountTelegramChats(
-  id: string,
-  where: any = {}
-): Promise<number> {
-  const _urlParams: any = {};
-  if (where != null) {
-    _urlParams["where"] = where;
-  }
-
-  return ApiFetch({
-    method: "GET",
-    url: "/Devices/:id/telegramChats/count",
-    urlParams: _urlParams,
-    routeParams: {
-      id,
-    },
-  });
-}
-/**
- * Create a new instance of the model and persist it into the data source.
- * /Devices
- */
-export async function Device_create(data: any = {}): Promise<Device> {
-  return ApiFetch({
-    method: "POST",
-    url: "/Devices",
-    routeParams: {},
-    body: {
-      data,
-    },
-  });
-}
-/**
- * Check whether a model instance exists in the data source.
- * /Devices/:id/exists
- */
-export async function Device_exists(id: string): Promise<boolean> {
-  return ApiFetch({
-    method: "GET",
-    url: "/Devices/:id/exists",
-    routeParams: {
-      id,
-    },
-  });
-}
-/**
- * Find a model instance by {{id}} from the data source.
- * /Devices/:id
- */
-export async function Device_findById(
-  id: string,
-  filter: Filter<any> = {}
-): Promise<Device> {
-  const _urlParams: any = {};
-  if (filter != null) {
-    _urlParams["filter"] = filter;
-  }
-
-  return ApiFetch({
-    method: "GET",
-    url: "/Devices/:id",
-    urlParams: _urlParams,
-    routeParams: {
-      id,
-    },
-  });
-}
-/**
- * Find all instances of the model matched by filter from the data source.
- * /Devices
- */
-export async function Device_find(filter: Filter<any> = {}): Promise<Device[]> {
-  const _urlParams: any = {};
-  if (filter != null) {
-    _urlParams["filter"] = filter;
-  }
-
-  return ApiFetch({
-    method: "GET",
-    url: "/Devices",
-    urlParams: _urlParams,
-    routeParams: {},
-  });
-}
-/**
- * Find first instance of the model matched by filter from the data source.
- * /Devices/findOne
- */
-export async function Device_findOne(
-  filter: Filter<any> = {}
-): Promise<Device> {
-  const _urlParams: any = {};
-  if (filter != null) {
-    _urlParams["filter"] = filter;
-  }
-
-  return ApiFetch({
-    method: "GET",
-    url: "/Devices/findOne",
-    urlParams: _urlParams,
-    routeParams: {},
-  });
-}
-/**
- * Delete a model instance by {{id}} from the data source.
- * /Devices/:id
- */
-export async function Device_deleteById(id: string): Promise<any> {
-  return ApiFetch({
-    method: "DELETE",
-    url: "/Devices/:id",
-    routeParams: {
-      id,
-    },
-  });
-}
-/**
- * Count instances of the model matched by where from the data source.
- * /Devices/count
- */
-export async function Device_count(where: any = {}): Promise<number> {
-  const _urlParams: any = {};
-  if (where != null) {
-    _urlParams["where"] = where;
-  }
-
-  return ApiFetch({
-    method: "GET",
-    url: "/Devices/count",
-    urlParams: _urlParams,
-    routeParams: {},
   });
 }
 /**
@@ -500,8 +186,8 @@ export async function Device_count(where: any = {}): Promise<number> {
  */
 export async function Device_cmdcRestart(id: string): Promise<any> {
   return ApiFetch({
-    method: "POST",
-    url: "/Devices/:id/cmdc/restart",
+    method: 'POST',
+    url: '/Devices/:id/cmdc/restart',
     routeParams: {
       id,
     },
@@ -517,8 +203,8 @@ export async function Device_cmdcRestartModule(
   name: string
 ): Promise<any> {
   return ApiFetch({
-    method: "POST",
-    url: "/Devices/:id/cmdc/modules/:name/restart",
+    method: 'POST',
+    url: '/Devices/:id/cmdc/modules/:name/restart',
     routeParams: {
       id,
       name,
@@ -536,8 +222,8 @@ export async function Device_FindByIdEventsComments(
   fk: string
 ): Promise<DeviceEventComment> {
   return ApiFetch({
-    method: "GET",
-    url: "/Devices/:id/events/:nk/comments/:fk",
+    method: 'GET',
+    url: '/Devices/:id/events/:nk/comments/:fk',
     routeParams: {
       id,
       nk,
@@ -553,10 +239,10 @@ export async function Device_DestroyByIdEventsComments(
   id: string,
   nk: string,
   fk: string
-): Promise<any> {
+): Promise<void> {
   return ApiFetch({
-    method: "DELETE",
-    url: "/Devices/:id/events/:nk/comments/:fk",
+    method: 'DELETE',
+    url: '/Devices/:id/events/:nk/comments/:fk',
     routeParams: {
       id,
       nk,
@@ -575,8 +261,8 @@ export async function Device_UpdateByIdEventsComments(
   data: any = {}
 ): Promise<DeviceEventComment> {
   return ApiFetch({
-    method: "PUT",
-    url: "/Devices/:id/events/:nk/comments/:fk",
+    method: 'PUT',
+    url: '/Devices/:id/events/:nk/comments/:fk',
     routeParams: {
       id,
       nk,
@@ -597,8 +283,8 @@ export async function Device_FindByIdEventsData(
   fk: string
 ): Promise<DeviceEventData> {
   return ApiFetch({
-    method: "GET",
-    url: "/Devices/:id/events/:nk/data/:fk",
+    method: 'GET',
+    url: '/Devices/:id/events/:nk/data/:fk',
     routeParams: {
       id,
       nk,
@@ -616,8 +302,8 @@ export async function Device_FindByIdEventsStateChanges(
   fk: string
 ): Promise<DeviceEventStateChange> {
   return ApiFetch({
-    method: "GET",
-    url: "/Devices/:id/events/:nk/stateChanges/:fk",
+    method: 'GET',
+    url: '/Devices/:id/events/:nk/stateChanges/:fk',
     routeParams: {
       id,
       nk,
@@ -636,12 +322,12 @@ export async function Device_GetEventsComments(
 ): Promise<DeviceEventComment[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Devices/:id/events/:nk/comments",
+    method: 'GET',
+    url: '/Devices/:id/events/:nk/comments',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -659,8 +345,8 @@ export async function Device_CreateEventsComments(
   data: any = {}
 ): Promise<DeviceEventComment> {
   return ApiFetch({
-    method: "POST",
-    url: "/Devices/:id/events/:nk/comments",
+    method: 'POST',
+    url: '/Devices/:id/events/:nk/comments',
     routeParams: {
       id,
       nk,
@@ -681,12 +367,12 @@ export async function Device_CountEventsComments(
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams["where"] = where;
+    _urlParams['where'] = where;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Devices/:id/events/:nk/comments/count",
+    method: 'GET',
+    url: '/Devices/:id/events/:nk/comments/count',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -705,12 +391,12 @@ export async function Device_GetEventsData(
 ): Promise<DeviceEventData[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Devices/:id/events/:nk/data",
+    method: 'GET',
+    url: '/Devices/:id/events/:nk/data',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -729,12 +415,12 @@ export async function Device_CountEventsData(
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams["where"] = where;
+    _urlParams['where'] = where;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Devices/:id/events/:nk/data/count",
+    method: 'GET',
+    url: '/Devices/:id/events/:nk/data/count',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -753,12 +439,12 @@ export async function Device_GetEventsStateChanges(
 ): Promise<DeviceEventStateChange[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Devices/:id/events/:nk/stateChanges",
+    method: 'GET',
+    url: '/Devices/:id/events/:nk/stateChanges',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -776,8 +462,8 @@ export async function Device_CreateEventsStateChanges(
   data: any = {}
 ): Promise<DeviceEventStateChange> {
   return ApiFetch({
-    method: "POST",
-    url: "/Devices/:id/events/:nk/stateChanges",
+    method: 'POST',
+    url: '/Devices/:id/events/:nk/stateChanges',
     routeParams: {
       id,
       nk,
@@ -798,12 +484,12 @@ export async function Device_CountEventsStateChanges(
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams["where"] = where;
+    _urlParams['where'] = where;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Devices/:id/events/:nk/stateChanges/count",
+    method: 'GET',
+    url: '/Devices/:id/events/:nk/stateChanges/count',
     urlParams: _urlParams,
     routeParams: {
       id,

@@ -1,5 +1,5 @@
-import { Log } from "./Log";
-import { Project } from "./Project";
+import { Log } from './Log';
+import { Project } from './Project';
 
 export type ProjectRestrictionTable = {
   maxAssetsPerProject?: number;

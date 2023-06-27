@@ -1,8 +1,8 @@
-import { Asset } from "./Asset";
-import { EventTrigger } from "./EventTrigger";
-import { Log } from "./Log";
-import { Manager } from "./Manager";
-import { Project } from "./Project";
+import { Asset } from './Asset';
+import { EventTrigger } from './EventTrigger';
+import { Log } from './Log';
+import { Manager } from './Manager';
+import { Project } from './Project';
 
 export type EventDashboard = {
   type: string;

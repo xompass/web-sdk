@@ -1,20 +1,20 @@
-import { FaceDetectionBasedOnRulesTRCParameters } from "./sensorTypes/FaceDetection/FaceDetectionTRCParameters";
-import { FaceMaskDetectionBasedOnRulesTRCParameters } from "./sensorTypes/FaceMaskDetection/FaceMaskDetectionTRCParameters";
-import { FuelingDetectionBasedOnRulesTRCParameters } from "./sensorTypes/FuelingDetection/FuelingDetectionTRCParameters";
+import { FaceDetectionBasedOnRulesTRCParameters } from './sensorTypes/FaceDetection/FaceDetectionTRCParameters';
+import { FaceMaskDetectionBasedOnRulesTRCParameters } from './sensorTypes/FaceMaskDetection/FaceMaskDetectionTRCParameters';
+import { FuelingDetectionBasedOnRulesTRCParameters } from './sensorTypes/FuelingDetection/FuelingDetectionTRCParameters';
 import {
   LicensePlateBasedOnRulesTRCParameters,
   LicensePlateBlacklistSearchTRCParameters,
-} from "./sensorTypes/LicensePlate/LicensePlateTRCParameters";
-import { NoPlateDetectionBasedOnRulesTRCParameters } from "./sensorTypes/NoPlateDetection/NoPlateDetectionTRCParameters";
+} from './sensorTypes/LicensePlate/LicensePlateTRCParameters';
+import { NoPlateDetectionBasedOnRulesTRCParameters } from './sensorTypes/NoPlateDetection/NoPlateDetectionTRCParameters';
 import {
   ObjectRecognitionBasedOnRulesTRCParameters,
   ObjectRecognitionBlacklistSearchTRCParameters,
-} from "./sensorTypes/ObjectRecognition/ObjectRecognitionTRCParameters";
-import { StoppedObjectsDetectorBasedOnRulesTRCParameters } from "./sensorTypes/StoppedObjectsDetector/StoppedObjectsDetectorTRCParameters";
-import { NaiveSocialDistancingBasedOnRulesTRCParameters } from "./sensorTypes/NaiveSocialDistancing/NaiveSocialDistancingTRCParameters";
-import { SpeedChangeBasedOnRulesTRCParameters } from "./sensorTypes/SpeedChange/SpeedChangeTRCParameters";
-import { OpticalCharacterRecognitionBasedOnRulesTRCParameters } from "./sensorTypes/OpticalCharacterRecognition/OpticalCharacterRecognitionTRCParameters";
-import { PoseDetectionBasedOnRulesTRCParameters } from "./sensorTypes/PoseDetection/PoseDetectionTRCParameters";
+} from './sensorTypes/ObjectRecognition/ObjectRecognitionTRCParameters';
+import { StoppedObjectsDetectorBasedOnRulesTRCParameters } from './sensorTypes/StoppedObjectsDetector/StoppedObjectsDetectorTRCParameters';
+import { NaiveSocialDistancingBasedOnRulesTRCParameters } from './sensorTypes/NaiveSocialDistancing/NaiveSocialDistancingTRCParameters';
+import { SpeedChangeBasedOnRulesTRCParameters } from './sensorTypes/SpeedChange/SpeedChangeTRCParameters';
+import { OpticalCharacterRecognitionBasedOnRulesTRCParameters } from './sensorTypes/OpticalCharacterRecognition/OpticalCharacterRecognitionTRCParameters';
+import { PoseDetectionBasedOnRulesTRCParameters } from './sensorTypes/PoseDetection/PoseDetectionTRCParameters';
 
 export type EventTriggerRule = {
   clauses?: EventTriggerRuleClause[];

@@ -1,4 +1,4 @@
 export type NaiveSocialDistancingTrigger = {
-  classes?: "person"[];
+  classes?: 'person'[];
   maxDistancingPx?: number;
 }[][];

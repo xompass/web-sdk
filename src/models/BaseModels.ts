@@ -1,7 +1,7 @@
 export interface AccessToken {
   id?: string;
   ttl?: number;
-  scopes?: ["string"];
+  scopes?: ['string'];
   created?: Date;
   userId?: string;
   user?: any;

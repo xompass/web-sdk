@@ -1,5 +1,5 @@
 export type StoppedObjectsDetectorTrigger = {
-  classes?: ("car" | "person")[];
+  classes?: ('car' | 'person')[];
   intervalTime?: number;
   advanced?: {
     matchRatio?: number;

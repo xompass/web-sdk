@@ -1,6 +1,6 @@
-import { Device } from "./Device";
-import { DeviceEvent } from "./DeviceEvent";
-import { Log } from "./Log";
+import { Device } from './Device';
+import { DeviceEvent } from './DeviceEvent';
+import { Log } from './Log';
 
 export type DeviceEventData = {
   id?: string;

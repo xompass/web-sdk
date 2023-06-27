@@ -1,5 +1,5 @@
-import { Customer } from "./Customer";
-import { Log } from "./Log";
+import { Customer } from './Customer';
+import { Log } from './Log';
 
 export type CustomerRestrictionTable = {
   maxAssetsPerCustomer?: number;

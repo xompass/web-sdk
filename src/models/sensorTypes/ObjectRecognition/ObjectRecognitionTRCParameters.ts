@@ -70,11 +70,36 @@ export type ObjectRecognitionBasedOnRulesTRCParameters = {
         minProbability?: number;
       };
     };
+    dog?: {
+      thresholds?: {
+        minProbability?: number;
+      };
+    };
+    train?: {
+      thresholds?: {
+        minProbability?: number;
+      };
+    };
+    guard?: {
+      thresholds?: {
+        minProbability?: number;
+      };
+    };
+    inspector?: {
+      thresholds?: {
+        minProbability?: number;
+      };
+    };
+    helmet?: {
+      thresholds?: {
+        minProbability?: number;
+      };
+    };
   };
 };
 
 export type ObjectRecognitionBlacklistSearchTRCParameters = {
   minNumOfChars?: number;
-  matchMethod?: "exact" | "prefix" | "contains" | "fuzzy" | "null";
+  matchMethod?: 'exact' | 'prefix' | 'contains' | 'fuzzy' | 'null';
   fuzzyMaxDistance?: number;
 };

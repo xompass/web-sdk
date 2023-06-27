@@ -1,12 +1,12 @@
-import { Admin } from "./Admin";
-import { Asset } from "./Asset";
-import { Customer } from "./Customer";
-import { Log } from "./Log";
-import { Manager } from "./Manager";
-import { Project } from "./Project";
-import { AccessTokenContent } from "./credentialTypes/AccessToken";
-import { BasicAuthContent } from "./credentialTypes/BasicAuth";
-import { DockerRegistryAuthContent } from "./credentialTypes/DockerRegistryAuth";
+import { Admin } from './Admin';
+import { Asset } from './Asset';
+import { Customer } from './Customer';
+import { Log } from './Log';
+import { Manager } from './Manager';
+import { Project } from './Project';
+import { AccessTokenContent } from './credentialTypes/AccessToken';
+import { BasicAuthContent } from './credentialTypes/BasicAuth';
+import { DockerRegistryAuthContent } from './credentialTypes/DockerRegistryAuth';
 
 export type Credential = {
   identifier?: string;

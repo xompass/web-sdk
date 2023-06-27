@@ -1,10 +1,10 @@
-import { YoloClassLabel } from "../YoloClassLabel";
+import { YoloClassLabel } from '../YoloClassLabel';
 
 export type SpeedChangeFeedback = {
   image?: {
     container?: string;
     name?: string;
-    type?: "image/jpg" | "image/jpeg" | "image/png";
+    type?: 'image/jpg' | 'image/jpeg' | 'image/png';
     field?: string;
     originalFilename?: string;
     meta?: Record<string, any>;
@@ -14,7 +14,7 @@ export type SpeedChangeFeedback = {
     image?: {
       container?: string;
       name?: string;
-      type?: "image/jpg" | "image/jpeg" | "image/png";
+      type?: 'image/jpg' | 'image/jpeg' | 'image/png';
       field?: string;
       originalFilename?: string;
       meta?: Record<string, any>;
@@ -34,16 +34,16 @@ export type SpeedChangeFeedback = {
     colors?: {
       percentage: number;
       label:
-        | "white"
-        | "gray"
-        | "black"
-        | "red"
-        | "yellow"
-        | "brown"
-        | "green"
-        | "cyan"
-        | "blue"
-        | "purple";
+        | 'white'
+        | 'gray'
+        | 'black'
+        | 'red'
+        | 'yellow'
+        | 'brown'
+        | 'green'
+        | 'cyan'
+        | 'blue'
+        | 'purple';
     }[];
     trace?: {
       ts?: number;
@@ -61,10 +61,10 @@ export type SpeedChangeFeedback = {
       CLASS?: boolean;
     };
     diagnosis?:
-      | "TRUE_POSITIVE"
-      | "TRUE_NEGATIVE"
-      | "FALSE_POSITIVE"
-      | "FALSE_NEGATIVE";
+      | 'TRUE_POSITIVE'
+      | 'TRUE_NEGATIVE'
+      | 'FALSE_POSITIVE'
+      | 'FALSE_NEGATIVE';
   }[];
   filtered?: boolean;
 };

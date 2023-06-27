@@ -1,8 +1,8 @@
-import { Device } from "./Device";
-import { DeviceEventComment } from "./DeviceEventComment";
-import { DeviceEventData } from "./DeviceEventData";
-import { DeviceEventStateChange } from "./DeviceEventStateChange";
-import { Log } from "./Log";
+import { Device } from './Device';
+import { DeviceEventComment } from './DeviceEventComment';
+import { DeviceEventData } from './DeviceEventData';
+import { DeviceEventStateChange } from './DeviceEventStateChange';
+import { Log } from './Log';
 
 export type DeviceEvent = {
   id?: string;

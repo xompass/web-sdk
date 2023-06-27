@@ -1,6 +1,6 @@
-import { Log } from "./Log";
-import { Project } from "./Project";
-import { YoloClass } from "./YoloClass";
+import { Log } from './Log';
+import { Project } from './Project';
+import { YoloClass } from './YoloClass';
 
 export type YoloClassProject = {
   created?: Date;

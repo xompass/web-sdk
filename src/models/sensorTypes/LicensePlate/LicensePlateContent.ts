@@ -2,7 +2,7 @@ export type LicensePlateContent = {
   image?: {
     container?: string;
     name?: string;
-    type?: "image/jpg" | "image/jpeg" | "image/png";
+    type?: 'image/jpg' | 'image/jpeg' | 'image/png';
     field?: string;
     originalFilename?: string;
     meta?: Record<string, any>;
@@ -12,7 +12,7 @@ export type LicensePlateContent = {
     image?: {
       container?: string;
       name?: string;
-      type?: "image/jpg" | "image/jpeg" | "image/png";
+      type?: 'image/jpg' | 'image/jpeg' | 'image/png';
       field?: string;
       originalFilename?: string;
       meta?: Record<string, any>;
@@ -21,7 +21,7 @@ export type LicensePlateContent = {
   };
   detections?: {
     presence: boolean;
-    class: "bus" | "car" | "motorbike" | "truck";
+    class: 'bus' | 'car' | 'motorbike' | 'truck';
     probability: number;
     frame: {
       x: number;

@@ -1,8 +1,8 @@
-import { AssetTemplate } from "./AssetTemplate";
-import { EventTriggerAssetStateTemplate } from "./EventTriggerAssetStateTemplate";
-import { Log } from "./Log";
-import { SensorAssetStateTemplate } from "./SensorAssetStateTemplate";
-import { SensorTemplate } from "./SensorTemplate";
+import { AssetTemplate } from './AssetTemplate';
+import { EventTriggerAssetStateTemplate } from './EventTriggerAssetStateTemplate';
+import { Log } from './Log';
+import { SensorAssetStateTemplate } from './SensorAssetStateTemplate';
+import { SensorTemplate } from './SensorTemplate';
 
 export type AssetStateTemplate = {
   name?: string;

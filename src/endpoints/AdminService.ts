@@ -1,13 +1,14 @@
 import { ApiFetch, Filter, Include } from '../core/ApiFetch';
 import { Admin } from '../models/Admin';
+import { CommonAccessToken } from '../models/CommonAccessToken';
 import { Country } from '../models/Country';
+import { AdminStorageContainer } from '../models/Admin';
 import { Credential } from '../models/Credential';
 import { Asset } from '../models/Asset';
 import { Log } from '../models/Log';
 import { TimeZone } from '../models/TimeZone';
 import { Var } from '../models/Var';
-import { UserCrendentials } from '../core/User';
-import { CommonAccessToken } from '../models/CommonAccessToken';
+import { File } from '../models/File';
 
 /**
  * Api services for the `Admin` model.
@@ -20,34 +21,13 @@ import { CommonAccessToken } from '../models/CommonAccessToken';
 export async function Admin_FindByIdAccessTokens(
   id: string,
   fk: string
-): Promise<any> {
+): Promise<CommonAccessToken> {
   return ApiFetch({
     method: 'GET',
     url: '/Admins/:id/accessTokens/:fk',
     routeParams: {
       id,
       fk,
-    },
-  });
-}
-/**
- * Actualizar un elemento relacionado por id para accessTokens.
- * /Admins/:id/accessTokens/:fk
- */
-export async function Admin_UpdateByIdAccessTokens(
-  id: string,
-  fk: string,
-  data: any = {}
-): Promise<any> {
-  return ApiFetch({
-    method: 'PUT',
-    url: '/Admins/:id/accessTokens/:fk',
-    routeParams: {
-      id,
-      fk,
-    },
-    body: {
-      data,
     },
   });
 }
@@ -68,60 +48,11 @@ export async function Admin_GetCountry(id: string): Promise<Country> {
  * Capta la relación hasOne container.
  * /Admins/:id/container
  */
-export async function Admin_GetContainer(id: string): Promise<any> {
+export async function Admin_GetContainer(
+  id: string
+): Promise<AdminStorageContainer> {
   return ApiFetch({
     method: 'GET',
-    url: '/Admins/:id/container',
-    routeParams: {
-      id,
-    },
-  });
-}
-/**
- * Crea una nueva instancia en container de este modelo.
- * /Admins/:id/container
- */
-export async function Admin_CreateContainer(
-  id: string,
-  data: any = {}
-): Promise<any> {
-  return ApiFetch({
-    method: 'POST',
-    url: '/Admins/:id/container',
-    routeParams: {
-      id,
-    },
-    body: {
-      data,
-    },
-  });
-}
-/**
- * Actualizar container de este modelo.
- * /Admins/:id/container
- */
-export async function Admin_UpdateContainer(
-  id: string,
-  data: any = {}
-): Promise<any> {
-  return ApiFetch({
-    method: 'PUT',
-    url: '/Admins/:id/container',
-    routeParams: {
-      id,
-    },
-    body: {
-      data,
-    },
-  });
-}
-/**
- * Suprime container de este modelo.
- * /Admins/:id/container
- */
-export async function Admin_DestroyContainer(id: string): Promise<any> {
-  return ApiFetch({
-    method: 'DELETE',
     url: '/Admins/:id/container',
     routeParams: {
       id,
@@ -187,7 +118,10 @@ export async function Admin_LinkAssets(
  * Eliminar la relación assets con un elemento por id.
  * /Admins/:id/assets/rel/:fk
  */
-export async function Admin_UnlinkAssets(id: string, fk: string): Promise<any> {
+export async function Admin_UnlinkAssets(
+  id: string,
+  fk: string
+): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
     url: '/Admins/:id/assets/rel/:fk',
@@ -215,23 +149,6 @@ export async function Admin_FindByIdActivityLogs(
   });
 }
 /**
- * Buscar un elemento relacionado por id para trackingLogs.
- * /Admins/:id/trackingLogs/:fk
- */
-export async function Admin_FindByIdTrackingLogs(
-  id: string,
-  fk: string
-): Promise<Log> {
-  return ApiFetch({
-    method: 'GET',
-    url: '/Admins/:id/trackingLogs/:fk',
-    routeParams: {
-      id,
-      fk,
-    },
-  });
-}
-/**
  * Capta la relación belongsTo timeZone.
  * /Admins/:id/timeZone
  */
@@ -252,28 +169,6 @@ export async function Admin_GetVar(id: string): Promise<Var> {
   return ApiFetch({
     method: 'GET',
     url: '/Admins/:id/var',
-    routeParams: {
-      id,
-    },
-  });
-}
-/**
- * Recuentos accessTokens de Admin.
- * /Admins/:id/accessTokens/count
- */
-export async function Admin_CountAccessTokens(
-  id: string,
-  where: any = {}
-): Promise<number> {
-  const _urlParams: any = {};
-  if (where != null) {
-    _urlParams['where'] = where;
-  }
-
-  return ApiFetch({
-    method: 'GET',
-    url: '/Admins/:id/accessTokens/count',
-    urlParams: _urlParams,
     routeParams: {
       id,
     },
@@ -412,50 +307,6 @@ export async function Admin_CountActivityLogs(
   });
 }
 /**
- * trackingLogs consultas de Admin.
- * /Admins/:id/trackingLogs
- */
-export async function Admin_GetTrackingLogs(
-  id: string,
-  filter: Filter<any> = {}
-): Promise<Log[]> {
-  const _urlParams: any = {};
-  if (filter != null) {
-    _urlParams['filter'] = filter;
-  }
-
-  return ApiFetch({
-    method: 'GET',
-    url: '/Admins/:id/trackingLogs',
-    urlParams: _urlParams,
-    routeParams: {
-      id,
-    },
-  });
-}
-/**
- * Recuentos trackingLogs de Admin.
- * /Admins/:id/trackingLogs/count
- */
-export async function Admin_CountTrackingLogs(
-  id: string,
-  where: any = {}
-): Promise<number> {
-  const _urlParams: any = {};
-  if (where != null) {
-    _urlParams['where'] = where;
-  }
-
-  return ApiFetch({
-    method: 'GET',
-    url: '/Admins/:id/trackingLogs/count',
-    urlParams: _urlParams,
-    routeParams: {
-      id,
-    },
-  });
-}
-/**
  * Create a new instance of the model and persist it into the data source.
  * /Admins
  */
@@ -466,19 +317,6 @@ export async function Admin_create(data: any = {}): Promise<Admin> {
     routeParams: {},
     body: {
       data,
-    },
-  });
-}
-/**
- * Check whether a model instance exists in the data source.
- * /Admins/:id/exists
- */
-export async function Admin_exists(id: string): Promise<boolean> {
-  return ApiFetch({
-    method: 'GET',
-    url: '/Admins/:id/exists',
-    routeParams: {
-      id,
     },
   });
 }
@@ -505,44 +343,10 @@ export async function Admin_findById(
   });
 }
 /**
- * Find all instances of the model matched by filter from the data source.
- * /Admins
- */
-export async function Admin_find(filter: Filter<any> = {}): Promise<Admin[]> {
-  const _urlParams: any = {};
-  if (filter != null) {
-    _urlParams['filter'] = filter;
-  }
-
-  return ApiFetch({
-    method: 'GET',
-    url: '/Admins',
-    urlParams: _urlParams,
-    routeParams: {},
-  });
-}
-/**
- * Find first instance of the model matched by filter from the data source.
- * /Admins/findOne
- */
-export async function Admin_findOne(filter: Filter<any> = {}): Promise<Admin> {
-  const _urlParams: any = {};
-  if (filter != null) {
-    _urlParams['filter'] = filter;
-  }
-
-  return ApiFetch({
-    method: 'GET',
-    url: '/Admins/findOne',
-    urlParams: _urlParams,
-    routeParams: {},
-  });
-}
-/**
  * Delete a model instance by {{id}} from the data source.
  * /Admins/:id
  */
-export async function Admin_deleteById(id: string): Promise<any> {
+export async function Admin_deleteById(id: string): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
     url: '/Admins/:id',
@@ -552,34 +356,17 @@ export async function Admin_deleteById(id: string): Promise<any> {
   });
 }
 /**
- * Count instances of the model matched by where from the data source.
- * /Admins/count
- */
-export async function Admin_count(where: any = {}): Promise<number> {
-  const _urlParams: any = {};
-  if (where != null) {
-    _urlParams['where'] = where;
-  }
-
-  return ApiFetch({
-    method: 'GET',
-    url: '/Admins/count',
-    urlParams: _urlParams,
-    routeParams: {},
-  });
-}
-/**
  * Login a user with username/email and password.
  * /Admins/login
  */
 export async function Admin_login(
-  credentials: UserCrendentials,
+  credentials: any,
   include: Include<any> = {
     relation: 'user',
     scope: { include: ['container'] },
   },
   rememberMe = true
-): Promise<CommonAccessToken> {
+): Promise<any> {
   const _urlParams: any = {};
   if (include != null) {
     _urlParams['include'] = include;
@@ -591,8 +378,7 @@ export async function Admin_login(
     urlParams: _urlParams,
     routeParams: {},
     body: {
-      ...credentials,
-      rememberMe,
+      credentials,
     },
   });
 }
@@ -730,7 +516,7 @@ export async function Admin_getContainerInfo(id: string): Promise<any> {
  * List all files within specified container
  * /Admins/:id/container/files
  */
-export async function Admin_getFiles(id: string): Promise<any> {
+export async function Admin_getFiles(id: string): Promise<File[]> {
   return ApiFetch({
     method: 'GET',
     url: '/Admins/:id/container/files',
@@ -743,7 +529,7 @@ export async function Admin_getFiles(id: string): Promise<any> {
  * Get information for specified file within specified container
  * /Admins/:id/container/files/:file
  */
-export async function Admin_getFile(id: string, file: string): Promise<any> {
+export async function Admin_getFile(id: string, file: string): Promise<File> {
   return ApiFetch({
     method: 'GET',
     url: '/Admins/:id/container/files/:file',
@@ -761,7 +547,7 @@ export async function Admin_removeFile(
   id: string,
   property: string,
   file: string
-): Promise<any> {
+): Promise<void> {
   const _urlParams: any = {};
   if (property != null) {
     _urlParams['property'] = property;

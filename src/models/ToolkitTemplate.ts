@@ -1,5 +1,5 @@
-import { Log } from "./Log";
-import { Tool } from "./Tool";
+import { Log } from './Log';
+import { Tool } from './Tool';
 
 export type ToolkitTemplate = {
   name?: string;

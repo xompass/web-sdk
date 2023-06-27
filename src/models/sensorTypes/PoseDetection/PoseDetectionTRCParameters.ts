@@ -25,5 +25,10 @@ export type PoseDetectionBasedOnRulesTRCParameters = {
         minProbability?: number;
       };
     };
+    FIGHT?: {
+      thresholds?: {
+        minProbability?: number;
+      };
+    };
   };
 };

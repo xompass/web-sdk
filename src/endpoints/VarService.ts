@@ -1,35 +1,19 @@
-import { ApiFetch, Filter } from "../core/ApiFetch";
-import { Var } from "../models/Var";
-import { Log } from "../models/Log";
-import { Admin } from "../models/Admin";
-import { Customer } from "../models/Customer";
-import { Country } from "../models/Country";
-import { ToolkitTemplate } from "../models/ToolkitTemplate";
-import { Toolkit } from "../models/Toolkit";
-import { Tool } from "../models/Tool";
-import { AssetType } from "../models/AssetType";
+import { ApiFetch, Filter } from '../core/ApiFetch';
+import { Var } from '../models/Var';
+import { Admin } from '../models/Admin';
+import { Customer } from '../models/Customer';
+import { Country } from '../models/Country';
+import { ToolkitTemplate } from '../models/ToolkitTemplate';
+import { Toolkit } from '../models/Toolkit';
+import { VarStorageContainer } from '../models/Var';
+import { Tool } from '../models/Tool';
+import { AssetType } from '../models/AssetType';
+import { File } from '../models/File';
 
 /**
  * Api services for the `Var` model.
  */
 
-/**
- * Buscar un elemento relacionado por id para trackingLogs.
- * /Vars/:id/trackingLogs/:fk
- */
-export async function Var_FindByIdTrackingLogs(
-  id: string,
-  fk: string
-): Promise<Log> {
-  return ApiFetch({
-    method: "GET",
-    url: "/Vars/:id/trackingLogs/:fk",
-    routeParams: {
-      id,
-      fk,
-    },
-  });
-}
 /**
  * Buscar un elemento relacionado por id para admins.
  * /Vars/:id/admins/:fk
@@ -39,8 +23,8 @@ export async function Var_FindByIdAdmins(
   fk: string
 ): Promise<Admin> {
   return ApiFetch({
-    method: "GET",
-    url: "/Vars/:id/admins/:fk",
+    method: 'GET',
+    url: '/Vars/:id/admins/:fk',
     routeParams: {
       id,
       fk,
@@ -57,8 +41,8 @@ export async function Var_UpdateByIdCustomers(
   data: any = {}
 ): Promise<Customer> {
   return ApiFetch({
-    method: "PUT",
-    url: "/Vars/:id/customers/:fk",
+    method: 'PUT',
+    url: '/Vars/:id/customers/:fk',
     routeParams: {
       id,
       fk,
@@ -74,45 +58,10 @@ export async function Var_UpdateByIdCustomers(
  */
 export async function Var_GetCountry(id: string): Promise<Country> {
   return ApiFetch({
-    method: "GET",
-    url: "/Vars/:id/country",
+    method: 'GET',
+    url: '/Vars/:id/country',
     routeParams: {
       id,
-    },
-  });
-}
-/**
- * Añadir un elemento relacionado por id para toolkitTemplates.
- * /Vars/:id/toolkitTemplates/rel/:fk
- */
-export async function Var_LinkToolkitTemplates(
-  id: string,
-  fk: string
-): Promise<ToolkitTemplate> {
-  return ApiFetch({
-    method: "PUT",
-    url: "/Vars/:id/toolkitTemplates/rel/:fk",
-    routeParams: {
-      id,
-      fk,
-    },
-    body: {},
-  });
-}
-/**
- * Eliminar la relación toolkitTemplates con un elemento por id.
- * /Vars/:id/toolkitTemplates/rel/:fk
- */
-export async function Var_UnlinkToolkitTemplates(
-  id: string,
-  fk: string
-): Promise<any> {
-  return ApiFetch({
-    method: "DELETE",
-    url: "/Vars/:id/toolkitTemplates/rel/:fk",
-    routeParams: {
-      id,
-      fk,
     },
   });
 }
@@ -126,8 +75,8 @@ export async function Var_UpdateByIdToolkits(
   data: any = {}
 ): Promise<Toolkit> {
   return ApiFetch({
-    method: "PUT",
-    url: "/Vars/:id/toolkits/:fk",
+    method: 'PUT',
+    url: '/Vars/:id/toolkits/:fk',
     routeParams: {
       id,
       fk,
@@ -141,105 +90,12 @@ export async function Var_UpdateByIdToolkits(
  * Capta la relación hasOne container.
  * /Vars/:id/container
  */
-export async function Var_GetContainer(id: string): Promise<any> {
+export async function Var_GetContainer(
+  id: string
+): Promise<VarStorageContainer> {
   return ApiFetch({
-    method: "GET",
-    url: "/Vars/:id/container",
-    routeParams: {
-      id,
-    },
-  });
-}
-/**
- * Crea una nueva instancia en container de este modelo.
- * /Vars/:id/container
- */
-export async function Var_CreateContainer(
-  id: string,
-  data: any = {}
-): Promise<any> {
-  return ApiFetch({
-    method: "POST",
-    url: "/Vars/:id/container",
-    routeParams: {
-      id,
-    },
-    body: {
-      data,
-    },
-  });
-}
-/**
- * Actualizar container de este modelo.
- * /Vars/:id/container
- */
-export async function Var_UpdateContainer(
-  id: string,
-  data: any = {}
-): Promise<any> {
-  return ApiFetch({
-    method: "PUT",
-    url: "/Vars/:id/container",
-    routeParams: {
-      id,
-    },
-    body: {
-      data,
-    },
-  });
-}
-/**
- * Suprime container de este modelo.
- * /Vars/:id/container
- */
-export async function Var_DestroyContainer(id: string): Promise<any> {
-  return ApiFetch({
-    method: "DELETE",
-    url: "/Vars/:id/container",
-    routeParams: {
-      id,
-    },
-  });
-}
-/**
- * trackingLogs consultas de Var.
- * /Vars/:id/trackingLogs
- */
-export async function Var_GetTrackingLogs(
-  id: string,
-  filter: Filter<any> = {}
-): Promise<Log[]> {
-  const _urlParams: any = {};
-  if (filter != null) {
-    _urlParams["filter"] = filter;
-  }
-
-  return ApiFetch({
-    method: "GET",
-    url: "/Vars/:id/trackingLogs",
-    urlParams: _urlParams,
-    routeParams: {
-      id,
-    },
-  });
-}
-/**
- * Recuentos trackingLogs de Var.
- * /Vars/:id/trackingLogs/count
- */
-export async function Var_CountTrackingLogs(
-  id: string,
-  where: any = {}
-): Promise<number> {
-  const _urlParams: any = {};
-  if (where != null) {
-    _urlParams["where"] = where;
-  }
-
-  return ApiFetch({
-    method: "GET",
-    url: "/Vars/:id/trackingLogs/count",
-    urlParams: _urlParams,
+    method: 'GET',
+    url: '/Vars/:id/container',
     routeParams: {
       id,
     },
@@ -255,12 +111,12 @@ export async function Var_GetAdmins(
 ): Promise<Admin[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Vars/:id/admins",
+    method: 'GET',
+    url: '/Vars/:id/admins',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -276,8 +132,8 @@ export async function Var_CreateAdmins(
   data: any = {}
 ): Promise<Admin> {
   return ApiFetch({
-    method: "POST",
-    url: "/Vars/:id/admins",
+    method: 'POST',
+    url: '/Vars/:id/admins',
     routeParams: {
       id,
     },
@@ -296,12 +152,12 @@ export async function Var_CountAdmins(
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams["where"] = where;
+    _urlParams['where'] = where;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Vars/:id/admins/count",
+    method: 'GET',
+    url: '/Vars/:id/admins/count',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -318,12 +174,12 @@ export async function Var_GetCustomers(
 ): Promise<Customer[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Vars/:id/customers",
+    method: 'GET',
+    url: '/Vars/:id/customers',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -339,8 +195,8 @@ export async function Var_CreateCustomers(
   data: any = {}
 ): Promise<Customer> {
   return ApiFetch({
-    method: "POST",
-    url: "/Vars/:id/customers",
+    method: 'POST',
+    url: '/Vars/:id/customers',
     routeParams: {
       id,
     },
@@ -359,12 +215,12 @@ export async function Var_CountCustomers(
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams["where"] = where;
+    _urlParams['where'] = where;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Vars/:id/customers/count",
+    method: 'GET',
+    url: '/Vars/:id/customers/count',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -381,12 +237,12 @@ export async function Var_GetToolkitTemplates(
 ): Promise<ToolkitTemplate[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Vars/:id/toolkitTemplates",
+    method: 'GET',
+    url: '/Vars/:id/toolkitTemplates',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -403,12 +259,12 @@ export async function Var_CountToolkitTemplates(
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams["where"] = where;
+    _urlParams['where'] = where;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Vars/:id/toolkitTemplates/count",
+    method: 'GET',
+    url: '/Vars/:id/toolkitTemplates/count',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -425,12 +281,12 @@ export async function Var_GetToolkits(
 ): Promise<Toolkit[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Vars/:id/toolkits",
+    method: 'GET',
+    url: '/Vars/:id/toolkits',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -447,40 +303,13 @@ export async function Var_CountToolkits(
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams["where"] = where;
+    _urlParams['where'] = where;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Vars/:id/toolkits/count",
+    method: 'GET',
+    url: '/Vars/:id/toolkits/count',
     urlParams: _urlParams,
-    routeParams: {
-      id,
-    },
-  });
-}
-/**
- * Create a new instance of the model and persist it into the data source.
- * /Vars
- */
-export async function Var_create(data: any = {}): Promise<Var> {
-  return ApiFetch({
-    method: "POST",
-    url: "/Vars",
-    routeParams: {},
-    body: {
-      data,
-    },
-  });
-}
-/**
- * Check whether a model instance exists in the data source.
- * /Vars/:id/exists
- */
-export async function Var_exists(id: string): Promise<boolean> {
-  return ApiFetch({
-    method: "GET",
-    url: "/Vars/:id/exists",
     routeParams: {
       id,
     },
@@ -496,80 +325,16 @@ export async function Var_findById(
 ): Promise<Var> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Vars/:id",
+    method: 'GET',
+    url: '/Vars/:id',
     urlParams: _urlParams,
     routeParams: {
       id,
     },
-  });
-}
-/**
- * Find all instances of the model matched by filter from the data source.
- * /Vars
- */
-export async function Var_find(filter: Filter<any> = {}): Promise<Var[]> {
-  const _urlParams: any = {};
-  if (filter != null) {
-    _urlParams["filter"] = filter;
-  }
-
-  return ApiFetch({
-    method: "GET",
-    url: "/Vars",
-    urlParams: _urlParams,
-    routeParams: {},
-  });
-}
-/**
- * Find first instance of the model matched by filter from the data source.
- * /Vars/findOne
- */
-export async function Var_findOne(filter: Filter<any> = {}): Promise<Var> {
-  const _urlParams: any = {};
-  if (filter != null) {
-    _urlParams["filter"] = filter;
-  }
-
-  return ApiFetch({
-    method: "GET",
-    url: "/Vars/findOne",
-    urlParams: _urlParams,
-    routeParams: {},
-  });
-}
-/**
- * Delete a model instance by {{id}} from the data source.
- * /Vars/:id
- */
-export async function Var_deleteById(id: string): Promise<any> {
-  return ApiFetch({
-    method: "DELETE",
-    url: "/Vars/:id",
-    routeParams: {
-      id,
-    },
-  });
-}
-/**
- * Count instances of the model matched by where from the data source.
- * /Vars/count
- */
-export async function Var_count(where: any = {}): Promise<number> {
-  const _urlParams: any = {};
-  if (where != null) {
-    _urlParams["where"] = where;
-  }
-
-  return ApiFetch({
-    method: "GET",
-    url: "/Vars/count",
-    urlParams: _urlParams,
-    routeParams: {},
   });
 }
 /**
@@ -582,8 +347,8 @@ export async function Var_InstantiateToolkitTemplates(
   data: Toolkit
 ): Promise<Toolkit> {
   return ApiFetch({
-    method: "POST",
-    url: "/Vars/:id/toolkitTemplates/:fk/instantiate",
+    method: 'POST',
+    url: '/Vars/:id/toolkitTemplates/:fk/instantiate',
     routeParams: {
       id,
       fk,
@@ -603,12 +368,12 @@ export async function Var_GetAdminTools(
 ): Promise<Tool[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Vars/:id/adminTools",
+    method: 'GET',
+    url: '/Vars/:id/adminTools',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -625,12 +390,12 @@ export async function Var_GetTools(
 ): Promise<Tool[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Vars/:id/tools",
+    method: 'GET',
+    url: '/Vars/:id/tools',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -648,12 +413,12 @@ export async function Var_GetToolkitTemplatesAssetTypes(
 ): Promise<AssetType[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Vars/:id/toolkitTemplates/:fk/assetTypes",
+    method: 'GET',
+    url: '/Vars/:id/toolkitTemplates/:fk/assetTypes',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -672,12 +437,12 @@ export async function Var_GetToolkitsAssetTypes(
 ): Promise<AssetType[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Vars/:id/toolkits/:fk/assetTypes",
+    method: 'GET',
+    url: '/Vars/:id/toolkits/:fk/assetTypes',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -691,8 +456,8 @@ export async function Var_GetToolkitsAssetTypes(
  */
 export async function Var_getContainerInfo(id: string): Promise<any> {
   return ApiFetch({
-    method: "GET",
-    url: "/Vars/:id/container/info",
+    method: 'GET',
+    url: '/Vars/:id/container/info',
     routeParams: {
       id,
     },
@@ -702,10 +467,10 @@ export async function Var_getContainerInfo(id: string): Promise<any> {
  * List all files within specified container
  * /Vars/:id/container/files
  */
-export async function Var_getFiles(id: string): Promise<any> {
+export async function Var_getFiles(id: string): Promise<File[]> {
   return ApiFetch({
-    method: "GET",
-    url: "/Vars/:id/container/files",
+    method: 'GET',
+    url: '/Vars/:id/container/files',
     routeParams: {
       id,
     },
@@ -715,10 +480,10 @@ export async function Var_getFiles(id: string): Promise<any> {
  * Get information for specified file within specified container
  * /Vars/:id/container/files/:file
  */
-export async function Var_getFile(id: string, file: string): Promise<any> {
+export async function Var_getFile(id: string, file: string): Promise<File> {
   return ApiFetch({
-    method: "GET",
-    url: "/Vars/:id/container/files/:file",
+    method: 'GET',
+    url: '/Vars/:id/container/files/:file',
     routeParams: {
       id,
       file,
@@ -733,15 +498,15 @@ export async function Var_removeFile(
   id: string,
   property: string,
   file: string
-): Promise<any> {
+): Promise<void> {
   const _urlParams: any = {};
   if (property != null) {
-    _urlParams["property"] = property;
+    _urlParams['property'] = property;
   }
 
   return ApiFetch({
-    method: "DELETE",
-    url: "/Vars/:id/container/files/:file",
+    method: 'DELETE',
+    url: '/Vars/:id/container/files/:file',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -756,12 +521,12 @@ export async function Var_removeFile(
 export async function Var_upload(id: string, property: string): Promise<any> {
   const _urlParams: any = {};
   if (property != null) {
-    _urlParams["property"] = property;
+    _urlParams['property'] = property;
   }
 
   return ApiFetch({
-    method: "POST",
-    url: "/Vars/:id/container/upload",
+    method: 'POST',
+    url: '/Vars/:id/container/upload',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -780,12 +545,12 @@ export async function Var_download(
 ): Promise<any> {
   const _urlParams: any = {};
   if (property != null) {
-    _urlParams["property"] = property;
+    _urlParams['property'] = property;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Vars/:id/container/download/:file",
+    method: 'GET',
+    url: '/Vars/:id/container/download/:file',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -803,8 +568,8 @@ export async function Var_FindByIdToolkitsAdminTools(
   fk: string
 ): Promise<Tool> {
   return ApiFetch({
-    method: "GET",
-    url: "/Vars/:id/toolkits/:nk/adminTools/:fk",
+    method: 'GET',
+    url: '/Vars/:id/toolkits/:nk/adminTools/:fk',
     routeParams: {
       id,
       nk,
@@ -822,8 +587,8 @@ export async function Var_LinkToolkitsAdminTools(
   fk: string
 ): Promise<Tool> {
   return ApiFetch({
-    method: "PUT",
-    url: "/Vars/:id/toolkits/:nk/adminTools/rel/:fk",
+    method: 'PUT',
+    url: '/Vars/:id/toolkits/:nk/adminTools/rel/:fk',
     routeParams: {
       id,
       nk,
@@ -840,10 +605,10 @@ export async function Var_UnlinkToolkitsAdminTools(
   id: string,
   nk: string,
   fk: string
-): Promise<any> {
+): Promise<void> {
   return ApiFetch({
-    method: "DELETE",
-    url: "/Vars/:id/toolkits/:nk/adminTools/rel/:fk",
+    method: 'DELETE',
+    url: '/Vars/:id/toolkits/:nk/adminTools/rel/:fk',
     routeParams: {
       id,
       nk,
@@ -861,8 +626,8 @@ export async function Var_FindByIdToolkitsTools(
   fk: string
 ): Promise<Tool> {
   return ApiFetch({
-    method: "GET",
-    url: "/Vars/:id/toolkits/:nk/tools/:fk",
+    method: 'GET',
+    url: '/Vars/:id/toolkits/:nk/tools/:fk',
     routeParams: {
       id,
       nk,
@@ -880,8 +645,8 @@ export async function Var_LinkToolkitsTools(
   fk: string
 ): Promise<Tool> {
   return ApiFetch({
-    method: "PUT",
-    url: "/Vars/:id/toolkits/:nk/tools/rel/:fk",
+    method: 'PUT',
+    url: '/Vars/:id/toolkits/:nk/tools/rel/:fk',
     routeParams: {
       id,
       nk,
@@ -898,10 +663,10 @@ export async function Var_UnlinkToolkitsTools(
   id: string,
   nk: string,
   fk: string
-): Promise<any> {
+): Promise<void> {
   return ApiFetch({
-    method: "DELETE",
-    url: "/Vars/:id/toolkits/:nk/tools/rel/:fk",
+    method: 'DELETE',
+    url: '/Vars/:id/toolkits/:nk/tools/rel/:fk',
     routeParams: {
       id,
       nk,
@@ -920,12 +685,12 @@ export async function Var_GetToolkitsAdminTools(
 ): Promise<Tool[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Vars/:id/toolkits/:nk/adminTools",
+    method: 'GET',
+    url: '/Vars/:id/toolkits/:nk/adminTools',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -944,12 +709,12 @@ export async function Var_CountToolkitsAdminTools(
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams["where"] = where;
+    _urlParams['where'] = where;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Vars/:id/toolkits/:nk/adminTools/count",
+    method: 'GET',
+    url: '/Vars/:id/toolkits/:nk/adminTools/count',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -968,12 +733,12 @@ export async function Var_GetToolkitsTools(
 ): Promise<Tool[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams["filter"] = filter;
+    _urlParams['filter'] = filter;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Vars/:id/toolkits/:nk/tools",
+    method: 'GET',
+    url: '/Vars/:id/toolkits/:nk/tools',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -992,12 +757,12 @@ export async function Var_CountToolkitsTools(
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams["where"] = where;
+    _urlParams['where'] = where;
   }
 
   return ApiFetch({
-    method: "GET",
-    url: "/Vars/:id/toolkits/:nk/tools/count",
+    method: 'GET',
+    url: '/Vars/:id/toolkits/:nk/tools/count',
     urlParams: _urlParams,
     routeParams: {
       id,

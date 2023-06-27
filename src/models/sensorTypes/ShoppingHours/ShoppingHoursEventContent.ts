@@ -1,5 +1,5 @@
 export type ShoppingHoursEventContent = {
-  state: "opened" | "closed";
+  state: 'opened' | 'closed';
   notifier?: string;
   notifierRole?: string;
   staff?: {

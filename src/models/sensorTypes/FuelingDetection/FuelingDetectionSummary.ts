@@ -1,4 +1,4 @@
-import { YoloClassLabel } from "../YoloClassLabel";
+import { YoloClassLabel } from '../YoloClassLabel';
 
 export type FuelingDetectionSummary = {
   meta?: {
