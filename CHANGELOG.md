@@ -1,5 +1,11 @@
 # @xompass/web-sdk
 
+## 0.2.0
+
+### Minor Changes
+
+- b5cc4e7: Add Storyline related models and endpoints. Remove SuperAdmin only endpoints and models.
+
 ## 0.1.0
 
 ### Minor Changes
