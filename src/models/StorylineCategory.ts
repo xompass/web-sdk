@@ -7,6 +7,7 @@ export type StorylineCategory = {
   name: string;
   description?: string;
   colors?: any;
+  presetColor?: string;
   created?: Date;
   modified?: Date;
   deleted?: Date;

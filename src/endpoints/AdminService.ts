@@ -109,9 +109,7 @@ export async function Admin_LinkAssets(
       id,
       fk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -315,9 +313,7 @@ export async function Admin_create(data: any = {}): Promise<Admin> {
     method: 'POST',
     url: '/Admins',
     routeParams: {},
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -462,10 +458,8 @@ export async function Admin_changePassword(
     url: '/Admins/change-password',
     routeParams: {},
     body: {
-      data: {
-        oldPassword,
-        newPassword,
-      },
+      oldPassword,
+      newPassword,
     },
   });
 }
@@ -479,9 +473,7 @@ export async function Admin_setPassword(newPassword: string): Promise<any> {
     url: '/Admins/reset-password',
     routeParams: {},
     body: {
-      data: {
-        newPassword,
-      },
+      newPassword,
     },
   });
 }

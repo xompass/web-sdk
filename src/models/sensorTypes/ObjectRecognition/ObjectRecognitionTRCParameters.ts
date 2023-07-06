@@ -95,6 +95,16 @@ export type ObjectRecognitionBasedOnRulesTRCParameters = {
         minProbability?: number;
       };
     };
+    truck?: {
+      thresholds?: {
+        minProbability?: number;
+      };
+    };
+    machinery?: {
+      thresholds?: {
+        minProbability?: number;
+      };
+    };
   };
 };
 

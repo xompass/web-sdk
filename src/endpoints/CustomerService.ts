@@ -187,9 +187,7 @@ export async function Customer_UpdateByIdApiKeys(
       id,
       fk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -232,9 +230,7 @@ export async function Customer_UpdateConfig(
     routeParams: {
       id,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -317,9 +313,7 @@ export async function Customer_UpdateByIdDefaultEventComments(
       id,
       fk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -372,9 +366,7 @@ export async function Customer_UpdateByIdDevices(
       id,
       fk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -444,9 +436,7 @@ export async function Customer_UpdateByIdEdgeAgents(
       id,
       fk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -499,9 +489,7 @@ export async function Customer_UpdateByIdEmergencyContacts(
       id,
       fk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -554,9 +542,7 @@ export async function Customer_UpdateByIdEventStates(
       id,
       fk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -626,9 +612,7 @@ export async function Customer_UpdateByIdProjects(
       id,
       fk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -681,9 +665,7 @@ export async function Customer_UpdateByIdStorylineCategories(
       id,
       fk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -736,9 +718,7 @@ export async function Customer_UpdateByIdTelegramChats(
       id,
       fk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -852,9 +832,7 @@ export async function Customer_LinkYoloClasses(
       id,
       fk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -1081,9 +1059,7 @@ export async function Customer_CreateApiKeys(
     routeParams: {
       id,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -1144,9 +1120,7 @@ export async function Customer_CreateDefaultEventComments(
     routeParams: {
       id,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -1207,9 +1181,7 @@ export async function Customer_CreateDevices(
     routeParams: {
       id,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -1314,9 +1286,7 @@ export async function Customer_CreateEdgeAgents(
     routeParams: {
       id,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -1377,9 +1347,7 @@ export async function Customer_CreateEmergencyContacts(
     routeParams: {
       id,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -1440,9 +1408,7 @@ export async function Customer_CreateEventStates(
     routeParams: {
       id,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -1503,9 +1469,7 @@ export async function Customer_CreateManagers(
     routeParams: {
       id,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -1632,9 +1596,7 @@ export async function Customer_CreateStorylineCategories(
     routeParams: {
       id,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -1695,9 +1657,7 @@ export async function Customer_CreateTelegramChats(
     routeParams: {
       id,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -1918,9 +1878,7 @@ export async function Customer_InstantiateToolkits(
       id,
       fk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -2655,9 +2613,7 @@ export async function Customer_UpdateAssetsConfig(
       id,
       nk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -2733,9 +2689,7 @@ export async function Customer_UpdateByIdAssetsStaffs(
       nk,
       fk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -2794,9 +2748,7 @@ export async function Customer_UpdateByIdAssetsAssetStates(
       nk,
       fk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -2891,9 +2843,7 @@ export async function Customer_UpdateByIdAssetsEvents(
       nk,
       fk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -2952,9 +2902,7 @@ export async function Customer_UpdateByIdAssetsEventGroups(
       nk,
       fk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -3051,9 +2999,7 @@ export async function Customer_UpdateByIdAssetsEventTriggers(
       nk,
       fk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -3131,9 +3077,7 @@ export async function Customer_UpdateByIdAssetsSensors(
       nk,
       fk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -3233,9 +3177,7 @@ export async function Customer_CreateAssetsAssets(
       id,
       nk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -3302,9 +3244,7 @@ export async function Customer_CreateAssetsStaffs(
       id,
       nk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -3371,9 +3311,7 @@ export async function Customer_CreateAssetsAssetStates(
       id,
       nk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -3584,9 +3522,7 @@ export async function Customer_CreateAssetsEventGroups(
       id,
       nk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -3749,9 +3685,7 @@ export async function Customer_CreateAssetsEventTriggers(
       id,
       nk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -3866,9 +3800,7 @@ export async function Customer_CreateAssetsSensors(
       id,
       nk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -4072,9 +4004,7 @@ export async function Customer_UpdateAssetTemplatesConfig(
       id,
       nk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -4133,9 +4063,7 @@ export async function Customer_UpdateByIdAssetTemplatesAssetStateTemplates(
       nk,
       fk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -4230,9 +4158,7 @@ export async function Customer_UpdateByIdAssetTemplatesEventGroupTemplates(
       nk,
       fk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -4291,9 +4217,7 @@ export async function Customer_UpdateByIdAssetTemplatesEventTriggerTemplates(
       nk,
       fk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -4371,9 +4295,7 @@ export async function Customer_UpdateByIdAssetTemplatesSensorTemplates(
       nk,
       fk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -4416,9 +4338,7 @@ export async function Customer_CreateAssetTemplatesAssetTemplates(
       id,
       nk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -4485,9 +4405,7 @@ export async function Customer_CreateAssetTemplatesAssetStateTemplates(
       id,
       nk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -4602,9 +4520,7 @@ export async function Customer_CreateAssetTemplatesEventGroupTemplates(
       id,
       nk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -4671,9 +4587,7 @@ export async function Customer_CreateAssetTemplatesEventTriggerTemplates(
       id,
       nk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -4788,9 +4702,7 @@ export async function Customer_CreateAssetTemplatesSensorTemplates(
       id,
       nk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -4854,9 +4766,7 @@ export async function Customer_UpdateByIdProjectsAssets(
       nk,
       fk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -4896,9 +4806,7 @@ export async function Customer_UpdateByIdProjectsAssetTemplates(
       nk,
       fk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -4957,9 +4865,7 @@ export async function Customer_UpdateByIdProjectsCctvDashboards(
       nk,
       fk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -5018,9 +4924,7 @@ export async function Customer_UpdateByIdProjectsEventDashboards(
       nk,
       fk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -5098,9 +5002,7 @@ export async function Customer_UpdateByIdProjectsEmbeddedReports(
       nk,
       fk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -5159,9 +5061,7 @@ export async function Customer_UpdateByIdProjectsBiPanels(
       nk,
       fk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -5220,9 +5120,7 @@ export async function Customer_UpdateByIdProjectsPeopleCounterReports(
       nk,
       fk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -5339,9 +5237,7 @@ export async function Customer_UpdateByIdProjectsReports(
       nk,
       fk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -5381,9 +5277,7 @@ export async function Customer_LinkProjectsAllowedSensorTypes(
       nk,
       fk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -5461,9 +5355,7 @@ export async function Customer_UpdateByIdProjectsStoreVideoAnalyticDashboards(
       nk,
       fk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -5522,9 +5414,7 @@ export async function Customer_UpdateByIdProjectsStorylines(
       nk,
       fk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -5699,9 +5589,7 @@ export async function Customer_UpdateByIdProjectsTrafficFlowAnalysis(
       nk,
       fk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -5779,9 +5667,7 @@ export async function Customer_UpdateByIdProjectsVirtualGroups(
       nk,
       fk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -5840,9 +5726,7 @@ export async function Customer_LinkProjectsYoloClasses(
       nk,
       fk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -5904,9 +5788,7 @@ export async function Customer_CreateProjectsAssets(
       id,
       nk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -5973,9 +5855,7 @@ export async function Customer_CreateProjectsAssetTemplates(
       id,
       nk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -6042,9 +5922,7 @@ export async function Customer_CreateProjectsCctvDashboards(
       id,
       nk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -6111,9 +5989,7 @@ export async function Customer_CreateProjectsEventDashboards(
       id,
       nk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -6228,9 +6104,7 @@ export async function Customer_CreateProjectsEmbeddedReports(
       id,
       nk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -6297,9 +6171,7 @@ export async function Customer_CreateProjectsBiPanels(
       id,
       nk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -6366,9 +6238,7 @@ export async function Customer_CreateProjectsPeopleCounterReports(
       id,
       nk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -6483,9 +6353,7 @@ export async function Customer_CreateProjectsReports(
       id,
       nk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -6600,9 +6468,7 @@ export async function Customer_CreateProjectsStoreVideoAnalyticDashboards(
       id,
       nk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -6669,9 +6535,7 @@ export async function Customer_CreateProjectsStorylines(
       id,
       nk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -6834,9 +6698,7 @@ export async function Customer_CreateProjectsTrafficFlowAnalysis(
       id,
       nk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -6951,9 +6813,7 @@ export async function Customer_CreateProjectsVirtualGroups(
       id,
       nk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -7174,9 +7034,7 @@ export async function Customer_UpdateByIdDevicesEdgeAgents(
       nk,
       fk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -7219,9 +7077,7 @@ export async function Customer_CreateDevicesEdgeAgents(
       id,
       nk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -7324,9 +7180,7 @@ export async function Customer_UpdateByIdStorylinesStorypoints(
       nk,
       fk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -7369,8 +7223,6 @@ export async function Customer_CreateStorylinesStorypoints(
       id,
       nk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }

@@ -36,9 +36,7 @@ export async function Device_CreateConfig(
     routeParams: {
       id,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -55,9 +53,7 @@ export async function Device_UpdateConfig(
     routeParams: {
       id,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -93,9 +89,7 @@ export async function Device_UpdateByIdEvents(
       id,
       fk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -114,9 +108,7 @@ export async function Device_LinkTelegramChats(
       id,
       fk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -268,9 +260,7 @@ export async function Device_UpdateByIdEventsComments(
       nk,
       fk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -351,9 +341,7 @@ export async function Device_CreateEventsComments(
       id,
       nk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -468,9 +456,7 @@ export async function Device_CreateEventsStateChanges(
       id,
       nk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**

@@ -51,6 +51,7 @@ const _YoloClassLabels = {
   HAIR_DRIER: 'hair drier',
   HANDBAG: 'handbag',
   HEAD: 'head',
+  HELMET: 'helmet',
   HORSE: 'horse',
   HOT_DOG: 'hot dog',
   INSPECTOR: 'inspector',

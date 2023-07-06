@@ -110,9 +110,7 @@ export async function EventDashboard_UpdateByIdEventDashboardEventTriggers(
       id,
       fk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -148,9 +146,7 @@ export async function EventDashboard_LinkEventTriggers(
       id,
       fk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**

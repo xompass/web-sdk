@@ -19,6 +19,8 @@ export type ObjectRecognitionTrigger = {
     | 'guard'
     | 'inspector'
     | 'helmet'
+    | 'truck'
+    | 'machinery'
   )[];
   value?: number;
   operator?: 'eq' | 'neq' | 'gt' | 'gte' | 'lt' | 'lte' | 'null';

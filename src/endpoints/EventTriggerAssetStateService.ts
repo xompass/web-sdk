@@ -21,9 +21,7 @@ export async function EventTriggerAssetState_LinkEmergencyContacts(
       id,
       fk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -93,9 +91,7 @@ export async function EventTriggerAssetState_UpdateByIdRules(
       id,
       fk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -134,9 +130,7 @@ export async function EventTriggerAssetState_CreateRules(
     routeParams: {
       id,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
