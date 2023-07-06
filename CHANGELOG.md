@@ -1,5 +1,11 @@
 # @xompass/web-sdk
 
+## 0.2.1
+
+### Patch Changes
+
+- 729806a: Fix request body data
+
 ## 0.2.0
 
 ### Minor Changes
