@@ -59,9 +59,7 @@ export async function Sensor_UpdateByIdDatasets(
       id,
       fk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -97,9 +95,7 @@ export async function Sensor_UpdateByIdAlerts(
       id,
       fk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -135,9 +131,7 @@ export async function Sensor_UpdateByIdAlertHistory(
       id,
       fk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -199,9 +193,7 @@ export async function Sensor_LinkAssetStates(
       id,
       fk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -271,9 +263,7 @@ export async function Sensor_UpdateByIdStates(
       id,
       fk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -329,9 +319,7 @@ export async function Sensor_CreateDatasets(
     routeParams: {
       id,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -769,9 +757,7 @@ export async function Sensor_UpdateByIdDatasetsData(
       nk,
       fk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -814,9 +800,7 @@ export async function Sensor_CreateDatasetsData(
       id,
       nk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**

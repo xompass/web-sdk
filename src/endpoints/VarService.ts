@@ -47,9 +47,7 @@ export async function Var_UpdateByIdCustomers(
       id,
       fk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -81,9 +79,7 @@ export async function Var_UpdateByIdToolkits(
       id,
       fk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -137,9 +133,7 @@ export async function Var_CreateAdmins(
     routeParams: {
       id,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -200,9 +194,7 @@ export async function Var_CreateCustomers(
     routeParams: {
       id,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -353,9 +345,7 @@ export async function Var_InstantiateToolkitTemplates(
       id,
       fk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**

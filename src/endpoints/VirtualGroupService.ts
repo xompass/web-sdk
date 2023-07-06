@@ -56,9 +56,7 @@ export async function VirtualGroup_UpdateByIdVirtualExpressions(
       id,
       fk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -111,9 +109,7 @@ export async function VirtualGroup_UpdateByIdVirtualVariables(
       id,
       fk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -152,9 +148,7 @@ export async function VirtualGroup_CreateVirtualExpressions(
     routeParams: {
       id,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -215,9 +209,7 @@ export async function VirtualGroup_CreateVirtualVariables(
     routeParams: {
       id,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**

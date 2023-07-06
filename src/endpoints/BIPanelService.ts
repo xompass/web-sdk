@@ -55,9 +55,7 @@ export async function BIPanel_UpdateByIdSeries(
       id,
       fk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -96,9 +94,7 @@ export async function BIPanel_CreateSeries(
     routeParams: {
       id,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**

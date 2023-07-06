@@ -39,9 +39,7 @@ export async function EdgeAgent_LinkAssets(
       id,
       fk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -77,9 +75,7 @@ export async function EdgeAgent_LinkTelegramChats(
       id,
       fk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**

@@ -55,9 +55,7 @@ export async function EventTriggerAssetStateTemplate_UpdateByIdRuleTemplates(
       id,
       fk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -96,9 +94,7 @@ export async function EventTriggerAssetStateTemplate_CreateRuleTemplates(
     routeParams: {
       id,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**

@@ -40,9 +40,7 @@ export async function SensorTemplate_LinkAssetStateTemplates(
       id,
       fk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -112,9 +110,7 @@ export async function SensorTemplate_UpdateByIdStateTemplates(
       id,
       fk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**

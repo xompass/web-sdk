@@ -73,9 +73,7 @@ export async function PeopleCounterReport_UpdateByIdSeries(
       id,
       fk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -158,9 +156,7 @@ export async function PeopleCounterReport_CreateSeries(
     routeParams: {
       id,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**

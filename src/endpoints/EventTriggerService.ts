@@ -45,9 +45,7 @@ export async function EventTrigger_LinkEmergencyContacts(
       id,
       fk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -100,9 +98,7 @@ export async function EventTrigger_UpdateByIdEvents(
       id,
       fk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -138,9 +134,7 @@ export async function EventTrigger_LinkAssetStates(
       id,
       fk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -210,9 +204,7 @@ export async function EventTrigger_UpdateByIdStates(
       id,
       fk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -265,9 +257,7 @@ export async function EventTrigger_UpdateByIdRules(
       id,
       fk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -286,9 +276,7 @@ export async function EventTrigger_LinkTelegramChats(
       id,
       fk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -520,9 +508,7 @@ export async function EventTrigger_CreateRules(
     routeParams: {
       id,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -622,9 +608,7 @@ export async function EventTrigger_UpdateByIdEventsComments(
       nk,
       fk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -664,9 +648,7 @@ export async function EventTrigger_UpdateByIdEventsData(
       nk,
       fk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -728,9 +710,7 @@ export async function EventTrigger_CreateEventsComments(
       id,
       nk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -845,9 +825,7 @@ export async function EventTrigger_CreateEventsStateChanges(
       id,
       nk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**

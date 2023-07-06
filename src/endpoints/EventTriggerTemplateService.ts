@@ -40,9 +40,7 @@ export async function EventTriggerTemplate_LinkAssetStateTemplates(
       id,
       fk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -112,9 +110,7 @@ export async function EventTriggerTemplate_UpdateByIdStateTemplates(
       id,
       fk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -167,9 +163,7 @@ export async function EventTriggerTemplate_UpdateByIdRuleTemplates(
       id,
       fk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -296,9 +290,7 @@ export async function EventTriggerTemplate_CreateRuleTemplates(
     routeParams: {
       id,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**

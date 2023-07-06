@@ -93,9 +93,7 @@ export async function Asset_LinkEdgeAgents(
       id,
       fk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**

@@ -76,9 +76,7 @@ export async function DeviceEvent_create(data: any = {}): Promise<DeviceEvent> {
     method: 'POST',
     url: '/DeviceEvents',
     routeParams: {},
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**

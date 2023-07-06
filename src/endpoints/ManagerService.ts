@@ -166,9 +166,7 @@ export async function Manager_UpdateByIdAssets(
       id,
       fk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -187,9 +185,7 @@ export async function Manager_LinkAssets(
       id,
       fk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -259,9 +255,7 @@ export async function Manager_UpdateByIdCctvDashboards(
       id,
       fk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -280,9 +274,7 @@ export async function Manager_LinkCctvDashboards(
       id,
       fk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -352,9 +344,7 @@ export async function Manager_UpdateByIdEventDashboards(
       id,
       fk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -373,9 +363,7 @@ export async function Manager_LinkEventDashboards(
       id,
       fk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -460,9 +448,7 @@ export async function Manager_UpdateByIdPeopleCounterReports(
       id,
       fk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -481,9 +467,7 @@ export async function Manager_LinkPeopleCounterReports(
       id,
       fk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -530,9 +514,7 @@ export async function Manager_CreatePermission(
     routeParams: {
       id,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -549,9 +531,7 @@ export async function Manager_UpdatePermission(
     routeParams: {
       id,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -604,9 +584,7 @@ export async function Manager_UpdateByIdReports(
       id,
       fk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -625,9 +603,7 @@ export async function Manager_LinkReports(
       id,
       fk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -697,9 +673,7 @@ export async function Manager_UpdateByIdStoreVideoAnalyticDashboards(
       id,
       fk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -718,9 +692,7 @@ export async function Manager_LinkStoreVideoAnalyticDashboards(
       id,
       fk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -803,9 +775,7 @@ export async function Manager_UpdateByIdTrafficFlowAnalysis(
       id,
       fk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -824,9 +794,7 @@ export async function Manager_LinkTrafficFlowAnalysis(
       id,
       fk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -879,9 +847,7 @@ export async function Manager_LinkViews(
       id,
       fk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -1350,9 +1316,7 @@ export async function Manager_create(data: any = {}): Promise<Manager> {
     method: 'POST',
     url: '/Managers',
     routeParams: {},
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -1497,10 +1461,8 @@ export async function Manager_changePassword(
     url: '/Managers/change-password',
     routeParams: {},
     body: {
-      data: {
-        oldPassword,
-        newPassword,
-      },
+      oldPassword,
+      newPassword,
     },
   });
 }
@@ -1514,9 +1476,7 @@ export async function Manager_setPassword(newPassword: string): Promise<any> {
     url: '/Managers/reset-password',
     routeParams: {},
     body: {
-      data: {
-        newPassword,
-      },
+      newPassword,
     },
   });
 }

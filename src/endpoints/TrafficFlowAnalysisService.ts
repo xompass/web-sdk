@@ -74,9 +74,7 @@ export async function TrafficFlowAnalysis_UpdateByIdKpis(
       id,
       fk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -129,9 +127,7 @@ export async function TrafficFlowAnalysis_UpdateByIdVertices(
       id,
       fk,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -214,9 +210,7 @@ export async function TrafficFlowAnalysis_CreateKpis(
     routeParams: {
       id,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
@@ -277,9 +271,7 @@ export async function TrafficFlowAnalysis_CreateVertices(
     routeParams: {
       id,
     },
-    body: {
-      data,
-    },
+    body: data,
   });
 }
 /**
