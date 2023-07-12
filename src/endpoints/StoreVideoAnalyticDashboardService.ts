@@ -1,4 +1,4 @@
-import { ApiFetch, Filter } from '../core/ApiFetch';
+import { ApiFetch, UploadFile, Filter } from '../core/ApiFetch';
 import { Manager } from '../models/Manager';
 import { StoreVideoAnalyticDashboardStorageContainer } from '../models/StoreVideoAnalyticDashboard';
 
@@ -112,21 +112,23 @@ export async function StoreVideoAnalyticDashboard_removeFile(
  */
 export async function StoreVideoAnalyticDashboard_upload(
   id: string,
-  property: string
+  property: string,
+  file: File,
+  onProgress?: (progress: number) => void
 ): Promise<any> {
   const _urlParams: any = {};
   if (property != null) {
     _urlParams['property'] = property;
   }
 
-  return ApiFetch({
-    method: 'POST',
+  return UploadFile({
     url: '/StoreVideoAnalyticDashboards/:id/container/upload',
     urlParams: _urlParams,
     routeParams: {
       id,
     },
-    body: {},
+    file: file,
+    onProgress: onProgress,
   });
 }
 /**

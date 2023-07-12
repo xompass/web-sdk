@@ -20,6 +20,7 @@ import { GPSEventContent } from './sensorTypes/GPS/GPSEventContent';
 import { MotionDetectionEventContent } from './sensorTypes/MotionDetection/MotionDetectionEventContent';
 import { NumberEventContent } from './sensorTypes/Number/NumberEventContent';
 import { LicensePlateEventContent } from './sensorTypes/LicensePlate/LicensePlateEventContent';
+import { LineCrossingDetectionEventContent } from './sensorTypes/LineCrossingDetection/LineCrossingDetectionEventContent';
 import { ObjectCountingEventContent } from './sensorTypes/ObjectCounting/ObjectCountingEventContent';
 import { QueueSizeEventContent } from './sensorTypes/QueueSize/QueueSizeEventContent';
 import { NoPlateDetectionEventContent } from './sensorTypes/NoPlateDetection/NoPlateDetectionEventContent';
@@ -43,6 +44,7 @@ import { FaceMaskDetectionFeedback } from './sensorTypes/FaceMaskDetection/FaceM
 import { FuelingDetectionFeedback } from './sensorTypes/FuelingDetection/FuelingDetectionFeedback';
 import { MotionDetectionFeedback } from './sensorTypes/MotionDetection/MotionDetectionFeedback';
 import { LicensePlateFeedback } from './sensorTypes/LicensePlate/LicensePlateFeedback';
+import { LineCrossingDetectionFeedback } from './sensorTypes/LineCrossingDetection/LineCrossingDetectionFeedback';
 import { NoPlateDetectionFeedback } from './sensorTypes/NoPlateDetection/NoPlateDetectionFeedback';
 import { ObjectRecognitionFeedback } from './sensorTypes/ObjectRecognition/ObjectRecognitionFeedback';
 import { StoppedObjectsDetectorFeedback } from './sensorTypes/StoppedObjectsDetector/StoppedObjectsDetectorFeedback';
@@ -117,6 +119,7 @@ export type EventData = {
     | MotionDetectionEventContent
     | NumberEventContent
     | LicensePlateEventContent
+    | LineCrossingDetectionEventContent
     | ObjectCountingEventContent
     | QueueSizeEventContent
     | NoPlateDetectionEventContent
@@ -142,6 +145,7 @@ export type EventData = {
     | FuelingDetectionFeedback
     | MotionDetectionFeedback
     | LicensePlateFeedback
+    | LineCrossingDetectionFeedback
     | NoPlateDetectionFeedback
     | ObjectRecognitionFeedback
     | StoppedObjectsDetectorFeedback

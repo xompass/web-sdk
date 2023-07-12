@@ -14,6 +14,7 @@ import { FuelingDetectionParameters } from './sensorTypes/FuelingDetection/Fueli
 import { MotionDetectionParameters } from './sensorTypes/MotionDetection/MotionDetectionParameters';
 import { NumberParameters } from './sensorTypes/Number/NumberParameters';
 import { LicensePlateParameters } from './sensorTypes/LicensePlate/LicensePlateParameters';
+import { LineCrossingDetectionParameters } from './sensorTypes/LineCrossingDetection/LineCrossingDetectionParameters';
 import { ObjectCountingParameters } from './sensorTypes/ObjectCounting/ObjectCountingParameters';
 import { QueueSizeParameters } from './sensorTypes/QueueSize/QueueSizeParameters';
 import { NoPlateDetectionParameters } from './sensorTypes/NoPlateDetection/NoPlateDetectionParameters';
@@ -45,6 +46,7 @@ export type SensorTemplate = {
     | MotionDetectionParameters
     | NumberParameters
     | LicensePlateParameters
+    | LineCrossingDetectionParameters
     | ObjectCountingParameters
     | QueueSizeParameters
     | NoPlateDetectionParameters

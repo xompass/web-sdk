@@ -105,6 +105,21 @@ export type ObjectRecognitionBasedOnRulesTRCParameters = {
         minProbability?: number;
       };
     };
+    red_light?: {
+      thresholds?: {
+        minProbability?: number;
+      };
+    };
+    green_light?: {
+      thresholds?: {
+        minProbability?: number;
+      };
+    };
+    yellow_light?: {
+      thresholds?: {
+        minProbability?: number;
+      };
+    };
   };
 };
 

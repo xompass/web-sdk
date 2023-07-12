@@ -9,6 +9,7 @@ import { Log } from './Log';
 import { Manager } from './Manager';
 import { Project } from './Project';
 import { SensorTemplate } from './SensorTemplate';
+import { FileMetadata } from './FileMetadata';
 
 export type AssetTemplate = {
   type: string;
@@ -49,7 +50,7 @@ export type AssetTemplateStorageContainer = {
   modified?: Date;
   deleted?: Date;
   assetTemplateId?: string;
-  _picture?: File;
-  _background?: File;
-  _files?: File[];
+  _picture?: FileMetadata;
+  _background?: FileMetadata;
+  _files?: FileMetadata[];
 };

@@ -9,6 +9,7 @@ import { CrossLineMultiRecognitionTrigger } from './sensorTypes/CrossLineMultiRe
 import { FaceDetectionTrigger } from './sensorTypes/FaceDetection/FaceDetectionTrigger';
 import { FaceMaskDetectionTrigger } from './sensorTypes/FaceMaskDetection/FaceMaskDetectionTrigger';
 import { LicensePlateTrigger } from './sensorTypes/LicensePlate/LicensePlateTrigger';
+import { LineCrossingDetectionTrigger } from './sensorTypes/LineCrossingDetection/LineCrossingDetectionTrigger';
 import { ObjectCountingTrigger } from './sensorTypes/ObjectCounting/ObjectCountingTrigger';
 import { NoPlateDetectionTrigger } from './sensorTypes/NoPlateDetection/NoPlateDetectionTrigger';
 import { ObjectRecognitionTrigger } from './sensorTypes/ObjectRecognition/ObjectRecognitionTrigger';
@@ -32,6 +33,7 @@ export type SensorAssetStateTemplate = {
     | FaceDetectionTrigger
     | FaceMaskDetectionTrigger
     | LicensePlateTrigger
+    | LineCrossingDetectionTrigger
     | ObjectCountingTrigger
     | NoPlateDetectionTrigger
     | ObjectRecognitionTrigger

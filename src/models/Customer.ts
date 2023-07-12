@@ -25,6 +25,8 @@ import { Toolkit } from './Toolkit';
 import { Var } from './Var';
 import { YoloClass } from './YoloClass';
 
+import { FileMetadata } from './FileMetadata';
+
 export type Customer = {
   name: string;
   businessName?: string;
@@ -82,5 +84,5 @@ export type CustomerStorageContainer = {
   modified?: Date;
   deleted?: Date;
   customerId?: string;
-  _logo?: File;
+  _logo?: FileMetadata;
 };

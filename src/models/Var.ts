@@ -4,6 +4,7 @@ import { Customer } from './Customer';
 import { Log } from './Log';
 import { Toolkit } from './Toolkit';
 import { ToolkitTemplate } from './ToolkitTemplate';
+import { FileMetadata } from './FileMetadata';
 
 export type Var = {
   name: string;
@@ -31,5 +32,5 @@ export type VarStorageContainer = {
   modified?: Date;
   deleted?: Date;
   varId?: string;
-  _logo?: File;
+  _logo?: FileMetadata;
 };

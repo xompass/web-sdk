@@ -1,4 +1,4 @@
-import { ApiFetch, Filter, Include } from '../core/ApiFetch';
+import { ApiFetch, UploadFile, Filter, Include } from '../core/ApiFetch';
 import { Admin } from '../models/Admin';
 import { CommonAccessToken } from '../models/CommonAccessToken';
 import { Country } from '../models/Country';
@@ -8,7 +8,6 @@ import { Asset } from '../models/Asset';
 import { Log } from '../models/Log';
 import { TimeZone } from '../models/TimeZone';
 import { Var } from '../models/Var';
-import { File } from '../models/File';
 
 /**
  * Api services for the `Admin` model.
@@ -361,7 +360,7 @@ export async function Admin_login(
     relation: 'user',
     scope: { include: ['container'] },
   },
-  rememberMe = true
+  rememberMe: boolean = true
 ): Promise<any> {
   const _urlParams: any = {};
   if (include != null) {
@@ -411,7 +410,7 @@ export async function Admin_verify(id: string): Promise<any> {
 export async function Admin_confirm(
   uid: string,
   token: string,
-  redirect: string
+  redirect?: string
 ): Promise<any> {
   const _urlParams: any = {};
   if (uid != null) {
@@ -478,6 +477,72 @@ export async function Admin_setPassword(newPassword: string): Promise<any> {
   });
 }
 /**
+ * Login a user with username/email, password and OTP.
+ * /Admins/otp/login
+ */
+export async function Admin_otpLogin(
+  credentials: any,
+  include?: string
+): Promise<any> {
+  const _urlParams: any = {};
+  if (include != null) {
+    _urlParams['include'] = include;
+  }
+
+  return ApiFetch({
+    method: 'POST',
+    url: '/Admins/otp/login',
+    urlParams: _urlParams,
+    routeParams: {},
+    body: {
+      credentials,
+    },
+  });
+}
+/**
+ * Disable OTP for the currently logged in user.
+ * /Admins/:id/otp/disable
+ */
+export async function Admin_otpDisable(id: string): Promise<any> {
+  return ApiFetch({
+    method: 'PATCH',
+    url: '/Admins/:id/otp/disable',
+    routeParams: {
+      id,
+    },
+    body: {},
+  });
+}
+/**
+ * Generate the OTP url for the currently logged in user.
+ * /Admins/:id/otp/generate
+ */
+export async function Admin_otpGenerate(id: string): Promise<any> {
+  return ApiFetch({
+    method: 'GET',
+    url: '/Admins/:id/otp/generate',
+    routeParams: {
+      id,
+    },
+  });
+}
+/**
+ * Verify the OTP for the currently logged in user.
+ * /Admins/:id/otp/verify
+ */
+export async function Admin_otpVerify(id: string, obj: any = {}): Promise<any> {
+  return ApiFetch({
+    method: 'POST',
+    url: '/Admins/:id/otp/verify',
+    routeParams: {
+      id,
+    },
+    body: {
+      obj,
+    },
+  });
+}
+/**
  * Verify account for a user with email.
  * /Admins/verify
  */
@@ -508,7 +573,7 @@ export async function Admin_getContainerInfo(id: string): Promise<any> {
  * List all files within specified container
  * /Admins/:id/container/files
  */
-export async function Admin_getFiles(id: string): Promise<File[]> {
+export async function Admin_getFiles(id: string): Promise<any> {
   return ApiFetch({
     method: 'GET',
     url: '/Admins/:id/container/files',
@@ -521,7 +586,7 @@ export async function Admin_getFiles(id: string): Promise<File[]> {
  * Get information for specified file within specified container
  * /Admins/:id/container/files/:file
  */
-export async function Admin_getFile(id: string, file: string): Promise<File> {
+export async function Admin_getFile(id: string, file: string): Promise<any> {
   return ApiFetch({
     method: 'GET',
     url: '/Admins/:id/container/files/:file',
@@ -559,20 +624,25 @@ export async function Admin_removeFile(
  * Upload one or more files into the specified container. The request body must use multipart/form-data which the file input type for HTML uses
  * /Admins/:id/container/upload
  */
-export async function Admin_upload(id: string, property: string): Promise<any> {
+export async function Admin_upload(
+  id: string,
+  property: string,
+  file: File,
+  onProgress?: (progress: number) => void
+): Promise<any> {
   const _urlParams: any = {};
   if (property != null) {
     _urlParams['property'] = property;
   }
 
-  return ApiFetch({
-    method: 'POST',
+  return UploadFile({
     url: '/Admins/:id/container/upload',
     urlParams: _urlParams,
     routeParams: {
       id,
     },
-    body: {},
+    file: file,
+    onProgress: onProgress,
   });
 }
 /**

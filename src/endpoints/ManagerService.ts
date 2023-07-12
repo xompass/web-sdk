@@ -1,4 +1,4 @@
-import { ApiFetch, Filter, Include } from '../core/ApiFetch';
+import { ApiFetch, UploadFile, Filter, Include } from '../core/ApiFetch';
 import { Manager } from '../models/Manager';
 import { CommonAccessToken } from '../models/CommonAccessToken';
 import { Log } from '../models/Log';
@@ -16,7 +16,6 @@ import { StoreVideoAnalyticDashboard } from '../models/StoreVideoAnalyticDashboa
 import { TimeZone } from '../models/TimeZone';
 import { TrafficFlowAnalysis } from '../models/TrafficFlowAnalysis';
 import { View } from '../models/View';
-import { File } from '../models/File';
 
 /**
  * Api services for the `Manager` model.
@@ -1364,7 +1363,7 @@ export async function Manager_login(
     relation: 'user',
     scope: { include: ['container'] },
   },
-  rememberMe = true
+  rememberMe: boolean = true
 ): Promise<any> {
   const _urlParams: any = {};
   if (include != null) {
@@ -1414,7 +1413,7 @@ export async function Manager_verify(id: string): Promise<any> {
 export async function Manager_confirm(
   uid: string,
   token: string,
-  redirect: string
+  redirect?: string
 ): Promise<any> {
   const _urlParams: any = {};
   if (uid != null) {
@@ -1481,6 +1480,75 @@ export async function Manager_setPassword(newPassword: string): Promise<any> {
   });
 }
 /**
+ * Login a user with username/email, password and OTP.
+ * /Managers/otp/login
+ */
+export async function Manager_otpLogin(
+  credentials: any,
+  include?: string
+): Promise<any> {
+  const _urlParams: any = {};
+  if (include != null) {
+    _urlParams['include'] = include;
+  }
+
+  return ApiFetch({
+    method: 'POST',
+    url: '/Managers/otp/login',
+    urlParams: _urlParams,
+    routeParams: {},
+    body: {
+      credentials,
+    },
+  });
+}
+/**
+ * Disable OTP for the currently logged in user.
+ * /Managers/:id/otp/disable
+ */
+export async function Manager_otpDisable(id: string): Promise<any> {
+  return ApiFetch({
+    method: 'PATCH',
+    url: '/Managers/:id/otp/disable',
+    routeParams: {
+      id,
+    },
+    body: {},
+  });
+}
+/**
+ * Generate the OTP url for the currently logged in user.
+ * /Managers/:id/otp/generate
+ */
+export async function Manager_otpGenerate(id: string): Promise<any> {
+  return ApiFetch({
+    method: 'GET',
+    url: '/Managers/:id/otp/generate',
+    routeParams: {
+      id,
+    },
+  });
+}
+/**
+ * Verify the OTP for the currently logged in user.
+ * /Managers/:id/otp/verify
+ */
+export async function Manager_otpVerify(
+  id: string,
+  obj: any = {}
+): Promise<any> {
+  return ApiFetch({
+    method: 'POST',
+    url: '/Managers/:id/otp/verify',
+    routeParams: {
+      id,
+    },
+    body: {
+      obj,
+    },
+  });
+}
+/**
  * Verify account for a user with email.
  * /Managers/verify
  */
@@ -1511,7 +1579,7 @@ export async function Manager_getContainerInfo(id: string): Promise<any> {
  * List all files within specified container
  * /Managers/:id/container/files
  */
-export async function Manager_getFiles(id: string): Promise<File[]> {
+export async function Manager_getFiles(id: string): Promise<any> {
   return ApiFetch({
     method: 'GET',
     url: '/Managers/:id/container/files',
@@ -1524,7 +1592,7 @@ export async function Manager_getFiles(id: string): Promise<File[]> {
  * Get information for specified file within specified container
  * /Managers/:id/container/files/:file
  */
-export async function Manager_getFile(id: string, file: string): Promise<File> {
+export async function Manager_getFile(id: string, file: string): Promise<any> {
   return ApiFetch({
     method: 'GET',
     url: '/Managers/:id/container/files/:file',
@@ -1564,21 +1632,23 @@ export async function Manager_removeFile(
  */
 export async function Manager_upload(
   id: string,
-  property: string
+  property: string,
+  file: File,
+  onProgress?: (progress: number) => void
 ): Promise<any> {
   const _urlParams: any = {};
   if (property != null) {
     _urlParams['property'] = property;
   }
 
-  return ApiFetch({
-    method: 'POST',
+  return UploadFile({
     url: '/Managers/:id/container/upload',
     urlParams: _urlParams,
     routeParams: {
       id,
     },
-    body: {},
+    file: file,
+    onProgress: onProgress,
   });
 }
 /**

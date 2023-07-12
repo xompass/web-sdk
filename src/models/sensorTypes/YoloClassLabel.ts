@@ -47,6 +47,7 @@ const _YoloClassLabels = {
   FORKLIFT: 'forklift',
   FRISBEE: 'frisbee',
   GIRAFFE: 'giraffe',
+  GREEN_LIGHT: 'green_light',
   GUARD: 'guard',
   HAIR_DRIER: 'hair drier',
   HANDBAG: 'handbag',
@@ -74,6 +75,7 @@ const _YoloClassLabels = {
   PISTOL: 'pistol',
   PIZZA: 'pizza',
   POTTEDPLANT: 'pottedplant',
+  RED_LIGHT: 'red_light',
   REFRIGERATOR: 'refrigerator',
   REMOTE: 'remote',
   SANDWICH: 'sandwich',
@@ -107,6 +109,7 @@ const _YoloClassLabels = {
   UMBRELLA: 'umbrella',
   VASE: 'vase',
   WINE_GLASS: 'wine glass',
+  YELLOW_LIGHT: 'yellow_light',
   ZEBRA: 'zebra',
 } as const;
 

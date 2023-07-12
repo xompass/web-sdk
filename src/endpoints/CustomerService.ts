@@ -1,4 +1,4 @@
-import { ApiFetch, Filter } from '../core/ApiFetch';
+import { ApiFetch, UploadFile, Filter } from '../core/ApiFetch';
 import { Customer } from '../models/Customer';
 import { AssetTag } from '../models/AssetTag';
 import { Asset } from '../models/Asset';
@@ -30,7 +30,6 @@ import { YoloClassCustomer } from '../models/YoloClassCustomer';
 import { Sensor } from '../models/Sensor';
 import { Tool } from '../models/Tool';
 import { AssetType } from '../models/AssetType';
-import { File } from '../models/File';
 import { Dataset } from '../models/Dataset';
 import { Event } from '../models/Event';
 import { AssetConfig } from '../models/AssetConfig';
@@ -1798,16 +1797,18 @@ export async function Customer_findById(
  */
 export async function Customer_UploadStorylines(
   id: string,
-  nk: string
+  nk: string,
+  file: File[],
+  onProgress?: (progress: number) => void
 ): Promise<any> {
-  return ApiFetch({
-    method: 'POST',
+  return UploadFile({
     url: '/Customers/:id/storylines/:nk/upload',
     routeParams: {
       id,
       nk,
     },
-    body: {},
+    file: file,
+    onProgress: onProgress,
   });
 }
 /**
@@ -1869,7 +1870,7 @@ export async function Customer_RemoveFileStorylines(
 export async function Customer_InstantiateToolkits(
   id: string,
   fk: string,
-  data: Project
+  data?: Project
 ): Promise<Toolkit> {
   return ApiFetch({
     method: 'POST',
@@ -1912,7 +1913,7 @@ export async function Customer_GetAssetsWithUptimes(
   fk: string,
   from: Date,
   to: Date,
-  type: string
+  type?: string
 ): Promise<any[]> {
   const _urlParams: any = {};
   if (from != null) {
@@ -2107,7 +2108,7 @@ export async function Customer_getContainerInfo(id: string): Promise<any> {
  * List all files within specified container
  * /Customers/:id/container/files
  */
-export async function Customer_getFiles(id: string): Promise<File[]> {
+export async function Customer_getFiles(id: string): Promise<any> {
   return ApiFetch({
     method: 'GET',
     url: '/Customers/:id/container/files',
@@ -2120,10 +2121,7 @@ export async function Customer_getFiles(id: string): Promise<File[]> {
  * Get information for specified file within specified container
  * /Customers/:id/container/files/:file
  */
-export async function Customer_getFile(
-  id: string,
-  file: string
-): Promise<File> {
+export async function Customer_getFile(id: string, file: string): Promise<any> {
   return ApiFetch({
     method: 'GET',
     url: '/Customers/:id/container/files/:file',
@@ -2163,21 +2161,23 @@ export async function Customer_removeFile(
  */
 export async function Customer_upload(
   id: string,
-  property: string
+  property: string,
+  file: File,
+  onProgress?: (progress: number) => void
 ): Promise<any> {
   const _urlParams: any = {};
   if (property != null) {
     _urlParams['property'] = property;
   }
 
-  return ApiFetch({
-    method: 'POST',
+  return UploadFile({
     url: '/Customers/:id/container/upload',
     urlParams: _urlParams,
     routeParams: {
       id,
     },
-    body: {},
+    file: file,
+    onProgress: onProgress,
   });
 }
 /**
@@ -2235,8 +2235,8 @@ export async function Customer_subscribeAssets(
  */
 export async function Customer_unsubscribeAssets(
   id: string,
-  socketId: string,
-  where: any = {}
+  where: any = {},
+  socketId?: string
 ): Promise<void> {
   const _urlParams: any = {};
   if (where != null) {
@@ -2284,8 +2284,8 @@ export async function Customer_subscribeDevices(
  */
 export async function Customer_unsubscribeDevices(
   id: string,
-  socketId: string,
-  where: any = {}
+  where: any = {},
+  socketId?: string
 ): Promise<void> {
   const _urlParams: any = {};
   if (where != null) {
@@ -2472,13 +2472,13 @@ export async function Customer_searchLicensePlates(
   licensePlate: string,
   from: Date,
   to: Date,
-  method: string,
-  maxDistance: number,
-  transpositions: boolean,
-  assetId: string,
-  sensorId: string,
-  class_: string,
-  limit: number
+  method?: string,
+  maxDistance?: number,
+  transpositions?: boolean,
+  assetId?: string,
+  sensorId?: string,
+  class_?: string,
+  limit?: number
 ): Promise<any[]> {
   const _urlParams: any = {};
   if (licensePlate != null) {
@@ -2527,12 +2527,12 @@ export async function Customer_searchLicensePlates(
  */
 export async function Customer_getLicensePlates(
   id: string,
-  from: Date,
-  to: Date,
-  assetId: string,
-  sensorId: string,
-  class_: string,
-  limit: number
+  from?: Date,
+  to?: Date,
+  assetId?: string,
+  sensorId?: string,
+  class_?: string,
+  limit?: number
 ): Promise<any[]> {
   const _urlParams: any = {};
   if (from != null) {
@@ -6947,8 +6947,8 @@ export async function Customer_EvaluateProjectsVirtualExpressions(
   from: Date,
   to: Date,
   groupIntervals: any = {},
-  groupMode: string,
-  groupUtc: number
+  groupMode?: string,
+  groupUtc?: number
 ): Promise<any> {
   const _urlParams: any = {};
   if (from != null) {

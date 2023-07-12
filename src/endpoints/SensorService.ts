@@ -607,7 +607,7 @@ export async function Sensor_DownloadDatasets(
   id: string,
   nk: string,
   file: string,
-  datasourceName: string
+  datasourceName?: string
 ): Promise<any> {
   const _urlParams: any = {};
   if (datasourceName != null) {
@@ -633,7 +633,7 @@ export async function Sensor_GetSignedUrlDatasets(
   id: string,
   nk: string,
   file: string,
-  datasourceName: string
+  datasourceName?: string
 ): Promise<any> {
   const _urlParams: any = {};
   if (datasourceName != null) {

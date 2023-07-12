@@ -19,6 +19,7 @@ import { GPSSummary } from './sensorTypes/GPS/GPSSummary';
 import { MotionDetectionSummary } from './sensorTypes/MotionDetection/MotionDetectionSummary';
 import { NumberSummary } from './sensorTypes/Number/NumberSummary';
 import { LicensePlateSummary } from './sensorTypes/LicensePlate/LicensePlateSummary';
+import { LineCrossingDetectionSummary } from './sensorTypes/LineCrossingDetection/LineCrossingDetectionSummary';
 import { ObjectCountingSummary } from './sensorTypes/ObjectCounting/ObjectCountingSummary';
 import { QueueSizeSummary } from './sensorTypes/QueueSize/QueueSizeSummary';
 import { NoPlateDetectionSummary } from './sensorTypes/NoPlateDetection/NoPlateDetectionSummary';
@@ -59,6 +60,7 @@ export type SummaryForAsset = {
     | MotionDetectionSummary
     | NumberSummary
     | LicensePlateSummary
+    | LineCrossingDetectionSummary
     | ObjectCountingSummary
     | QueueSizeSummary
     | NoPlateDetectionSummary

@@ -21,6 +21,9 @@ export type ObjectRecognitionTrigger = {
     | 'helmet'
     | 'truck'
     | 'machinery'
+    | 'red_light'
+    | 'green_light'
+    | 'yellow_light'
   )[];
   value?: number;
   operator?: 'eq' | 'neq' | 'gt' | 'gte' | 'lt' | 'lte' | 'null';

@@ -5,6 +5,7 @@ import { Credential } from './Credential';
 import { Log } from './Log';
 import { TimeZone } from './TimeZone';
 import { Var } from './Var';
+import { FileMetadata } from './FileMetadata';
 
 export type Admin = {
   name: string;
@@ -15,6 +16,7 @@ export type Admin = {
   created?: Date;
   modified?: Date;
   deleted?: Date;
+  otpEnabled?: boolean;
   username?: string;
   email: string;
   emailVerified?: boolean;
@@ -39,5 +41,5 @@ export type AdminStorageContainer = {
   modified?: Date;
   deleted?: Date;
   adminId?: string;
-  _profile?: File;
+  _profile?: FileMetadata;
 };
