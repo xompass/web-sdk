@@ -1,5 +1,11 @@
 # @xompass/web-sdk
 
+## 0.3.0
+
+### Minor Changes
+
+- b302673: Implement upload file methods
+
 ## 0.2.1
 
 ### Patch Changes
