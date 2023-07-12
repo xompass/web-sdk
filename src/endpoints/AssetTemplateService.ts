@@ -1,6 +1,5 @@
-import { ApiFetch, Filter } from '../core/ApiFetch';
+import { ApiFetch, UploadFile, Filter } from '../core/ApiFetch';
 import { AssetTemplateStorageContainer } from '../models/AssetTemplate';
-import { File } from '../models/File';
 import { EventTriggerAssetStateTemplate } from '../models/EventTriggerAssetStateTemplate';
 import { SensorAssetStateTemplate } from '../models/SensorAssetStateTemplate';
 
@@ -75,7 +74,7 @@ export async function AssetTemplate_getContainerInfo(id: string): Promise<any> {
  * List all files within specified container
  * /AssetTemplates/:id/container/files
  */
-export async function AssetTemplate_getFiles(id: string): Promise<File[]> {
+export async function AssetTemplate_getFiles(id: string): Promise<any> {
   return ApiFetch({
     method: 'GET',
     url: '/AssetTemplates/:id/container/files',
@@ -91,7 +90,7 @@ export async function AssetTemplate_getFiles(id: string): Promise<File[]> {
 export async function AssetTemplate_getFile(
   id: string,
   file: string
-): Promise<File> {
+): Promise<any> {
   return ApiFetch({
     method: 'GET',
     url: '/AssetTemplates/:id/container/files/:file',
@@ -131,21 +130,23 @@ export async function AssetTemplate_removeFile(
  */
 export async function AssetTemplate_upload(
   id: string,
-  property: string
+  property: string,
+  file: File,
+  onProgress?: (progress: number) => void
 ): Promise<any> {
   const _urlParams: any = {};
   if (property != null) {
     _urlParams['property'] = property;
   }
 
-  return ApiFetch({
-    method: 'POST',
+  return UploadFile({
     url: '/AssetTemplates/:id/container/upload',
     urlParams: _urlParams,
     routeParams: {
       id,
     },
-    body: {},
+    file: file,
+    onProgress: onProgress,
   });
 }
 /**

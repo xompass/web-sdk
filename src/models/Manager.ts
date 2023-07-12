@@ -12,6 +12,7 @@ import { StoreVideoAnalyticDashboard } from './StoreVideoAnalyticDashboard';
 import { TimeZone } from './TimeZone';
 import { TrafficFlowAnalysis } from './TrafficFlowAnalysis';
 import { View } from './View';
+import { FileMetadata } from './FileMetadata';
 
 export type Manager = {
   name: string;
@@ -22,6 +23,7 @@ export type Manager = {
   created?: Date;
   modified?: Date;
   deleted?: Date;
+  otpEnabled?: boolean;
   username?: string;
   email: string;
   emailVerified?: boolean;
@@ -54,7 +56,7 @@ export type ManagerStorageContainer = {
   modified?: Date;
   deleted?: Date;
   managerId?: string;
-  _profile?: File;
+  _profile?: FileMetadata;
 };
 
 export type Permission = {

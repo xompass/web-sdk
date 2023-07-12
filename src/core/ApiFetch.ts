@@ -86,11 +86,17 @@ export type ApiFetchMethod =
   | 'HEAD';
 
 export type ApiFetchRouteParams = {
-  [key: string]: string | number;
+  [key: string]: string | number | undefined;
 };
 
 export type ApiFetchUrlParams = {
-  [key: string]: null | string | number | boolean | { [key: string]: any };
+  [key: string]:
+    | undefined
+    | null
+    | string
+    | number
+    | boolean
+    | { [key: string]: any };
 };
 
 export type ApiFetchOptions = {
@@ -127,14 +133,11 @@ const Reviver = (key: string, value: any) => {
   return value;
 };
 
-/**
- * A generic fetch function to call the API
- */
-export async function ApiFetch(options: ApiFetchOptions): Promise<any> {
-  const { method, routeParams, urlParams, body } = options;
-  const baseUrl = getLocalStorageValue('vsaas$baseUrl');
-
-  let url = baseUrl + options.url;
+function prepareUrl(
+  url: string,
+  routeParams?: ApiFetchRouteParams,
+  urlParams: ApiFetchUrlParams = {}
+) {
   if (routeParams) {
     for (const key in routeParams) {
       url = url.replace(
@@ -144,14 +147,6 @@ export async function ApiFetch(options: ApiFetchOptions): Promise<any> {
     }
   }
 
-  const headers: { [key: string]: string } = {
-    'Content-Type': 'application/json',
-  };
-
-  const accessToken = getLocalStorageValue('vsaas$accessToken');
-  if (accessToken) {
-    headers['Authorization'] = accessToken;
-  }
   let queryString = '';
   if (urlParams) {
     queryString += Object.keys(urlParams)
@@ -182,7 +177,26 @@ export async function ApiFetch(options: ApiFetchOptions): Promise<any> {
       .join('&');
   }
 
-  url = `${url}${queryString ? `?${queryString}` : ''}`;
+  return `${url}${queryString ? `?${queryString}` : ''}`;
+}
+
+/**
+ * A generic fetch function to call the API
+ */
+export async function ApiFetch(options: ApiFetchOptions): Promise<any> {
+  const { method, routeParams, urlParams, body } = options;
+  const baseUrl = getLocalStorageValue('vsaas$baseUrl');
+
+  const url = prepareUrl(baseUrl + options.url, routeParams, urlParams);
+
+  const headers: { [key: string]: string } = {
+    'Content-Type': 'application/json',
+  };
+
+  const accessToken = getLocalStorageValue('vsaas$accessToken');
+  if (accessToken) {
+    headers['Authorization'] = accessToken;
+  }
 
   const fetchOptions: { [key: string]: any } = {
     method,
@@ -212,6 +226,63 @@ export async function ApiFetch(options: ApiFetchOptions): Promise<any> {
         return text;
       }
     });
+}
+
+type UploadFileOptions = {
+  url: string;
+  file: File | File[];
+  routeParams?: ApiFetchRouteParams;
+  urlParams?: ApiFetchUrlParams;
+  onProgress?: (progress: number) => void;
+};
+
+/**
+ * Upload a file to the API
+ */
+export async function UploadFile(options: UploadFileOptions): Promise<any> {
+  const { file, routeParams, urlParams, onProgress } = options;
+  const baseUrl = getLocalStorageValue('vsaas$baseUrl');
+  const accessToken = getLocalStorageValue('vsaas$accessToken');
+
+  const url = prepareUrl(baseUrl + options.url, routeParams, urlParams);
+
+  const form = new FormData();
+  if (Array.isArray(file)) {
+    for (const f of file) {
+      form.append('file', f);
+    }
+  } else {
+    form.append('file', file);
+  }
+
+  const xhr = new XMLHttpRequest();
+  xhr.open('POST', baseUrl + url, true);
+  xhr.setRequestHeader('Authorization', accessToken || '');
+  xhr.upload.onprogress = (e) => {
+    if (e.lengthComputable && onProgress) {
+      onProgress((e.loaded / e.total) * 100);
+    }
+  };
+
+  return new Promise((resolve, reject) => {
+    xhr.onload = () => {
+      if (xhr.status < 200 || xhr.status >= 300) {
+        reject(xhr.statusText);
+      } else {
+        try {
+          resolve(JSON.parse(xhr.responseText, Reviver));
+        } catch (e) {
+          resolve(xhr.responseText);
+        }
+      }
+    };
+
+    xhr.onerror = () => {
+      reject(xhr.statusText);
+    };
+
+    xhr.send(form);
+  });
 }
 
 function prepareOrderFilter<T>(order: Order<T>) {

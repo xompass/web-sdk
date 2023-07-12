@@ -4,6 +4,7 @@ import { Log } from './Log';
 import { Project } from './Project';
 import { StorylineCategory } from './StorylineCategory';
 import { Storypoint } from './Storypoint';
+import { FileMetadata } from './FileMetadata';
 
 export type Storyline = {
   name: string;
@@ -37,5 +38,5 @@ export type StorylineStorageContainer = {
   modified?: Date;
   deleted?: Date;
   storylineId?: string;
-  _files?: File[];
+  _files?: FileMetadata[];
 };

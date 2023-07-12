@@ -14,6 +14,7 @@ const _SensorTypeLabels = {
   GPS: 'GPS',
   LicensePlate: 'LicensePlate',
   LicensePlateText: 'LicensePlateText',
+  LineCrossingDetection: 'LineCrossingDetection',
   MotionDetection: 'MotionDetection',
   NaiveSocialDistancing: 'NaiveSocialDistancing',
   NoPlateDetection: 'NoPlateDetection',

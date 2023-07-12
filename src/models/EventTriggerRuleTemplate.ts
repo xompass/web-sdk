@@ -5,6 +5,7 @@ import {
   LicensePlateBasedOnRulesTRCParameters,
   LicensePlateBlacklistSearchTRCParameters,
 } from './sensorTypes/LicensePlate/LicensePlateTRCParameters';
+import { LineCrossingDetectionBasedOnRulesTRCParameters } from './sensorTypes/LineCrossingDetection/LineCrossingDetectionTRCParameters';
 import { NoPlateDetectionBasedOnRulesTRCParameters } from './sensorTypes/NoPlateDetection/NoPlateDetectionTRCParameters';
 import {
   ObjectRecognitionBasedOnRulesTRCParameters,
@@ -34,6 +35,7 @@ export type EventTriggerRuleClauseTemplate = {
     | FuelingDetectionBasedOnRulesTRCParameters
     | LicensePlateBasedOnRulesTRCParameters
     | LicensePlateBlacklistSearchTRCParameters
+    | LineCrossingDetectionBasedOnRulesTRCParameters
     | NoPlateDetectionBasedOnRulesTRCParameters
     | ObjectRecognitionBasedOnRulesTRCParameters
     | ObjectRecognitionBlacklistSearchTRCParameters

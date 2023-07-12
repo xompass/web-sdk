@@ -1,11 +1,10 @@
-import { ApiFetch, Filter } from '../core/ApiFetch';
+import { ApiFetch, UploadFile, Filter } from '../core/ApiFetch';
 import { AssetRestrictionTable } from '../models/AssetRestrictionTable';
 import { AssetStorageContainer } from '../models/Asset';
 import { Dataset } from '../models/Dataset';
 import { EdgeAgent } from '../models/EdgeAgent';
 import { EdgeAgentAsset } from '../models/EdgeAgent';
 import { Sensor } from '../models/Sensor';
-import { File } from '../models/File';
 import { EventTriggerAssetState } from '../models/EventTriggerAssetState';
 import { SensorAssetState } from '../models/SensorAssetState';
 
@@ -253,7 +252,7 @@ export async function Asset_getContainerInfo(id: string): Promise<any> {
  * List all files within specified container
  * /Assets/:id/container/files
  */
-export async function Asset_getFiles(id: string): Promise<File[]> {
+export async function Asset_getFiles(id: string): Promise<any> {
   return ApiFetch({
     method: 'GET',
     url: '/Assets/:id/container/files',
@@ -266,7 +265,7 @@ export async function Asset_getFiles(id: string): Promise<File[]> {
  * Get information for specified file within specified container
  * /Assets/:id/container/files/:file
  */
-export async function Asset_getFile(id: string, file: string): Promise<File> {
+export async function Asset_getFile(id: string, file: string): Promise<any> {
   return ApiFetch({
     method: 'GET',
     url: '/Assets/:id/container/files/:file',
@@ -284,8 +283,8 @@ export async function Asset_removeFile(
   id: string,
   property: string,
   file: string,
-  datasourceName: string,
-  resourceName: string
+  datasourceName?: string,
+  resourceName?: string
 ): Promise<void> {
   const _urlParams: any = {};
   if (property != null) {
@@ -315,7 +314,9 @@ export async function Asset_removeFile(
 export async function Asset_upload(
   id: string,
   property: string,
-  resourceName: string
+  file: File,
+  resourceName?: string,
+  onProgress?: (progress: number) => void
 ): Promise<any> {
   const _urlParams: any = {};
   if (property != null) {
@@ -325,14 +326,14 @@ export async function Asset_upload(
     _urlParams['resource_name'] = resourceName;
   }
 
-  return ApiFetch({
-    method: 'POST',
+  return UploadFile({
     url: '/Assets/:id/container/upload',
     urlParams: _urlParams,
     routeParams: {
       id,
     },
-    body: {},
+    file: file,
+    onProgress: onProgress,
   });
 }
 /**
@@ -343,7 +344,7 @@ export async function Asset_download(
   id: string,
   property: string,
   file: string,
-  datasourceName: string
+  datasourceName?: string
 ): Promise<any> {
   const _urlParams: any = {};
   if (property != null) {
@@ -391,8 +392,8 @@ export async function Asset_getSensorsWithCurrentState(
  */
 export async function Asset_setAndQueueAssetStates(
   id: string,
-  minimalResponse: boolean,
-  timeZone: string
+  minimalResponse?: boolean,
+  timeZone?: string
 ): Promise<any> {
   const _urlParams: any = {};
   if (minimalResponse != null) {
@@ -453,8 +454,8 @@ export async function Asset_getCurrentTTL(id: string): Promise<any> {
  */
 export async function Asset_deleteDatasetsByTTL(
   id: string,
-  ttl: number,
-  minimalResponse: string
+  ttl?: number,
+  minimalResponse?: string
 ): Promise<void> {
   const _urlParams: any = {};
   if (ttl != null) {
@@ -479,8 +480,8 @@ export async function Asset_deleteDatasetsByTTL(
  */
 export async function Asset_deleteEventsByTTL(
   id: string,
-  ttl: number,
-  minimalResponse: string
+  ttl?: number,
+  minimalResponse?: string
 ): Promise<void> {
   const _urlParams: any = {};
   if (ttl != null) {

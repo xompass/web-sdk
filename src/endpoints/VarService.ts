@@ -1,4 +1,4 @@
-import { ApiFetch, Filter } from '../core/ApiFetch';
+import { ApiFetch, UploadFile, Filter } from '../core/ApiFetch';
 import { Var } from '../models/Var';
 import { Admin } from '../models/Admin';
 import { Customer } from '../models/Customer';
@@ -8,7 +8,6 @@ import { Toolkit } from '../models/Toolkit';
 import { VarStorageContainer } from '../models/Var';
 import { Tool } from '../models/Tool';
 import { AssetType } from '../models/AssetType';
-import { File } from '../models/File';
 
 /**
  * Api services for the `Var` model.
@@ -336,7 +335,7 @@ export async function Var_findById(
 export async function Var_InstantiateToolkitTemplates(
   id: string,
   fk: string,
-  data: Toolkit
+  data?: Toolkit
 ): Promise<Toolkit> {
   return ApiFetch({
     method: 'POST',
@@ -457,7 +456,7 @@ export async function Var_getContainerInfo(id: string): Promise<any> {
  * List all files within specified container
  * /Vars/:id/container/files
  */
-export async function Var_getFiles(id: string): Promise<File[]> {
+export async function Var_getFiles(id: string): Promise<any> {
   return ApiFetch({
     method: 'GET',
     url: '/Vars/:id/container/files',
@@ -470,7 +469,7 @@ export async function Var_getFiles(id: string): Promise<File[]> {
  * Get information for specified file within specified container
  * /Vars/:id/container/files/:file
  */
-export async function Var_getFile(id: string, file: string): Promise<File> {
+export async function Var_getFile(id: string, file: string): Promise<any> {
   return ApiFetch({
     method: 'GET',
     url: '/Vars/:id/container/files/:file',
@@ -508,20 +507,25 @@ export async function Var_removeFile(
  * Upload one or more files into the specified container. The request body must use multipart/form-data which the file input type for HTML uses
  * /Vars/:id/container/upload
  */
-export async function Var_upload(id: string, property: string): Promise<any> {
+export async function Var_upload(
+  id: string,
+  property: string,
+  file: File,
+  onProgress?: (progress: number) => void
+): Promise<any> {
   const _urlParams: any = {};
   if (property != null) {
     _urlParams['property'] = property;
   }
 
-  return ApiFetch({
-    method: 'POST',
+  return UploadFile({
     url: '/Vars/:id/container/upload',
     urlParams: _urlParams,
     routeParams: {
       id,
     },
-    body: {},
+    file: file,
+    onProgress: onProgress,
   });
 }
 /**

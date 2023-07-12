@@ -25,6 +25,7 @@ import { Sensor } from './Sensor';
 import { SensorUptime } from './SensorUptime';
 import { SensorUptimeCollector } from './SensorUptimeCollector';
 import { Summary } from './Summary';
+import { FileMetadata } from './FileMetadata';
 
 export type Asset = {
   type: string;
@@ -86,7 +87,7 @@ export type AssetStorageContainer = {
   modified?: Date;
   deleted?: Date;
   assetId?: string;
-  _picture?: File;
-  _background?: File;
-  _files?: File[];
+  _picture?: FileMetadata;
+  _background?: FileMetadata;
+  _files?: FileMetadata[];
 };

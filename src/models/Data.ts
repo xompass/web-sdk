@@ -16,6 +16,7 @@ import { GPSContent } from './sensorTypes/GPS/GPSContent';
 import { MotionDetectionContent } from './sensorTypes/MotionDetection/MotionDetectionContent';
 import { NumberContent } from './sensorTypes/Number/NumberContent';
 import { LicensePlateContent } from './sensorTypes/LicensePlate/LicensePlateContent';
+import { LineCrossingDetectionContent } from './sensorTypes/LineCrossingDetection/LineCrossingDetectionContent';
 import { ObjectCountingContent } from './sensorTypes/ObjectCounting/ObjectCountingContent';
 import { QueueSizeContent } from './sensorTypes/QueueSize/QueueSizeContent';
 import { NoPlateDetectionContent } from './sensorTypes/NoPlateDetection/NoPlateDetectionContent';
@@ -55,6 +56,7 @@ export type Data = {
     | MotionDetectionContent
     | NumberContent
     | LicensePlateContent
+    | LineCrossingDetectionContent
     | ObjectCountingContent
     | QueueSizeContent
     | NoPlateDetectionContent

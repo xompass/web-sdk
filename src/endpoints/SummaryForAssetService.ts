@@ -11,8 +11,8 @@ import { SummaryForAsset } from '../models/SummaryForAsset';
  */
 export async function SummaryForAsset_generateSummary(
   id: string,
-  force: boolean,
-  minimalResponse: boolean
+  force?: boolean,
+  minimalResponse?: boolean
 ): Promise<SummaryForAsset> {
   const _urlParams: any = {};
   if (force != null) {

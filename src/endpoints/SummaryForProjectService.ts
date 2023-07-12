@@ -11,8 +11,8 @@ import { SummaryForProject } from '../models/SummaryForProject';
  */
 export async function SummaryForProject_generateSummary(
   id: string,
-  force: boolean,
-  minimalResponse: boolean
+  force?: boolean,
+  minimalResponse?: boolean
 ): Promise<SummaryForProject> {
   const _urlParams: any = {};
   if (force != null) {
