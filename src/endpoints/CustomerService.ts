@@ -2564,6 +2564,52 @@ export async function Customer_getLicensePlates(
   });
 }
 /**
+ * Get events
+ * /Customers/:id/events
+ */
+export async function Customer_getEvents(
+  id: string,
+  filter: Filter<any> = {}
+): Promise<any[]> {
+  const _urlParams: any = {};
+  if (filter != null) {
+    _urlParams['filter'] = filter;
+  }
+
+  return ApiFetch({
+    method: 'GET',
+    url: '/Customers/:id/events',
+    urlParams: _urlParams,
+    routeParams: {
+      id,
+    },
+  });
+}
+/**
+ * Get events
+ * /Customers/:id/projects/:nk/events
+ */
+export async function Customer_getProjectEvents(
+  id: string,
+  nk: string,
+  filter: Filter<any> = {}
+): Promise<any[]> {
+  const _urlParams: any = {};
+  if (filter != null) {
+    _urlParams['filter'] = filter;
+  }
+
+  return ApiFetch({
+    method: 'GET',
+    url: '/Customers/:id/projects/:nk/events',
+    urlParams: _urlParams,
+    routeParams: {
+      id,
+      nk,
+    },
+  });
+}
+/**
  * Export the contextualization of an Asset and its direct children
  * /Customers/:id/assets/:nk/export
  */

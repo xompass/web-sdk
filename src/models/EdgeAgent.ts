@@ -35,6 +35,7 @@ export type EdgeAgentBroker = {
   namespace?: string;
   host?: string;
   port?: number;
+  qos?: string;
   id?: string;
 };
 

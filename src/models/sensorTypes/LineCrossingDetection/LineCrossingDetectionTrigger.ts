@@ -10,7 +10,5 @@ export type LineCrossingDetectionTrigger = {
     | 'truck'
     | 'machinery'
   )[];
-  value?: number;
   direction: 'incoming' | 'outgoing';
-  operator?: 'eq' | 'neq' | 'gt' | 'gte' | 'lt' | 'lte' | 'null';
 }[][];
