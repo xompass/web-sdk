@@ -514,6 +514,19 @@ export async function Admin_otpDisable(id: string): Promise<any> {
   });
 }
 /**
+ * Check if the user has the OTP authentication enabled.
+ * /Admins/:id/otp/check
+ */
+export async function Admin_otpCheck(id: string): Promise<any> {
+  return ApiFetch({
+    method: 'GET',
+    url: '/Admins/:id/otp/check',
+    routeParams: {
+      id,
+    },
+  });
+}
+/**
  * Generate the OTP url for the currently logged in user.
  * /Admins/:id/otp/generate
  */

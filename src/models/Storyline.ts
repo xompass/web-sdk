@@ -11,6 +11,7 @@ export type Storyline = {
   status?: string;
   description?: string;
   placeOfReference?: string;
+  storypointsOrder?: any;
   created?: Date;
   modified?: Date;
   deleted?: Date;

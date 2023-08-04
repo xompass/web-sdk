@@ -30,5 +30,15 @@ export type PoseDetectionBasedOnRulesTRCParameters = {
         minProbability?: number;
       };
     };
+    SQUAT_HEUR1?: {
+      thresholds?: {
+        minProbability?: number;
+      };
+    };
+    SQUAT_HEUR2?: {
+      thresholds?: {
+        minProbability?: number;
+      };
+    };
   };
 };

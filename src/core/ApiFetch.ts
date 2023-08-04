@@ -180,6 +180,19 @@ function prepareUrl(
   return `${url}${queryString ? `?${queryString}` : ''}`;
 }
 
+class FetchError extends Error {
+  public status: number;
+  public code: string | undefined;
+  public details: any;
+
+  constructor(status: number, code: string, message: string, details: any) {
+    super(message);
+    this.status = status;
+    this.code = code;
+    this.details = details;
+  }
+}
+
 /**
  * A generic fetch function to call the API
  */
@@ -207,25 +220,32 @@ export async function ApiFetch(options: ApiFetchOptions): Promise<any> {
     fetchOptions.body = JSON.stringify(body);
   }
 
-  return fetch(url, fetchOptions)
-    .then((res) => {
-      if (res.status < 200 || res.status >= 300) {
-        throw new Error(res.statusText);
-      }
+  try {
+    const res = await fetch(url, fetchOptions);
+    const text = await res.text();
 
-      return res.text();
-    })
-    .then((text) => {
-      if (!text) {
-        return undefined;
-      }
+    if (!text) {
+      return undefined;
+    }
 
-      try {
-        return JSON.parse(text, Reviver);
-      } catch (e) {
-        return text;
-      }
-    });
+    let json: any;
+    try {
+      json = JSON.parse(text, Reviver);
+    } catch (e) {
+      throw new FetchError(res.status, res.statusText, text, e);
+    }
+
+    if (res.status < 200 || res.status >= 300) {
+      throw new FetchError(res.status, res.statusText, json.code, json);
+    }
+    return json;
+  } catch (e: any) {
+    if (e instanceof FetchError) {
+      throw e;
+    }
+
+    throw new FetchError(0, 'Unknown', e.message, e);
+  }
 }
 
 type UploadFileOptions = {

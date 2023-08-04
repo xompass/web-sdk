@@ -6,6 +6,8 @@ export type PoseDetectionTrigger = {
     | 'SEATED'
     | 'THROWING_THINGS'
     | 'FIGHT'
+    | 'SQUAT_HEUR1'
+    | 'SQUAT_HEUR2'
   )[];
   intervalTime?: number;
   advanced?: {

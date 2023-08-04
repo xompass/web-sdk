@@ -28,7 +28,9 @@ export type PoseDetectionContent = {
       | 'SEATED'
       | 'STANDING'
       | 'THROWING_THINGS'
-      | 'FIGHT';
+      | 'FIGHT'
+      | 'SQUAT_HEUR1'
+      | 'SQUAT_HEUR2';
     probability: number;
     keypoints?: {
       Nose?: {
