@@ -193,6 +193,19 @@ export class FetchError extends Error {
   }
 }
 
+function getAccessToken(): Promise<string | null> {
+  const token = getLocalStorageValue('vsaas$accessToken');
+  if (token) {
+    return Promise.resolve(token);
+  }
+
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(getLocalStorageValue('vsaas$accessToken'));
+    }, 100);
+  });
+}
+
 /**
  * A generic fetch function to call the API
  */
@@ -206,7 +219,8 @@ export async function ApiFetch(options: ApiFetchOptions): Promise<any> {
     'Content-Type': 'application/json',
   };
 
-  const accessToken = getLocalStorageValue('vsaas$accessToken');
+  const accessToken = await getAccessToken();
+
   if (accessToken) {
     headers['Authorization'] = accessToken;
   }
