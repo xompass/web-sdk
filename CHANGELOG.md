@@ -1,5 +1,12 @@
 # @xompass/web-sdk
 
+## 0.4.0
+
+### Minor Changes
+
+- f7dd4ba: Update storyline model. Improve fetch errors
+- f7dd4ba: Implement upload file methods
+
 ## 0.3.0
 
 ### Minor Changes
