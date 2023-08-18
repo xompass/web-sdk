@@ -1,5 +1,17 @@
 # @xompass/web-sdk
 
+## 0.6.0
+
+### Minor Changes
+
+- c36b443: Update storyline model. Improve fetch errors
+- c36b443: Implement upload file methods
+- c36b443: Asset health status
+
+### Patch Changes
+
+- c36b443: Wait for a time if the accessToken is not available yet
+
 ## 0.5.0
 
 ### Minor Changes
