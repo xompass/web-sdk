@@ -4,9 +4,9 @@ import { Event } from '../models/Event';
 import { AssetState } from '../models/AssetState';
 import { EventTriggerAssetState } from '../models/EventTriggerAssetState';
 import { EventTriggerRule } from '../models/EventTriggerRule';
-import { EventComment } from '../models/Event';
+import { EventComment } from '../models/EventComment';
 import { EventData } from '../models/Event';
-import { EventStateChange } from '../models/Event';
+import { EventStateChange } from '../models/EventStateChange';
 
 /**
  * Api services for the `EventTrigger` model.
