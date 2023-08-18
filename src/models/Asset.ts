@@ -25,6 +25,7 @@ import { Sensor } from './Sensor';
 import { SensorUptime } from './SensorUptime';
 import { SensorUptimeCollector } from './SensorUptimeCollector';
 import { Summary } from './Summary';
+import { AssetStatusDetails } from './AssetStatusDetails';
 import { FileMetadata } from './FileMetadata';
 
 export type Asset = {
@@ -36,6 +37,9 @@ export type Asset = {
   uri?: string;
   path?: string[];
   requested?: Date;
+  healthcheckEventsEnabled?: boolean;
+  currentHealthStatus?: 'ONLINE' | 'OUTDATED' | 'OFFLINE' | 'UNKNOWN';
+  currentHealthStatusDetails?: AssetCurrentStatusDetails;
   tags?: string[];
   created?: Date;
   modified?: Date;
@@ -78,6 +82,18 @@ export type Asset = {
   sensorUptimes?: SensorUptime[];
   sensorUptimeCollectors?: SensorUptimeCollector[];
   summaries?: Summary[];
+};
+
+export type AssetCurrentStatusDetails = {
+  nextCheck?: Date;
+  lastNotification?: Date;
+  requested?: AssetStatusDetails;
+  referenceImage?: AssetStatusDetails;
+  healthcheckSensors?: any[];
+  created?: Date;
+  modified?: Date;
+  deleted?: Date;
+  id?: string;
 };
 
 export type AssetStorageContainer = {

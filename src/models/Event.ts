@@ -56,6 +56,8 @@ import { ReferrerFeedback } from './sensorTypes/Referrer/ReferrerFeedback';
 import { SceneChangeFeedback } from './sensorTypes/SceneChange/SceneChangeFeedback';
 import { StoppedLicensePlateFeedback } from './sensorTypes/StoppedLicensePlate/StoppedLicensePlateFeedback';
 import { VideoFeedback } from './sensorTypes/Video/VideoFeedback';
+import { EventComment } from './EventComment';
+import { EventStateChange } from './EventStateChange';
 
 export type Event = {
   id?: string;
@@ -82,18 +84,6 @@ export type Event = {
   summary?: EventSummary;
   eventTrigger?: EventTrigger;
   trackingLogs?: Log[];
-};
-
-export type EventComment = {
-  id?: string;
-  content: string;
-  edited?: boolean;
-  created?: Date;
-  modified?: Date;
-  deleted?: Date;
-  userId?: string;
-  principalType?: string;
-  defaultEventCommentId?: string;
 };
 
 export type EventData = {
@@ -164,15 +154,4 @@ export type EventData = {
   created?: Date;
   modified?: Date;
   deleted?: Date;
-};
-
-export type EventStateChange = {
-  id?: string;
-  name: string;
-  description?: string;
-  created?: Date;
-  modified?: Date;
-  deleted?: Date;
-  userId?: string;
-  principalType?: string;
 };

@@ -180,7 +180,7 @@ function prepareUrl(
   return `${url}${queryString ? `?${queryString}` : ''}`;
 }
 
-class FetchError extends Error {
+export class FetchError extends Error {
   public status: number;
   public code: string | undefined;
   public details: any;
