@@ -1,5 +1,13 @@
 # @xompass/web-sdk
 
+## 0.5.0
+
+### Minor Changes
+
+- b1f502d: Update storyline model. Improve fetch errors
+- b1f502d: Implement upload file methods
+- b1f502d: Asset health status
+
 ## 0.4.0
 
 ### Minor Changes
