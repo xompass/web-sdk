@@ -117,6 +117,12 @@ const DateFields = [
   'expiresAt',
   'started',
   'birthday',
+  'storypointDate',
+  'nextCheck',
+  'lastCheck',
+  'lastValue',
+  'valueValidUntil',
+  'date',
 ];
 
 const Reviver = (key: string, value: any) => {
