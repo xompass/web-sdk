@@ -290,7 +290,7 @@ export async function UploadFile(options: UploadFileOptions): Promise<any> {
   }
 
   const xhr = new XMLHttpRequest();
-  xhr.open('POST', baseUrl + url, true);
+  xhr.open('POST', url, true);
   xhr.setRequestHeader('Authorization', accessToken || '');
   xhr.upload.onprogress = (e) => {
     if (e.lengthComputable && onProgress) {
