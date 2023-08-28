@@ -1,5 +1,11 @@
 # @xompass/web-sdk
 
+## 0.7.1
+
+### Patch Changes
+
+- 708ee4f: Add missing date fields
+
 ## 0.7.0
 
 ### Minor Changes
