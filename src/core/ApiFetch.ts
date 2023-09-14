@@ -176,8 +176,13 @@ function prepareUrl(
           value = _order;
         }
 
-        const val = typeof value === 'object' ? JSON.stringify(value) : value;
-        array.push(`${key}=${val}`);
+        if (value instanceof Date) {
+          value = value.toISOString();
+        } else if (typeof value === 'object') {
+          value = JSON.stringify(value);
+        }
+
+        array.push(`${key}=${value}`);
         return array;
       }, [])
       .join('&');
