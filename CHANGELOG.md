@@ -1,5 +1,11 @@
 # @xompass/web-sdk
 
+## 0.7.2
+
+### Patch Changes
+
+- fe62b0b: Fix date encode for url
+
 ## 0.7.1
 
 ### Patch Changes
