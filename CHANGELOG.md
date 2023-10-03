@@ -1,5 +1,11 @@
 # @xompass/web-sdk
 
+## 0.8.0
+
+### Minor Changes
+
+- f982599: Add blacklist endpoints
+
 ## 0.7.2
 
 ### Patch Changes
