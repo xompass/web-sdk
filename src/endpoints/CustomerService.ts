@@ -63,6 +63,10 @@ import { VirtualGroup } from '../models/VirtualGroup';
 import { VirtualVariable } from '../models/VirtualVariable';
 import { YoloClassProject } from '../models/YoloClassProject';
 import { Storypoint } from '../models/Storypoint';
+import {
+  ListedLicensePlate,
+  MergeLicensePlateResponse,
+} from '../models/ListedLicensePlate';
 
 /**
  * Api services for the `Customer` model.
@@ -2563,6 +2567,127 @@ export async function Customer_getLicensePlates(
     },
   });
 }
+
+/** Get ListedLicensePlates */
+export async function Customer_getListedLicensePlates(
+  id: string
+): Promise<ListedLicensePlate> {
+  return ApiFetch({
+    method: 'GET',
+    url: '/Customers/:id/blackList',
+    routeParams: {
+      id,
+    },
+  });
+}
+
+/**
+ * Create ListedLicensePlates
+ */
+export async function Customer_createListedLicensePlate(
+  id: string,
+  data: Omit<ListedLicensePlate, '_key' | 'customerId' | 'createdAt'>
+): Promise<string> {
+  return ApiFetch({
+    method: 'POST',
+    url: '/Customers/:id/blackList/licensePlate',
+    routeParams: {
+      id,
+    },
+    body: data,
+  });
+}
+
+/**
+ * Delete ListedLicensePlates
+ */
+export async function Customer_deleteListedLicensePlate(
+  id: string,
+  _key: string
+): Promise<void> {
+  return ApiFetch({
+    method: 'DELETE',
+    url: '/Customers/:id/blackList/licensePlate/:key',
+    routeParams: {
+      id,
+      key: _key,
+    },
+  });
+}
+
+/**
+ * Update ListedLicensePlates
+ */
+export async function Customer_updateListedLicensePlate(
+  id: string,
+  _key: string,
+  data: Omit<
+    ListedLicensePlate,
+    '_key' | 'customerId' | 'createdAt' | 'licensePlate' | 'blacklistedAt'
+  >
+): Promise<string> {
+  return ApiFetch({
+    method: 'PATCH',
+    url: '/Customers/:id/blackList/licensePlate/:key',
+    routeParams: {
+      id,
+      key: _key,
+    },
+    body: data,
+  });
+}
+
+/**
+ * Create many ListedLicensePlates
+ */
+export async function Customer_createManyListedLicensePlates(
+  id: string,
+  data: Omit<ListedLicensePlate, '_key' | 'customerId' | 'createdAt'>[]
+): Promise<string[]> {
+  return ApiFetch({
+    method: 'POST',
+    url: '/Customers/:id/blackList/many',
+    routeParams: {
+      id,
+    },
+    body: data,
+  });
+}
+
+/**
+ * Merge ListedLicensePlates
+ */
+export async function Customer_mergeListedLicensePlates(
+  id: string,
+  data: Omit<ListedLicensePlate, '_key' | 'customerId' | 'createdAt'>[]
+): Promise<MergeLicensePlateResponse> {
+  return ApiFetch({
+    method: 'PATCH',
+    url: '/Customers/:id/blackList/merge',
+    routeParams: {
+      id,
+    },
+    body: data,
+  });
+}
+
+/**
+ * Replace ListedLicensePlates
+ */
+export async function Customer_replaceListedLicensePlates(
+  id: string,
+  data: Omit<ListedLicensePlate, '_key' | 'customerId' | 'createdAt'>[]
+): Promise<string[]> {
+  return ApiFetch({
+    method: 'PUT',
+    url: '/Customers/:id/blackList/replace',
+    routeParams: {
+      id,
+    },
+    body: data,
+  });
+}
+
 /**
  * Get events
  * /Customers/:id/events
@@ -2585,6 +2710,7 @@ export async function Customer_getEvents(
     },
   });
 }
+
 /**
  * Get events
  * /Customers/:id/projects/:nk/events
