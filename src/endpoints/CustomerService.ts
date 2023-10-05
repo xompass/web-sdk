@@ -2572,7 +2572,7 @@ export async function Customer_getLicensePlates(
 /** Get ListedLicensePlates */
 export async function Customer_getListedLicensePlates(
   id: string
-): Promise<ListedLicensePlate> {
+): Promise<ListedLicensePlate[]> {
   return ApiFetch({
     method: 'GET',
     url: '/Customers/:id/blackList',
