@@ -1,5 +1,11 @@
 # @xompass/web-sdk
 
+## 0.9.1
+
+### Patch Changes
+
+- 877a137: fix Customer_getListedLicensePlates return type
+
 ## 0.9.0
 
 ### Minor Changes
