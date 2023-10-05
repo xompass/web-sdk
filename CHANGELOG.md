@@ -1,5 +1,11 @@
 # @xompass/web-sdk
 
+## 0.9.2
+
+### Patch Changes
+
+- 38305aa: Fix ListedLicensePlate type
+
 ## 0.9.1
 
 ### Patch Changes
