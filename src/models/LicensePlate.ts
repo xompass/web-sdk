@@ -4,11 +4,11 @@ export type ListedLicensePlate = {
   brand: string;
   vehicleType: string;
   licensePlate: string;
-  createdAt: string;
+  createdAt: number;
   model: string;
-  year: string;
+  year: number;
   color: string;
-  blacklistedAt: string;
+  blacklistedAt: number;
   description: string;
 };
 
