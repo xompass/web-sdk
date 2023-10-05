@@ -126,14 +126,25 @@ const DateFields = [
 ];
 
 const Reviver = (key: string, value: any) => {
-  if (typeof value === 'string' && DateFields.includes(key)) {
-    const date = new Date(value);
+  if (
+    (typeof value === 'string' || typeof value === 'number') &&
+    DateFields.includes(key)
+  ) {
+    let date;
+
+    if (
+      key === 'expiresAt' &&
+      typeof value === 'number' &&
+      value < 1000000000000
+    ) {
+      date = new Date(value * 1000);
+    } else {
+      date = new Date(value);
+    }
 
     if (date.toString() !== 'Invalid Date') {
       return date;
     }
-
-    return value;
   }
 
   return value;

@@ -1,6 +1,6 @@
 import { YoloClassLabel } from '../YoloClassLabel';
 
-export type NoPlateDetectionEventContent = {
+export type ObjectRecognitionNumericEventContent = {
   image?: {
     container?: string;
     name?: string;
@@ -22,8 +22,8 @@ export type NoPlateDetectionEventContent = {
     }[];
   };
   objects?: {
-    noPlateDetected?: boolean;
     class: YoloClassLabel;
+    text?: string;
     probability: number;
     frame: {
       x: number;
@@ -33,6 +33,21 @@ export type NoPlateDetectionEventContent = {
     };
     points?: number[][];
     displayName?: string;
+    value?: number;
+    colors?: {
+      percentage: number;
+      label:
+        | 'white'
+        | 'gray'
+        | 'black'
+        | 'red'
+        | 'yellow'
+        | 'brown'
+        | 'green'
+        | 'cyan'
+        | 'blue'
+        | 'purple';
+    }[];
     colorExperimental?: {
       rgb: {
         r: number;
@@ -45,6 +60,8 @@ export type NoPlateDetectionEventContent = {
       ZONE?: boolean;
       PROBABILITY?: boolean;
       CLASS?: boolean;
+      BLACKLIST?: boolean;
+      PERSISTENCE?: boolean;
     };
   }[];
   filtered?: boolean;

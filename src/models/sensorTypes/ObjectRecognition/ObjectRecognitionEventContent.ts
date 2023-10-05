@@ -32,6 +32,8 @@ export type ObjectRecognitionEventContent = {
       w: number;
       h: number;
     };
+    points?: number[][];
+    displayName?: string;
     colors?: {
       percentage: number;
       label:

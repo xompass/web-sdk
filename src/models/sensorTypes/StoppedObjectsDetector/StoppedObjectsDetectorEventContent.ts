@@ -32,6 +32,8 @@ export type StoppedObjectsDetectorEventContent = {
       w: number;
       h: number;
     };
+    points?: number[][];
+    displayName?: string;
     colors?: {
       percentage: number;
       label:
