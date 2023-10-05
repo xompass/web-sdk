@@ -64,9 +64,10 @@ import { VirtualVariable } from '../models/VirtualVariable';
 import { YoloClassProject } from '../models/YoloClassProject';
 import { Storypoint } from '../models/Storypoint';
 import {
+  LicensePlate,
   ListedLicensePlate,
   MergeLicensePlateResponse,
-} from '../models/ListedLicensePlate';
+} from '../models/LicensePlate';
 
 /**
  * Api services for the `Customer` model.
@@ -2483,7 +2484,7 @@ export async function Customer_searchLicensePlates(
   sensorId?: string,
   class_?: string,
   limit?: number
-): Promise<any[]> {
+): Promise<LicensePlate[]> {
   const _urlParams: any = {};
   if (licensePlate != null) {
     _urlParams['licensePlate'] = licensePlate;
@@ -2537,7 +2538,7 @@ export async function Customer_getLicensePlates(
   sensorId?: string,
   class_?: string,
   limit?: number
-): Promise<any[]> {
+): Promise<LicensePlate[]> {
   const _urlParams: any = {};
   if (from != null) {
     _urlParams['from'] = from;
@@ -2586,7 +2587,11 @@ export async function Customer_getListedLicensePlates(
  */
 export async function Customer_createListedLicensePlate(
   id: string,
-  data: Omit<ListedLicensePlate, '_key' | 'customerId' | 'createdAt'>
+  data: Omit<
+    Partial<ListedLicensePlate> &
+      Pick<ListedLicensePlate, 'licensePlate' | 'blacklistedAt'>,
+    '_key' | 'customerId' | 'createdAt'
+  >
 ): Promise<string> {
   return ApiFetch({
     method: 'POST',
@@ -2622,7 +2627,7 @@ export async function Customer_updateListedLicensePlate(
   id: string,
   _key: string,
   data: Omit<
-    ListedLicensePlate,
+    Partial<ListedLicensePlate>,
     '_key' | 'customerId' | 'createdAt' | 'licensePlate' | 'blacklistedAt'
   >
 ): Promise<string> {
@@ -2642,7 +2647,11 @@ export async function Customer_updateListedLicensePlate(
  */
 export async function Customer_createManyListedLicensePlates(
   id: string,
-  data: Omit<ListedLicensePlate, '_key' | 'customerId' | 'createdAt'>[]
+  data: Omit<
+    Partial<ListedLicensePlate> &
+      Pick<ListedLicensePlate, 'licensePlate' | 'blacklistedAt'>,
+    '_key' | 'customerId' | 'createdAt'
+  >[]
 ): Promise<string[]> {
   return ApiFetch({
     method: 'POST',
@@ -2659,7 +2668,11 @@ export async function Customer_createManyListedLicensePlates(
  */
 export async function Customer_mergeListedLicensePlates(
   id: string,
-  data: Omit<ListedLicensePlate, '_key' | 'customerId' | 'createdAt'>[]
+  data: Omit<
+    Partial<ListedLicensePlate> &
+      Pick<ListedLicensePlate, 'licensePlate' | 'blacklistedAt'>,
+    '_key' | 'customerId' | 'createdAt'
+  >[]
 ): Promise<MergeLicensePlateResponse> {
   return ApiFetch({
     method: 'PATCH',
@@ -2676,7 +2689,11 @@ export async function Customer_mergeListedLicensePlates(
  */
 export async function Customer_replaceListedLicensePlates(
   id: string,
-  data: Omit<ListedLicensePlate, '_key' | 'customerId' | 'createdAt'>[]
+  data: Omit<
+    Partial<ListedLicensePlate> &
+      Pick<ListedLicensePlate, 'licensePlate' | 'blacklistedAt'>,
+    '_key' | 'customerId' | 'createdAt'
+  >[]
 ): Promise<string[]> {
   return ApiFetch({
     method: 'PUT',
