@@ -1,5 +1,11 @@
 # @xompass/web-sdk
 
+## 0.9.0
+
+### Minor Changes
+
+- 6a65f0a: New sensorTypes and fixes
+
 ## 0.8.0
 
 ### Minor Changes
