@@ -4,7 +4,7 @@ import { AssetStorageContainer } from '../models/Asset';
 import { Dataset } from '../models/Dataset';
 import { EdgeAgent } from '../models/EdgeAgent';
 import { EdgeAgentAsset } from '../models/EdgeAgent';
-import { Sensor } from '../models/Sensor';
+import { SensorWithCurrentState } from '../models/Sensor';
 import { EventTriggerAssetState } from '../models/EventTriggerAssetState';
 import { SensorAssetState } from '../models/SensorAssetState';
 
@@ -371,7 +371,7 @@ export async function Asset_download(
 export async function Asset_getSensorsWithCurrentState(
   id: string,
   filter: Filter<any> = {}
-): Promise<Sensor> {
+): Promise<SensorWithCurrentState> {
   const _urlParams: any = {};
   if (filter != null) {
     _urlParams['filter'] = filter;
