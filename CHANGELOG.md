@@ -1,5 +1,11 @@
 # @xompass/web-sdk
 
+## 0.10.0
+
+### Minor Changes
+
+- eebd239: Improve types
+
 ## 0.9.2
 
 ### Patch Changes
