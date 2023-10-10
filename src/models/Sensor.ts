@@ -89,6 +89,10 @@ export type Sensor = {
   summaries?: Summary[];
 };
 
+export type SensorWithCurrentState = Sensor & {
+  currentState: SensorAssetState;
+};
+
 export type SensorHealthcheck = {
   enabled?: boolean;
   lifespan?: number;
