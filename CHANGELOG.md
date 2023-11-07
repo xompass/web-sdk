@@ -1,5 +1,35 @@
 # @xompass/web-sdk
 
+## 0.10.0
+
+### Minor Changes
+
+- eebd239: Improve types
+
+## 0.9.2
+
+### Patch Changes
+
+- 38305aa: Fix ListedLicensePlate type
+
+## 0.9.1
+
+### Patch Changes
+
+- 877a137: fix Customer_getListedLicensePlates return type
+
+## 0.9.0
+
+### Minor Changes
+
+- 6a65f0a: New sensorTypes and fixes
+
+## 0.8.0
+
+### Minor Changes
+
+- f982599: Add blacklist endpoints
+
 ## 0.7.2
 
 ### Patch Changes
