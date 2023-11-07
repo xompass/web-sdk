@@ -1,5 +1,11 @@
 # @xompass/web-sdk
 
+## 0.10.1
+
+### Patch Changes
+
+- ff4d443: Add diameter and area to GranularityDetection
+
 ## 0.10.0
 
 ### Minor Changes
