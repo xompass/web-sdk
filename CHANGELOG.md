@@ -1,5 +1,11 @@
 # @xompass/web-sdk
 
+## 0.11.0
+
+### Minor Changes
+
+- beacbba: Add CountReport and missing changes
+
 ## 0.10.1
 
 ### Patch Changes
