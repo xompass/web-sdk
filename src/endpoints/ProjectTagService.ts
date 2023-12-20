@@ -24,7 +24,7 @@ export async function ProjectTag_exists(id: string): Promise<boolean> {
  */
 export async function ProjectTag_findById(
   id: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<ProjectTag> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -45,7 +45,7 @@ export async function ProjectTag_findById(
  * /ProjectTags
  */
 export async function ProjectTag_find(
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<ProjectTag[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -64,7 +64,7 @@ export async function ProjectTag_find(
  * /ProjectTags/findOne
  */
 export async function ProjectTag_findOne(
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<ProjectTag> {
   const _urlParams: any = {};
   if (filter != null) {

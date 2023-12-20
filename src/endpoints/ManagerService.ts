@@ -16,6 +16,7 @@ import { StoreVideoAnalyticDashboard } from '../models/StoreVideoAnalyticDashboa
 import { TimeZone } from '../models/TimeZone';
 import { TrafficFlowAnalysis } from '../models/TrafficFlowAnalysis';
 import { View } from '../models/View';
+import { CountReport } from '../models/CountReport';
 
 /**
  * Api services for the `Manager` model.
@@ -293,6 +294,97 @@ export async function Manager_UnlinkCctvDashboards(
     },
   });
 }
+
+/**
+ * Buscar un elemento relacionado por id para countReports.
+ * /Managers/:id/countReports/:fk
+ */
+export async function Manager_FindByIdCountReports(
+  id: string,
+  fk: string
+): Promise<CountReport> {
+  return ApiFetch({
+    method: 'GET',
+    url: '/Managers/:id/countReports/:fk',
+    routeParams: {
+      id,
+      fk,
+    },
+  });
+}
+/**
+ * Suprimir un elemento relacionado por id para countReports.
+ * /Managers/:id/countReports/:fk
+ */
+export async function Manager_DestroyByIdCountReports(
+  id: string,
+  fk: string
+): Promise<void> {
+  return ApiFetch({
+    method: 'DELETE',
+    url: '/Managers/:id/countReports/:fk',
+    routeParams: {
+      id,
+      fk,
+    },
+  });
+}
+/**
+ * Actualizar un elemento relacionado por id para countReports.
+ * /Managers/:id/countReports/:fk
+ */
+export async function Manager_UpdateByIdCountReports(
+  id: string,
+  fk: string,
+  data: any = {}
+): Promise<CountReport> {
+  return ApiFetch({
+    method: 'PUT',
+    url: '/Managers/:id/countReports/:fk',
+    routeParams: {
+      id,
+      fk,
+    },
+    body: data,
+  });
+}
+/**
+ * Añadir un elemento relacionado por id para countReports.
+ * /Managers/:id/countReports/rel/:fk
+ */
+export async function Manager_LinkCountReports(
+  id: string,
+  fk: string,
+  data: any = {}
+): Promise<any> {
+  return ApiFetch({
+    method: 'PUT',
+    url: '/Managers/:id/countReports/rel/:fk',
+    routeParams: {
+      id,
+      fk,
+    },
+    body: data,
+  });
+}
+/**
+ * Eliminar la relación countReports con un elemento por id.
+ * /Managers/:id/countReports/rel/:fk
+ */
+export async function Manager_UnlinkCountReports(
+  id: string,
+  fk: string
+): Promise<void> {
+  return ApiFetch({
+    method: 'DELETE',
+    url: '/Managers/:id/countReports/rel/:fk',
+    routeParams: {
+      id,
+      fk,
+    },
+  });
+}
+
 /**
  * Buscar un elemento relacionado por id para eventDashboards.
  * /Managers/:id/eventDashboards/:fk
@@ -1042,6 +1134,52 @@ export async function Manager_CountCctvDashboards(
     },
   });
 }
+
+/**
+ * countReports consultas de Manager.
+ * /Managers/:id/countReports
+ */
+export async function Manager_GetCountReports(
+  id: string,
+  filter: Filter<any> = {}
+): Promise<CountReport[]> {
+  const _urlParams: any = {};
+  if (filter != null) {
+    _urlParams['filter'] = filter;
+  }
+
+  return ApiFetch({
+    method: 'GET',
+    url: '/Managers/:id/countReports',
+    urlParams: _urlParams,
+    routeParams: {
+      id,
+    },
+  });
+}
+/**
+ * Recuentos countReports de Manager.
+ * /Managers/:id/countReports/count
+ */
+export async function Manager_CountCountReports(
+  id: string,
+  where: any = {}
+): Promise<number> {
+  const _urlParams: any = {};
+  if (where != null) {
+    _urlParams['where'] = where;
+  }
+
+  return ApiFetch({
+    method: 'GET',
+    url: '/Managers/:id/countReports/count',
+    urlParams: _urlParams,
+    routeParams: {
+      id,
+    },
+  });
+}
+
 /**
  * eventDashboards consultas de Manager.
  * /Managers/:id/eventDashboards
@@ -1152,6 +1290,7 @@ export async function Manager_GetReports(
     },
   });
 }
+
 /**
  * Recuentos reports de Manager.
  * /Managers/:id/reports/count
@@ -1174,6 +1313,7 @@ export async function Manager_CountReports(
     },
   });
 }
+
 /**
  * storeVideoAnalyticDashboards consultas de Manager.
  * /Managers/:id/storeVideoAnalyticDashboards

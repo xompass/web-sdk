@@ -160,5 +160,15 @@ export type PoseDetectionContent = {
         };
       };
     };
+    frame?: {
+      x: number;
+      y: number;
+      w: number;
+      h: number;
+    };
+    filteredBy?: {
+      LABEL?: boolean;
+      ZONE?: boolean;
+    };
   }[];
 };

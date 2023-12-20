@@ -17,7 +17,7 @@ import { SensorAssetState } from '../models/SensorAssetState';
  * /Assets/:id/restrictionTable
  */
 export async function Asset_GetRestrictionTable(
-  id: string
+  id: string,
 ): Promise<AssetRestrictionTable> {
   return ApiFetch({
     method: 'GET',
@@ -32,7 +32,7 @@ export async function Asset_GetRestrictionTable(
  * /Assets/:id/container
  */
 export async function Asset_GetContainer(
-  id: string
+  id: string,
 ): Promise<AssetStorageContainer> {
   return ApiFetch({
     method: 'GET',
@@ -48,7 +48,7 @@ export async function Asset_GetContainer(
  */
 export async function Asset_FindByIdDatasets(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<Dataset> {
   return ApiFetch({
     method: 'GET',
@@ -65,7 +65,7 @@ export async function Asset_FindByIdDatasets(
  */
 export async function Asset_FindByIdEdgeAgents(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<EdgeAgent> {
   return ApiFetch({
     method: 'GET',
@@ -83,7 +83,7 @@ export async function Asset_FindByIdEdgeAgents(
 export async function Asset_LinkEdgeAgents(
   id: string,
   fk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<EdgeAgentAsset> {
   return ApiFetch({
     method: 'PUT',
@@ -101,7 +101,7 @@ export async function Asset_LinkEdgeAgents(
  */
 export async function Asset_UnlinkEdgeAgents(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
@@ -118,7 +118,7 @@ export async function Asset_UnlinkEdgeAgents(
  */
 export async function Asset_GetDatasets(
   id: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<Dataset[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -140,7 +140,7 @@ export async function Asset_GetDatasets(
  */
 export async function Asset_CountDatasets(
   id: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -162,7 +162,7 @@ export async function Asset_CountDatasets(
  */
 export async function Asset_GetEdgeAgents(
   id: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<EdgeAgent[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -184,7 +184,7 @@ export async function Asset_GetEdgeAgents(
  */
 export async function Asset_CountEdgeAgents(
   id: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -206,7 +206,7 @@ export async function Asset_CountEdgeAgents(
  */
 export async function Asset_subscribe(
   id: string,
-  socketId: string
+  socketId: string,
 ): Promise<any> {
   return ApiFetch({
     method: 'PUT',
@@ -224,7 +224,7 @@ export async function Asset_subscribe(
  */
 export async function Asset_unsubscribe(
   id: string,
-  socketId: string
+  socketId: string,
 ): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
@@ -284,7 +284,7 @@ export async function Asset_removeFile(
   property: string,
   file: string,
   datasourceName?: string,
-  resourceName?: string
+  resourceName?: string,
 ): Promise<void> {
   const _urlParams: any = {};
   if (property != null) {
@@ -316,7 +316,7 @@ export async function Asset_upload(
   property: string,
   file: File,
   resourceName?: string,
-  onProgress?: (progress: number) => void
+  onProgress?: (progress: number) => void,
 ): Promise<any> {
   const _urlParams: any = {};
   if (property != null) {
@@ -344,7 +344,7 @@ export async function Asset_download(
   id: string,
   property: string,
   file: string,
-  datasourceName?: string
+  datasourceName?: string,
 ): Promise<any> {
   const _urlParams: any = {};
   if (property != null) {
@@ -370,7 +370,7 @@ export async function Asset_download(
  */
 export async function Asset_getSensorsWithCurrentState(
   id: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<SensorWithCurrentState> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -393,7 +393,7 @@ export async function Asset_getSensorsWithCurrentState(
 export async function Asset_setAndQueueAssetStates(
   id: string,
   minimalResponse?: boolean,
-  timeZone?: string
+  timeZone?: string,
 ): Promise<any> {
   const _urlParams: any = {};
   if (minimalResponse != null) {
@@ -419,7 +419,7 @@ export async function Asset_setAndQueueAssetStates(
  */
 export async function Asset_findAndFilterDatasets(
   id: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<Dataset[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -455,7 +455,7 @@ export async function Asset_getCurrentTTL(id: string): Promise<any> {
 export async function Asset_deleteDatasetsByTTL(
   id: string,
   ttl?: number,
-  minimalResponse?: string
+  minimalResponse?: string,
 ): Promise<void> {
   const _urlParams: any = {};
   if (ttl != null) {
@@ -481,7 +481,7 @@ export async function Asset_deleteDatasetsByTTL(
 export async function Asset_deleteEventsByTTL(
   id: string,
   ttl?: number,
-  minimalResponse?: string
+  minimalResponse?: string,
 ): Promise<void> {
   const _urlParams: any = {};
   if (ttl != null) {
@@ -505,7 +505,7 @@ export async function Asset_deleteEventsByTTL(
  * /Assets/:id/restrictionTable/merged
  */
 export async function Asset_getMergedRestrictionTable(
-  id: string
+  id: string,
 ): Promise<any> {
   return ApiFetch({
     method: 'GET',
@@ -522,7 +522,7 @@ export async function Asset_getMergedRestrictionTable(
 export async function Asset_GetAssetStatesEventTriggerAssetStates(
   id: string,
   nk: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<EventTriggerAssetState[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -546,7 +546,7 @@ export async function Asset_GetAssetStatesEventTriggerAssetStates(
 export async function Asset_GetAssetStatesStates(
   id: string,
   nk: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<SensorAssetState[]> {
   const _urlParams: any = {};
   if (filter != null) {

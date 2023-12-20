@@ -19,7 +19,7 @@ import { Var } from '../models/Var';
  */
 export async function Admin_FindByIdAccessTokens(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<CommonAccessToken> {
   return ApiFetch({
     method: 'GET',
@@ -48,7 +48,7 @@ export async function Admin_GetCountry(id: string): Promise<Country> {
  * /Admins/:id/container
  */
 export async function Admin_GetContainer(
-  id: string
+  id: string,
 ): Promise<AdminStorageContainer> {
   return ApiFetch({
     method: 'GET',
@@ -64,7 +64,7 @@ export async function Admin_GetContainer(
  */
 export async function Admin_FindByIdCredentials(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<Credential> {
   return ApiFetch({
     method: 'GET',
@@ -81,7 +81,7 @@ export async function Admin_FindByIdCredentials(
  */
 export async function Admin_ExistsCredentials(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<boolean> {
   return ApiFetch({
     method: 'HEAD',
@@ -99,7 +99,7 @@ export async function Admin_ExistsCredentials(
 export async function Admin_LinkAssets(
   id: string,
   fk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<any> {
   return ApiFetch({
     method: 'PUT',
@@ -117,7 +117,7 @@ export async function Admin_LinkAssets(
  */
 export async function Admin_UnlinkAssets(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
@@ -134,7 +134,7 @@ export async function Admin_UnlinkAssets(
  */
 export async function Admin_FindByIdActivityLogs(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<Log> {
   return ApiFetch({
     method: 'GET',
@@ -177,7 +177,7 @@ export async function Admin_GetVar(id: string): Promise<Var> {
  */
 export async function Admin_GetCredentials(
   id: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<Credential[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -199,7 +199,7 @@ export async function Admin_GetCredentials(
  */
 export async function Admin_CountCredentials(
   id: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -221,7 +221,7 @@ export async function Admin_CountCredentials(
  */
 export async function Admin_GetAssets(
   id: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<Asset[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -243,7 +243,7 @@ export async function Admin_GetAssets(
  */
 export async function Admin_CountAssets(
   id: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -265,7 +265,7 @@ export async function Admin_CountAssets(
  */
 export async function Admin_GetActivityLogs(
   id: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<Log[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -287,7 +287,7 @@ export async function Admin_GetActivityLogs(
  */
 export async function Admin_CountActivityLogs(
   id: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -321,7 +321,7 @@ export async function Admin_create(data: any = {}): Promise<Admin> {
  */
 export async function Admin_findById(
   id: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<Admin> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -360,7 +360,7 @@ export async function Admin_login(
     relation: 'user',
     scope: { include: ['container'] },
   },
-  rememberMe: boolean = true
+  rememberMe: boolean = true,
 ): Promise<any> {
   const _urlParams: any = {};
   if (include != null) {
@@ -410,7 +410,7 @@ export async function Admin_verify(id: string): Promise<any> {
 export async function Admin_confirm(
   uid: string,
   token: string,
-  redirect?: string
+  redirect?: string,
 ): Promise<any> {
   const _urlParams: any = {};
   if (uid != null) {
@@ -450,7 +450,7 @@ export async function Admin_resetPassword(options: any): Promise<any> {
  */
 export async function Admin_changePassword(
   oldPassword: string,
-  newPassword: string
+  newPassword: string,
 ): Promise<any> {
   return ApiFetch({
     method: 'POST',
@@ -482,7 +482,7 @@ export async function Admin_setPassword(newPassword: string): Promise<any> {
  */
 export async function Admin_otpLogin(
   credentials: any,
-  include?: string
+  include?: string,
 ): Promise<any> {
   const _urlParams: any = {};
   if (include != null) {
@@ -616,7 +616,7 @@ export async function Admin_getFile(id: string, file: string): Promise<any> {
 export async function Admin_removeFile(
   id: string,
   property: string,
-  file: string
+  file: string,
 ): Promise<void> {
   const _urlParams: any = {};
   if (property != null) {
@@ -641,7 +641,7 @@ export async function Admin_upload(
   id: string,
   property: string,
   file: File,
-  onProgress?: (progress: number) => void
+  onProgress?: (progress: number) => void,
 ): Promise<any> {
   const _urlParams: any = {};
   if (property != null) {
@@ -665,7 +665,7 @@ export async function Admin_upload(
 export async function Admin_download(
   id: string,
   property: string,
-  file: string
+  file: string,
 ): Promise<any> {
   const _urlParams: any = {};
   if (property != null) {

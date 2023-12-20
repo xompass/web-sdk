@@ -10,7 +10,7 @@ import { ProjectRestrictionTable } from '../models/ProjectRestrictionTable';
  * /Projects/:id/restrictionTable
  */
 export async function Project_GetRestrictionTable(
-  id: string
+  id: string,
 ): Promise<ProjectRestrictionTable> {
   return ApiFetch({
     method: 'GET',
@@ -25,7 +25,7 @@ export async function Project_GetRestrictionTable(
  * /Projects/:id/restrictionTable/merged
  */
 export async function Project_getMergedRestrictionTable(
-  id: string
+  id: string,
 ): Promise<any> {
   return ApiFetch({
     method: 'GET',

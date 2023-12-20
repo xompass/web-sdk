@@ -31,8 +31,6 @@ export type NaiveSocialDistancingFeedback = {
       w: number;
       h: number;
     };
-    points?: number[][];
-    displayName?: string;
     colors?: {
       percentage: number;
       label:

@@ -24,7 +24,7 @@ export class ApiClient {
     private readonly baseUrl: string,
     private accessToken?: string,
     private userId?: string,
-    private principalType?: UserType
+    private principalType?: UserType,
   ) {
     const previousBaseUrl = getLocalStorageValue('vsaas$baseUrl');
     if (previousBaseUrl && previousBaseUrl !== baseUrl) {
@@ -97,11 +97,11 @@ export class ApiClient {
   public async login(): Promise<User>;
   public async login(
     credentials: UserCrendentials,
-    principalType: UserType
+    principalType: UserType,
   ): Promise<User>;
   public async login(
     credentials?: UserCrendentials,
-    principalType?: UserType
+    principalType?: UserType,
   ): Promise<User> {
     const defaultTTL = 48 * 60 * 60;
 
@@ -125,7 +125,7 @@ export class ApiClient {
           email?: string;
           password: string;
         },
-        include: any
+        include: any,
       ) => Promise<CommonAccessToken>;
 
       // Choose the correct login function based on the principal type
@@ -179,12 +179,12 @@ export class ApiClient {
       setLocalStorageValue(
         'vsaas$principalType',
         this.principalType,
-        defaultTTL
+        defaultTTL,
       );
 
       let GetPrincipal: (
         id: string,
-        filter: Filter<Manager | Admin>
+        filter: Filter<Manager | Admin>,
       ) => Promise<Manager | Admin>;
 
       switch (this.principalType) {

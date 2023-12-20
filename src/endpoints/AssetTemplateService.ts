@@ -12,7 +12,7 @@ import { SensorAssetStateTemplate } from '../models/SensorAssetStateTemplate';
  * /AssetTemplates/:id/container
  */
 export async function AssetTemplate_GetContainer(
-  id: string
+  id: string,
 ): Promise<AssetTemplateStorageContainer> {
   return ApiFetch({
     method: 'GET',
@@ -28,7 +28,7 @@ export async function AssetTemplate_GetContainer(
  */
 export async function AssetTemplate_subscribe(
   id: string,
-  socketId: string
+  socketId: string,
 ): Promise<any> {
   return ApiFetch({
     method: 'PUT',
@@ -46,7 +46,7 @@ export async function AssetTemplate_subscribe(
  */
 export async function AssetTemplate_unsubscribe(
   id: string,
-  socketId: string
+  socketId: string,
 ): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
@@ -89,7 +89,7 @@ export async function AssetTemplate_getFiles(id: string): Promise<any> {
  */
 export async function AssetTemplate_getFile(
   id: string,
-  file: string
+  file: string,
 ): Promise<any> {
   return ApiFetch({
     method: 'GET',
@@ -107,7 +107,7 @@ export async function AssetTemplate_getFile(
 export async function AssetTemplate_removeFile(
   id: string,
   property: string,
-  file: string
+  file: string,
 ): Promise<void> {
   const _urlParams: any = {};
   if (property != null) {
@@ -132,7 +132,7 @@ export async function AssetTemplate_upload(
   id: string,
   property: string,
   file: File,
-  onProgress?: (progress: number) => void
+  onProgress?: (progress: number) => void,
 ): Promise<any> {
   const _urlParams: any = {};
   if (property != null) {
@@ -156,7 +156,7 @@ export async function AssetTemplate_upload(
 export async function AssetTemplate_download(
   id: string,
   property: string,
-  file: string
+  file: string,
 ): Promise<any> {
   const _urlParams: any = {};
   if (property != null) {
@@ -179,7 +179,7 @@ export async function AssetTemplate_download(
  */
 export async function AssetTemplate_instantiate(
   id: string,
-  options: any = {}
+  options: any = {},
 ): Promise<any> {
   return ApiFetch({
     method: 'POST',
@@ -199,7 +199,7 @@ export async function AssetTemplate_instantiate(
 export async function AssetTemplate_GetAssetStateTemplatesEventTriggerAssetStateTemplates(
   id: string,
   nk: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<EventTriggerAssetStateTemplate[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -223,7 +223,7 @@ export async function AssetTemplate_GetAssetStateTemplatesEventTriggerAssetState
 export async function AssetTemplate_GetAssetStateTemplatesStateTemplates(
   id: string,
   nk: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<SensorAssetStateTemplate[]> {
   const _urlParams: any = {};
   if (filter != null) {

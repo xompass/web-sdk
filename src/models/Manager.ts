@@ -13,6 +13,7 @@ import { TimeZone } from './TimeZone';
 import { TrafficFlowAnalysis } from './TrafficFlowAnalysis';
 import { View } from './View';
 import { FileMetadata } from './FileMetadata';
+import { CountReport } from './CountReport';
 
 export type Manager = {
   name: string;
@@ -39,6 +40,7 @@ export type Manager = {
   country?: Country;
   assets?: Asset[];
   cctvDashboards?: CctvDashboard[];
+  countReports?: CountReport[];
   eventDashboards?: EventDashboard[];
   container?: ManagerStorageContainer;
   peopleCounterReports?: PeopleCounterReport[];
@@ -67,6 +69,7 @@ export type Permission = {
   assetStaffs?: CRUD;
   assetStates?: CRUD;
   biPanels?: CRUD;
+  countReports?: CRUD;
   cctvDashboards?: CRUD;
   credentials?: CRUD;
   dashboards?: CRUD;
@@ -82,6 +85,7 @@ export type Permission = {
   eventComments?: CRUD;
   eventStates?: CRUD;
   eventTriggers?: CRUD;
+  healthcheckEvents?: CRUD;
   gis?: CRUD;
   managers?: CRUD;
   peopleCounterReports?: CRUD;
@@ -96,6 +100,7 @@ export type Permission = {
   telegramChats?: CRUD;
   trafficFlowAnalysis?: CRUD;
   virtualExpressions?: CRUD;
+  listedLicensePlates?: CRUD;
   created?: Date;
   modified?: Date;
   deleted?: Date;

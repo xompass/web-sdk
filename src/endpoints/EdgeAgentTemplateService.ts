@@ -12,7 +12,7 @@ import { EdgeAgentTemplateTag } from '../models/EdgeAgentTemplateTag';
  */
 export async function EdgeAgentTemplate_FindByIdTags(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<EdgeAgentTemplateTag> {
   return ApiFetch({
     method: 'GET',
@@ -29,7 +29,7 @@ export async function EdgeAgentTemplate_FindByIdTags(
  */
 export async function EdgeAgentTemplate_GetTags(
   id: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<EdgeAgentTemplateTag[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -51,7 +51,7 @@ export async function EdgeAgentTemplate_GetTags(
  */
 export async function EdgeAgentTemplate_CountTags(
   id: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -73,7 +73,7 @@ export async function EdgeAgentTemplate_CountTags(
  */
 export async function EdgeAgentTemplate_findById(
   id: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<EdgeAgentTemplate> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -94,7 +94,7 @@ export async function EdgeAgentTemplate_findById(
  * /EdgeAgentTemplates
  */
 export async function EdgeAgentTemplate_find(
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<EdgeAgentTemplate[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -113,7 +113,7 @@ export async function EdgeAgentTemplate_find(
  * /EdgeAgentTemplates/count
  */
 export async function EdgeAgentTemplate_count(
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -156,7 +156,7 @@ export async function EdgeAgentTemplate_v2FindById(id: string): Promise<any> {
  * /EdgeAgentTemplates/v2/:id/tags
  */
 export async function EdgeAgentTemplate_v2GetTemplateTags(
-  id: string
+  id: string,
 ): Promise<any[]> {
   return ApiFetch({
     method: 'GET',
@@ -172,7 +172,7 @@ export async function EdgeAgentTemplate_v2GetTemplateTags(
  */
 export async function EdgeAgentTemplate_v2GetTemplateTagById(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<any> {
   return ApiFetch({
     method: 'GET',
@@ -190,7 +190,7 @@ export async function EdgeAgentTemplate_v2GetTemplateTagById(
 export async function EdgeAgentTemplate_v2Generate(
   id: string,
   fk: string,
-  params: any
+  params: any,
 ): Promise<any> {
   return ApiFetch({
     method: 'POST',

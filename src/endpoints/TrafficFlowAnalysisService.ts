@@ -13,7 +13,7 @@ import { TrafficFlowAnalysisVertice } from '../models/TrafficFlowAnalysis';
  */
 export async function TrafficFlowAnalysis_FindByIdManagers(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<Manager> {
   return ApiFetch({
     method: 'GET',
@@ -30,7 +30,7 @@ export async function TrafficFlowAnalysis_FindByIdManagers(
  */
 export async function TrafficFlowAnalysis_FindByIdKpis(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<TrafficFlowAnalysisKPI> {
   return ApiFetch({
     method: 'GET',
@@ -47,7 +47,7 @@ export async function TrafficFlowAnalysis_FindByIdKpis(
  */
 export async function TrafficFlowAnalysis_DestroyByIdKpis(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
@@ -65,7 +65,7 @@ export async function TrafficFlowAnalysis_DestroyByIdKpis(
 export async function TrafficFlowAnalysis_UpdateByIdKpis(
   id: string,
   fk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<TrafficFlowAnalysisKPI> {
   return ApiFetch({
     method: 'PUT',
@@ -83,7 +83,7 @@ export async function TrafficFlowAnalysis_UpdateByIdKpis(
  */
 export async function TrafficFlowAnalysis_FindByIdVertices(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<TrafficFlowAnalysisVertice> {
   return ApiFetch({
     method: 'GET',
@@ -100,7 +100,7 @@ export async function TrafficFlowAnalysis_FindByIdVertices(
  */
 export async function TrafficFlowAnalysis_DestroyByIdVertices(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
@@ -118,7 +118,7 @@ export async function TrafficFlowAnalysis_DestroyByIdVertices(
 export async function TrafficFlowAnalysis_UpdateByIdVertices(
   id: string,
   fk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<TrafficFlowAnalysisVertice> {
   return ApiFetch({
     method: 'PUT',
@@ -136,7 +136,7 @@ export async function TrafficFlowAnalysis_UpdateByIdVertices(
  */
 export async function TrafficFlowAnalysis_GetManagers(
   id: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<Manager[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -158,7 +158,7 @@ export async function TrafficFlowAnalysis_GetManagers(
  */
 export async function TrafficFlowAnalysis_CountManagers(
   id: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -180,7 +180,7 @@ export async function TrafficFlowAnalysis_CountManagers(
  */
 export async function TrafficFlowAnalysis_GetKpis(
   id: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<TrafficFlowAnalysisKPI[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -202,7 +202,7 @@ export async function TrafficFlowAnalysis_GetKpis(
  */
 export async function TrafficFlowAnalysis_CreateKpis(
   id: string,
-  data: any = {}
+  data: any = {},
 ): Promise<TrafficFlowAnalysisKPI> {
   return ApiFetch({
     method: 'POST',
@@ -219,7 +219,7 @@ export async function TrafficFlowAnalysis_CreateKpis(
  */
 export async function TrafficFlowAnalysis_CountKpis(
   id: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -241,7 +241,7 @@ export async function TrafficFlowAnalysis_CountKpis(
  */
 export async function TrafficFlowAnalysis_GetVertices(
   id: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<TrafficFlowAnalysisVertice[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -263,7 +263,7 @@ export async function TrafficFlowAnalysis_GetVertices(
  */
 export async function TrafficFlowAnalysis_CreateVertices(
   id: string,
-  data: any = {}
+  data: any = {},
 ): Promise<TrafficFlowAnalysisVertice> {
   return ApiFetch({
     method: 'POST',
@@ -280,7 +280,7 @@ export async function TrafficFlowAnalysis_CreateVertices(
  */
 export async function TrafficFlowAnalysis_CountVertices(
   id: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {

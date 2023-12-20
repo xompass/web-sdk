@@ -12,7 +12,7 @@ import { Manager } from '../models/Manager';
  */
 export async function CctvDashboard_FindByIdAssets(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<Asset> {
   return ApiFetch({
     method: 'GET',
@@ -29,7 +29,7 @@ export async function CctvDashboard_FindByIdAssets(
  */
 export async function CctvDashboard_LinkAssets(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<Asset> {
   return ApiFetch({
     method: 'PUT',
@@ -47,7 +47,7 @@ export async function CctvDashboard_LinkAssets(
  */
 export async function CctvDashboard_UnlinkAssets(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
@@ -64,7 +64,7 @@ export async function CctvDashboard_UnlinkAssets(
  */
 export async function CctvDashboard_ExistsAssets(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<boolean> {
   return ApiFetch({
     method: 'HEAD',
@@ -81,7 +81,7 @@ export async function CctvDashboard_ExistsAssets(
  */
 export async function CctvDashboard_FindByIdManagers(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<Manager> {
   return ApiFetch({
     method: 'GET',
@@ -98,7 +98,7 @@ export async function CctvDashboard_FindByIdManagers(
  */
 export async function CctvDashboard_GetAssets(
   id: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<Asset[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -120,7 +120,7 @@ export async function CctvDashboard_GetAssets(
  */
 export async function CctvDashboard_CountAssets(
   id: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -142,7 +142,7 @@ export async function CctvDashboard_CountAssets(
  */
 export async function CctvDashboard_GetManagers(
   id: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<Manager[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -164,7 +164,7 @@ export async function CctvDashboard_GetManagers(
  */
 export async function CctvDashboard_CountManagers(
   id: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {

@@ -13,7 +13,7 @@ import { SensorAssetStateTemplate } from '../models/SensorAssetStateTemplate';
  */
 export async function SensorTemplate_FindByIdAssetStateTemplates(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<AssetStateTemplate> {
   return ApiFetch({
     method: 'GET',
@@ -31,7 +31,7 @@ export async function SensorTemplate_FindByIdAssetStateTemplates(
 export async function SensorTemplate_LinkAssetStateTemplates(
   id: string,
   fk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<SensorAssetStateTemplate> {
   return ApiFetch({
     method: 'PUT',
@@ -49,7 +49,7 @@ export async function SensorTemplate_LinkAssetStateTemplates(
  */
 export async function SensorTemplate_UnlinkAssetStateTemplates(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
@@ -66,7 +66,7 @@ export async function SensorTemplate_UnlinkAssetStateTemplates(
  */
 export async function SensorTemplate_ExistsAssetStateTemplates(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<boolean> {
   return ApiFetch({
     method: 'HEAD',
@@ -83,7 +83,7 @@ export async function SensorTemplate_ExistsAssetStateTemplates(
  */
 export async function SensorTemplate_FindByIdStateTemplates(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<SensorAssetStateTemplate> {
   return ApiFetch({
     method: 'GET',
@@ -101,7 +101,7 @@ export async function SensorTemplate_FindByIdStateTemplates(
 export async function SensorTemplate_UpdateByIdStateTemplates(
   id: string,
   fk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<SensorAssetStateTemplate> {
   return ApiFetch({
     method: 'PUT',
@@ -119,7 +119,7 @@ export async function SensorTemplate_UpdateByIdStateTemplates(
  */
 export async function SensorTemplate_GetAssetStateTemplates(
   id: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<AssetStateTemplate[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -141,7 +141,7 @@ export async function SensorTemplate_GetAssetStateTemplates(
  */
 export async function SensorTemplate_CountAssetStateTemplates(
   id: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -163,7 +163,7 @@ export async function SensorTemplate_CountAssetStateTemplates(
  */
 export async function SensorTemplate_GetStateTemplates(
   id: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<SensorAssetStateTemplate[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -185,7 +185,7 @@ export async function SensorTemplate_GetStateTemplates(
  */
 export async function SensorTemplate_CountStateTemplates(
   id: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -220,7 +220,7 @@ export async function SensorTemplate_exists(id: string): Promise<boolean> {
  */
 export async function SensorTemplate_findById(
   id: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<SensorTemplate> {
   const _urlParams: any = {};
   if (filter != null) {

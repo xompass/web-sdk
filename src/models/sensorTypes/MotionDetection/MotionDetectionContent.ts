@@ -35,5 +35,8 @@ export type MotionDetectionContent = {
       w: number;
       h: number;
     };
+    filteredBy?: {
+      ZONE?: boolean;
+    };
   }[];
 };

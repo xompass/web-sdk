@@ -14,7 +14,7 @@ import { Manager } from '../models/Manager';
  */
 export async function EventDashboard_FindByIdAssets(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<Asset> {
   return ApiFetch({
     method: 'GET',
@@ -31,7 +31,7 @@ export async function EventDashboard_FindByIdAssets(
  */
 export async function EventDashboard_LinkAssets(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<Asset> {
   return ApiFetch({
     method: 'PUT',
@@ -49,7 +49,7 @@ export async function EventDashboard_LinkAssets(
  */
 export async function EventDashboard_UnlinkAssets(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
@@ -66,7 +66,7 @@ export async function EventDashboard_UnlinkAssets(
  */
 export async function EventDashboard_ExistsAssets(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<boolean> {
   return ApiFetch({
     method: 'HEAD',
@@ -83,7 +83,7 @@ export async function EventDashboard_ExistsAssets(
  */
 export async function EventDashboard_FindByIdEventDashboardEventTriggers(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<EventDashboardEventTrigger> {
   return ApiFetch({
     method: 'GET',
@@ -101,7 +101,7 @@ export async function EventDashboard_FindByIdEventDashboardEventTriggers(
 export async function EventDashboard_UpdateByIdEventDashboardEventTriggers(
   id: string,
   fk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<EventDashboardEventTrigger> {
   return ApiFetch({
     method: 'PUT',
@@ -119,7 +119,7 @@ export async function EventDashboard_UpdateByIdEventDashboardEventTriggers(
  */
 export async function EventDashboard_FindByIdEventTriggers(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<EventTrigger> {
   return ApiFetch({
     method: 'GET',
@@ -137,7 +137,7 @@ export async function EventDashboard_FindByIdEventTriggers(
 export async function EventDashboard_LinkEventTriggers(
   id: string,
   fk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<EventDashboardEventTrigger> {
   return ApiFetch({
     method: 'PUT',
@@ -155,7 +155,7 @@ export async function EventDashboard_LinkEventTriggers(
  */
 export async function EventDashboard_UnlinkEventTriggers(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
@@ -172,7 +172,7 @@ export async function EventDashboard_UnlinkEventTriggers(
  */
 export async function EventDashboard_ExistsEventTriggers(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<boolean> {
   return ApiFetch({
     method: 'HEAD',
@@ -189,7 +189,7 @@ export async function EventDashboard_ExistsEventTriggers(
  */
 export async function EventDashboard_FindByIdManagers(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<Manager> {
   return ApiFetch({
     method: 'GET',
@@ -206,7 +206,7 @@ export async function EventDashboard_FindByIdManagers(
  */
 export async function EventDashboard_GetAssets(
   id: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<Asset[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -228,7 +228,7 @@ export async function EventDashboard_GetAssets(
  */
 export async function EventDashboard_CountAssets(
   id: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -250,7 +250,7 @@ export async function EventDashboard_CountAssets(
  */
 export async function EventDashboard_GetEventDashboardEventTriggers(
   id: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<EventDashboardEventTrigger[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -272,7 +272,7 @@ export async function EventDashboard_GetEventDashboardEventTriggers(
  */
 export async function EventDashboard_GetEventTriggers(
   id: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<EventTrigger[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -294,7 +294,7 @@ export async function EventDashboard_GetEventTriggers(
  */
 export async function EventDashboard_CountEventTriggers(
   id: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -316,7 +316,7 @@ export async function EventDashboard_CountEventTriggers(
  */
 export async function EventDashboard_GetManagers(
   id: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<Manager[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -338,7 +338,7 @@ export async function EventDashboard_GetManagers(
  */
 export async function EventDashboard_CountManagers(
   id: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {

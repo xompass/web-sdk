@@ -19,5 +19,8 @@ export type StoppedLicensePlateContent = {
       w: number;
       h: number;
     };
+    filteredBy?: {
+      ZONE?: boolean;
+    };
   }[];
 };

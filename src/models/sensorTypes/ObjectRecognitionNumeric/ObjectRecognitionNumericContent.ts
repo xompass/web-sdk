@@ -31,7 +31,7 @@ export type ObjectRecognitionNumericContent = {
       w: number;
       h: number;
     };
-    points?: number[][];
+    points?: any[][];
     displayName?: string;
     value?: number;
     colors?: {
@@ -57,6 +57,9 @@ export type ObjectRecognitionNumericContent = {
       clusterSizeRatio: number;
     }[];
     filteredBy?: {
+      ZONE?: boolean;
+      CLASS?: boolean;
+      BLACKLIST?: boolean;
       PERSISTENCE?: boolean;
     };
   }[];

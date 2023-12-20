@@ -24,7 +24,7 @@ export async function Keyword_exists(id: string): Promise<boolean> {
  */
 export async function Keyword_findById(
   id: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<Keyword> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -45,7 +45,7 @@ export async function Keyword_findById(
  * /Keywords
  */
 export async function Keyword_find(
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<Keyword[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -64,7 +64,7 @@ export async function Keyword_find(
  * /Keywords/findOne
  */
 export async function Keyword_findOne(
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<Keyword> {
   const _urlParams: any = {};
   if (filter != null) {

@@ -39,5 +39,10 @@ export type LicensePlateContent = {
         h: number;
       };
     };
+    filteredBy?: {
+      ZONE?: boolean;
+      CLASS?: boolean;
+      BLACKLIST?: boolean;
+    };
   }[];
 };

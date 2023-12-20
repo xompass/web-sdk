@@ -30,8 +30,6 @@ export type SpeedChangeEventContent = {
       w: number;
       h: number;
     };
-    points?: number[][];
-    displayName?: string;
     colors?: {
       percentage: number;
       label:

@@ -120,6 +120,56 @@ export type ObjectRecognitionBasedOnRulesTRCParameters = {
         minProbability?: number;
       };
     };
+    cart?: {
+      thresholds?: {
+        minProbability?: number;
+      };
+    };
+    fire?: {
+      thresholds?: {
+        minProbability?: number;
+      };
+    };
+    smoke?: {
+      thresholds?: {
+        minProbability?: number;
+      };
+    };
+    material?: {
+      thresholds?: {
+        minProbability?: number;
+      };
+    };
+    hopper?: {
+      thresholds?: {
+        minProbability?: number;
+      };
+    };
+    truck_small?: {
+      thresholds?: {
+        minProbability?: number;
+      };
+    };
+    aljibe?: {
+      thresholds?: {
+        minProbability?: number;
+      };
+    };
+    mercaderia?: {
+      thresholds?: {
+        minProbability?: number;
+      };
+    };
+    rock?: {
+      thresholds?: {
+        minProbability?: number;
+      };
+    };
+    desmonte?: {
+      thresholds?: {
+        minProbability?: number;
+      };
+    };
   };
 };
 

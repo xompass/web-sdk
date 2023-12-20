@@ -160,9 +160,16 @@ export type PoseDetectionEventContent = {
         };
       };
     };
+    frame?: {
+      x: number;
+      y: number;
+      w: number;
+      h: number;
+    };
     filteredBy?: {
       LABEL?: boolean;
       PROBABILITY?: boolean;
+      ZONE?: boolean;
     };
   }[];
   filtered?: boolean;

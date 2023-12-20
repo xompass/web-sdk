@@ -28,5 +28,8 @@ export type OpticalCharacterRecognitionContent = {
       w: number;
       h: number;
     };
+    filteredBy?: {
+      ZONE?: boolean;
+    };
   }[];
 };

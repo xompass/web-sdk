@@ -12,7 +12,7 @@ import { Manager } from '../models/Manager';
  */
 export async function View_FindByIdManagers(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<Manager> {
   return ApiFetch({
     method: 'GET',
@@ -29,7 +29,7 @@ export async function View_FindByIdManagers(
  */
 export async function View_ExistsManagers(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<boolean> {
   return ApiFetch({
     method: 'HEAD',
@@ -46,7 +46,7 @@ export async function View_ExistsManagers(
  */
 export async function View_GetManagers(
   id: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<Manager[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -68,7 +68,7 @@ export async function View_GetManagers(
  */
 export async function View_CountManagers(
   id: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -103,7 +103,7 @@ export async function View_exists(id: string): Promise<boolean> {
  */
 export async function View_findById(
   id: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<View> {
   const _urlParams: any = {};
   if (filter != null) {

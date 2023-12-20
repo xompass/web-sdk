@@ -288,6 +288,19 @@ export type GranularityDetectionSummary = {
               };
             };
           };
+          heatmap?: Record<
+            string,
+            Record<
+              string,
+              {
+                count?: number;
+                sum?: number;
+                avg?: number;
+                min?: number;
+                max?: number;
+              }
+            >
+          >;
           value?: {
             count?: number;
             sum?: number;
@@ -309,19 +322,6 @@ export type GranularityDetectionSummary = {
             min?: number;
             max?: number;
           };
-          heatmap?: Record<
-            string,
-            Record<
-              string,
-              {
-                count?: number;
-                sum?: number;
-                avg?: number;
-                min?: number;
-                max?: number;
-              }
-            >
-          >;
         }
       >;
       heatmap?: Record<

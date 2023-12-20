@@ -68,6 +68,8 @@ import {
   ListedLicensePlate,
   MergeLicensePlateResponse,
 } from '../models/LicensePlate';
+import { CountReport, CountReportSection } from '../models/CountReport';
+import { HealthcheckEvent } from '../models/HealthcheckEvent';
 
 /**
  * Api services for the `Customer` model.
@@ -983,6 +985,30 @@ export async function Customer_CountAssetTemplates(
     },
   });
 }
+
+/**
+ * countReports consultas de Customer.
+ * /Customers/:id/countReports
+ */
+export async function Customer_GetCountReports(
+  id: string,
+  filter: Filter<any> = {}
+): Promise<CountReport[]> {
+  const _urlParams: any = {};
+  if (filter != null) {
+    _urlParams['filter'] = filter;
+  }
+
+  return ApiFetch({
+    method: 'GET',
+    url: '/Customers/:id/countReports',
+    urlParams: _urlParams,
+    routeParams: {
+      id,
+    },
+  });
+}
+
 /**
  * credentials consultas de Customer.
  * /Customers/:id/credentials
@@ -2752,6 +2778,32 @@ export async function Customer_getProjectEvents(
     },
   });
 }
+
+/**
+ * Get event summaries by subject
+ * /Customers/:id/projects/:nk/eventSummariesBySubject
+ */
+export async function Customer_getEventSummariesBySubject(
+  id: string,
+  nk: string,
+  date: Date
+): Promise<any[]> {
+  const _urlParams: any = {};
+  if (date != null) {
+    _urlParams['date'] = date;
+  }
+
+  return ApiFetch({
+    method: 'GET',
+    url: '/Customers/:id/projects/:nk/eventSummariesBySubject',
+    urlParams: _urlParams,
+    routeParams: {
+      id,
+      nk,
+    },
+  });
+}
+
 /**
  * Export the contextualization of an Asset and its direct children
  * /Customers/:id/assets/:nk/export
@@ -4998,6 +5050,67 @@ export async function Customer_UpdateByIdProjectsAssetTemplates(
     body: data,
   });
 }
+
+/**
+ * Buscar un elemento relacionado por id para countReports.
+ * /Customers/:id/projects/:nk/countReports/:fk
+ */
+export async function Customer_FindByIdProjectsCountReports(
+  id: string,
+  nk: string,
+  fk: string
+): Promise<CountReport> {
+  return ApiFetch({
+    method: 'GET',
+    url: '/Customers/:id/projects/:nk/countReports/:fk',
+    routeParams: {
+      id,
+      nk,
+      fk,
+    },
+  });
+}
+/**
+ * Suprimir un elemento relacionado por id para countReports.
+ * /Customers/:id/projects/:nk/countReports/:fk
+ */
+export async function Customer_DestroyByIdProjectsCountReports(
+  id: string,
+  nk: string,
+  fk: string
+): Promise<void> {
+  return ApiFetch({
+    method: 'DELETE',
+    url: '/Customers/:id/projects/:nk/countReports/:fk',
+    routeParams: {
+      id,
+      nk,
+      fk,
+    },
+  });
+}
+/**
+ * Actualizar un elemento relacionado por id para countReports.
+ * /Customers/:id/projects/:nk/countReports/:fk
+ */
+export async function Customer_UpdateByIdProjectsCountReports(
+  id: string,
+  nk: string,
+  fk: string,
+  data: any = {}
+): Promise<CountReport> {
+  return ApiFetch({
+    method: 'PUT',
+    url: '/Customers/:id/projects/:nk/countReports/:fk',
+    routeParams: {
+      id,
+      nk,
+      fk,
+    },
+    body: data,
+  });
+}
+
 /**
  * Buscar un elemento relacionado por id para cctvDashboards.
  * /Customers/:id/projects/:nk/cctvDashboards/:fk
@@ -6071,6 +6184,123 @@ export async function Customer_CountProjectsAssetTemplates(
     },
   });
 }
+
+/**
+ * countReports consultas de Project.
+ * /Customers/:id/projects/:nk/countReports
+ */
+export async function Customer_GetProjectsCountReports(
+  id: string,
+  nk: string,
+  filter: Filter<any> = {}
+): Promise<CountReport[]> {
+  const _urlParams: any = {};
+  if (filter != null) {
+    _urlParams['filter'] = filter;
+  }
+
+  return ApiFetch({
+    method: 'GET',
+    url: '/Customers/:id/projects/:nk/countReports',
+    urlParams: _urlParams,
+    routeParams: {
+      id,
+      nk,
+    },
+  });
+}
+/**
+ * Crea una nueva instancia en countReports de este modelo.
+ * /Customers/:id/projects/:nk/countReports
+ */
+export async function Customer_CreateProjectsCountReports(
+  id: string,
+  nk: string,
+  data: any = {}
+): Promise<CountReport> {
+  return ApiFetch({
+    method: 'POST',
+    url: '/Customers/:id/projects/:nk/countReports',
+    routeParams: {
+      id,
+      nk,
+    },
+    body: data,
+  });
+}
+/**
+ * Recuentos countReports de Project.
+ * /Customers/:id/projects/:nk/countReports/count
+ */
+export async function Customer_CountProjectsCountReports(
+  id: string,
+  nk: string,
+  where: any = {}
+): Promise<number> {
+  const _urlParams: any = {};
+  if (where != null) {
+    _urlParams['where'] = where;
+  }
+
+  return ApiFetch({
+    method: 'GET',
+    url: '/Customers/:id/projects/:nk/countReports/count',
+    urlParams: _urlParams,
+    routeParams: {
+      id,
+      nk,
+    },
+  });
+}
+/**
+ * healthcheckEvents consultas de Project.
+ * /Customers/:id/projects/:nk/healthcheckEvents
+ */
+export async function Customer_GetProjectsHealthcheckEvents(
+  id: string,
+  nk: string,
+  filter: Filter<any> = {}
+): Promise<HealthcheckEvent[]> {
+  const _urlParams: any = {};
+  if (filter != null) {
+    _urlParams['filter'] = filter;
+  }
+
+  return ApiFetch({
+    method: 'GET',
+    url: '/Customers/:id/projects/:nk/healthcheckEvents',
+    urlParams: _urlParams,
+    routeParams: {
+      id,
+      nk,
+    },
+  });
+}
+/**
+ * Recuentos healthcheckEvents de Project.
+ * /Customers/:id/projects/:nk/healthcheckEvents/count
+ */
+export async function Customer_CountProjectsHealthcheckEvents(
+  id: string,
+  nk: string,
+  where: any = {}
+): Promise<number> {
+  const _urlParams: any = {};
+  if (where != null) {
+    _urlParams['where'] = where;
+  }
+
+  return ApiFetch({
+    method: 'GET',
+    url: '/Customers/:id/projects/:nk/healthcheckEvents/count',
+    urlParams: _urlParams,
+    routeParams: {
+      id,
+      nk,
+    },
+  });
+}
+
 /**
  * cctvDashboards consultas de Project.
  * /Customers/:id/projects/:nk/cctvDashboards
@@ -7125,6 +7355,205 @@ export async function Customer_CountProjectsYoloClasses(
     },
   });
 }
+
+/**
+ * Creates a telegram bot if not already created
+ * /Customers/:id/projects/:nk/telegram
+ */
+export async function Customer_CreateProjectsTelegram(
+  id: string,
+  nk: string
+): Promise<any> {
+  return ApiFetch({
+    method: 'POST',
+    url: '/Customers/:id/projects/:nk/telegram',
+    routeParams: {
+      id,
+      nk,
+    },
+    body: {},
+  });
+}
+/**
+ * Create telegram permission
+ * /Customers/:id/projects/:nk/telegram/permissions
+ */
+export async function Customer_CreateProjectsTelegramPermissions(
+  id: string,
+  nk: string,
+  body: any
+): Promise<any> {
+  return ApiFetch({
+    method: 'POST',
+    url: '/Customers/:id/projects/:nk/telegram/permissions',
+    routeParams: {
+      id,
+      nk,
+    },
+    body: {
+      body,
+    },
+  });
+}
+/**
+ * Get telegram group permissions
+ * /Customers/:id/projects/:nk/telegram/groups/:groupId/permissions
+ */
+export async function Customer_GetProjectsTelegramGroupsPermissions(
+  id: string,
+  nk: string,
+  groupId: string
+): Promise<any[]> {
+  return ApiFetch({
+    method: 'GET',
+    url: '/Customers/:id/projects/:nk/telegram/groups/:groupId/permissions',
+    routeParams: {
+      id,
+      nk,
+      groupId,
+    },
+  });
+}
+/**
+ * Remove telegram permission
+ * /Customers/:id/projects/:nk/telegram/permissions/:permissionId
+ */
+export async function Customer_DestroyByIdProjectsTelegramPermissions(
+  id: string,
+  nk: string,
+  permissionId: string
+): Promise<void> {
+  return ApiFetch({
+    method: 'DELETE',
+    url: '/Customers/:id/projects/:nk/telegram/permissions/:permissionId',
+    routeParams: {
+      id,
+      nk,
+      permissionId,
+    },
+  });
+}
+/**
+ * Set active telegram
+ * /Customers/:id/projects/:nk/telegram/groups/:groupId
+ */
+export async function Customer_SetProjectsTelegramActive(
+  id: string,
+  nk: string,
+  groupId: string,
+  body: any
+): Promise<any> {
+  return ApiFetch({
+    method: 'PATCH',
+    url: '/Customers/:id/projects/:nk/telegram/groups/:groupId',
+    routeParams: {
+      id,
+      nk,
+      groupId,
+    },
+    body: {
+      body,
+    },
+  });
+}
+/**
+ * Get a single permission token
+ * /Customers/:id/projects/:nk/telegram/permissions/:permissionId/token
+ */
+export async function Customer_GetProjectsTelegramPermissionsToken(
+  id: string,
+  nk: string,
+  permissionId: string
+): Promise<any> {
+  return ApiFetch({
+    method: 'GET',
+    url: '/Customers/:id/projects/:nk/telegram/permissions/:permissionId/token',
+    routeParams: {
+      id,
+      nk,
+      permissionId,
+    },
+  });
+}
+/**
+ * Create a telegram group
+ * /Customers/:id/projects/:nk/telegram/groups
+ */
+export async function Customer_CreateProjectsTelegramGroups(
+  id: string,
+  nk: string,
+  content: any
+): Promise<any> {
+  return ApiFetch({
+    method: 'POST',
+    url: '/Customers/:id/projects/:nk/telegram/groups',
+    routeParams: {
+      id,
+      nk,
+    },
+    body: {
+      content,
+    },
+  });
+}
+/**
+ * Get telegram groups
+ * /Customers/:id/projects/:nk/telegram/groups
+ */
+export async function Customer_GetProjectsTelegramGroups(
+  id: string,
+  nk: string
+): Promise<any[]> {
+  return ApiFetch({
+    method: 'GET',
+    url: '/Customers/:id/projects/:nk/telegram/groups',
+    routeParams: {
+      id,
+      nk,
+    },
+  });
+}
+/**
+ * Remove telegram group
+ * /Customers/:id/projects/:nk/telegram/groups/:groupId
+ */
+export async function Customer_DestroyByIdProjectsTelegramGroups(
+  id: string,
+  nk: string,
+  groupId: string
+): Promise<void> {
+  return ApiFetch({
+    method: 'DELETE',
+    url: '/Customers/:id/projects/:nk/telegram/groups/:groupId',
+    routeParams: {
+      id,
+      nk,
+      groupId,
+    },
+  });
+}
+/**
+ * Link assets to telegram group
+ * /Customers/:id/projects/:nk/telegram/groups/assets
+ */
+export async function Customer_LinkProjectsAssetsToTelegramGroup(
+  id: string,
+  nk: string,
+  content: any
+): Promise<any> {
+  return ApiFetch({
+    method: 'POST',
+    url: '/Customers/:id/projects/:nk/telegram/groups/assets',
+    routeParams: {
+      id,
+      nk,
+    },
+    body: {
+      content,
+    },
+  });
+}
+
 /**
  * Evaluate a virtual expression in a date interval
  * /Customers/:id/projects/:nk/virtualExpressions/:fk/evaluate
@@ -7408,6 +7837,90 @@ export async function Customer_CreateStorylinesStorypoints(
   return ApiFetch({
     method: 'POST',
     url: '/Customers/:id/storylines/:nk/storypoints',
+    routeParams: {
+      id,
+      nk,
+    },
+    body: data,
+  });
+}
+
+/**
+ * Suprimir un elemento relacionado por id para sections.
+ * /Customers/:id/countReports/:nk/sections/:fk
+ */
+export async function Customer_DestroyByIdCountReportsSections(
+  id: string,
+  nk: string,
+  fk: string
+): Promise<void> {
+  return ApiFetch({
+    method: 'DELETE',
+    url: '/Customers/:id/countReports/:nk/sections/:fk',
+    routeParams: {
+      id,
+      nk,
+      fk,
+    },
+  });
+}
+/**
+ * Actualizar un elemento relacionado por id para sections.
+ * /Customers/:id/countReports/:nk/sections/:fk
+ */
+export async function Customer_UpdateByIdCountReportsSections(
+  id: string,
+  nk: string,
+  fk: string,
+  data: any = {}
+): Promise<CountReportSection> {
+  return ApiFetch({
+    method: 'PUT',
+    url: '/Customers/:id/countReports/:nk/sections/:fk',
+    routeParams: {
+      id,
+      nk,
+      fk,
+    },
+    body: data,
+  });
+}
+/**
+ * sections consultas de CountReport.
+ * /Customers/:id/countReports/:nk/sections
+ */
+export async function Customer_GetCountReportsSections(
+  id: string,
+  nk: string,
+  filter: Filter<any> = {}
+): Promise<CountReportSection[]> {
+  const _urlParams: any = {};
+  if (filter != null) {
+    _urlParams['filter'] = filter;
+  }
+
+  return ApiFetch({
+    method: 'GET',
+    url: '/Customers/:id/countReports/:nk/sections',
+    urlParams: _urlParams,
+    routeParams: {
+      id,
+      nk,
+    },
+  });
+}
+/**
+ * Crea una nueva instancia en sections de este modelo.
+ * /Customers/:id/countReports/:nk/sections
+ */
+export async function Customer_CreateCountReportsSections(
+  id: string,
+  nk: string,
+  data: any = {}
+): Promise<CountReportSection> {
+  return ApiFetch({
+    method: 'POST',
+    url: '/Customers/:id/countReports/:nk/sections',
     routeParams: {
       id,
       nk,

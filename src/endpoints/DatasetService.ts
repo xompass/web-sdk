@@ -11,7 +11,7 @@ import { Summary } from '../models/Summary';
  */
 export async function Dataset_assignOrUpdateSummary(
   id: string,
-  minimalResponse?: boolean
+  minimalResponse?: boolean,
 ): Promise<Summary> {
   const _urlParams: any = {};
   if (minimalResponse != null) {

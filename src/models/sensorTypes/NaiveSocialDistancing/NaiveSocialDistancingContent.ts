@@ -30,8 +30,6 @@ export type NaiveSocialDistancingContent = {
       w: number;
       h: number;
     };
-    points?: number[][];
-    displayName?: string;
     colors?: {
       percentage: number;
       label:
@@ -46,6 +44,10 @@ export type NaiveSocialDistancingContent = {
         | 'blue'
         | 'purple';
     }[];
+    filteredBy?: {
+      ZONE?: boolean;
+      CLASS?: boolean;
+    };
   }[];
   pairs?: any[][];
 };

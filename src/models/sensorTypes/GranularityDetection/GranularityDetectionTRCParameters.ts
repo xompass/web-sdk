@@ -172,9 +172,3 @@ export type GranularityDetectionBasedOnRulesTRCParameters = {
     };
   };
 };
-
-export type GranularityDetectionBlacklistSearchTRCParameters = {
-  minNumOfChars?: number;
-  matchMethod?: 'exact' | 'prefix' | 'contains' | 'fuzzy' | 'null';
-  fuzzyMaxDistance?: number;
-};

@@ -25,14 +25,16 @@ export type NoPlateDetectionContent = {
     noPlateDetected?: boolean;
     class: YoloClassLabel;
     probability: number;
+    trace?: {
+      x: number;
+      y: number;
+    }[];
     frame: {
       x: number;
       y: number;
       w: number;
       h: number;
     };
-    points?: number[][];
-    displayName?: string;
     colorExperimental?: {
       rgb: {
         r: number;
@@ -41,5 +43,9 @@ export type NoPlateDetectionContent = {
       };
       clusterSizeRatio: number;
     }[];
+    filteredBy?: {
+      ZONE?: boolean;
+      CLASS?: boolean;
+    };
   }[];
 };

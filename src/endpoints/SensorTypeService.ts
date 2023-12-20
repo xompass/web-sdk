@@ -35,7 +35,7 @@ export async function SensorType_GetSchemasData(id: string): Promise<any> {
  * /SensorTypes/:id/schemas/eventTriggerRuleClauses
  */
 export async function SensorType_GetSchemasEventTriggerRuleClauses(
-  id: string
+  id: string,
 ): Promise<any> {
   return ApiFetch({
     method: 'GET',
@@ -76,7 +76,7 @@ export async function SensorType_GetSchemasSummaries(id: string): Promise<any> {
  * /SensorTypes/:id/schemas/thresholds
  */
 export async function SensorType_GetSchemasThresholds(
-  id: string
+  id: string,
 ): Promise<any> {
   return ApiFetch({
     method: 'GET',
@@ -91,7 +91,7 @@ export async function SensorType_GetSchemasThresholds(
  * /SensorTypes/schemas/alerts
  */
 export async function SensorType_FindSchemasAlerts(
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<any[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -110,7 +110,7 @@ export async function SensorType_FindSchemasAlerts(
  * /SensorTypes/schemas/data
  */
 export async function SensorType_FindSchemasData(
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<any[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -129,7 +129,7 @@ export async function SensorType_FindSchemasData(
  * /SensorTypes/schemas/eventTriggerRuleClauses
  */
 export async function SensorType_FindSchemasEventTriggerRuleClauses(
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<any[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -148,7 +148,7 @@ export async function SensorType_FindSchemasEventTriggerRuleClauses(
  * /SensorTypes/schemas/sensors
  */
 export async function SensorType_FindSchemasSensors(
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<any[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -167,7 +167,7 @@ export async function SensorType_FindSchemasSensors(
  * /SensorTypes/schemas/summaries
  */
 export async function SensorType_FindSchemasSummaries(
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<any[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -186,7 +186,7 @@ export async function SensorType_FindSchemasSummaries(
  * /SensorTypes/schemas/thresholds
  */
 export async function SensorType_FindSchemasThresholds(
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<any[]> {
   const _urlParams: any = {};
   if (filter != null) {

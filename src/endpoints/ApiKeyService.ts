@@ -11,7 +11,7 @@ import { ApiKey } from '../models/ApiKey';
  */
 export async function ApiKey_findById(
   id: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<ApiKey> {
   const _urlParams: any = {};
   if (filter != null) {

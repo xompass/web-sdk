@@ -12,7 +12,7 @@ import { EventTriggerRule } from '../models/EventTriggerRule';
 export async function EventTriggerAssetState_LinkEmergencyContacts(
   id: string,
   fk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<any> {
   return ApiFetch({
     method: 'PUT',
@@ -30,7 +30,7 @@ export async function EventTriggerAssetState_LinkEmergencyContacts(
  */
 export async function EventTriggerAssetState_UnlinkEmergencyContacts(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
@@ -47,7 +47,7 @@ export async function EventTriggerAssetState_UnlinkEmergencyContacts(
  */
 export async function EventTriggerAssetState_FindByIdRules(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<EventTriggerRule> {
   return ApiFetch({
     method: 'GET',
@@ -64,7 +64,7 @@ export async function EventTriggerAssetState_FindByIdRules(
  */
 export async function EventTriggerAssetState_DestroyByIdRules(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
@@ -82,7 +82,7 @@ export async function EventTriggerAssetState_DestroyByIdRules(
 export async function EventTriggerAssetState_UpdateByIdRules(
   id: string,
   fk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<EventTriggerRule> {
   return ApiFetch({
     method: 'PUT',
@@ -100,7 +100,7 @@ export async function EventTriggerAssetState_UpdateByIdRules(
  */
 export async function EventTriggerAssetState_GetRules(
   id: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<EventTriggerRule[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -122,7 +122,7 @@ export async function EventTriggerAssetState_GetRules(
  */
 export async function EventTriggerAssetState_CreateRules(
   id: string,
-  data: any = {}
+  data: any = {},
 ): Promise<EventTriggerRule> {
   return ApiFetch({
     method: 'POST',
@@ -139,7 +139,7 @@ export async function EventTriggerAssetState_CreateRules(
  */
 export async function EventTriggerAssetState_CountRules(
   id: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {

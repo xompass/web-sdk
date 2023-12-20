@@ -32,7 +32,7 @@ export async function Sensor_GetAsset(id: string): Promise<Asset> {
  */
 export async function Sensor_FindByIdDatasets(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<Dataset> {
   return ApiFetch({
     method: 'GET',
@@ -50,7 +50,7 @@ export async function Sensor_FindByIdDatasets(
 export async function Sensor_UpdateByIdDatasets(
   id: string,
   fk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<Dataset> {
   return ApiFetch({
     method: 'PUT',
@@ -68,7 +68,7 @@ export async function Sensor_UpdateByIdDatasets(
  */
 export async function Sensor_FindByIdAlerts(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<Alert> {
   return ApiFetch({
     method: 'GET',
@@ -86,7 +86,7 @@ export async function Sensor_FindByIdAlerts(
 export async function Sensor_UpdateByIdAlerts(
   id: string,
   fk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<Alert> {
   return ApiFetch({
     method: 'PUT',
@@ -104,7 +104,7 @@ export async function Sensor_UpdateByIdAlerts(
  */
 export async function Sensor_FindByIdAlertHistory(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<AlertHistory> {
   return ApiFetch({
     method: 'GET',
@@ -122,7 +122,7 @@ export async function Sensor_FindByIdAlertHistory(
 export async function Sensor_UpdateByIdAlertHistory(
   id: string,
   fk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<AlertHistory> {
   return ApiFetch({
     method: 'PUT',
@@ -166,7 +166,7 @@ export async function Sensor_DestroyLastData(id: string): Promise<void> {
  */
 export async function Sensor_FindByIdAssetStates(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<AssetState> {
   return ApiFetch({
     method: 'GET',
@@ -184,7 +184,7 @@ export async function Sensor_FindByIdAssetStates(
 export async function Sensor_LinkAssetStates(
   id: string,
   fk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<SensorAssetState> {
   return ApiFetch({
     method: 'PUT',
@@ -202,7 +202,7 @@ export async function Sensor_LinkAssetStates(
  */
 export async function Sensor_UnlinkAssetStates(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
@@ -219,7 +219,7 @@ export async function Sensor_UnlinkAssetStates(
  */
 export async function Sensor_ExistsAssetStates(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<boolean> {
   return ApiFetch({
     method: 'HEAD',
@@ -236,7 +236,7 @@ export async function Sensor_ExistsAssetStates(
  */
 export async function Sensor_FindByIdStates(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<SensorAssetState> {
   return ApiFetch({
     method: 'GET',
@@ -254,7 +254,7 @@ export async function Sensor_FindByIdStates(
 export async function Sensor_UpdateByIdStates(
   id: string,
   fk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<SensorAssetState> {
   return ApiFetch({
     method: 'PUT',
@@ -272,7 +272,7 @@ export async function Sensor_UpdateByIdStates(
  */
 export async function Sensor_FindByIdSummaries(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<Summary> {
   return ApiFetch({
     method: 'GET',
@@ -289,7 +289,7 @@ export async function Sensor_FindByIdSummaries(
  */
 export async function Sensor_GetDatasets(
   id: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<Dataset[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -311,7 +311,7 @@ export async function Sensor_GetDatasets(
  */
 export async function Sensor_CreateDatasets(
   id: string,
-  data: any = {}
+  data: any = {},
 ): Promise<Dataset> {
   return ApiFetch({
     method: 'POST',
@@ -328,7 +328,7 @@ export async function Sensor_CreateDatasets(
  */
 export async function Sensor_CountDatasets(
   id: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -350,7 +350,7 @@ export async function Sensor_CountDatasets(
  */
 export async function Sensor_GetAlerts(
   id: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<Alert[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -372,7 +372,7 @@ export async function Sensor_GetAlerts(
  */
 export async function Sensor_CountAlerts(
   id: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -394,7 +394,7 @@ export async function Sensor_CountAlerts(
  */
 export async function Sensor_GetAlertHistory(
   id: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<AlertHistory[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -416,7 +416,7 @@ export async function Sensor_GetAlertHistory(
  */
 export async function Sensor_CountAlertHistory(
   id: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -438,7 +438,7 @@ export async function Sensor_CountAlertHistory(
  */
 export async function Sensor_GetAssetStates(
   id: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<AssetState[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -460,7 +460,7 @@ export async function Sensor_GetAssetStates(
  */
 export async function Sensor_CountAssetStates(
   id: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -482,7 +482,7 @@ export async function Sensor_CountAssetStates(
  */
 export async function Sensor_GetStates(
   id: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<SensorAssetState[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -504,7 +504,7 @@ export async function Sensor_GetStates(
  */
 export async function Sensor_CountStates(
   id: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -526,7 +526,7 @@ export async function Sensor_CountStates(
  */
 export async function Sensor_GetSummaries(
   id: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<Summary[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -548,7 +548,7 @@ export async function Sensor_GetSummaries(
  */
 export async function Sensor_CountSummaries(
   id: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -583,7 +583,7 @@ export async function Sensor_exists(id: string): Promise<boolean> {
  */
 export async function Sensor_findById(
   id: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<Sensor> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -607,7 +607,7 @@ export async function Sensor_DownloadDatasets(
   id: string,
   nk: string,
   file: string,
-  datasourceName?: string
+  datasourceName?: string,
 ): Promise<any> {
   const _urlParams: any = {};
   if (datasourceName != null) {
@@ -633,7 +633,7 @@ export async function Sensor_GetSignedUrlDatasets(
   id: string,
   nk: string,
   file: string,
-  datasourceName?: string
+  datasourceName?: string,
 ): Promise<any> {
   const _urlParams: any = {};
   if (datasourceName != null) {
@@ -669,7 +669,7 @@ export async function Sensor_LastData(id: string): Promise<Data> {
  * /Sensors/:id/currentState
  */
 export async function Sensor_getCurrentState(
-  id: string
+  id: string,
 ): Promise<SensorAssetState> {
   return ApiFetch({
     method: 'GET',
@@ -685,7 +685,7 @@ export async function Sensor_getCurrentState(
  */
 export async function Sensor_withCurrentState(
   id: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<Sensor> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -708,7 +708,7 @@ export async function Sensor_withCurrentState(
 export async function Sensor_FindByIdDatasetsData(
   id: string,
   nk: string,
-  fk: string
+  fk: string,
 ): Promise<Data> {
   return ApiFetch({
     method: 'GET',
@@ -727,7 +727,7 @@ export async function Sensor_FindByIdDatasetsData(
 export async function Sensor_DestroyByIdDatasetsData(
   id: string,
   nk: string,
-  fk: string
+  fk: string,
 ): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
@@ -747,7 +747,7 @@ export async function Sensor_UpdateByIdDatasetsData(
   id: string,
   nk: string,
   fk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<Data> {
   return ApiFetch({
     method: 'PUT',
@@ -767,7 +767,7 @@ export async function Sensor_UpdateByIdDatasetsData(
 export async function Sensor_GetDatasetsData(
   id: string,
   nk: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<Data[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -791,7 +791,7 @@ export async function Sensor_GetDatasetsData(
 export async function Sensor_CreateDatasetsData(
   id: string,
   nk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<Data> {
   return ApiFetch({
     method: 'POST',
@@ -810,7 +810,7 @@ export async function Sensor_CreateDatasetsData(
 export async function Sensor_CountDatasetsData(
   id: string,
   nk: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {

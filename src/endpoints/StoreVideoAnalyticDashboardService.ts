@@ -12,7 +12,7 @@ import { StoreVideoAnalyticDashboardStorageContainer } from '../models/StoreVide
  */
 export async function StoreVideoAnalyticDashboard_FindByIdManagers(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<Manager> {
   return ApiFetch({
     method: 'GET',
@@ -28,7 +28,7 @@ export async function StoreVideoAnalyticDashboard_FindByIdManagers(
  * /StoreVideoAnalyticDashboards/:id/container
  */
 export async function StoreVideoAnalyticDashboard_GetContainer(
-  id: string
+  id: string,
 ): Promise<StoreVideoAnalyticDashboardStorageContainer> {
   return ApiFetch({
     method: 'GET',
@@ -44,7 +44,7 @@ export async function StoreVideoAnalyticDashboard_GetContainer(
  */
 export async function StoreVideoAnalyticDashboard_GetManagers(
   id: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<Manager[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -66,7 +66,7 @@ export async function StoreVideoAnalyticDashboard_GetManagers(
  */
 export async function StoreVideoAnalyticDashboard_CountManagers(
   id: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -89,7 +89,7 @@ export async function StoreVideoAnalyticDashboard_CountManagers(
 export async function StoreVideoAnalyticDashboard_removeFile(
   id: string,
   property: string,
-  file: string
+  file: string,
 ): Promise<void> {
   const _urlParams: any = {};
   if (property != null) {
@@ -114,7 +114,7 @@ export async function StoreVideoAnalyticDashboard_upload(
   id: string,
   property: string,
   file: File,
-  onProgress?: (progress: number) => void
+  onProgress?: (progress: number) => void,
 ): Promise<any> {
   const _urlParams: any = {};
   if (property != null) {
@@ -138,7 +138,7 @@ export async function StoreVideoAnalyticDashboard_upload(
 export async function StoreVideoAnalyticDashboard_download(
   id: string,
   property: string,
-  file: string
+  file: string,
 ): Promise<any> {
   const _urlParams: any = {};
   if (property != null) {

@@ -21,8 +21,6 @@ export type SpeedChangeContent = {
       w: number;
       h: number;
     };
-    points?: number[][];
-    displayName?: string;
     colors?: {
       percentage: number;
       label:
@@ -47,5 +45,9 @@ export type SpeedChangeContent = {
         h: number;
       };
     }[];
+    filteredBy?: {
+      ZONE?: boolean;
+      CLASS?: boolean;
+    };
   }[];
 };

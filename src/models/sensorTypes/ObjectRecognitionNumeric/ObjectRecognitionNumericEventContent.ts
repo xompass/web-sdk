@@ -31,7 +31,7 @@ export type ObjectRecognitionNumericEventContent = {
       w: number;
       h: number;
     };
-    points?: number[][];
+    points?: any[][];
     displayName?: string;
     value?: number;
     colors?: {

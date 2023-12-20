@@ -31,8 +31,6 @@ export type NoPlateDetectionEventContent = {
       w: number;
       h: number;
     };
-    points?: number[][];
-    displayName?: string;
     colorExperimental?: {
       rgb: {
         r: number;
