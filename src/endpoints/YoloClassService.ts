@@ -24,7 +24,7 @@ export async function YoloClass_exists(id: string): Promise<boolean> {
  */
 export async function YoloClass_findById(
   id: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<YoloClass> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -45,7 +45,7 @@ export async function YoloClass_findById(
  * /YoloClasses
  */
 export async function YoloClass_find(
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<YoloClass[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -64,7 +64,7 @@ export async function YoloClass_find(
  * /YoloClasses/findOne
  */
 export async function YoloClass_findOne(
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<YoloClass> {
   const _urlParams: any = {};
   if (filter != null) {

@@ -160,9 +160,16 @@ export type PoseDetectionFeedback = {
         };
       };
     };
+    frame?: {
+      x: number;
+      y: number;
+      w: number;
+      h: number;
+    };
     filteredBy?: {
       LABEL?: boolean;
       PROBABILITY?: boolean;
+      ZONE?: boolean;
     };
     diagnosis?:
       | 'TRUE_POSITIVE'

@@ -24,7 +24,7 @@ export async function TimeZone_exists(id: string): Promise<boolean> {
  */
 export async function TimeZone_findById(
   id: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<TimeZone> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -45,7 +45,7 @@ export async function TimeZone_findById(
  * /TimeZones
  */
 export async function TimeZone_find(
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<TimeZone[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -64,7 +64,7 @@ export async function TimeZone_find(
  * /TimeZones/findOne
  */
 export async function TimeZone_findOne(
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<TimeZone> {
   const _urlParams: any = {};
   if (filter != null) {

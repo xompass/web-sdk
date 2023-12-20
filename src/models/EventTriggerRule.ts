@@ -1,6 +1,7 @@
 import { FaceDetectionBasedOnRulesTRCParameters } from './sensorTypes/FaceDetection/FaceDetectionTRCParameters';
 import { FaceMaskDetectionBasedOnRulesTRCParameters } from './sensorTypes/FaceMaskDetection/FaceMaskDetectionTRCParameters';
 import { FuelingDetectionBasedOnRulesTRCParameters } from './sensorTypes/FuelingDetection/FuelingDetectionTRCParameters';
+import { GranularityDetectionBasedOnRulesTRCParameters } from './sensorTypes/GranularityDetection/GranularityDetectionTRCParameters';
 import {
   LicensePlateBasedOnRulesTRCParameters,
   LicensePlateBlacklistSearchTRCParameters,
@@ -14,12 +15,17 @@ import {
 import { StoppedObjectsDetectorBasedOnRulesTRCParameters } from './sensorTypes/StoppedObjectsDetector/StoppedObjectsDetectorTRCParameters';
 import { NaiveSocialDistancingBasedOnRulesTRCParameters } from './sensorTypes/NaiveSocialDistancing/NaiveSocialDistancingTRCParameters';
 import { SpeedChangeBasedOnRulesTRCParameters } from './sensorTypes/SpeedChange/SpeedChangeTRCParameters';
+import {
+  ObjectRecognitionNumericBasedOnRulesTRCParameters,
+  ObjectRecognitionNumericBlacklistSearchTRCParameters,
+} from './sensorTypes/ObjectRecognitionNumeric/ObjectRecognitionNumericTRCParameters';
 import { OpticalCharacterRecognitionBasedOnRulesTRCParameters } from './sensorTypes/OpticalCharacterRecognition/OpticalCharacterRecognitionTRCParameters';
 import { PoseDetectionBasedOnRulesTRCParameters } from './sensorTypes/PoseDetection/PoseDetectionTRCParameters';
 
 export type EventTriggerRule = {
   clauses?: EventTriggerRuleClause[];
   intervalTime?: number;
+  minOptional?: number;
   created?: Date;
   modified?: Date;
   deleted?: Date;
@@ -43,7 +49,12 @@ export type EventTriggerRuleClause = {
     | NaiveSocialDistancingBasedOnRulesTRCParameters
     | SpeedChangeBasedOnRulesTRCParameters
     | OpticalCharacterRecognitionBasedOnRulesTRCParameters
-    | PoseDetectionBasedOnRulesTRCParameters;
+    | PoseDetectionBasedOnRulesTRCParameters
+    | GranularityDetectionBasedOnRulesTRCParameters
+    | ObjectRecognitionNumericBasedOnRulesTRCParameters
+    | ObjectRecognitionNumericBlacklistSearchTRCParameters;
+  optional?: boolean;
+  type?: string;
   id?: string;
   sensorId?: string;
 };

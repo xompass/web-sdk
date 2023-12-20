@@ -32,7 +32,7 @@ export type GeoJsonType = GeoJson['type'];
 export type Position = [
   longitude: number,
   latitude: number,
-  elevation?: number
+  elevation?: number,
 ];
 
 export type Record = { [key in string | number]: unknown };

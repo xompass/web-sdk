@@ -18,7 +18,7 @@ import { EventStateChange } from '../models/EventStateChange';
  */
 export async function EventTrigger_FindByIdEmergencyContacts(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<EmergencyContact> {
   return ApiFetch({
     method: 'GET',
@@ -36,7 +36,7 @@ export async function EventTrigger_FindByIdEmergencyContacts(
 export async function EventTrigger_LinkEmergencyContacts(
   id: string,
   fk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<any> {
   return ApiFetch({
     method: 'PUT',
@@ -54,7 +54,7 @@ export async function EventTrigger_LinkEmergencyContacts(
  */
 export async function EventTrigger_UnlinkEmergencyContacts(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
@@ -71,7 +71,7 @@ export async function EventTrigger_UnlinkEmergencyContacts(
  */
 export async function EventTrigger_FindByIdEvents(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<Event> {
   return ApiFetch({
     method: 'GET',
@@ -89,7 +89,7 @@ export async function EventTrigger_FindByIdEvents(
 export async function EventTrigger_UpdateByIdEvents(
   id: string,
   fk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<Event> {
   return ApiFetch({
     method: 'PUT',
@@ -107,7 +107,7 @@ export async function EventTrigger_UpdateByIdEvents(
  */
 export async function EventTrigger_FindByIdAssetStates(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<AssetState> {
   return ApiFetch({
     method: 'GET',
@@ -125,7 +125,7 @@ export async function EventTrigger_FindByIdAssetStates(
 export async function EventTrigger_LinkAssetStates(
   id: string,
   fk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<EventTriggerAssetState> {
   return ApiFetch({
     method: 'PUT',
@@ -143,7 +143,7 @@ export async function EventTrigger_LinkAssetStates(
  */
 export async function EventTrigger_UnlinkAssetStates(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
@@ -160,7 +160,7 @@ export async function EventTrigger_UnlinkAssetStates(
  */
 export async function EventTrigger_ExistsAssetStates(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<boolean> {
   return ApiFetch({
     method: 'HEAD',
@@ -177,7 +177,7 @@ export async function EventTrigger_ExistsAssetStates(
  */
 export async function EventTrigger_FindByIdStates(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<EventTriggerAssetState> {
   return ApiFetch({
     method: 'GET',
@@ -195,7 +195,7 @@ export async function EventTrigger_FindByIdStates(
 export async function EventTrigger_UpdateByIdStates(
   id: string,
   fk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<EventTriggerAssetState> {
   return ApiFetch({
     method: 'PUT',
@@ -213,7 +213,7 @@ export async function EventTrigger_UpdateByIdStates(
  */
 export async function EventTrigger_FindByIdRules(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<EventTriggerRule> {
   return ApiFetch({
     method: 'GET',
@@ -230,7 +230,7 @@ export async function EventTrigger_FindByIdRules(
  */
 export async function EventTrigger_DestroyByIdRules(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
@@ -248,7 +248,7 @@ export async function EventTrigger_DestroyByIdRules(
 export async function EventTrigger_UpdateByIdRules(
   id: string,
   fk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<EventTriggerRule> {
   return ApiFetch({
     method: 'PUT',
@@ -267,7 +267,7 @@ export async function EventTrigger_UpdateByIdRules(
 export async function EventTrigger_LinkTelegramChats(
   id: string,
   fk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<any> {
   return ApiFetch({
     method: 'PUT',
@@ -285,7 +285,7 @@ export async function EventTrigger_LinkTelegramChats(
  */
 export async function EventTrigger_UnlinkTelegramChats(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
@@ -302,7 +302,7 @@ export async function EventTrigger_UnlinkTelegramChats(
  */
 export async function EventTrigger_GetEmergencyContacts(
   id: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<EmergencyContact[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -324,7 +324,7 @@ export async function EventTrigger_GetEmergencyContacts(
  */
 export async function EventTrigger_CountEmergencyContacts(
   id: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -346,7 +346,7 @@ export async function EventTrigger_CountEmergencyContacts(
  */
 export async function EventTrigger_GetEvents(
   id: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<Event[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -368,7 +368,7 @@ export async function EventTrigger_GetEvents(
  */
 export async function EventTrigger_CountEvents(
   id: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -390,7 +390,7 @@ export async function EventTrigger_CountEvents(
  */
 export async function EventTrigger_GetAssetStates(
   id: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<AssetState[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -412,7 +412,7 @@ export async function EventTrigger_GetAssetStates(
  */
 export async function EventTrigger_CountAssetStates(
   id: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -434,7 +434,7 @@ export async function EventTrigger_CountAssetStates(
  */
 export async function EventTrigger_GetStates(
   id: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<EventTriggerAssetState[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -456,7 +456,7 @@ export async function EventTrigger_GetStates(
  */
 export async function EventTrigger_CountStates(
   id: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -478,7 +478,7 @@ export async function EventTrigger_CountStates(
  */
 export async function EventTrigger_GetRules(
   id: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<EventTriggerRule[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -500,7 +500,7 @@ export async function EventTrigger_GetRules(
  */
 export async function EventTrigger_CreateRules(
   id: string,
-  data: any = {}
+  data: any = {},
 ): Promise<EventTriggerRule> {
   return ApiFetch({
     method: 'POST',
@@ -517,7 +517,7 @@ export async function EventTrigger_CreateRules(
  */
 export async function EventTrigger_CountRules(
   id: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -540,7 +540,7 @@ export async function EventTrigger_CountRules(
 export async function EventTrigger_DownloadEvents(
   id: string,
   nk: string,
-  file: string
+  file: string,
 ): Promise<any> {
   return ApiFetch({
     method: 'GET',
@@ -559,7 +559,7 @@ export async function EventTrigger_DownloadEvents(
 export async function EventTrigger_FindByIdEventsComments(
   id: string,
   nk: string,
-  fk: string
+  fk: string,
 ): Promise<EventComment> {
   return ApiFetch({
     method: 'GET',
@@ -578,7 +578,7 @@ export async function EventTrigger_FindByIdEventsComments(
 export async function EventTrigger_DestroyByIdEventsComments(
   id: string,
   nk: string,
-  fk: string
+  fk: string,
 ): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
@@ -598,7 +598,7 @@ export async function EventTrigger_UpdateByIdEventsComments(
   id: string,
   nk: string,
   fk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<EventComment> {
   return ApiFetch({
     method: 'PUT',
@@ -618,7 +618,7 @@ export async function EventTrigger_UpdateByIdEventsComments(
 export async function EventTrigger_FindByIdEventsData(
   id: string,
   nk: string,
-  fk: string
+  fk: string,
 ): Promise<EventData> {
   return ApiFetch({
     method: 'GET',
@@ -638,7 +638,7 @@ export async function EventTrigger_UpdateByIdEventsData(
   id: string,
   nk: string,
   fk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<EventData> {
   return ApiFetch({
     method: 'PUT',
@@ -658,7 +658,7 @@ export async function EventTrigger_UpdateByIdEventsData(
 export async function EventTrigger_FindByIdEventsStateChanges(
   id: string,
   nk: string,
-  fk: string
+  fk: string,
 ): Promise<EventStateChange> {
   return ApiFetch({
     method: 'GET',
@@ -677,7 +677,7 @@ export async function EventTrigger_FindByIdEventsStateChanges(
 export async function EventTrigger_GetEventsComments(
   id: string,
   nk: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<EventComment[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -701,7 +701,7 @@ export async function EventTrigger_GetEventsComments(
 export async function EventTrigger_CreateEventsComments(
   id: string,
   nk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<EventComment> {
   return ApiFetch({
     method: 'POST',
@@ -720,7 +720,7 @@ export async function EventTrigger_CreateEventsComments(
 export async function EventTrigger_CountEventsComments(
   id: string,
   nk: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -744,7 +744,7 @@ export async function EventTrigger_CountEventsComments(
 export async function EventTrigger_GetEventsData(
   id: string,
   nk: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<EventData[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -768,7 +768,7 @@ export async function EventTrigger_GetEventsData(
 export async function EventTrigger_CountEventsData(
   id: string,
   nk: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -792,7 +792,7 @@ export async function EventTrigger_CountEventsData(
 export async function EventTrigger_GetEventsStateChanges(
   id: string,
   nk: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<EventStateChange[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -816,7 +816,7 @@ export async function EventTrigger_GetEventsStateChanges(
 export async function EventTrigger_CreateEventsStateChanges(
   id: string,
   nk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<EventStateChange> {
   return ApiFetch({
     method: 'POST',
@@ -835,7 +835,7 @@ export async function EventTrigger_CreateEventsStateChanges(
 export async function EventTrigger_CountEventsStateChanges(
   id: string,
   nk: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {

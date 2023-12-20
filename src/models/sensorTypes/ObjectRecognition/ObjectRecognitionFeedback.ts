@@ -33,8 +33,7 @@ export type ObjectRecognitionFeedback = {
       w: number;
       h: number;
     };
-    points?: number[][];
-    displayName?: string;
+    points?: any[][];
     colors?: {
       percentage: number;
       label:

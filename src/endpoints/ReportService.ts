@@ -12,7 +12,7 @@ import { Asset } from '../models/Asset';
  */
 export async function Report_FindByIdManagers(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<Manager> {
   return ApiFetch({
     method: 'GET',
@@ -29,7 +29,7 @@ export async function Report_FindByIdManagers(
  */
 export async function Report_FindByIdAssets(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<Asset> {
   return ApiFetch({
     method: 'GET',
@@ -46,7 +46,7 @@ export async function Report_FindByIdAssets(
  */
 export async function Report_LinkAssets(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<Asset> {
   return ApiFetch({
     method: 'PUT',
@@ -64,7 +64,7 @@ export async function Report_LinkAssets(
  */
 export async function Report_UnlinkAssets(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
@@ -81,7 +81,7 @@ export async function Report_UnlinkAssets(
  */
 export async function Report_ExistsAssets(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<boolean> {
   return ApiFetch({
     method: 'HEAD',
@@ -98,7 +98,7 @@ export async function Report_ExistsAssets(
  */
 export async function Report_GetManagers(
   id: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<Manager[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -120,7 +120,7 @@ export async function Report_GetManagers(
  */
 export async function Report_CountManagers(
   id: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -142,7 +142,7 @@ export async function Report_CountManagers(
  */
 export async function Report_GetAssets(
   id: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<Asset[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -164,7 +164,7 @@ export async function Report_GetAssets(
  */
 export async function Report_CountAssets(
   id: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {

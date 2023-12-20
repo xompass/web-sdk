@@ -12,7 +12,7 @@ import { PeopleCounterReportSerie } from '../models/PeopleCounterReport';
  */
 export async function PeopleCounterReport_FindByIdManagers(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<Manager> {
   return ApiFetch({
     method: 'GET',
@@ -29,7 +29,7 @@ export async function PeopleCounterReport_FindByIdManagers(
  */
 export async function PeopleCounterReport_FindByIdSeries(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<PeopleCounterReportSerie> {
   return ApiFetch({
     method: 'GET',
@@ -46,7 +46,7 @@ export async function PeopleCounterReport_FindByIdSeries(
  */
 export async function PeopleCounterReport_DestroyByIdSeries(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
@@ -64,7 +64,7 @@ export async function PeopleCounterReport_DestroyByIdSeries(
 export async function PeopleCounterReport_UpdateByIdSeries(
   id: string,
   fk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<PeopleCounterReportSerie> {
   return ApiFetch({
     method: 'PUT',
@@ -82,7 +82,7 @@ export async function PeopleCounterReport_UpdateByIdSeries(
  */
 export async function PeopleCounterReport_GetManagers(
   id: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<Manager[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -104,7 +104,7 @@ export async function PeopleCounterReport_GetManagers(
  */
 export async function PeopleCounterReport_CountManagers(
   id: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -126,7 +126,7 @@ export async function PeopleCounterReport_CountManagers(
  */
 export async function PeopleCounterReport_GetSeries(
   id: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<PeopleCounterReportSerie[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -148,7 +148,7 @@ export async function PeopleCounterReport_GetSeries(
  */
 export async function PeopleCounterReport_CreateSeries(
   id: string,
-  data: any = {}
+  data: any = {},
 ): Promise<PeopleCounterReportSerie> {
   return ApiFetch({
     method: 'POST',
@@ -165,7 +165,7 @@ export async function PeopleCounterReport_CreateSeries(
  */
 export async function PeopleCounterReport_CountSeries(
   id: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {

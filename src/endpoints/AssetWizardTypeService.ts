@@ -11,7 +11,7 @@ import { EdgeAgentTemplate } from '../models/EdgeAgentTemplate';
  */
 export async function AssetWizardType_FindByIdEdgeAgentTemplates(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<EdgeAgentTemplate> {
   return ApiFetch({
     method: 'GET',
@@ -28,7 +28,7 @@ export async function AssetWizardType_FindByIdEdgeAgentTemplates(
  */
 export async function AssetWizardType_GetEdgeAgentTemplates(
   id: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<EdgeAgentTemplate[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -50,7 +50,7 @@ export async function AssetWizardType_GetEdgeAgentTemplates(
  */
 export async function AssetWizardType_CountEdgeAgentTemplates(
   id: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {

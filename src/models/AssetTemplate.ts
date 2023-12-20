@@ -17,6 +17,7 @@ export type AssetTemplate = {
   icon?: string;
   description?: string;
   uri?: string;
+  settingsType?: string;
   tags?: string[];
   created?: Date;
   modified?: Date;

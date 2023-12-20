@@ -32,6 +32,9 @@ export type LineCrossingDetectionContent = {
       h: number;
     };
     direction?: 'incoming' | 'outgoing';
+    filteredBy?: {
+      CLASS?: boolean;
+    };
   }[];
   filtered?: boolean;
 };

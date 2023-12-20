@@ -62,8 +62,6 @@ export type GranularityDetectionEventContent = {
       ZONE?: boolean;
       PROBABILITY?: boolean;
       CLASS?: boolean;
-      BLACKLIST?: boolean;
-      PERSISTENCE?: boolean;
     };
   }[];
   filtered?: boolean;

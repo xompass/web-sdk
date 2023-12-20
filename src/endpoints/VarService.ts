@@ -19,7 +19,7 @@ import { AssetType } from '../models/AssetType';
  */
 export async function Var_FindByIdAdmins(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<Admin> {
   return ApiFetch({
     method: 'GET',
@@ -37,7 +37,7 @@ export async function Var_FindByIdAdmins(
 export async function Var_UpdateByIdCustomers(
   id: string,
   fk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<Customer> {
   return ApiFetch({
     method: 'PUT',
@@ -69,7 +69,7 @@ export async function Var_GetCountry(id: string): Promise<Country> {
 export async function Var_UpdateByIdToolkits(
   id: string,
   fk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<Toolkit> {
   return ApiFetch({
     method: 'PUT',
@@ -86,7 +86,7 @@ export async function Var_UpdateByIdToolkits(
  * /Vars/:id/container
  */
 export async function Var_GetContainer(
-  id: string
+  id: string,
 ): Promise<VarStorageContainer> {
   return ApiFetch({
     method: 'GET',
@@ -102,7 +102,7 @@ export async function Var_GetContainer(
  */
 export async function Var_GetAdmins(
   id: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<Admin[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -124,7 +124,7 @@ export async function Var_GetAdmins(
  */
 export async function Var_CreateAdmins(
   id: string,
-  data: any = {}
+  data: any = {},
 ): Promise<Admin> {
   return ApiFetch({
     method: 'POST',
@@ -141,7 +141,7 @@ export async function Var_CreateAdmins(
  */
 export async function Var_CountAdmins(
   id: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -163,7 +163,7 @@ export async function Var_CountAdmins(
  */
 export async function Var_GetCustomers(
   id: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<Customer[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -185,7 +185,7 @@ export async function Var_GetCustomers(
  */
 export async function Var_CreateCustomers(
   id: string,
-  data: any = {}
+  data: any = {},
 ): Promise<Customer> {
   return ApiFetch({
     method: 'POST',
@@ -202,7 +202,7 @@ export async function Var_CreateCustomers(
  */
 export async function Var_CountCustomers(
   id: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -224,7 +224,7 @@ export async function Var_CountCustomers(
  */
 export async function Var_GetToolkitTemplates(
   id: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<ToolkitTemplate[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -246,7 +246,7 @@ export async function Var_GetToolkitTemplates(
  */
 export async function Var_CountToolkitTemplates(
   id: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -268,7 +268,7 @@ export async function Var_CountToolkitTemplates(
  */
 export async function Var_GetToolkits(
   id: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<Toolkit[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -290,7 +290,7 @@ export async function Var_GetToolkits(
  */
 export async function Var_CountToolkits(
   id: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -312,7 +312,7 @@ export async function Var_CountToolkits(
  */
 export async function Var_findById(
   id: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<Var> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -335,7 +335,7 @@ export async function Var_findById(
 export async function Var_InstantiateToolkitTemplates(
   id: string,
   fk: string,
-  data?: Toolkit
+  data?: Toolkit,
 ): Promise<Toolkit> {
   return ApiFetch({
     method: 'POST',
@@ -353,7 +353,7 @@ export async function Var_InstantiateToolkitTemplates(
  */
 export async function Var_GetAdminTools(
   id: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<Tool[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -375,7 +375,7 @@ export async function Var_GetAdminTools(
  */
 export async function Var_GetTools(
   id: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<Tool[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -398,7 +398,7 @@ export async function Var_GetTools(
 export async function Var_GetToolkitTemplatesAssetTypes(
   id: string,
   fk: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<AssetType[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -422,7 +422,7 @@ export async function Var_GetToolkitTemplatesAssetTypes(
 export async function Var_GetToolkitsAssetTypes(
   id: string,
   fk: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<AssetType[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -486,7 +486,7 @@ export async function Var_getFile(id: string, file: string): Promise<any> {
 export async function Var_removeFile(
   id: string,
   property: string,
-  file: string
+  file: string,
 ): Promise<void> {
   const _urlParams: any = {};
   if (property != null) {
@@ -511,7 +511,7 @@ export async function Var_upload(
   id: string,
   property: string,
   file: File,
-  onProgress?: (progress: number) => void
+  onProgress?: (progress: number) => void,
 ): Promise<any> {
   const _urlParams: any = {};
   if (property != null) {
@@ -535,7 +535,7 @@ export async function Var_upload(
 export async function Var_download(
   id: string,
   property: string,
-  file: string
+  file: string,
 ): Promise<any> {
   const _urlParams: any = {};
   if (property != null) {
@@ -559,7 +559,7 @@ export async function Var_download(
 export async function Var_FindByIdToolkitsAdminTools(
   id: string,
   nk: string,
-  fk: string
+  fk: string,
 ): Promise<Tool> {
   return ApiFetch({
     method: 'GET',
@@ -578,7 +578,7 @@ export async function Var_FindByIdToolkitsAdminTools(
 export async function Var_LinkToolkitsAdminTools(
   id: string,
   nk: string,
-  fk: string
+  fk: string,
 ): Promise<Tool> {
   return ApiFetch({
     method: 'PUT',
@@ -598,7 +598,7 @@ export async function Var_LinkToolkitsAdminTools(
 export async function Var_UnlinkToolkitsAdminTools(
   id: string,
   nk: string,
-  fk: string
+  fk: string,
 ): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
@@ -617,7 +617,7 @@ export async function Var_UnlinkToolkitsAdminTools(
 export async function Var_FindByIdToolkitsTools(
   id: string,
   nk: string,
-  fk: string
+  fk: string,
 ): Promise<Tool> {
   return ApiFetch({
     method: 'GET',
@@ -636,7 +636,7 @@ export async function Var_FindByIdToolkitsTools(
 export async function Var_LinkToolkitsTools(
   id: string,
   nk: string,
-  fk: string
+  fk: string,
 ): Promise<Tool> {
   return ApiFetch({
     method: 'PUT',
@@ -656,7 +656,7 @@ export async function Var_LinkToolkitsTools(
 export async function Var_UnlinkToolkitsTools(
   id: string,
   nk: string,
-  fk: string
+  fk: string,
 ): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
@@ -675,7 +675,7 @@ export async function Var_UnlinkToolkitsTools(
 export async function Var_GetToolkitsAdminTools(
   id: string,
   nk: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<Tool[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -699,7 +699,7 @@ export async function Var_GetToolkitsAdminTools(
 export async function Var_CountToolkitsAdminTools(
   id: string,
   nk: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -723,7 +723,7 @@ export async function Var_CountToolkitsAdminTools(
 export async function Var_GetToolkitsTools(
   id: string,
   nk: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<Tool[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -747,7 +747,7 @@ export async function Var_GetToolkitsTools(
 export async function Var_CountToolkitsTools(
   id: string,
   nk: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {

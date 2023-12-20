@@ -28,7 +28,7 @@ export async function Device_GetConfig(id: string): Promise<DeviceConfig> {
  */
 export async function Device_CreateConfig(
   id: string,
-  data: any = {}
+  data: any = {},
 ): Promise<DeviceConfig> {
   return ApiFetch({
     method: 'POST',
@@ -45,7 +45,7 @@ export async function Device_CreateConfig(
  */
 export async function Device_UpdateConfig(
   id: string,
-  data: any = {}
+  data: any = {},
 ): Promise<DeviceConfig> {
   return ApiFetch({
     method: 'PUT',
@@ -62,7 +62,7 @@ export async function Device_UpdateConfig(
  */
 export async function Device_FindByIdEvents(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<DeviceEvent> {
   return ApiFetch({
     method: 'GET',
@@ -80,7 +80,7 @@ export async function Device_FindByIdEvents(
 export async function Device_UpdateByIdEvents(
   id: string,
   fk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<DeviceEvent> {
   return ApiFetch({
     method: 'PUT',
@@ -99,7 +99,7 @@ export async function Device_UpdateByIdEvents(
 export async function Device_LinkTelegramChats(
   id: string,
   fk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<any> {
   return ApiFetch({
     method: 'PUT',
@@ -117,7 +117,7 @@ export async function Device_LinkTelegramChats(
  */
 export async function Device_UnlinkTelegramChats(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
@@ -134,7 +134,7 @@ export async function Device_UnlinkTelegramChats(
  */
 export async function Device_GetEvents(
   id: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<DeviceEvent[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -156,7 +156,7 @@ export async function Device_GetEvents(
  */
 export async function Device_CountEvents(
   id: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -192,7 +192,7 @@ export async function Device_cmdcRestart(id: string): Promise<any> {
  */
 export async function Device_cmdcRestartModule(
   id: string,
-  name: string
+  name: string,
 ): Promise<any> {
   return ApiFetch({
     method: 'POST',
@@ -211,7 +211,7 @@ export async function Device_cmdcRestartModule(
 export async function Device_FindByIdEventsComments(
   id: string,
   nk: string,
-  fk: string
+  fk: string,
 ): Promise<DeviceEventComment> {
   return ApiFetch({
     method: 'GET',
@@ -230,7 +230,7 @@ export async function Device_FindByIdEventsComments(
 export async function Device_DestroyByIdEventsComments(
   id: string,
   nk: string,
-  fk: string
+  fk: string,
 ): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
@@ -250,7 +250,7 @@ export async function Device_UpdateByIdEventsComments(
   id: string,
   nk: string,
   fk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<DeviceEventComment> {
   return ApiFetch({
     method: 'PUT',
@@ -270,7 +270,7 @@ export async function Device_UpdateByIdEventsComments(
 export async function Device_FindByIdEventsData(
   id: string,
   nk: string,
-  fk: string
+  fk: string,
 ): Promise<DeviceEventData> {
   return ApiFetch({
     method: 'GET',
@@ -289,7 +289,7 @@ export async function Device_FindByIdEventsData(
 export async function Device_FindByIdEventsStateChanges(
   id: string,
   nk: string,
-  fk: string
+  fk: string,
 ): Promise<DeviceEventStateChange> {
   return ApiFetch({
     method: 'GET',
@@ -308,7 +308,7 @@ export async function Device_FindByIdEventsStateChanges(
 export async function Device_GetEventsComments(
   id: string,
   nk: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<DeviceEventComment[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -332,7 +332,7 @@ export async function Device_GetEventsComments(
 export async function Device_CreateEventsComments(
   id: string,
   nk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<DeviceEventComment> {
   return ApiFetch({
     method: 'POST',
@@ -351,7 +351,7 @@ export async function Device_CreateEventsComments(
 export async function Device_CountEventsComments(
   id: string,
   nk: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -375,7 +375,7 @@ export async function Device_CountEventsComments(
 export async function Device_GetEventsData(
   id: string,
   nk: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<DeviceEventData[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -399,7 +399,7 @@ export async function Device_GetEventsData(
 export async function Device_CountEventsData(
   id: string,
   nk: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -423,7 +423,7 @@ export async function Device_CountEventsData(
 export async function Device_GetEventsStateChanges(
   id: string,
   nk: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<DeviceEventStateChange[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -447,7 +447,7 @@ export async function Device_GetEventsStateChanges(
 export async function Device_CreateEventsStateChanges(
   id: string,
   nk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<DeviceEventStateChange> {
   return ApiFetch({
     method: 'POST',
@@ -466,7 +466,7 @@ export async function Device_CreateEventsStateChanges(
 export async function Device_CountEventsStateChanges(
   id: string,
   nk: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {

@@ -25,6 +25,7 @@ const _SensorTypeLabels = {
   ObjectRecognitionNumeric: 'ObjectRecognitionNumeric',
   OpeningDetection: 'OpeningDetection',
   OpticalCharacterRecognition: 'OpticalCharacterRecognition',
+  PeriodicObjectCounting: 'PeriodicObjectCounting',
   PoseDetection: 'PoseDetection',
   QueueSize: 'QueueSize',
   Referrer: 'Referrer',

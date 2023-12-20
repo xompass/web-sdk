@@ -11,7 +11,7 @@ import { EventTriggerRuleTemplate } from '../models/EventTriggerRuleTemplate';
  */
 export async function EventTriggerAssetStateTemplate_FindByIdRuleTemplates(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<EventTriggerRuleTemplate> {
   return ApiFetch({
     method: 'GET',
@@ -28,7 +28,7 @@ export async function EventTriggerAssetStateTemplate_FindByIdRuleTemplates(
  */
 export async function EventTriggerAssetStateTemplate_DestroyByIdRuleTemplates(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
@@ -46,7 +46,7 @@ export async function EventTriggerAssetStateTemplate_DestroyByIdRuleTemplates(
 export async function EventTriggerAssetStateTemplate_UpdateByIdRuleTemplates(
   id: string,
   fk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<EventTriggerRuleTemplate> {
   return ApiFetch({
     method: 'PUT',
@@ -64,7 +64,7 @@ export async function EventTriggerAssetStateTemplate_UpdateByIdRuleTemplates(
  */
 export async function EventTriggerAssetStateTemplate_GetRuleTemplates(
   id: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<EventTriggerRuleTemplate[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -86,7 +86,7 @@ export async function EventTriggerAssetStateTemplate_GetRuleTemplates(
  */
 export async function EventTriggerAssetStateTemplate_CreateRuleTemplates(
   id: string,
-  data: any = {}
+  data: any = {},
 ): Promise<EventTriggerRuleTemplate> {
   return ApiFetch({
     method: 'POST',
@@ -103,7 +103,7 @@ export async function EventTriggerAssetStateTemplate_CreateRuleTemplates(
  */
 export async function EventTriggerAssetStateTemplate_CountRuleTemplates(
   id: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {

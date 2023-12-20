@@ -18,6 +18,7 @@ import { EventGroup } from './EventGroup';
 import { EventSummary } from './EventSummary';
 import { EventSummaryForAsset } from './EventSummaryForAsset';
 import { EventTrigger } from './EventTrigger';
+import { HealthcheckEvent } from './HealthcheckEvent';
 import { Log } from './Log';
 import { Manager } from './Manager';
 import { Project } from './Project';
@@ -37,8 +38,9 @@ export type Asset = {
   uri?: string;
   path?: string[];
   requested?: Date;
+  settingsType?: string;
   healthcheckEventsEnabled?: boolean;
-  currentHealthStatus?: 'ONLINE' | 'OUTDATED' | 'OFFLINE' | 'UNKNOWN';
+  currentHealthStatus?: string;
   currentHealthStatusDetails?: AssetCurrentStatusDetails;
   tags?: string[];
   created?: Date;
@@ -75,6 +77,7 @@ export type Asset = {
   eventSummaries?: EventSummary[];
   eventSummaryForAssets?: EventSummaryForAsset[];
   eventTriggers?: EventTrigger[];
+  healthcheckEvents?: HealthcheckEvent[];
   trackingLogs?: Log[];
   managers?: Manager[];
   project?: Project;

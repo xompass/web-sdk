@@ -59,7 +59,8 @@ export type GranularityDetectionContent = {
       clusterSizeRatio: number;
     }[];
     filteredBy?: {
-      PERSISTENCE?: boolean;
+      ZONE?: boolean;
+      CLASS?: boolean;
     };
   }[];
 };

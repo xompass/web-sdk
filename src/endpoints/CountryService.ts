@@ -24,7 +24,7 @@ export async function Country_exists(id: string): Promise<boolean> {
  */
 export async function Country_findById(
   id: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<Country> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -45,7 +45,7 @@ export async function Country_findById(
  * /Countries
  */
 export async function Country_find(
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<Country[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -64,7 +64,7 @@ export async function Country_find(
  * /Countries/findOne
  */
 export async function Country_findOne(
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<Country> {
   const _urlParams: any = {};
   if (filter != null) {

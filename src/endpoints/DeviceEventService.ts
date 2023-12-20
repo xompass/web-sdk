@@ -12,7 +12,7 @@ import { Log } from '../models/Log';
  */
 export async function DeviceEvent_FindByIdTrackingLogs(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<Log> {
   return ApiFetch({
     method: 'GET',
@@ -29,7 +29,7 @@ export async function DeviceEvent_FindByIdTrackingLogs(
  */
 export async function DeviceEvent_GetTrackingLogs(
   id: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<Log[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -51,7 +51,7 @@ export async function DeviceEvent_GetTrackingLogs(
  */
 export async function DeviceEvent_CountTrackingLogs(
   id: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -98,7 +98,7 @@ export async function DeviceEvent_exists(id: string): Promise<boolean> {
  */
 export async function DeviceEvent_findById(
   id: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<DeviceEvent> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -119,7 +119,7 @@ export async function DeviceEvent_findById(
  * /DeviceEvents
  */
 export async function DeviceEvent_find(
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<DeviceEvent[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -138,7 +138,7 @@ export async function DeviceEvent_find(
  * /DeviceEvents/findOne
  */
 export async function DeviceEvent_findOne(
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<DeviceEvent> {
   const _urlParams: any = {};
   if (filter != null) {

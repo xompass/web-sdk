@@ -11,7 +11,7 @@ import { BIPanelSerie } from '../models/BIPanel';
  */
 export async function BIPanel_FindByIdSeries(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<BIPanelSerie> {
   return ApiFetch({
     method: 'GET',
@@ -28,7 +28,7 @@ export async function BIPanel_FindByIdSeries(
  */
 export async function BIPanel_DestroyByIdSeries(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
@@ -46,7 +46,7 @@ export async function BIPanel_DestroyByIdSeries(
 export async function BIPanel_UpdateByIdSeries(
   id: string,
   fk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<BIPanelSerie> {
   return ApiFetch({
     method: 'PUT',
@@ -64,7 +64,7 @@ export async function BIPanel_UpdateByIdSeries(
  */
 export async function BIPanel_GetSeries(
   id: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<BIPanelSerie[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -86,7 +86,7 @@ export async function BIPanel_GetSeries(
  */
 export async function BIPanel_CreateSeries(
   id: string,
-  data: any = {}
+  data: any = {},
 ): Promise<BIPanelSerie> {
   return ApiFetch({
     method: 'POST',
@@ -103,7 +103,7 @@ export async function BIPanel_CreateSeries(
  */
 export async function BIPanel_CountSeries(
   id: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {

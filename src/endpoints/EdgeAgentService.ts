@@ -12,7 +12,7 @@ import { EdgeAgentAsset } from '../models/EdgeAgent';
  */
 export async function EdgeAgent_FindByIdAssets(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<Asset> {
   return ApiFetch({
     method: 'GET',
@@ -30,7 +30,7 @@ export async function EdgeAgent_FindByIdAssets(
 export async function EdgeAgent_LinkAssets(
   id: string,
   fk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<EdgeAgentAsset> {
   return ApiFetch({
     method: 'PUT',
@@ -48,7 +48,7 @@ export async function EdgeAgent_LinkAssets(
  */
 export async function EdgeAgent_UnlinkAssets(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
@@ -66,7 +66,7 @@ export async function EdgeAgent_UnlinkAssets(
 export async function EdgeAgent_LinkTelegramChats(
   id: string,
   fk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<any> {
   return ApiFetch({
     method: 'PUT',
@@ -84,7 +84,7 @@ export async function EdgeAgent_LinkTelegramChats(
  */
 export async function EdgeAgent_UnlinkTelegramChats(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
@@ -101,7 +101,7 @@ export async function EdgeAgent_UnlinkTelegramChats(
  */
 export async function EdgeAgent_GetAssets(
   id: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<Asset[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -123,7 +123,7 @@ export async function EdgeAgent_GetAssets(
  */
 export async function EdgeAgent_BulkLinkAssets(
   id: string,
-  where: any
+  where: any,
 ): Promise<any[]> {
   const _urlParams: any = {};
   if (where != null) {
@@ -146,7 +146,7 @@ export async function EdgeAgent_BulkLinkAssets(
  */
 export async function EdgeAgent_BulkUnlinkAssets(
   id: string,
-  where: any
+  where: any,
 ): Promise<void> {
   const _urlParams: any = {};
   if (where != null) {

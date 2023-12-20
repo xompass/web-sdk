@@ -9,7 +9,7 @@ import { ApiFetch } from '../core/ApiFetch';
  * /EmergencyContactCallHistory/:id/record
  */
 export async function EmergencyContactCallHistory_getRecord(
-  id: string
+  id: string,
 ): Promise<any> {
   return ApiFetch({
     method: 'GET',

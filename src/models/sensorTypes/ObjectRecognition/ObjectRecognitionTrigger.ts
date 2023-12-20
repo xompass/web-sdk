@@ -24,6 +24,16 @@ export type ObjectRecognitionTrigger = {
     | 'red_light'
     | 'green_light'
     | 'yellow_light'
+    | 'cart'
+    | 'fire'
+    | 'smoke'
+    | 'material'
+    | 'hopper'
+    | 'truck_small'
+    | 'aljibe'
+    | 'mercaderia'
+    | 'rock'
+    | 'desmonte'
   )[];
   value?: number;
   operator?: 'eq' | 'neq' | 'gt' | 'gte' | 'lt' | 'lte' | 'null';
