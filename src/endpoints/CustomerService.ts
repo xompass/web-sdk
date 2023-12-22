@@ -7558,16 +7558,29 @@ export async function Customer_LinkProjectsAssetsToTelegramGroup(
  * Evaluate a virtual expression in a date interval
  * /Customers/:id/projects/:nk/virtualExpressions/:fk/evaluate
  */
+
+export type VirtualExpressionEvaluateResponse = {
+  virtualExpressionId: string;
+  from: Date;
+  to: Date;
+  groupIntervals: ('hour' | 'day' | 'week' | 'month')[];
+  groupUTC: number;
+  data: Record<
+    'hour' | 'day' | 'week' | 'month',
+    { value: number; from: Date; to: Date }[]
+  >;
+};
+
 export async function Customer_EvaluateProjectsVirtualExpressions(
   id: string,
   nk: string,
   fk: string,
   from: Date,
   to: Date,
-  groupIntervals: any = {},
-  groupMode?: string,
-  groupUtc?: number
-): Promise<any> {
+  groupIntervals: ('hour' | 'day' | 'week' | 'month')[],
+  groupUtc: number,
+  groupMode?: string
+): Promise<VirtualExpressionEvaluateResponse> {
   const _urlParams: any = {};
   if (from != null) {
     _urlParams['from'] = from;
