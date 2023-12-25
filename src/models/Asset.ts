@@ -40,7 +40,7 @@ export type Asset = {
   requested?: Date;
   settingsType?: string;
   healthcheckEventsEnabled?: boolean;
-  currentHealthStatus?: string;
+  currentHealthStatus?: 'ONLINE' | 'OUTDATED' | 'OFFLINE' | 'UNKNOWN';
   currentHealthStatusDetails?: AssetCurrentStatusDetails;
   tags?: string[];
   created?: Date;
