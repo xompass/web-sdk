@@ -1,5 +1,11 @@
 # @xompass/web-sdk
 
+## 0.11.1
+
+### Patch Changes
+
+- c7bdbf1: improve count report models
+
 ## 0.11.0
 
 ### Minor Changes
