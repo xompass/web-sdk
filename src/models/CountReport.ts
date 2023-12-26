@@ -59,18 +59,18 @@ type CountReportSeriesBase = {
 export type CountReportSeriesIndicator = Omit<CountReportSeriesBase, 'name'> & {
   addDifference?: boolean;
   addChart?: boolean;
-  chartType?: 'line' | 'bar' | 'area' | 'scatter';
+  chartType?: 'line' | 'bar' | 'area' | 'scatter' | 'spline' | 'splineArea';
 };
 
 export type CountReportElementChart = CountReportElementBase & {
   type: 'chart';
-  xAxis: string;
-  yAxis: string;
+  xAxisLabel?: string;
+  yAxisLabel?: string;
   seriesList: CountReportSeriesChart[];
 };
 
 export type CountReportSeriesChart = CountReportSeriesBase & {
-  chartType: 'line' | 'bar' | 'area' | 'scatter';
+  chartType: 'line' | 'bar' | 'area' | 'scatter' | 'spline' | 'splineArea';
 };
 
 export type CountReportElementTable = CountReportElementBase & {
