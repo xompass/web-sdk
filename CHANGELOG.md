@@ -1,5 +1,11 @@
 # @xompass/web-sdk
 
+## 0.11.2
+
+### Patch Changes
+
+- f9096cd: Add more chart types y change axis labels property names
+
 ## 0.11.1
 
 ### Patch Changes
