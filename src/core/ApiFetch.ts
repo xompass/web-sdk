@@ -153,13 +153,13 @@ const Reviver = (key: string, value: any) => {
 function prepareUrl(
   url: string,
   routeParams?: ApiFetchRouteParams,
-  urlParams: ApiFetchUrlParams = {},
+  urlParams: ApiFetchUrlParams = {}
 ) {
   if (routeParams) {
     for (const key in routeParams) {
       url = url.replace(
         new RegExp(`:${key}(/|$)`, 'g'),
-        `${routeParams[key]}$1`,
+        `${routeParams[key]}$1`
       );
     }
   }
@@ -172,10 +172,16 @@ function prepareUrl(
         if (value == null) {
           return array;
         }
+        // Handle filter
 
-        // Handle filter.order
-        if (key === 'filter' && typeof value === 'object' && value.order) {
-          value.order = prepareOrderFilter(value.order);
+        if (key === 'filter' && typeof value === 'object') {
+          if (value.order) {
+            value.order = prepareOrderFilter(value.order);
+          }
+
+          if (value.include) {
+            value.include = prepareIncludeFilter(value.include);
+          }
         }
 
         // Handle order
@@ -352,6 +358,32 @@ function prepareOrderFilter<T>(order: Order<T>) {
   }
 
   return result.length === 1 ? result[0] : result;
+}
+
+function prepareIncludeFilter<T>(include: Include<T>): Record<string, any> {
+  if (!include || typeof include === 'string') {
+    return include;
+  }
+
+  if (Array.isArray(include)) {
+    const _include = [];
+    for (const item of include) {
+      _include.push(prepareIncludeFilter(item as any));
+    }
+
+    return _include;
+  }
+
+  if (typeof include === 'object') {
+    if (include.scope) {
+      if (include.scope.order) {
+        include.scope.order = prepareOrderFilter(include.scope.order) as any;
+      }
+    }
+    return include;
+  }
+
+  return include;
 }
 
 export function getHTTPErrorMessage(error: any): string {
