@@ -1,5 +1,11 @@
 # @xompass/web-sdk
 
+## 0.12.0
+
+### Minor Changes
+
+- a09c2ad: improve CountReport types. Fix include url encoding
+
 ## 0.11.2
 
 ### Patch Changes
