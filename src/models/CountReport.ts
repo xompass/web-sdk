@@ -12,6 +12,7 @@ export type CountReport = {
   id?: string;
   customerId?: string;
   projectId?: string;
+  sectionsOrder?: string[];
   sections?: CountReportSection[];
   customer?: Customer;
   trackingLogs?: Log[];
@@ -39,13 +40,26 @@ export type CountReportElement =
 export type CountReportElementBase = {
   name: string;
   columns: number;
-  groupInterval: 'hour' | 'day' | 'week' | 'month';
 };
 
-export type CountReportElementIndicator = CountReportElementBase & {
+type CountReportElementIndicatorChart<
+  T extends 'hour' | 'day' | 'week' | 'month'
+> = { addChart?: false } | { addChart: true; xAxis: XAxis<T> };
+
+type CountReportElementIndicatorBase<
+  T extends 'hour' | 'day' | 'week' | 'month'
+> = CountReportElementBase & {
   type: 'indicator';
-  seriesList: [CountReportSeriesIndicator];
-};
+  addDifference?: boolean;
+  groupInterval: T;
+  seriesList: CountReportSeriesIndicator[];
+} & CountReportElementIndicatorChart<T>;
+
+export type CountReportElementIndicator =
+  | CountReportElementIndicatorBase<'hour'>
+  | CountReportElementIndicatorBase<'day'>
+  | CountReportElementIndicatorBase<'week'>
+  | CountReportElementIndicatorBase<'month'>;
 
 type CountReportSeriesBase = {
   name: string;
@@ -57,32 +71,98 @@ type CountReportSeriesBase = {
 };
 
 export type CountReportSeriesIndicator = Omit<CountReportSeriesBase, 'name'> & {
-  addDifference?: boolean;
-  addChart?: boolean;
   chartType?: 'line' | 'bar' | 'area' | 'scatter' | 'spline' | 'splineArea';
 };
 
-export type CountReportElementChart = CountReportElementBase & {
+export type CountReportElementChartBase<
+  T extends 'hour' | 'day' | 'week' | 'month'
+> = CountReportElementBase & {
   type: 'chart';
-  xAxisLabel?: string;
-  yAxisLabel?: string;
+  groupInterval: T;
+  xAxis: XAxis<T>;
+  yAxis?: {
+    label?: string;
+  };
   seriesList: CountReportSeriesChart[];
 };
+
+export type CountReportElementChart =
+  | CountReportElementChartBase<'hour'>
+  | CountReportElementChartBase<'day'>
+  | CountReportElementChartBase<'week'>
+  | CountReportElementChartBase<'month'>;
 
 export type CountReportSeriesChart = CountReportSeriesBase & {
   chartType: 'line' | 'bar' | 'area' | 'scatter' | 'spline' | 'splineArea';
 };
 
-export type CountReportElementTable = CountReportElementBase & {
+export type CountReportElementTableBase<
+  T extends 'hour' | 'day' | 'week' | 'month'
+> = CountReportElementBase & {
   type: 'table';
+  groupInterval: T;
+  xAxis: XAxis<T>;
   seriesList: CountReportSeriesTable[];
 };
 
+export type CountReportElementTable =
+  | CountReportElementTableBase<'hour'>
+  | CountReportElementTableBase<'day'>
+  | CountReportElementTableBase<'week'>
+  | CountReportElementTableBase<'month'>;
+
 export type CountReportSeriesTable = CountReportSeriesBase;
 
-export type CountReportElementHeatmap = CountReportElementBase & {
+export type CountReportElementHeatmapBase<
+  T extends 'hour' | 'day' | 'week' | 'month'
+> = CountReportElementBase & {
   type: 'heatmap';
+  groupInterval: T;
+  xAxis: XAxis<T>;
   seriesList: CountReportSeriesHeatmap[];
 };
 
+export type CountReportElementHeatmap =
+  | CountReportElementHeatmapBase<'hour'>
+  | CountReportElementHeatmapBase<'day'>
+  | CountReportElementHeatmapBase<'week'>
+  | CountReportElementHeatmapBase<'month'>;
+
 export type CountReportSeriesHeatmap = CountReportSeriesBase;
+
+type CategoryTypeDay = 'hourOfDay' | 'hourOfWeekDay' | 'hourOfWeekendDay';
+type CategoryTypeWeek =
+  | 'hourOfDay'
+  | 'hourOfWeekDay'
+  | 'hourOfWeekendDay'
+  | 'dayOfWeek'
+  | 'weekday'
+  | 'weekend';
+type CategoryTypeMonth =
+  | 'hourOfDay'
+  | 'hourOfWeekDay'
+  | 'hourOfWeekendDay'
+  | 'dayOfWeek'
+  | 'weekday'
+  | 'weekend'
+  | 'dayOfMonth'
+  | 'weekOfMonth';
+
+export type XAxis<T extends 'hour' | 'day' | 'week' | 'month'> = {
+  label?: string;
+} & (T extends 'hour'
+  ? { type: 'datetime' }
+  : CategoryType<T> | { type: 'datetime' });
+
+type CategoryType<T extends 'hour' | 'day' | 'week' | 'month'> =
+  T extends 'hour'
+    ? never
+    : {
+        type: 'category';
+        categoryType: T extends 'day'
+          ? CategoryTypeDay
+          : T extends 'week'
+          ? CategoryTypeWeek
+          : CategoryTypeMonth;
+        groupMode?: 'sum' | 'average' | 'min' | 'max';
+      };
