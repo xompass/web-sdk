@@ -130,39 +130,33 @@ export type CountReportElementHeatmap =
 
 export type CountReportSeriesHeatmap = CountReportSeriesBase;
 
-type CategoryTypeDay = 'hourOfDay' | 'hourOfWeekDay' | 'hourOfWeekendDay';
-type CategoryTypeWeek =
+type CategoryTypeHour = 'hourOfDay' | 'hourOfWeekDay' | 'hourOfWeekendDay';
+type CategoryTypeDay =
   | 'hourOfDay'
   | 'hourOfWeekDay'
   | 'hourOfWeekendDay'
   | 'dayOfWeek'
+  | 'dayOfMonth'
   | 'weekday'
   | 'weekend';
-type CategoryTypeMonth =
-  | 'hourOfDay'
-  | 'hourOfWeekDay'
-  | 'hourOfWeekendDay'
-  | 'dayOfWeek'
-  | 'weekday'
-  | 'weekend'
-  | 'dayOfMonth'
-  | 'weekOfMonth';
+
+type CategoryTypeWeek = 'weekOfMonth';
 
 export type XAxis<T extends 'hour' | 'day' | 'week' | 'month'> = {
   label?: string;
-} & (T extends 'hour'
-  ? { type: 'datetime' }
-  : CategoryType<T> | { type: 'datetime' });
+} & (CategoryType<T> | { type: 'datetime' });
 
 type CategoryType<T extends 'hour' | 'day' | 'week' | 'month'> =
-  T extends 'hour'
+  T extends 'month'
     ? never
     : {
         type: 'category';
-        categoryType: T extends 'day'
+        groupMode?: 'sum' | 'average' | 'min' | 'max';
+        categoryType: T extends 'hour'
+          ? CategoryTypeHour
+          : T extends 'day'
           ? CategoryTypeDay
           : T extends 'week'
           ? CategoryTypeWeek
-          : CategoryTypeMonth;
-        groupMode?: 'sum' | 'average' | 'min' | 'max';
+          : never;
       };
