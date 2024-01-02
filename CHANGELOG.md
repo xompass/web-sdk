@@ -1,5 +1,11 @@
 # @xompass/web-sdk
 
+## 0.13.0
+
+### Minor Changes
+
+- c3def30: Change CountReport CategoryTypes
+
 ## 0.12.0
 
 ### Minor Changes
