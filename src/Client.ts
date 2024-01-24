@@ -1,4 +1,4 @@
-import { Filter } from './core/ApiFetch';
+import { Filter, Include } from './core/ApiFetch';
 import {
   getLocalStorageValue,
   setLocalStorageValue,
@@ -24,7 +24,7 @@ export class ApiClient {
     private readonly baseUrl: string,
     private accessToken?: string,
     private userId?: string,
-    private principalType?: UserType,
+    private principalType?: UserType
   ) {
     const previousBaseUrl = getLocalStorageValue('vsaas$baseUrl');
     if (previousBaseUrl && previousBaseUrl !== baseUrl) {
@@ -97,11 +97,11 @@ export class ApiClient {
   public async login(): Promise<User>;
   public async login(
     credentials: UserCrendentials,
-    principalType: UserType,
+    principalType: UserType
   ): Promise<User>;
   public async login(
     credentials?: UserCrendentials,
-    principalType?: UserType,
+    principalType?: UserType
   ): Promise<User> {
     const defaultTTL = 48 * 60 * 60;
 
@@ -112,10 +112,14 @@ export class ApiClient {
       }
 
       // Check if the credentials are valid
-      if (
-        !credentials.password ||
-        (!credentials.username && !credentials.email)
-      ) {
+      const username =
+        'username' in credentials
+          ? credentials.username
+          : 'email' in credentials
+          ? credentials.email
+          : undefined;
+
+      if (!credentials.password || !username) {
         throw new Error('Invalid credentials');
       }
 
@@ -125,16 +129,19 @@ export class ApiClient {
           email?: string;
           password: string;
         },
-        include: any,
+        include: any
       ) => Promise<CommonAccessToken>;
 
       // Choose the correct login function based on the principal type
+
+      const userInclude = ['container'];
       switch (principalType) {
         case 'Admin':
           loginFunc = Admin_login;
           break;
         case 'Manager':
           loginFunc = Manager_login;
+          userInclude.push('permission');
           break;
         default:
           throw new Error('Invalid user type');
@@ -143,7 +150,7 @@ export class ApiClient {
       const token = await loginFunc(credentials, {
         include: {
           relation: 'user',
-          scope: { include: ['container'] },
+          scope: userInclude,
         },
       });
 
@@ -179,13 +186,15 @@ export class ApiClient {
       setLocalStorageValue(
         'vsaas$principalType',
         this.principalType,
-        defaultTTL,
+        defaultTTL
       );
 
       let GetPrincipal: (
         id: string,
-        filter: Filter<Manager | Admin>,
+        filter: Filter<Manager | Admin>
       ) => Promise<Manager | Admin>;
+
+      const userInclude: Include<Manager> = [{ relation: 'container' }];
 
       switch (this.principalType) {
         case 'Admin':
@@ -193,13 +202,14 @@ export class ApiClient {
           break;
         case 'Manager':
           GetPrincipal = Manager_findById;
+          userInclude.push({ relation: 'permission' });
           break;
         default:
           throw new Error('Invalid user type');
       }
 
       const user = (await GetPrincipal(this.userId, {
-        include: ['container'],
+        include: userInclude,
       })) as User;
       user.type = this.principalType as UserType;
 
