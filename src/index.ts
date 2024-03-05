@@ -240,6 +240,13 @@ export * from './models/sensorTypes/MotionDetection/MotionDetectionEventContent'
 export * from './models/sensorTypes/MotionDetection/MotionDetectionFeedback';
 export * from './models/sensorTypes/MotionDetection/MotionDetectionParameters';
 export * from './models/sensorTypes/MotionDetection/MotionDetectionSummary';
+export * from './models/sensorTypes/MultiZoneObjectTracking/MultiZoneObjectTrackingContent';
+export * from './models/sensorTypes/MultiZoneObjectTracking/MultiZoneObjectTrackingEventContent';
+export * from './models/sensorTypes/MultiZoneObjectTracking/MultiZoneObjectTrackingFeedback';
+export * from './models/sensorTypes/MultiZoneObjectTracking/MultiZoneObjectTrackingParameters';
+export * from './models/sensorTypes/MultiZoneObjectTracking/MultiZoneObjectTrackingSummary';
+export * from './models/sensorTypes/MultiZoneObjectTracking/MultiZoneObjectTrackingTRCParameters';
+export * from './models/sensorTypes/MultiZoneObjectTracking/MultiZoneObjectTrackingTrigger';
 export * from './models/sensorTypes/NaiveSocialDistancing/NaiveSocialDistancingContent';
 export * from './models/sensorTypes/NaiveSocialDistancing/NaiveSocialDistancingEventContent';
 export * from './models/sensorTypes/NaiveSocialDistancing/NaiveSocialDistancingFeedback';

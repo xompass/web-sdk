@@ -34,6 +34,11 @@ export type ObjectRecognitionTrigger = {
     | 'mercaderia'
     | 'rock'
     | 'desmonte'
+    | 'pallet'
+    | 'pallet-jack'
+    | 'pallet-stacker'
+    | 'worker'
+    | 'forklift'
   )[];
   value?: number;
   operator?: 'eq' | 'neq' | 'gt' | 'gte' | 'lt' | 'lte' | 'null';
