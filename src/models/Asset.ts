@@ -108,5 +108,6 @@ export type AssetStorageContainer = {
   assetId?: string;
   _picture?: FileMetadata;
   _background?: FileMetadata;
+  _layout?: FileMetadata;
   _files?: FileMetadata[];
 };

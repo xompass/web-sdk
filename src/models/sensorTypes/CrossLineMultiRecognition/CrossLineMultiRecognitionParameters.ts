@@ -4,5 +4,4 @@ export type CrossLineMultiRecognitionParameters = {
     y: number;
   }[];
   color?: string;
-  disableUpload?: boolean;
 };
