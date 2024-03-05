@@ -1,11 +1,11 @@
 export type MultiZoneObjectTrackingParameters = {
-  'zones'?: {
-  'points': {
-  'x': number;
-  'y': number;
+  zones?: {
+    points: {
+      x: number;
+      y: number;
+    }[];
+    color?: string;
+    radialTolerancePx?: number;
   }[];
-  'color'?: string;
-  'radialTolerancePx'?: number;
-  }[];
-  'disableUpload'?: boolean;
-  }
+  disableUpload?: boolean;
+};
