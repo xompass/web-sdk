@@ -1,5 +1,11 @@
 # @xompass/web-sdk
 
+## 0.14.0
+
+### Minor Changes
+
+- 18c4c45: Add missing sensor type MultiZoneObjectTracking
+
 ## 0.13.1
 
 ### Patch Changes
