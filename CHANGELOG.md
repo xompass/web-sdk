@@ -1,5 +1,15 @@
 # @xompass/web-sdk
 
+## 0.15.0
+
+### Minor Changes
+
+- 21c7776: Add new endpoints, classes and sensorTypes
+
+### Patch Changes
+
+- 4f55e7b: update repo token
+
 ## 0.14.0
 
 ### Minor Changes
