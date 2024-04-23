@@ -58,6 +58,12 @@ import { StoppedLicensePlateFeedback } from './sensorTypes/StoppedLicensePlate/S
 import { VideoFeedback } from './sensorTypes/Video/VideoFeedback';
 import { EventComment } from './EventComment';
 import { EventStateChange } from './EventStateChange';
+import { MultiZoneObjectTrackingEventContent } from './sensorTypes/MultiZoneObjectTracking/MultiZoneObjectTrackingEventContent';
+import { PeriodicObjectCountingEventContent } from './sensorTypes/PeriodicObjectCounting/PeriodicObjectCountingEventContent';
+import { ObjectRecognitionNumericEventContent } from './sensorTypes/ObjectRecognitionNumeric/ObjectRecognitionNumericEventContent';
+import { GranularityDetectionEventContent } from './sensorTypes/GranularityDetection/GranularityDetectionEventContent';
+import { CargoContainerISOReaderEventContent } from './sensorTypes/CargoContainerISOReader/CargoContainerISOReaderEventContent';
+import { MissingHelmetDetectionEventContent } from './sensorTypes/MissingHelmetDetection/MissingHelmetDetectionEventContent';
 
 export type Event = {
   id?: string;
@@ -125,6 +131,12 @@ export type EventData = {
     | StoppedLicensePlateEventContent
     | StringEventContent
     | LicensePlateTextEventContent
+    | MultiZoneObjectTrackingEventContent
+    | PeriodicObjectCountingEventContent
+    | ObjectRecognitionNumericEventContent
+    | GranularityDetectionEventContent
+    | CargoContainerISOReaderEventContent
+    | MissingHelmetDetectionEventContent
     | VideoEventContent;
   location?: Point;
   feedback?:

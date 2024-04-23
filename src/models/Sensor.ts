@@ -34,6 +34,12 @@ import { OpticalCharacterRecognitionParameters } from './sensorTypes/OpticalChar
 import { PoseDetectionParameters } from './sensorTypes/PoseDetection/PoseDetectionParameters';
 import { SceneChangeParameters } from './sensorTypes/SceneChange/SceneChangeParameters';
 import { StoppedLicensePlateParameters } from './sensorTypes/StoppedLicensePlate/StoppedLicensePlateParameters';
+import { MultiZoneObjectTrackingParameters } from './sensorTypes/MultiZoneObjectTracking/MultiZoneObjectTrackingParameters';
+import { GranularityDetectionParameters } from './sensorTypes/GranularityDetection/GranularityDetectionParameters';
+import { ObjectRecognitionNumericParameters } from './sensorTypes/ObjectRecognitionNumeric/ObjectRecognitionNumericParameters';
+import { MissingHelmetDetectionParameters } from './sensorTypes/MissingHelmetDetection/MissingHelmetDetectionParameters';
+import { PeriodicObjectCountingParameters } from './sensorTypes/PeriodicObjectCounting/PeriodicObjectCountingParameters';
+import { CargoContainerISOReaderParameters } from './sensorTypes/CargoContainerISOReader/CargoContainerISOReaderParameters';
 
 export type Sensor = {
   type: SensorTypeLabel;
@@ -65,7 +71,13 @@ export type Sensor = {
     | OpticalCharacterRecognitionParameters
     | PoseDetectionParameters
     | SceneChangeParameters
-    | StoppedLicensePlateParameters;
+    | StoppedLicensePlateParameters
+    | MultiZoneObjectTrackingParameters
+    | GranularityDetectionParameters
+    | ObjectRecognitionNumericParameters
+    | MissingHelmetDetectionParameters
+    | PeriodicObjectCountingParameters
+    | CargoContainerISOReaderParameters;
   triggers?: any;
   extendedProperties?: any;
   healthcheck?: SensorHealthcheck;

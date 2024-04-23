@@ -21,6 +21,7 @@ import {
 } from './sensorTypes/ObjectRecognitionNumeric/ObjectRecognitionNumericTRCParameters';
 import { OpticalCharacterRecognitionBasedOnRulesTRCParameters } from './sensorTypes/OpticalCharacterRecognition/OpticalCharacterRecognitionTRCParameters';
 import { PoseDetectionBasedOnRulesTRCParameters } from './sensorTypes/PoseDetection/PoseDetectionTRCParameters';
+import { MissingHelmetDetectionBasedOnRulesTRCParameters } from './sensorTypes/MissingHelmetDetection/MissingHelmetDetectionTRCParameters';
 
 export type EventTriggerRule = {
   clauses?: EventTriggerRuleClause[];
@@ -52,7 +53,8 @@ export type EventTriggerRuleClause = {
     | PoseDetectionBasedOnRulesTRCParameters
     | GranularityDetectionBasedOnRulesTRCParameters
     | ObjectRecognitionNumericBasedOnRulesTRCParameters
-    | ObjectRecognitionNumericBlacklistSearchTRCParameters;
+    | ObjectRecognitionNumericBlacklistSearchTRCParameters
+    | MissingHelmetDetectionBasedOnRulesTRCParameters;
   optional?: boolean;
   type?: string;
   id?: string;

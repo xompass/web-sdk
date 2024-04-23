@@ -23,6 +23,10 @@ import { OpticalCharacterRecognitionTrigger } from './sensorTypes/OpticalCharact
 import { PoseDetectionTrigger } from './sensorTypes/PoseDetection/PoseDetectionTrigger';
 import { SceneChangeTrigger } from './sensorTypes/SceneChange/SceneChangeTrigger';
 import { StoppedLicensePlateTrigger } from './sensorTypes/StoppedLicensePlate/StoppedLicensePlateTrigger';
+import { MultiZoneObjectTrackingTrigger } from './sensorTypes/MultiZoneObjectTracking/MultiZoneObjectTrackingTrigger';
+import { GranularityDetectionTrigger } from './sensorTypes/GranularityDetection/GranularityDetectionTrigger';
+import { ObjectRecognitionNumericTrigger } from './sensorTypes/ObjectRecognitionNumeric/ObjectRecognitionNumericTrigger';
+import { MissingHelmetDetectionTrigger } from './sensorTypes/MissingHelmetDetection/MissingHelmetDetectionTrigger';
 
 export type SensorAssetState = {
   type?: SensorTypeLabel;
@@ -46,7 +50,11 @@ export type SensorAssetState = {
     | OpticalCharacterRecognitionTrigger
     | PoseDetectionTrigger
     | SceneChangeTrigger
-    | StoppedLicensePlateTrigger;
+    | StoppedLicensePlateTrigger
+    | MultiZoneObjectTrackingTrigger
+    | GranularityDetectionTrigger
+    | ObjectRecognitionNumericTrigger
+    | MissingHelmetDetectionTrigger;
   thresholdType?: string;
   thresholds?: Threshold[];
   notification?: Notification;
