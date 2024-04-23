@@ -2735,10 +2735,20 @@ export async function Customer_replaceListedLicensePlates(
  * Get events
  * /Customers/:id/events
  */
+export type Customer_getEventsResponse = Event & {
+  asset?: {
+    name: string;
+    referenceId?: string;
+  };
+  eventTrigger?: {
+    name: string;
+    subject: string;
+  };
+};
 export async function Customer_getEvents(
   id: string,
-  filter: Filter<any> = {}
-): Promise<any[]> {
+  filter: Filter<Event> = {}
+): Promise<Customer_getEventsResponse[]> {
   const _urlParams: any = {};
   if (filter != null) {
     _urlParams['filter'] = filter;
