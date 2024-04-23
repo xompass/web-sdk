@@ -16,6 +16,7 @@ import { GranularityDetectionContent } from './sensorTypes/GranularityDetection/
 import { LicensePlateContent } from './sensorTypes/LicensePlate/LicensePlateContent';
 import { LicensePlateTextContent } from './sensorTypes/LicensePlateText/LicensePlateTextContent';
 import { LineCrossingDetectionContent } from './sensorTypes/LineCrossingDetection/LineCrossingDetectionContent';
+import { MissingHelmetDetectionContent } from './sensorTypes/MissingHelmetDetection/MissingHelmetDetectionContent';
 import { MotionDetectionContent } from './sensorTypes/MotionDetection/MotionDetectionContent';
 import { NaiveSocialDistancingContent } from './sensorTypes/NaiveSocialDistancing/NaiveSocialDistancingContent';
 import { NoPlateDetectionContent } from './sensorTypes/NoPlateDetection/NoPlateDetectionContent';
@@ -35,6 +36,8 @@ import { StoppedLicensePlateContent } from './sensorTypes/StoppedLicensePlate/St
 import { StoppedObjectsDetectorContent } from './sensorTypes/StoppedObjectsDetector/StoppedObjectsDetectorContent';
 import { StringContent } from './sensorTypes/String/StringContent';
 import { VideoContent } from './sensorTypes/Video/VideoContent';
+import { MultiZoneObjectTrackingContent } from './sensorTypes/MultiZoneObjectTracking/MultiZoneObjectTrackingContent';
+import { CargoContainerISOReaderContent } from './sensorTypes/CargoContainerISOReader/CargoContainerISOReaderContent';
 
 export type Data = {
   id?: string;
@@ -129,5 +132,21 @@ export type Data = {
   | {
       type: SensorTypeLabels['ObjectRecognitionNumeric'];
       content: ObjectRecognitionNumericContent;
+    }
+  | {
+      type: SensorTypeLabels['MissingHelmetDetection'];
+      content: MissingHelmetDetectionContent;
+    }
+  | {
+      type: SensorTypeLabels['PeriodicObjectCounting'];
+      content: ObjectCountingContent;
+    }
+  | {
+      type: SensorTypeLabels['MultiZoneObjectTracking'];
+      content: MultiZoneObjectTrackingContent;
+    }
+  | {
+      type: SensorTypeLabels['CargoContainerISOReader'];
+      content: CargoContainerISOReaderContent;
     }
 );
