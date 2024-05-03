@@ -1,5 +1,11 @@
 # @xompass/web-sdk
 
+## 0.15.1
+
+### Patch Changes
+
+- caf15ad: add missing models
+
 ## 0.15.0
 
 ### Minor Changes
