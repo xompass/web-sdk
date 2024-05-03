@@ -1,5 +1,11 @@
 # @xompass/web-sdk
 
+## 0.16.0
+
+### Minor Changes
+
+- 1e47a23: Add sensor type missing endpoints
+
 ## 0.15.1
 
 ### Patch Changes
