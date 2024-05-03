@@ -1,13 +1,4 @@
-import {
-  ApiFetch,
-  UploadFile,
-  Filter,
-  Include,
-  Order,
-  Where,
-} from '../core/ApiFetch';
-import { SensorType } from '../models/SensorType';
-import { Log } from '../models/Log';
+import { ApiFetch, Filter } from '../core/ApiFetch';
 
 /**
  * Api services for the `SensorType` model.
