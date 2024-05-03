@@ -18,6 +18,21 @@ export async function SensorType_GetSchemasAlerts(id: string): Promise<any> {
   });
 }
 /**
+ * Get the alerts schemas in JSON Schema format
+ * /SensorTypes/type/:type/schemas/alerts
+ */
+export async function SensorType_FindByTypeSchemasAlerts(
+  type: string
+): Promise<any> {
+  return ApiFetch({
+    method: 'GET',
+    url: '/SensorTypes/type/:type/schemas/alerts',
+    routeParams: {
+      type,
+    },
+  });
+}
+/**
  * Get the data schema in JSON Schema format
  * /SensorTypes/:id/schemas/data
  */
@@ -31,17 +46,47 @@ export async function SensorType_GetSchemasData(id: string): Promise<any> {
   });
 }
 /**
+ * Get the data schemas in JSON Schema format
+ * /SensorTypes/type/:type/schemas/data
+ */
+export async function SensorType_FindByTypeSchemasData(
+  type: string
+): Promise<any> {
+  return ApiFetch({
+    method: 'GET',
+    url: '/SensorTypes/type/:type/schemas/data',
+    routeParams: {
+      type,
+    },
+  });
+}
+/**
  * Get the eventTriggerRuleClauses schema in JSON Schema format
  * /SensorTypes/:id/schemas/eventTriggerRuleClauses
  */
 export async function SensorType_GetSchemasEventTriggerRuleClauses(
-  id: string,
+  id: string
 ): Promise<any> {
   return ApiFetch({
     method: 'GET',
     url: '/SensorTypes/:id/schemas/eventTriggerRuleClauses',
     routeParams: {
       id,
+    },
+  });
+}
+/**
+ * Get the eventTriggerRuleClauses schemas in JSON Schema format
+ * /SensorTypes/type/:type/schemas/eventTriggerRuleClauses
+ */
+export async function SensorType_FindByTypeSchemasEventTriggerRuleClauses(
+  type: string
+): Promise<any> {
+  return ApiFetch({
+    method: 'GET',
+    url: '/SensorTypes/type/:type/schemas/eventTriggerRuleClauses',
+    routeParams: {
+      type,
     },
   });
 }
@@ -59,6 +104,21 @@ export async function SensorType_GetSchemasSensors(id: string): Promise<any> {
   });
 }
 /**
+ * Get the sensors schemas in JSON Schema format
+ * /SensorTypes/type/:type/schemas/sensors
+ */
+export async function SensorType_FindByTypeSchemasSensors(
+  type: string
+): Promise<any> {
+  return ApiFetch({
+    method: 'GET',
+    url: '/SensorTypes/type/:type/schemas/sensors',
+    routeParams: {
+      type,
+    },
+  });
+}
+/**
  * Get the summaries schema in JSON Schema format
  * /SensorTypes/:id/schemas/summaries
  */
@@ -72,11 +132,26 @@ export async function SensorType_GetSchemasSummaries(id: string): Promise<any> {
   });
 }
 /**
+ * Get the summaries schemas in JSON Schema format
+ * /SensorTypes/type/:type/schemas/summaries
+ */
+export async function SensorType_FindByTypeSchemasSummaries(
+  type: string
+): Promise<any> {
+  return ApiFetch({
+    method: 'GET',
+    url: '/SensorTypes/type/:type/schemas/summaries',
+    routeParams: {
+      type,
+    },
+  });
+}
+/**
  * Get the thresholds schema in JSON Schema format
  * /SensorTypes/:id/schemas/thresholds
  */
 export async function SensorType_GetSchemasThresholds(
-  id: string,
+  id: string
 ): Promise<any> {
   return ApiFetch({
     method: 'GET',
@@ -87,11 +162,26 @@ export async function SensorType_GetSchemasThresholds(
   });
 }
 /**
+ * Get the thresholds schemas in JSON Schema format
+ * /SensorTypes/type/:type/schemas/thresholds
+ */
+export async function SensorType_FindByTypeSchemasThresholds(
+  type: string
+): Promise<any> {
+  return ApiFetch({
+    method: 'GET',
+    url: '/SensorTypes/type/:type/schemas/thresholds',
+    routeParams: {
+      type,
+    },
+  });
+}
+/**
  * Get the alerts schemas in JSON Schema format
  * /SensorTypes/schemas/alerts
  */
 export async function SensorType_FindSchemasAlerts(
-  filter: Filter<any> = {},
+  filter: Filter<any> = {}
 ): Promise<any[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -110,7 +200,7 @@ export async function SensorType_FindSchemasAlerts(
  * /SensorTypes/schemas/data
  */
 export async function SensorType_FindSchemasData(
-  filter: Filter<any> = {},
+  filter: Filter<any> = {}
 ): Promise<any[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -129,7 +219,7 @@ export async function SensorType_FindSchemasData(
  * /SensorTypes/schemas/eventTriggerRuleClauses
  */
 export async function SensorType_FindSchemasEventTriggerRuleClauses(
-  filter: Filter<any> = {},
+  filter: Filter<any> = {}
 ): Promise<any[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -148,7 +238,7 @@ export async function SensorType_FindSchemasEventTriggerRuleClauses(
  * /SensorTypes/schemas/sensors
  */
 export async function SensorType_FindSchemasSensors(
-  filter: Filter<any> = {},
+  filter: Filter<any> = {}
 ): Promise<any[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -167,7 +257,7 @@ export async function SensorType_FindSchemasSensors(
  * /SensorTypes/schemas/summaries
  */
 export async function SensorType_FindSchemasSummaries(
-  filter: Filter<any> = {},
+  filter: Filter<any> = {}
 ): Promise<any[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -186,7 +276,7 @@ export async function SensorType_FindSchemasSummaries(
  * /SensorTypes/schemas/thresholds
  */
 export async function SensorType_FindSchemasThresholds(
-  filter: Filter<any> = {},
+  filter: Filter<any> = {}
 ): Promise<any[]> {
   const _urlParams: any = {};
   if (filter != null) {
