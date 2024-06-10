@@ -1,5 +1,11 @@
 # @xompass/web-sdk
 
+## 0.17.0
+
+### Minor Changes
+
+- 697f7f3: Add objects fields to CargoContainerISOReader
+
 ## 0.16.0
 
 ### Minor Changes
