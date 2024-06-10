@@ -1,3 +1,5 @@
+import { YoloClassLabel } from '../YoloClassLabel';
+
 export type CargoContainerISOReaderContent = {
   files?: {
     image?: {
@@ -20,4 +22,14 @@ export type CargoContainerISOReaderContent = {
     capacity?: number;
     height?: number;
   };
+  objects?: {
+    class: YoloClassLabel;
+    probability: number;
+    frame: {
+      x: number;
+      y: number;
+      w: number;
+      h: number;
+    };
+  }[];
 };
