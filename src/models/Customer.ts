@@ -3,6 +3,7 @@ import { Asset } from './Asset';
 import { AssetStateChange } from './AssetStateChange';
 import { AssetTag } from './AssetTag';
 import { AssetTemplate } from './AssetTemplate';
+import { CountReport } from './CountReport';
 import { Country } from './Country';
 import { Credential } from './Credential';
 import { CustomerRestrictionTable } from './CustomerRestrictionTable';
@@ -44,6 +45,7 @@ export type Customer = {
   assetTags?: AssetTag[];
   assets?: Asset[];
   assetTemplates?: AssetTemplate[];
+  countReports?: CountReport[];
   credentials?: Credential[];
   apiKeys?: ApiKey[];
   country?: Country;

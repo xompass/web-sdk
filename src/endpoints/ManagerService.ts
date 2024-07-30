@@ -7,6 +7,7 @@ import { Customer } from '../models/Customer';
 import { Country } from '../models/Country';
 import { Asset } from '../models/Asset';
 import { CctvDashboard } from '../models/CctvDashboard';
+import { CountReport } from '../models/CountReport';
 import { EventDashboard } from '../models/EventDashboard';
 import { ManagerStorageContainer } from '../models/Manager';
 import { PeopleCounterReport } from '../models/PeopleCounterReport';
@@ -16,7 +17,6 @@ import { StoreVideoAnalyticDashboard } from '../models/StoreVideoAnalyticDashboa
 import { TimeZone } from '../models/TimeZone';
 import { TrafficFlowAnalysis } from '../models/TrafficFlowAnalysis';
 import { View } from '../models/View';
-import { CountReport } from '../models/CountReport';
 
 /**
  * Api services for the `Manager` model.
@@ -28,7 +28,7 @@ import { CountReport } from '../models/CountReport';
  */
 export async function Manager_FindByIdAccessTokens(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<CommonAccessToken> {
   return ApiFetch({
     method: 'GET',
@@ -45,7 +45,7 @@ export async function Manager_FindByIdAccessTokens(
  */
 export async function Manager_FindByIdActivityLogs(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<Log> {
   return ApiFetch({
     method: 'GET',
@@ -62,7 +62,7 @@ export async function Manager_FindByIdActivityLogs(
  */
 export async function Manager_FindByIdCredentials(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<Credential> {
   return ApiFetch({
     method: 'GET',
@@ -79,7 +79,7 @@ export async function Manager_FindByIdCredentials(
  */
 export async function Manager_ExistsCredentials(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<boolean> {
   return ApiFetch({
     method: 'HEAD',
@@ -122,7 +122,7 @@ export async function Manager_GetCountry(id: string): Promise<Country> {
  */
 export async function Manager_FindByIdAssets(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<Asset> {
   return ApiFetch({
     method: 'GET',
@@ -139,7 +139,7 @@ export async function Manager_FindByIdAssets(
  */
 export async function Manager_DestroyByIdAssets(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
@@ -157,7 +157,7 @@ export async function Manager_DestroyByIdAssets(
 export async function Manager_UpdateByIdAssets(
   id: string,
   fk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<Asset> {
   return ApiFetch({
     method: 'PUT',
@@ -176,7 +176,7 @@ export async function Manager_UpdateByIdAssets(
 export async function Manager_LinkAssets(
   id: string,
   fk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<any> {
   return ApiFetch({
     method: 'PUT',
@@ -194,7 +194,7 @@ export async function Manager_LinkAssets(
  */
 export async function Manager_UnlinkAssets(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
@@ -211,7 +211,7 @@ export async function Manager_UnlinkAssets(
  */
 export async function Manager_FindByIdCctvDashboards(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<CctvDashboard> {
   return ApiFetch({
     method: 'GET',
@@ -228,7 +228,7 @@ export async function Manager_FindByIdCctvDashboards(
  */
 export async function Manager_DestroyByIdCctvDashboards(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
@@ -246,7 +246,7 @@ export async function Manager_DestroyByIdCctvDashboards(
 export async function Manager_UpdateByIdCctvDashboards(
   id: string,
   fk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<CctvDashboard> {
   return ApiFetch({
     method: 'PUT',
@@ -265,7 +265,7 @@ export async function Manager_UpdateByIdCctvDashboards(
 export async function Manager_LinkCctvDashboards(
   id: string,
   fk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<any> {
   return ApiFetch({
     method: 'PUT',
@@ -283,7 +283,7 @@ export async function Manager_LinkCctvDashboards(
  */
 export async function Manager_UnlinkCctvDashboards(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
@@ -301,7 +301,7 @@ export async function Manager_UnlinkCctvDashboards(
  */
 export async function Manager_FindByIdCountReports(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<CountReport> {
   return ApiFetch({
     method: 'GET',
@@ -318,7 +318,7 @@ export async function Manager_FindByIdCountReports(
  */
 export async function Manager_DestroyByIdCountReports(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
@@ -336,7 +336,7 @@ export async function Manager_DestroyByIdCountReports(
 export async function Manager_UpdateByIdCountReports(
   id: string,
   fk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<CountReport> {
   return ApiFetch({
     method: 'PUT',
@@ -355,7 +355,7 @@ export async function Manager_UpdateByIdCountReports(
 export async function Manager_LinkCountReports(
   id: string,
   fk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<any> {
   return ApiFetch({
     method: 'PUT',
@@ -373,7 +373,7 @@ export async function Manager_LinkCountReports(
  */
 export async function Manager_UnlinkCountReports(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
@@ -391,7 +391,7 @@ export async function Manager_UnlinkCountReports(
  */
 export async function Manager_FindByIdEventDashboards(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<EventDashboard> {
   return ApiFetch({
     method: 'GET',
@@ -408,7 +408,7 @@ export async function Manager_FindByIdEventDashboards(
  */
 export async function Manager_DestroyByIdEventDashboards(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
@@ -426,7 +426,7 @@ export async function Manager_DestroyByIdEventDashboards(
 export async function Manager_UpdateByIdEventDashboards(
   id: string,
   fk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<EventDashboard> {
   return ApiFetch({
     method: 'PUT',
@@ -445,7 +445,7 @@ export async function Manager_UpdateByIdEventDashboards(
 export async function Manager_LinkEventDashboards(
   id: string,
   fk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<any> {
   return ApiFetch({
     method: 'PUT',
@@ -463,7 +463,7 @@ export async function Manager_LinkEventDashboards(
  */
 export async function Manager_UnlinkEventDashboards(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
@@ -479,7 +479,7 @@ export async function Manager_UnlinkEventDashboards(
  * /Managers/:id/container
  */
 export async function Manager_GetContainer(
-  id: string
+  id: string,
 ): Promise<ManagerStorageContainer> {
   return ApiFetch({
     method: 'GET',
@@ -495,7 +495,7 @@ export async function Manager_GetContainer(
  */
 export async function Manager_FindByIdPeopleCounterReports(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<PeopleCounterReport> {
   return ApiFetch({
     method: 'GET',
@@ -512,7 +512,7 @@ export async function Manager_FindByIdPeopleCounterReports(
  */
 export async function Manager_DestroyByIdPeopleCounterReports(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
@@ -530,7 +530,7 @@ export async function Manager_DestroyByIdPeopleCounterReports(
 export async function Manager_UpdateByIdPeopleCounterReports(
   id: string,
   fk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<PeopleCounterReport> {
   return ApiFetch({
     method: 'PUT',
@@ -549,7 +549,7 @@ export async function Manager_UpdateByIdPeopleCounterReports(
 export async function Manager_LinkPeopleCounterReports(
   id: string,
   fk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<any> {
   return ApiFetch({
     method: 'PUT',
@@ -567,7 +567,7 @@ export async function Manager_LinkPeopleCounterReports(
  */
 export async function Manager_UnlinkPeopleCounterReports(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
@@ -597,7 +597,7 @@ export async function Manager_GetPermission(id: string): Promise<Permission> {
  */
 export async function Manager_CreatePermission(
   id: string,
-  data: any = {}
+  data: any = {},
 ): Promise<Permission> {
   return ApiFetch({
     method: 'POST',
@@ -614,7 +614,7 @@ export async function Manager_CreatePermission(
  */
 export async function Manager_UpdatePermission(
   id: string,
-  data: any = {}
+  data: any = {},
 ): Promise<Permission> {
   return ApiFetch({
     method: 'PUT',
@@ -631,7 +631,7 @@ export async function Manager_UpdatePermission(
  */
 export async function Manager_FindByIdReports(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<Report> {
   return ApiFetch({
     method: 'GET',
@@ -648,7 +648,7 @@ export async function Manager_FindByIdReports(
  */
 export async function Manager_DestroyByIdReports(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
@@ -666,7 +666,7 @@ export async function Manager_DestroyByIdReports(
 export async function Manager_UpdateByIdReports(
   id: string,
   fk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<Report> {
   return ApiFetch({
     method: 'PUT',
@@ -685,7 +685,7 @@ export async function Manager_UpdateByIdReports(
 export async function Manager_LinkReports(
   id: string,
   fk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<any> {
   return ApiFetch({
     method: 'PUT',
@@ -703,7 +703,7 @@ export async function Manager_LinkReports(
  */
 export async function Manager_UnlinkReports(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
@@ -720,7 +720,7 @@ export async function Manager_UnlinkReports(
  */
 export async function Manager_FindByIdStoreVideoAnalyticDashboards(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<StoreVideoAnalyticDashboard> {
   return ApiFetch({
     method: 'GET',
@@ -737,7 +737,7 @@ export async function Manager_FindByIdStoreVideoAnalyticDashboards(
  */
 export async function Manager_DestroyByIdStoreVideoAnalyticDashboards(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
@@ -755,7 +755,7 @@ export async function Manager_DestroyByIdStoreVideoAnalyticDashboards(
 export async function Manager_UpdateByIdStoreVideoAnalyticDashboards(
   id: string,
   fk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<StoreVideoAnalyticDashboard> {
   return ApiFetch({
     method: 'PUT',
@@ -774,7 +774,7 @@ export async function Manager_UpdateByIdStoreVideoAnalyticDashboards(
 export async function Manager_LinkStoreVideoAnalyticDashboards(
   id: string,
   fk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<any> {
   return ApiFetch({
     method: 'PUT',
@@ -792,7 +792,7 @@ export async function Manager_LinkStoreVideoAnalyticDashboards(
  */
 export async function Manager_UnlinkStoreVideoAnalyticDashboards(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
@@ -822,7 +822,7 @@ export async function Manager_GetTimeZone(id: string): Promise<TimeZone> {
  */
 export async function Manager_FindByIdTrafficFlowAnalysis(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<TrafficFlowAnalysis> {
   return ApiFetch({
     method: 'GET',
@@ -839,7 +839,7 @@ export async function Manager_FindByIdTrafficFlowAnalysis(
  */
 export async function Manager_DestroyByIdTrafficFlowAnalysis(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
@@ -857,7 +857,7 @@ export async function Manager_DestroyByIdTrafficFlowAnalysis(
 export async function Manager_UpdateByIdTrafficFlowAnalysis(
   id: string,
   fk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<TrafficFlowAnalysis> {
   return ApiFetch({
     method: 'PUT',
@@ -876,7 +876,7 @@ export async function Manager_UpdateByIdTrafficFlowAnalysis(
 export async function Manager_LinkTrafficFlowAnalysis(
   id: string,
   fk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<any> {
   return ApiFetch({
     method: 'PUT',
@@ -894,7 +894,7 @@ export async function Manager_LinkTrafficFlowAnalysis(
  */
 export async function Manager_UnlinkTrafficFlowAnalysis(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
@@ -911,7 +911,7 @@ export async function Manager_UnlinkTrafficFlowAnalysis(
  */
 export async function Manager_FindByIdViews(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<View> {
   return ApiFetch({
     method: 'GET',
@@ -929,7 +929,7 @@ export async function Manager_FindByIdViews(
 export async function Manager_LinkViews(
   id: string,
   fk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<any> {
   return ApiFetch({
     method: 'PUT',
@@ -947,7 +947,7 @@ export async function Manager_LinkViews(
  */
 export async function Manager_UnlinkViews(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
@@ -964,7 +964,7 @@ export async function Manager_UnlinkViews(
  */
 export async function Manager_GetActivityLogs(
   id: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<Log[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -986,7 +986,7 @@ export async function Manager_GetActivityLogs(
  */
 export async function Manager_CountActivityLogs(
   id: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -1008,7 +1008,7 @@ export async function Manager_CountActivityLogs(
  */
 export async function Manager_GetCredentials(
   id: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<Credential[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -1030,7 +1030,7 @@ export async function Manager_GetCredentials(
  */
 export async function Manager_CountCredentials(
   id: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -1052,7 +1052,7 @@ export async function Manager_CountCredentials(
  */
 export async function Manager_GetAssets(
   id: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<Asset[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -1074,7 +1074,7 @@ export async function Manager_GetAssets(
  */
 export async function Manager_CountAssets(
   id: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -1096,7 +1096,7 @@ export async function Manager_CountAssets(
  */
 export async function Manager_GetCctvDashboards(
   id: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<CctvDashboard[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -1118,7 +1118,7 @@ export async function Manager_GetCctvDashboards(
  */
 export async function Manager_CountCctvDashboards(
   id: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -1141,7 +1141,7 @@ export async function Manager_CountCctvDashboards(
  */
 export async function Manager_GetCountReports(
   id: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<CountReport[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -1163,7 +1163,7 @@ export async function Manager_GetCountReports(
  */
 export async function Manager_CountCountReports(
   id: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -1186,7 +1186,7 @@ export async function Manager_CountCountReports(
  */
 export async function Manager_GetEventDashboards(
   id: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<EventDashboard[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -1208,7 +1208,7 @@ export async function Manager_GetEventDashboards(
  */
 export async function Manager_CountEventDashboards(
   id: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -1230,7 +1230,7 @@ export async function Manager_CountEventDashboards(
  */
 export async function Manager_GetPeopleCounterReports(
   id: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<PeopleCounterReport[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -1252,7 +1252,7 @@ export async function Manager_GetPeopleCounterReports(
  */
 export async function Manager_CountPeopleCounterReports(
   id: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -1274,7 +1274,7 @@ export async function Manager_CountPeopleCounterReports(
  */
 export async function Manager_GetReports(
   id: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<Report[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -1297,7 +1297,7 @@ export async function Manager_GetReports(
  */
 export async function Manager_CountReports(
   id: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -1320,7 +1320,7 @@ export async function Manager_CountReports(
  */
 export async function Manager_GetStoreVideoAnalyticDashboards(
   id: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<StoreVideoAnalyticDashboard[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -1342,7 +1342,7 @@ export async function Manager_GetStoreVideoAnalyticDashboards(
  */
 export async function Manager_CountStoreVideoAnalyticDashboards(
   id: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -1364,7 +1364,7 @@ export async function Manager_CountStoreVideoAnalyticDashboards(
  */
 export async function Manager_GetTrafficFlowAnalysis(
   id: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<TrafficFlowAnalysis[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -1386,7 +1386,7 @@ export async function Manager_GetTrafficFlowAnalysis(
  */
 export async function Manager_CountTrafficFlowAnalysis(
   id: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -1408,7 +1408,7 @@ export async function Manager_CountTrafficFlowAnalysis(
  */
 export async function Manager_GetViews(
   id: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<View[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -1430,7 +1430,7 @@ export async function Manager_GetViews(
  */
 export async function Manager_CountViews(
   id: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -1464,7 +1464,7 @@ export async function Manager_create(data: any = {}): Promise<Manager> {
  */
 export async function Manager_findById(
   id: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<Manager> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -1503,7 +1503,7 @@ export async function Manager_login(
     relation: 'user',
     scope: { include: ['container'] },
   },
-  rememberMe: boolean = true
+  rememberMe: boolean = true,
 ): Promise<any> {
   const _urlParams: any = {};
   if (include != null) {
@@ -1553,7 +1553,7 @@ export async function Manager_verify(id: string): Promise<any> {
 export async function Manager_confirm(
   uid: string,
   token: string,
-  redirect?: string
+  redirect?: string,
 ): Promise<any> {
   const _urlParams: any = {};
   if (uid != null) {
@@ -1593,7 +1593,7 @@ export async function Manager_resetPassword(options: any): Promise<any> {
  */
 export async function Manager_changePassword(
   oldPassword: string,
-  newPassword: string
+  newPassword: string,
 ): Promise<any> {
   return ApiFetch({
     method: 'POST',
@@ -1625,7 +1625,7 @@ export async function Manager_setPassword(newPassword: string): Promise<any> {
  */
 export async function Manager_otpLogin(
   credentials: any,
-  include?: string
+  include?: string,
 ): Promise<any> {
   const _urlParams: any = {};
   if (include != null) {
@@ -1688,7 +1688,7 @@ export async function Manager_otpGenerate(id: string): Promise<any> {
  */
 export async function Manager_otpVerify(
   id: string,
-  obj: any = {}
+  obj: any = {},
 ): Promise<any> {
   return ApiFetch({
     method: 'POST',
@@ -1762,7 +1762,7 @@ export async function Manager_getFile(id: string, file: string): Promise<any> {
 export async function Manager_removeFile(
   id: string,
   property: string,
-  file: string
+  file: string,
 ): Promise<void> {
   const _urlParams: any = {};
   if (property != null) {
@@ -1787,7 +1787,7 @@ export async function Manager_upload(
   id: string,
   property: string,
   file: File,
-  onProgress?: (progress: number) => void
+  onProgress?: (progress: number) => void,
 ): Promise<any> {
   const _urlParams: any = {};
   if (property != null) {
@@ -1811,7 +1811,7 @@ export async function Manager_upload(
 export async function Manager_download(
   id: string,
   property: string,
-  file: string
+  file: string,
 ): Promise<any> {
   const _urlParams: any = {};
   if (property != null) {

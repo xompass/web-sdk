@@ -12,16 +12,6 @@ export type CargoContainerISOReaderContent = {
       datasourceName?: string;
     }[];
   };
-  info?: {
-    ownerCode?: string;
-    serialNumber?: string;
-    checkDigit?: string;
-    containerProperties?: string;
-    mgw?: number;
-    tare?: number;
-    capacity?: number;
-    height?: number;
-  };
   objects?: {
     class: YoloClassLabel;
     probability: number;
@@ -32,4 +22,14 @@ export type CargoContainerISOReaderContent = {
       h: number;
     };
   }[];
+  info?: {
+    ownerCode?: string;
+    serialNumber?: string;
+    checkDigit?: string;
+    containerProperties?: string;
+    mgw?: number;
+    tare?: number;
+    capacity?: number;
+    height?: number;
+  };
 };

@@ -10,6 +10,7 @@ export type Log = {
   params?: any;
   data?: any;
   embeddedRelationName?: string;
+  accessThrough?: string;
   created?: Date;
   modified?: Date;
   deleted?: Date;

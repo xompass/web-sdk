@@ -1,5 +1,6 @@
 import { Customer } from './Customer';
 import { Log } from './Log';
+import { RateLimit } from './RateLimit';
 
 export type ApiKey = {
   name: string;
@@ -12,6 +13,7 @@ export type ApiKey = {
   modified?: Date;
   deleted?: Date;
   customerId?: string;
+  _rateLimit?: RateLimit;
   customer?: Customer;
   trackingLogs?: Log[];
 };

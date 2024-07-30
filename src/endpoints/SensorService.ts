@@ -5,6 +5,7 @@ import { Dataset } from '../models/Dataset';
 import { Alert } from '../models/Alert';
 import { AlertHistory } from '../models/AlertHistory';
 import { Data } from '../models/Data';
+import { RateLimit } from '../models/RateLimit';
 import { AssetState } from '../models/AssetState';
 import { SensorAssetState } from '../models/SensorAssetState';
 import { Summary } from '../models/Summary';
@@ -158,6 +159,53 @@ export async function Sensor_DestroyLastData(id: string): Promise<void> {
     routeParams: {
       id,
     },
+  });
+}
+/**
+ * Capta la relación hasOne rateLimit.
+ * /Sensors/:id/rateLimit
+ */
+export async function Sensor_GetRateLimit(id: string): Promise<RateLimit> {
+  return ApiFetch({
+    method: 'GET',
+    url: '/Sensors/:id/rateLimit',
+    routeParams: {
+      id,
+    },
+  });
+}
+/**
+ * Crea una nueva instancia en rateLimit de este modelo.
+ * /Sensors/:id/rateLimit
+ */
+export async function Sensor_CreateRateLimit(
+  id: string,
+  data: any = {},
+): Promise<RateLimit> {
+  return ApiFetch({
+    method: 'POST',
+    url: '/Sensors/:id/rateLimit',
+    routeParams: {
+      id,
+    },
+    body: data,
+  });
+}
+/**
+ * Actualizar rateLimit de este modelo.
+ * /Sensors/:id/rateLimit
+ */
+export async function Sensor_UpdateRateLimit(
+  id: string,
+  data: any = {},
+): Promise<RateLimit> {
+  return ApiFetch({
+    method: 'PUT',
+    url: '/Sensors/:id/rateLimit',
+    routeParams: {
+      id,
+    },
+    body: data,
   });
 }
 /**

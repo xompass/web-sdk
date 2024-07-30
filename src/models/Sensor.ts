@@ -5,6 +5,7 @@ import { AssetState } from './AssetState';
 import { Data } from './Data';
 import { Dataset } from './Dataset';
 import { Log } from './Log';
+import { RateLimit } from './RateLimit';
 import { SensorAssetState } from './SensorAssetState';
 import { SensorTemplate } from './SensorTemplate';
 import { SensorUptime } from './SensorUptime';
@@ -87,6 +88,7 @@ export type Sensor = {
   id?: string;
   assetId?: string;
   _lastData?: Data;
+  _rateLimit?: RateLimit;
   templateId?: string;
   trackingLogs?: Log[];
   asset?: Asset;

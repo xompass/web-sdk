@@ -1,3 +1,5 @@
+import { YoloClassLabel } from '../YoloClassLabel';
+
 export type CargoContainerISOReaderSummary = {
   meta?: {
     data?: {
@@ -37,6 +39,41 @@ export type CargoContainerISOReaderSummary = {
           max?: number;
         };
       };
+    };
+    detections?: {
+      length?: {
+        count?: number;
+        sum?: number;
+        avg?: number;
+        min?: number;
+        max?: number;
+      };
+      probability?: {
+        count?: number;
+        sum?: number;
+        avg?: number;
+        min?: number;
+        max?: number;
+      };
+      class?: Record<
+        YoloClassLabel,
+        {
+          length?: {
+            count?: number;
+            sum?: number;
+            avg?: number;
+            min?: number;
+            max?: number;
+          };
+          probability?: {
+            count?: number;
+            sum?: number;
+            avg?: number;
+            min?: number;
+            max?: number;
+          };
+        }
+      >;
     };
   };
 };

@@ -153,13 +153,13 @@ const Reviver = (key: string, value: any) => {
 function prepareUrl(
   url: string,
   routeParams?: ApiFetchRouteParams,
-  urlParams: ApiFetchUrlParams = {}
+  urlParams: ApiFetchUrlParams = {},
 ) {
   if (routeParams) {
     for (const key in routeParams) {
       url = url.replace(
         new RegExp(`:${key}(/|$)`, 'g'),
-        `${routeParams[key]}$1`
+        `${routeParams[key]}$1`,
       );
     }
   }
