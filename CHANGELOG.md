@@ -1,5 +1,11 @@
 # @xompass/web-sdk
 
+## 0.18.0
+
+### Minor Changes
+
+- ac73fc0: Add UpdateDatasetData method. Add missing methods to other services
+
 ## 0.17.0
 
 ### Minor Changes
