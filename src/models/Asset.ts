@@ -22,6 +22,7 @@ import { HealthcheckEvent } from './HealthcheckEvent';
 import { Log } from './Log';
 import { Manager } from './Manager';
 import { Project } from './Project';
+import { RateLimit } from './RateLimit';
 import { Sensor } from './Sensor';
 import { SensorUptime } from './SensorUptime';
 import { SensorUptimeCollector } from './SensorUptimeCollector';
@@ -54,6 +55,7 @@ export type Asset = {
   assetWizardTypeId?: string;
   customerId?: string;
   projectId?: string;
+  _rateLimit?: RateLimit;
   assets?: Asset[];
   asset?: Asset;
   alerts?: Alert[];

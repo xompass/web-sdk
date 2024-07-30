@@ -1,0 +1,31 @@
+import { Log } from './Log';
+
+export type EndpointStats = {
+  hourInterval?: Date;
+  count?: number;
+  method?: string;
+  execTime?: number;
+  avgExecTime?: number;
+  maxExecTime?: number;
+  minExecTime?: number;
+  contentLength?: number;
+  avgContentLength?: number;
+  maxContentLength?: number;
+  minContentLength?: number;
+  errorCount?: number;
+  token?: string;
+  tokenType?: string;
+  customerId?: string;
+  hostname?: string;
+  taskname?: string;
+  maxUploadTime?: number;
+  minUploadTime?: number;
+  avgUploadTime?: number;
+  uploadTime?: number;
+  uploadCount?: number;
+  created?: Date;
+  modified?: Date;
+  deleted?: Date;
+  id?: string;
+  trackingLogs?: Log[];
+};

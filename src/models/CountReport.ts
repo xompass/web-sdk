@@ -43,11 +43,11 @@ export type CountReportElementBase = {
 };
 
 type CountReportElementIndicatorChart<
-  T extends 'hour' | 'day' | 'week' | 'month'
+  T extends 'hour' | 'day' | 'week' | 'month',
 > = { addChart?: false } | { addChart: true; xAxis: XAxis<T> };
 
 type CountReportElementIndicatorBase<
-  T extends 'hour' | 'day' | 'week' | 'month'
+  T extends 'hour' | 'day' | 'week' | 'month',
 > = CountReportElementBase & {
   type: 'indicator';
   addDifference?: boolean;
@@ -75,7 +75,7 @@ export type CountReportSeriesIndicator = Omit<CountReportSeriesBase, 'name'> & {
 };
 
 export type CountReportElementChartBase<
-  T extends 'hour' | 'day' | 'week' | 'month'
+  T extends 'hour' | 'day' | 'week' | 'month',
 > = CountReportElementBase & {
   type: 'chart';
   groupInterval: T;
@@ -97,7 +97,7 @@ export type CountReportSeriesChart = CountReportSeriesBase & {
 };
 
 export type CountReportElementTableBase<
-  T extends 'hour' | 'day' | 'week' | 'month'
+  T extends 'hour' | 'day' | 'week' | 'month',
 > = CountReportElementBase & {
   type: 'table';
   groupInterval: T;
@@ -114,7 +114,7 @@ export type CountReportElementTable =
 export type CountReportSeriesTable = CountReportSeriesBase;
 
 export type CountReportElementHeatmapBase<
-  T extends 'hour' | 'day' | 'week' | 'month'
+  T extends 'hour' | 'day' | 'week' | 'month',
 > = CountReportElementBase & {
   type: 'heatmap';
   groupInterval: T;
@@ -155,8 +155,8 @@ type CategoryType<T extends 'hour' | 'day' | 'week' | 'month'> =
         categoryType: T extends 'hour'
           ? CategoryTypeHour
           : T extends 'day'
-          ? CategoryTypeDay
-          : T extends 'week'
-          ? CategoryTypeWeek
-          : never;
+            ? CategoryTypeDay
+            : T extends 'week'
+              ? CategoryTypeWeek
+              : never;
       };

@@ -3,6 +3,7 @@ import { Customer } from '../models/Customer';
 import { AssetTag } from '../models/AssetTag';
 import { Asset } from '../models/Asset';
 import { AssetTemplate } from '../models/AssetTemplate';
+import { CountReport } from '../models/CountReport';
 import { Credential } from '../models/Credential';
 import { ApiKey } from '../models/ApiKey';
 import { Country } from '../models/Country';
@@ -41,6 +42,7 @@ import { EventGroup } from '../models/EventGroup';
 import { EventSummary } from '../models/EventSummary';
 import { EventSummaryForAsset } from '../models/EventSummaryForAsset';
 import { EventTrigger } from '../models/EventTrigger';
+import { HealthcheckEvent } from '../models/HealthcheckEvent';
 import { Summary } from '../models/Summary';
 import { AssetStateTemplate } from '../models/AssetStateTemplate';
 import { EventGroupTemplate } from '../models/EventGroupTemplate';
@@ -63,13 +65,12 @@ import { VirtualGroup } from '../models/VirtualGroup';
 import { VirtualVariable } from '../models/VirtualVariable';
 import { YoloClassProject } from '../models/YoloClassProject';
 import { Storypoint } from '../models/Storypoint';
+import { CountReportSection } from '../models/CountReport';
 import {
   LicensePlate,
   ListedLicensePlate,
   MergeLicensePlateResponse,
 } from '../models/LicensePlate';
-import { CountReport, CountReportSection } from '../models/CountReport';
-import { HealthcheckEvent } from '../models/HealthcheckEvent';
 
 /**
  * Api services for the `Customer` model.
@@ -81,7 +82,7 @@ import { HealthcheckEvent } from '../models/HealthcheckEvent';
  */
 export async function Customer_FindByIdAssets(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<Asset> {
   return ApiFetch({
     method: 'GET',
@@ -98,7 +99,7 @@ export async function Customer_FindByIdAssets(
  */
 export async function Customer_FindByIdAssetTemplates(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<AssetTemplate> {
   return ApiFetch({
     method: 'GET',
@@ -115,7 +116,7 @@ export async function Customer_FindByIdAssetTemplates(
  */
 export async function Customer_FindByIdCredentials(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<Credential> {
   return ApiFetch({
     method: 'GET',
@@ -132,7 +133,7 @@ export async function Customer_FindByIdCredentials(
  */
 export async function Customer_ExistsCredentials(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<boolean> {
   return ApiFetch({
     method: 'HEAD',
@@ -149,7 +150,7 @@ export async function Customer_ExistsCredentials(
  */
 export async function Customer_FindByIdApiKeys(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<ApiKey> {
   return ApiFetch({
     method: 'GET',
@@ -166,7 +167,7 @@ export async function Customer_FindByIdApiKeys(
  */
 export async function Customer_DestroyByIdApiKeys(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
@@ -184,7 +185,7 @@ export async function Customer_DestroyByIdApiKeys(
 export async function Customer_UpdateByIdApiKeys(
   id: string,
   fk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<ApiKey> {
   return ApiFetch({
     method: 'PUT',
@@ -228,7 +229,7 @@ export async function Customer_GetConfig(id: string): Promise<CustomerConfig> {
  */
 export async function Customer_UpdateConfig(
   id: string,
-  data: any = {}
+  data: any = {},
 ): Promise<CustomerConfig> {
   return ApiFetch({
     method: 'PUT',
@@ -244,7 +245,7 @@ export async function Customer_UpdateConfig(
  * /Customers/:id/restrictionTable
  */
 export async function Customer_GetRestrictionTable(
-  id: string
+  id: string,
 ): Promise<CustomerRestrictionTable> {
   return ApiFetch({
     method: 'GET',
@@ -259,7 +260,7 @@ export async function Customer_GetRestrictionTable(
  * /Customers/:id/container
  */
 export async function Customer_GetContainer(
-  id: string
+  id: string,
 ): Promise<CustomerStorageContainer> {
   return ApiFetch({
     method: 'GET',
@@ -275,7 +276,7 @@ export async function Customer_GetContainer(
  */
 export async function Customer_FindByIdDefaultEventComments(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<DefaultEventComment> {
   return ApiFetch({
     method: 'GET',
@@ -292,7 +293,7 @@ export async function Customer_FindByIdDefaultEventComments(
  */
 export async function Customer_DestroyByIdDefaultEventComments(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
@@ -310,7 +311,7 @@ export async function Customer_DestroyByIdDefaultEventComments(
 export async function Customer_UpdateByIdDefaultEventComments(
   id: string,
   fk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<DefaultEventComment> {
   return ApiFetch({
     method: 'PUT',
@@ -328,7 +329,7 @@ export async function Customer_UpdateByIdDefaultEventComments(
  */
 export async function Customer_FindByIdDevices(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<Device> {
   return ApiFetch({
     method: 'GET',
@@ -345,7 +346,7 @@ export async function Customer_FindByIdDevices(
  */
 export async function Customer_DestroyByIdDevices(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
@@ -363,7 +364,7 @@ export async function Customer_DestroyByIdDevices(
 export async function Customer_UpdateByIdDevices(
   id: string,
   fk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<Device> {
   return ApiFetch({
     method: 'PUT',
@@ -381,7 +382,7 @@ export async function Customer_UpdateByIdDevices(
  */
 export async function Customer_FindByIdDeviceEventTypes(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<DeviceEventType> {
   return ApiFetch({
     method: 'GET',
@@ -398,7 +399,7 @@ export async function Customer_FindByIdDeviceEventTypes(
  */
 export async function Customer_FindByIdEdgeAgents(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<EdgeAgent> {
   return ApiFetch({
     method: 'GET',
@@ -415,7 +416,7 @@ export async function Customer_FindByIdEdgeAgents(
  */
 export async function Customer_DestroyByIdEdgeAgents(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
@@ -433,7 +434,7 @@ export async function Customer_DestroyByIdEdgeAgents(
 export async function Customer_UpdateByIdEdgeAgents(
   id: string,
   fk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<EdgeAgent> {
   return ApiFetch({
     method: 'PUT',
@@ -451,7 +452,7 @@ export async function Customer_UpdateByIdEdgeAgents(
  */
 export async function Customer_FindByIdEmergencyContacts(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<EmergencyContact> {
   return ApiFetch({
     method: 'GET',
@@ -468,7 +469,7 @@ export async function Customer_FindByIdEmergencyContacts(
  */
 export async function Customer_DestroyByIdEmergencyContacts(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
@@ -486,7 +487,7 @@ export async function Customer_DestroyByIdEmergencyContacts(
 export async function Customer_UpdateByIdEmergencyContacts(
   id: string,
   fk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<EmergencyContact> {
   return ApiFetch({
     method: 'PUT',
@@ -504,7 +505,7 @@ export async function Customer_UpdateByIdEmergencyContacts(
  */
 export async function Customer_FindByIdEventStates(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<EventState> {
   return ApiFetch({
     method: 'GET',
@@ -521,7 +522,7 @@ export async function Customer_FindByIdEventStates(
  */
 export async function Customer_DestroyByIdEventStates(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
@@ -539,7 +540,7 @@ export async function Customer_DestroyByIdEventStates(
 export async function Customer_UpdateByIdEventStates(
   id: string,
   fk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<EventState> {
   return ApiFetch({
     method: 'PUT',
@@ -557,7 +558,7 @@ export async function Customer_UpdateByIdEventStates(
  */
 export async function Customer_FindByIdManagers(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<Manager> {
   return ApiFetch({
     method: 'GET',
@@ -574,7 +575,7 @@ export async function Customer_FindByIdManagers(
  */
 export async function Customer_FindByIdProjects(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<Project> {
   return ApiFetch({
     method: 'GET',
@@ -591,7 +592,7 @@ export async function Customer_FindByIdProjects(
  */
 export async function Customer_DestroyByIdProjects(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
@@ -609,7 +610,7 @@ export async function Customer_DestroyByIdProjects(
 export async function Customer_UpdateByIdProjects(
   id: string,
   fk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<Project> {
   return ApiFetch({
     method: 'PUT',
@@ -627,7 +628,7 @@ export async function Customer_UpdateByIdProjects(
  */
 export async function Customer_FindByIdStorylineCategories(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<StorylineCategory> {
   return ApiFetch({
     method: 'GET',
@@ -644,7 +645,7 @@ export async function Customer_FindByIdStorylineCategories(
  */
 export async function Customer_DestroyByIdStorylineCategories(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
@@ -662,7 +663,7 @@ export async function Customer_DestroyByIdStorylineCategories(
 export async function Customer_UpdateByIdStorylineCategories(
   id: string,
   fk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<StorylineCategory> {
   return ApiFetch({
     method: 'PUT',
@@ -680,7 +681,7 @@ export async function Customer_UpdateByIdStorylineCategories(
  */
 export async function Customer_FindByIdTelegramChats(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<TelegramChat> {
   return ApiFetch({
     method: 'GET',
@@ -697,7 +698,7 @@ export async function Customer_FindByIdTelegramChats(
  */
 export async function Customer_DestroyByIdTelegramChats(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
@@ -715,7 +716,7 @@ export async function Customer_DestroyByIdTelegramChats(
 export async function Customer_UpdateByIdTelegramChats(
   id: string,
   fk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<TelegramChat> {
   return ApiFetch({
     method: 'PUT',
@@ -746,7 +747,7 @@ export async function Customer_GetTimeZone(id: string): Promise<TimeZone> {
  */
 export async function Customer_FindByIdToolkits(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<Toolkit> {
   return ApiFetch({
     method: 'GET',
@@ -763,7 +764,7 @@ export async function Customer_FindByIdToolkits(
  */
 export async function Customer_LinkToolkits(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<Toolkit> {
   return ApiFetch({
     method: 'PUT',
@@ -781,7 +782,7 @@ export async function Customer_LinkToolkits(
  */
 export async function Customer_UnlinkToolkits(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
@@ -811,7 +812,7 @@ export async function Customer_GetVar(id: string): Promise<Var> {
  */
 export async function Customer_FindByIdYoloClasses(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<YoloClass> {
   return ApiFetch({
     method: 'GET',
@@ -829,7 +830,7 @@ export async function Customer_FindByIdYoloClasses(
 export async function Customer_LinkYoloClasses(
   id: string,
   fk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<YoloClassCustomer> {
   return ApiFetch({
     method: 'PUT',
@@ -847,7 +848,7 @@ export async function Customer_LinkYoloClasses(
  */
 export async function Customer_UnlinkYoloClasses(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
@@ -864,7 +865,7 @@ export async function Customer_UnlinkYoloClasses(
  */
 export async function Customer_ExistsYoloClasses(
   id: string,
-  fk: string
+  fk: string,
 ): Promise<boolean> {
   return ApiFetch({
     method: 'HEAD',
@@ -881,7 +882,7 @@ export async function Customer_ExistsYoloClasses(
  */
 export async function Customer_GetAssetTags(
   id: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<AssetTag[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -903,7 +904,7 @@ export async function Customer_GetAssetTags(
  */
 export async function Customer_GetAssets(
   id: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<Asset[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -925,7 +926,7 @@ export async function Customer_GetAssets(
  */
 export async function Customer_CountAssets(
   id: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -947,7 +948,7 @@ export async function Customer_CountAssets(
  */
 export async function Customer_GetAssetTemplates(
   id: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<AssetTemplate[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -969,7 +970,7 @@ export async function Customer_GetAssetTemplates(
  */
 export async function Customer_CountAssetTemplates(
   id: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -985,14 +986,13 @@ export async function Customer_CountAssetTemplates(
     },
   });
 }
-
 /**
  * countReports consultas de Customer.
  * /Customers/:id/countReports
  */
 export async function Customer_GetCountReports(
   id: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<CountReport[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -1008,14 +1008,13 @@ export async function Customer_GetCountReports(
     },
   });
 }
-
 /**
  * credentials consultas de Customer.
  * /Customers/:id/credentials
  */
 export async function Customer_GetCredentials(
   id: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<Credential[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -1037,7 +1036,7 @@ export async function Customer_GetCredentials(
  */
 export async function Customer_CountCredentials(
   id: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -1059,7 +1058,7 @@ export async function Customer_CountCredentials(
  */
 export async function Customer_GetApiKeys(
   id: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<ApiKey[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -1081,7 +1080,7 @@ export async function Customer_GetApiKeys(
  */
 export async function Customer_CreateApiKeys(
   id: string,
-  data: any = {}
+  data: any = {},
 ): Promise<ApiKey> {
   return ApiFetch({
     method: 'POST',
@@ -1098,7 +1097,7 @@ export async function Customer_CreateApiKeys(
  */
 export async function Customer_CountApiKeys(
   id: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -1120,7 +1119,7 @@ export async function Customer_CountApiKeys(
  */
 export async function Customer_GetDefaultEventComments(
   id: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<DefaultEventComment[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -1142,7 +1141,7 @@ export async function Customer_GetDefaultEventComments(
  */
 export async function Customer_CreateDefaultEventComments(
   id: string,
-  data: any = {}
+  data: any = {},
 ): Promise<DefaultEventComment> {
   return ApiFetch({
     method: 'POST',
@@ -1159,7 +1158,7 @@ export async function Customer_CreateDefaultEventComments(
  */
 export async function Customer_CountDefaultEventComments(
   id: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -1181,7 +1180,7 @@ export async function Customer_CountDefaultEventComments(
  */
 export async function Customer_GetDevices(
   id: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<Device[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -1203,7 +1202,7 @@ export async function Customer_GetDevices(
  */
 export async function Customer_CreateDevices(
   id: string,
-  data: any = {}
+  data: any = {},
 ): Promise<Device> {
   return ApiFetch({
     method: 'POST',
@@ -1220,7 +1219,7 @@ export async function Customer_CreateDevices(
  */
 export async function Customer_CountDevices(
   id: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -1242,7 +1241,7 @@ export async function Customer_CountDevices(
  */
 export async function Customer_GetDeviceEventTypes(
   id: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<DeviceEventType[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -1264,7 +1263,7 @@ export async function Customer_GetDeviceEventTypes(
  */
 export async function Customer_CountDeviceEventTypes(
   id: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -1286,7 +1285,7 @@ export async function Customer_CountDeviceEventTypes(
  */
 export async function Customer_GetEdgeAgents(
   id: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<EdgeAgent[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -1308,7 +1307,7 @@ export async function Customer_GetEdgeAgents(
  */
 export async function Customer_CreateEdgeAgents(
   id: string,
-  data: any = {}
+  data: any = {},
 ): Promise<EdgeAgent> {
   return ApiFetch({
     method: 'POST',
@@ -1325,7 +1324,7 @@ export async function Customer_CreateEdgeAgents(
  */
 export async function Customer_CountEdgeAgents(
   id: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -1347,7 +1346,7 @@ export async function Customer_CountEdgeAgents(
  */
 export async function Customer_GetEmergencyContacts(
   id: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<EmergencyContact[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -1369,7 +1368,7 @@ export async function Customer_GetEmergencyContacts(
  */
 export async function Customer_CreateEmergencyContacts(
   id: string,
-  data: any = {}
+  data: any = {},
 ): Promise<EmergencyContact> {
   return ApiFetch({
     method: 'POST',
@@ -1386,7 +1385,7 @@ export async function Customer_CreateEmergencyContacts(
  */
 export async function Customer_CountEmergencyContacts(
   id: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -1408,7 +1407,7 @@ export async function Customer_CountEmergencyContacts(
  */
 export async function Customer_GetEventStates(
   id: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<EventState[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -1430,7 +1429,7 @@ export async function Customer_GetEventStates(
  */
 export async function Customer_CreateEventStates(
   id: string,
-  data: any = {}
+  data: any = {},
 ): Promise<EventState> {
   return ApiFetch({
     method: 'POST',
@@ -1447,7 +1446,7 @@ export async function Customer_CreateEventStates(
  */
 export async function Customer_CountEventStates(
   id: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -1469,7 +1468,7 @@ export async function Customer_CountEventStates(
  */
 export async function Customer_GetManagers(
   id: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<Manager[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -1491,7 +1490,7 @@ export async function Customer_GetManagers(
  */
 export async function Customer_CreateManagers(
   id: string,
-  data: any = {}
+  data: any = {},
 ): Promise<Manager> {
   return ApiFetch({
     method: 'POST',
@@ -1508,7 +1507,7 @@ export async function Customer_CreateManagers(
  */
 export async function Customer_CountManagers(
   id: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -1530,7 +1529,7 @@ export async function Customer_CountManagers(
  */
 export async function Customer_GetProjects(
   id: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<Project[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -1552,7 +1551,7 @@ export async function Customer_GetProjects(
  */
 export async function Customer_CountProjects(
   id: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -1574,7 +1573,7 @@ export async function Customer_CountProjects(
  */
 export async function Customer_GetStorylines(
   id: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<Storyline[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -1596,7 +1595,7 @@ export async function Customer_GetStorylines(
  */
 export async function Customer_GetStorylineCategories(
   id: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<StorylineCategory[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -1618,7 +1617,7 @@ export async function Customer_GetStorylineCategories(
  */
 export async function Customer_CreateStorylineCategories(
   id: string,
-  data: any = {}
+  data: any = {},
 ): Promise<StorylineCategory> {
   return ApiFetch({
     method: 'POST',
@@ -1635,7 +1634,7 @@ export async function Customer_CreateStorylineCategories(
  */
 export async function Customer_CountStorylineCategories(
   id: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -1657,7 +1656,7 @@ export async function Customer_CountStorylineCategories(
  */
 export async function Customer_GetTelegramChats(
   id: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<TelegramChat[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -1679,7 +1678,7 @@ export async function Customer_GetTelegramChats(
  */
 export async function Customer_CreateTelegramChats(
   id: string,
-  data: any = {}
+  data: any = {},
 ): Promise<TelegramChat> {
   return ApiFetch({
     method: 'POST',
@@ -1696,7 +1695,7 @@ export async function Customer_CreateTelegramChats(
  */
 export async function Customer_CountTelegramChats(
   id: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -1718,7 +1717,7 @@ export async function Customer_CountTelegramChats(
  */
 export async function Customer_GetToolkits(
   id: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<Toolkit[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -1740,7 +1739,7 @@ export async function Customer_GetToolkits(
  */
 export async function Customer_CountToolkits(
   id: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -1762,7 +1761,7 @@ export async function Customer_CountToolkits(
  */
 export async function Customer_GetYoloClasses(
   id: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<YoloClass[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -1784,7 +1783,7 @@ export async function Customer_GetYoloClasses(
  */
 export async function Customer_CountYoloClasses(
   id: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -1806,7 +1805,7 @@ export async function Customer_CountYoloClasses(
  */
 export async function Customer_findById(
   id: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<Customer> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -1830,7 +1829,7 @@ export async function Customer_UploadStorylines(
   id: string,
   nk: string,
   file: File[],
-  onProgress?: (progress: number) => void
+  onProgress?: (progress: number) => void,
 ): Promise<any> {
   return UploadFile({
     url: '/Customers/:id/storylines/:nk/upload',
@@ -1850,7 +1849,7 @@ export async function Customer_DownloadStorylines(
   id: string,
   nk: string,
   file: string,
-  datasourceName: string
+  datasourceName: string,
 ): Promise<any> {
   const _urlParams: any = {};
   if (datasourceName != null) {
@@ -1876,7 +1875,7 @@ export async function Customer_RemoveFileStorylines(
   id: string,
   nk: string,
   file: string,
-  datasourceName: string
+  datasourceName: string,
 ): Promise<void> {
   const _urlParams: any = {};
   if (datasourceName != null) {
@@ -1901,7 +1900,7 @@ export async function Customer_RemoveFileStorylines(
 export async function Customer_InstantiateToolkits(
   id: string,
   fk: string,
-  data?: Project
+  data?: Project,
 ): Promise<Toolkit> {
   return ApiFetch({
     method: 'POST',
@@ -1919,7 +1918,7 @@ export async function Customer_InstantiateToolkits(
  */
 export async function Customer_assetsWithLastUptimeCollectors(
   id: string,
-  where: any = {}
+  where: any = {},
 ): Promise<SensorUptimeCollector[]> {
   const _urlParams: any = {};
   if (where != null) {
@@ -1944,7 +1943,7 @@ export async function Customer_GetAssetsWithUptimes(
   fk: string,
   from: Date,
   to: Date,
-  type?: string
+  type?: string,
 ): Promise<any[]> {
   const _urlParams: any = {};
   if (from != null) {
@@ -1973,7 +1972,7 @@ export async function Customer_GetAssetsWithUptimes(
  */
 export async function Customer_GetLastAssetsSensorsWithUptimeCollectors(
   id: string,
-  nk: string
+  nk: string,
 ): Promise<SensorUptimeCollector[]> {
   return ApiFetch({
     method: 'GET',
@@ -1990,7 +1989,7 @@ export async function Customer_GetLastAssetsSensorsWithUptimeCollectors(
  */
 export async function Customer_GetSensors(
   id: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<Sensor[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -2013,7 +2012,7 @@ export async function Customer_GetSensors(
 export async function Customer_GetProjectsSensors(
   id: string,
   nk: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<Sensor[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -2031,12 +2030,40 @@ export async function Customer_GetProjectsSensors(
   });
 }
 /**
+ * Get the sensors of an asset that are configured with the given class
+ * /Customers/:id/assets/:fk/sensorsWithStatesByClass
+ */
+export async function Customer_GetAssetsSensorsWithStatesByClass(
+  id: string,
+  fk: string,
+  class_: string,
+  filter: Filter<any> = {},
+): Promise<Sensor[]> {
+  const _urlParams: any = {};
+  if (filter != null) {
+    _urlParams['filter'] = filter;
+  }
+  if (class_ != null) {
+    _urlParams['class'] = class_;
+  }
+
+  return ApiFetch({
+    method: 'GET',
+    url: '/Customers/:id/assets/:fk/sensorsWithStatesByClass',
+    urlParams: _urlParams,
+    routeParams: {
+      id,
+      fk,
+    },
+  });
+}
+/**
  * Get the allowed admin tools (inferred from toolkits)
  * /Customers/:id/adminTools
  */
 export async function Customer_GetAdminTools(
   id: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<Tool[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -2058,7 +2085,7 @@ export async function Customer_GetAdminTools(
  */
 export async function Customer_GetTools(
   id: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<Tool[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -2081,7 +2108,7 @@ export async function Customer_GetTools(
 export async function Customer_GetToolkitsAssetTypes(
   id: string,
   fk: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<AssetType[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -2105,7 +2132,7 @@ export async function Customer_GetToolkitsAssetTypes(
 export async function Customer_GetProjectsAssetTypes(
   id: string,
   fk: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<AssetType[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -2169,7 +2196,7 @@ export async function Customer_getFile(id: string, file: string): Promise<any> {
 export async function Customer_removeFile(
   id: string,
   property: string,
-  file: string
+  file: string,
 ): Promise<void> {
   const _urlParams: any = {};
   if (property != null) {
@@ -2194,7 +2221,7 @@ export async function Customer_upload(
   id: string,
   property: string,
   file: File,
-  onProgress?: (progress: number) => void
+  onProgress?: (progress: number) => void,
 ): Promise<any> {
   const _urlParams: any = {};
   if (property != null) {
@@ -2218,7 +2245,7 @@ export async function Customer_upload(
 export async function Customer_download(
   id: string,
   property: string,
-  file: string
+  file: string,
 ): Promise<any> {
   const _urlParams: any = {};
   if (property != null) {
@@ -2242,7 +2269,7 @@ export async function Customer_download(
 export async function Customer_subscribeAssets(
   id: string,
   socketId: string,
-  where: any = {}
+  where: any = {},
 ): Promise<any> {
   const _urlParams: any = {};
   if (where != null) {
@@ -2267,7 +2294,7 @@ export async function Customer_subscribeAssets(
 export async function Customer_unsubscribeAssets(
   id: string,
   where: any = {},
-  socketId?: string
+  socketId?: string,
 ): Promise<void> {
   const _urlParams: any = {};
   if (where != null) {
@@ -2291,7 +2318,7 @@ export async function Customer_unsubscribeAssets(
 export async function Customer_subscribeDevices(
   id: string,
   socketId: string,
-  where: any = {}
+  where: any = {},
 ): Promise<any> {
   const _urlParams: any = {};
   if (where != null) {
@@ -2316,7 +2343,7 @@ export async function Customer_subscribeDevices(
 export async function Customer_unsubscribeDevices(
   id: string,
   where: any = {},
-  socketId?: string
+  socketId?: string,
 ): Promise<void> {
   const _urlParams: any = {};
   if (where != null) {
@@ -2339,7 +2366,7 @@ export async function Customer_unsubscribeDevices(
  */
 export async function Customer_findAndFilterDatasets(
   id: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<Dataset[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -2361,7 +2388,7 @@ export async function Customer_findAndFilterDatasets(
  */
 export async function Customer_findAndFilterEvents(
   id: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<Event[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -2384,7 +2411,7 @@ export async function Customer_findAndFilterEvents(
 export async function Customer_getDeviceLogs(
   id: string,
   nk: string,
-  query: any = {}
+  query: any = {},
 ): Promise<any> {
   const _urlParams: any = {};
   if (query != null) {
@@ -2407,7 +2434,7 @@ export async function Customer_getDeviceLogs(
  */
 export async function Customer_getDeviceUptime(
   id: string,
-  nk: string
+  nk: string,
 ): Promise<any> {
   return ApiFetch({
     method: 'GET',
@@ -2424,7 +2451,7 @@ export async function Customer_getDeviceUptime(
  */
 export async function Customer_getDeviceVersion(
   id: string,
-  nk: string
+  nk: string,
 ): Promise<any> {
   return ApiFetch({
     method: 'GET',
@@ -2441,7 +2468,7 @@ export async function Customer_getDeviceVersion(
  */
 export async function Customer_findDeviceUptimes(
   id: string,
-  where: any = {}
+  where: any = {},
 ): Promise<any> {
   const _urlParams: any = {};
   if (where != null) {
@@ -2463,7 +2490,7 @@ export async function Customer_findDeviceUptimes(
  */
 export async function Customer_findDeviceVersions(
   id: string,
-  where: any = {}
+  where: any = {},
 ): Promise<any> {
   const _urlParams: any = {};
   if (where != null) {
@@ -2484,7 +2511,7 @@ export async function Customer_findDeviceVersions(
  * /Customers/:id/restrictionTable/merged
  */
 export async function Customer_getMergedRestrictionTable(
-  id: string
+  id: string,
 ): Promise<any> {
   return ApiFetch({
     method: 'GET',
@@ -2509,7 +2536,7 @@ export async function Customer_searchLicensePlates(
   assetId?: string,
   sensorId?: string,
   class_?: string,
-  limit?: number
+  limit?: number,
 ): Promise<LicensePlate[]> {
   const _urlParams: any = {};
   if (licensePlate != null) {
@@ -2563,7 +2590,9 @@ export async function Customer_getLicensePlates(
   assetId?: string,
   sensorId?: string,
   class_?: string,
-  limit?: number
+  limit?: number,
+  groupInterval?: number,
+  groupMaxDistance?: number,
 ): Promise<LicensePlate[]> {
   const _urlParams: any = {};
   if (from != null) {
@@ -2584,6 +2613,12 @@ export async function Customer_getLicensePlates(
   if (limit != null) {
     _urlParams['limit'] = limit;
   }
+  if (groupInterval != null) {
+    _urlParams['groupInterval'] = groupInterval;
+  }
+  if (groupMaxDistance != null) {
+    _urlParams['groupMaxDistance'] = groupMaxDistance;
+  }
 
   return ApiFetch({
     method: 'GET',
@@ -2594,143 +2629,6 @@ export async function Customer_getLicensePlates(
     },
   });
 }
-
-/** Get ListedLicensePlates */
-export async function Customer_getListedLicensePlates(
-  id: string
-): Promise<ListedLicensePlate[]> {
-  return ApiFetch({
-    method: 'GET',
-    url: '/Customers/:id/blackList',
-    routeParams: {
-      id,
-    },
-  });
-}
-
-/**
- * Create ListedLicensePlates
- */
-export async function Customer_createListedLicensePlate(
-  id: string,
-  data: Omit<
-    Partial<ListedLicensePlate> &
-      Pick<ListedLicensePlate, 'licensePlate' | 'blacklistedAt'>,
-    '_key' | 'customerId' | 'createdAt'
-  >
-): Promise<string> {
-  return ApiFetch({
-    method: 'POST',
-    url: '/Customers/:id/blackList/licensePlate',
-    routeParams: {
-      id,
-    },
-    body: data,
-  });
-}
-
-/**
- * Delete ListedLicensePlates
- */
-export async function Customer_deleteListedLicensePlate(
-  id: string,
-  _key: string
-): Promise<void> {
-  return ApiFetch({
-    method: 'DELETE',
-    url: '/Customers/:id/blackList/licensePlate/:key',
-    routeParams: {
-      id,
-      key: _key,
-    },
-  });
-}
-
-/**
- * Update ListedLicensePlates
- */
-export async function Customer_updateListedLicensePlate(
-  id: string,
-  _key: string,
-  data: Omit<
-    Partial<ListedLicensePlate>,
-    '_key' | 'customerId' | 'createdAt' | 'licensePlate' | 'blacklistedAt'
-  >
-): Promise<string> {
-  return ApiFetch({
-    method: 'PATCH',
-    url: '/Customers/:id/blackList/licensePlate/:key',
-    routeParams: {
-      id,
-      key: _key,
-    },
-    body: data,
-  });
-}
-
-/**
- * Create many ListedLicensePlates
- */
-export async function Customer_createManyListedLicensePlates(
-  id: string,
-  data: Omit<
-    Partial<ListedLicensePlate> &
-      Pick<ListedLicensePlate, 'licensePlate' | 'blacklistedAt'>,
-    '_key' | 'customerId' | 'createdAt'
-  >[]
-): Promise<string[]> {
-  return ApiFetch({
-    method: 'POST',
-    url: '/Customers/:id/blackList/many',
-    routeParams: {
-      id,
-    },
-    body: data,
-  });
-}
-
-/**
- * Merge ListedLicensePlates
- */
-export async function Customer_mergeListedLicensePlates(
-  id: string,
-  data: Omit<
-    Partial<ListedLicensePlate> &
-      Pick<ListedLicensePlate, 'licensePlate' | 'blacklistedAt'>,
-    '_key' | 'customerId' | 'createdAt'
-  >[]
-): Promise<MergeLicensePlateResponse> {
-  return ApiFetch({
-    method: 'PATCH',
-    url: '/Customers/:id/blackList/merge',
-    routeParams: {
-      id,
-    },
-    body: data,
-  });
-}
-
-/**
- * Replace ListedLicensePlates
- */
-export async function Customer_replaceListedLicensePlates(
-  id: string,
-  data: Omit<
-    Partial<ListedLicensePlate> &
-      Pick<ListedLicensePlate, 'licensePlate' | 'blacklistedAt'>,
-    '_key' | 'customerId' | 'createdAt'
-  >[]
-): Promise<string[]> {
-  return ApiFetch({
-    method: 'PUT',
-    url: '/Customers/:id/blackList/replace',
-    routeParams: {
-      id,
-    },
-    body: data,
-  });
-}
-
 /**
  * Get events
  * /Customers/:id/events
@@ -2747,7 +2645,7 @@ export type Customer_getEventsResponse = Event & {
 };
 export async function Customer_getEvents(
   id: string,
-  filter: Filter<Event> = {}
+  filter: Filter<Event> = {},
 ): Promise<Customer_getEventsResponse[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -2763,7 +2661,6 @@ export async function Customer_getEvents(
     },
   });
 }
-
 /**
  * Get events
  * /Customers/:id/projects/:nk/events
@@ -2771,7 +2668,7 @@ export async function Customer_getEvents(
 export async function Customer_getProjectEvents(
   id: string,
   nk: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<any[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -2788,7 +2685,6 @@ export async function Customer_getProjectEvents(
     },
   });
 }
-
 /**
  * Get event summaries by subject
  * /Customers/:id/projects/:nk/eventSummariesBySubject
@@ -2796,7 +2692,7 @@ export async function Customer_getProjectEvents(
 export async function Customer_getEventSummariesBySubject(
   id: string,
   nk: string,
-  date: Date
+  date: Date,
 ): Promise<any[]> {
   const _urlParams: any = {};
   if (date != null) {
@@ -2813,14 +2709,182 @@ export async function Customer_getEventSummariesBySubject(
     },
   });
 }
+/**
+ * Get event summaries by event trigger id
+ * /Customers/:id/eventSummariesByEventTriggerId
+ */
+export async function Customer_getEventSummariesByEventTriggerId(
+  id: string,
+  date: Date,
+): Promise<any[]> {
+  const _urlParams: any = {};
+  if (date != null) {
+    _urlParams['date'] = date;
+  }
 
+  return ApiFetch({
+    method: 'GET',
+    url: '/Customers/:id/eventSummariesByEventTriggerId',
+    urlParams: _urlParams,
+    routeParams: {
+      id,
+    },
+  });
+}
+/**
+ * Get black listed vehicles
+ * /Customers/:id/blackList
+ */
+export async function Customer_getBlackList(id: string): Promise<any[]> {
+  return ApiFetch({
+    method: 'GET',
+    url: '/Customers/:id/blackList',
+    routeParams: {
+      id,
+    },
+  });
+}
+/**
+ * Add black listed vehicle
+ * /Customers/:id/blackList/licensePlate
+ */
+export async function Customer_addBlackListedVehicle(
+  id: string,
+  data: any = {},
+): Promise<any[]> {
+  return ApiFetch({
+    method: 'POST',
+    url: '/Customers/:id/blackList/licensePlate',
+    routeParams: {
+      id,
+    },
+    body: data,
+  });
+}
+/**
+ * Update black listed vehicle
+ * /Customers/:id/blackList/licensePlate/:nk
+ */
+export async function Customer_updateBlackListedVehicle(
+  id: string,
+  nk: string,
+  data: any = {},
+): Promise<string> {
+  return ApiFetch({
+    method: 'PATCH',
+    url: '/Customers/:id/blackList/licensePlate/:nk',
+    routeParams: {
+      id,
+      nk,
+    },
+    body: data,
+  });
+}
+/**
+ * Delete vehicle from black list
+ * /Customers/:id/blackList/licensePlate/:nk
+ */
+export async function Customer_deleteBlackListedVehicle(
+  id: string,
+  nk: string,
+): Promise<void> {
+  return ApiFetch({
+    method: 'DELETE',
+    url: '/Customers/:id/blackList/licensePlate/:nk',
+    routeParams: {
+      id,
+      nk,
+    },
+  });
+}
+/**
+ * Replace black list
+ * /Customers/:id/blackList/replace
+ */
+export async function Customer_replaceBlackList(
+  id: string,
+  data: any = {},
+): Promise<any[]> {
+  return ApiFetch({
+    method: 'PUT',
+    url: '/Customers/:id/blackList/replace',
+    routeParams: {
+      id,
+    },
+    body: data,
+  });
+}
+/**
+ * Merge black list
+ * /Customers/:id/blackList/merge
+ */
+export async function Customer_mergeBlackList(
+  id: string,
+  data: any = {},
+): Promise<any> {
+  return ApiFetch({
+    method: 'PATCH',
+    url: '/Customers/:id/blackList/merge',
+    routeParams: {
+      id,
+    },
+    body: data,
+  });
+}
+/**
+ * Create many black list
+ * /Customers/:id/blackList/many
+ */
+export async function Customer_createManyBlackList(
+  id: string,
+  data: any[] = [],
+): Promise<any[]> {
+  return ApiFetch({
+    method: 'POST',
+    url: '/Customers/:id/blackList/many',
+    routeParams: {
+      id,
+    },
+    body: data,
+  });
+}
+/**
+ * Get sosafe event types
+ * /Customers/:id/sosafe/eventTypes
+ */
+export async function Customer_getSosafeEventTypes(id: string): Promise<any[]> {
+  return ApiFetch({
+    method: 'GET',
+    url: '/Customers/:id/sosafe/eventTypes',
+    routeParams: {
+      id,
+    },
+  });
+}
+/**
+ * Set sosafe configuration
+ * /Customers/:id/sosafe/config
+ */
+export async function Customer_setSosafeConfig(
+  id: string,
+  data: any = {},
+): Promise<any> {
+  return ApiFetch({
+    method: 'POST',
+    url: '/Customers/:id/sosafe/config',
+    routeParams: {
+      id,
+    },
+    body: data,
+  });
+}
 /**
  * Export the contextualization of an Asset and its direct children
  * /Customers/:id/assets/:nk/export
  */
 export async function Customer_ExportAssets(
   id: string,
-  nk: string
+  nk: string,
 ): Promise<any> {
   return ApiFetch({
     method: 'GET',
@@ -2837,7 +2901,7 @@ export async function Customer_ExportAssets(
  */
 export async function Customer_GetAssetsConfig(
   id: string,
-  nk: string
+  nk: string,
 ): Promise<AssetConfig> {
   return ApiFetch({
     method: 'GET',
@@ -2855,7 +2919,7 @@ export async function Customer_GetAssetsConfig(
 export async function Customer_UpdateAssetsConfig(
   id: string,
   nk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<AssetConfig> {
   return ApiFetch({
     method: 'PUT',
@@ -2873,7 +2937,7 @@ export async function Customer_UpdateAssetsConfig(
  */
 export async function Customer_GetAssetsMilestone(
   id: string,
-  nk: string
+  nk: string,
 ): Promise<AssetMilestone> {
   return ApiFetch({
     method: 'GET',
@@ -2891,7 +2955,7 @@ export async function Customer_GetAssetsMilestone(
 export async function Customer_FindByIdAssetsStaffs(
   id: string,
   nk: string,
-  fk: string
+  fk: string,
 ): Promise<AssetStaff> {
   return ApiFetch({
     method: 'GET',
@@ -2910,7 +2974,7 @@ export async function Customer_FindByIdAssetsStaffs(
 export async function Customer_DestroyByIdAssetsStaffs(
   id: string,
   nk: string,
-  fk: string
+  fk: string,
 ): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
@@ -2930,7 +2994,7 @@ export async function Customer_UpdateByIdAssetsStaffs(
   id: string,
   nk: string,
   fk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<AssetStaff> {
   return ApiFetch({
     method: 'PUT',
@@ -2950,7 +3014,7 @@ export async function Customer_UpdateByIdAssetsStaffs(
 export async function Customer_FindByIdAssetsAssetStates(
   id: string,
   nk: string,
-  fk: string
+  fk: string,
 ): Promise<AssetState> {
   return ApiFetch({
     method: 'GET',
@@ -2969,7 +3033,7 @@ export async function Customer_FindByIdAssetsAssetStates(
 export async function Customer_DestroyByIdAssetsAssetStates(
   id: string,
   nk: string,
-  fk: string
+  fk: string,
 ): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
@@ -2989,7 +3053,7 @@ export async function Customer_UpdateByIdAssetsAssetStates(
   id: string,
   nk: string,
   fk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<AssetState> {
   return ApiFetch({
     method: 'PUT',
@@ -3008,7 +3072,7 @@ export async function Customer_UpdateByIdAssetsAssetStates(
  */
 export async function Customer_GetAssetsCurrentState(
   id: string,
-  nk: string
+  nk: string,
 ): Promise<AssetState> {
   return ApiFetch({
     method: 'GET',
@@ -3026,7 +3090,7 @@ export async function Customer_GetAssetsCurrentState(
 export async function Customer_FindByIdAssetsCredentials(
   id: string,
   nk: string,
-  fk: string
+  fk: string,
 ): Promise<Credential> {
   return ApiFetch({
     method: 'GET',
@@ -3045,7 +3109,7 @@ export async function Customer_FindByIdAssetsCredentials(
 export async function Customer_FindByIdAssetsAdmins(
   id: string,
   nk: string,
-  fk: string
+  fk: string,
 ): Promise<Admin> {
   return ApiFetch({
     method: 'GET',
@@ -3064,7 +3128,7 @@ export async function Customer_FindByIdAssetsAdmins(
 export async function Customer_FindByIdAssetsEvents(
   id: string,
   nk: string,
-  fk: string
+  fk: string,
 ): Promise<Event> {
   return ApiFetch({
     method: 'GET',
@@ -3084,7 +3148,7 @@ export async function Customer_UpdateByIdAssetsEvents(
   id: string,
   nk: string,
   fk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<Event> {
   return ApiFetch({
     method: 'PUT',
@@ -3104,7 +3168,7 @@ export async function Customer_UpdateByIdAssetsEvents(
 export async function Customer_FindByIdAssetsEventGroups(
   id: string,
   nk: string,
-  fk: string
+  fk: string,
 ): Promise<EventGroup> {
   return ApiFetch({
     method: 'GET',
@@ -3123,7 +3187,7 @@ export async function Customer_FindByIdAssetsEventGroups(
 export async function Customer_DestroyByIdAssetsEventGroups(
   id: string,
   nk: string,
-  fk: string
+  fk: string,
 ): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
@@ -3143,7 +3207,7 @@ export async function Customer_UpdateByIdAssetsEventGroups(
   id: string,
   nk: string,
   fk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<EventGroup> {
   return ApiFetch({
     method: 'PUT',
@@ -3163,7 +3227,7 @@ export async function Customer_UpdateByIdAssetsEventGroups(
 export async function Customer_FindByIdAssetsEventSummaries(
   id: string,
   nk: string,
-  fk: string
+  fk: string,
 ): Promise<EventSummary> {
   return ApiFetch({
     method: 'GET',
@@ -3182,7 +3246,7 @@ export async function Customer_FindByIdAssetsEventSummaries(
 export async function Customer_FindByIdAssetsEventSummaryForAssets(
   id: string,
   nk: string,
-  fk: string
+  fk: string,
 ): Promise<EventSummaryForAsset> {
   return ApiFetch({
     method: 'GET',
@@ -3201,7 +3265,7 @@ export async function Customer_FindByIdAssetsEventSummaryForAssets(
 export async function Customer_FindByIdAssetsEventTriggers(
   id: string,
   nk: string,
-  fk: string
+  fk: string,
 ): Promise<EventTrigger> {
   return ApiFetch({
     method: 'GET',
@@ -3220,7 +3284,7 @@ export async function Customer_FindByIdAssetsEventTriggers(
 export async function Customer_DestroyByIdAssetsEventTriggers(
   id: string,
   nk: string,
-  fk: string
+  fk: string,
 ): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
@@ -3240,11 +3304,51 @@ export async function Customer_UpdateByIdAssetsEventTriggers(
   id: string,
   nk: string,
   fk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<EventTrigger> {
   return ApiFetch({
     method: 'PUT',
     url: '/Customers/:id/assets/:nk/eventTriggers/:fk',
+    routeParams: {
+      id,
+      nk,
+      fk,
+    },
+    body: data,
+  });
+}
+/**
+ * Buscar un elemento relacionado por id para healthcheckEvents.
+ * /Customers/:id/assets/:nk/healthcheckEvents/:fk
+ */
+export async function Customer_FindByIdAssetsHealthcheckEvents(
+  id: string,
+  nk: string,
+  fk: string,
+): Promise<HealthcheckEvent> {
+  return ApiFetch({
+    method: 'GET',
+    url: '/Customers/:id/assets/:nk/healthcheckEvents/:fk',
+    routeParams: {
+      id,
+      nk,
+      fk,
+    },
+  });
+}
+/**
+ * Actualizar un elemento relacionado por id para healthcheckEvents.
+ * /Customers/:id/assets/:nk/healthcheckEvents/:fk
+ */
+export async function Customer_UpdateByIdAssetsHealthcheckEvents(
+  id: string,
+  nk: string,
+  fk: string,
+  data: any = {},
+): Promise<HealthcheckEvent> {
+  return ApiFetch({
+    method: 'PUT',
+    url: '/Customers/:id/assets/:nk/healthcheckEvents/:fk',
     routeParams: {
       id,
       nk,
@@ -3260,7 +3364,7 @@ export async function Customer_UpdateByIdAssetsEventTriggers(
 export async function Customer_FindByIdAssetsManagers(
   id: string,
   nk: string,
-  fk: string
+  fk: string,
 ): Promise<Manager> {
   return ApiFetch({
     method: 'GET',
@@ -3279,7 +3383,7 @@ export async function Customer_FindByIdAssetsManagers(
 export async function Customer_FindByIdAssetsSensors(
   id: string,
   nk: string,
-  fk: string
+  fk: string,
 ): Promise<Sensor> {
   return ApiFetch({
     method: 'GET',
@@ -3298,7 +3402,7 @@ export async function Customer_FindByIdAssetsSensors(
 export async function Customer_DestroyByIdAssetsSensors(
   id: string,
   nk: string,
-  fk: string
+  fk: string,
 ): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
@@ -3318,7 +3422,7 @@ export async function Customer_UpdateByIdAssetsSensors(
   id: string,
   nk: string,
   fk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<Sensor> {
   return ApiFetch({
     method: 'PUT',
@@ -3338,7 +3442,7 @@ export async function Customer_UpdateByIdAssetsSensors(
 export async function Customer_FindByIdAssetsSensorUptimes(
   id: string,
   nk: string,
-  fk: string
+  fk: string,
 ): Promise<SensorUptime> {
   return ApiFetch({
     method: 'GET',
@@ -3357,7 +3461,7 @@ export async function Customer_FindByIdAssetsSensorUptimes(
 export async function Customer_FindByIdAssetsSensorUptimeCollectors(
   id: string,
   nk: string,
-  fk: string
+  fk: string,
 ): Promise<SensorUptimeCollector> {
   return ApiFetch({
     method: 'GET',
@@ -3376,7 +3480,7 @@ export async function Customer_FindByIdAssetsSensorUptimeCollectors(
 export async function Customer_FindByIdAssetsSummaries(
   id: string,
   nk: string,
-  fk: string
+  fk: string,
 ): Promise<Summary> {
   return ApiFetch({
     method: 'GET',
@@ -3395,7 +3499,7 @@ export async function Customer_FindByIdAssetsSummaries(
 export async function Customer_GetAssetsAssets(
   id: string,
   nk: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<Asset[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -3419,7 +3523,7 @@ export async function Customer_GetAssetsAssets(
 export async function Customer_CreateAssetsAssets(
   id: string,
   nk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<Asset> {
   return ApiFetch({
     method: 'POST',
@@ -3438,7 +3542,7 @@ export async function Customer_CreateAssetsAssets(
 export async function Customer_CountAssetsAssets(
   id: string,
   nk: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -3462,7 +3566,7 @@ export async function Customer_CountAssetsAssets(
 export async function Customer_GetAssetsStaffs(
   id: string,
   nk: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<AssetStaff[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -3486,7 +3590,7 @@ export async function Customer_GetAssetsStaffs(
 export async function Customer_CreateAssetsStaffs(
   id: string,
   nk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<AssetStaff> {
   return ApiFetch({
     method: 'POST',
@@ -3505,7 +3609,7 @@ export async function Customer_CreateAssetsStaffs(
 export async function Customer_CountAssetsStaffs(
   id: string,
   nk: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -3529,7 +3633,7 @@ export async function Customer_CountAssetsStaffs(
 export async function Customer_GetAssetsAssetStates(
   id: string,
   nk: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<AssetState[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -3553,7 +3657,7 @@ export async function Customer_GetAssetsAssetStates(
 export async function Customer_CreateAssetsAssetStates(
   id: string,
   nk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<AssetState> {
   return ApiFetch({
     method: 'POST',
@@ -3572,7 +3676,7 @@ export async function Customer_CreateAssetsAssetStates(
 export async function Customer_CountAssetsAssetStates(
   id: string,
   nk: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -3596,7 +3700,7 @@ export async function Customer_CountAssetsAssetStates(
 export async function Customer_GetAssetsCredentials(
   id: string,
   nk: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<Credential[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -3620,7 +3724,7 @@ export async function Customer_GetAssetsCredentials(
 export async function Customer_CountAssetsCredentials(
   id: string,
   nk: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -3644,7 +3748,7 @@ export async function Customer_CountAssetsCredentials(
 export async function Customer_GetAssetsAdmins(
   id: string,
   nk: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<Admin[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -3668,7 +3772,7 @@ export async function Customer_GetAssetsAdmins(
 export async function Customer_CountAssetsAdmins(
   id: string,
   nk: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -3692,7 +3796,7 @@ export async function Customer_CountAssetsAdmins(
 export async function Customer_GetAssetsEvents(
   id: string,
   nk: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<Event[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -3716,7 +3820,7 @@ export async function Customer_GetAssetsEvents(
 export async function Customer_CountAssetsEvents(
   id: string,
   nk: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -3740,7 +3844,7 @@ export async function Customer_CountAssetsEvents(
 export async function Customer_GetAssetsEventGroups(
   id: string,
   nk: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<EventGroup[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -3764,7 +3868,7 @@ export async function Customer_GetAssetsEventGroups(
 export async function Customer_CreateAssetsEventGroups(
   id: string,
   nk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<EventGroup> {
   return ApiFetch({
     method: 'POST',
@@ -3783,7 +3887,7 @@ export async function Customer_CreateAssetsEventGroups(
 export async function Customer_CountAssetsEventGroups(
   id: string,
   nk: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -3807,7 +3911,7 @@ export async function Customer_CountAssetsEventGroups(
 export async function Customer_GetAssetsEventSummaries(
   id: string,
   nk: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<EventSummary[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -3831,7 +3935,7 @@ export async function Customer_GetAssetsEventSummaries(
 export async function Customer_CountAssetsEventSummaries(
   id: string,
   nk: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -3855,7 +3959,7 @@ export async function Customer_CountAssetsEventSummaries(
 export async function Customer_GetAssetsEventSummaryForAssets(
   id: string,
   nk: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<EventSummaryForAsset[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -3879,7 +3983,7 @@ export async function Customer_GetAssetsEventSummaryForAssets(
 export async function Customer_CountAssetsEventSummaryForAssets(
   id: string,
   nk: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -3903,7 +4007,7 @@ export async function Customer_CountAssetsEventSummaryForAssets(
 export async function Customer_GetAssetsEventTriggers(
   id: string,
   nk: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<EventTrigger[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -3927,7 +4031,7 @@ export async function Customer_GetAssetsEventTriggers(
 export async function Customer_CreateAssetsEventTriggers(
   id: string,
   nk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<EventTrigger> {
   return ApiFetch({
     method: 'POST',
@@ -3946,7 +4050,7 @@ export async function Customer_CreateAssetsEventTriggers(
 export async function Customer_CountAssetsEventTriggers(
   id: string,
   nk: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -3964,13 +4068,61 @@ export async function Customer_CountAssetsEventTriggers(
   });
 }
 /**
+ * healthcheckEvents consultas de Asset.
+ * /Customers/:id/assets/:nk/healthcheckEvents
+ */
+export async function Customer_GetAssetsHealthcheckEvents(
+  id: string,
+  nk: string,
+  filter: Filter<any> = {},
+): Promise<HealthcheckEvent[]> {
+  const _urlParams: any = {};
+  if (filter != null) {
+    _urlParams['filter'] = filter;
+  }
+
+  return ApiFetch({
+    method: 'GET',
+    url: '/Customers/:id/assets/:nk/healthcheckEvents',
+    urlParams: _urlParams,
+    routeParams: {
+      id,
+      nk,
+    },
+  });
+}
+/**
+ * Recuentos healthcheckEvents de Asset.
+ * /Customers/:id/assets/:nk/healthcheckEvents/count
+ */
+export async function Customer_CountAssetsHealthcheckEvents(
+  id: string,
+  nk: string,
+  where: any = {},
+): Promise<number> {
+  const _urlParams: any = {};
+  if (where != null) {
+    _urlParams['where'] = where;
+  }
+
+  return ApiFetch({
+    method: 'GET',
+    url: '/Customers/:id/assets/:nk/healthcheckEvents/count',
+    urlParams: _urlParams,
+    routeParams: {
+      id,
+      nk,
+    },
+  });
+}
+/**
  * managers consultas de Asset.
  * /Customers/:id/assets/:nk/managers
  */
 export async function Customer_GetAssetsManagers(
   id: string,
   nk: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<Manager[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -3994,7 +4146,7 @@ export async function Customer_GetAssetsManagers(
 export async function Customer_CountAssetsManagers(
   id: string,
   nk: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -4018,7 +4170,7 @@ export async function Customer_CountAssetsManagers(
 export async function Customer_GetAssetsSensors(
   id: string,
   nk: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<Sensor[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -4042,7 +4194,7 @@ export async function Customer_GetAssetsSensors(
 export async function Customer_CreateAssetsSensors(
   id: string,
   nk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<Sensor> {
   return ApiFetch({
     method: 'POST',
@@ -4061,7 +4213,7 @@ export async function Customer_CreateAssetsSensors(
 export async function Customer_CountAssetsSensors(
   id: string,
   nk: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -4085,7 +4237,7 @@ export async function Customer_CountAssetsSensors(
 export async function Customer_GetAssetsSensorUptimes(
   id: string,
   nk: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<SensorUptime[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -4109,7 +4261,7 @@ export async function Customer_GetAssetsSensorUptimes(
 export async function Customer_CountAssetsSensorUptimes(
   id: string,
   nk: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -4133,7 +4285,7 @@ export async function Customer_CountAssetsSensorUptimes(
 export async function Customer_GetAssetsSensorUptimeCollectors(
   id: string,
   nk: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<SensorUptimeCollector[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -4157,7 +4309,7 @@ export async function Customer_GetAssetsSensorUptimeCollectors(
 export async function Customer_CountAssetsSensorUptimeCollectors(
   id: string,
   nk: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -4181,7 +4333,7 @@ export async function Customer_CountAssetsSensorUptimeCollectors(
 export async function Customer_GetAssetsSummaries(
   id: string,
   nk: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<Summary[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -4205,7 +4357,7 @@ export async function Customer_GetAssetsSummaries(
 export async function Customer_CountAssetsSummaries(
   id: string,
   nk: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -4228,7 +4380,7 @@ export async function Customer_CountAssetsSummaries(
  */
 export async function Customer_GetAssetTemplatesConfig(
   id: string,
-  nk: string
+  nk: string,
 ): Promise<AssetConfig> {
   return ApiFetch({
     method: 'GET',
@@ -4246,7 +4398,7 @@ export async function Customer_GetAssetTemplatesConfig(
 export async function Customer_UpdateAssetTemplatesConfig(
   id: string,
   nk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<AssetConfig> {
   return ApiFetch({
     method: 'PUT',
@@ -4265,7 +4417,7 @@ export async function Customer_UpdateAssetTemplatesConfig(
 export async function Customer_FindByIdAssetTemplatesAssetStateTemplates(
   id: string,
   nk: string,
-  fk: string
+  fk: string,
 ): Promise<AssetStateTemplate> {
   return ApiFetch({
     method: 'GET',
@@ -4284,7 +4436,7 @@ export async function Customer_FindByIdAssetTemplatesAssetStateTemplates(
 export async function Customer_DestroyByIdAssetTemplatesAssetStateTemplates(
   id: string,
   nk: string,
-  fk: string
+  fk: string,
 ): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
@@ -4304,7 +4456,7 @@ export async function Customer_UpdateByIdAssetTemplatesAssetStateTemplates(
   id: string,
   nk: string,
   fk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<AssetStateTemplate> {
   return ApiFetch({
     method: 'PUT',
@@ -4323,7 +4475,7 @@ export async function Customer_UpdateByIdAssetTemplatesAssetStateTemplates(
  */
 export async function Customer_GetAssetTemplatesDefaultState(
   id: string,
-  nk: string
+  nk: string,
 ): Promise<AssetStateTemplate> {
   return ApiFetch({
     method: 'GET',
@@ -4341,7 +4493,7 @@ export async function Customer_GetAssetTemplatesDefaultState(
 export async function Customer_FindByIdAssetTemplatesDefaultResponsibleAdmins(
   id: string,
   nk: string,
-  fk: string
+  fk: string,
 ): Promise<Admin> {
   return ApiFetch({
     method: 'GET',
@@ -4360,7 +4512,7 @@ export async function Customer_FindByIdAssetTemplatesDefaultResponsibleAdmins(
 export async function Customer_FindByIdAssetTemplatesEventGroupTemplates(
   id: string,
   nk: string,
-  fk: string
+  fk: string,
 ): Promise<EventGroupTemplate> {
   return ApiFetch({
     method: 'GET',
@@ -4379,7 +4531,7 @@ export async function Customer_FindByIdAssetTemplatesEventGroupTemplates(
 export async function Customer_DestroyByIdAssetTemplatesEventGroupTemplates(
   id: string,
   nk: string,
-  fk: string
+  fk: string,
 ): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
@@ -4399,7 +4551,7 @@ export async function Customer_UpdateByIdAssetTemplatesEventGroupTemplates(
   id: string,
   nk: string,
   fk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<EventGroupTemplate> {
   return ApiFetch({
     method: 'PUT',
@@ -4419,7 +4571,7 @@ export async function Customer_UpdateByIdAssetTemplatesEventGroupTemplates(
 export async function Customer_FindByIdAssetTemplatesEventTriggerTemplates(
   id: string,
   nk: string,
-  fk: string
+  fk: string,
 ): Promise<EventTriggerTemplate> {
   return ApiFetch({
     method: 'GET',
@@ -4438,7 +4590,7 @@ export async function Customer_FindByIdAssetTemplatesEventTriggerTemplates(
 export async function Customer_DestroyByIdAssetTemplatesEventTriggerTemplates(
   id: string,
   nk: string,
-  fk: string
+  fk: string,
 ): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
@@ -4458,7 +4610,7 @@ export async function Customer_UpdateByIdAssetTemplatesEventTriggerTemplates(
   id: string,
   nk: string,
   fk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<EventTriggerTemplate> {
   return ApiFetch({
     method: 'PUT',
@@ -4478,7 +4630,7 @@ export async function Customer_UpdateByIdAssetTemplatesEventTriggerTemplates(
 export async function Customer_FindByIdAssetTemplatesDefaultResponsibleManagers(
   id: string,
   nk: string,
-  fk: string
+  fk: string,
 ): Promise<Manager> {
   return ApiFetch({
     method: 'GET',
@@ -4497,7 +4649,7 @@ export async function Customer_FindByIdAssetTemplatesDefaultResponsibleManagers(
 export async function Customer_FindByIdAssetTemplatesSensorTemplates(
   id: string,
   nk: string,
-  fk: string
+  fk: string,
 ): Promise<SensorTemplate> {
   return ApiFetch({
     method: 'GET',
@@ -4516,7 +4668,7 @@ export async function Customer_FindByIdAssetTemplatesSensorTemplates(
 export async function Customer_DestroyByIdAssetTemplatesSensorTemplates(
   id: string,
   nk: string,
-  fk: string
+  fk: string,
 ): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
@@ -4536,7 +4688,7 @@ export async function Customer_UpdateByIdAssetTemplatesSensorTemplates(
   id: string,
   nk: string,
   fk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<SensorTemplate> {
   return ApiFetch({
     method: 'PUT',
@@ -4556,7 +4708,7 @@ export async function Customer_UpdateByIdAssetTemplatesSensorTemplates(
 export async function Customer_GetAssetTemplatesAssetTemplates(
   id: string,
   nk: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<AssetTemplate[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -4580,7 +4732,7 @@ export async function Customer_GetAssetTemplatesAssetTemplates(
 export async function Customer_CreateAssetTemplatesAssetTemplates(
   id: string,
   nk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<AssetTemplate> {
   return ApiFetch({
     method: 'POST',
@@ -4599,7 +4751,7 @@ export async function Customer_CreateAssetTemplatesAssetTemplates(
 export async function Customer_CountAssetTemplatesAssetTemplates(
   id: string,
   nk: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -4623,7 +4775,7 @@ export async function Customer_CountAssetTemplatesAssetTemplates(
 export async function Customer_GetAssetTemplatesAssetStateTemplates(
   id: string,
   nk: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<AssetStateTemplate[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -4647,7 +4799,7 @@ export async function Customer_GetAssetTemplatesAssetStateTemplates(
 export async function Customer_CreateAssetTemplatesAssetStateTemplates(
   id: string,
   nk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<AssetStateTemplate> {
   return ApiFetch({
     method: 'POST',
@@ -4666,7 +4818,7 @@ export async function Customer_CreateAssetTemplatesAssetStateTemplates(
 export async function Customer_CountAssetTemplatesAssetStateTemplates(
   id: string,
   nk: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -4690,7 +4842,7 @@ export async function Customer_CountAssetTemplatesAssetStateTemplates(
 export async function Customer_GetAssetTemplatesDefaultResponsibleAdmins(
   id: string,
   nk: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<Admin[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -4714,7 +4866,7 @@ export async function Customer_GetAssetTemplatesDefaultResponsibleAdmins(
 export async function Customer_CountAssetTemplatesDefaultResponsibleAdmins(
   id: string,
   nk: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -4738,7 +4890,7 @@ export async function Customer_CountAssetTemplatesDefaultResponsibleAdmins(
 export async function Customer_GetAssetTemplatesEventGroupTemplates(
   id: string,
   nk: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<EventGroupTemplate[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -4762,7 +4914,7 @@ export async function Customer_GetAssetTemplatesEventGroupTemplates(
 export async function Customer_CreateAssetTemplatesEventGroupTemplates(
   id: string,
   nk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<EventGroupTemplate> {
   return ApiFetch({
     method: 'POST',
@@ -4781,7 +4933,7 @@ export async function Customer_CreateAssetTemplatesEventGroupTemplates(
 export async function Customer_CountAssetTemplatesEventGroupTemplates(
   id: string,
   nk: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -4805,7 +4957,7 @@ export async function Customer_CountAssetTemplatesEventGroupTemplates(
 export async function Customer_GetAssetTemplatesEventTriggerTemplates(
   id: string,
   nk: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<EventTriggerTemplate[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -4829,7 +4981,7 @@ export async function Customer_GetAssetTemplatesEventTriggerTemplates(
 export async function Customer_CreateAssetTemplatesEventTriggerTemplates(
   id: string,
   nk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<EventTriggerTemplate> {
   return ApiFetch({
     method: 'POST',
@@ -4848,7 +5000,7 @@ export async function Customer_CreateAssetTemplatesEventTriggerTemplates(
 export async function Customer_CountAssetTemplatesEventTriggerTemplates(
   id: string,
   nk: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -4872,7 +5024,7 @@ export async function Customer_CountAssetTemplatesEventTriggerTemplates(
 export async function Customer_GetAssetTemplatesDefaultResponsibleManagers(
   id: string,
   nk: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<Manager[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -4896,7 +5048,7 @@ export async function Customer_GetAssetTemplatesDefaultResponsibleManagers(
 export async function Customer_CountAssetTemplatesDefaultResponsibleManagers(
   id: string,
   nk: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -4920,7 +5072,7 @@ export async function Customer_CountAssetTemplatesDefaultResponsibleManagers(
 export async function Customer_GetAssetTemplatesSensorTemplates(
   id: string,
   nk: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<SensorTemplate[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -4944,7 +5096,7 @@ export async function Customer_GetAssetTemplatesSensorTemplates(
 export async function Customer_CreateAssetTemplatesSensorTemplates(
   id: string,
   nk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<SensorTemplate> {
   return ApiFetch({
     method: 'POST',
@@ -4963,7 +5115,7 @@ export async function Customer_CreateAssetTemplatesSensorTemplates(
 export async function Customer_CountAssetTemplatesSensorTemplates(
   id: string,
   nk: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -4987,7 +5139,7 @@ export async function Customer_CountAssetTemplatesSensorTemplates(
 export async function Customer_DestroyByIdProjectsAssets(
   id: string,
   nk: string,
-  fk: string
+  fk: string,
 ): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
@@ -5007,7 +5159,7 @@ export async function Customer_UpdateByIdProjectsAssets(
   id: string,
   nk: string,
   fk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<Asset> {
   return ApiFetch({
     method: 'PUT',
@@ -5027,7 +5179,7 @@ export async function Customer_UpdateByIdProjectsAssets(
 export async function Customer_DestroyByIdProjectsAssetTemplates(
   id: string,
   nk: string,
-  fk: string
+  fk: string,
 ): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
@@ -5047,7 +5199,7 @@ export async function Customer_UpdateByIdProjectsAssetTemplates(
   id: string,
   nk: string,
   fk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<AssetTemplate> {
   return ApiFetch({
     method: 'PUT',
@@ -5060,7 +5212,6 @@ export async function Customer_UpdateByIdProjectsAssetTemplates(
     body: data,
   });
 }
-
 /**
  * Buscar un elemento relacionado por id para countReports.
  * /Customers/:id/projects/:nk/countReports/:fk
@@ -5068,7 +5219,7 @@ export async function Customer_UpdateByIdProjectsAssetTemplates(
 export async function Customer_FindByIdProjectsCountReports(
   id: string,
   nk: string,
-  fk: string
+  fk: string,
 ): Promise<CountReport> {
   return ApiFetch({
     method: 'GET',
@@ -5087,7 +5238,7 @@ export async function Customer_FindByIdProjectsCountReports(
 export async function Customer_DestroyByIdProjectsCountReports(
   id: string,
   nk: string,
-  fk: string
+  fk: string,
 ): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
@@ -5107,7 +5258,7 @@ export async function Customer_UpdateByIdProjectsCountReports(
   id: string,
   nk: string,
   fk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<CountReport> {
   return ApiFetch({
     method: 'PUT',
@@ -5120,7 +5271,6 @@ export async function Customer_UpdateByIdProjectsCountReports(
     body: data,
   });
 }
-
 /**
  * Buscar un elemento relacionado por id para cctvDashboards.
  * /Customers/:id/projects/:nk/cctvDashboards/:fk
@@ -5128,7 +5278,7 @@ export async function Customer_UpdateByIdProjectsCountReports(
 export async function Customer_FindByIdProjectsCctvDashboards(
   id: string,
   nk: string,
-  fk: string
+  fk: string,
 ): Promise<CctvDashboard> {
   return ApiFetch({
     method: 'GET',
@@ -5147,7 +5297,7 @@ export async function Customer_FindByIdProjectsCctvDashboards(
 export async function Customer_DestroyByIdProjectsCctvDashboards(
   id: string,
   nk: string,
-  fk: string
+  fk: string,
 ): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
@@ -5167,7 +5317,7 @@ export async function Customer_UpdateByIdProjectsCctvDashboards(
   id: string,
   nk: string,
   fk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<CctvDashboard> {
   return ApiFetch({
     method: 'PUT',
@@ -5187,7 +5337,7 @@ export async function Customer_UpdateByIdProjectsCctvDashboards(
 export async function Customer_FindByIdProjectsEventDashboards(
   id: string,
   nk: string,
-  fk: string
+  fk: string,
 ): Promise<EventDashboard> {
   return ApiFetch({
     method: 'GET',
@@ -5206,7 +5356,7 @@ export async function Customer_FindByIdProjectsEventDashboards(
 export async function Customer_DestroyByIdProjectsEventDashboards(
   id: string,
   nk: string,
-  fk: string
+  fk: string,
 ): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
@@ -5226,7 +5376,7 @@ export async function Customer_UpdateByIdProjectsEventDashboards(
   id: string,
   nk: string,
   fk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<EventDashboard> {
   return ApiFetch({
     method: 'PUT',
@@ -5246,7 +5396,7 @@ export async function Customer_UpdateByIdProjectsEventDashboards(
 export async function Customer_FindByIdProjectsEventSummaryForProjects(
   id: string,
   nk: string,
-  fk: string
+  fk: string,
 ): Promise<EventSummaryForProject> {
   return ApiFetch({
     method: 'GET',
@@ -5265,7 +5415,7 @@ export async function Customer_FindByIdProjectsEventSummaryForProjects(
 export async function Customer_FindByIdProjectsEmbeddedReports(
   id: string,
   nk: string,
-  fk: string
+  fk: string,
 ): Promise<EmbeddedReport> {
   return ApiFetch({
     method: 'GET',
@@ -5284,7 +5434,7 @@ export async function Customer_FindByIdProjectsEmbeddedReports(
 export async function Customer_DestroyByIdProjectsEmbeddedReports(
   id: string,
   nk: string,
-  fk: string
+  fk: string,
 ): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
@@ -5304,7 +5454,7 @@ export async function Customer_UpdateByIdProjectsEmbeddedReports(
   id: string,
   nk: string,
   fk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<EmbeddedReport> {
   return ApiFetch({
     method: 'PUT',
@@ -5324,7 +5474,7 @@ export async function Customer_UpdateByIdProjectsEmbeddedReports(
 export async function Customer_FindByIdProjectsBiPanels(
   id: string,
   nk: string,
-  fk: string
+  fk: string,
 ): Promise<BIPanel> {
   return ApiFetch({
     method: 'GET',
@@ -5343,7 +5493,7 @@ export async function Customer_FindByIdProjectsBiPanels(
 export async function Customer_DestroyByIdProjectsBiPanels(
   id: string,
   nk: string,
-  fk: string
+  fk: string,
 ): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
@@ -5363,7 +5513,7 @@ export async function Customer_UpdateByIdProjectsBiPanels(
   id: string,
   nk: string,
   fk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<BIPanel> {
   return ApiFetch({
     method: 'PUT',
@@ -5383,7 +5533,7 @@ export async function Customer_UpdateByIdProjectsBiPanels(
 export async function Customer_FindByIdProjectsPeopleCounterReports(
   id: string,
   nk: string,
-  fk: string
+  fk: string,
 ): Promise<PeopleCounterReport> {
   return ApiFetch({
     method: 'GET',
@@ -5402,7 +5552,7 @@ export async function Customer_FindByIdProjectsPeopleCounterReports(
 export async function Customer_DestroyByIdProjectsPeopleCounterReports(
   id: string,
   nk: string,
-  fk: string
+  fk: string,
 ): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
@@ -5422,7 +5572,7 @@ export async function Customer_UpdateByIdProjectsPeopleCounterReports(
   id: string,
   nk: string,
   fk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<PeopleCounterReport> {
   return ApiFetch({
     method: 'PUT',
@@ -5442,7 +5592,7 @@ export async function Customer_UpdateByIdProjectsPeopleCounterReports(
 export async function Customer_FindByIdProjectsTags(
   id: string,
   nk: string,
-  fk: string
+  fk: string,
 ): Promise<ProjectTag> {
   return ApiFetch({
     method: 'GET',
@@ -5461,7 +5611,7 @@ export async function Customer_FindByIdProjectsTags(
 export async function Customer_LinkProjectsTags(
   id: string,
   nk: string,
-  fk: string
+  fk: string,
 ): Promise<ProjectTag> {
   return ApiFetch({
     method: 'PUT',
@@ -5481,7 +5631,7 @@ export async function Customer_LinkProjectsTags(
 export async function Customer_UnlinkProjectsTags(
   id: string,
   nk: string,
-  fk: string
+  fk: string,
 ): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
@@ -5500,7 +5650,7 @@ export async function Customer_UnlinkProjectsTags(
 export async function Customer_FindByIdProjectsReports(
   id: string,
   nk: string,
-  fk: string
+  fk: string,
 ): Promise<Report> {
   return ApiFetch({
     method: 'GET',
@@ -5519,7 +5669,7 @@ export async function Customer_FindByIdProjectsReports(
 export async function Customer_DestroyByIdProjectsReports(
   id: string,
   nk: string,
-  fk: string
+  fk: string,
 ): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
@@ -5539,7 +5689,7 @@ export async function Customer_UpdateByIdProjectsReports(
   id: string,
   nk: string,
   fk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<Report> {
   return ApiFetch({
     method: 'PUT',
@@ -5559,7 +5709,7 @@ export async function Customer_UpdateByIdProjectsReports(
 export async function Customer_FindByIdProjectsAllowedSensorTypes(
   id: string,
   nk: string,
-  fk: string
+  fk: string,
 ): Promise<SensorType> {
   return ApiFetch({
     method: 'GET',
@@ -5579,7 +5729,7 @@ export async function Customer_LinkProjectsAllowedSensorTypes(
   id: string,
   nk: string,
   fk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<ProjectAllowedSensorType> {
   return ApiFetch({
     method: 'PUT',
@@ -5599,7 +5749,7 @@ export async function Customer_LinkProjectsAllowedSensorTypes(
 export async function Customer_UnlinkProjectsAllowedSensorTypes(
   id: string,
   nk: string,
-  fk: string
+  fk: string,
 ): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
@@ -5618,7 +5768,7 @@ export async function Customer_UnlinkProjectsAllowedSensorTypes(
 export async function Customer_FindByIdProjectsStoreVideoAnalyticDashboards(
   id: string,
   nk: string,
-  fk: string
+  fk: string,
 ): Promise<StoreVideoAnalyticDashboard> {
   return ApiFetch({
     method: 'GET',
@@ -5637,7 +5787,7 @@ export async function Customer_FindByIdProjectsStoreVideoAnalyticDashboards(
 export async function Customer_DestroyByIdProjectsStoreVideoAnalyticDashboards(
   id: string,
   nk: string,
-  fk: string
+  fk: string,
 ): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
@@ -5657,7 +5807,7 @@ export async function Customer_UpdateByIdProjectsStoreVideoAnalyticDashboards(
   id: string,
   nk: string,
   fk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<StoreVideoAnalyticDashboard> {
   return ApiFetch({
     method: 'PUT',
@@ -5677,7 +5827,7 @@ export async function Customer_UpdateByIdProjectsStoreVideoAnalyticDashboards(
 export async function Customer_FindByIdProjectsStorylines(
   id: string,
   nk: string,
-  fk: string
+  fk: string,
 ): Promise<Storyline> {
   return ApiFetch({
     method: 'GET',
@@ -5696,7 +5846,7 @@ export async function Customer_FindByIdProjectsStorylines(
 export async function Customer_DestroyByIdProjectsStorylines(
   id: string,
   nk: string,
-  fk: string
+  fk: string,
 ): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
@@ -5716,7 +5866,7 @@ export async function Customer_UpdateByIdProjectsStorylines(
   id: string,
   nk: string,
   fk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<Storyline> {
   return ApiFetch({
     method: 'PUT',
@@ -5736,7 +5886,7 @@ export async function Customer_UpdateByIdProjectsStorylines(
 export async function Customer_FindByIdProjectsAdminTools(
   id: string,
   nk: string,
-  fk: string
+  fk: string,
 ): Promise<Tool> {
   return ApiFetch({
     method: 'GET',
@@ -5755,7 +5905,7 @@ export async function Customer_FindByIdProjectsAdminTools(
 export async function Customer_LinkProjectsAdminTools(
   id: string,
   nk: string,
-  fk: string
+  fk: string,
 ): Promise<Tool> {
   return ApiFetch({
     method: 'PUT',
@@ -5775,7 +5925,7 @@ export async function Customer_LinkProjectsAdminTools(
 export async function Customer_UnlinkProjectsAdminTools(
   id: string,
   nk: string,
-  fk: string
+  fk: string,
 ): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
@@ -5794,7 +5944,7 @@ export async function Customer_UnlinkProjectsAdminTools(
 export async function Customer_FindByIdProjectsTools(
   id: string,
   nk: string,
-  fk: string
+  fk: string,
 ): Promise<Tool> {
   return ApiFetch({
     method: 'GET',
@@ -5813,7 +5963,7 @@ export async function Customer_FindByIdProjectsTools(
 export async function Customer_LinkProjectsTools(
   id: string,
   nk: string,
-  fk: string
+  fk: string,
 ): Promise<Tool> {
   return ApiFetch({
     method: 'PUT',
@@ -5833,7 +5983,7 @@ export async function Customer_LinkProjectsTools(
 export async function Customer_UnlinkProjectsTools(
   id: string,
   nk: string,
-  fk: string
+  fk: string,
 ): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
@@ -5852,7 +6002,7 @@ export async function Customer_UnlinkProjectsTools(
 export async function Customer_FindByIdProjectsTrafficFlowAnalysis(
   id: string,
   nk: string,
-  fk: string
+  fk: string,
 ): Promise<TrafficFlowAnalysis> {
   return ApiFetch({
     method: 'GET',
@@ -5871,7 +6021,7 @@ export async function Customer_FindByIdProjectsTrafficFlowAnalysis(
 export async function Customer_DestroyByIdProjectsTrafficFlowAnalysis(
   id: string,
   nk: string,
-  fk: string
+  fk: string,
 ): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
@@ -5891,7 +6041,7 @@ export async function Customer_UpdateByIdProjectsTrafficFlowAnalysis(
   id: string,
   nk: string,
   fk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<TrafficFlowAnalysis> {
   return ApiFetch({
     method: 'PUT',
@@ -5911,7 +6061,7 @@ export async function Customer_UpdateByIdProjectsTrafficFlowAnalysis(
 export async function Customer_FindByIdProjectsVirtualExpressions(
   id: string,
   nk: string,
-  fk: string
+  fk: string,
 ): Promise<VirtualExpression> {
   return ApiFetch({
     method: 'GET',
@@ -5930,7 +6080,7 @@ export async function Customer_FindByIdProjectsVirtualExpressions(
 export async function Customer_FindByIdProjectsVirtualGroups(
   id: string,
   nk: string,
-  fk: string
+  fk: string,
 ): Promise<VirtualGroup> {
   return ApiFetch({
     method: 'GET',
@@ -5949,7 +6099,7 @@ export async function Customer_FindByIdProjectsVirtualGroups(
 export async function Customer_DestroyByIdProjectsVirtualGroups(
   id: string,
   nk: string,
-  fk: string
+  fk: string,
 ): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
@@ -5969,7 +6119,7 @@ export async function Customer_UpdateByIdProjectsVirtualGroups(
   id: string,
   nk: string,
   fk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<VirtualGroup> {
   return ApiFetch({
     method: 'PUT',
@@ -5989,7 +6139,7 @@ export async function Customer_UpdateByIdProjectsVirtualGroups(
 export async function Customer_FindByIdProjectsVirtualVariables(
   id: string,
   nk: string,
-  fk: string
+  fk: string,
 ): Promise<VirtualVariable> {
   return ApiFetch({
     method: 'GET',
@@ -6008,7 +6158,7 @@ export async function Customer_FindByIdProjectsVirtualVariables(
 export async function Customer_FindByIdProjectsYoloClasses(
   id: string,
   nk: string,
-  fk: string
+  fk: string,
 ): Promise<YoloClass> {
   return ApiFetch({
     method: 'GET',
@@ -6028,7 +6178,7 @@ export async function Customer_LinkProjectsYoloClasses(
   id: string,
   nk: string,
   fk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<YoloClassProject> {
   return ApiFetch({
     method: 'PUT',
@@ -6048,7 +6198,7 @@ export async function Customer_LinkProjectsYoloClasses(
 export async function Customer_UnlinkProjectsYoloClasses(
   id: string,
   nk: string,
-  fk: string
+  fk: string,
 ): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
@@ -6067,7 +6217,7 @@ export async function Customer_UnlinkProjectsYoloClasses(
 export async function Customer_GetProjectsAssets(
   id: string,
   nk: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<Asset[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -6091,7 +6241,7 @@ export async function Customer_GetProjectsAssets(
 export async function Customer_CreateProjectsAssets(
   id: string,
   nk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<Asset> {
   return ApiFetch({
     method: 'POST',
@@ -6110,7 +6260,7 @@ export async function Customer_CreateProjectsAssets(
 export async function Customer_CountProjectsAssets(
   id: string,
   nk: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -6134,7 +6284,7 @@ export async function Customer_CountProjectsAssets(
 export async function Customer_GetProjectsAssetTemplates(
   id: string,
   nk: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<AssetTemplate[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -6158,7 +6308,7 @@ export async function Customer_GetProjectsAssetTemplates(
 export async function Customer_CreateProjectsAssetTemplates(
   id: string,
   nk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<AssetTemplate> {
   return ApiFetch({
     method: 'POST',
@@ -6177,7 +6327,7 @@ export async function Customer_CreateProjectsAssetTemplates(
 export async function Customer_CountProjectsAssetTemplates(
   id: string,
   nk: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -6194,7 +6344,6 @@ export async function Customer_CountProjectsAssetTemplates(
     },
   });
 }
-
 /**
  * countReports consultas de Project.
  * /Customers/:id/projects/:nk/countReports
@@ -6202,7 +6351,7 @@ export async function Customer_CountProjectsAssetTemplates(
 export async function Customer_GetProjectsCountReports(
   id: string,
   nk: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<CountReport[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -6226,7 +6375,7 @@ export async function Customer_GetProjectsCountReports(
 export async function Customer_CreateProjectsCountReports(
   id: string,
   nk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<CountReport> {
   return ApiFetch({
     method: 'POST',
@@ -6245,7 +6394,7 @@ export async function Customer_CreateProjectsCountReports(
 export async function Customer_CountProjectsCountReports(
   id: string,
   nk: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -6269,7 +6418,7 @@ export async function Customer_CountProjectsCountReports(
 export async function Customer_GetProjectsHealthcheckEvents(
   id: string,
   nk: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<HealthcheckEvent[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -6293,7 +6442,7 @@ export async function Customer_GetProjectsHealthcheckEvents(
 export async function Customer_CountProjectsHealthcheckEvents(
   id: string,
   nk: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -6310,7 +6459,6 @@ export async function Customer_CountProjectsHealthcheckEvents(
     },
   });
 }
-
 /**
  * cctvDashboards consultas de Project.
  * /Customers/:id/projects/:nk/cctvDashboards
@@ -6318,7 +6466,7 @@ export async function Customer_CountProjectsHealthcheckEvents(
 export async function Customer_GetProjectsCctvDashboards(
   id: string,
   nk: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<CctvDashboard[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -6342,7 +6490,7 @@ export async function Customer_GetProjectsCctvDashboards(
 export async function Customer_CreateProjectsCctvDashboards(
   id: string,
   nk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<CctvDashboard> {
   return ApiFetch({
     method: 'POST',
@@ -6361,7 +6509,7 @@ export async function Customer_CreateProjectsCctvDashboards(
 export async function Customer_CountProjectsCctvDashboards(
   id: string,
   nk: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -6385,7 +6533,7 @@ export async function Customer_CountProjectsCctvDashboards(
 export async function Customer_GetProjectsEventDashboards(
   id: string,
   nk: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<EventDashboard[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -6409,7 +6557,7 @@ export async function Customer_GetProjectsEventDashboards(
 export async function Customer_CreateProjectsEventDashboards(
   id: string,
   nk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<EventDashboard> {
   return ApiFetch({
     method: 'POST',
@@ -6428,7 +6576,7 @@ export async function Customer_CreateProjectsEventDashboards(
 export async function Customer_CountProjectsEventDashboards(
   id: string,
   nk: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -6452,7 +6600,7 @@ export async function Customer_CountProjectsEventDashboards(
 export async function Customer_GetProjectsEventSummaryForProjects(
   id: string,
   nk: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<EventSummaryForProject[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -6476,7 +6624,7 @@ export async function Customer_GetProjectsEventSummaryForProjects(
 export async function Customer_CountProjectsEventSummaryForProjects(
   id: string,
   nk: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -6500,7 +6648,7 @@ export async function Customer_CountProjectsEventSummaryForProjects(
 export async function Customer_GetProjectsEmbeddedReports(
   id: string,
   nk: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<EmbeddedReport[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -6524,7 +6672,7 @@ export async function Customer_GetProjectsEmbeddedReports(
 export async function Customer_CreateProjectsEmbeddedReports(
   id: string,
   nk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<EmbeddedReport> {
   return ApiFetch({
     method: 'POST',
@@ -6543,7 +6691,7 @@ export async function Customer_CreateProjectsEmbeddedReports(
 export async function Customer_CountProjectsEmbeddedReports(
   id: string,
   nk: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -6567,7 +6715,7 @@ export async function Customer_CountProjectsEmbeddedReports(
 export async function Customer_GetProjectsBiPanels(
   id: string,
   nk: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<BIPanel[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -6591,7 +6739,7 @@ export async function Customer_GetProjectsBiPanels(
 export async function Customer_CreateProjectsBiPanels(
   id: string,
   nk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<BIPanel> {
   return ApiFetch({
     method: 'POST',
@@ -6610,7 +6758,7 @@ export async function Customer_CreateProjectsBiPanels(
 export async function Customer_CountProjectsBiPanels(
   id: string,
   nk: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -6634,7 +6782,7 @@ export async function Customer_CountProjectsBiPanels(
 export async function Customer_GetProjectsPeopleCounterReports(
   id: string,
   nk: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<PeopleCounterReport[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -6658,7 +6806,7 @@ export async function Customer_GetProjectsPeopleCounterReports(
 export async function Customer_CreateProjectsPeopleCounterReports(
   id: string,
   nk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<PeopleCounterReport> {
   return ApiFetch({
     method: 'POST',
@@ -6677,7 +6825,7 @@ export async function Customer_CreateProjectsPeopleCounterReports(
 export async function Customer_CountProjectsPeopleCounterReports(
   id: string,
   nk: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -6701,7 +6849,7 @@ export async function Customer_CountProjectsPeopleCounterReports(
 export async function Customer_GetProjectsTags(
   id: string,
   nk: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<ProjectTag[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -6725,7 +6873,7 @@ export async function Customer_GetProjectsTags(
 export async function Customer_CountProjectsTags(
   id: string,
   nk: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -6749,7 +6897,7 @@ export async function Customer_CountProjectsTags(
 export async function Customer_GetProjectsReports(
   id: string,
   nk: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<Report[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -6773,7 +6921,7 @@ export async function Customer_GetProjectsReports(
 export async function Customer_CreateProjectsReports(
   id: string,
   nk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<Report> {
   return ApiFetch({
     method: 'POST',
@@ -6792,7 +6940,7 @@ export async function Customer_CreateProjectsReports(
 export async function Customer_CountProjectsReports(
   id: string,
   nk: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -6816,7 +6964,7 @@ export async function Customer_CountProjectsReports(
 export async function Customer_GetProjectsAllowedSensorTypes(
   id: string,
   nk: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<SensorType[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -6840,7 +6988,7 @@ export async function Customer_GetProjectsAllowedSensorTypes(
 export async function Customer_CountProjectsAllowedSensorTypes(
   id: string,
   nk: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -6864,7 +7012,7 @@ export async function Customer_CountProjectsAllowedSensorTypes(
 export async function Customer_GetProjectsStoreVideoAnalyticDashboards(
   id: string,
   nk: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<StoreVideoAnalyticDashboard[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -6888,7 +7036,7 @@ export async function Customer_GetProjectsStoreVideoAnalyticDashboards(
 export async function Customer_CreateProjectsStoreVideoAnalyticDashboards(
   id: string,
   nk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<StoreVideoAnalyticDashboard> {
   return ApiFetch({
     method: 'POST',
@@ -6907,7 +7055,7 @@ export async function Customer_CreateProjectsStoreVideoAnalyticDashboards(
 export async function Customer_CountProjectsStoreVideoAnalyticDashboards(
   id: string,
   nk: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -6931,7 +7079,7 @@ export async function Customer_CountProjectsStoreVideoAnalyticDashboards(
 export async function Customer_GetProjectsStorylines(
   id: string,
   nk: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<Storyline[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -6955,7 +7103,7 @@ export async function Customer_GetProjectsStorylines(
 export async function Customer_CreateProjectsStorylines(
   id: string,
   nk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<Storyline> {
   return ApiFetch({
     method: 'POST',
@@ -6974,7 +7122,7 @@ export async function Customer_CreateProjectsStorylines(
 export async function Customer_CountProjectsStorylines(
   id: string,
   nk: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -6998,7 +7146,7 @@ export async function Customer_CountProjectsStorylines(
 export async function Customer_GetProjectsAdminTools(
   id: string,
   nk: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<Tool[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -7022,7 +7170,7 @@ export async function Customer_GetProjectsAdminTools(
 export async function Customer_CountProjectsAdminTools(
   id: string,
   nk: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -7046,7 +7194,7 @@ export async function Customer_CountProjectsAdminTools(
 export async function Customer_GetProjectsTools(
   id: string,
   nk: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<Tool[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -7070,7 +7218,7 @@ export async function Customer_GetProjectsTools(
 export async function Customer_CountProjectsTools(
   id: string,
   nk: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -7094,7 +7242,7 @@ export async function Customer_CountProjectsTools(
 export async function Customer_GetProjectsTrafficFlowAnalysis(
   id: string,
   nk: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<TrafficFlowAnalysis[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -7118,7 +7266,7 @@ export async function Customer_GetProjectsTrafficFlowAnalysis(
 export async function Customer_CreateProjectsTrafficFlowAnalysis(
   id: string,
   nk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<TrafficFlowAnalysis> {
   return ApiFetch({
     method: 'POST',
@@ -7137,7 +7285,7 @@ export async function Customer_CreateProjectsTrafficFlowAnalysis(
 export async function Customer_CountProjectsTrafficFlowAnalysis(
   id: string,
   nk: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -7161,7 +7309,7 @@ export async function Customer_CountProjectsTrafficFlowAnalysis(
 export async function Customer_GetProjectsVirtualExpressions(
   id: string,
   nk: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<VirtualExpression[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -7185,7 +7333,7 @@ export async function Customer_GetProjectsVirtualExpressions(
 export async function Customer_CountProjectsVirtualExpressions(
   id: string,
   nk: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -7209,7 +7357,7 @@ export async function Customer_CountProjectsVirtualExpressions(
 export async function Customer_GetProjectsVirtualGroups(
   id: string,
   nk: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<VirtualGroup[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -7233,7 +7381,7 @@ export async function Customer_GetProjectsVirtualGroups(
 export async function Customer_CreateProjectsVirtualGroups(
   id: string,
   nk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<VirtualGroup> {
   return ApiFetch({
     method: 'POST',
@@ -7252,7 +7400,7 @@ export async function Customer_CreateProjectsVirtualGroups(
 export async function Customer_CountProjectsVirtualGroups(
   id: string,
   nk: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -7276,7 +7424,7 @@ export async function Customer_CountProjectsVirtualGroups(
 export async function Customer_GetProjectsVirtualVariables(
   id: string,
   nk: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<VirtualVariable[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -7300,7 +7448,7 @@ export async function Customer_GetProjectsVirtualVariables(
 export async function Customer_CountProjectsVirtualVariables(
   id: string,
   nk: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -7324,7 +7472,7 @@ export async function Customer_CountProjectsVirtualVariables(
 export async function Customer_GetProjectsYoloClasses(
   id: string,
   nk: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<YoloClass[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -7348,7 +7496,7 @@ export async function Customer_GetProjectsYoloClasses(
 export async function Customer_CountProjectsYoloClasses(
   id: string,
   nk: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -7365,14 +7513,13 @@ export async function Customer_CountProjectsYoloClasses(
     },
   });
 }
-
 /**
  * Creates a telegram bot if not already created
  * /Customers/:id/projects/:nk/telegram
  */
 export async function Customer_CreateProjectsTelegram(
   id: string,
-  nk: string
+  nk: string,
 ): Promise<any> {
   return ApiFetch({
     method: 'POST',
@@ -7391,7 +7538,7 @@ export async function Customer_CreateProjectsTelegram(
 export async function Customer_CreateProjectsTelegramPermissions(
   id: string,
   nk: string,
-  body: any
+  body: any,
 ): Promise<any> {
   return ApiFetch({
     method: 'POST',
@@ -7412,7 +7559,7 @@ export async function Customer_CreateProjectsTelegramPermissions(
 export async function Customer_GetProjectsTelegramGroupsPermissions(
   id: string,
   nk: string,
-  groupId: string
+  groupId: string,
 ): Promise<any[]> {
   return ApiFetch({
     method: 'GET',
@@ -7431,7 +7578,7 @@ export async function Customer_GetProjectsTelegramGroupsPermissions(
 export async function Customer_DestroyByIdProjectsTelegramPermissions(
   id: string,
   nk: string,
-  permissionId: string
+  permissionId: string,
 ): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
@@ -7451,7 +7598,7 @@ export async function Customer_SetProjectsTelegramActive(
   id: string,
   nk: string,
   groupId: string,
-  body: any
+  body: any,
 ): Promise<any> {
   return ApiFetch({
     method: 'PATCH',
@@ -7473,7 +7620,7 @@ export async function Customer_SetProjectsTelegramActive(
 export async function Customer_GetProjectsTelegramPermissionsToken(
   id: string,
   nk: string,
-  permissionId: string
+  permissionId: string,
 ): Promise<any> {
   return ApiFetch({
     method: 'GET',
@@ -7492,7 +7639,7 @@ export async function Customer_GetProjectsTelegramPermissionsToken(
 export async function Customer_CreateProjectsTelegramGroups(
   id: string,
   nk: string,
-  content: any
+  content: any,
 ): Promise<any> {
   return ApiFetch({
     method: 'POST',
@@ -7512,7 +7659,7 @@ export async function Customer_CreateProjectsTelegramGroups(
  */
 export async function Customer_GetProjectsTelegramGroups(
   id: string,
-  nk: string
+  nk: string,
 ): Promise<any[]> {
   return ApiFetch({
     method: 'GET',
@@ -7530,7 +7677,7 @@ export async function Customer_GetProjectsTelegramGroups(
 export async function Customer_DestroyByIdProjectsTelegramGroups(
   id: string,
   nk: string,
-  groupId: string
+  groupId: string,
 ): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
@@ -7549,7 +7696,7 @@ export async function Customer_DestroyByIdProjectsTelegramGroups(
 export async function Customer_LinkProjectsAssetsToTelegramGroup(
   id: string,
   nk: string,
-  content: any
+  content: any,
 ): Promise<any> {
   return ApiFetch({
     method: 'POST',
@@ -7563,7 +7710,6 @@ export async function Customer_LinkProjectsAssetsToTelegramGroup(
     },
   });
 }
-
 /**
  * Evaluate a virtual expression in a date interval
  * /Customers/:id/projects/:nk/virtualExpressions/:fk/evaluate
@@ -7589,7 +7735,7 @@ export async function Customer_EvaluateProjectsVirtualExpressions(
   to: Date,
   groupIntervals: ('hour' | 'day' | 'week' | 'month')[],
   groupUtc: number,
-  groupMode?: string
+  groupMode?: string,
 ): Promise<VirtualExpressionEvaluateResponse> {
   const _urlParams: any = {};
   if (from != null) {
@@ -7626,7 +7772,7 @@ export async function Customer_EvaluateProjectsVirtualExpressions(
 export async function Customer_FindByIdDevicesEdgeAgents(
   id: string,
   nk: string,
-  fk: string
+  fk: string,
 ): Promise<EdgeAgent> {
   return ApiFetch({
     method: 'GET',
@@ -7645,7 +7791,7 @@ export async function Customer_FindByIdDevicesEdgeAgents(
 export async function Customer_DestroyByIdDevicesEdgeAgents(
   id: string,
   nk: string,
-  fk: string
+  fk: string,
 ): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
@@ -7665,7 +7811,7 @@ export async function Customer_UpdateByIdDevicesEdgeAgents(
   id: string,
   nk: string,
   fk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<EdgeAgent> {
   return ApiFetch({
     method: 'PUT',
@@ -7685,7 +7831,7 @@ export async function Customer_UpdateByIdDevicesEdgeAgents(
 export async function Customer_GetDevicesEdgeAgents(
   id: string,
   nk: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<EdgeAgent[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -7709,7 +7855,7 @@ export async function Customer_GetDevicesEdgeAgents(
 export async function Customer_CreateDevicesEdgeAgents(
   id: string,
   nk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<EdgeAgent> {
   return ApiFetch({
     method: 'POST',
@@ -7728,7 +7874,7 @@ export async function Customer_CreateDevicesEdgeAgents(
 export async function Customer_CountDevicesEdgeAgents(
   id: string,
   nk: string,
-  where: any = {}
+  where: any = {},
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -7752,7 +7898,7 @@ export async function Customer_CountDevicesEdgeAgents(
 export async function Customer_LinkStorylinesAssets(
   id: string,
   nk: string,
-  fk: string
+  fk: string,
 ): Promise<Asset> {
   return ApiFetch({
     method: 'PUT',
@@ -7772,7 +7918,7 @@ export async function Customer_LinkStorylinesAssets(
 export async function Customer_UnlinkStorylinesAssets(
   id: string,
   nk: string,
-  fk: string
+  fk: string,
 ): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
@@ -7791,7 +7937,7 @@ export async function Customer_UnlinkStorylinesAssets(
 export async function Customer_DestroyByIdStorylinesStorypoints(
   id: string,
   nk: string,
-  fk: string
+  fk: string,
 ): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
@@ -7811,7 +7957,7 @@ export async function Customer_UpdateByIdStorylinesStorypoints(
   id: string,
   nk: string,
   fk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<Storypoint> {
   return ApiFetch({
     method: 'PUT',
@@ -7831,7 +7977,7 @@ export async function Customer_UpdateByIdStorylinesStorypoints(
 export async function Customer_GetStorylinesStorypoints(
   id: string,
   nk: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<Storypoint[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -7855,7 +8001,7 @@ export async function Customer_GetStorylinesStorypoints(
 export async function Customer_CreateStorylinesStorypoints(
   id: string,
   nk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<Storypoint> {
   return ApiFetch({
     method: 'POST',
@@ -7867,7 +8013,6 @@ export async function Customer_CreateStorylinesStorypoints(
     body: data,
   });
 }
-
 /**
  * Suprimir un elemento relacionado por id para sections.
  * /Customers/:id/countReports/:nk/sections/:fk
@@ -7875,7 +8020,7 @@ export async function Customer_CreateStorylinesStorypoints(
 export async function Customer_DestroyByIdCountReportsSections(
   id: string,
   nk: string,
-  fk: string
+  fk: string,
 ): Promise<void> {
   return ApiFetch({
     method: 'DELETE',
@@ -7895,7 +8040,7 @@ export async function Customer_UpdateByIdCountReportsSections(
   id: string,
   nk: string,
   fk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<CountReportSection> {
   return ApiFetch({
     method: 'PUT',
@@ -7915,7 +8060,7 @@ export async function Customer_UpdateByIdCountReportsSections(
 export async function Customer_GetCountReportsSections(
   id: string,
   nk: string,
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<CountReportSection[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -7939,7 +8084,7 @@ export async function Customer_GetCountReportsSections(
 export async function Customer_CreateCountReportsSections(
   id: string,
   nk: string,
-  data: any = {}
+  data: any = {},
 ): Promise<CountReportSection> {
   return ApiFetch({
     method: 'POST',
@@ -7947,6 +8092,141 @@ export async function Customer_CreateCountReportsSections(
     routeParams: {
       id,
       nk,
+    },
+    body: data,
+  });
+}
+/** Get ListedLicensePlates */
+export async function Customer_getListedLicensePlates(
+  id: string,
+): Promise<ListedLicensePlate[]> {
+  return ApiFetch({
+    method: 'GET',
+    url: '/Customers/:id/blackList',
+    routeParams: {
+      id,
+    },
+  });
+}
+
+/**
+ * Create ListedLicensePlates
+ */
+export async function Customer_createListedLicensePlate(
+  id: string,
+  data: Omit<
+    Partial<ListedLicensePlate> &
+      Pick<ListedLicensePlate, 'licensePlate' | 'blacklistedAt'>,
+    '_key' | 'customerId' | 'createdAt'
+  >,
+): Promise<string> {
+  return ApiFetch({
+    method: 'POST',
+    url: '/Customers/:id/blackList/licensePlate',
+    routeParams: {
+      id,
+    },
+    body: data,
+  });
+}
+
+/**
+ * Delete ListedLicensePlates
+ */
+export async function Customer_deleteListedLicensePlate(
+  id: string,
+  _key: string,
+): Promise<void> {
+  return ApiFetch({
+    method: 'DELETE',
+    url: '/Customers/:id/blackList/licensePlate/:key',
+    routeParams: {
+      id,
+      key: _key,
+    },
+  });
+}
+
+/**
+ * Update ListedLicensePlates
+ */
+export async function Customer_updateListedLicensePlate(
+  id: string,
+  _key: string,
+  data: Omit<
+    Partial<ListedLicensePlate>,
+    '_key' | 'customerId' | 'createdAt' | 'licensePlate' | 'blacklistedAt'
+  >,
+): Promise<string> {
+  return ApiFetch({
+    method: 'PATCH',
+    url: '/Customers/:id/blackList/licensePlate/:key',
+    routeParams: {
+      id,
+      key: _key,
+    },
+    body: data,
+  });
+}
+
+/**
+ * Create many ListedLicensePlates
+ */
+export async function Customer_createManyListedLicensePlates(
+  id: string,
+  data: Omit<
+    Partial<ListedLicensePlate> &
+      Pick<ListedLicensePlate, 'licensePlate' | 'blacklistedAt'>,
+    '_key' | 'customerId' | 'createdAt'
+  >[],
+): Promise<string[]> {
+  return ApiFetch({
+    method: 'POST',
+    url: '/Customers/:id/blackList/many',
+    routeParams: {
+      id,
+    },
+    body: data,
+  });
+}
+
+/**
+ * Merge ListedLicensePlates
+ */
+export async function Customer_mergeListedLicensePlates(
+  id: string,
+  data: Omit<
+    Partial<ListedLicensePlate> &
+      Pick<ListedLicensePlate, 'licensePlate' | 'blacklistedAt'>,
+    '_key' | 'customerId' | 'createdAt'
+  >[],
+): Promise<MergeLicensePlateResponse> {
+  return ApiFetch({
+    method: 'PATCH',
+    url: '/Customers/:id/blackList/merge',
+    routeParams: {
+      id,
+    },
+    body: data,
+  });
+}
+
+/**
+ * Replace ListedLicensePlates
+ */
+export async function Customer_replaceListedLicensePlates(
+  id: string,
+  data: Omit<
+    Partial<ListedLicensePlate> &
+      Pick<ListedLicensePlate, 'licensePlate' | 'blacklistedAt'>,
+    '_key' | 'customerId' | 'createdAt'
+  >[],
+): Promise<string[]> {
+  return ApiFetch({
+    method: 'PUT',
+    url: '/Customers/:id/blackList/replace',
+    routeParams: {
+      id,
     },
     body: data,
   });

@@ -22,7 +22,7 @@ export async function SensorType_GetSchemasAlerts(id: string): Promise<any> {
  * /SensorTypes/type/:type/schemas/alerts
  */
 export async function SensorType_FindByTypeSchemasAlerts(
-  type: string
+  type: string,
 ): Promise<any> {
   return ApiFetch({
     method: 'GET',
@@ -50,7 +50,7 @@ export async function SensorType_GetSchemasData(id: string): Promise<any> {
  * /SensorTypes/type/:type/schemas/data
  */
 export async function SensorType_FindByTypeSchemasData(
-  type: string
+  type: string,
 ): Promise<any> {
   return ApiFetch({
     method: 'GET',
@@ -65,7 +65,7 @@ export async function SensorType_FindByTypeSchemasData(
  * /SensorTypes/:id/schemas/eventTriggerRuleClauses
  */
 export async function SensorType_GetSchemasEventTriggerRuleClauses(
-  id: string
+  id: string,
 ): Promise<any> {
   return ApiFetch({
     method: 'GET',
@@ -80,7 +80,7 @@ export async function SensorType_GetSchemasEventTriggerRuleClauses(
  * /SensorTypes/type/:type/schemas/eventTriggerRuleClauses
  */
 export async function SensorType_FindByTypeSchemasEventTriggerRuleClauses(
-  type: string
+  type: string,
 ): Promise<any> {
   return ApiFetch({
     method: 'GET',
@@ -108,7 +108,7 @@ export async function SensorType_GetSchemasSensors(id: string): Promise<any> {
  * /SensorTypes/type/:type/schemas/sensors
  */
 export async function SensorType_FindByTypeSchemasSensors(
-  type: string
+  type: string,
 ): Promise<any> {
   return ApiFetch({
     method: 'GET',
@@ -136,7 +136,7 @@ export async function SensorType_GetSchemasSummaries(id: string): Promise<any> {
  * /SensorTypes/type/:type/schemas/summaries
  */
 export async function SensorType_FindByTypeSchemasSummaries(
-  type: string
+  type: string,
 ): Promise<any> {
   return ApiFetch({
     method: 'GET',
@@ -151,7 +151,7 @@ export async function SensorType_FindByTypeSchemasSummaries(
  * /SensorTypes/:id/schemas/thresholds
  */
 export async function SensorType_GetSchemasThresholds(
-  id: string
+  id: string,
 ): Promise<any> {
   return ApiFetch({
     method: 'GET',
@@ -166,7 +166,7 @@ export async function SensorType_GetSchemasThresholds(
  * /SensorTypes/type/:type/schemas/thresholds
  */
 export async function SensorType_FindByTypeSchemasThresholds(
-  type: string
+  type: string,
 ): Promise<any> {
   return ApiFetch({
     method: 'GET',
@@ -181,7 +181,7 @@ export async function SensorType_FindByTypeSchemasThresholds(
  * /SensorTypes/schemas/alerts
  */
 export async function SensorType_FindSchemasAlerts(
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<any[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -200,7 +200,7 @@ export async function SensorType_FindSchemasAlerts(
  * /SensorTypes/schemas/data
  */
 export async function SensorType_FindSchemasData(
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<any[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -219,7 +219,7 @@ export async function SensorType_FindSchemasData(
  * /SensorTypes/schemas/eventTriggerRuleClauses
  */
 export async function SensorType_FindSchemasEventTriggerRuleClauses(
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<any[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -238,7 +238,7 @@ export async function SensorType_FindSchemasEventTriggerRuleClauses(
  * /SensorTypes/schemas/sensors
  */
 export async function SensorType_FindSchemasSensors(
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<any[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -257,7 +257,7 @@ export async function SensorType_FindSchemasSensors(
  * /SensorTypes/schemas/summaries
  */
 export async function SensorType_FindSchemasSummaries(
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<any[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -276,7 +276,7 @@ export async function SensorType_FindSchemasSummaries(
  * /SensorTypes/schemas/thresholds
  */
 export async function SensorType_FindSchemasThresholds(
-  filter: Filter<any> = {}
+  filter: Filter<any> = {},
 ): Promise<any[]> {
   const _urlParams: any = {};
   if (filter != null) {

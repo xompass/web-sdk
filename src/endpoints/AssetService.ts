@@ -4,9 +4,13 @@ import { AssetStorageContainer } from '../models/Asset';
 import { Dataset } from '../models/Dataset';
 import { EdgeAgent } from '../models/EdgeAgent';
 import { EdgeAgentAsset } from '../models/EdgeAgent';
+import { HealthcheckEvent } from '../models/HealthcheckEvent';
+import { RateLimit } from '../models/RateLimit';
 import { SensorWithCurrentState } from '../models/Sensor';
 import { EventTriggerAssetState } from '../models/EventTriggerAssetState';
 import { SensorAssetState } from '../models/SensorAssetState';
+import { EventComment } from '../models/EventComment';
+import { EventStateChange } from '../models/EventStateChange';
 
 /**
  * Api services for the `Asset` model.
@@ -113,6 +117,89 @@ export async function Asset_UnlinkEdgeAgents(
   });
 }
 /**
+ * Buscar un elemento relacionado por id para healthcheckEvents.
+ * /Assets/:id/healthcheckEvents/:fk
+ */
+export async function Asset_FindByIdHealthcheckEvents(
+  id: string,
+  fk: string,
+): Promise<HealthcheckEvent> {
+  return ApiFetch({
+    method: 'GET',
+    url: '/Assets/:id/healthcheckEvents/:fk',
+    routeParams: {
+      id,
+      fk,
+    },
+  });
+}
+/**
+ * Actualizar un elemento relacionado por id para healthcheckEvents.
+ * /Assets/:id/healthcheckEvents/:fk
+ */
+export async function Asset_UpdateByIdHealthcheckEvents(
+  id: string,
+  fk: string,
+  data: any = {},
+): Promise<HealthcheckEvent> {
+  return ApiFetch({
+    method: 'PUT',
+    url: '/Assets/:id/healthcheckEvents/:fk',
+    routeParams: {
+      id,
+      fk,
+    },
+    body: data,
+  });
+}
+/**
+ * Capta la relación hasOne rateLimit.
+ * /Assets/:id/rateLimit
+ */
+export async function Asset_GetRateLimit(id: string): Promise<RateLimit> {
+  return ApiFetch({
+    method: 'GET',
+    url: '/Assets/:id/rateLimit',
+    routeParams: {
+      id,
+    },
+  });
+}
+/**
+ * Crea una nueva instancia en rateLimit de este modelo.
+ * /Assets/:id/rateLimit
+ */
+export async function Asset_CreateRateLimit(
+  id: string,
+  data: any = {},
+): Promise<RateLimit> {
+  return ApiFetch({
+    method: 'POST',
+    url: '/Assets/:id/rateLimit',
+    routeParams: {
+      id,
+    },
+    body: data,
+  });
+}
+/**
+ * Actualizar rateLimit de este modelo.
+ * /Assets/:id/rateLimit
+ */
+export async function Asset_UpdateRateLimit(
+  id: string,
+  data: any = {},
+): Promise<RateLimit> {
+  return ApiFetch({
+    method: 'PUT',
+    url: '/Assets/:id/rateLimit',
+    routeParams: {
+      id,
+    },
+    body: data,
+  });
+}
+/**
  * datasets consultas de Asset.
  * /Assets/:id/datasets
  */
@@ -198,6 +285,45 @@ export async function Asset_CountEdgeAgents(
     routeParams: {
       id,
     },
+  });
+}
+/**
+ * healthcheckEvents consultas de Asset.
+ * /Assets/:id/healthcheckEvents
+ */
+export async function Asset_GetHealthcheckEvents(
+  id: string,
+  filter: Filter<any> = {},
+): Promise<HealthcheckEvent[]> {
+  const _urlParams: any = {};
+  if (filter != null) {
+    _urlParams['filter'] = filter;
+  }
+
+  return ApiFetch({
+    method: 'GET',
+    url: '/Assets/:id/healthcheckEvents',
+    urlParams: _urlParams,
+    routeParams: {
+      id,
+    },
+  });
+}
+/**
+ * Crea una nueva instancia en healthcheckEvents de este modelo.
+ * /Assets/:id/healthcheckEvents
+ */
+export async function Asset_CreateHealthcheckEvents(
+  id: string,
+  data: any = {},
+): Promise<HealthcheckEvent> {
+  return ApiFetch({
+    method: 'POST',
+    url: '/Assets/:id/healthcheckEvents',
+    routeParams: {
+      id,
+    },
+    body: data,
   });
 }
 /**
@@ -516,6 +642,25 @@ export async function Asset_getMergedRestrictionTable(
   });
 }
 /**
+ * Notify an asset health status
+ * /Assets/:id/notify-health-status
+ */
+export async function Asset_notifyHealthStatus(
+  id: string,
+  status: any,
+): Promise<any> {
+  return ApiFetch({
+    method: 'POST',
+    url: '/Assets/:id/notify-health-status',
+    routeParams: {
+      id,
+    },
+    body: {
+      status,
+    },
+  });
+}
+/**
  * eventTriggerAssetStates consultas de AssetState.
  * /Assets/:id/assetStates/:nk/eventTriggerAssetStates
  */
@@ -561,5 +706,83 @@ export async function Asset_GetAssetStatesStates(
       id,
       nk,
     },
+  });
+}
+/**
+ * Suprimir un elemento relacionado por id para comments.
+ * /Assets/:id/healthcheckEvents/:nk/comments/:fk
+ */
+export async function Asset_DestroyByIdHealthcheckEventsComments(
+  id: string,
+  nk: string,
+  fk: string,
+): Promise<void> {
+  return ApiFetch({
+    method: 'DELETE',
+    url: '/Assets/:id/healthcheckEvents/:nk/comments/:fk',
+    routeParams: {
+      id,
+      nk,
+      fk,
+    },
+  });
+}
+/**
+ * Actualizar un elemento relacionado por id para comments.
+ * /Assets/:id/healthcheckEvents/:nk/comments/:fk
+ */
+export async function Asset_UpdateByIdHealthcheckEventsComments(
+  id: string,
+  nk: string,
+  fk: string,
+  data: any = {},
+): Promise<EventComment> {
+  return ApiFetch({
+    method: 'PUT',
+    url: '/Assets/:id/healthcheckEvents/:nk/comments/:fk',
+    routeParams: {
+      id,
+      nk,
+      fk,
+    },
+    body: data,
+  });
+}
+/**
+ * Crea una nueva instancia en comments de este modelo.
+ * /Assets/:id/healthcheckEvents/:nk/comments
+ */
+export async function Asset_CreateHealthcheckEventsComments(
+  id: string,
+  nk: string,
+  data: any = {},
+): Promise<EventComment> {
+  return ApiFetch({
+    method: 'POST',
+    url: '/Assets/:id/healthcheckEvents/:nk/comments',
+    routeParams: {
+      id,
+      nk,
+    },
+    body: data,
+  });
+}
+/**
+ * Crea una nueva instancia en stateChanges de este modelo.
+ * /Assets/:id/healthcheckEvents/:nk/stateChanges
+ */
+export async function Asset_CreateHealthcheckEventsStateChanges(
+  id: string,
+  nk: string,
+  data: any = {},
+): Promise<EventStateChange> {
+  return ApiFetch({
+    method: 'POST',
+    url: '/Assets/:id/healthcheckEvents/:nk/stateChanges',
+    routeParams: {
+      id,
+      nk,
+    },
+    body: data,
   });
 }

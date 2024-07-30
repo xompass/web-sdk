@@ -1,15 +1,6 @@
 import { YoloClassLabel } from '../YoloClassLabel';
 
 export type MultiZoneObjectTrackingFeedback = {
-  image?: {
-    container?: string;
-    name?: string;
-    type?: 'image/jpg' | 'image/jpeg' | 'image/png';
-    field?: string;
-    originalFilename?: string;
-    meta?: Record<string, any>;
-    datasourceName?: string;
-  };
   files?: {
     sequence?: {
       container?: string;
@@ -21,7 +12,7 @@ export type MultiZoneObjectTrackingFeedback = {
       datasourceName?: string;
     }[];
   };
-  objects?: {
+  detections?: {
     class: YoloClassLabel;
     probability: number;
     frameId?: string;
@@ -36,8 +27,6 @@ export type MultiZoneObjectTrackingFeedback = {
       ZONE?: boolean;
       PROBABILITY?: boolean;
       CLASS?: boolean;
-      BLACKLIST?: boolean;
-      PERSISTENCE?: boolean;
     };
     diagnosis?:
       | 'TRUE_POSITIVE'

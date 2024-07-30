@@ -15,6 +15,7 @@ export type ObjectRecognitionTrigger = {
     | 'bag'
     | 'backpack'
     | 'dog'
+    | 'cat'
     | 'train'
     | 'guard'
     | 'inspector'
@@ -39,6 +40,18 @@ export type ObjectRecognitionTrigger = {
     | 'pallet-stacker'
     | 'worker'
     | 'forklift'
+    | 'cat1'
+    | 'cat2'
+    | 'cat3'
+    | 'cat4'
+    | 'cylinder'
+    | 'extinguisher'
+    | 'crane'
+    | 'montacilindro'
+    | 'no_helmet'
+    | 'gate'
+    | 'face'
+    | 'laptop'
   )[];
   value?: number;
   operator?: 'eq' | 'neq' | 'gt' | 'gte' | 'lt' | 'lte' | 'null';

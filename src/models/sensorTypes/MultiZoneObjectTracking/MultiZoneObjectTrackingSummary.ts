@@ -30,7 +30,25 @@ export type MultiZoneObjectTrackingSummary = {
   };
   content?: {
     files?: {
+      gif?: {
+        length?: {
+          count?: number;
+          sum?: number;
+          avg?: number;
+          min?: number;
+          max?: number;
+        };
+      };
       image?: {
+        length?: {
+          count?: number;
+          sum?: number;
+          avg?: number;
+          min?: number;
+          max?: number;
+        };
+      };
+      sequence?: {
         length?: {
           count?: number;
           sum?: number;
@@ -48,13 +66,6 @@ export type MultiZoneObjectTrackingSummary = {
         min?: number;
         max?: number;
       };
-      text?: {
-        count?: number;
-        sum?: number;
-        avg?: number;
-        min?: number;
-        max?: number;
-      };
       probability?: {
         count?: number;
         sum?: number;
@@ -62,118 +73,10 @@ export type MultiZoneObjectTrackingSummary = {
         min?: number;
         max?: number;
       };
-      colors?: {
-        length?: {
-          count?: number;
-          sum?: number;
-          avg?: number;
-          min?: number;
-          max?: number;
-        };
-        label?: {
-          white?: {
-            percentage?: {
-              count?: number;
-              sum?: number;
-              avg?: number;
-              min?: number;
-              max?: number;
-            };
-          };
-          gray?: {
-            percentage?: {
-              count?: number;
-              sum?: number;
-              avg?: number;
-              min?: number;
-              max?: number;
-            };
-          };
-          black?: {
-            percentage?: {
-              count?: number;
-              sum?: number;
-              avg?: number;
-              min?: number;
-              max?: number;
-            };
-          };
-          red?: {
-            percentage?: {
-              count?: number;
-              sum?: number;
-              avg?: number;
-              min?: number;
-              max?: number;
-            };
-          };
-          yellow?: {
-            percentage?: {
-              count?: number;
-              sum?: number;
-              avg?: number;
-              min?: number;
-              max?: number;
-            };
-          };
-          brown?: {
-            percentage?: {
-              count?: number;
-              sum?: number;
-              avg?: number;
-              min?: number;
-              max?: number;
-            };
-          };
-          green?: {
-            percentage?: {
-              count?: number;
-              sum?: number;
-              avg?: number;
-              min?: number;
-              max?: number;
-            };
-          };
-          cyan?: {
-            percentage?: {
-              count?: number;
-              sum?: number;
-              avg?: number;
-              min?: number;
-              max?: number;
-            };
-          };
-          blue?: {
-            percentage?: {
-              count?: number;
-              sum?: number;
-              avg?: number;
-              min?: number;
-              max?: number;
-            };
-          };
-          purple?: {
-            percentage?: {
-              count?: number;
-              sum?: number;
-              avg?: number;
-              min?: number;
-              max?: number;
-            };
-          };
-        };
-      };
       class?: Record<
         YoloClassLabel,
         {
           length?: {
-            count?: number;
-            sum?: number;
-            avg?: number;
-            min?: number;
-            max?: number;
-          };
-          text?: {
             count?: number;
             sum?: number;
             avg?: number;
@@ -186,107 +89,6 @@ export type MultiZoneObjectTrackingSummary = {
             avg?: number;
             min?: number;
             max?: number;
-          };
-          colors?: {
-            length?: {
-              count?: number;
-              sum?: number;
-              avg?: number;
-              min?: number;
-              max?: number;
-            };
-            label?: {
-              white?: {
-                percentage?: {
-                  count?: number;
-                  sum?: number;
-                  avg?: number;
-                  min?: number;
-                  max?: number;
-                };
-              };
-              gray?: {
-                percentage?: {
-                  count?: number;
-                  sum?: number;
-                  avg?: number;
-                  min?: number;
-                  max?: number;
-                };
-              };
-              black?: {
-                percentage?: {
-                  count?: number;
-                  sum?: number;
-                  avg?: number;
-                  min?: number;
-                  max?: number;
-                };
-              };
-              red?: {
-                percentage?: {
-                  count?: number;
-                  sum?: number;
-                  avg?: number;
-                  min?: number;
-                  max?: number;
-                };
-              };
-              yellow?: {
-                percentage?: {
-                  count?: number;
-                  sum?: number;
-                  avg?: number;
-                  min?: number;
-                  max?: number;
-                };
-              };
-              brown?: {
-                percentage?: {
-                  count?: number;
-                  sum?: number;
-                  avg?: number;
-                  min?: number;
-                  max?: number;
-                };
-              };
-              green?: {
-                percentage?: {
-                  count?: number;
-                  sum?: number;
-                  avg?: number;
-                  min?: number;
-                  max?: number;
-                };
-              };
-              cyan?: {
-                percentage?: {
-                  count?: number;
-                  sum?: number;
-                  avg?: number;
-                  min?: number;
-                  max?: number;
-                };
-              };
-              blue?: {
-                percentage?: {
-                  count?: number;
-                  sum?: number;
-                  avg?: number;
-                  min?: number;
-                  max?: number;
-                };
-              };
-              purple?: {
-                percentage?: {
-                  count?: number;
-                  sum?: number;
-                  avg?: number;
-                  min?: number;
-                  max?: number;
-                };
-              };
-            };
           };
           heatmap?: Record<
             string,

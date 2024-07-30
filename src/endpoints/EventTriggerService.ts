@@ -553,6 +553,37 @@ export async function EventTrigger_DownloadEvents(
   });
 }
 /**
+ * Download a file within specified container
+ * /EventTriggers/:id/events/:nk/data/:fk/download
+ */
+export async function EventTrigger_DownloadByIdEventsData(
+  id: string,
+  nk: string,
+  fk: string,
+  file?: string,
+  draw?: boolean,
+  wm?: boolean,
+): Promise<any> {
+  const _urlParams: any = {};
+  if (draw != null) {
+    _urlParams['draw'] = draw;
+  }
+  if (wm != null) {
+    _urlParams['wm'] = wm;
+  }
+
+  return ApiFetch({
+    method: 'GET',
+    url: '/EventTriggers/:id/events/:nk/data/:fk/download',
+    urlParams: _urlParams,
+    routeParams: {
+      id,
+      nk,
+      fk,
+    },
+  });
+}
+/**
  * Buscar un elemento relacionado por id para comments.
  * /EventTriggers/:id/events/:nk/comments/:fk
  */

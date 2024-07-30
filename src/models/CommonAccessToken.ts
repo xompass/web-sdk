@@ -1,4 +1,5 @@
 export type CommonAccessToken = {
+  expiresAt?: Date;
   id?: string;
   ttl?: number;
   scopes?: string[];

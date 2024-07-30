@@ -70,6 +70,11 @@ export type ObjectRecognitionBasedOnRulesTRCParameters = {
         minProbability?: number;
       };
     };
+    cat?: {
+      thresholds?: {
+        minProbability?: number;
+      };
+    };
     dog?: {
       thresholds?: {
         minProbability?: number;
@@ -166,6 +171,91 @@ export type ObjectRecognitionBasedOnRulesTRCParameters = {
       };
     };
     desmonte?: {
+      thresholds?: {
+        minProbability?: number;
+      };
+    };
+    pallet?: {
+      thresholds?: {
+        minProbability?: number;
+      };
+    };
+    'pallet-jack'?: {
+      thresholds?: {
+        minProbability?: number;
+      };
+    };
+    'pallet-stacker'?: {
+      thresholds?: {
+        minProbability?: number;
+      };
+    };
+    worker?: {
+      thresholds?: {
+        minProbability?: number;
+      };
+    };
+    forklift?: {
+      thresholds?: {
+        minProbability?: number;
+      };
+    };
+    cat1?: {
+      thresholds?: {
+        minProbability?: number;
+      };
+    };
+    cat2?: {
+      thresholds?: {
+        minProbability?: number;
+      };
+    };
+    cat3?: {
+      thresholds?: {
+        minProbability?: number;
+      };
+    };
+    cat4?: {
+      thresholds?: {
+        minProbability?: number;
+      };
+    };
+    cylinder?: {
+      thresholds?: {
+        minProbability?: number;
+      };
+    };
+    extinguisher?: {
+      thresholds?: {
+        minProbability?: number;
+      };
+    };
+    crane?: {
+      thresholds?: {
+        minProbability?: number;
+      };
+    };
+    montacilindro?: {
+      thresholds?: {
+        minProbability?: number;
+      };
+    };
+    no_helmet?: {
+      thresholds?: {
+        minProbability?: number;
+      };
+    };
+    gate?: {
+      thresholds?: {
+        minProbability?: number;
+      };
+    };
+    face?: {
+      thresholds?: {
+        minProbability?: number;
+      };
+    };
+    laptop?: {
       thresholds?: {
         minProbability?: number;
       };
