@@ -1,4 +1,5 @@
 import { ApiFetch, UploadFile, Filter } from '../core/ApiFetch';
+import { AssetOperabilitySummary } from '../models/AssetOperabilitySummary';
 import { AssetRestrictionTable } from '../models/AssetRestrictionTable';
 import { AssetStorageContainer } from '../models/Asset';
 import { Dataset } from '../models/Dataset';
@@ -16,6 +17,25 @@ import { EventStateChange } from '../models/EventStateChange';
  * Api services for the `Asset` model.
  */
 
+/**
+ * Actualizar un elemento relacionado por id para operabilitySummaries.
+ * /Assets/:id/operabilitySummaries/:fk
+ */
+export async function Asset_UpdateByIdOperabilitySummaries(
+  id: string,
+  fk: string,
+  data: any = {},
+): Promise<AssetOperabilitySummary> {
+  return ApiFetch({
+    method: 'PUT',
+    url: '/Assets/:id/operabilitySummaries/:fk',
+    routeParams: {
+      id,
+      fk,
+    },
+    body: data,
+  });
+}
 /**
  * Capta la relación hasOne restrictionTable.
  * /Assets/:id/restrictionTable
@@ -197,6 +217,50 @@ export async function Asset_UpdateRateLimit(
       id,
     },
     body: data,
+  });
+}
+/**
+ * operabilitySummaries consultas de Asset.
+ * /Assets/:id/operabilitySummaries
+ */
+export async function Asset_GetOperabilitySummaries(
+  id: string,
+  filter: Filter<any> = {},
+): Promise<AssetOperabilitySummary[]> {
+  const _urlParams: any = {};
+  if (filter != null) {
+    _urlParams['filter'] = filter;
+  }
+
+  return ApiFetch({
+    method: 'GET',
+    url: '/Assets/:id/operabilitySummaries',
+    urlParams: _urlParams,
+    routeParams: {
+      id,
+    },
+  });
+}
+/**
+ * Recuentos operabilitySummaries de Asset.
+ * /Assets/:id/operabilitySummaries/count
+ */
+export async function Asset_CountOperabilitySummaries(
+  id: string,
+  where: any = {},
+): Promise<number> {
+  const _urlParams: any = {};
+  if (where != null) {
+    _urlParams['where'] = where;
+  }
+
+  return ApiFetch({
+    method: 'GET',
+    url: '/Assets/:id/operabilitySummaries/count',
+    urlParams: _urlParams,
+    routeParams: {
+      id,
+    },
   });
 }
 /**

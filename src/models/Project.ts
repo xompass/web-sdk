@@ -1,4 +1,5 @@
 import { Asset } from './Asset';
+import { AssetOperabilitySummary } from './AssetOperabilitySummary';
 import { AssetTemplate } from './AssetTemplate';
 import { BIPanel } from './BIPanel';
 import { CctvDashboard } from './CctvDashboard';
@@ -11,6 +12,7 @@ import { EventSummaryForProject } from './EventSummaryForProject';
 import { HealthcheckEvent } from './HealthcheckEvent';
 import { Log } from './Log';
 import { PeopleCounterReport } from './PeopleCounterReport';
+import { ProjectOperabilitySummary } from './ProjectOperabilitySummary';
 import { ProjectRestrictionTable } from './ProjectRestrictionTable';
 import { ProjectTag } from './ProjectTag';
 import { RateLimit } from './RateLimit';
@@ -57,6 +59,8 @@ export type Project = {
   embeddedReports?: EmbeddedReport[];
   biPanels?: BIPanel[];
   peopleCounterReports?: PeopleCounterReport[];
+  assetOperabilitySummaries?: AssetOperabilitySummary[];
+  operabilitySummaries?: ProjectOperabilitySummary[];
   restrictionTable?: ProjectRestrictionTable;
   tags?: ProjectTag[];
   reports?: Report[];

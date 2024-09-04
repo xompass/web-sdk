@@ -8,6 +8,7 @@ import { Credential } from '../models/Credential';
 import { ApiKey } from '../models/ApiKey';
 import { Country } from '../models/Country';
 import { CustomerConfig } from '../models/Customer';
+import { CustomerOperabilitySummary } from '../models/CustomerOperabilitySummary';
 import { CustomerRestrictionTable } from '../models/CustomerRestrictionTable';
 import { CustomerStorageContainer } from '../models/Customer';
 import { DefaultEventComment } from '../models/DefaultEventComment';
@@ -236,6 +237,25 @@ export async function Customer_UpdateConfig(
     url: '/Customers/:id/config',
     routeParams: {
       id,
+    },
+    body: data,
+  });
+}
+/**
+ * Actualizar un elemento relacionado por id para operabilitySummaries.
+ * /Customers/:id/operabilitySummaries/:fk
+ */
+export async function Customer_UpdateByIdOperabilitySummaries(
+  id: string,
+  fk: string,
+  data: any = {},
+): Promise<CustomerOperabilitySummary> {
+  return ApiFetch({
+    method: 'PUT',
+    url: '/Customers/:id/operabilitySummaries/:fk',
+    routeParams: {
+      id,
+      fk,
     },
     body: data,
   });
@@ -1107,6 +1127,50 @@ export async function Customer_CountApiKeys(
   return ApiFetch({
     method: 'GET',
     url: '/Customers/:id/apiKeys/count',
+    urlParams: _urlParams,
+    routeParams: {
+      id,
+    },
+  });
+}
+/**
+ * operabilitySummaries consultas de Customer.
+ * /Customers/:id/operabilitySummaries
+ */
+export async function Customer_GetOperabilitySummaries(
+  id: string,
+  filter: Filter<any> = {},
+): Promise<CustomerOperabilitySummary[]> {
+  const _urlParams: any = {};
+  if (filter != null) {
+    _urlParams['filter'] = filter;
+  }
+
+  return ApiFetch({
+    method: 'GET',
+    url: '/Customers/:id/operabilitySummaries',
+    urlParams: _urlParams,
+    routeParams: {
+      id,
+    },
+  });
+}
+/**
+ * Recuentos operabilitySummaries de Customer.
+ * /Customers/:id/operabilitySummaries/count
+ */
+export async function Customer_CountOperabilitySummaries(
+  id: string,
+  where: any = {},
+): Promise<number> {
+  const _urlParams: any = {};
+  if (where != null) {
+    _urlParams['where'] = where;
+  }
+
+  return ApiFetch({
+    method: 'GET',
+    url: '/Customers/:id/operabilitySummaries/count',
     urlParams: _urlParams,
     routeParams: {
       id,

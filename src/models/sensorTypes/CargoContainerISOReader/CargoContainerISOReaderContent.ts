@@ -28,8 +28,11 @@ export type CargoContainerISOReaderContent = {
     checkDigit?: string;
     containerProperties?: string;
     mgw?: number;
+    mgwUnit?: string;
     tare?: number;
+    tareUnit?: string;
     capacity?: number;
+    capacityUnit?: string;
     height?: number;
   };
 };
