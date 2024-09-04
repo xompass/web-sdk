@@ -6,6 +6,7 @@ import { AssetTemplate } from './AssetTemplate';
 import { CountReport } from './CountReport';
 import { Country } from './Country';
 import { Credential } from './Credential';
+import { CustomerOperabilitySummary } from './CustomerOperabilitySummary';
 import { CustomerRestrictionTable } from './CustomerRestrictionTable';
 import { DefaultEventComment } from './DefaultEventComment';
 import { Device } from './Device';
@@ -50,6 +51,7 @@ export type Customer = {
   apiKeys?: ApiKey[];
   country?: Country;
   assetStateChanges?: AssetStateChange[];
+  operabilitySummaries?: CustomerOperabilitySummary[];
   restrictionTable?: CustomerRestrictionTable;
   container?: CustomerStorageContainer;
   defaultEventComments?: DefaultEventComment[];

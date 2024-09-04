@@ -3,6 +3,7 @@ import { Alert } from './Alert';
 import { AlertHistory } from './AlertHistory';
 import { AssetConfig } from './AssetConfig';
 import { AssetMilestone } from './AssetMilestone';
+import { AssetOperabilitySummary } from './AssetOperabilitySummary';
 import { AssetRestrictionTable } from './AssetRestrictionTable';
 import { AssetStaff } from './AssetStaff';
 import { AssetState } from './AssetState';
@@ -61,6 +62,7 @@ export type Asset = {
   alerts?: Alert[];
   alertHistory?: AlertHistory[];
   milestone?: AssetMilestone;
+  operabilitySummaries?: AssetOperabilitySummary[];
   restrictionTable?: AssetRestrictionTable;
   staffs?: AssetStaff[];
   assetStates?: AssetState[];

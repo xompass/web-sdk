@@ -1,4 +1,6 @@
-import { ApiFetch } from '../core/ApiFetch';
+import { ApiFetch, Filter } from '../core/ApiFetch';
+import { AssetOperabilitySummary } from '../models/AssetOperabilitySummary';
+import { ProjectOperabilitySummary } from '../models/ProjectOperabilitySummary';
 import { ProjectRestrictionTable } from '../models/ProjectRestrictionTable';
 import { RateLimit } from '../models/RateLimit';
 
@@ -6,6 +8,44 @@ import { RateLimit } from '../models/RateLimit';
  * Api services for the `Project` model.
  */
 
+/**
+ * Actualizar un elemento relacionado por id para assetOperabilitySummaries.
+ * /Projects/:id/assetOperabilitySummaries/:fk
+ */
+export async function Project_UpdateByIdAssetOperabilitySummaries(
+  id: string,
+  fk: string,
+  data: any = {},
+): Promise<AssetOperabilitySummary> {
+  return ApiFetch({
+    method: 'PUT',
+    url: '/Projects/:id/assetOperabilitySummaries/:fk',
+    routeParams: {
+      id,
+      fk,
+    },
+    body: data,
+  });
+}
+/**
+ * Actualizar un elemento relacionado por id para operabilitySummaries.
+ * /Projects/:id/operabilitySummaries/:fk
+ */
+export async function Project_UpdateByIdOperabilitySummaries(
+  id: string,
+  fk: string,
+  data: any = {},
+): Promise<ProjectOperabilitySummary> {
+  return ApiFetch({
+    method: 'PUT',
+    url: '/Projects/:id/operabilitySummaries/:fk',
+    routeParams: {
+      id,
+      fk,
+    },
+    body: data,
+  });
+}
 /**
  * Capta la relación hasOne restrictionTable.
  * /Projects/:id/restrictionTable
@@ -66,6 +106,94 @@ export async function Project_UpdateRateLimit(
       id,
     },
     body: data,
+  });
+}
+/**
+ * assetOperabilitySummaries consultas de Project.
+ * /Projects/:id/assetOperabilitySummaries
+ */
+export async function Project_GetAssetOperabilitySummaries(
+  id: string,
+  filter: Filter<any> = {},
+): Promise<AssetOperabilitySummary[]> {
+  const _urlParams: any = {};
+  if (filter != null) {
+    _urlParams['filter'] = filter;
+  }
+
+  return ApiFetch({
+    method: 'GET',
+    url: '/Projects/:id/assetOperabilitySummaries',
+    urlParams: _urlParams,
+    routeParams: {
+      id,
+    },
+  });
+}
+/**
+ * Recuentos assetOperabilitySummaries de Project.
+ * /Projects/:id/assetOperabilitySummaries/count
+ */
+export async function Project_CountAssetOperabilitySummaries(
+  id: string,
+  where: any = {},
+): Promise<number> {
+  const _urlParams: any = {};
+  if (where != null) {
+    _urlParams['where'] = where;
+  }
+
+  return ApiFetch({
+    method: 'GET',
+    url: '/Projects/:id/assetOperabilitySummaries/count',
+    urlParams: _urlParams,
+    routeParams: {
+      id,
+    },
+  });
+}
+/**
+ * operabilitySummaries consultas de Project.
+ * /Projects/:id/operabilitySummaries
+ */
+export async function Project_GetOperabilitySummaries(
+  id: string,
+  filter: Filter<any> = {},
+): Promise<ProjectOperabilitySummary[]> {
+  const _urlParams: any = {};
+  if (filter != null) {
+    _urlParams['filter'] = filter;
+  }
+
+  return ApiFetch({
+    method: 'GET',
+    url: '/Projects/:id/operabilitySummaries',
+    urlParams: _urlParams,
+    routeParams: {
+      id,
+    },
+  });
+}
+/**
+ * Recuentos operabilitySummaries de Project.
+ * /Projects/:id/operabilitySummaries/count
+ */
+export async function Project_CountOperabilitySummaries(
+  id: string,
+  where: any = {},
+): Promise<number> {
+  const _urlParams: any = {};
+  if (where != null) {
+    _urlParams['where'] = where;
+  }
+
+  return ApiFetch({
+    method: 'GET',
+    url: '/Projects/:id/operabilitySummaries/count',
+    urlParams: _urlParams,
+    routeParams: {
+      id,
+    },
   });
 }
 /**
