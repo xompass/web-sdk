@@ -1,5 +1,11 @@
 # @xompass/web-sdk
 
+## 0.19.0
+
+### Minor Changes
+
+- 4fab472: Add OperabilitySummaries
+
 ## 0.18.0
 
 ### Minor Changes
