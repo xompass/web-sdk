@@ -1,5 +1,15 @@
 # @xompass/web-sdk
 
+## 0.20.0
+
+### Minor Changes
+
+- 1e69cfd: Add OverlapDetection sensor and new yolo classes
+
+### Patch Changes
+
+- 8a13063: update operability summary models
+
 ## 0.19.0
 
 ### Minor Changes
