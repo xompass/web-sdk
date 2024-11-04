@@ -52,6 +52,18 @@ export type ObjectRecognitionTrigger = {
     | 'gate'
     | 'face'
     | 'laptop'
+    | 'covenant'
+    | 'crst'
+    | 'fedex'
+    | 'premier'
+    | 'umxu'
+    | 'usexpress'
+    | 'bolsa-fajos'
+    | 'bolsa-monedas'
+    | 'carro'
+    | 'celular'
+    | 'cuadratura'
+    | 'logo_pp'
   )[];
   value?: number;
   operator?: 'eq' | 'neq' | 'gt' | 'gte' | 'lt' | 'lte' | 'null';

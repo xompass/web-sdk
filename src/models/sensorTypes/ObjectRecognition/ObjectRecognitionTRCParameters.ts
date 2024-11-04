@@ -260,6 +260,66 @@ export type ObjectRecognitionBasedOnRulesTRCParameters = {
         minProbability?: number;
       };
     };
+    covenant?: {
+      thresholds?: {
+        minProbability?: number;
+      };
+    };
+    crst?: {
+      thresholds?: {
+        minProbability?: number;
+      };
+    };
+    fedex?: {
+      thresholds?: {
+        minProbability?: number;
+      };
+    };
+    premier?: {
+      thresholds?: {
+        minProbability?: number;
+      };
+    };
+    umxu?: {
+      thresholds?: {
+        minProbability?: number;
+      };
+    };
+    usexpress?: {
+      thresholds?: {
+        minProbability?: number;
+      };
+    };
+    'bolsa-fajos'?: {
+      thresholds?: {
+        minProbability?: number;
+      };
+    };
+    'bolsa-monedas'?: {
+      thresholds?: {
+        minProbability?: number;
+      };
+    };
+    carro?: {
+      thresholds?: {
+        minProbability?: number;
+      };
+    };
+    celular?: {
+      thresholds?: {
+        minProbability?: number;
+      };
+    };
+    cuadratura?: {
+      thresholds?: {
+        minProbability?: number;
+      };
+    };
+    logo_pp?: {
+      thresholds?: {
+        minProbability?: number;
+      };
+    };
   };
 };
 

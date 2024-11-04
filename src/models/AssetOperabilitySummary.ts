@@ -3,6 +3,7 @@ import { Log } from './Log';
 import { Project } from './Project';
 
 export type AssetOperabilitySummary = {
+  name?: string;
   month?: Date;
   from?: Date;
   to?: Date;
