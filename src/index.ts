@@ -315,6 +315,13 @@ export * from './models/sensorTypes/OpticalCharacterRecognition/OpticalCharacter
 export * from './models/sensorTypes/OpticalCharacterRecognition/OpticalCharacterRecognitionSummary';
 export * from './models/sensorTypes/OpticalCharacterRecognition/OpticalCharacterRecognitionTRCParameters';
 export * from './models/sensorTypes/OpticalCharacterRecognition/OpticalCharacterRecognitionTrigger';
+export * from './models/sensorTypes/OverlapDetection/OverlapDetectionContent';
+export * from './models/sensorTypes/OverlapDetection/OverlapDetectionEventContent';
+export * from './models/sensorTypes/OverlapDetection/OverlapDetectionFeedback';
+export * from './models/sensorTypes/OverlapDetection/OverlapDetectionParameters';
+export * from './models/sensorTypes/OverlapDetection/OverlapDetectionSummary';
+export * from './models/sensorTypes/OverlapDetection/OverlapDetectionTRCParameters';
+export * from './models/sensorTypes/OverlapDetection/OverlapDetectionTrigger';
 export * from './models/sensorTypes/PeriodicObjectCounting/PeriodicObjectCountingContent';
 export * from './models/sensorTypes/PeriodicObjectCounting/PeriodicObjectCountingEventContent';
 export * from './models/sensorTypes/PeriodicObjectCounting/PeriodicObjectCountingParameters';
