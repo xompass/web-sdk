@@ -246,3 +246,55 @@ export async function Project_getMergedRestrictionTable(
     },
   });
 }
+/**
+ * Get common asset states
+ * /Projects/:id/commonAssetStates
+ */
+
+type Project_GetCommonAssetStates_Response = {
+  states: {
+    name: string;
+    assets: number[];
+  }[];
+  assets: string[];
+};
+
+export async function Project_GetCommonAssetStates(
+  id: string,
+  assetIds: string[],
+): Promise<Project_GetCommonAssetStates_Response> {
+  return ApiFetch({
+    method: 'POST',
+    url: '/Projects/:id/commonAssetStates',
+    routeParams: {
+      id,
+    },
+    body: {
+      assetIds,
+    },
+  });
+}
+/**
+ * Apply asset state
+ * /Projects/:id/applyAssetState
+ */
+type Project_ApplyAssetState_Body = {
+  stateName: string;
+  assetIds: string[];
+};
+
+export async function Project_ApplyAssetState(
+  id: string,
+  body: Project_ApplyAssetState_Body,
+): Promise<string[]> {
+  return ApiFetch({
+    method: 'POST',
+    url: '/Projects/:id/applyAssetState',
+    routeParams: {
+      id,
+    },
+    body: {
+      body,
+    },
+  });
+}
