@@ -1,5 +1,11 @@
 # @xompass/web-sdk
 
+## 0.21.1
+
+### Patch Changes
+
+- 7305cca: Improve Project_GetCommonAssetStates response
+
 ## 0.21.0
 
 ### Minor Changes
