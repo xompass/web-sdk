@@ -256,7 +256,14 @@ type Project_GetCommonAssetStates_Response = {
     name: string;
     assets: number[];
   }[];
-  assets: string[];
+  assets: {
+    id: string;
+    name: string;
+    currentState?: {
+      id: string;
+      name: string;
+    };
+  }[];
 };
 
 export async function Project_GetCommonAssetStates(
