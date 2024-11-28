@@ -1,5 +1,11 @@
 # @xompass/web-sdk
 
+## 0.21.0
+
+### Minor Changes
+
+- a3f72d7: massive asset state change
+
 ## 0.20.0
 
 ### Minor Changes
