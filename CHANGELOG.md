@@ -1,5 +1,11 @@
 # @xompass/web-sdk
 
+## 0.21.2
+
+### Patch Changes
+
+- f084dfd: Fix body for massive state changes
+
 ## 0.21.1
 
 ### Patch Changes
