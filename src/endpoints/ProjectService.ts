@@ -276,9 +276,7 @@ export async function Project_GetCommonAssetStates(
     routeParams: {
       id,
     },
-    body: {
-      assetIds,
-    },
+    body: assetIds,
   });
 }
 /**
@@ -300,8 +298,6 @@ export async function Project_ApplyAssetState(
     routeParams: {
       id,
     },
-    body: {
-      body,
-    },
+    body: body,
   });
 }
