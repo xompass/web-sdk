@@ -2343,12 +2343,15 @@ export async function Customer_subscribeAssets(
   return ApiFetch({
     method: 'PUT',
     url: '/Customers/:id/sockets/:socketId/subscribe/assets',
-    urlParams: _urlParams,
     routeParams: {
       id,
       socketId,
     },
-    body: {},
+    body: {
+      id: id,
+      socketId: socketId,
+      where: where,
+    },
   });
 }
 /**
@@ -2392,12 +2395,15 @@ export async function Customer_subscribeDevices(
   return ApiFetch({
     method: 'PUT',
     url: '/Customers/:id/sockets/:socketId/subscribe/devices',
-    urlParams: _urlParams,
     routeParams: {
       id,
       socketId,
     },
-    body: {},
+    body: {
+      id: id,
+      socketId: socketId,
+      where: where,
+    },
   });
 }
 /**

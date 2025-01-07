@@ -211,7 +211,10 @@ export async function Project_subscribe(
       id,
       socketId,
     },
-    body: {},
+    body: {
+      id,
+      socketId,
+    },
   });
 }
 /**

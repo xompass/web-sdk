@@ -405,7 +405,10 @@ export async function Asset_subscribe(
       id,
       socketId,
     },
-    body: {},
+    body: {
+      id,
+      socketId,
+    },
   });
 }
 /**
