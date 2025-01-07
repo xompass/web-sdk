@@ -1,5 +1,11 @@
 # @xompass/web-sdk
 
+## 0.21.3
+
+### Patch Changes
+
+- c04abae: Fix subscription parameters
+
 ## 0.21.2
 
 ### Patch Changes
