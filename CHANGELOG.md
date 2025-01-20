@@ -1,5 +1,17 @@
 # @xompass/web-sdk
 
+## 0.21.3
+
+### Patch Changes
+
+- c04abae: Fix subscription parameters
+
+## 0.21.2
+
+### Patch Changes
+
+- f084dfd: Fix body for massive state changes
+
 ## 0.21.1
 
 ### Patch Changes
