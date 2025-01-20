@@ -320,6 +320,21 @@ export type ObjectRecognitionBasedOnRulesTRCParameters = {
         minProbability?: number;
       };
     };
+    foldingtent?: {
+      thresholds?: {
+        minProbability?: number;
+      };
+    };
+    peddler?: {
+      thresholds?: {
+        minProbability?: number;
+      };
+    };
+    trash?: {
+      thresholds?: {
+        minProbability?: number;
+      };
+    };
   };
 };
 

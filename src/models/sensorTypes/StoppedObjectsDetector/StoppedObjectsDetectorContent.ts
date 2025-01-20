@@ -31,6 +31,7 @@ export type StoppedObjectsDetectorContent = {
       w: number;
       h: number;
     };
+    stopped?: boolean;
     points?: any[][];
     colors?: {
       percentage: number;
