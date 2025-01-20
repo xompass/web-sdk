@@ -1,6 +1,7 @@
 import { Asset } from './Asset';
 import { CctvDashboard } from './CctvDashboard';
 import { CommonAccessToken } from './CommonAccessToken';
+import { CountReport } from './CountReport';
 import { Country } from './Country';
 import { Credential } from './Credential';
 import { Customer } from './Customer';
@@ -13,7 +14,6 @@ import { TimeZone } from './TimeZone';
 import { TrafficFlowAnalysis } from './TrafficFlowAnalysis';
 import { View } from './View';
 import { FileMetadata } from './FileMetadata';
-import { CountReport } from './CountReport';
 
 export type Manager = {
   name: string;

@@ -64,6 +64,9 @@ export type ObjectRecognitionTrigger = {
     | 'celular'
     | 'cuadratura'
     | 'logo_pp'
+    | 'foldingtent'
+    | 'peddler'
+    | 'trash'
   )[];
   value?: number;
   operator?: 'eq' | 'neq' | 'gt' | 'gte' | 'lt' | 'lte' | 'null';

@@ -38,6 +38,16 @@ export type LicensePlateEventContent = {
         w: number;
         h: number;
       };
+      blacklistDetails?: {
+        blacklistedAt?: number;
+        brand?: string;
+        color?: string;
+        description?: string;
+        licensePlate?: string;
+        model?: string;
+        vehicleType?: string;
+        year?: number;
+      }[];
     };
     filteredBy?: {
       ZONE?: boolean;

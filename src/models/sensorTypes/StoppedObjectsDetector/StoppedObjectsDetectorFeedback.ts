@@ -24,7 +24,7 @@ export type StoppedObjectsDetectorFeedback = {
   objects?: {
     class: YoloClassLabel;
     text?: string;
-    blacklistedText?: string[];
+    stopped?: boolean;
     tags?: string[];
     probability?: number;
     frame: {
@@ -62,6 +62,7 @@ export type StoppedObjectsDetectorFeedback = {
       CLASS?: boolean;
       BLACKLIST?: boolean;
       PERSISTENCE?: boolean;
+      STOPPED?: boolean;
     };
     diagnosis?:
       | 'TRUE_POSITIVE'

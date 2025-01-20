@@ -24,7 +24,7 @@ export type StoppedObjectsDetectorEventContent = {
   objects?: {
     class: YoloClassLabel;
     text?: string;
-    blacklistedText?: string[];
+    stopped?: boolean;
     probability: number;
     frame: {
       x: number;
@@ -61,6 +61,7 @@ export type StoppedObjectsDetectorEventContent = {
       CLASS?: boolean;
       BLACKLIST?: boolean;
       PERSISTENCE?: boolean;
+      STOPPED?: boolean;
     };
   }[];
   filtered?: boolean;

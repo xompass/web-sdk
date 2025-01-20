@@ -25,6 +25,16 @@ export type ObjectRecognitionFeedback = {
     class: YoloClassLabel;
     text?: string;
     blacklistedText?: string[];
+    blacklistDetails?: {
+      blacklistedAt?: number;
+      brand?: string;
+      color?: string;
+      description?: string;
+      licensePlate?: string;
+      model?: string;
+      vehicleType?: string;
+      year?: number;
+    }[];
     tags?: string[];
     probability?: number;
     frame: {
