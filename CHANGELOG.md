@@ -1,5 +1,11 @@
 # @xompass/web-sdk
 
+## 0.21.4
+
+### Patch Changes
+
+- cf1e987: Update sensor types and and new classes
+
 ## 0.21.3
 
 ### Patch Changes
