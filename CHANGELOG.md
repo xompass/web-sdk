@@ -1,5 +1,11 @@
 # @xompass/web-sdk
 
+## 0.22.0
+
+### Minor Changes
+
+- 4e2a42f: Update Report model
+
 ## 0.21.4
 
 ### Patch Changes
