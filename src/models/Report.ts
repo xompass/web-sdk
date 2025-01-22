@@ -4,12 +4,13 @@ import { Manager } from './Manager';
 import { Project } from './Project';
 
 export type Report = {
-  type: string;
   name: string;
   description?: string;
   emails?: string[];
-  notifyAt?: Date;
-  parameters?: any;
+  scheduler?: {
+    minute: number;
+    hour: number;
+  };
   created?: Date;
   modified?: Date;
   deleted?: Date;
@@ -20,4 +21,17 @@ export type Report = {
   project?: Project;
   managers?: Manager[];
   assets?: Asset[];
-};
+} & (
+  | {
+      type: 'ROUND_OF_GUARD';
+      parameters: {
+        roundGroupTimeM: number;
+        maxImagesPerRound: number;
+        roundStart: string;
+        roundEnd: string;
+      };
+    }
+  | {
+      type: 'STORE_OPENING';
+    }
+);

@@ -5759,7 +5759,7 @@ export async function Customer_UpdateByIdProjectsReports(
   id: string,
   nk: string,
   fk: string,
-  data: any = {},
+  data: Partial<Report>,
 ): Promise<Report> {
   return ApiFetch({
     method: 'PUT',
@@ -6991,7 +6991,7 @@ export async function Customer_GetProjectsReports(
 export async function Customer_CreateProjectsReports(
   id: string,
   nk: string,
-  data: any = {},
+  data: Partial<Report>,
 ): Promise<Report> {
   return ApiFetch({
     method: 'POST',
