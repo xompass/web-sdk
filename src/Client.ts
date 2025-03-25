@@ -14,9 +14,15 @@ import {
   Manager_login,
   Manager_logout,
 } from './endpoints/ManagerService';
+import {
+  SuperAdmin_findById,
+  SuperAdmin_login,
+  SuperAdmin_logout,
+} from './endpoints/SuperAdminService';
 import { Admin } from './models/Admin';
 import { CommonAccessToken } from './models/CommonAccessToken';
 import { Manager } from './models/Manager';
+import { SuperAdmin } from './models/SuperAdmin';
 
 export class ApiClient {
   private cachedUser: User | undefined;
@@ -24,7 +30,7 @@ export class ApiClient {
     private readonly baseUrl: string,
     private accessToken?: string,
     private userId?: string,
-    private principalType?: UserType
+    private principalType?: UserType,
   ) {
     const previousBaseUrl = getLocalStorageValue('vsaas$baseUrl');
     if (previousBaseUrl && previousBaseUrl !== baseUrl) {
@@ -77,6 +83,9 @@ export class ApiClient {
           case 'Manager':
             await Manager_logout();
             break;
+          case 'SuperAdmin':
+            await SuperAdmin_logout();
+            break;
           default:
             throw new Error('Invalid user type');
         }
@@ -97,17 +106,17 @@ export class ApiClient {
   public async login(): Promise<User>;
   public async login(
     credentials: UserCrendentials,
-    principalType: UserType
+    principalType: UserType,
   ): Promise<User>;
   public async login(
     credentials?: UserCrendentials,
-    principalType?: UserType
+    principalType?: UserType,
   ): Promise<User> {
     const defaultTTL = 48 * 60 * 60;
 
     if (credentials && principalType) {
       // Check if the principal type is valid
-      if (['Admin', 'Manager'].indexOf(principalType) === -1) {
+      if (['Admin', 'Manager', 'SuperAdmin'].indexOf(principalType) === -1) {
         throw new Error('Invalid user type');
       }
 
@@ -129,19 +138,23 @@ export class ApiClient {
           email?: string;
           password: string;
         },
-        include: any
+        include: any,
       ) => Promise<CommonAccessToken>;
 
       // Choose the correct login function based on the principal type
 
-      const userInclude = ['container'];
+      let userInclude: string[] | undefined;
       switch (principalType) {
         case 'Admin':
           loginFunc = Admin_login;
+          userInclude = ['container'];
           break;
         case 'Manager':
           loginFunc = Manager_login;
-          userInclude.push('permission');
+          userInclude = ['container', 'permission'];
+          break;
+        case 'SuperAdmin':
+          loginFunc = SuperAdmin_login;
           break;
         default:
           throw new Error('Invalid user type');
@@ -176,7 +189,7 @@ export class ApiClient {
       throw new Error('access token, user id, and principal type required');
     }
 
-    if (['Admin', 'Manager'].indexOf(this.principalType) === -1) {
+    if (['Admin', 'Manager', 'SuperAdmin'].indexOf(this.principalType) === -1) {
       throw new Error('Invalid user type');
     }
 
@@ -186,15 +199,17 @@ export class ApiClient {
       setLocalStorageValue(
         'vsaas$principalType',
         this.principalType,
-        defaultTTL
+        defaultTTL,
       );
 
       let GetPrincipal: (
         id: string,
-        filter: Filter<Manager | Admin>
-      ) => Promise<Manager | Admin>;
+        filter: Filter<Manager | Admin | SuperAdmin>,
+      ) => Promise<Manager | Admin | SuperAdmin>;
 
-      const userInclude: Include<Manager> = [{ relation: 'container' }];
+      let userInclude: Include<Manager> | undefined = [
+        { relation: 'container' },
+      ];
 
       switch (this.principalType) {
         case 'Admin':
@@ -203,6 +218,10 @@ export class ApiClient {
         case 'Manager':
           GetPrincipal = Manager_findById;
           userInclude.push({ relation: 'permission' });
+          break;
+        case 'SuperAdmin':
+          GetPrincipal = SuperAdmin_findById;
+          userInclude = undefined;
           break;
         default:
           throw new Error('Invalid user type');

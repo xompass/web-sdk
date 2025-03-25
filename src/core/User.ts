@@ -1,4 +1,5 @@
 import { Admin, AdminStorageContainer } from '../models/Admin';
+import { SuperAdmin } from '../models/SuperAdmin';
 import {
   Manager,
   ManagerStorageContainer,
@@ -9,7 +10,7 @@ export type UserCrendentials = ({ email: string } | { username: string }) & {
   password: string;
 };
 
-export type UserType = 'Admin' | 'Manager';
+export type UserType = 'Admin' | 'Manager' | 'SuperAdmin';
 
 type AdminLoginResponse = {
   type: 'Admin';
@@ -22,4 +23,11 @@ type ManagerLoginResponse = {
   permission?: Permission;
 } & Manager;
 
-export type User = AdminLoginResponse | ManagerLoginResponse;
+type SuperAdminLoginResponse = {
+  type: 'SuperAdmin';
+} & SuperAdmin;
+
+export type User =
+  | AdminLoginResponse
+  | ManagerLoginResponse
+  | SuperAdminLoginResponse;
