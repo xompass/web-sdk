@@ -1,5 +1,11 @@
 # @xompass/web-sdk
 
+## 0.23.0
+
+### Minor Changes
+
+- c52b65d: Allow superadmin login
+
 ## 0.22.0
 
 ### Minor Changes
