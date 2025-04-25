@@ -1,5 +1,23 @@
 # @xompass/web-sdk
 
+## 0.23.0
+
+### Minor Changes
+
+- c52b65d: Allow superadmin login
+
+## 0.22.0
+
+### Minor Changes
+
+- 4e2a42f: Update Report model
+
+## 0.21.4
+
+### Patch Changes
+
+- cf1e987: Update sensor types and and new classes
+
 ## 0.21.3
 
 ### Patch Changes
