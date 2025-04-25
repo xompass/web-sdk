@@ -51,6 +51,7 @@ export type Customer = {
   apiKeys?: ApiKey[];
   country?: Country;
   assetStateChanges?: AssetStateChange[];
+  activeDirectory?: CustomerActiveDirectory;
   operabilitySummaries?: CustomerOperabilitySummary[];
   restrictionTable?: CustomerRestrictionTable;
   container?: CustomerStorageContainer;
@@ -80,6 +81,13 @@ export type CustomerConfig = {
   created?: Date;
   modified?: Date;
   deleted?: Date;
+};
+
+export type CustomerActiveDirectory = {
+  allowedDomains?: string[];
+  allowedTenantIds?: string[];
+  id?: string;
+  customerId?: string;
 };
 
 export type CustomerStorageContainer = {

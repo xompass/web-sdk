@@ -17,6 +17,7 @@ import { ProjectRestrictionTable } from './ProjectRestrictionTable';
 import { ProjectTag } from './ProjectTag';
 import { RateLimit } from './RateLimit';
 import { Report } from './Report';
+import { ResponseProtocol } from './ResponseProtocol';
 import { SensorType } from './SensorType';
 import { SensorUptime } from './SensorUptime';
 import { SensorUptimeCollector } from './SensorUptimeCollector';
@@ -64,6 +65,7 @@ export type Project = {
   restrictionTable?: ProjectRestrictionTable;
   tags?: ProjectTag[];
   reports?: Report[];
+  responseProtocols?: ResponseProtocol[];
   allowedSensorTypes?: SensorType[];
   sensorUptime?: SensorUptime[];
   sensorUptimeCollectors?: SensorUptimeCollector[];

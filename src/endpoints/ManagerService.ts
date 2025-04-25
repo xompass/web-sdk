@@ -1657,6 +1657,38 @@ export async function Manager_otpDisable(id: string): Promise<any> {
   });
 }
 /**
+ * Get telegram sessions active for user.
+ * /Managers/:id/miniapp/activeSessions
+ */
+export async function Manager_getMiniAppUserSessionsActive(
+  id: string,
+): Promise<any> {
+  return ApiFetch({
+    method: 'GET',
+    url: '/Managers/:id/miniapp/activeSessions',
+    routeParams: {
+      id,
+    },
+  });
+}
+/**
+ * Logout user from miniapp
+ * /Managers/:id/telegram/miniapp/logout
+ */
+export async function Manager_MiniAppUserSessionActiveLogout(
+  id: string,
+  data: any,
+): Promise<any> {
+  return ApiFetch({
+    method: 'POST',
+    url: '/Managers/:id/telegram/miniapp/logout',
+    routeParams: {
+      id,
+    },
+    body: data,
+  });
+}
+/**
  * Check if the user has the OTP authentication enabled.
  * /Managers/:id/otp/check
  */

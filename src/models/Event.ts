@@ -76,6 +76,7 @@ export type Event = {
   filtered?: boolean;
   archived?: boolean;
   expiresAt?: Date;
+  forwardedTo?: any[];
   created?: Date;
   modified?: Date;
   deleted?: Date;

@@ -8,4 +8,11 @@ export type ObjectRecognitionNumericParameters = {
   accuracy?: number;
   factor?: number;
   offset?: number;
+  persistence?: {
+    classes: string[];
+    enabled: boolean;
+    ttl?: number;
+    minImages?: number;
+    ratio?: number;
+  };
 };
