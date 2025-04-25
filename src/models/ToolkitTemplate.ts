@@ -7,6 +7,8 @@ export type ToolkitTemplate = {
   logo?: string;
   sector?: string;
   module: string;
+  defaultEnabledToolIds?: string[];
+  defaultEnabledAdminToolIds?: string[];
   keywords?: string[];
   created?: Date;
   modified?: Date;

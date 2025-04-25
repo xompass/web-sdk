@@ -25,6 +25,7 @@ export type Manager = {
   modified?: Date;
   deleted?: Date;
   otpEnabled?: boolean;
+  disabledPasswordLogin?: boolean;
   username?: string;
   email: string;
   emailVerified?: boolean;
@@ -101,6 +102,7 @@ export type Permission = {
   trafficFlowAnalysis?: CRUD;
   virtualExpressions?: CRUD;
   listedLicensePlates?: CRUD;
+  responseProtocols?: CRUD;
   created?: Date;
   modified?: Date;
   deleted?: Date;

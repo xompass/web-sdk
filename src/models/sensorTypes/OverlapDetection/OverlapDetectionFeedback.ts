@@ -35,6 +35,8 @@ export type OverlapDetectionFeedback = {
       ZONE?: boolean;
       PROBABILITY?: boolean;
       CLASS?: boolean;
+      PERSISTENCE?: boolean;
+      OVERLAP?: boolean;
     };
     diagnosis?:
       | 'TRUE_POSITIVE'

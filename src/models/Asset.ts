@@ -24,6 +24,7 @@ import { Log } from './Log';
 import { Manager } from './Manager';
 import { Project } from './Project';
 import { RateLimit } from './RateLimit';
+import { ResponseProtocol } from './ResponseProtocol';
 import { Sensor } from './Sensor';
 import { SensorUptime } from './SensorUptime';
 import { SensorUptimeCollector } from './SensorUptimeCollector';
@@ -57,6 +58,7 @@ export type Asset = {
   customerId?: string;
   projectId?: string;
   _rateLimit?: RateLimit;
+  responseProtocolId?: string;
   assets?: Asset[];
   asset?: Asset;
   alerts?: Alert[];
@@ -85,6 +87,7 @@ export type Asset = {
   trackingLogs?: Log[];
   managers?: Manager[];
   project?: Project;
+  responseProtocol?: ResponseProtocol;
   sensors?: Sensor[];
   sensorUptimes?: SensorUptime[];
   sensorUptimeCollectors?: SensorUptimeCollector[];

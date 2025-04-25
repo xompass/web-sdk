@@ -9,6 +9,7 @@ import { FileMetadata } from './FileMetadata';
 export type Storyline = {
   name: string;
   status?: string;
+  storylineDate: Date;
   description?: string;
   placeOfReference?: string;
   storypointsOrder?: any;

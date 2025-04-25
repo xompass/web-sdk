@@ -22,5 +22,12 @@ export type OverlapDetectionContent = {
       w: number;
       h: number;
     };
+    filteredBy?: {
+      ZONE?: boolean;
+      PROBABILITY?: boolean;
+      CLASS?: boolean;
+      PERSISTENCE?: boolean;
+      OVERLAP?: boolean;
+    };
   }[];
 };

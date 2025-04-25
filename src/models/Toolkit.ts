@@ -9,6 +9,8 @@ export type Toolkit = {
   description?: string;
   logo?: string;
   sector?: string;
+  defaultEnabledToolIds?: string[];
+  defaultEnabledAdminToolIds?: string[];
   keywords?: string[];
   created?: Date;
   modified?: Date;

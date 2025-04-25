@@ -26,6 +26,8 @@ export type OverlapDetectionEventContent = {
       ZONE?: boolean;
       PROBABILITY?: boolean;
       CLASS?: boolean;
+      PERSISTENCE?: boolean;
+      OVERLAP?: boolean;
     };
   }[];
   filtered?: boolean;

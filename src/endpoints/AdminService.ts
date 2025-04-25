@@ -514,6 +514,38 @@ export async function Admin_otpDisable(id: string): Promise<any> {
   });
 }
 /**
+ * Get telegram sessions active for user.
+ * /Admins/:id/miniapp/activeSessions
+ */
+export async function Admin_getMiniAppUserSessionsActive(
+  id: string,
+): Promise<any> {
+  return ApiFetch({
+    method: 'GET',
+    url: '/Admins/:id/miniapp/activeSessions',
+    routeParams: {
+      id,
+    },
+  });
+}
+/**
+ * Logout user from miniapp
+ * /Admins/:id/telegram/miniapp/logout
+ */
+export async function Admin_MiniAppUserSessionActiveLogout(
+  id: string,
+  data: any,
+): Promise<any> {
+  return ApiFetch({
+    method: 'POST',
+    url: '/Admins/:id/telegram/miniapp/logout',
+    routeParams: {
+      id,
+    },
+    body: data,
+  });
+}
+/**
  * Check if the user has the OTP authentication enabled.
  * /Admins/:id/otp/check
  */

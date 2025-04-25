@@ -8,4 +8,11 @@ export type MultiZoneObjectTrackingParameters = {
     radialTolerancePx?: number;
   }[];
   disableUpload?: boolean;
+  persistence?: {
+    classes: string[];
+    enabled: boolean;
+    ttl?: number;
+    minImages?: number;
+    ratio?: number;
+  };
 };
