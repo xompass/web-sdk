@@ -1,5 +1,17 @@
 # @xompass/web-sdk
 
+## 0.24.0
+
+### Minor Changes
+
+- ff7150f: Sync with backend
+
+### Patch Changes
+
+- 4ffeb75: test pipeline
+- fac36a8: export reponse protocol model
+- fcea5d3: pipeline test
+
 ## 0.23.0
 
 ### Minor Changes
