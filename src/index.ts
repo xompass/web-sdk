@@ -127,6 +127,7 @@ export * from './models/ProjectRestrictionTable';
 export * from './models/ProjectTag';
 export * from './models/RateLimit';
 export * from './models/Report';
+export * from './models/ResponseProtocol';
 export * from './models/Sensor';
 export * from './models/SensorAssetState';
 export * from './models/SensorAssetStateTemplate';
