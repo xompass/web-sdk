@@ -1,5 +1,11 @@
 # @xompass/web-sdk
 
+## 0.24.2
+
+### Patch Changes
+
+- c91acc3: improve report type
+
 ## 0.24.1
 
 ### Patch Changes
