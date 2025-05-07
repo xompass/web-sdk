@@ -3,7 +3,7 @@ import { Log } from './Log';
 import { Manager } from './Manager';
 import { Project } from './Project';
 
-export type Report = {
+type BaseReport = {
   name: string;
   description?: string;
   emails?: string[];
@@ -21,25 +21,34 @@ export type Report = {
   project?: Project;
   managers?: Manager[];
   assets?: Asset[];
-} & (
-  | {
-      type: 'ROUND_OF_GUARD';
-      parameters: {
-        roundGroupTimeM: number;
-        maxImagesPerRound: number;
-        roundStart: string;
-        roundEnd: string;
-      };
-    }
-  | {
-      type: 'STORE_OPENING';
-    }
-  | {
-      type: 'ACCESS_CONTROL';
-      parameters: {
-        maxImagesPerHour: number;
-        classes: string[];
-        viewMode: 'entry' | 'exit' | 'both';
-      };
-    }
-);
+};
+
+export type RoundOfGuardReport = BaseReport & {
+  type: 'ROUND_OF_GUARD';
+  parameters: {
+    roundGroupTimeM: number;
+    maxImagesPerRound: number;
+    roundStart: string;
+    roundEnd: string;
+  };
+};
+
+export type StoreOpeningReport = BaseReport & {
+  type: 'STORE_OPENING';
+};
+
+export type AccessControlReport = BaseReport & {
+  type: 'ACCESS_CONTROL';
+  parameters: {
+    maxImagesPerHour: number;
+    classes: string[];
+    viewMode: 'entry' | 'exit' | 'both';
+  };
+};
+
+export type Report =
+  | RoundOfGuardReport
+  | StoreOpeningReport
+  | AccessControlReport;
+
+export type ReportType = Report['type'];
