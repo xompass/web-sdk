@@ -34,4 +34,12 @@ export type Report = {
   | {
       type: 'STORE_OPENING';
     }
+  | {
+      type: 'ACCESS_CONTROL';
+      parameters: {
+        maxImagesPerHour: number;
+        classes: string[];
+        viewMode: 'entry' | 'exit' | 'both';
+      };
+    }
 );
