@@ -1,5 +1,11 @@
 # @xompass/web-sdk
 
+## 0.24.1
+
+### Patch Changes
+
+- fbc65cc: Add access control report def
+
 ## 0.24.0
 
 ### Minor Changes
