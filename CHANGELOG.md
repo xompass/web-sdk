@@ -1,5 +1,11 @@
 # @xompass/web-sdk
 
+## 0.24.3
+
+### Patch Changes
+
+- 048fe08: OpenGateReport
+
 ## 0.24.2
 
 ### Patch Changes
