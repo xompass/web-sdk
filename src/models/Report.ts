@@ -3,7 +3,7 @@ import { Log } from './Log';
 import { Manager } from './Manager';
 import { Project } from './Project';
 
-type BaseReport = {
+export type BaseReport = {
   name: string;
   description?: string;
   emails?: string[];
@@ -46,9 +46,18 @@ export type AccessControlReport = BaseReport & {
   };
 };
 
+export type OpenGateReport = BaseReport & {
+  type: 'OPEN_GATE';
+  parameters: {
+    maxImagesPerHour: number;
+    subject?: string;
+  };
+};
+
 export type Report =
   | RoundOfGuardReport
   | StoreOpeningReport
-  | AccessControlReport;
+  | AccessControlReport
+  | OpenGateReport;
 
 export type ReportType = Report['type'];
