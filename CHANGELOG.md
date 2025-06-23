@@ -1,5 +1,11 @@
 # @xompass/web-sdk
 
+## 0.25.0
+
+### Minor Changes
+
+- ca4f44d: EventImageReport
+
 ## 0.24.3
 
 ### Patch Changes
