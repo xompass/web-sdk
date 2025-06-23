@@ -46,6 +46,25 @@ export type AccessControlReport = BaseReport & {
   };
 };
 
+export type EventImageReportBySubjectParameters = {
+  maxImagesPerHour: number;
+  filterType: 'subject';
+  eventSubjectId?: string;
+};
+
+export type EventImageReportByStateParameters = {
+  maxImagesPerHour: number;
+  filterType: 'state';
+  eventStateId?: string;
+};
+
+export type EventImageReport = BaseReport & {
+  type: 'EVENT_IMAGE';
+  parameters:
+    | EventImageReportBySubjectParameters
+    | EventImageReportByStateParameters;
+};
+
 export type OpenGateReport = BaseReport & {
   type: 'OPEN_GATE';
   parameters: {
@@ -58,6 +77,7 @@ export type Report =
   | RoundOfGuardReport
   | StoreOpeningReport
   | AccessControlReport
-  | OpenGateReport;
+  | OpenGateReport
+  | EventImageReport;
 
 export type ReportType = Report['type'];

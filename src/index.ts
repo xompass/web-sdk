@@ -101,6 +101,7 @@ export * from './models/EventGroup';
 export * from './models/EventGroupTemplate';
 export * from './models/EventState';
 export * from './models/EventStateChange';
+export * from './models/EventSubject';
 export * from './models/EventSummary';
 export * from './models/EventSummaryForAsset';
 export * from './models/EventSummaryForProject';
