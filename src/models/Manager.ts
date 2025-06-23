@@ -85,6 +85,7 @@ export type Permission = {
   eventDashboards?: CRUD;
   eventComments?: CRUD;
   eventStates?: CRUD;
+  eventSubjects?: CRUD;
   eventTriggers?: CRUD;
   healthcheckEvents?: CRUD;
   gis?: CRUD;

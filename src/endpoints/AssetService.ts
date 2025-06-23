@@ -5,6 +5,8 @@ import { AssetStorageContainer } from '../models/Asset';
 import { Dataset } from '../models/Dataset';
 import { EdgeAgent } from '../models/EdgeAgent';
 import { EdgeAgentAsset } from '../models/EdgeAgent';
+import { Event } from '../models/Event';
+import { EventTrigger } from '../models/EventTrigger';
 import { HealthcheckEvent } from '../models/HealthcheckEvent';
 import { RateLimit } from '../models/RateLimit';
 import { SensorWithCurrentState } from '../models/Sensor';
@@ -12,7 +14,6 @@ import { EventTriggerAssetState } from '../models/EventTriggerAssetState';
 import { SensorAssetState } from '../models/SensorAssetState';
 import { EventComment } from '../models/EventComment';
 import { EventStateChange } from '../models/EventStateChange';
-import { EventTrigger } from '../models/EventTrigger';
 
 /**
  * Api services for the `Asset` model.
@@ -346,6 +347,28 @@ export async function Asset_CountEdgeAgents(
   return ApiFetch({
     method: 'GET',
     url: '/Assets/:id/edgeAgents/count',
+    urlParams: _urlParams,
+    routeParams: {
+      id,
+    },
+  });
+}
+/**
+ * events consultas de Asset.
+ * /Assets/:id/events
+ */
+export async function Asset_GetEvents(
+  id: string,
+  filter: Filter<any> = {},
+): Promise<Event[]> {
+  const _urlParams: any = {};
+  if (filter != null) {
+    _urlParams['filter'] = filter;
+  }
+
+  return ApiFetch({
+    method: 'GET',
+    url: '/Assets/:id/events',
     urlParams: _urlParams,
     routeParams: {
       id,

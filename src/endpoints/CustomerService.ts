@@ -17,6 +17,7 @@ import { DeviceEventType } from '../models/DeviceEventType';
 import { EdgeAgent } from '../models/EdgeAgent';
 import { EmergencyContact } from '../models/EmergencyContact';
 import { EventState } from '../models/EventState';
+import { EventSubject } from '../models/EventSubject';
 import { Manager } from '../models/Manager';
 import { Project } from '../models/Project';
 import { SensorUptime } from '../models/SensorUptime';
@@ -565,6 +566,59 @@ export async function Customer_UpdateByIdEventStates(
   return ApiFetch({
     method: 'PUT',
     url: '/Customers/:id/eventStates/:fk',
+    routeParams: {
+      id,
+      fk,
+    },
+    body: data,
+  });
+}
+/**
+ * Buscar un elemento relacionado por id para eventSubjects.
+ * /Customers/:id/eventSubjects/:fk
+ */
+export async function Customer_FindByIdEventSubjects(
+  id: string,
+  fk: string,
+): Promise<EventSubject> {
+  return ApiFetch({
+    method: 'GET',
+    url: '/Customers/:id/eventSubjects/:fk',
+    routeParams: {
+      id,
+      fk,
+    },
+  });
+}
+/**
+ * Suprimir un elemento relacionado por id para eventSubjects.
+ * /Customers/:id/eventSubjects/:fk
+ */
+export async function Customer_DestroyByIdEventSubjects(
+  id: string,
+  fk: string,
+): Promise<void> {
+  return ApiFetch({
+    method: 'DELETE',
+    url: '/Customers/:id/eventSubjects/:fk',
+    routeParams: {
+      id,
+      fk,
+    },
+  });
+}
+/**
+ * Actualizar un elemento relacionado por id para eventSubjects.
+ * /Customers/:id/eventSubjects/:fk
+ */
+export async function Customer_UpdateByIdEventSubjects(
+  id: string,
+  fk: string,
+  data: any = {},
+): Promise<EventSubject> {
+  return ApiFetch({
+    method: 'PUT',
+    url: '/Customers/:id/eventSubjects/:fk',
     routeParams: {
       id,
       fk,
@@ -1520,6 +1574,67 @@ export async function Customer_CountEventStates(
   return ApiFetch({
     method: 'GET',
     url: '/Customers/:id/eventStates/count',
+    urlParams: _urlParams,
+    routeParams: {
+      id,
+    },
+  });
+}
+/**
+ * eventSubjects consultas de Customer.
+ * /Customers/:id/eventSubjects
+ */
+export async function Customer_GetEventSubjects(
+  id: string,
+  filter: Filter<any> = {},
+): Promise<EventSubject[]> {
+  const _urlParams: any = {};
+  if (filter != null) {
+    _urlParams['filter'] = filter;
+  }
+
+  return ApiFetch({
+    method: 'GET',
+    url: '/Customers/:id/eventSubjects',
+    urlParams: _urlParams,
+    routeParams: {
+      id,
+    },
+  });
+}
+/**
+ * Crea una nueva instancia en eventSubjects de este modelo.
+ * /Customers/:id/eventSubjects
+ */
+export async function Customer_CreateEventSubjects(
+  id: string,
+  data: any = {},
+): Promise<EventSubject> {
+  return ApiFetch({
+    method: 'POST',
+    url: '/Customers/:id/eventSubjects',
+    routeParams: {
+      id,
+    },
+    body: data,
+  });
+}
+/**
+ * Recuentos eventSubjects de Customer.
+ * /Customers/:id/eventSubjects/count
+ */
+export async function Customer_CountEventSubjects(
+  id: string,
+  where: any = {},
+): Promise<number> {
+  const _urlParams: any = {};
+  if (where != null) {
+    _urlParams['where'] = where;
+  }
+
+  return ApiFetch({
+    method: 'GET',
+    url: '/Customers/:id/eventSubjects/count',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -2946,6 +3061,24 @@ export async function Customer_setSosafeConfig(
       id,
     },
     body: data,
+  });
+}
+/**
+ * Reset bot parameters
+ * /Customers/:id/telegram/:nk/softBotReset
+ */
+export async function Customer_resetTelegrambot(
+  id: string,
+  nk: string,
+): Promise<any> {
+  return ApiFetch({
+    method: 'PATCH',
+    url: '/Customers/:id/telegram/:nk/softBotReset',
+    routeParams: {
+      id,
+      nk,
+    },
+    body: {},
   });
 }
 /**
