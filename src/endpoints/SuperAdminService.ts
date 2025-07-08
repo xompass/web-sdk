@@ -1,5 +1,24 @@
 import { ApiFetch, Filter, Include } from '../core/ApiFetch';
+import { CommonAccessToken } from '../models/CommonAccessToken';
 import { SuperAdmin } from '../models/SuperAdmin';
+
+/**
+ * Buscar un elemento relacionado por id para accessTokens.
+ * /SuperAdmins/:id/accessTokens/:fk
+ */
+export async function SuperAdmin_FindByIdAccessTokens(
+  id: string,
+  fk: string,
+): Promise<CommonAccessToken> {
+  return ApiFetch({
+    method: 'GET',
+    url: '/SuperAdmins/:id/accessTokens/:fk',
+    routeParams: {
+      id,
+      fk,
+    },
+  });
+}
 
 /**
  * Find a model instance by {{id}} from the data source.

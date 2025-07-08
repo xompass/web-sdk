@@ -6,16 +6,19 @@ import {
 import { User, UserCrendentials, UserType } from './core/User';
 import {
   Admin_findById,
+  Admin_FindByIdAccessTokens,
   Admin_login,
   Admin_logout,
 } from './endpoints/AdminService';
 import {
   Manager_findById,
+  Manager_FindByIdAccessTokens,
   Manager_login,
   Manager_logout,
 } from './endpoints/ManagerService';
 import {
   SuperAdmin_findById,
+  SuperAdmin_FindByIdAccessTokens,
   SuperAdmin_login,
   SuperAdmin_logout,
 } from './endpoints/SuperAdminService';
@@ -171,7 +174,7 @@ export class ApiClient {
       this.userId = token.userId;
       this.principalType = token.principalType as UserType;
 
-      const ttl = token.ttl || defaultTTL;
+      const ttl = this.getTokenTTl(token);
 
       setLocalStorageValue('vsaas$accessToken', this.accessToken, ttl);
       setLocalStorageValue('vsaas$userId', this.userId, ttl);
@@ -194,6 +197,25 @@ export class ApiClient {
     }
 
     try {
+      let GetToken: (id: string, fk: string) => Promise<CommonAccessToken>;
+
+      switch (this.principalType) {
+        case 'Admin':
+          GetToken = Admin_FindByIdAccessTokens;
+          break;
+        case 'Manager':
+          GetToken = Manager_FindByIdAccessTokens;
+          break;
+        case 'SuperAdmin':
+          GetToken = SuperAdmin_FindByIdAccessTokens;
+          break;
+        default:
+          throw new Error('Invalid user type');
+      }
+
+      // We set the access token, user id, and principal type in local storage
+      // This is temporary, we will check the access token validity
+      // and update the TTL if needed
       setLocalStorageValue('vsaas$accessToken', this.accessToken, defaultTTL);
       setLocalStorageValue('vsaas$userId', this.userId, defaultTTL);
       setLocalStorageValue(
@@ -201,6 +223,21 @@ export class ApiClient {
         this.principalType,
         defaultTTL,
       );
+
+      let ttl = defaultTTL;
+      try {
+        const token = await GetToken(this.userId, this.accessToken);
+        ttl = this.getTokenTTl(token);
+      } catch (error) {
+        this.logout();
+        throw error;
+      }
+
+      // After we validate the access token, we set the local storage
+      // values again, this time with the correct TTL
+      setLocalStorageValue('vsaas$accessToken', this.accessToken, ttl);
+      setLocalStorageValue('vsaas$userId', this.userId, ttl);
+      setLocalStorageValue('vsaas$principalType', this.principalType, ttl);
 
       let GetPrincipal: (
         id: string,
@@ -238,5 +275,16 @@ export class ApiClient {
       this.logout();
       throw error;
     }
+  }
+
+  getTokenTTl(token: CommonAccessToken): number {
+    const now = Date.now();
+    const expiresAt = new Date(token.created!).getTime() + token.ttl! * 1000;
+
+    if (now > expiresAt) {
+      throw new Error('Access token is expired');
+    }
+
+    return (expiresAt - now) / 1000;
   }
 }

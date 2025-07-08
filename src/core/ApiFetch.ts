@@ -227,10 +227,30 @@ function getAccessToken(): Promise<string | null> {
     return Promise.resolve(token);
   }
 
+  const maxTries = 50;
+  const interval = 100;
+
+  let tries = 0;
+  const checkAccessToken = () => {
+    tries++;
+    const token = getLocalStorageValue('vsaas$accessToken');
+    return token ? token : null;
+  };
   return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(getLocalStorageValue('vsaas$accessToken'));
-    }, 100);
+    const intervalId = setInterval(() => {
+      const token = checkAccessToken();
+
+      if (token) {
+        console.log('Token found after', tries, 'tries');
+        clearInterval(intervalId);
+        resolve(token);
+      }
+      if (tries >= maxTries) {
+        console.warn('Max tries reached, no token found');
+        clearInterval(intervalId);
+        resolve(null);
+      }
+    }, interval);
   });
 }
 
