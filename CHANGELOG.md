@@ -1,5 +1,11 @@
 # @xompass/web-sdk
 
+## 0.25.1
+
+### Patch Changes
+
+- 4e95005: improve client auth
+
 ## 0.25.0
 
 ### Minor Changes
