@@ -1,5 +1,11 @@
 # @xompass/web-sdk
 
+## 0.25.2
+
+### Patch Changes
+
+- a90a8d8: new user method getCurrentToken
+
 ## 0.25.1
 
 ### Patch Changes
