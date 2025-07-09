@@ -1620,6 +1620,21 @@ export async function Manager_setPassword(newPassword: string): Promise<any> {
   });
 }
 /**
+ * Get the current access token for the user.
+ * /Managers/:id/currentAccessToken
+ */
+export async function Manager_getCurrentToken(
+  id: string,
+): Promise<CommonAccessToken> {
+  return ApiFetch({
+    method: 'GET',
+    url: '/Managers/:id/currentAccessToken',
+    routeParams: {
+      id,
+    },
+  });
+}
+/**
  * Login a user with username/email, password and OTP.
  * /Managers/otp/login
  */

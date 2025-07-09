@@ -6,19 +6,19 @@ import {
 import { User, UserCrendentials, UserType } from './core/User';
 import {
   Admin_findById,
-  Admin_FindByIdAccessTokens,
+  Admin_getCurrentToken,
   Admin_login,
   Admin_logout,
 } from './endpoints/AdminService';
 import {
   Manager_findById,
-  Manager_FindByIdAccessTokens,
+  Manager_getCurrentToken,
   Manager_login,
   Manager_logout,
 } from './endpoints/ManagerService';
 import {
   SuperAdmin_findById,
-  SuperAdmin_FindByIdAccessTokens,
+  SuperAdmin_getCurrentToken,
   SuperAdmin_login,
   SuperAdmin_logout,
 } from './endpoints/SuperAdminService';
@@ -197,17 +197,17 @@ export class ApiClient {
     }
 
     try {
-      let GetToken: (id: string, fk: string) => Promise<CommonAccessToken>;
+      let GetToken: (id: string) => Promise<CommonAccessToken>;
 
       switch (this.principalType) {
         case 'Admin':
-          GetToken = Admin_FindByIdAccessTokens;
+          GetToken = Admin_getCurrentToken;
           break;
         case 'Manager':
-          GetToken = Manager_FindByIdAccessTokens;
+          GetToken = Manager_getCurrentToken;
           break;
         case 'SuperAdmin':
-          GetToken = SuperAdmin_FindByIdAccessTokens;
+          GetToken = SuperAdmin_getCurrentToken;
           break;
         default:
           throw new Error('Invalid user type');
@@ -226,7 +226,7 @@ export class ApiClient {
 
       let ttl = defaultTTL;
       try {
-        const token = await GetToken(this.userId, this.accessToken);
+        const token = await GetToken(this.userId);
         ttl = this.getTokenTTl(token);
       } catch (error) {
         this.logout();

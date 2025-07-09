@@ -67,6 +67,8 @@ export type ObjectRecognitionTrigger = {
     | 'foldingtent'
     | 'peddler'
     | 'trash'
+    | 'snack'
+    | 'door'
   )[];
   value?: number;
   operator?: 'eq' | 'neq' | 'gt' | 'gte' | 'lt' | 'lte' | 'null';
