@@ -335,6 +335,16 @@ export type ObjectRecognitionBasedOnRulesTRCParameters = {
         minProbability?: number;
       };
     };
+    snack?: {
+      thresholds?: {
+        minProbability?: number;
+      };
+    };
+    door?: {
+      thresholds?: {
+        minProbability?: number;
+      };
+    };
   };
 };
 

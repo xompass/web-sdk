@@ -19,6 +19,21 @@ export async function SuperAdmin_FindByIdAccessTokens(
     },
   });
 }
+/**
+ * Get the current access token for the user.
+ * /SuperAdmins/:id/currentAccessToken
+ */
+export async function SuperAdmin_getCurrentToken(
+  id: string,
+): Promise<CommonAccessToken> {
+  return ApiFetch({
+    method: 'GET',
+    url: '/SuperAdmins/:id/currentAccessToken',
+    routeParams: {
+      id,
+    },
+  });
+}
 
 /**
  * Find a model instance by {{id}} from the data source.

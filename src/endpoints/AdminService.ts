@@ -477,6 +477,21 @@ export async function Admin_setPassword(newPassword: string): Promise<any> {
   });
 }
 /**
+ * Get the current access token for the user.
+ * /Admins/:id/currentAccessToken
+ */
+export async function Admin_getCurrentToken(
+  id: string,
+): Promise<CommonAccessToken> {
+  return ApiFetch({
+    method: 'GET',
+    url: '/Admins/:id/currentAccessToken',
+    routeParams: {
+      id,
+    },
+  });
+}
+/**
  * Login a user with username/email, password and OTP.
  * /Admins/otp/login
  */

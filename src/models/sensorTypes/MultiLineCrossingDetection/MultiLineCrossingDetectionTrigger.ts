@@ -1,4 +1,4 @@
-export type LineCrossingDetectionTrigger = {
+export type MultiLineCrossingDetectionTrigger = {
   classes?: (
     | 'bicycle'
     | 'bus'
@@ -11,5 +11,5 @@ export type LineCrossingDetectionTrigger = {
     | 'machinery'
     | 'truck_small'
   )[];
-  direction: 'incoming' | 'outgoing';
+  direction?: 'incoming' | 'outgoing' | 'null';
 }[][];

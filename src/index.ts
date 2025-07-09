@@ -262,6 +262,13 @@ export * from './models/sensorTypes/MotionDetection/MotionDetectionEventContent'
 export * from './models/sensorTypes/MotionDetection/MotionDetectionFeedback';
 export * from './models/sensorTypes/MotionDetection/MotionDetectionParameters';
 export * from './models/sensorTypes/MotionDetection/MotionDetectionSummary';
+export * from './models/sensorTypes/MultiLineCrossingDetection/MultiLineCrossingDetectionContent';
+export * from './models/sensorTypes/MultiLineCrossingDetection/MultiLineCrossingDetectionEventContent';
+export * from './models/sensorTypes/MultiLineCrossingDetection/MultiLineCrossingDetectionFeedback';
+export * from './models/sensorTypes/MultiLineCrossingDetection/MultiLineCrossingDetectionParameters';
+export * from './models/sensorTypes/MultiLineCrossingDetection/MultiLineCrossingDetectionSummary';
+export * from './models/sensorTypes/MultiLineCrossingDetection/MultiLineCrossingDetectionTRCParameters';
+export * from './models/sensorTypes/MultiLineCrossingDetection/MultiLineCrossingDetectionTrigger';
 export * from './models/sensorTypes/MultiZoneObjectTracking/MultiZoneObjectTrackingContent';
 export * from './models/sensorTypes/MultiZoneObjectTracking/MultiZoneObjectTrackingEventContent';
 export * from './models/sensorTypes/MultiZoneObjectTracking/MultiZoneObjectTrackingFeedback';
