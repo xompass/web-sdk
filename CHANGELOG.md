@@ -1,5 +1,11 @@
 # @xompass/web-sdk
 
+## 0.26.1
+
+### Patch Changes
+
+- e21d4da: Improve token login
+
 ## 0.26.0
 
 ### Minor Changes
