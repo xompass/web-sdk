@@ -25,10 +25,17 @@ export async function SuperAdmin_FindByIdAccessTokens(
  */
 export async function SuperAdmin_getCurrentToken(
   id: string,
+  include?: string,
 ): Promise<CommonAccessToken> {
+  const _urlParams: any = {};
+  if (include != null) {
+    _urlParams['include'] = include;
+  }
+
   return ApiFetch({
     method: 'GET',
     url: '/SuperAdmins/:id/currentAccessToken',
+    urlParams: _urlParams,
     routeParams: {
       id,
     },

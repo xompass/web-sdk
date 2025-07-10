@@ -1625,10 +1625,17 @@ export async function Manager_setPassword(newPassword: string): Promise<any> {
  */
 export async function Manager_getCurrentToken(
   id: string,
+  include?: string,
 ): Promise<CommonAccessToken> {
+  const _urlParams: any = {};
+  if (include != null) {
+    _urlParams['include'] = include;
+  }
+
   return ApiFetch({
     method: 'GET',
     url: '/Managers/:id/currentAccessToken',
+    urlParams: _urlParams,
     routeParams: {
       id,
     },
