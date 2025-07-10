@@ -2,6 +2,7 @@ import { SensorTypeLabels } from './sensorTypes/SensorTypeLabel';
 import { Point } from './GeoJSON';
 import { BeaconTrackingContent } from './sensorTypes/BeaconTracking/BeaconTrackingContent';
 import { BooleanContent } from './sensorTypes/Boolean/BooleanContent';
+import { CargoContainerISOReaderContent } from './sensorTypes/CargoContainerISOReader/CargoContainerISOReaderContent';
 import { CheckoutContent } from './sensorTypes/Checkout/CheckoutContent';
 import { ColorPresenceContent } from './sensorTypes/ColorPresence/ColorPresenceContent';
 import { CrossedBarriersDetectionContent } from './sensorTypes/CrossedBarriersDetection/CrossedBarriersDetectionContent';
@@ -13,11 +14,14 @@ import { FaceMaskDetectionContent } from './sensorTypes/FaceMaskDetection/FaceMa
 import { FuelingDetectionContent } from './sensorTypes/FuelingDetection/FuelingDetectionContent';
 import { GPSContent } from './sensorTypes/GPS/GPSContent';
 import { GranularityDetectionContent } from './sensorTypes/GranularityDetection/GranularityDetectionContent';
+import { HeatmapContent } from './sensorTypes/Heatmap/HeatmapContent';
 import { LicensePlateContent } from './sensorTypes/LicensePlate/LicensePlateContent';
 import { LicensePlateTextContent } from './sensorTypes/LicensePlateText/LicensePlateTextContent';
 import { LineCrossingDetectionContent } from './sensorTypes/LineCrossingDetection/LineCrossingDetectionContent';
 import { MissingHelmetDetectionContent } from './sensorTypes/MissingHelmetDetection/MissingHelmetDetectionContent';
 import { MotionDetectionContent } from './sensorTypes/MotionDetection/MotionDetectionContent';
+import { MultiLineCrossingDetectionContent } from './sensorTypes/MultiLineCrossingDetection/MultiLineCrossingDetectionContent';
+import { MultiZoneObjectTrackingContent } from './sensorTypes/MultiZoneObjectTracking/MultiZoneObjectTrackingContent';
 import { NaiveSocialDistancingContent } from './sensorTypes/NaiveSocialDistancing/NaiveSocialDistancingContent';
 import { NoPlateDetectionContent } from './sensorTypes/NoPlateDetection/NoPlateDetectionContent';
 import { NumberContent } from './sensorTypes/Number/NumberContent';
@@ -26,9 +30,11 @@ import { ObjectRecognitionContent } from './sensorTypes/ObjectRecognition/Object
 import { ObjectRecognitionNumericContent } from './sensorTypes/ObjectRecognitionNumeric/ObjectRecognitionNumericContent';
 import { OpeningDetectionContent } from './sensorTypes/OpeningDetection/OpeningDetectionContent';
 import { OpticalCharacterRecognitionContent } from './sensorTypes/OpticalCharacterRecognition/OpticalCharacterRecognitionContent';
+import { OverlapDetectionContent } from './sensorTypes/OverlapDetection/OverlapDetectionContent';
+import { PeriodicObjectCountingContent } from './sensorTypes/PeriodicObjectCounting/PeriodicObjectCountingContent';
 import { PoseDetectionContent } from './sensorTypes/PoseDetection/PoseDetectionContent';
-import { ReferrerContent } from './sensorTypes/Referrer/ReferrerContent';
 import { QueueSizeContent } from './sensorTypes/QueueSize/QueueSizeContent';
+import { ReferrerContent } from './sensorTypes/Referrer/ReferrerContent';
 import { SceneChangeContent } from './sensorTypes/SceneChange/SceneChangeContent';
 import { ShoppingHoursContent } from './sensorTypes/ShoppingHours/ShoppingHoursContent';
 import { SpeedChangeContent } from './sensorTypes/SpeedChange/SpeedChangeContent';
@@ -36,8 +42,6 @@ import { StoppedLicensePlateContent } from './sensorTypes/StoppedLicensePlate/St
 import { StoppedObjectsDetectorContent } from './sensorTypes/StoppedObjectsDetector/StoppedObjectsDetectorContent';
 import { StringContent } from './sensorTypes/String/StringContent';
 import { VideoContent } from './sensorTypes/Video/VideoContent';
-import { MultiZoneObjectTrackingContent } from './sensorTypes/MultiZoneObjectTracking/MultiZoneObjectTrackingContent';
-import { CargoContainerISOReaderContent } from './sensorTypes/CargoContainerISOReader/CargoContainerISOReaderContent';
 
 export type Data = {
   id?: string;
@@ -139,7 +143,7 @@ export type Data = {
     }
   | {
       type: SensorTypeLabels['PeriodicObjectCounting'];
-      content: ObjectCountingContent;
+      content: PeriodicObjectCountingContent;
     }
   | {
       type: SensorTypeLabels['MultiZoneObjectTracking'];
@@ -149,4 +153,13 @@ export type Data = {
       type: SensorTypeLabels['CargoContainerISOReader'];
       content: CargoContainerISOReaderContent;
     }
+  | {
+      type: SensorTypeLabels['OverlapDetection'];
+      content: OverlapDetectionContent;
+    }
+  | {
+      type: SensorTypeLabels['MultiLineCrossingDetection'];
+      content: MultiLineCrossingDetectionContent;
+    }
+  | { type: SensorTypeLabels['Heatmap']; content: HeatmapContent }
 );

@@ -233,6 +233,11 @@ export * from './models/sensorTypes/GranularityDetection/GranularityDetectionPar
 export * from './models/sensorTypes/GranularityDetection/GranularityDetectionSummary';
 export * from './models/sensorTypes/GranularityDetection/GranularityDetectionTRCParameters';
 export * from './models/sensorTypes/GranularityDetection/GranularityDetectionTrigger';
+export * from './models/sensorTypes/Heatmap/HeatmapContent';
+export * from './models/sensorTypes/Heatmap/HeatmapEventContent';
+export * from './models/sensorTypes/Heatmap/HeatmapParameters';
+export * from './models/sensorTypes/Heatmap/HeatmapSummary';
+export * from './models/sensorTypes/Heatmap/HeatmapTrigger';
 export * from './models/sensorTypes/LicensePlate/LicensePlateContent';
 export * from './models/sensorTypes/LicensePlate/LicensePlateEventContent';
 export * from './models/sensorTypes/LicensePlate/LicensePlateFeedback';
