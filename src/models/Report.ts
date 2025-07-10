@@ -17,6 +17,7 @@ export type BaseReport = {
   id?: string;
   projectId?: string;
   assetIds?: string[];
+  nextReportTime?: Date;
   trackingLogs?: Log[];
   project?: Project;
   managers?: Manager[];

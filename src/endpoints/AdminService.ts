@@ -482,10 +482,17 @@ export async function Admin_setPassword(newPassword: string): Promise<any> {
  */
 export async function Admin_getCurrentToken(
   id: string,
+  include?: string,
 ): Promise<CommonAccessToken> {
+  const _urlParams: any = {};
+  if (include != null) {
+    _urlParams['include'] = include;
+  }
+
   return ApiFetch({
     method: 'GET',
     url: '/Admins/:id/currentAccessToken',
+    urlParams: _urlParams,
     routeParams: {
       id,
     },

@@ -174,7 +174,7 @@ export class ApiClient {
       this.userId = token.userId;
       this.principalType = token.principalType as UserType;
 
-      const ttl = this.getTokenTTl(token);
+      const ttl = this.getTokenTTL(token);
 
       setLocalStorageValue('vsaas$accessToken', this.accessToken, ttl);
       setLocalStorageValue('vsaas$userId', this.userId, ttl);
@@ -197,22 +197,6 @@ export class ApiClient {
     }
 
     try {
-      let GetToken: (id: string) => Promise<CommonAccessToken>;
-
-      switch (this.principalType) {
-        case 'Admin':
-          GetToken = Admin_getCurrentToken;
-          break;
-        case 'Manager':
-          GetToken = Manager_getCurrentToken;
-          break;
-        case 'SuperAdmin':
-          GetToken = SuperAdmin_getCurrentToken;
-          break;
-        default:
-          throw new Error('Invalid user type');
-      }
-
       // We set the access token, user id, and principal type in local storage
       // This is temporary, we will check the access token validity
       // and update the TTL if needed
@@ -224,20 +208,10 @@ export class ApiClient {
         defaultTTL,
       );
 
-      let ttl = defaultTTL;
-      try {
-        const token = await GetToken(this.userId);
-        ttl = this.getTokenTTl(token);
-      } catch (error) {
-        this.logout();
-        throw error;
-      }
-
-      // After we validate the access token, we set the local storage
-      // values again, this time with the correct TTL
-      setLocalStorageValue('vsaas$accessToken', this.accessToken, ttl);
-      setLocalStorageValue('vsaas$userId', this.userId, ttl);
-      setLocalStorageValue('vsaas$principalType', this.principalType, ttl);
+      let GetToken: (
+        id: string,
+        include?: string,
+      ) => Promise<CommonAccessToken>;
 
       let GetPrincipal: (
         id: string,
@@ -250,13 +224,16 @@ export class ApiClient {
 
       switch (this.principalType) {
         case 'Admin':
+          GetToken = Admin_getCurrentToken;
           GetPrincipal = Admin_findById;
           break;
         case 'Manager':
+          GetToken = Manager_getCurrentToken;
           GetPrincipal = Manager_findById;
           userInclude.push({ relation: 'permission' });
           break;
         case 'SuperAdmin':
+          GetToken = SuperAdmin_getCurrentToken;
           GetPrincipal = SuperAdmin_findById;
           userInclude = undefined;
           break;
@@ -264,20 +241,32 @@ export class ApiClient {
           throw new Error('Invalid user type');
       }
 
-      const user = (await GetPrincipal(this.userId, {
-        include: userInclude,
-      })) as User;
-      user.type = this.principalType as UserType;
+      // Fetch the access token and user information
+      const [token, user] = await Promise.all([
+        GetToken(this.userId),
+        GetPrincipal(this.userId, {
+          include: userInclude,
+        }),
+      ]);
 
-      this.cachedUser = user;
-      return user;
+      // If the request was successful, we update the access token with the correct ttl
+      const ttl = this.getTokenTTL(token);
+      setLocalStorageValue('vsaas$accessToken', this.accessToken, ttl);
+      setLocalStorageValue('vsaas$userId', this.userId, ttl);
+      setLocalStorageValue('vsaas$principalType', this.principalType, ttl);
+
+      const _user = user as User;
+      _user.type = this.principalType as UserType;
+
+      this.cachedUser = _user;
+      return _user;
     } catch (error) {
       this.logout();
       throw error;
     }
   }
 
-  getTokenTTl(token: CommonAccessToken): number {
+  getTokenTTL(token: CommonAccessToken): number {
     const now = Date.now();
     const expiresAt = new Date(token.created!).getTime() + token.ttl! * 1000;
 
