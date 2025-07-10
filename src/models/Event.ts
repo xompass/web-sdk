@@ -1,14 +1,19 @@
+// Core models
 import { Asset } from './Asset';
+import { EventComment } from './EventComment';
+import { EventStateChange } from './EventStateChange';
 import { EventSummary } from './EventSummary';
 import { EventTrigger } from './EventTrigger';
+import { Point } from './GeoJSON';
 import { Log } from './Log';
 import { SensorTypeLabel } from './sensorTypes/SensorTypeLabel';
-import { Point } from './GeoJSON';
+
+// EventContent types (alphabetical)
 import { BeaconTrackingEventContent } from './sensorTypes/BeaconTracking/BeaconTrackingEventContent';
 import { BooleanEventContent } from './sensorTypes/Boolean/BooleanEventContent';
+import { CargoContainerISOReaderEventContent } from './sensorTypes/CargoContainerISOReader/CargoContainerISOReaderEventContent';
 import { CheckoutEventContent } from './sensorTypes/Checkout/CheckoutEventContent';
 import { ColorPresenceEventContent } from './sensorTypes/ColorPresence/ColorPresenceEventContent';
-import { OpeningDetectionEventContent } from './sensorTypes/OpeningDetection/OpeningDetectionEventContent';
 import { CrossedBarriersDetectionEventContent } from './sensorTypes/CrossedBarriersDetection/CrossedBarriersDetectionEventContent';
 import { CrossLineMultiRecognitionEventContent } from './sensorTypes/CrossLineMultiRecognition/CrossLineMultiRecognitionEventContent';
 import { CrossLineRecognitionEventContent } from './sensorTypes/CrossLineRecognition/CrossLineRecognitionEventContent';
@@ -17,53 +22,56 @@ import { FaceDetectionEventContent } from './sensorTypes/FaceDetection/FaceDetec
 import { FaceMaskDetectionEventContent } from './sensorTypes/FaceMaskDetection/FaceMaskDetectionEventContent';
 import { FuelingDetectionEventContent } from './sensorTypes/FuelingDetection/FuelingDetectionEventContent';
 import { GPSEventContent } from './sensorTypes/GPS/GPSEventContent';
-import { MotionDetectionEventContent } from './sensorTypes/MotionDetection/MotionDetectionEventContent';
-import { NumberEventContent } from './sensorTypes/Number/NumberEventContent';
+import { GranularityDetectionEventContent } from './sensorTypes/GranularityDetection/GranularityDetectionEventContent';
+import { HeatmapEventContent } from './sensorTypes/Heatmap/HeatmapEventContent';
 import { LicensePlateEventContent } from './sensorTypes/LicensePlate/LicensePlateEventContent';
+import { LicensePlateTextEventContent } from './sensorTypes/LicensePlateText/LicensePlateTextEventContent';
 import { LineCrossingDetectionEventContent } from './sensorTypes/LineCrossingDetection/LineCrossingDetectionEventContent';
-import { ObjectCountingEventContent } from './sensorTypes/ObjectCounting/ObjectCountingEventContent';
-import { QueueSizeEventContent } from './sensorTypes/QueueSize/QueueSizeEventContent';
-import { NoPlateDetectionEventContent } from './sensorTypes/NoPlateDetection/NoPlateDetectionEventContent';
-import { ObjectRecognitionEventContent } from './sensorTypes/ObjectRecognition/ObjectRecognitionEventContent';
-import { StoppedObjectsDetectorEventContent } from './sensorTypes/StoppedObjectsDetector/StoppedObjectsDetectorEventContent';
+import { MissingHelmetDetectionEventContent } from './sensorTypes/MissingHelmetDetection/MissingHelmetDetectionEventContent';
+import { MotionDetectionEventContent } from './sensorTypes/MotionDetection/MotionDetectionEventContent';
+import { MultiLineCrossingDetectionEventContent } from './sensorTypes/MultiLineCrossingDetection/MultiLineCrossingDetectionEventContent';
+import { MultiZoneObjectTrackingEventContent } from './sensorTypes/MultiZoneObjectTracking/MultiZoneObjectTrackingEventContent';
 import { NaiveSocialDistancingEventContent } from './sensorTypes/NaiveSocialDistancing/NaiveSocialDistancingEventContent';
-import { SpeedChangeEventContent } from './sensorTypes/SpeedChange/SpeedChangeEventContent';
+import { NoPlateDetectionEventContent } from './sensorTypes/NoPlateDetection/NoPlateDetectionEventContent';
+import { NumberEventContent } from './sensorTypes/Number/NumberEventContent';
+import { ObjectCountingEventContent } from './sensorTypes/ObjectCounting/ObjectCountingEventContent';
+import { ObjectRecognitionEventContent } from './sensorTypes/ObjectRecognition/ObjectRecognitionEventContent';
+import { ObjectRecognitionNumericEventContent } from './sensorTypes/ObjectRecognitionNumeric/ObjectRecognitionNumericEventContent';
+import { OpeningDetectionEventContent } from './sensorTypes/OpeningDetection/OpeningDetectionEventContent';
 import { OpticalCharacterRecognitionEventContent } from './sensorTypes/OpticalCharacterRecognition/OpticalCharacterRecognitionEventContent';
+import { OverlapDetectionEventContent } from './sensorTypes/OverlapDetection/OverlapDetectionEventContent';
+import { PeriodicObjectCountingEventContent } from './sensorTypes/PeriodicObjectCounting/PeriodicObjectCountingEventContent';
 import { PoseDetectionEventContent } from './sensorTypes/PoseDetection/PoseDetectionEventContent';
+import { QueueSizeEventContent } from './sensorTypes/QueueSize/QueueSizeEventContent';
 import { ReferrerEventContent } from './sensorTypes/Referrer/ReferrerEventContent';
 import { SceneChangeEventContent } from './sensorTypes/SceneChange/SceneChangeEventContent';
 import { ShoppingHoursEventContent } from './sensorTypes/ShoppingHours/ShoppingHoursEventContent';
+import { SpeedChangeEventContent } from './sensorTypes/SpeedChange/SpeedChangeEventContent';
 import { StoppedLicensePlateEventContent } from './sensorTypes/StoppedLicensePlate/StoppedLicensePlateEventContent';
+import { StoppedObjectsDetectorEventContent } from './sensorTypes/StoppedObjectsDetector/StoppedObjectsDetectorEventContent';
 import { StringEventContent } from './sensorTypes/String/StringEventContent';
-import { LicensePlateTextEventContent } from './sensorTypes/LicensePlateText/LicensePlateTextEventContent';
 import { VideoEventContent } from './sensorTypes/Video/VideoEventContent';
+
+// Feedback types (alphabetical)
 import { ColorPresenceFeedback } from './sensorTypes/ColorPresence/ColorPresenceFeedback';
-import { OpeningDetectionFeedback } from './sensorTypes/OpeningDetection/OpeningDetectionFeedback';
 import { FaceDetectionFeedback } from './sensorTypes/FaceDetection/FaceDetectionFeedback';
 import { FaceMaskDetectionFeedback } from './sensorTypes/FaceMaskDetection/FaceMaskDetectionFeedback';
 import { FuelingDetectionFeedback } from './sensorTypes/FuelingDetection/FuelingDetectionFeedback';
-import { MotionDetectionFeedback } from './sensorTypes/MotionDetection/MotionDetectionFeedback';
 import { LicensePlateFeedback } from './sensorTypes/LicensePlate/LicensePlateFeedback';
 import { LineCrossingDetectionFeedback } from './sensorTypes/LineCrossingDetection/LineCrossingDetectionFeedback';
+import { MotionDetectionFeedback } from './sensorTypes/MotionDetection/MotionDetectionFeedback';
+import { NaiveSocialDistancingFeedback } from './sensorTypes/NaiveSocialDistancing/NaiveSocialDistancingFeedback';
 import { NoPlateDetectionFeedback } from './sensorTypes/NoPlateDetection/NoPlateDetectionFeedback';
 import { ObjectRecognitionFeedback } from './sensorTypes/ObjectRecognition/ObjectRecognitionFeedback';
-import { StoppedObjectsDetectorFeedback } from './sensorTypes/StoppedObjectsDetector/StoppedObjectsDetectorFeedback';
-import { NaiveSocialDistancingFeedback } from './sensorTypes/NaiveSocialDistancing/NaiveSocialDistancingFeedback';
-import { SpeedChangeFeedback } from './sensorTypes/SpeedChange/SpeedChangeFeedback';
+import { OpeningDetectionFeedback } from './sensorTypes/OpeningDetection/OpeningDetectionFeedback';
 import { OpticalCharacterRecognitionFeedback } from './sensorTypes/OpticalCharacterRecognition/OpticalCharacterRecognitionFeedback';
 import { PoseDetectionFeedback } from './sensorTypes/PoseDetection/PoseDetectionFeedback';
 import { ReferrerFeedback } from './sensorTypes/Referrer/ReferrerFeedback';
 import { SceneChangeFeedback } from './sensorTypes/SceneChange/SceneChangeFeedback';
+import { SpeedChangeFeedback } from './sensorTypes/SpeedChange/SpeedChangeFeedback';
 import { StoppedLicensePlateFeedback } from './sensorTypes/StoppedLicensePlate/StoppedLicensePlateFeedback';
+import { StoppedObjectsDetectorFeedback } from './sensorTypes/StoppedObjectsDetector/StoppedObjectsDetectorFeedback';
 import { VideoFeedback } from './sensorTypes/Video/VideoFeedback';
-import { EventComment } from './EventComment';
-import { EventStateChange } from './EventStateChange';
-import { MultiZoneObjectTrackingEventContent } from './sensorTypes/MultiZoneObjectTracking/MultiZoneObjectTrackingEventContent';
-import { PeriodicObjectCountingEventContent } from './sensorTypes/PeriodicObjectCounting/PeriodicObjectCountingEventContent';
-import { ObjectRecognitionNumericEventContent } from './sensorTypes/ObjectRecognitionNumeric/ObjectRecognitionNumericEventContent';
-import { GranularityDetectionEventContent } from './sensorTypes/GranularityDetection/GranularityDetectionEventContent';
-import { CargoContainerISOReaderEventContent } from './sensorTypes/CargoContainerISOReader/CargoContainerISOReaderEventContent';
-import { MissingHelmetDetectionEventContent } from './sensorTypes/MissingHelmetDetection/MissingHelmetDetectionEventContent';
 
 export type Event = {
   id?: string;
@@ -138,6 +146,9 @@ export type EventData = {
     | GranularityDetectionEventContent
     | CargoContainerISOReaderEventContent
     | MissingHelmetDetectionEventContent
+    | HeatmapEventContent
+    | OverlapDetectionEventContent
+    | MultiLineCrossingDetectionEventContent
     | VideoEventContent;
   location?: Point;
   feedback?:
