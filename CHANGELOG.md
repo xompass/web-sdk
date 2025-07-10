@@ -1,5 +1,11 @@
 # @xompass/web-sdk
 
+## 0.26.0
+
+### Minor Changes
+
+- 9e4ac42: Add missing sensor types to data and event content. New sensor type heatmap
+
 ## 0.25.2
 
 ### Patch Changes
