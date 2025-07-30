@@ -69,6 +69,8 @@ export type ObjectRecognitionTrigger = {
     | 'trash'
     | 'snack'
     | 'door'
+    | 'vendor'
+    | 'supervisor'
   )[];
   value?: number;
   operator?: 'eq' | 'neq' | 'gt' | 'gte' | 'lt' | 'lte' | 'null';
