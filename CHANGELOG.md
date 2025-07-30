@@ -1,5 +1,11 @@
 # @xompass/web-sdk
 
+## 0.27.0
+
+### Minor Changes
+
+- 3b87e6a: Face database
+
 ## 0.26.1
 
 ### Patch Changes

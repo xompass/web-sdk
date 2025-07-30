@@ -1,6 +1,6 @@
 {
   "name": "@xompass/web-sdk",
-  "version": "0.26.1",
+  "version": "0.27.0",
   "description": "",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
