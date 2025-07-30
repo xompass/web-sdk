@@ -345,6 +345,16 @@ export type ObjectRecognitionBasedOnRulesTRCParameters = {
         minProbability?: number;
       };
     };
+    vendor?: {
+      thresholds?: {
+        minProbability?: number;
+      };
+    };
+    supervisor?: {
+      thresholds?: {
+        minProbability?: number;
+      };
+    };
   };
 };
 

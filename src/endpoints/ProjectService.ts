@@ -1,6 +1,7 @@
 import { ApiFetch, Filter } from '../core/ApiFetch';
 import { Asset } from '../models/Asset';
 import { AssetOperabilitySummary } from '../models/AssetOperabilitySummary';
+import { FaceDatabase } from '../models/FaceDatabase';
 import { ProjectOperabilitySummary } from '../models/ProjectOperabilitySummary';
 import { ProjectRestrictionTable } from '../models/ProjectRestrictionTable';
 import { RateLimit } from '../models/RateLimit';
@@ -22,6 +23,59 @@ export async function Project_UpdateByIdAssetOperabilitySummaries(
   return ApiFetch({
     method: 'PUT',
     url: '/Projects/:id/assetOperabilitySummaries/:fk',
+    routeParams: {
+      id,
+      fk,
+    },
+    body: data,
+  });
+}
+/**
+ * Buscar un elemento relacionado por id para faceDatabases.
+ * /Projects/:id/faceDatabases/:fk
+ */
+export async function Project_FindByIdFaceDatabases(
+  id: string,
+  fk: string,
+): Promise<FaceDatabase> {
+  return ApiFetch({
+    method: 'GET',
+    url: '/Projects/:id/faceDatabases/:fk',
+    routeParams: {
+      id,
+      fk,
+    },
+  });
+}
+/**
+ * Suprimir un elemento relacionado por id para faceDatabases.
+ * /Projects/:id/faceDatabases/:fk
+ */
+export async function Project_DestroyByIdFaceDatabases(
+  id: string,
+  fk: string,
+): Promise<void> {
+  return ApiFetch({
+    method: 'DELETE',
+    url: '/Projects/:id/faceDatabases/:fk',
+    routeParams: {
+      id,
+      fk,
+    },
+  });
+}
+/**
+ * Actualizar un elemento relacionado por id para faceDatabases.
+ * /Projects/:id/faceDatabases/:fk
+ */
+export async function Project_UpdateByIdFaceDatabases(
+  id: string,
+  fk: string,
+  data: any = {},
+): Promise<FaceDatabase> {
+  return ApiFetch({
+    method: 'PUT',
+    url: '/Projects/:id/faceDatabases/:fk',
     routeParams: {
       id,
       fk,
@@ -201,6 +255,67 @@ export async function Project_CountAssetOperabilitySummaries(
   return ApiFetch({
     method: 'GET',
     url: '/Projects/:id/assetOperabilitySummaries/count',
+    urlParams: _urlParams,
+    routeParams: {
+      id,
+    },
+  });
+}
+/**
+ * faceDatabases consultas de Project.
+ * /Projects/:id/faceDatabases
+ */
+export async function Project_GetFaceDatabases(
+  id: string,
+  filter: Filter<any> = {},
+): Promise<FaceDatabase[]> {
+  const _urlParams: any = {};
+  if (filter != null) {
+    _urlParams['filter'] = filter;
+  }
+
+  return ApiFetch({
+    method: 'GET',
+    url: '/Projects/:id/faceDatabases',
+    urlParams: _urlParams,
+    routeParams: {
+      id,
+    },
+  });
+}
+/**
+ * Crea una nueva instancia en faceDatabases de este modelo.
+ * /Projects/:id/faceDatabases
+ */
+export async function Project_CreateFaceDatabases(
+  id: string,
+  data: any = {},
+): Promise<FaceDatabase> {
+  return ApiFetch({
+    method: 'POST',
+    url: '/Projects/:id/faceDatabases',
+    routeParams: {
+      id,
+    },
+    body: data,
+  });
+}
+/**
+ * Recuentos faceDatabases de Project.
+ * /Projects/:id/faceDatabases/count
+ */
+export async function Project_CountFaceDatabases(
+  id: string,
+  where: any = {},
+): Promise<number> {
+  const _urlParams: any = {};
+  if (where != null) {
+    _urlParams['where'] = where;
+  }
+
+  return ApiFetch({
+    method: 'GET',
+    url: '/Projects/:id/faceDatabases/count',
     urlParams: _urlParams,
     routeParams: {
       id,

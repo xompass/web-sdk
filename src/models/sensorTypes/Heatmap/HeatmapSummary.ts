@@ -74,5 +74,6 @@ export type HeatmapSummary = {
         }
       >
     >;
+    gridSize?: number;
   };
 };
