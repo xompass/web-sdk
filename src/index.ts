@@ -220,6 +220,13 @@ export * from './models/sensorTypes/FaceMaskDetection/FaceMaskDetectionParameter
 export * from './models/sensorTypes/FaceMaskDetection/FaceMaskDetectionSummary';
 export * from './models/sensorTypes/FaceMaskDetection/FaceMaskDetectionTRCParameters';
 export * from './models/sensorTypes/FaceMaskDetection/FaceMaskDetectionTrigger';
+export * from './models/sensorTypes/FaceRecognition/FaceRecognitionContent';
+export * from './models/sensorTypes/FaceRecognition/FaceRecognitionEventContent';
+export * from './models/sensorTypes/FaceRecognition/FaceRecognitionFeedback';
+export * from './models/sensorTypes/FaceRecognition/FaceRecognitionParameters';
+export * from './models/sensorTypes/FaceRecognition/FaceRecognitionSummary';
+export * from './models/sensorTypes/FaceRecognition/FaceRecognitionTRCParameters';
+export * from './models/sensorTypes/FaceRecognition/FaceRecognitionTrigger';
 export * from './models/sensorTypes/FuelingDetection/FuelingDetectionContent';
 export * from './models/sensorTypes/FuelingDetection/FuelingDetectionEventContent';
 export * from './models/sensorTypes/FuelingDetection/FuelingDetectionFeedback';

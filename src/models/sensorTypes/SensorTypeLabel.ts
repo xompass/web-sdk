@@ -11,6 +11,7 @@ const _SensorTypeLabels = {
   Debug: 'Debug',
   FaceDetection: 'FaceDetection',
   FaceMaskDetection: 'FaceMaskDetection',
+  FaceRecognition: 'FaceRecognition',
   FuelingDetection: 'FuelingDetection',
   GPS: 'GPS',
   GranularityDetection: 'GranularityDetection',
