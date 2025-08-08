@@ -39,6 +39,15 @@ export type ObjectRecognitionSummary = {
           max?: number;
         };
       };
+      video?: {
+        length?: {
+          count?: number;
+          sum?: number;
+          avg?: number;
+          min?: number;
+          max?: number;
+        };
+      };
     };
     detections?: {
       length?: {
