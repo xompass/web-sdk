@@ -1,5 +1,11 @@
 # @xompass/web-sdk
 
+## 0.29.0
+
+### Minor Changes
+
+- 2a658c5: Add video to ObjectRecognition based sensors
+
 ## 0.28.0
 
 ### Minor Changes
