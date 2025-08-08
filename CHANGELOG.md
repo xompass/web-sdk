@@ -1,5 +1,77 @@
 # @xompass/web-sdk
 
+## 0.28.0
+
+### Minor Changes
+
+- 8daf685: FaceRecognition sensorType
+
+## 0.27.0
+
+### Minor Changes
+
+- 3b87e6a: Face database
+
+## 0.26.1
+
+### Patch Changes
+
+- e21d4da: Improve token login
+
+## 0.26.0
+
+### Minor Changes
+
+- 9e4ac42: Add missing sensor types to data and event content. New sensor type heatmap
+
+## 0.25.2
+
+### Patch Changes
+
+- a90a8d8: new user method getCurrentToken
+
+## 0.25.1
+
+### Patch Changes
+
+- 4e95005: improve client auth
+
+## 0.25.0
+
+### Minor Changes
+
+- ca4f44d: EventImageReport
+
+## 0.24.3
+
+### Patch Changes
+
+- 048fe08: OpenGateReport
+
+## 0.24.2
+
+### Patch Changes
+
+- c91acc3: improve report type
+
+## 0.24.1
+
+### Patch Changes
+
+- fbc65cc: Add access control report def
+
+## 0.24.0
+
+### Minor Changes
+
+- ff7150f: Sync with backend
+
+### Patch Changes
+
+- 4ffeb75: test pipeline
+- fac36a8: export reponse protocol model
+- fcea5d3: pipeline test
+
 ## 0.23.0
 
 ### Minor Changes
