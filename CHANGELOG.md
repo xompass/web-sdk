@@ -1,5 +1,11 @@
 # @xompass/web-sdk
 
+## 0.29.1
+
+### Patch Changes
+
+- 29ae4fe: add seventh sense support
+
 ## 0.29.0
 
 ### Minor Changes
