@@ -1,5 +1,11 @@
 # @xompass/web-sdk
 
+## 0.29.2
+
+### Patch Changes
+
+- b5d0129: Add missing endpoints and classes
+
 ## 0.29.1
 
 ### Patch Changes
