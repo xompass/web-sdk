@@ -78,5 +78,6 @@ export type ObjectRecognitionContent = {
       BLACKLIST?: boolean;
       PERSISTENCE?: boolean;
     };
+    meta?: Record<string, undefined>;
   }[];
 };

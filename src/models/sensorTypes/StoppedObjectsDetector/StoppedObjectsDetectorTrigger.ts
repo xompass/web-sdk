@@ -1,6 +1,7 @@
 export type StoppedObjectsDetectorTrigger = {
   classes?: (
     | 'car'
+    | 'truck'
     | 'person'
     | 'bag'
     | 'backpack'

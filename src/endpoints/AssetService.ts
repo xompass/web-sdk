@@ -1,4 +1,5 @@
 import { ApiFetch, UploadFile, Filter } from '../core/ApiFetch';
+import { Asset } from '../models/Asset';
 import { AssetOperabilitySummary } from '../models/AssetOperabilitySummary';
 import { AssetRestrictionTable } from '../models/AssetRestrictionTable';
 import { AssetStorageContainer } from '../models/Asset';
@@ -434,6 +435,62 @@ export async function Asset_CreateHealthcheckEvents(
       id,
     },
     body: data,
+  });
+}
+/**
+ * Find a model instance by {{id}} from the data source.
+ * /Assets/:id
+ */
+export async function Asset_findById(
+  id: string,
+  filter: Filter<any> = {},
+): Promise<Asset> {
+  const _urlParams: any = {};
+  if (filter != null) {
+    _urlParams['filter'] = filter;
+  }
+
+  return ApiFetch({
+    method: 'GET',
+    url: '/Assets/:id',
+    urlParams: _urlParams,
+    routeParams: {
+      id,
+    },
+  });
+}
+/**
+ * Find all instances of the model matched by filter from the data source.
+ * /Assets
+ */
+export async function Asset_find(filter: Filter<any> = {}): Promise<Asset[]> {
+  const _urlParams: any = {};
+  if (filter != null) {
+    _urlParams['filter'] = filter;
+  }
+
+  return ApiFetch({
+    method: 'GET',
+    url: '/Assets',
+    urlParams: _urlParams,
+    routeParams: {},
+  });
+}
+/**
+ * Find first instance of the model matched by filter from the data source.
+ * /Assets/findOne
+ */
+export async function Asset_findOne(filter: Filter<any> = {}): Promise<Asset> {
+  const _urlParams: any = {};
+  if (filter != null) {
+    _urlParams['filter'] = filter;
+  }
+
+  return ApiFetch({
+    method: 'GET',
+    url: '/Assets/findOne',
+    urlParams: _urlParams,
+    routeParams: {},
   });
 }
 /**

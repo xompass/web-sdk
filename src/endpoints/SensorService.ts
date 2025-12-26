@@ -648,6 +648,42 @@ export async function Sensor_findById(
   });
 }
 /**
+ * Find all instances of the model matched by filter from the data source.
+ * /Sensors
+ */
+export async function Sensor_find(filter: Filter<any> = {}): Promise<Sensor[]> {
+  const _urlParams: any = {};
+  if (filter != null) {
+    _urlParams['filter'] = filter;
+  }
+
+  return ApiFetch({
+    method: 'GET',
+    url: '/Sensors',
+    urlParams: _urlParams,
+    routeParams: {},
+  });
+}
+/**
+ * Find first instance of the model matched by filter from the data source.
+ * /Sensors/findOne
+ */
+export async function Sensor_findOne(
+  filter: Filter<any> = {},
+): Promise<Sensor> {
+  const _urlParams: any = {};
+  if (filter != null) {
+    _urlParams['filter'] = filter;
+  }
+
+  return ApiFetch({
+    method: 'GET',
+    url: '/Sensors/findOne',
+    urlParams: _urlParams,
+    routeParams: {},
+  });
+}
+/**
  * Download a file within specified container
  * /Sensors/:id/datasets/:nk/download/:file
  */

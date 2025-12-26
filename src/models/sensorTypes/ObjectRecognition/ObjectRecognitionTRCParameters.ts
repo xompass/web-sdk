@@ -70,12 +70,12 @@ export type ObjectRecognitionBasedOnRulesTRCParameters = {
         minProbability?: number;
       };
     };
-    cat?: {
+    dog?: {
       thresholds?: {
         minProbability?: number;
       };
     };
-    dog?: {
+    cat?: {
       thresholds?: {
         minProbability?: number;
       };
@@ -355,11 +355,127 @@ export type ObjectRecognitionBasedOnRulesTRCParameters = {
         minProbability?: number;
       };
     };
+    artwork?: {
+      thresholds?: {
+        minProbability?: number;
+      };
+    };
+    sculpture?: {
+      thresholds?: {
+        minProbability?: number;
+      };
+    };
+    monitor?: {
+      thresholds?: {
+        minProbability?: number;
+      };
+    };
+    sticker?: {
+      thresholds?: {
+        minProbability?: number;
+      };
+    };
+    'safety-shoes'?: {
+      thresholds?: {
+        minProbability?: number;
+      };
+    };
+    'capuc-open'?: {
+      thresholds?: {
+        minProbability?: number;
+      };
+    };
+    'capuc-closed'?: {
+      thresholds?: {
+        minProbability?: number;
+      };
+    };
+    'coffee-open'?: {
+      thresholds?: {
+        minProbability?: number;
+      };
+    };
+    'coffe-closed'?: {
+      thresholds?: {
+        minProbability?: number;
+      };
+    };
+    'coffee-container'?: {
+      thresholds?: {
+        minProbability?: number;
+      };
+    };
+    'empty-cups'?: {
+      thresholds?: {
+        minProbability?: number;
+      };
+    };
+    bakery?: {
+      thresholds?: {
+        minProbability?: number;
+      };
+    };
+    'cashier-open'?: {
+      thresholds?: {
+        minProbability?: number;
+      };
+    };
+    'cashier-closed'?: {
+      thresholds?: {
+        minProbability?: number;
+      };
+    };
+    cup?: {
+      thresholds?: {
+        minProbability?: number;
+      };
+    };
+    'empty-slot'?: {
+      thresholds?: {
+        minProbability?: number;
+      };
+    };
+    products?: {
+      thresholds?: {
+        minProbability?: number;
+      };
+    };
+    bucket?: {
+      thresholds?: {
+        minProbability?: number;
+      };
+    };
+    mope?: {
+      thresholds?: {
+        minProbability?: number;
+      };
+    };
+    donut?: {
+      thresholds?: {
+        minProbability?: number;
+      };
+    };
+    panera?: {
+      thresholds?: {
+        minProbability?: number;
+      };
+    };
+    rack?: {
+      thresholds?: {
+        minProbability?: number;
+      };
+    };
   };
 };
 
 export type ObjectRecognitionBlacklistSearchTRCParameters = {
   minNumOfChars?: number;
-  matchMethod?: 'exact' | 'prefix' | 'contains' | 'fuzzy' | 'null';
+  matchMethod?:
+    | 'exact'
+    | 'prefix'
+    | 'contains'
+    | 'fuzzy'
+    | 'not_match'
+    | 'null';
   fuzzyMaxDistance?: number;
 };

@@ -11,6 +11,7 @@ import { CustomerRestrictionTable } from './CustomerRestrictionTable';
 import { DefaultEventComment } from './DefaultEventComment';
 import { Device } from './Device';
 import { DeviceEventType } from './DeviceEventType';
+import { Dispatch } from './Dispatch';
 import { EdgeAgent } from './EdgeAgent';
 import { EmergencyContact } from './EmergencyContact';
 import { EventState } from './EventState';
@@ -58,6 +59,7 @@ export type Customer = {
   defaultEventComments?: DefaultEventComment[];
   devices?: Device[];
   deviceEventTypes?: DeviceEventType[];
+  dispatch?: Dispatch;
   edgeAgents?: EdgeAgent[];
   emergencyContacts?: EmergencyContact[];
   eventStates?: EventState[];

@@ -5,6 +5,11 @@ export type StoppedObjectsDetectorBasedOnRulesTRCParameters = {
         minProbability?: number;
       };
     };
+    truck?: {
+      thresholds?: {
+        minProbability?: number;
+      };
+    };
     person?: {
       thresholds?: {
         minProbability?: number;

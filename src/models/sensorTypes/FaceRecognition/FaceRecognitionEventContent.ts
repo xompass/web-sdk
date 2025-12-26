@@ -30,7 +30,7 @@ export type FaceRecognitionEventContent = {
       h: number;
     };
     filteredBy?: {
-      FACE_PROBABILITY?: boolean;
+      PROBABILITY?: boolean;
     };
   }[];
   filtered?: boolean;

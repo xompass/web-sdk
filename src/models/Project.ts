@@ -9,6 +9,7 @@ import { Customer } from './Customer';
 import { EmbeddedReport } from './EmbeddedReport';
 import { EventDashboard } from './EventDashboard';
 import { EventSummaryForProject } from './EventSummaryForProject';
+import { FaceDatabase } from './FaceDatabase';
 import { HealthcheckEvent } from './HealthcheckEvent';
 import { Log } from './Log';
 import { PeopleCounterReport } from './PeopleCounterReport';
@@ -61,6 +62,7 @@ export type Project = {
   biPanels?: BIPanel[];
   peopleCounterReports?: PeopleCounterReport[];
   assetOperabilitySummaries?: AssetOperabilitySummary[];
+  faceDatabases?: FaceDatabase[];
   operabilitySummaries?: ProjectOperabilitySummary[];
   restrictionTable?: ProjectRestrictionTable;
   tags?: ProjectTag[];
