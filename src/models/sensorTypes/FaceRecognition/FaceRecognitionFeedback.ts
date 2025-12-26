@@ -30,7 +30,7 @@ export type FaceRecognitionFeedback = {
       h: number;
     };
     filteredBy?: {
-      FACE_PROBABILITY?: boolean;
+      PROBABILITY?: boolean;
     };
     diagnosis?:
       | 'TRUE_POSITIVE'

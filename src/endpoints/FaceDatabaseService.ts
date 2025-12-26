@@ -206,7 +206,7 @@ export async function FaceDatabase_deleteById(id: string): Promise<void> {
   * Uploads images for a face subject. 
       The maximum number of images is 10, 
       and each image must be a JPEG with a maximum size of 100kB 
-      and minimum dimensions of 64x64 pixels.
+      and minimum dimensions of 36x36 pixels.
   * /FaceDatabases/:id/faceSubjects/:fk/upload
   */
 export async function FaceDatabase_uploadFaceSubject(
@@ -223,6 +223,57 @@ export async function FaceDatabase_uploadFaceSubject(
     },
     file: file,
     onProgress: onProgress,
+  });
+}
+/**
+ * Downloads a face image for a specific face subject.
+ * /FaceDatabases/:id/faceSubjects/:nk/images/:file
+ */
+export async function FaceDatabase_downloadFaceImage(
+  id: string,
+  nk: string,
+  file: string,
+): Promise<any> {
+  return ApiFetch({
+    method: 'GET',
+    url: '/FaceDatabases/:id/faceSubjects/:nk/images/:file',
+    routeParams: {
+      id,
+      nk,
+      file,
+    },
+  });
+}
+/**
+ * Sync subject images to external recognition service
+ * /FaceDatabases/:id/faceSubjects/:fk/sync
+ */
+export async function FaceDatabase_syncFaceSubject(
+  id: string,
+  fk: string,
+): Promise<any> {
+  return ApiFetch({
+    method: 'POST',
+    url: '/FaceDatabases/:id/faceSubjects/:fk/sync',
+    routeParams: {
+      id,
+      fk,
+    },
+    body: {},
+  });
+}
+/**
+ * Sync entire FaceDatabase with subjects
+ * /FaceDatabases/:id/sync
+ */
+export async function FaceDatabase_syncFaceDatabase(id: string): Promise<any> {
+  return ApiFetch({
+    method: 'POST',
+    url: '/FaceDatabases/:id/sync',
+    routeParams: {
+      id,
+    },
+    body: {},
   });
 }
 /**

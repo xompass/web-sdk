@@ -14,6 +14,7 @@ import { CustomerStorageContainer } from '../models/Customer';
 import { DefaultEventComment } from '../models/DefaultEventComment';
 import { Device } from '../models/Device';
 import { DeviceEventType } from '../models/DeviceEventType';
+import { Dispatch } from '../models/Dispatch';
 import { EdgeAgent } from '../models/EdgeAgent';
 import { EmergencyContact } from '../models/EmergencyContact';
 import { EventState } from '../models/EventState';
@@ -412,6 +413,53 @@ export async function Customer_FindByIdDeviceEventTypes(
       id,
       fk,
     },
+  });
+}
+/**
+ * Capta la relación hasOne dispatch.
+ * /Customers/:id/dispatch
+ */
+export async function Customer_GetDispatch(id: string): Promise<Dispatch> {
+  return ApiFetch({
+    method: 'GET',
+    url: '/Customers/:id/dispatch',
+    routeParams: {
+      id,
+    },
+  });
+}
+/**
+ * Crea una nueva instancia en dispatch de este modelo.
+ * /Customers/:id/dispatch
+ */
+export async function Customer_CreateDispatch(
+  id: string,
+  data: any = {},
+): Promise<Dispatch> {
+  return ApiFetch({
+    method: 'POST',
+    url: '/Customers/:id/dispatch',
+    routeParams: {
+      id,
+    },
+    body: data,
+  });
+}
+/**
+ * Actualizar dispatch de este modelo.
+ * /Customers/:id/dispatch
+ */
+export async function Customer_UpdateDispatch(
+  id: string,
+  data: any = {},
+): Promise<Dispatch> {
+  return ApiFetch({
+    method: 'PUT',
+    url: '/Customers/:id/dispatch',
+    routeParams: {
+      id,
+    },
+    body: data,
   });
 }
 /**
@@ -7795,7 +7843,7 @@ export async function Customer_DestroyByIdProjectsTelegramPermissions(
 }
 /**
  * Set active telegram
- * /Customers/:id/projects/:nk/telegram/groups/:groupId
+ * /Customers/:id/projects/:nk/telegram/groups/:groupId/active
  */
 export async function Customer_SetProjectsTelegramActive(
   id: string,
@@ -7805,7 +7853,7 @@ export async function Customer_SetProjectsTelegramActive(
 ): Promise<any> {
   return ApiFetch({
     method: 'PATCH',
-    url: '/Customers/:id/projects/:nk/telegram/groups/:groupId',
+    url: '/Customers/:id/projects/:nk/telegram/groups/:groupId/active',
     routeParams: {
       id,
       nk,
@@ -7842,7 +7890,7 @@ export async function Customer_GetProjectsTelegramPermissionsToken(
 export async function Customer_CreateProjectsTelegramGroups(
   id: string,
   nk: string,
-  content: any,
+  body: any,
 ): Promise<any> {
   return ApiFetch({
     method: 'POST',
@@ -7852,7 +7900,30 @@ export async function Customer_CreateProjectsTelegramGroups(
       nk,
     },
     body: {
-      content,
+      body,
+    },
+  });
+}
+/**
+ * Update group
+ * /Customers/:id/projects/:nk/telegram/groups/:groupId
+ */
+export async function Customer_UpdateByIdProjectsTelegramGroups(
+  id: string,
+  nk: string,
+  groupId: string,
+  body: any,
+): Promise<any> {
+  return ApiFetch({
+    method: 'PATCH',
+    url: '/Customers/:id/projects/:nk/telegram/groups/:groupId',
+    routeParams: {
+      id,
+      nk,
+      groupId,
+    },
+    body: {
+      body,
     },
   });
 }

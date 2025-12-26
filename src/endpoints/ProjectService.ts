@@ -535,7 +535,315 @@ export async function Project_ApplyAssetState(
     body: body,
   });
 }
+/**
+ * Search license plates
+ * /Projects/:id/licensePlates/search
+ */
+export async function Project_searchLicensePlates(
+  id: string,
+  licensePlate: string,
+  from: Date,
+  to: Date,
+  method?: string,
+  maxDistance?: number,
+  transpositions?: boolean,
+  assetId?: string,
+  sensorId?: string,
+  class_?: string,
+  limit?: number,
+): Promise<any[]> {
+  const _urlParams: any = {};
+  if (licensePlate != null) {
+    _urlParams['licensePlate'] = licensePlate;
+  }
+  if (from != null) {
+    _urlParams['from'] = from;
+  }
+  if (to != null) {
+    _urlParams['to'] = to;
+  }
+  if (method != null) {
+    _urlParams['method'] = method;
+  }
+  if (maxDistance != null) {
+    _urlParams['maxDistance'] = maxDistance;
+  }
+  if (transpositions != null) {
+    _urlParams['transpositions'] = transpositions;
+  }
+  if (assetId != null) {
+    _urlParams['assetId'] = assetId;
+  }
+  if (sensorId != null) {
+    _urlParams['sensorId'] = sensorId;
+  }
+  if (class_ != null) {
+    _urlParams['class'] = class_;
+  }
+  if (limit != null) {
+    _urlParams['limit'] = limit;
+  }
 
+  return ApiFetch({
+    method: 'GET',
+    url: '/Projects/:id/licensePlates/search',
+    urlParams: _urlParams,
+    routeParams: {
+      id,
+    },
+  });
+}
+/**
+ * Get license plates
+ * /Projects/:id/licensePlates
+ */
+export async function Project_getLicensePlates(
+  id: string,
+  from?: Date,
+  to?: Date,
+  assetId?: string,
+  sensorId?: string,
+  class_?: string,
+  limit?: number,
+  groupInterval?: number,
+  groupMaxDistance?: number,
+): Promise<any[]> {
+  const _urlParams: any = {};
+  if (from != null) {
+    _urlParams['from'] = from;
+  }
+  if (to != null) {
+    _urlParams['to'] = to;
+  }
+  if (assetId != null) {
+    _urlParams['assetId'] = assetId;
+  }
+  if (sensorId != null) {
+    _urlParams['sensorId'] = sensorId;
+  }
+  if (class_ != null) {
+    _urlParams['class'] = class_;
+  }
+  if (limit != null) {
+    _urlParams['limit'] = limit;
+  }
+  if (groupInterval != null) {
+    _urlParams['groupInterval'] = groupInterval;
+  }
+  if (groupMaxDistance != null) {
+    _urlParams['groupMaxDistance'] = groupMaxDistance;
+  }
+
+  return ApiFetch({
+    method: 'GET',
+    url: '/Projects/:id/licensePlates',
+    urlParams: _urlParams,
+    routeParams: {
+      id,
+    },
+  });
+}
+/**
+ * List plates watch lists
+ * /Projects/:id/licensePlates/watchlists
+ */
+export async function Project_getLicensePlatesWatchlists(
+  id: string,
+): Promise<any[]> {
+  return ApiFetch({
+    method: 'GET',
+    url: '/Projects/:id/licensePlates/watchlists',
+    routeParams: {
+      id,
+    },
+  });
+}
+/**
+ * Create license plate watch list
+ * /Projects/:id/licensePlates/watchlists
+ */
+export async function Project_createLicensePlateWatchlist(
+  id: string,
+  data: any = {},
+): Promise<any> {
+  return ApiFetch({
+    method: 'POST',
+    url: '/Projects/:id/licensePlates/watchlists',
+    routeParams: {
+      id,
+    },
+    body: data,
+  });
+}
+/**
+ * Update license plate watch list
+ * /Projects/:id/licensePlates/watchlists/:nk
+ */
+export async function Project_updateLicensePlateWatchlist(
+  id: string,
+  nk: string,
+  data: any = {},
+): Promise<string> {
+  return ApiFetch({
+    method: 'PATCH',
+    url: '/Projects/:id/licensePlates/watchlists/:nk',
+    routeParams: {
+      id,
+      nk,
+    },
+    body: data,
+  });
+}
+/**
+ * Delete license plate watch list
+ * /Projects/:id/licensePlates/watchlists/:nk
+ */
+export async function Project_deleteLicensePlateWatchlist(
+  id: string,
+  nk: string,
+): Promise<void> {
+  return ApiFetch({
+    method: 'DELETE',
+    url: '/Projects/:id/licensePlates/watchlists/:nk',
+    routeParams: {
+      id,
+      nk,
+    },
+  });
+}
+/**
+ * Add vehicle to watch list
+ * /Projects/:id/licensePlates/watchlists/:nk/vehicles
+ */
+export async function Project_addVehicleToWatchlist(
+  id: string,
+  nk: string,
+  data: any = {},
+): Promise<any> {
+  return ApiFetch({
+    method: 'POST',
+    url: '/Projects/:id/licensePlates/watchlists/:nk/vehicles',
+    routeParams: {
+      id,
+      nk,
+    },
+    body: data,
+  });
+}
+/**
+ * List vehicles in watch list
+ * /Projects/:id/licensePlates/watchlists/:nk/vehicles
+ */
+export async function Project_listVehiclesInWatchlist(
+  id: string,
+  nk: string,
+): Promise<any[]> {
+  return ApiFetch({
+    method: 'GET',
+    url: '/Projects/:id/licensePlates/watchlists/:nk/vehicles',
+    routeParams: {
+      id,
+      nk,
+    },
+  });
+}
+/**
+ * Update vehicle in watch list
+ * /Projects/:id/licensePlates/watchlists/:nk/vehicles/:licensePlate
+ */
+export async function Project_updateVehicleInWatchlist(
+  id: string,
+  nk: string,
+  licensePlate: string,
+  data: any = {},
+): Promise<any> {
+  return ApiFetch({
+    method: 'PATCH',
+    url: '/Projects/:id/licensePlates/watchlists/:nk/vehicles/:licensePlate',
+    routeParams: {
+      id,
+      nk,
+      licensePlate,
+    },
+    body: data,
+  });
+}
+/**
+ * Delete vehicle from watch list
+ * /Projects/:id/licensePlates/watchlists/:nk/vehicles/:licensePlate
+ */
+export async function Project_deleteVehicleFromWatchlist(
+  id: string,
+  nk: string,
+  licensePlate: string,
+): Promise<void> {
+  return ApiFetch({
+    method: 'DELETE',
+    url: '/Projects/:id/licensePlates/watchlists/:nk/vehicles/:licensePlate',
+    routeParams: {
+      id,
+      nk,
+      licensePlate,
+    },
+  });
+}
+/**
+ * Add many vehicles to watch list
+ * /Projects/:id/licensePlates/watchlists/:nk/vehicles/bulk
+ */
+export async function Project_createManyVehiclesInWatchlist(
+  id: string,
+  nk: string,
+  data: any[] = [],
+): Promise<any[]> {
+  return ApiFetch({
+    method: 'POST',
+    url: '/Projects/:id/licensePlates/watchlists/:nk/vehicles/bulk',
+    routeParams: {
+      id,
+      nk,
+    },
+    body: data,
+  });
+}
+/**
+ * Create or update many vehicles to watch list
+ * /Projects/:id/licensePlates/watchlists/:nk/vehicles/merge
+ */
+export async function Project_mergeWatchlistVehicles(
+  id: string,
+  nk: string,
+  data: any = {},
+): Promise<any[]> {
+  return ApiFetch({
+    method: 'POST',
+    url: '/Projects/:id/licensePlates/watchlists/:nk/vehicles/merge',
+    routeParams: {
+      id,
+      nk,
+    },
+    body: data,
+  });
+}
+/**
+ * Replace vehicles in watch list
+ * /Projects/:id/licensePlates/watchlists/:nk/vehicles/replace
+ */
+export async function Project_replaceWatchlistVehicles(
+  id: string,
+  nk: string,
+  data: any = {},
+): Promise<any[]> {
+  return ApiFetch({
+    method: 'POST',
+    url: '/Projects/:id/licensePlates/watchlists/:nk/vehicles/replace',
+    routeParams: {
+      id,
+      nk,
+    },
+    body: data,
+  });
+}
 /**
  * assets consultas de ResponseProtocol.
  * /Projects/:id/responseProtocols/:nk/assets

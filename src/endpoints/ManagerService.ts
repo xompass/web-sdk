@@ -294,7 +294,6 @@ export async function Manager_UnlinkCctvDashboards(
     },
   });
 }
-
 /**
  * Buscar un elemento relacionado por id para countReports.
  * /Managers/:id/countReports/:fk
@@ -384,7 +383,6 @@ export async function Manager_UnlinkCountReports(
     },
   });
 }
-
 /**
  * Buscar un elemento relacionado por id para eventDashboards.
  * /Managers/:id/eventDashboards/:fk
@@ -1134,7 +1132,6 @@ export async function Manager_CountCctvDashboards(
     },
   });
 }
-
 /**
  * countReports consultas de Manager.
  * /Managers/:id/countReports
@@ -1179,7 +1176,6 @@ export async function Manager_CountCountReports(
     },
   });
 }
-
 /**
  * eventDashboards consultas de Manager.
  * /Managers/:id/eventDashboards
@@ -1290,7 +1286,6 @@ export async function Manager_GetReports(
     },
   });
 }
-
 /**
  * Recuentos reports de Manager.
  * /Managers/:id/reports/count
@@ -1313,7 +1308,6 @@ export async function Manager_CountReports(
     },
   });
 }
-
 /**
  * storeVideoAnalyticDashboards consultas de Manager.
  * /Managers/:id/storeVideoAnalyticDashboards
