@@ -1,5 +1,11 @@
 # @xompass/web-sdk
 
+## 0.29.3
+
+### Patch Changes
+
+- 2d5758f: Add missing fields in FaceDatabase
+
 ## 0.29.2
 
 ### Patch Changes
