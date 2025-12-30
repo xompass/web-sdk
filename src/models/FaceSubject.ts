@@ -3,6 +3,9 @@ import { Log } from './Log';
 
 export type FaceSubject = {
   name: string;
+  gender?: string;
+  nationality?: string;
+  externalId?: string;
   version?: number;
   created?: Date;
   modified?: Date;
@@ -20,6 +23,7 @@ export type FaceImage = {
   width: number;
   height: number;
   size: number;
+  externalId?: string;
   created?: Date;
   modified?: Date;
   deleted?: Date;
