@@ -5,7 +5,8 @@ import { Project } from './Project';
 
 export type FaceDatabase = {
   name: string;
-  type: 'DEFAULT' | 'SEVENTH_SENSE';
+  description?: string;
+  type: string;
   state?: string;
   externalId?: string;
   created?: Date;

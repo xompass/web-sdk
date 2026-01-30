@@ -3,6 +3,7 @@ import { Log } from './Log';
 
 export type FaceSubject = {
   name: string;
+  description?: string;
   gender?: string;
   nationality?: string;
   externalId?: string;
