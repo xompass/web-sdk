@@ -1,5 +1,11 @@
 # @xompass/web-sdk
 
+## 0.30.0
+
+### Minor Changes
+
+- 945aaf9: New face subject endpoint and fields
+
 ## 0.29.3
 
 ### Patch Changes
