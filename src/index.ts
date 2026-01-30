@@ -26,6 +26,7 @@ export * from './endpoints/EventTriggerAssetStateTemplateService';
 export * from './endpoints/EventTriggerService';
 export * from './endpoints/EventTriggerTemplateService';
 export * from './endpoints/FaceDatabaseService';
+export * from './endpoints/FaceSubjectService';
 export * from './endpoints/GlobalEventStateService';
 export * from './endpoints/HealthcheckEventService';
 export * from './endpoints/KeywordService';
