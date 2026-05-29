@@ -1,18 +1,32 @@
+import { getStorageAdapter } from './Runtime';
+
 /**
  * Set a value in local storage with an optional TTL (time to live) in seconds.
  */
 export function setLocalStorageValue(key: string, value: any, ttl?: number) {
+  const storage = getStorageAdapter();
+
   if (value == null) {
-    localStorage.removeItem(key);
+    try {
+      storage.removeItem(key);
+    } catch {
+      return;
+    }
     return;
   }
+
   let expiresAt: number | undefined = undefined;
   if (ttl != null && ttl > 0) {
     expiresAt = new Date().getTime() + ttl * 1000;
   }
 
   const item = JSON.stringify({ val: value, exp: expiresAt });
-  localStorage.setItem(key, item);
+
+  try {
+    storage.setItem(key, item);
+  } catch {
+    return;
+  }
 }
 
 /**
@@ -20,7 +34,15 @@ export function setLocalStorageValue(key: string, value: any, ttl?: number) {
  * the value will be removed from local storage and null will be returned.
  */
 export function getLocalStorageValue(key: string) {
-  const item = localStorage.getItem(key);
+  const storage = getStorageAdapter();
+  let item: string | null = null;
+
+  try {
+    item = storage.getItem(key);
+  } catch {
+    return null;
+  }
+
   if (item === null) {
     return null;
   }
@@ -33,7 +55,11 @@ export function getLocalStorageValue(key: string) {
         const now = new Date().getTime();
 
         if (now > exp) {
-          localStorage.removeItem(key);
+          try {
+            storage.removeItem(key);
+          } catch {
+            return null;
+          }
           return null;
         }
       }
@@ -42,7 +68,7 @@ export function getLocalStorageValue(key: string) {
     }
 
     return null;
-  } catch (error) {
+  } catch {
     return null;
   }
 }

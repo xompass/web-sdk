@@ -63,6 +63,7 @@ export type ObjectRecognitionNumericEventContent = {
       BLACKLIST?: boolean;
       PERSISTENCE?: boolean;
     };
+    trackId?: number;
   }[];
   filtered?: boolean;
 };

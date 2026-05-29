@@ -8,7 +8,7 @@ import { EventTriggerRuleTemplate } from '../models/EventTriggerRuleTemplate';
  */
 
 /**
- * Buscar un elemento relacionado por id para assetStateTemplates.
+ * Find a related item by id for assetStateTemplates.
  * /EventTriggerTemplates/:id/assetStateTemplates/:fk
  */
 export async function EventTriggerTemplate_FindByIdAssetStateTemplates(
@@ -25,7 +25,7 @@ export async function EventTriggerTemplate_FindByIdAssetStateTemplates(
   });
 }
 /**
- * Añadir un elemento relacionado por id para assetStateTemplates.
+ * Add a related item by id for assetStateTemplates.
  * /EventTriggerTemplates/:id/assetStateTemplates/rel/:fk
  */
 export async function EventTriggerTemplate_LinkAssetStateTemplates(
@@ -44,7 +44,7 @@ export async function EventTriggerTemplate_LinkAssetStateTemplates(
   });
 }
 /**
- * Eliminar la relación assetStateTemplates con un elemento por id.
+ * Remove the assetStateTemplates relation to an item by id.
  * /EventTriggerTemplates/:id/assetStateTemplates/rel/:fk
  */
 export async function EventTriggerTemplate_UnlinkAssetStateTemplates(
@@ -61,7 +61,7 @@ export async function EventTriggerTemplate_UnlinkAssetStateTemplates(
   });
 }
 /**
- * Comprobar la existencia de la relación assetStateTemplates con un elemento por id.
+ * Check the existence of assetStateTemplates relation to an item by id.
  * /EventTriggerTemplates/:id/assetStateTemplates/rel/:fk
  */
 export async function EventTriggerTemplate_ExistsAssetStateTemplates(
@@ -78,7 +78,7 @@ export async function EventTriggerTemplate_ExistsAssetStateTemplates(
   });
 }
 /**
- * Buscar un elemento relacionado por id para stateTemplates.
+ * Find a related item by id for stateTemplates.
  * /EventTriggerTemplates/:id/stateTemplates/:fk
  */
 export async function EventTriggerTemplate_FindByIdStateTemplates(
@@ -95,7 +95,7 @@ export async function EventTriggerTemplate_FindByIdStateTemplates(
   });
 }
 /**
- * Actualizar un elemento relacionado por id para stateTemplates.
+ * Update a related item by id for stateTemplates.
  * /EventTriggerTemplates/:id/stateTemplates/:fk
  */
 export async function EventTriggerTemplate_UpdateByIdStateTemplates(
@@ -114,7 +114,7 @@ export async function EventTriggerTemplate_UpdateByIdStateTemplates(
   });
 }
 /**
- * Buscar un elemento relacionado por id para ruleTemplates.
+ * Find a related item by id for ruleTemplates.
  * /EventTriggerTemplates/:id/ruleTemplates/:fk
  */
 export async function EventTriggerTemplate_FindByIdRuleTemplates(
@@ -131,7 +131,7 @@ export async function EventTriggerTemplate_FindByIdRuleTemplates(
   });
 }
 /**
- * Suprimir un elemento relacionado por id para ruleTemplates.
+ * Delete a related item by id for ruleTemplates.
  * /EventTriggerTemplates/:id/ruleTemplates/:fk
  */
 export async function EventTriggerTemplate_DestroyByIdRuleTemplates(
@@ -148,7 +148,7 @@ export async function EventTriggerTemplate_DestroyByIdRuleTemplates(
   });
 }
 /**
- * Actualizar un elemento relacionado por id para ruleTemplates.
+ * Update a related item by id for ruleTemplates.
  * /EventTriggerTemplates/:id/ruleTemplates/:fk
  */
 export async function EventTriggerTemplate_UpdateByIdRuleTemplates(
@@ -167,7 +167,7 @@ export async function EventTriggerTemplate_UpdateByIdRuleTemplates(
   });
 }
 /**
- * assetStateTemplates consultas de EventTriggerTemplate.
+ * Queries assetStateTemplates of EventTriggerTemplate.
  * /EventTriggerTemplates/:id/assetStateTemplates
  */
 export async function EventTriggerTemplate_GetAssetStateTemplates(
@@ -189,7 +189,7 @@ export async function EventTriggerTemplate_GetAssetStateTemplates(
   });
 }
 /**
- * Recuentos assetStateTemplates de EventTriggerTemplate.
+ * Counts assetStateTemplates of EventTriggerTemplate.
  * /EventTriggerTemplates/:id/assetStateTemplates/count
  */
 export async function EventTriggerTemplate_CountAssetStateTemplates(
@@ -211,7 +211,7 @@ export async function EventTriggerTemplate_CountAssetStateTemplates(
   });
 }
 /**
- * stateTemplates consultas de EventTriggerTemplate.
+ * Queries stateTemplates of EventTriggerTemplate.
  * /EventTriggerTemplates/:id/stateTemplates
  */
 export async function EventTriggerTemplate_GetStateTemplates(
@@ -233,7 +233,7 @@ export async function EventTriggerTemplate_GetStateTemplates(
   });
 }
 /**
- * Recuentos stateTemplates de EventTriggerTemplate.
+ * Counts stateTemplates of EventTriggerTemplate.
  * /EventTriggerTemplates/:id/stateTemplates/count
  */
 export async function EventTriggerTemplate_CountStateTemplates(
@@ -255,7 +255,7 @@ export async function EventTriggerTemplate_CountStateTemplates(
   });
 }
 /**
- * ruleTemplates consultas de EventTriggerTemplate.
+ * Queries ruleTemplates of EventTriggerTemplate.
  * /EventTriggerTemplates/:id/ruleTemplates
  */
 export async function EventTriggerTemplate_GetRuleTemplates(
@@ -277,7 +277,7 @@ export async function EventTriggerTemplate_GetRuleTemplates(
   });
 }
 /**
- * Crea una nueva instancia en ruleTemplates de este modelo.
+ * Creates a new instance in ruleTemplates of this model.
  * /EventTriggerTemplates/:id/ruleTemplates
  */
 export async function EventTriggerTemplate_CreateRuleTemplates(
@@ -294,7 +294,7 @@ export async function EventTriggerTemplate_CreateRuleTemplates(
   });
 }
 /**
- * Recuentos ruleTemplates de EventTriggerTemplate.
+ * Counts ruleTemplates of EventTriggerTemplate.
  * /EventTriggerTemplates/:id/ruleTemplates/count
  */
 export async function EventTriggerTemplate_CountRuleTemplates(

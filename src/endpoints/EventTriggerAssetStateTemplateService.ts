@@ -6,7 +6,7 @@ import { EventTriggerRuleTemplate } from '../models/EventTriggerRuleTemplate';
  */
 
 /**
- * Buscar un elemento relacionado por id para ruleTemplates.
+ * Find a related item by id for ruleTemplates.
  * /EventTriggerAssetStateTemplates/:id/ruleTemplates/:fk
  */
 export async function EventTriggerAssetStateTemplate_FindByIdRuleTemplates(
@@ -23,7 +23,7 @@ export async function EventTriggerAssetStateTemplate_FindByIdRuleTemplates(
   });
 }
 /**
- * Suprimir un elemento relacionado por id para ruleTemplates.
+ * Delete a related item by id for ruleTemplates.
  * /EventTriggerAssetStateTemplates/:id/ruleTemplates/:fk
  */
 export async function EventTriggerAssetStateTemplate_DestroyByIdRuleTemplates(
@@ -40,7 +40,7 @@ export async function EventTriggerAssetStateTemplate_DestroyByIdRuleTemplates(
   });
 }
 /**
- * Actualizar un elemento relacionado por id para ruleTemplates.
+ * Update a related item by id for ruleTemplates.
  * /EventTriggerAssetStateTemplates/:id/ruleTemplates/:fk
  */
 export async function EventTriggerAssetStateTemplate_UpdateByIdRuleTemplates(
@@ -59,7 +59,7 @@ export async function EventTriggerAssetStateTemplate_UpdateByIdRuleTemplates(
   });
 }
 /**
- * ruleTemplates consultas de EventTriggerAssetStateTemplate.
+ * Queries ruleTemplates of EventTriggerAssetStateTemplate.
  * /EventTriggerAssetStateTemplates/:id/ruleTemplates
  */
 export async function EventTriggerAssetStateTemplate_GetRuleTemplates(
@@ -81,7 +81,7 @@ export async function EventTriggerAssetStateTemplate_GetRuleTemplates(
   });
 }
 /**
- * Crea una nueva instancia en ruleTemplates de este modelo.
+ * Creates a new instance in ruleTemplates of this model.
  * /EventTriggerAssetStateTemplates/:id/ruleTemplates
  */
 export async function EventTriggerAssetStateTemplate_CreateRuleTemplates(
@@ -98,7 +98,7 @@ export async function EventTriggerAssetStateTemplate_CreateRuleTemplates(
   });
 }
 /**
- * Recuentos ruleTemplates de EventTriggerAssetStateTemplate.
+ * Counts ruleTemplates of EventTriggerAssetStateTemplate.
  * /EventTriggerAssetStateTemplates/:id/ruleTemplates/count
  */
 export async function EventTriggerAssetStateTemplate_CountRuleTemplates(

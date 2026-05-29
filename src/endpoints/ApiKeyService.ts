@@ -7,7 +7,7 @@ import { RateLimit } from '../models/RateLimit';
  */
 
 /**
- * Capta la relación hasOne rateLimit.
+ * Fetches hasOne relation rateLimit.
  * /ApiKeys/:id/rateLimit
  */
 export async function ApiKey_GetRateLimit(id: string): Promise<RateLimit> {
@@ -20,7 +20,7 @@ export async function ApiKey_GetRateLimit(id: string): Promise<RateLimit> {
   });
 }
 /**
- * Actualizar rateLimit de este modelo.
+ * Update rateLimit of this model.
  * /ApiKeys/:id/rateLimit
  */
 export async function ApiKey_UpdateRateLimit(

@@ -1,4 +1,4 @@
-import { ApiFetch, UploadFile, Filter } from '../core/ApiFetch';
+import { ApiFetch, UploadFile, Filter, UploadableFile } from '../core/ApiFetch';
 import { AssetTemplateStorageContainer } from '../models/AssetTemplate';
 import { EventTriggerAssetStateTemplate } from '../models/EventTriggerAssetStateTemplate';
 import { SensorAssetStateTemplate } from '../models/SensorAssetStateTemplate';
@@ -8,7 +8,7 @@ import { SensorAssetStateTemplate } from '../models/SensorAssetStateTemplate';
  */
 
 /**
- * Capta la relación hasOne container.
+ * Fetches hasOne relation container.
  * /AssetTemplates/:id/container
  */
 export async function AssetTemplate_GetContainer(
@@ -37,7 +37,6 @@ export async function AssetTemplate_subscribe(
       id,
       socketId,
     },
-    body: {},
   });
 }
 /**
@@ -131,7 +130,7 @@ export async function AssetTemplate_removeFile(
 export async function AssetTemplate_upload(
   id: string,
   property: string,
-  file: File,
+  file: UploadableFile,
   onProgress?: (progress: number) => void,
 ): Promise<any> {
   const _urlParams: any = {};
@@ -193,7 +192,7 @@ export async function AssetTemplate_instantiate(
   });
 }
 /**
- * eventTriggerAssetStateTemplates consultas de AssetStateTemplate.
+ * Queries eventTriggerAssetStateTemplates of AssetStateTemplate.
  * /AssetTemplates/:id/assetStateTemplates/:nk/eventTriggerAssetStateTemplates
  */
 export async function AssetTemplate_GetAssetStateTemplatesEventTriggerAssetStateTemplates(
@@ -217,7 +216,7 @@ export async function AssetTemplate_GetAssetStateTemplatesEventTriggerAssetState
   });
 }
 /**
- * stateTemplates consultas de AssetStateTemplate.
+ * Queries stateTemplates of AssetStateTemplate.
  * /AssetTemplates/:id/assetStateTemplates/:nk/stateTemplates
  */
 export async function AssetTemplate_GetAssetStateTemplatesStateTemplates(

@@ -8,7 +8,7 @@ import { SensorAssetStateTemplate } from '../models/SensorAssetStateTemplate';
  */
 
 /**
- * Buscar un elemento relacionado por id para assetStateTemplates.
+ * Find a related item by id for assetStateTemplates.
  * /SensorTemplates/:id/assetStateTemplates/:fk
  */
 export async function SensorTemplate_FindByIdAssetStateTemplates(
@@ -25,7 +25,7 @@ export async function SensorTemplate_FindByIdAssetStateTemplates(
   });
 }
 /**
- * Añadir un elemento relacionado por id para assetStateTemplates.
+ * Add a related item by id for assetStateTemplates.
  * /SensorTemplates/:id/assetStateTemplates/rel/:fk
  */
 export async function SensorTemplate_LinkAssetStateTemplates(
@@ -44,7 +44,7 @@ export async function SensorTemplate_LinkAssetStateTemplates(
   });
 }
 /**
- * Eliminar la relación assetStateTemplates con un elemento por id.
+ * Remove the assetStateTemplates relation to an item by id.
  * /SensorTemplates/:id/assetStateTemplates/rel/:fk
  */
 export async function SensorTemplate_UnlinkAssetStateTemplates(
@@ -61,7 +61,7 @@ export async function SensorTemplate_UnlinkAssetStateTemplates(
   });
 }
 /**
- * Comprobar la existencia de la relación assetStateTemplates con un elemento por id.
+ * Check the existence of assetStateTemplates relation to an item by id.
  * /SensorTemplates/:id/assetStateTemplates/rel/:fk
  */
 export async function SensorTemplate_ExistsAssetStateTemplates(
@@ -78,7 +78,7 @@ export async function SensorTemplate_ExistsAssetStateTemplates(
   });
 }
 /**
- * Buscar un elemento relacionado por id para stateTemplates.
+ * Find a related item by id for stateTemplates.
  * /SensorTemplates/:id/stateTemplates/:fk
  */
 export async function SensorTemplate_FindByIdStateTemplates(
@@ -95,7 +95,7 @@ export async function SensorTemplate_FindByIdStateTemplates(
   });
 }
 /**
- * Actualizar un elemento relacionado por id para stateTemplates.
+ * Update a related item by id for stateTemplates.
  * /SensorTemplates/:id/stateTemplates/:fk
  */
 export async function SensorTemplate_UpdateByIdStateTemplates(
@@ -114,7 +114,7 @@ export async function SensorTemplate_UpdateByIdStateTemplates(
   });
 }
 /**
- * assetStateTemplates consultas de SensorTemplate.
+ * Queries assetStateTemplates of SensorTemplate.
  * /SensorTemplates/:id/assetStateTemplates
  */
 export async function SensorTemplate_GetAssetStateTemplates(
@@ -136,7 +136,7 @@ export async function SensorTemplate_GetAssetStateTemplates(
   });
 }
 /**
- * Recuentos assetStateTemplates de SensorTemplate.
+ * Counts assetStateTemplates of SensorTemplate.
  * /SensorTemplates/:id/assetStateTemplates/count
  */
 export async function SensorTemplate_CountAssetStateTemplates(
@@ -158,7 +158,7 @@ export async function SensorTemplate_CountAssetStateTemplates(
   });
 }
 /**
- * stateTemplates consultas de SensorTemplate.
+ * Queries stateTemplates of SensorTemplate.
  * /SensorTemplates/:id/stateTemplates
  */
 export async function SensorTemplate_GetStateTemplates(
@@ -180,7 +180,7 @@ export async function SensorTemplate_GetStateTemplates(
   });
 }
 /**
- * Recuentos stateTemplates de SensorTemplate.
+ * Counts stateTemplates of SensorTemplate.
  * /SensorTemplates/:id/stateTemplates/count
  */
 export async function SensorTemplate_CountStateTemplates(

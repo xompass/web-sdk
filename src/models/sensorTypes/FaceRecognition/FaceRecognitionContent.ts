@@ -30,4 +30,5 @@ export type FaceRecognitionContent = {
       h: number;
     };
   }[];
+  mode?: 'MATCH' | 'NO_MATCH' | 'ALL';
 };

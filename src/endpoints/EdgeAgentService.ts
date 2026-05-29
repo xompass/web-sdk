@@ -7,7 +7,7 @@ import { EdgeAgentAsset } from '../models/EdgeAgent';
  */
 
 /**
- * Buscar un elemento relacionado por id para assets.
+ * Find a related item by id for assets.
  * /EdgeAgents/:id/assets/:fk
  */
 export async function EdgeAgent_FindByIdAssets(
@@ -24,7 +24,7 @@ export async function EdgeAgent_FindByIdAssets(
   });
 }
 /**
- * Añadir un elemento relacionado por id para assets.
+ * Add a related item by id for assets.
  * /EdgeAgents/:id/assets/rel/:fk
  */
 export async function EdgeAgent_LinkAssets(
@@ -43,7 +43,7 @@ export async function EdgeAgent_LinkAssets(
   });
 }
 /**
- * Eliminar la relación assets con un elemento por id.
+ * Remove the assets relation to an item by id.
  * /EdgeAgents/:id/assets/rel/:fk
  */
 export async function EdgeAgent_UnlinkAssets(
@@ -60,7 +60,7 @@ export async function EdgeAgent_UnlinkAssets(
   });
 }
 /**
- * Añadir un elemento relacionado por id para telegramChats.
+ * Add a related item by id for telegramChats.
  * /EdgeAgents/:id/telegramChats/rel/:fk
  */
 export async function EdgeAgent_LinkTelegramChats(
@@ -79,7 +79,7 @@ export async function EdgeAgent_LinkTelegramChats(
   });
 }
 /**
- * Eliminar la relación telegramChats con un elemento por id.
+ * Remove the telegramChats relation to an item by id.
  * /EdgeAgents/:id/telegramChats/rel/:fk
  */
 export async function EdgeAgent_UnlinkTelegramChats(
@@ -96,7 +96,7 @@ export async function EdgeAgent_UnlinkTelegramChats(
   });
 }
 /**
- * assets consultas de EdgeAgent.
+ * Queries assets of EdgeAgent.
  * /EdgeAgents/:id/assets
  */
 export async function EdgeAgent_GetAssets(
@@ -137,7 +137,6 @@ export async function EdgeAgent_BulkLinkAssets(
     routeParams: {
       id,
     },
-    body: {},
   });
 }
 /**

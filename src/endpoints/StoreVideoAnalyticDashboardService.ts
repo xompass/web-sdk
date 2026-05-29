@@ -1,4 +1,4 @@
-import { ApiFetch, UploadFile, Filter } from '../core/ApiFetch';
+import { ApiFetch, UploadFile, Filter, UploadableFile } from '../core/ApiFetch';
 import { Manager } from '../models/Manager';
 import { StoreVideoAnalyticDashboardStorageContainer } from '../models/StoreVideoAnalyticDashboard';
 
@@ -7,7 +7,7 @@ import { StoreVideoAnalyticDashboardStorageContainer } from '../models/StoreVide
  */
 
 /**
- * Buscar un elemento relacionado por id para managers.
+ * Find a related item by id for managers.
  * /StoreVideoAnalyticDashboards/:id/managers/:fk
  */
 export async function StoreVideoAnalyticDashboard_FindByIdManagers(
@@ -24,7 +24,7 @@ export async function StoreVideoAnalyticDashboard_FindByIdManagers(
   });
 }
 /**
- * Capta la relación hasOne container.
+ * Fetches hasOne relation container.
  * /StoreVideoAnalyticDashboards/:id/container
  */
 export async function StoreVideoAnalyticDashboard_GetContainer(
@@ -39,7 +39,7 @@ export async function StoreVideoAnalyticDashboard_GetContainer(
   });
 }
 /**
- * managers consultas de StoreVideoAnalyticDashboard.
+ * Queries managers of StoreVideoAnalyticDashboard.
  * /StoreVideoAnalyticDashboards/:id/managers
  */
 export async function StoreVideoAnalyticDashboard_GetManagers(
@@ -61,7 +61,7 @@ export async function StoreVideoAnalyticDashboard_GetManagers(
   });
 }
 /**
- * Recuentos managers de StoreVideoAnalyticDashboard.
+ * Counts managers of StoreVideoAnalyticDashboard.
  * /StoreVideoAnalyticDashboards/:id/managers/count
  */
 export async function StoreVideoAnalyticDashboard_CountManagers(
@@ -113,7 +113,7 @@ export async function StoreVideoAnalyticDashboard_removeFile(
 export async function StoreVideoAnalyticDashboard_upload(
   id: string,
   property: string,
-  file: File,
+  file: UploadableFile,
   onProgress?: (progress: number) => void,
 ): Promise<any> {
   const _urlParams: any = {};

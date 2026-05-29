@@ -6,7 +6,7 @@ import { BIPanelSerie } from '../models/BIPanel';
  */
 
 /**
- * Buscar un elemento relacionado por id para series.
+ * Find a related item by id for series.
  * /BIPanels/:id/series/:fk
  */
 export async function BIPanel_FindByIdSeries(
@@ -23,7 +23,7 @@ export async function BIPanel_FindByIdSeries(
   });
 }
 /**
- * Suprimir un elemento relacionado por id para series.
+ * Delete a related item by id for series.
  * /BIPanels/:id/series/:fk
  */
 export async function BIPanel_DestroyByIdSeries(
@@ -40,7 +40,7 @@ export async function BIPanel_DestroyByIdSeries(
   });
 }
 /**
- * Actualizar un elemento relacionado por id para series.
+ * Update a related item by id for series.
  * /BIPanels/:id/series/:fk
  */
 export async function BIPanel_UpdateByIdSeries(
@@ -59,7 +59,7 @@ export async function BIPanel_UpdateByIdSeries(
   });
 }
 /**
- * series consultas de BIPanel.
+ * Queries series of BIPanel.
  * /BIPanels/:id/series
  */
 export async function BIPanel_GetSeries(
@@ -81,7 +81,7 @@ export async function BIPanel_GetSeries(
   });
 }
 /**
- * Crea una nueva instancia en series de este modelo.
+ * Creates a new instance in series of this model.
  * /BIPanels/:id/series
  */
 export async function BIPanel_CreateSeries(
@@ -98,7 +98,7 @@ export async function BIPanel_CreateSeries(
   });
 }
 /**
- * Recuentos series de BIPanel.
+ * Counts series of BIPanel.
  * /BIPanels/:id/series/count
  */
 export async function BIPanel_CountSeries(

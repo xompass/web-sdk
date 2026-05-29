@@ -7,7 +7,7 @@ import { Manager } from '../models/Manager';
  */
 
 /**
- * Buscar un elemento relacionado por id para managers.
+ * Find a related item by id for managers.
  * /Views/:id/managers/:fk
  */
 export async function View_FindByIdManagers(
@@ -24,7 +24,7 @@ export async function View_FindByIdManagers(
   });
 }
 /**
- * Comprobar la existencia de la relación managers con un elemento por id.
+ * Check the existence of managers relation to an item by id.
  * /Views/:id/managers/rel/:fk
  */
 export async function View_ExistsManagers(
@@ -41,7 +41,7 @@ export async function View_ExistsManagers(
   });
 }
 /**
- * managers consultas de View.
+ * Queries managers of View.
  * /Views/:id/managers
  */
 export async function View_GetManagers(
@@ -63,7 +63,7 @@ export async function View_GetManagers(
   });
 }
 /**
- * Recuentos managers de View.
+ * Counts managers of View.
  * /Views/:id/managers/count
  */
 export async function View_CountManagers(

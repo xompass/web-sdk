@@ -1,4 +1,4 @@
-import { ApiFetch, UploadFile, Filter } from '../core/ApiFetch';
+import { ApiFetch, UploadFile, Filter, UploadableFile } from '../core/ApiFetch';
 import { Asset } from '../models/Asset';
 import { AssetOperabilitySummary } from '../models/AssetOperabilitySummary';
 import { AssetRestrictionTable } from '../models/AssetRestrictionTable';
@@ -21,7 +21,7 @@ import { EventStateChange } from '../models/EventStateChange';
  */
 
 /**
- * Actualizar un elemento relacionado por id para operabilitySummaries.
+ * Update a related item by id for operabilitySummaries.
  * /Assets/:id/operabilitySummaries/:fk
  */
 export async function Asset_UpdateByIdOperabilitySummaries(
@@ -40,7 +40,7 @@ export async function Asset_UpdateByIdOperabilitySummaries(
   });
 }
 /**
- * Capta la relación hasOne restrictionTable.
+ * Fetches hasOne relation restrictionTable.
  * /Assets/:id/restrictionTable
  */
 export async function Asset_GetRestrictionTable(
@@ -55,7 +55,7 @@ export async function Asset_GetRestrictionTable(
   });
 }
 /**
- * Capta la relación hasOne container.
+ * Fetches hasOne relation container.
  * /Assets/:id/container
  */
 export async function Asset_GetContainer(
@@ -70,7 +70,7 @@ export async function Asset_GetContainer(
   });
 }
 /**
- * Buscar un elemento relacionado por id para datasets.
+ * Find a related item by id for datasets.
  * /Assets/:id/datasets/:fk
  */
 export async function Asset_FindByIdDatasets(
@@ -87,7 +87,7 @@ export async function Asset_FindByIdDatasets(
   });
 }
 /**
- * Buscar un elemento relacionado por id para edgeAgents.
+ * Find a related item by id for edgeAgents.
  * /Assets/:id/edgeAgents/:fk
  */
 export async function Asset_FindByIdEdgeAgents(
@@ -104,7 +104,7 @@ export async function Asset_FindByIdEdgeAgents(
   });
 }
 /**
- * Añadir un elemento relacionado por id para edgeAgents.
+ * Add a related item by id for edgeAgents.
  * /Assets/:id/edgeAgents/rel/:fk
  */
 export async function Asset_LinkEdgeAgents(
@@ -123,7 +123,7 @@ export async function Asset_LinkEdgeAgents(
   });
 }
 /**
- * Eliminar la relación edgeAgents con un elemento por id.
+ * Remove the edgeAgents relation to an item by id.
  * /Assets/:id/edgeAgents/rel/:fk
  */
 export async function Asset_UnlinkEdgeAgents(
@@ -140,7 +140,7 @@ export async function Asset_UnlinkEdgeAgents(
   });
 }
 /**
- * Buscar un elemento relacionado por id para healthcheckEvents.
+ * Find a related item by id for healthcheckEvents.
  * /Assets/:id/healthcheckEvents/:fk
  */
 export async function Asset_FindByIdHealthcheckEvents(
@@ -157,7 +157,7 @@ export async function Asset_FindByIdHealthcheckEvents(
   });
 }
 /**
- * Actualizar un elemento relacionado por id para healthcheckEvents.
+ * Update a related item by id for healthcheckEvents.
  * /Assets/:id/healthcheckEvents/:fk
  */
 export async function Asset_UpdateByIdHealthcheckEvents(
@@ -176,7 +176,7 @@ export async function Asset_UpdateByIdHealthcheckEvents(
   });
 }
 /**
- * Capta la relación hasOne rateLimit.
+ * Fetches hasOne relation rateLimit.
  * /Assets/:id/rateLimit
  */
 export async function Asset_GetRateLimit(id: string): Promise<RateLimit> {
@@ -189,7 +189,7 @@ export async function Asset_GetRateLimit(id: string): Promise<RateLimit> {
   });
 }
 /**
- * Crea una nueva instancia en rateLimit de este modelo.
+ * Creates a new instance in rateLimit of this model.
  * /Assets/:id/rateLimit
  */
 export async function Asset_CreateRateLimit(
@@ -206,7 +206,7 @@ export async function Asset_CreateRateLimit(
   });
 }
 /**
- * Actualizar rateLimit de este modelo.
+ * Update rateLimit of this model.
  * /Assets/:id/rateLimit
  */
 export async function Asset_UpdateRateLimit(
@@ -223,7 +223,7 @@ export async function Asset_UpdateRateLimit(
   });
 }
 /**
- * operabilitySummaries consultas de Asset.
+ * Queries operabilitySummaries of Asset.
  * /Assets/:id/operabilitySummaries
  */
 export async function Asset_GetOperabilitySummaries(
@@ -245,7 +245,7 @@ export async function Asset_GetOperabilitySummaries(
   });
 }
 /**
- * Recuentos operabilitySummaries de Asset.
+ * Counts operabilitySummaries of Asset.
  * /Assets/:id/operabilitySummaries/count
  */
 export async function Asset_CountOperabilitySummaries(
@@ -267,7 +267,7 @@ export async function Asset_CountOperabilitySummaries(
   });
 }
 /**
- * datasets consultas de Asset.
+ * Queries datasets of Asset.
  * /Assets/:id/datasets
  */
 export async function Asset_GetDatasets(
@@ -289,7 +289,7 @@ export async function Asset_GetDatasets(
   });
 }
 /**
- * Recuentos datasets de Asset.
+ * Counts datasets of Asset.
  * /Assets/:id/datasets/count
  */
 export async function Asset_CountDatasets(
@@ -311,7 +311,7 @@ export async function Asset_CountDatasets(
   });
 }
 /**
- * edgeAgents consultas de Asset.
+ * Queries edgeAgents of Asset.
  * /Assets/:id/edgeAgents
  */
 export async function Asset_GetEdgeAgents(
@@ -333,7 +333,7 @@ export async function Asset_GetEdgeAgents(
   });
 }
 /**
- * Recuentos edgeAgents de Asset.
+ * Counts edgeAgents of Asset.
  * /Assets/:id/edgeAgents/count
  */
 export async function Asset_CountEdgeAgents(
@@ -355,7 +355,7 @@ export async function Asset_CountEdgeAgents(
   });
 }
 /**
- * events consultas de Asset.
+ * Queries events of Asset.
  * /Assets/:id/events
  */
 export async function Asset_GetEvents(
@@ -377,7 +377,7 @@ export async function Asset_GetEvents(
   });
 }
 /**
- * eventTriggers consultas de Asset.
+ * Queries eventTriggers of Asset.
  * /Assets/:id/eventTriggers
  */
 export async function Asset_GetEventTriggers(
@@ -399,7 +399,7 @@ export async function Asset_GetEventTriggers(
   });
 }
 /**
- * healthcheckEvents consultas de Asset.
+ * Queries healthcheckEvents of Asset.
  * /Assets/:id/healthcheckEvents
  */
 export async function Asset_GetHealthcheckEvents(
@@ -421,7 +421,7 @@ export async function Asset_GetHealthcheckEvents(
   });
 }
 /**
- * Crea una nueva instancia en healthcheckEvents de este modelo.
+ * Creates a new instance in healthcheckEvents of this model.
  * /Assets/:id/healthcheckEvents
  */
 export async function Asset_CreateHealthcheckEvents(
@@ -505,10 +505,6 @@ export async function Asset_subscribe(
     method: 'PUT',
     url: '/Assets/:id/sockets/:socketId/subscribe',
     routeParams: {
-      id,
-      socketId,
-    },
-    body: {
       id,
       socketId,
     },
@@ -610,7 +606,7 @@ export async function Asset_removeFile(
 export async function Asset_upload(
   id: string,
   property: string,
-  file: File,
+  file: UploadableFile,
   resourceName?: string,
   onProgress?: (progress: number) => void,
 ): Promise<any> {
@@ -706,7 +702,6 @@ export async function Asset_setAndQueueAssetStates(
     routeParams: {
       id,
     },
-    body: {},
   });
 }
 /**
@@ -831,7 +826,7 @@ export async function Asset_notifyHealthStatus(
   });
 }
 /**
- * eventTriggerAssetStates consultas de AssetState.
+ * Queries eventTriggerAssetStates of AssetState.
  * /Assets/:id/assetStates/:nk/eventTriggerAssetStates
  */
 export async function Asset_GetAssetStatesEventTriggerAssetStates(
@@ -855,7 +850,7 @@ export async function Asset_GetAssetStatesEventTriggerAssetStates(
   });
 }
 /**
- * states consultas de AssetState.
+ * Queries states of AssetState.
  * /Assets/:id/assetStates/:nk/states
  */
 export async function Asset_GetAssetStatesStates(
@@ -879,7 +874,7 @@ export async function Asset_GetAssetStatesStates(
   });
 }
 /**
- * Suprimir un elemento relacionado por id para comments.
+ * Delete a related item by id for comments.
  * /Assets/:id/healthcheckEvents/:nk/comments/:fk
  */
 export async function Asset_DestroyByIdHealthcheckEventsComments(
@@ -898,7 +893,7 @@ export async function Asset_DestroyByIdHealthcheckEventsComments(
   });
 }
 /**
- * Actualizar un elemento relacionado por id para comments.
+ * Update a related item by id for comments.
  * /Assets/:id/healthcheckEvents/:nk/comments/:fk
  */
 export async function Asset_UpdateByIdHealthcheckEventsComments(
@@ -919,7 +914,7 @@ export async function Asset_UpdateByIdHealthcheckEventsComments(
   });
 }
 /**
- * Crea una nueva instancia en comments de este modelo.
+ * Creates a new instance in comments of this model.
  * /Assets/:id/healthcheckEvents/:nk/comments
  */
 export async function Asset_CreateHealthcheckEventsComments(
@@ -938,7 +933,7 @@ export async function Asset_CreateHealthcheckEventsComments(
   });
 }
 /**
- * Crea una nueva instancia en stateChanges de este modelo.
+ * Creates a new instance in stateChanges of this model.
  * /Assets/:id/healthcheckEvents/:nk/stateChanges
  */
 export async function Asset_CreateHealthcheckEventsStateChanges(

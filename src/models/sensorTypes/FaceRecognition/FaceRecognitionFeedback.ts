@@ -38,5 +38,6 @@ export type FaceRecognitionFeedback = {
       | 'FALSE_POSITIVE'
       | 'FALSE_NEGATIVE';
   }[];
+  mode?: 'MATCH' | 'NO_MATCH' | 'ALL';
   filtered?: boolean;
 };

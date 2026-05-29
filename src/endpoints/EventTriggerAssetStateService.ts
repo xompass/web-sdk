@@ -6,7 +6,7 @@ import { EventTriggerRule } from '../models/EventTriggerRule';
  */
 
 /**
- * Añadir un elemento relacionado por id para emergencyContacts.
+ * Add a related item by id for emergencyContacts.
  * /EventTriggerAssetStates/:id/emergencyContacts/rel/:fk
  */
 export async function EventTriggerAssetState_LinkEmergencyContacts(
@@ -25,7 +25,7 @@ export async function EventTriggerAssetState_LinkEmergencyContacts(
   });
 }
 /**
- * Eliminar la relación emergencyContacts con un elemento por id.
+ * Remove the emergencyContacts relation to an item by id.
  * /EventTriggerAssetStates/:id/emergencyContacts/rel/:fk
  */
 export async function EventTriggerAssetState_UnlinkEmergencyContacts(
@@ -42,7 +42,7 @@ export async function EventTriggerAssetState_UnlinkEmergencyContacts(
   });
 }
 /**
- * Buscar un elemento relacionado por id para rules.
+ * Find a related item by id for rules.
  * /EventTriggerAssetStates/:id/rules/:fk
  */
 export async function EventTriggerAssetState_FindByIdRules(
@@ -59,7 +59,7 @@ export async function EventTriggerAssetState_FindByIdRules(
   });
 }
 /**
- * Suprimir un elemento relacionado por id para rules.
+ * Delete a related item by id for rules.
  * /EventTriggerAssetStates/:id/rules/:fk
  */
 export async function EventTriggerAssetState_DestroyByIdRules(
@@ -76,7 +76,7 @@ export async function EventTriggerAssetState_DestroyByIdRules(
   });
 }
 /**
- * Actualizar un elemento relacionado por id para rules.
+ * Update a related item by id for rules.
  * /EventTriggerAssetStates/:id/rules/:fk
  */
 export async function EventTriggerAssetState_UpdateByIdRules(
@@ -95,7 +95,7 @@ export async function EventTriggerAssetState_UpdateByIdRules(
   });
 }
 /**
- * rules consultas de EventTriggerAssetState.
+ * Queries rules of EventTriggerAssetState.
  * /EventTriggerAssetStates/:id/rules
  */
 export async function EventTriggerAssetState_GetRules(
@@ -117,7 +117,7 @@ export async function EventTriggerAssetState_GetRules(
   });
 }
 /**
- * Crea una nueva instancia en rules de este modelo.
+ * Creates a new instance in rules of this model.
  * /EventTriggerAssetStates/:id/rules
  */
 export async function EventTriggerAssetState_CreateRules(
@@ -134,7 +134,7 @@ export async function EventTriggerAssetState_CreateRules(
   });
 }
 /**
- * Recuentos rules de EventTriggerAssetState.
+ * Counts rules of EventTriggerAssetState.
  * /EventTriggerAssetStates/:id/rules/count
  */
 export async function EventTriggerAssetState_CountRules(

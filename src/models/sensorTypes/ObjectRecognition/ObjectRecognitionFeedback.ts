@@ -91,6 +91,7 @@ export type ObjectRecognitionFeedback = {
       BLACKLIST?: boolean;
       PERSISTENCE?: boolean;
     };
+    trackId?: number;
     diagnosis?:
       | 'TRUE_POSITIVE'
       | 'TRUE_NEGATIVE'

@@ -33,5 +33,6 @@ export type FaceRecognitionEventContent = {
       PROBABILITY?: boolean;
     };
   }[];
+  mode?: 'MATCH' | 'NO_MATCH' | 'ALL';
   filtered?: boolean;
 };

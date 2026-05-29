@@ -8,7 +8,7 @@ import { TrafficFlowAnalysisVertice } from '../models/TrafficFlowAnalysis';
  */
 
 /**
- * Buscar un elemento relacionado por id para managers.
+ * Find a related item by id for managers.
  * /TrafficFlowAnalysis/:id/managers/:fk
  */
 export async function TrafficFlowAnalysis_FindByIdManagers(
@@ -25,7 +25,7 @@ export async function TrafficFlowAnalysis_FindByIdManagers(
   });
 }
 /**
- * Buscar un elemento relacionado por id para kpis.
+ * Find a related item by id for kpis.
  * /TrafficFlowAnalysis/:id/kpis/:fk
  */
 export async function TrafficFlowAnalysis_FindByIdKpis(
@@ -42,7 +42,7 @@ export async function TrafficFlowAnalysis_FindByIdKpis(
   });
 }
 /**
- * Suprimir un elemento relacionado por id para kpis.
+ * Delete a related item by id for kpis.
  * /TrafficFlowAnalysis/:id/kpis/:fk
  */
 export async function TrafficFlowAnalysis_DestroyByIdKpis(
@@ -59,7 +59,7 @@ export async function TrafficFlowAnalysis_DestroyByIdKpis(
   });
 }
 /**
- * Actualizar un elemento relacionado por id para kpis.
+ * Update a related item by id for kpis.
  * /TrafficFlowAnalysis/:id/kpis/:fk
  */
 export async function TrafficFlowAnalysis_UpdateByIdKpis(
@@ -78,7 +78,7 @@ export async function TrafficFlowAnalysis_UpdateByIdKpis(
   });
 }
 /**
- * Buscar un elemento relacionado por id para vertices.
+ * Find a related item by id for vertices.
  * /TrafficFlowAnalysis/:id/vertices/:fk
  */
 export async function TrafficFlowAnalysis_FindByIdVertices(
@@ -95,7 +95,7 @@ export async function TrafficFlowAnalysis_FindByIdVertices(
   });
 }
 /**
- * Suprimir un elemento relacionado por id para vertices.
+ * Delete a related item by id for vertices.
  * /TrafficFlowAnalysis/:id/vertices/:fk
  */
 export async function TrafficFlowAnalysis_DestroyByIdVertices(
@@ -112,7 +112,7 @@ export async function TrafficFlowAnalysis_DestroyByIdVertices(
   });
 }
 /**
- * Actualizar un elemento relacionado por id para vertices.
+ * Update a related item by id for vertices.
  * /TrafficFlowAnalysis/:id/vertices/:fk
  */
 export async function TrafficFlowAnalysis_UpdateByIdVertices(
@@ -131,7 +131,7 @@ export async function TrafficFlowAnalysis_UpdateByIdVertices(
   });
 }
 /**
- * managers consultas de TrafficFlowAnalysis.
+ * Queries managers of TrafficFlowAnalysis.
  * /TrafficFlowAnalysis/:id/managers
  */
 export async function TrafficFlowAnalysis_GetManagers(
@@ -153,7 +153,7 @@ export async function TrafficFlowAnalysis_GetManagers(
   });
 }
 /**
- * Recuentos managers de TrafficFlowAnalysis.
+ * Counts managers of TrafficFlowAnalysis.
  * /TrafficFlowAnalysis/:id/managers/count
  */
 export async function TrafficFlowAnalysis_CountManagers(
@@ -175,7 +175,7 @@ export async function TrafficFlowAnalysis_CountManagers(
   });
 }
 /**
- * kpis consultas de TrafficFlowAnalysis.
+ * Queries kpis of TrafficFlowAnalysis.
  * /TrafficFlowAnalysis/:id/kpis
  */
 export async function TrafficFlowAnalysis_GetKpis(
@@ -197,7 +197,7 @@ export async function TrafficFlowAnalysis_GetKpis(
   });
 }
 /**
- * Crea una nueva instancia en kpis de este modelo.
+ * Creates a new instance in kpis of this model.
  * /TrafficFlowAnalysis/:id/kpis
  */
 export async function TrafficFlowAnalysis_CreateKpis(
@@ -214,7 +214,7 @@ export async function TrafficFlowAnalysis_CreateKpis(
   });
 }
 /**
- * Recuentos kpis de TrafficFlowAnalysis.
+ * Counts kpis of TrafficFlowAnalysis.
  * /TrafficFlowAnalysis/:id/kpis/count
  */
 export async function TrafficFlowAnalysis_CountKpis(
@@ -236,7 +236,7 @@ export async function TrafficFlowAnalysis_CountKpis(
   });
 }
 /**
- * vertices consultas de TrafficFlowAnalysis.
+ * Queries vertices of TrafficFlowAnalysis.
  * /TrafficFlowAnalysis/:id/vertices
  */
 export async function TrafficFlowAnalysis_GetVertices(
@@ -258,7 +258,7 @@ export async function TrafficFlowAnalysis_GetVertices(
   });
 }
 /**
- * Crea una nueva instancia en vertices de este modelo.
+ * Creates a new instance in vertices of this model.
  * /TrafficFlowAnalysis/:id/vertices
  */
 export async function TrafficFlowAnalysis_CreateVertices(
@@ -275,7 +275,7 @@ export async function TrafficFlowAnalysis_CreateVertices(
   });
 }
 /**
- * Recuentos vertices de TrafficFlowAnalysis.
+ * Counts vertices of TrafficFlowAnalysis.
  * /TrafficFlowAnalysis/:id/vertices/count
  */
 export async function TrafficFlowAnalysis_CountVertices(

@@ -12,7 +12,7 @@ import { Feature } from '../models/GeoJSON';
  */
 
 /**
- * Buscar un elemento relacionado por id para assets.
+ * Find a related item by id for assets.
  * /EventDashboards/:id/assets/:fk
  */
 export async function EventDashboard_FindByIdAssets(
@@ -29,7 +29,7 @@ export async function EventDashboard_FindByIdAssets(
   });
 }
 /**
- * Añadir un elemento relacionado por id para assets.
+ * Add a related item by id for assets.
  * /EventDashboards/:id/assets/rel/:fk
  */
 export async function EventDashboard_LinkAssets(
@@ -43,11 +43,10 @@ export async function EventDashboard_LinkAssets(
       id,
       fk,
     },
-    body: {},
   });
 }
 /**
- * Eliminar la relación assets con un elemento por id.
+ * Remove the assets relation to an item by id.
  * /EventDashboards/:id/assets/rel/:fk
  */
 export async function EventDashboard_UnlinkAssets(
@@ -64,7 +63,7 @@ export async function EventDashboard_UnlinkAssets(
   });
 }
 /**
- * Comprobar la existencia de la relación assets con un elemento por id.
+ * Check the existence of assets relation to an item by id.
  * /EventDashboards/:id/assets/rel/:fk
  */
 export async function EventDashboard_ExistsAssets(
@@ -81,7 +80,7 @@ export async function EventDashboard_ExistsAssets(
   });
 }
 /**
- * Buscar un elemento relacionado por id para eventDashboardEventTriggers.
+ * Find a related item by id for eventDashboardEventTriggers.
  * /EventDashboards/:id/eventDashboardEventTriggers/:fk
  */
 export async function EventDashboard_FindByIdEventDashboardEventTriggers(
@@ -98,7 +97,7 @@ export async function EventDashboard_FindByIdEventDashboardEventTriggers(
   });
 }
 /**
- * Actualizar un elemento relacionado por id para eventDashboardEventTriggers.
+ * Update a related item by id for eventDashboardEventTriggers.
  * /EventDashboards/:id/eventDashboardEventTriggers/:fk
  */
 export async function EventDashboard_UpdateByIdEventDashboardEventTriggers(
@@ -117,7 +116,7 @@ export async function EventDashboard_UpdateByIdEventDashboardEventTriggers(
   });
 }
 /**
- * Buscar un elemento relacionado por id para eventTriggers.
+ * Find a related item by id for eventTriggers.
  * /EventDashboards/:id/eventTriggers/:fk
  */
 export async function EventDashboard_FindByIdEventTriggers(
@@ -134,7 +133,7 @@ export async function EventDashboard_FindByIdEventTriggers(
   });
 }
 /**
- * Añadir un elemento relacionado por id para eventTriggers.
+ * Add a related item by id for eventTriggers.
  * /EventDashboards/:id/eventTriggers/rel/:fk
  */
 export async function EventDashboard_LinkEventTriggers(
@@ -153,7 +152,7 @@ export async function EventDashboard_LinkEventTriggers(
   });
 }
 /**
- * Eliminar la relación eventTriggers con un elemento por id.
+ * Remove the eventTriggers relation to an item by id.
  * /EventDashboards/:id/eventTriggers/rel/:fk
  */
 export async function EventDashboard_UnlinkEventTriggers(
@@ -170,7 +169,7 @@ export async function EventDashboard_UnlinkEventTriggers(
   });
 }
 /**
- * Comprobar la existencia de la relación eventTriggers con un elemento por id.
+ * Check the existence of eventTriggers relation to an item by id.
  * /EventDashboards/:id/eventTriggers/rel/:fk
  */
 export async function EventDashboard_ExistsEventTriggers(
@@ -187,7 +186,7 @@ export async function EventDashboard_ExistsEventTriggers(
   });
 }
 /**
- * Buscar un elemento relacionado por id para managers.
+ * Find a related item by id for managers.
  * /EventDashboards/:id/managers/:fk
  */
 export async function EventDashboard_FindByIdManagers(
@@ -204,7 +203,7 @@ export async function EventDashboard_FindByIdManagers(
   });
 }
 /**
- * assets consultas de EventDashboard.
+ * Queries assets of EventDashboard.
  * /EventDashboards/:id/assets
  */
 export async function EventDashboard_GetAssets(
@@ -226,7 +225,7 @@ export async function EventDashboard_GetAssets(
   });
 }
 /**
- * Recuentos assets de EventDashboard.
+ * Counts assets of EventDashboard.
  * /EventDashboards/:id/assets/count
  */
 export async function EventDashboard_CountAssets(
@@ -248,7 +247,7 @@ export async function EventDashboard_CountAssets(
   });
 }
 /**
- * eventDashboardEventTriggers consultas de EventDashboard.
+ * Queries eventDashboardEventTriggers of EventDashboard.
  * /EventDashboards/:id/eventDashboardEventTriggers
  */
 export async function EventDashboard_GetEventDashboardEventTriggers(
@@ -270,7 +269,7 @@ export async function EventDashboard_GetEventDashboardEventTriggers(
   });
 }
 /**
- * eventTriggers consultas de EventDashboard.
+ * Queries eventTriggers of EventDashboard.
  * /EventDashboards/:id/eventTriggers
  */
 export async function EventDashboard_GetEventTriggers(
@@ -292,7 +291,7 @@ export async function EventDashboard_GetEventTriggers(
   });
 }
 /**
- * Recuentos eventTriggers de EventDashboard.
+ * Counts eventTriggers of EventDashboard.
  * /EventDashboards/:id/eventTriggers/count
  */
 export async function EventDashboard_CountEventTriggers(
@@ -314,7 +313,7 @@ export async function EventDashboard_CountEventTriggers(
   });
 }
 /**
- * managers consultas de EventDashboard.
+ * Queries managers of EventDashboard.
  * /EventDashboards/:id/managers
  */
 export async function EventDashboard_GetManagers(
@@ -336,7 +335,7 @@ export async function EventDashboard_GetManagers(
   });
 }
 /**
- * Recuentos managers de EventDashboard.
+ * Counts managers of EventDashboard.
  * /EventDashboards/:id/managers/count
  */
 export async function EventDashboard_CountManagers(

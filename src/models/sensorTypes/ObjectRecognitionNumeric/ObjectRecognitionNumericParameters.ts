@@ -10,6 +10,7 @@ export type ObjectRecognitionNumericParameters = {
   offset?: number;
   persistence?: {
     classes: string[];
+    trackClasses?: string[];
     enabled: boolean;
     ttl?: number;
     minImages?: number;

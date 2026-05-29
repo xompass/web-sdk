@@ -15,7 +15,7 @@ import { Summary } from '../models/Summary';
  */
 
 /**
- * Capta la relación belongsTo asset.
+ * Fetches belongsTo relation asset.
  * /Sensors/:id/asset
  */
 export async function Sensor_GetAsset(id: string): Promise<Asset> {
@@ -28,7 +28,7 @@ export async function Sensor_GetAsset(id: string): Promise<Asset> {
   });
 }
 /**
- * Buscar un elemento relacionado por id para datasets.
+ * Find a related item by id for datasets.
  * /Sensors/:id/datasets/:fk
  */
 export async function Sensor_FindByIdDatasets(
@@ -45,7 +45,7 @@ export async function Sensor_FindByIdDatasets(
   });
 }
 /**
- * Actualizar un elemento relacionado por id para datasets.
+ * Update a related item by id for datasets.
  * /Sensors/:id/datasets/:fk
  */
 export async function Sensor_UpdateByIdDatasets(
@@ -64,7 +64,7 @@ export async function Sensor_UpdateByIdDatasets(
   });
 }
 /**
- * Buscar un elemento relacionado por id para alerts.
+ * Find a related item by id for alerts.
  * /Sensors/:id/alerts/:fk
  */
 export async function Sensor_FindByIdAlerts(
@@ -81,7 +81,7 @@ export async function Sensor_FindByIdAlerts(
   });
 }
 /**
- * Actualizar un elemento relacionado por id para alerts.
+ * Update a related item by id for alerts.
  * /Sensors/:id/alerts/:fk
  */
 export async function Sensor_UpdateByIdAlerts(
@@ -100,7 +100,7 @@ export async function Sensor_UpdateByIdAlerts(
   });
 }
 /**
- * Buscar un elemento relacionado por id para alertHistory.
+ * Find a related item by id for alertHistory.
  * /Sensors/:id/alertHistory/:fk
  */
 export async function Sensor_FindByIdAlertHistory(
@@ -117,7 +117,7 @@ export async function Sensor_FindByIdAlertHistory(
   });
 }
 /**
- * Actualizar un elemento relacionado por id para alertHistory.
+ * Update a related item by id for alertHistory.
  * /Sensors/:id/alertHistory/:fk
  */
 export async function Sensor_UpdateByIdAlertHistory(
@@ -136,7 +136,7 @@ export async function Sensor_UpdateByIdAlertHistory(
   });
 }
 /**
- * Capta la relación hasOne lastData.
+ * Fetches hasOne relation lastData.
  * /Sensors/:id/lastData
  */
 export async function Sensor_GetLastData(id: string): Promise<Data> {
@@ -149,7 +149,7 @@ export async function Sensor_GetLastData(id: string): Promise<Data> {
   });
 }
 /**
- * Suprime lastData de este modelo.
+ * Deletes lastData of this model.
  * /Sensors/:id/lastData
  */
 export async function Sensor_DestroyLastData(id: string): Promise<void> {
@@ -162,7 +162,7 @@ export async function Sensor_DestroyLastData(id: string): Promise<void> {
   });
 }
 /**
- * Capta la relación hasOne rateLimit.
+ * Fetches hasOne relation rateLimit.
  * /Sensors/:id/rateLimit
  */
 export async function Sensor_GetRateLimit(id: string): Promise<RateLimit> {
@@ -175,7 +175,7 @@ export async function Sensor_GetRateLimit(id: string): Promise<RateLimit> {
   });
 }
 /**
- * Crea una nueva instancia en rateLimit de este modelo.
+ * Creates a new instance in rateLimit of this model.
  * /Sensors/:id/rateLimit
  */
 export async function Sensor_CreateRateLimit(
@@ -192,7 +192,7 @@ export async function Sensor_CreateRateLimit(
   });
 }
 /**
- * Actualizar rateLimit de este modelo.
+ * Update rateLimit of this model.
  * /Sensors/:id/rateLimit
  */
 export async function Sensor_UpdateRateLimit(
@@ -209,7 +209,7 @@ export async function Sensor_UpdateRateLimit(
   });
 }
 /**
- * Buscar un elemento relacionado por id para assetStates.
+ * Find a related item by id for assetStates.
  * /Sensors/:id/assetStates/:fk
  */
 export async function Sensor_FindByIdAssetStates(
@@ -226,7 +226,7 @@ export async function Sensor_FindByIdAssetStates(
   });
 }
 /**
- * Añadir un elemento relacionado por id para assetStates.
+ * Add a related item by id for assetStates.
  * /Sensors/:id/assetStates/rel/:fk
  */
 export async function Sensor_LinkAssetStates(
@@ -245,7 +245,7 @@ export async function Sensor_LinkAssetStates(
   });
 }
 /**
- * Eliminar la relación assetStates con un elemento por id.
+ * Remove the assetStates relation to an item by id.
  * /Sensors/:id/assetStates/rel/:fk
  */
 export async function Sensor_UnlinkAssetStates(
@@ -262,7 +262,7 @@ export async function Sensor_UnlinkAssetStates(
   });
 }
 /**
- * Comprobar la existencia de la relación assetStates con un elemento por id.
+ * Check the existence of assetStates relation to an item by id.
  * /Sensors/:id/assetStates/rel/:fk
  */
 export async function Sensor_ExistsAssetStates(
@@ -279,7 +279,7 @@ export async function Sensor_ExistsAssetStates(
   });
 }
 /**
- * Buscar un elemento relacionado por id para states.
+ * Find a related item by id for states.
  * /Sensors/:id/states/:fk
  */
 export async function Sensor_FindByIdStates(
@@ -296,7 +296,7 @@ export async function Sensor_FindByIdStates(
   });
 }
 /**
- * Actualizar un elemento relacionado por id para states.
+ * Update a related item by id for states.
  * /Sensors/:id/states/:fk
  */
 export async function Sensor_UpdateByIdStates(
@@ -315,7 +315,7 @@ export async function Sensor_UpdateByIdStates(
   });
 }
 /**
- * Buscar un elemento relacionado por id para summaries.
+ * Find a related item by id for summaries.
  * /Sensors/:id/summaries/:fk
  */
 export async function Sensor_FindByIdSummaries(
@@ -332,7 +332,7 @@ export async function Sensor_FindByIdSummaries(
   });
 }
 /**
- * datasets consultas de Sensor.
+ * Queries datasets of Sensor.
  * /Sensors/:id/datasets
  */
 export async function Sensor_GetDatasets(
@@ -354,7 +354,7 @@ export async function Sensor_GetDatasets(
   });
 }
 /**
- * Crea una nueva instancia en datasets de este modelo.
+ * Creates a new instance in datasets of this model.
  * /Sensors/:id/datasets
  */
 export async function Sensor_CreateDatasets(
@@ -371,7 +371,7 @@ export async function Sensor_CreateDatasets(
   });
 }
 /**
- * Recuentos datasets de Sensor.
+ * Counts datasets of Sensor.
  * /Sensors/:id/datasets/count
  */
 export async function Sensor_CountDatasets(
@@ -393,7 +393,7 @@ export async function Sensor_CountDatasets(
   });
 }
 /**
- * alerts consultas de Sensor.
+ * Queries alerts of Sensor.
  * /Sensors/:id/alerts
  */
 export async function Sensor_GetAlerts(
@@ -415,7 +415,7 @@ export async function Sensor_GetAlerts(
   });
 }
 /**
- * Recuentos alerts de Sensor.
+ * Counts alerts of Sensor.
  * /Sensors/:id/alerts/count
  */
 export async function Sensor_CountAlerts(
@@ -437,7 +437,7 @@ export async function Sensor_CountAlerts(
   });
 }
 /**
- * alertHistory consultas de Sensor.
+ * Queries alertHistory of Sensor.
  * /Sensors/:id/alertHistory
  */
 export async function Sensor_GetAlertHistory(
@@ -459,7 +459,7 @@ export async function Sensor_GetAlertHistory(
   });
 }
 /**
- * Recuentos alertHistory de Sensor.
+ * Counts alertHistory of Sensor.
  * /Sensors/:id/alertHistory/count
  */
 export async function Sensor_CountAlertHistory(
@@ -481,7 +481,7 @@ export async function Sensor_CountAlertHistory(
   });
 }
 /**
- * assetStates consultas de Sensor.
+ * Queries assetStates of Sensor.
  * /Sensors/:id/assetStates
  */
 export async function Sensor_GetAssetStates(
@@ -503,7 +503,7 @@ export async function Sensor_GetAssetStates(
   });
 }
 /**
- * Recuentos assetStates de Sensor.
+ * Counts assetStates of Sensor.
  * /Sensors/:id/assetStates/count
  */
 export async function Sensor_CountAssetStates(
@@ -525,7 +525,7 @@ export async function Sensor_CountAssetStates(
   });
 }
 /**
- * states consultas de Sensor.
+ * Queries states of Sensor.
  * /Sensors/:id/states
  */
 export async function Sensor_GetStates(
@@ -547,7 +547,7 @@ export async function Sensor_GetStates(
   });
 }
 /**
- * Recuentos states de Sensor.
+ * Counts states of Sensor.
  * /Sensors/:id/states/count
  */
 export async function Sensor_CountStates(
@@ -569,7 +569,7 @@ export async function Sensor_CountStates(
   });
 }
 /**
- * summaries consultas de Sensor.
+ * Queries summaries of Sensor.
  * /Sensors/:id/summaries
  */
 export async function Sensor_GetSummaries(
@@ -591,7 +591,7 @@ export async function Sensor_GetSummaries(
   });
 }
 /**
- * Recuentos summaries de Sensor.
+ * Counts summaries of Sensor.
  * /Sensors/:id/summaries/count
  */
 export async function Sensor_CountSummaries(
@@ -786,7 +786,7 @@ export async function Sensor_withCurrentState(
   });
 }
 /**
- * Buscar un elemento relacionado por id para data.
+ * Find a related item by id for data.
  * /Sensors/:id/datasets/:nk/data/:fk
  */
 export async function Sensor_FindByIdDatasetsData(
@@ -805,7 +805,7 @@ export async function Sensor_FindByIdDatasetsData(
   });
 }
 /**
- * Suprimir un elemento relacionado por id para data.
+ * Delete a related item by id for data.
  * /Sensors/:id/datasets/:nk/data/:fk
  */
 export async function Sensor_DestroyByIdDatasetsData(
@@ -824,7 +824,7 @@ export async function Sensor_DestroyByIdDatasetsData(
   });
 }
 /**
- * Actualizar un elemento relacionado por id para data.
+ * Update a related item by id for data.
  * /Sensors/:id/datasets/:nk/data/:fk
  */
 export async function Sensor_UpdateByIdDatasetsData(
@@ -845,7 +845,7 @@ export async function Sensor_UpdateByIdDatasetsData(
   });
 }
 /**
- * data consultas de Dataset.
+ * Queries data of Dataset.
  * /Sensors/:id/datasets/:nk/data
  */
 export async function Sensor_GetDatasetsData(
@@ -869,7 +869,7 @@ export async function Sensor_GetDatasetsData(
   });
 }
 /**
- * Crea una nueva instancia en data de este modelo.
+ * Creates a new instance in data of this model.
  * /Sensors/:id/datasets/:nk/data
  */
 export async function Sensor_CreateDatasetsData(
@@ -888,7 +888,7 @@ export async function Sensor_CreateDatasetsData(
   });
 }
 /**
- * Recuentos data de Dataset.
+ * Counts data of Dataset.
  * /Sensors/:id/datasets/:nk/data/count
  */
 export async function Sensor_CountDatasetsData(

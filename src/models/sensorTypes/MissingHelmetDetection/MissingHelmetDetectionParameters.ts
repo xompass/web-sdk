@@ -7,6 +7,7 @@ export type MissingHelmetDetectionParameters = {
   disableUpload?: boolean;
   persistence?: {
     classes: string[];
+    trackClasses?: string[];
     enabled: boolean;
     ttl?: number;
     minImages?: number;

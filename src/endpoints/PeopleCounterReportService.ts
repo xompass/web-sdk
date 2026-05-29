@@ -7,7 +7,7 @@ import { PeopleCounterReportSerie } from '../models/PeopleCounterReport';
  */
 
 /**
- * Buscar un elemento relacionado por id para managers.
+ * Find a related item by id for managers.
  * /PeopleCounterReports/:id/managers/:fk
  */
 export async function PeopleCounterReport_FindByIdManagers(
@@ -24,7 +24,7 @@ export async function PeopleCounterReport_FindByIdManagers(
   });
 }
 /**
- * Buscar un elemento relacionado por id para series.
+ * Find a related item by id for series.
  * /PeopleCounterReports/:id/series/:fk
  */
 export async function PeopleCounterReport_FindByIdSeries(
@@ -41,7 +41,7 @@ export async function PeopleCounterReport_FindByIdSeries(
   });
 }
 /**
- * Suprimir un elemento relacionado por id para series.
+ * Delete a related item by id for series.
  * /PeopleCounterReports/:id/series/:fk
  */
 export async function PeopleCounterReport_DestroyByIdSeries(
@@ -58,7 +58,7 @@ export async function PeopleCounterReport_DestroyByIdSeries(
   });
 }
 /**
- * Actualizar un elemento relacionado por id para series.
+ * Update a related item by id for series.
  * /PeopleCounterReports/:id/series/:fk
  */
 export async function PeopleCounterReport_UpdateByIdSeries(
@@ -77,7 +77,7 @@ export async function PeopleCounterReport_UpdateByIdSeries(
   });
 }
 /**
- * managers consultas de PeopleCounterReport.
+ * Queries managers of PeopleCounterReport.
  * /PeopleCounterReports/:id/managers
  */
 export async function PeopleCounterReport_GetManagers(
@@ -99,7 +99,7 @@ export async function PeopleCounterReport_GetManagers(
   });
 }
 /**
- * Recuentos managers de PeopleCounterReport.
+ * Counts managers of PeopleCounterReport.
  * /PeopleCounterReports/:id/managers/count
  */
 export async function PeopleCounterReport_CountManagers(
@@ -121,7 +121,7 @@ export async function PeopleCounterReport_CountManagers(
   });
 }
 /**
- * series consultas de PeopleCounterReport.
+ * Queries series of PeopleCounterReport.
  * /PeopleCounterReports/:id/series
  */
 export async function PeopleCounterReport_GetSeries(
@@ -143,7 +143,7 @@ export async function PeopleCounterReport_GetSeries(
   });
 }
 /**
- * Crea una nueva instancia en series de este modelo.
+ * Creates a new instance in series of this model.
  * /PeopleCounterReports/:id/series
  */
 export async function PeopleCounterReport_CreateSeries(
@@ -160,7 +160,7 @@ export async function PeopleCounterReport_CreateSeries(
   });
 }
 /**
- * Recuentos series de PeopleCounterReport.
+ * Counts series of PeopleCounterReport.
  * /PeopleCounterReports/:id/series/count
  */
 export async function PeopleCounterReport_CountSeries(

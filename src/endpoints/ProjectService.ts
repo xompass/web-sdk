@@ -1,18 +1,49 @@
 import { ApiFetch, Filter } from '../core/ApiFetch';
-import { Asset } from '../models/Asset';
+import { EventSubject } from '../models/EventSubject';
 import { AssetOperabilitySummary } from '../models/AssetOperabilitySummary';
 import { FaceDatabase } from '../models/FaceDatabase';
+import { FaceSubject } from '../models/FaceSubject';
 import { ProjectOperabilitySummary } from '../models/ProjectOperabilitySummary';
 import { ProjectRestrictionTable } from '../models/ProjectRestrictionTable';
 import { RateLimit } from '../models/RateLimit';
 import { ResponseProtocol } from '../models/ResponseProtocol';
+import { Asset } from '../models/Asset';
+import {
+  LicensePlateDetection,
+  Watchlist,
+  WatchlistBulkCreateResult,
+  WatchlistCreate,
+  WatchlistMergeResult,
+  WatchlistReplaceResult,
+  WatchlistUpdate,
+  WatchlistVehicle,
+  WatchlistVehicleCreate,
+  WatchlistVehicleUpdate,
+} from '../models/Watchlist';
 
 /**
  * Api services for the `Project` model.
  */
 
 /**
- * Actualizar un elemento relacionado por id para assetOperabilitySummaries.
+ * Find a related item by id for eventSubjects.
+ * /Projects/:id/eventSubjects/:fk
+ */
+export async function Project_FindByIdEventSubjects(
+  id: string,
+  fk: string,
+): Promise<EventSubject> {
+  return ApiFetch({
+    method: 'GET',
+    url: '/Projects/:id/eventSubjects/:fk',
+    routeParams: {
+      id,
+      fk,
+    },
+  });
+}
+/**
+ * Update a related item by id for assetOperabilitySummaries.
  * /Projects/:id/assetOperabilitySummaries/:fk
  */
 export async function Project_UpdateByIdAssetOperabilitySummaries(
@@ -31,7 +62,7 @@ export async function Project_UpdateByIdAssetOperabilitySummaries(
   });
 }
 /**
- * Buscar un elemento relacionado por id para faceDatabases.
+ * Find a related item by id for faceDatabases.
  * /Projects/:id/faceDatabases/:fk
  */
 export async function Project_FindByIdFaceDatabases(
@@ -48,7 +79,7 @@ export async function Project_FindByIdFaceDatabases(
   });
 }
 /**
- * Suprimir un elemento relacionado por id para faceDatabases.
+ * Delete a related item by id for faceDatabases.
  * /Projects/:id/faceDatabases/:fk
  */
 export async function Project_DestroyByIdFaceDatabases(
@@ -65,7 +96,7 @@ export async function Project_DestroyByIdFaceDatabases(
   });
 }
 /**
- * Actualizar un elemento relacionado por id para faceDatabases.
+ * Update a related item by id for faceDatabases.
  * /Projects/:id/faceDatabases/:fk
  */
 export async function Project_UpdateByIdFaceDatabases(
@@ -84,7 +115,24 @@ export async function Project_UpdateByIdFaceDatabases(
   });
 }
 /**
- * Actualizar un elemento relacionado por id para operabilitySummaries.
+ * Find a related item by id for faceSubjects.
+ * /Projects/:id/faceSubjects/:fk
+ */
+export async function Project_FindByIdFaceSubjects(
+  id: string,
+  fk: string,
+): Promise<FaceSubject> {
+  return ApiFetch({
+    method: 'GET',
+    url: '/Projects/:id/faceSubjects/:fk',
+    routeParams: {
+      id,
+      fk,
+    },
+  });
+}
+/**
+ * Update a related item by id for operabilitySummaries.
  * /Projects/:id/operabilitySummaries/:fk
  */
 export async function Project_UpdateByIdOperabilitySummaries(
@@ -103,7 +151,7 @@ export async function Project_UpdateByIdOperabilitySummaries(
   });
 }
 /**
- * Capta la relación hasOne restrictionTable.
+ * Fetches hasOne relation restrictionTable.
  * /Projects/:id/restrictionTable
  */
 export async function Project_GetRestrictionTable(
@@ -118,7 +166,7 @@ export async function Project_GetRestrictionTable(
   });
 }
 /**
- * Capta la relación hasOne rateLimit.
+ * Fetches hasOne relation rateLimit.
  * /Projects/:id/rateLimit
  */
 export async function Project_GetRateLimit(id: string): Promise<RateLimit> {
@@ -131,7 +179,7 @@ export async function Project_GetRateLimit(id: string): Promise<RateLimit> {
   });
 }
 /**
- * Crea una nueva instancia en rateLimit de este modelo.
+ * Creates a new instance in rateLimit of this model.
  * /Projects/:id/rateLimit
  */
 export async function Project_CreateRateLimit(
@@ -148,7 +196,7 @@ export async function Project_CreateRateLimit(
   });
 }
 /**
- * Actualizar rateLimit de este modelo.
+ * Update rateLimit of this model.
  * /Projects/:id/rateLimit
  */
 export async function Project_UpdateRateLimit(
@@ -165,7 +213,7 @@ export async function Project_UpdateRateLimit(
   });
 }
 /**
- * Buscar un elemento relacionado por id para responseProtocols.
+ * Find a related item by id for responseProtocols.
  * /Projects/:id/responseProtocols/:fk
  */
 export async function Project_FindByIdResponseProtocols(
@@ -182,7 +230,7 @@ export async function Project_FindByIdResponseProtocols(
   });
 }
 /**
- * Suprimir un elemento relacionado por id para responseProtocols.
+ * Delete a related item by id for responseProtocols.
  * /Projects/:id/responseProtocols/:fk
  */
 export async function Project_DestroyByIdResponseProtocols(
@@ -199,7 +247,7 @@ export async function Project_DestroyByIdResponseProtocols(
   });
 }
 /**
- * Actualizar un elemento relacionado por id para responseProtocols.
+ * Update a related item by id for responseProtocols.
  * /Projects/:id/responseProtocols/:fk
  */
 export async function Project_UpdateByIdResponseProtocols(
@@ -218,7 +266,51 @@ export async function Project_UpdateByIdResponseProtocols(
   });
 }
 /**
- * assetOperabilitySummaries consultas de Project.
+ * Queries eventSubjects of Project.
+ * /Projects/:id/eventSubjects
+ */
+export async function Project_GetEventSubjects(
+  id: string,
+  filter: Filter<any> = {},
+): Promise<EventSubject[]> {
+  const _urlParams: any = {};
+  if (filter != null) {
+    _urlParams['filter'] = filter;
+  }
+
+  return ApiFetch({
+    method: 'GET',
+    url: '/Projects/:id/eventSubjects',
+    urlParams: _urlParams,
+    routeParams: {
+      id,
+    },
+  });
+}
+/**
+ * Counts eventSubjects of Project.
+ * /Projects/:id/eventSubjects/count
+ */
+export async function Project_CountEventSubjects(
+  id: string,
+  where: any = {},
+): Promise<number> {
+  const _urlParams: any = {};
+  if (where != null) {
+    _urlParams['where'] = where;
+  }
+
+  return ApiFetch({
+    method: 'GET',
+    url: '/Projects/:id/eventSubjects/count',
+    urlParams: _urlParams,
+    routeParams: {
+      id,
+    },
+  });
+}
+/**
+ * Queries assetOperabilitySummaries of Project.
  * /Projects/:id/assetOperabilitySummaries
  */
 export async function Project_GetAssetOperabilitySummaries(
@@ -240,7 +332,7 @@ export async function Project_GetAssetOperabilitySummaries(
   });
 }
 /**
- * Recuentos assetOperabilitySummaries de Project.
+ * Counts assetOperabilitySummaries of Project.
  * /Projects/:id/assetOperabilitySummaries/count
  */
 export async function Project_CountAssetOperabilitySummaries(
@@ -262,7 +354,7 @@ export async function Project_CountAssetOperabilitySummaries(
   });
 }
 /**
- * faceDatabases consultas de Project.
+ * Queries faceDatabases of Project.
  * /Projects/:id/faceDatabases
  */
 export async function Project_GetFaceDatabases(
@@ -284,7 +376,7 @@ export async function Project_GetFaceDatabases(
   });
 }
 /**
- * Crea una nueva instancia en faceDatabases de este modelo.
+ * Creates a new instance in faceDatabases of this model.
  * /Projects/:id/faceDatabases
  */
 export async function Project_CreateFaceDatabases(
@@ -301,7 +393,7 @@ export async function Project_CreateFaceDatabases(
   });
 }
 /**
- * Recuentos faceDatabases de Project.
+ * Counts faceDatabases of Project.
  * /Projects/:id/faceDatabases/count
  */
 export async function Project_CountFaceDatabases(
@@ -323,7 +415,51 @@ export async function Project_CountFaceDatabases(
   });
 }
 /**
- * operabilitySummaries consultas de Project.
+ * Queries faceSubjects of Project.
+ * /Projects/:id/faceSubjects
+ */
+export async function Project_GetFaceSubjects(
+  id: string,
+  filter: Filter<any> = {},
+): Promise<FaceSubject[]> {
+  const _urlParams: any = {};
+  if (filter != null) {
+    _urlParams['filter'] = filter;
+  }
+
+  return ApiFetch({
+    method: 'GET',
+    url: '/Projects/:id/faceSubjects',
+    urlParams: _urlParams,
+    routeParams: {
+      id,
+    },
+  });
+}
+/**
+ * Counts faceSubjects of Project.
+ * /Projects/:id/faceSubjects/count
+ */
+export async function Project_CountFaceSubjects(
+  id: string,
+  where: any = {},
+): Promise<number> {
+  const _urlParams: any = {};
+  if (where != null) {
+    _urlParams['where'] = where;
+  }
+
+  return ApiFetch({
+    method: 'GET',
+    url: '/Projects/:id/faceSubjects/count',
+    urlParams: _urlParams,
+    routeParams: {
+      id,
+    },
+  });
+}
+/**
+ * Queries operabilitySummaries of Project.
  * /Projects/:id/operabilitySummaries
  */
 export async function Project_GetOperabilitySummaries(
@@ -345,7 +481,7 @@ export async function Project_GetOperabilitySummaries(
   });
 }
 /**
- * Recuentos operabilitySummaries de Project.
+ * Counts operabilitySummaries of Project.
  * /Projects/:id/operabilitySummaries/count
  */
 export async function Project_CountOperabilitySummaries(
@@ -367,7 +503,7 @@ export async function Project_CountOperabilitySummaries(
   });
 }
 /**
- * responseProtocols consultas de Project.
+ * Queries responseProtocols of Project.
  * /Projects/:id/responseProtocols
  */
 export async function Project_GetResponseProtocols(
@@ -389,7 +525,7 @@ export async function Project_GetResponseProtocols(
   });
 }
 /**
- * Crea una nueva instancia en responseProtocols de este modelo.
+ * Creates a new instance in responseProtocols of this model.
  * /Projects/:id/responseProtocols
  */
 export async function Project_CreateResponseProtocols(
@@ -406,7 +542,7 @@ export async function Project_CreateResponseProtocols(
   });
 }
 /**
- * Recuentos responseProtocols de Project.
+ * Counts responseProtocols of Project.
  * /Projects/:id/responseProtocols/count
  */
 export async function Project_CountResponseProtocols(
@@ -442,10 +578,6 @@ export async function Project_subscribe(
       id,
       socketId,
     },
-    body: {
-      id,
-      socketId,
-    },
   });
 }
 /**
@@ -462,21 +594,6 @@ export async function Project_unsubscribe(
     routeParams: {
       id,
       socketId,
-    },
-  });
-}
-/**
- * Get merged restriction table
- * /Projects/:id/restrictionTable/merged
- */
-export async function Project_getMergedRestrictionTable(
-  id: string,
-): Promise<any> {
-  return ApiFetch({
-    method: 'GET',
-    url: '/Projects/:id/restrictionTable/merged',
-    routeParams: {
-      id,
     },
   });
 }
@@ -551,7 +668,7 @@ export async function Project_searchLicensePlates(
   sensorId?: string,
   class_?: string,
   limit?: number,
-): Promise<any[]> {
+): Promise<LicensePlateDetection[]> {
   const _urlParams: any = {};
   if (licensePlate != null) {
     _urlParams['licensePlate'] = licensePlate;
@@ -607,7 +724,7 @@ export async function Project_getLicensePlates(
   limit?: number,
   groupInterval?: number,
   groupMaxDistance?: number,
-): Promise<any[]> {
+): Promise<LicensePlateDetection[]> {
   const _urlParams: any = {};
   if (from != null) {
     _urlParams['from'] = from;
@@ -649,7 +766,7 @@ export async function Project_getLicensePlates(
  */
 export async function Project_getLicensePlatesWatchlists(
   id: string,
-): Promise<any[]> {
+): Promise<Watchlist[]> {
   return ApiFetch({
     method: 'GET',
     url: '/Projects/:id/licensePlates/watchlists',
@@ -664,8 +781,8 @@ export async function Project_getLicensePlatesWatchlists(
  */
 export async function Project_createLicensePlateWatchlist(
   id: string,
-  data: any = {},
-): Promise<any> {
+  data: WatchlistCreate,
+): Promise<Watchlist> {
   return ApiFetch({
     method: 'POST',
     url: '/Projects/:id/licensePlates/watchlists',
@@ -682,8 +799,8 @@ export async function Project_createLicensePlateWatchlist(
 export async function Project_updateLicensePlateWatchlist(
   id: string,
   nk: string,
-  data: any = {},
-): Promise<string> {
+  data: WatchlistUpdate,
+): Promise<Watchlist> {
   return ApiFetch({
     method: 'PATCH',
     url: '/Projects/:id/licensePlates/watchlists/:nk',
@@ -718,8 +835,8 @@ export async function Project_deleteLicensePlateWatchlist(
 export async function Project_addVehicleToWatchlist(
   id: string,
   nk: string,
-  data: any = {},
-): Promise<any> {
+  data: WatchlistVehicleCreate,
+): Promise<WatchlistVehicle> {
   return ApiFetch({
     method: 'POST',
     url: '/Projects/:id/licensePlates/watchlists/:nk/vehicles',
@@ -737,7 +854,7 @@ export async function Project_addVehicleToWatchlist(
 export async function Project_listVehiclesInWatchlist(
   id: string,
   nk: string,
-): Promise<any[]> {
+): Promise<WatchlistVehicle[]> {
   return ApiFetch({
     method: 'GET',
     url: '/Projects/:id/licensePlates/watchlists/:nk/vehicles',
@@ -755,8 +872,8 @@ export async function Project_updateVehicleInWatchlist(
   id: string,
   nk: string,
   licensePlate: string,
-  data: any = {},
-): Promise<any> {
+  data: WatchlistVehicleUpdate,
+): Promise<WatchlistVehicle> {
   return ApiFetch({
     method: 'PATCH',
     url: '/Projects/:id/licensePlates/watchlists/:nk/vehicles/:licensePlate',
@@ -794,8 +911,8 @@ export async function Project_deleteVehicleFromWatchlist(
 export async function Project_createManyVehiclesInWatchlist(
   id: string,
   nk: string,
-  data: any[] = [],
-): Promise<any[]> {
+  data: WatchlistVehicleCreate[] = [],
+): Promise<WatchlistBulkCreateResult[]> {
   return ApiFetch({
     method: 'POST',
     url: '/Projects/:id/licensePlates/watchlists/:nk/vehicles/bulk',
@@ -813,8 +930,8 @@ export async function Project_createManyVehiclesInWatchlist(
 export async function Project_mergeWatchlistVehicles(
   id: string,
   nk: string,
-  data: any = {},
-): Promise<any[]> {
+  data: WatchlistVehicleCreate[] = [],
+): Promise<WatchlistMergeResult[]> {
   return ApiFetch({
     method: 'POST',
     url: '/Projects/:id/licensePlates/watchlists/:nk/vehicles/merge',
@@ -832,8 +949,8 @@ export async function Project_mergeWatchlistVehicles(
 export async function Project_replaceWatchlistVehicles(
   id: string,
   nk: string,
-  data: any = {},
-): Promise<any[]> {
+  data: WatchlistVehicleCreate[] = [],
+): Promise<WatchlistReplaceResult[]> {
   return ApiFetch({
     method: 'POST',
     url: '/Projects/:id/licensePlates/watchlists/:nk/vehicles/replace',
@@ -869,7 +986,7 @@ export async function Project_GetResponseProtocolsAssets(
   });
 }
 /**
- * Recuentos assets de ResponseProtocol.
+ * Counts assets of ResponseProtocol.
  * /Projects/:id/responseProtocols/:nk/assets/count
  */
 export async function Project_CountResponseProtocolsAssets(

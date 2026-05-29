@@ -6,7 +6,7 @@ import { EdgeAgentTemplate } from '../models/EdgeAgentTemplate';
  */
 
 /**
- * Buscar un elemento relacionado por id para edgeAgentTemplates.
+ * Find a related item by id for edgeAgentTemplates.
  * /AssetWizardTypes/:id/edgeAgentTemplates/:fk
  */
 export async function AssetWizardType_FindByIdEdgeAgentTemplates(
@@ -23,7 +23,7 @@ export async function AssetWizardType_FindByIdEdgeAgentTemplates(
   });
 }
 /**
- * edgeAgentTemplates consultas de AssetWizardType.
+ * Queries edgeAgentTemplates of AssetWizardType.
  * /AssetWizardTypes/:id/edgeAgentTemplates
  */
 export async function AssetWizardType_GetEdgeAgentTemplates(
@@ -45,7 +45,7 @@ export async function AssetWizardType_GetEdgeAgentTemplates(
   });
 }
 /**
- * Recuentos edgeAgentTemplates de AssetWizardType.
+ * Counts edgeAgentTemplates of AssetWizardType.
  * /AssetWizardTypes/:id/edgeAgentTemplates/count
  */
 export async function AssetWizardType_CountEdgeAgentTemplates(
