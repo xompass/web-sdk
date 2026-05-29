@@ -7,7 +7,7 @@ import { EdgeAgentTemplateTag } from '../models/EdgeAgentTemplateTag';
  */
 
 /**
- * Buscar un elemento relacionado por id para tags.
+ * Find a related item by id for tags.
  * /EdgeAgentTemplates/:id/tags/:fk
  */
 export async function EdgeAgentTemplate_FindByIdTags(
@@ -24,7 +24,7 @@ export async function EdgeAgentTemplate_FindByIdTags(
   });
 }
 /**
- * tags consultas de EdgeAgentTemplate.
+ * Queries tags of EdgeAgentTemplate.
  * /EdgeAgentTemplates/:id/tags
  */
 export async function EdgeAgentTemplate_GetTags(
@@ -46,7 +46,7 @@ export async function EdgeAgentTemplate_GetTags(
   });
 }
 /**
- * Recuentos tags de EdgeAgentTemplate.
+ * Counts tags of EdgeAgentTemplate.
  * /EdgeAgentTemplates/:id/tags/count
  */
 export async function EdgeAgentTemplate_CountTags(

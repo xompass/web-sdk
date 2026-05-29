@@ -1,4 +1,10 @@
-import { ApiFetch, UploadFile, Filter, Include } from '../core/ApiFetch';
+import {
+  ApiFetch,
+  UploadFile,
+  Filter,
+  Include,
+  UploadableFile,
+} from '../core/ApiFetch';
 import { Admin } from '../models/Admin';
 import { CommonAccessToken } from '../models/CommonAccessToken';
 import { Country } from '../models/Country';
@@ -14,7 +20,7 @@ import { Var } from '../models/Var';
  */
 
 /**
- * Buscar un elemento relacionado por id para accessTokens.
+ * Find a related item by id for accessTokens.
  * /Admins/:id/accessTokens/:fk
  */
 export async function Admin_FindByIdAccessTokens(
@@ -31,7 +37,7 @@ export async function Admin_FindByIdAccessTokens(
   });
 }
 /**
- * Capta la relación belongsTo country.
+ * Fetches belongsTo relation country.
  * /Admins/:id/country
  */
 export async function Admin_GetCountry(id: string): Promise<Country> {
@@ -44,7 +50,7 @@ export async function Admin_GetCountry(id: string): Promise<Country> {
   });
 }
 /**
- * Capta la relación hasOne container.
+ * Fetches hasOne relation container.
  * /Admins/:id/container
  */
 export async function Admin_GetContainer(
@@ -59,7 +65,7 @@ export async function Admin_GetContainer(
   });
 }
 /**
- * Buscar un elemento relacionado por id para credentials.
+ * Find a related item by id for credentials.
  * /Admins/:id/credentials/:fk
  */
 export async function Admin_FindByIdCredentials(
@@ -76,7 +82,7 @@ export async function Admin_FindByIdCredentials(
   });
 }
 /**
- * Comprobar la existencia de la relación credentials con un elemento por id.
+ * Check the existence of credentials relation to an item by id.
  * /Admins/:id/credentials/rel/:fk
  */
 export async function Admin_ExistsCredentials(
@@ -93,7 +99,7 @@ export async function Admin_ExistsCredentials(
   });
 }
 /**
- * Añadir un elemento relacionado por id para assets.
+ * Add a related item by id for assets.
  * /Admins/:id/assets/rel/:fk
  */
 export async function Admin_LinkAssets(
@@ -112,7 +118,7 @@ export async function Admin_LinkAssets(
   });
 }
 /**
- * Eliminar la relación assets con un elemento por id.
+ * Remove the assets relation to an item by id.
  * /Admins/:id/assets/rel/:fk
  */
 export async function Admin_UnlinkAssets(
@@ -129,7 +135,7 @@ export async function Admin_UnlinkAssets(
   });
 }
 /**
- * Buscar un elemento relacionado por id para activityLogs.
+ * Find a related item by id for activityLogs.
  * /Admins/:id/activityLogs/:fk
  */
 export async function Admin_FindByIdActivityLogs(
@@ -146,7 +152,7 @@ export async function Admin_FindByIdActivityLogs(
   });
 }
 /**
- * Capta la relación belongsTo timeZone.
+ * Fetches belongsTo relation timeZone.
  * /Admins/:id/timeZone
  */
 export async function Admin_GetTimeZone(id: string): Promise<TimeZone> {
@@ -159,7 +165,7 @@ export async function Admin_GetTimeZone(id: string): Promise<TimeZone> {
   });
 }
 /**
- * Capta la relación belongsTo var.
+ * Fetches belongsTo relation var.
  * /Admins/:id/var
  */
 export async function Admin_GetVar(id: string): Promise<Var> {
@@ -172,7 +178,7 @@ export async function Admin_GetVar(id: string): Promise<Var> {
   });
 }
 /**
- * credentials consultas de Admin.
+ * Queries credentials of Admin.
  * /Admins/:id/credentials
  */
 export async function Admin_GetCredentials(
@@ -194,7 +200,7 @@ export async function Admin_GetCredentials(
   });
 }
 /**
- * Recuentos credentials de Admin.
+ * Counts credentials of Admin.
  * /Admins/:id/credentials/count
  */
 export async function Admin_CountCredentials(
@@ -216,7 +222,7 @@ export async function Admin_CountCredentials(
   });
 }
 /**
- * assets consultas de Admin.
+ * Queries assets of Admin.
  * /Admins/:id/assets
  */
 export async function Admin_GetAssets(
@@ -238,7 +244,7 @@ export async function Admin_GetAssets(
   });
 }
 /**
- * Recuentos assets de Admin.
+ * Counts assets of Admin.
  * /Admins/:id/assets/count
  */
 export async function Admin_CountAssets(
@@ -260,7 +266,7 @@ export async function Admin_CountAssets(
   });
 }
 /**
- * activityLogs consultas de Admin.
+ * Queries activityLogs of Admin.
  * /Admins/:id/activityLogs
  */
 export async function Admin_GetActivityLogs(
@@ -282,7 +288,7 @@ export async function Admin_GetActivityLogs(
   });
 }
 /**
- * Recuentos activityLogs de Admin.
+ * Counts activityLogs of Admin.
  * /Admins/:id/activityLogs/count
  */
 export async function Admin_CountActivityLogs(
@@ -386,7 +392,6 @@ export async function Admin_logout(): Promise<any> {
     method: 'POST',
     url: '/Admins/logout',
     routeParams: {},
-    body: {},
   });
 }
 /**
@@ -400,7 +405,6 @@ export async function Admin_verify(id: string): Promise<any> {
     routeParams: {
       id,
     },
-    body: {},
   });
 }
 /**
@@ -532,7 +536,6 @@ export async function Admin_otpDisable(id: string): Promise<any> {
     routeParams: {
       id,
     },
-    body: {},
   });
 }
 /**
@@ -694,7 +697,7 @@ export async function Admin_removeFile(
 export async function Admin_upload(
   id: string,
   property: string,
-  file: File,
+  file: UploadableFile,
   onProgress?: (progress: number) => void,
 ): Promise<any> {
   const _urlParams: any = {};

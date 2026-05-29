@@ -22,6 +22,7 @@ export type MultiZoneObjectTrackingContent = {
       w: number;
       h: number;
     };
+    trackId?: number;
     triggerSubject?: boolean;
   }[];
 };

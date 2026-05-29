@@ -22,11 +22,13 @@ export type MultiZoneObjectTrackingFeedback = {
       w: number;
       h: number;
     };
+    trackId?: number;
     triggerSubject?: boolean;
     filteredBy?: {
       ZONE?: boolean;
       PROBABILITY?: boolean;
       CLASS?: boolean;
+      PERSISTENCE?: boolean;
     };
     diagnosis?:
       | 'TRUE_POSITIVE'

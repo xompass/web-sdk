@@ -1,4 +1,10 @@
-import { ApiFetch, UploadFile, Filter, Include } from '../core/ApiFetch';
+import {
+  ApiFetch,
+  UploadFile,
+  Filter,
+  Include,
+  UploadableFile,
+} from '../core/ApiFetch';
 import { Manager } from '../models/Manager';
 import { CommonAccessToken } from '../models/CommonAccessToken';
 import { Log } from '../models/Log';
@@ -23,7 +29,7 @@ import { View } from '../models/View';
  */
 
 /**
- * Buscar un elemento relacionado por id para accessTokens.
+ * Find a related item by id for accessTokens.
  * /Managers/:id/accessTokens/:fk
  */
 export async function Manager_FindByIdAccessTokens(
@@ -40,7 +46,7 @@ export async function Manager_FindByIdAccessTokens(
   });
 }
 /**
- * Buscar un elemento relacionado por id para activityLogs.
+ * Find a related item by id for activityLogs.
  * /Managers/:id/activityLogs/:fk
  */
 export async function Manager_FindByIdActivityLogs(
@@ -57,7 +63,7 @@ export async function Manager_FindByIdActivityLogs(
   });
 }
 /**
- * Buscar un elemento relacionado por id para credentials.
+ * Find a related item by id for credentials.
  * /Managers/:id/credentials/:fk
  */
 export async function Manager_FindByIdCredentials(
@@ -74,7 +80,7 @@ export async function Manager_FindByIdCredentials(
   });
 }
 /**
- * Comprobar la existencia de la relación credentials con un elemento por id.
+ * Check the existence of credentials relation to an item by id.
  * /Managers/:id/credentials/rel/:fk
  */
 export async function Manager_ExistsCredentials(
@@ -91,7 +97,7 @@ export async function Manager_ExistsCredentials(
   });
 }
 /**
- * Capta la relación belongsTo customer.
+ * Fetches belongsTo relation customer.
  * /Managers/:id/customer
  */
 export async function Manager_GetCustomer(id: string): Promise<Customer> {
@@ -104,7 +110,7 @@ export async function Manager_GetCustomer(id: string): Promise<Customer> {
   });
 }
 /**
- * Capta la relación belongsTo country.
+ * Fetches belongsTo relation country.
  * /Managers/:id/country
  */
 export async function Manager_GetCountry(id: string): Promise<Country> {
@@ -117,7 +123,7 @@ export async function Manager_GetCountry(id: string): Promise<Country> {
   });
 }
 /**
- * Buscar un elemento relacionado por id para assets.
+ * Find a related item by id for assets.
  * /Managers/:id/assets/:fk
  */
 export async function Manager_FindByIdAssets(
@@ -134,7 +140,7 @@ export async function Manager_FindByIdAssets(
   });
 }
 /**
- * Suprimir un elemento relacionado por id para assets.
+ * Delete a related item by id for assets.
  * /Managers/:id/assets/:fk
  */
 export async function Manager_DestroyByIdAssets(
@@ -151,7 +157,7 @@ export async function Manager_DestroyByIdAssets(
   });
 }
 /**
- * Actualizar un elemento relacionado por id para assets.
+ * Update a related item by id for assets.
  * /Managers/:id/assets/:fk
  */
 export async function Manager_UpdateByIdAssets(
@@ -170,7 +176,7 @@ export async function Manager_UpdateByIdAssets(
   });
 }
 /**
- * Añadir un elemento relacionado por id para assets.
+ * Add a related item by id for assets.
  * /Managers/:id/assets/rel/:fk
  */
 export async function Manager_LinkAssets(
@@ -189,7 +195,7 @@ export async function Manager_LinkAssets(
   });
 }
 /**
- * Eliminar la relación assets con un elemento por id.
+ * Remove the assets relation to an item by id.
  * /Managers/:id/assets/rel/:fk
  */
 export async function Manager_UnlinkAssets(
@@ -206,7 +212,7 @@ export async function Manager_UnlinkAssets(
   });
 }
 /**
- * Buscar un elemento relacionado por id para cctvDashboards.
+ * Find a related item by id for cctvDashboards.
  * /Managers/:id/cctvDashboards/:fk
  */
 export async function Manager_FindByIdCctvDashboards(
@@ -223,7 +229,7 @@ export async function Manager_FindByIdCctvDashboards(
   });
 }
 /**
- * Suprimir un elemento relacionado por id para cctvDashboards.
+ * Delete a related item by id for cctvDashboards.
  * /Managers/:id/cctvDashboards/:fk
  */
 export async function Manager_DestroyByIdCctvDashboards(
@@ -240,7 +246,7 @@ export async function Manager_DestroyByIdCctvDashboards(
   });
 }
 /**
- * Actualizar un elemento relacionado por id para cctvDashboards.
+ * Update a related item by id for cctvDashboards.
  * /Managers/:id/cctvDashboards/:fk
  */
 export async function Manager_UpdateByIdCctvDashboards(
@@ -259,7 +265,7 @@ export async function Manager_UpdateByIdCctvDashboards(
   });
 }
 /**
- * Añadir un elemento relacionado por id para cctvDashboards.
+ * Add a related item by id for cctvDashboards.
  * /Managers/:id/cctvDashboards/rel/:fk
  */
 export async function Manager_LinkCctvDashboards(
@@ -278,7 +284,7 @@ export async function Manager_LinkCctvDashboards(
   });
 }
 /**
- * Eliminar la relación cctvDashboards con un elemento por id.
+ * Remove the cctvDashboards relation to an item by id.
  * /Managers/:id/cctvDashboards/rel/:fk
  */
 export async function Manager_UnlinkCctvDashboards(
@@ -295,7 +301,7 @@ export async function Manager_UnlinkCctvDashboards(
   });
 }
 /**
- * Buscar un elemento relacionado por id para countReports.
+ * Find a related item by id for countReports.
  * /Managers/:id/countReports/:fk
  */
 export async function Manager_FindByIdCountReports(
@@ -312,7 +318,7 @@ export async function Manager_FindByIdCountReports(
   });
 }
 /**
- * Suprimir un elemento relacionado por id para countReports.
+ * Delete a related item by id for countReports.
  * /Managers/:id/countReports/:fk
  */
 export async function Manager_DestroyByIdCountReports(
@@ -329,7 +335,7 @@ export async function Manager_DestroyByIdCountReports(
   });
 }
 /**
- * Actualizar un elemento relacionado por id para countReports.
+ * Update a related item by id for countReports.
  * /Managers/:id/countReports/:fk
  */
 export async function Manager_UpdateByIdCountReports(
@@ -348,7 +354,7 @@ export async function Manager_UpdateByIdCountReports(
   });
 }
 /**
- * Añadir un elemento relacionado por id para countReports.
+ * Add a related item by id for countReports.
  * /Managers/:id/countReports/rel/:fk
  */
 export async function Manager_LinkCountReports(
@@ -367,7 +373,7 @@ export async function Manager_LinkCountReports(
   });
 }
 /**
- * Eliminar la relación countReports con un elemento por id.
+ * Remove the countReports relation to an item by id.
  * /Managers/:id/countReports/rel/:fk
  */
 export async function Manager_UnlinkCountReports(
@@ -384,7 +390,7 @@ export async function Manager_UnlinkCountReports(
   });
 }
 /**
- * Buscar un elemento relacionado por id para eventDashboards.
+ * Find a related item by id for eventDashboards.
  * /Managers/:id/eventDashboards/:fk
  */
 export async function Manager_FindByIdEventDashboards(
@@ -401,7 +407,7 @@ export async function Manager_FindByIdEventDashboards(
   });
 }
 /**
- * Suprimir un elemento relacionado por id para eventDashboards.
+ * Delete a related item by id for eventDashboards.
  * /Managers/:id/eventDashboards/:fk
  */
 export async function Manager_DestroyByIdEventDashboards(
@@ -418,7 +424,7 @@ export async function Manager_DestroyByIdEventDashboards(
   });
 }
 /**
- * Actualizar un elemento relacionado por id para eventDashboards.
+ * Update a related item by id for eventDashboards.
  * /Managers/:id/eventDashboards/:fk
  */
 export async function Manager_UpdateByIdEventDashboards(
@@ -437,7 +443,7 @@ export async function Manager_UpdateByIdEventDashboards(
   });
 }
 /**
- * Añadir un elemento relacionado por id para eventDashboards.
+ * Add a related item by id for eventDashboards.
  * /Managers/:id/eventDashboards/rel/:fk
  */
 export async function Manager_LinkEventDashboards(
@@ -456,7 +462,7 @@ export async function Manager_LinkEventDashboards(
   });
 }
 /**
- * Eliminar la relación eventDashboards con un elemento por id.
+ * Remove the eventDashboards relation to an item by id.
  * /Managers/:id/eventDashboards/rel/:fk
  */
 export async function Manager_UnlinkEventDashboards(
@@ -473,7 +479,7 @@ export async function Manager_UnlinkEventDashboards(
   });
 }
 /**
- * Capta la relación hasOne container.
+ * Fetches hasOne relation container.
  * /Managers/:id/container
  */
 export async function Manager_GetContainer(
@@ -488,7 +494,7 @@ export async function Manager_GetContainer(
   });
 }
 /**
- * Buscar un elemento relacionado por id para peopleCounterReports.
+ * Find a related item by id for peopleCounterReports.
  * /Managers/:id/peopleCounterReports/:fk
  */
 export async function Manager_FindByIdPeopleCounterReports(
@@ -505,7 +511,7 @@ export async function Manager_FindByIdPeopleCounterReports(
   });
 }
 /**
- * Suprimir un elemento relacionado por id para peopleCounterReports.
+ * Delete a related item by id for peopleCounterReports.
  * /Managers/:id/peopleCounterReports/:fk
  */
 export async function Manager_DestroyByIdPeopleCounterReports(
@@ -522,7 +528,7 @@ export async function Manager_DestroyByIdPeopleCounterReports(
   });
 }
 /**
- * Actualizar un elemento relacionado por id para peopleCounterReports.
+ * Update a related item by id for peopleCounterReports.
  * /Managers/:id/peopleCounterReports/:fk
  */
 export async function Manager_UpdateByIdPeopleCounterReports(
@@ -541,7 +547,7 @@ export async function Manager_UpdateByIdPeopleCounterReports(
   });
 }
 /**
- * Añadir un elemento relacionado por id para peopleCounterReports.
+ * Add a related item by id for peopleCounterReports.
  * /Managers/:id/peopleCounterReports/rel/:fk
  */
 export async function Manager_LinkPeopleCounterReports(
@@ -560,7 +566,7 @@ export async function Manager_LinkPeopleCounterReports(
   });
 }
 /**
- * Eliminar la relación peopleCounterReports con un elemento por id.
+ * Remove the peopleCounterReports relation to an item by id.
  * /Managers/:id/peopleCounterReports/rel/:fk
  */
 export async function Manager_UnlinkPeopleCounterReports(
@@ -577,7 +583,7 @@ export async function Manager_UnlinkPeopleCounterReports(
   });
 }
 /**
- * Capta la relación hasOne permission.
+ * Fetches hasOne relation permission.
  * /Managers/:id/permission
  */
 export async function Manager_GetPermission(id: string): Promise<Permission> {
@@ -590,7 +596,7 @@ export async function Manager_GetPermission(id: string): Promise<Permission> {
   });
 }
 /**
- * Crea una nueva instancia en permission de este modelo.
+ * Creates a new instance in permission of this model.
  * /Managers/:id/permission
  */
 export async function Manager_CreatePermission(
@@ -607,7 +613,7 @@ export async function Manager_CreatePermission(
   });
 }
 /**
- * Actualizar permission de este modelo.
+ * Update permission of this model.
  * /Managers/:id/permission
  */
 export async function Manager_UpdatePermission(
@@ -624,7 +630,7 @@ export async function Manager_UpdatePermission(
   });
 }
 /**
- * Buscar un elemento relacionado por id para reports.
+ * Find a related item by id for reports.
  * /Managers/:id/reports/:fk
  */
 export async function Manager_FindByIdReports(
@@ -641,7 +647,7 @@ export async function Manager_FindByIdReports(
   });
 }
 /**
- * Suprimir un elemento relacionado por id para reports.
+ * Delete a related item by id for reports.
  * /Managers/:id/reports/:fk
  */
 export async function Manager_DestroyByIdReports(
@@ -658,7 +664,7 @@ export async function Manager_DestroyByIdReports(
   });
 }
 /**
- * Actualizar un elemento relacionado por id para reports.
+ * Update a related item by id for reports.
  * /Managers/:id/reports/:fk
  */
 export async function Manager_UpdateByIdReports(
@@ -677,7 +683,7 @@ export async function Manager_UpdateByIdReports(
   });
 }
 /**
- * Añadir un elemento relacionado por id para reports.
+ * Add a related item by id for reports.
  * /Managers/:id/reports/rel/:fk
  */
 export async function Manager_LinkReports(
@@ -696,7 +702,7 @@ export async function Manager_LinkReports(
   });
 }
 /**
- * Eliminar la relación reports con un elemento por id.
+ * Remove the reports relation to an item by id.
  * /Managers/:id/reports/rel/:fk
  */
 export async function Manager_UnlinkReports(
@@ -713,7 +719,7 @@ export async function Manager_UnlinkReports(
   });
 }
 /**
- * Buscar un elemento relacionado por id para storeVideoAnalyticDashboards.
+ * Find a related item by id for storeVideoAnalyticDashboards.
  * /Managers/:id/storeVideoAnalyticDashboards/:fk
  */
 export async function Manager_FindByIdStoreVideoAnalyticDashboards(
@@ -730,7 +736,7 @@ export async function Manager_FindByIdStoreVideoAnalyticDashboards(
   });
 }
 /**
- * Suprimir un elemento relacionado por id para storeVideoAnalyticDashboards.
+ * Delete a related item by id for storeVideoAnalyticDashboards.
  * /Managers/:id/storeVideoAnalyticDashboards/:fk
  */
 export async function Manager_DestroyByIdStoreVideoAnalyticDashboards(
@@ -747,7 +753,7 @@ export async function Manager_DestroyByIdStoreVideoAnalyticDashboards(
   });
 }
 /**
- * Actualizar un elemento relacionado por id para storeVideoAnalyticDashboards.
+ * Update a related item by id for storeVideoAnalyticDashboards.
  * /Managers/:id/storeVideoAnalyticDashboards/:fk
  */
 export async function Manager_UpdateByIdStoreVideoAnalyticDashboards(
@@ -766,7 +772,7 @@ export async function Manager_UpdateByIdStoreVideoAnalyticDashboards(
   });
 }
 /**
- * Añadir un elemento relacionado por id para storeVideoAnalyticDashboards.
+ * Add a related item by id for storeVideoAnalyticDashboards.
  * /Managers/:id/storeVideoAnalyticDashboards/rel/:fk
  */
 export async function Manager_LinkStoreVideoAnalyticDashboards(
@@ -785,7 +791,7 @@ export async function Manager_LinkStoreVideoAnalyticDashboards(
   });
 }
 /**
- * Eliminar la relación storeVideoAnalyticDashboards con un elemento por id.
+ * Remove the storeVideoAnalyticDashboards relation to an item by id.
  * /Managers/:id/storeVideoAnalyticDashboards/rel/:fk
  */
 export async function Manager_UnlinkStoreVideoAnalyticDashboards(
@@ -802,7 +808,7 @@ export async function Manager_UnlinkStoreVideoAnalyticDashboards(
   });
 }
 /**
- * Capta la relación belongsTo timeZone.
+ * Fetches belongsTo relation timeZone.
  * /Managers/:id/timeZone
  */
 export async function Manager_GetTimeZone(id: string): Promise<TimeZone> {
@@ -815,7 +821,7 @@ export async function Manager_GetTimeZone(id: string): Promise<TimeZone> {
   });
 }
 /**
- * Buscar un elemento relacionado por id para trafficFlowAnalysis.
+ * Find a related item by id for trafficFlowAnalysis.
  * /Managers/:id/trafficFlowAnalysis/:fk
  */
 export async function Manager_FindByIdTrafficFlowAnalysis(
@@ -832,7 +838,7 @@ export async function Manager_FindByIdTrafficFlowAnalysis(
   });
 }
 /**
- * Suprimir un elemento relacionado por id para trafficFlowAnalysis.
+ * Delete a related item by id for trafficFlowAnalysis.
  * /Managers/:id/trafficFlowAnalysis/:fk
  */
 export async function Manager_DestroyByIdTrafficFlowAnalysis(
@@ -849,7 +855,7 @@ export async function Manager_DestroyByIdTrafficFlowAnalysis(
   });
 }
 /**
- * Actualizar un elemento relacionado por id para trafficFlowAnalysis.
+ * Update a related item by id for trafficFlowAnalysis.
  * /Managers/:id/trafficFlowAnalysis/:fk
  */
 export async function Manager_UpdateByIdTrafficFlowAnalysis(
@@ -868,7 +874,7 @@ export async function Manager_UpdateByIdTrafficFlowAnalysis(
   });
 }
 /**
- * Añadir un elemento relacionado por id para trafficFlowAnalysis.
+ * Add a related item by id for trafficFlowAnalysis.
  * /Managers/:id/trafficFlowAnalysis/rel/:fk
  */
 export async function Manager_LinkTrafficFlowAnalysis(
@@ -887,7 +893,7 @@ export async function Manager_LinkTrafficFlowAnalysis(
   });
 }
 /**
- * Eliminar la relación trafficFlowAnalysis con un elemento por id.
+ * Remove the trafficFlowAnalysis relation to an item by id.
  * /Managers/:id/trafficFlowAnalysis/rel/:fk
  */
 export async function Manager_UnlinkTrafficFlowAnalysis(
@@ -904,7 +910,7 @@ export async function Manager_UnlinkTrafficFlowAnalysis(
   });
 }
 /**
- * Buscar un elemento relacionado por id para views.
+ * Find a related item by id for views.
  * /Managers/:id/views/:fk
  */
 export async function Manager_FindByIdViews(
@@ -921,7 +927,7 @@ export async function Manager_FindByIdViews(
   });
 }
 /**
- * Añadir un elemento relacionado por id para views.
+ * Add a related item by id for views.
  * /Managers/:id/views/rel/:fk
  */
 export async function Manager_LinkViews(
@@ -940,7 +946,7 @@ export async function Manager_LinkViews(
   });
 }
 /**
- * Eliminar la relación views con un elemento por id.
+ * Remove the views relation to an item by id.
  * /Managers/:id/views/rel/:fk
  */
 export async function Manager_UnlinkViews(
@@ -957,7 +963,7 @@ export async function Manager_UnlinkViews(
   });
 }
 /**
- * activityLogs consultas de Manager.
+ * Queries activityLogs of Manager.
  * /Managers/:id/activityLogs
  */
 export async function Manager_GetActivityLogs(
@@ -979,7 +985,7 @@ export async function Manager_GetActivityLogs(
   });
 }
 /**
- * Recuentos activityLogs de Manager.
+ * Counts activityLogs of Manager.
  * /Managers/:id/activityLogs/count
  */
 export async function Manager_CountActivityLogs(
@@ -1001,7 +1007,7 @@ export async function Manager_CountActivityLogs(
   });
 }
 /**
- * credentials consultas de Manager.
+ * Queries credentials of Manager.
  * /Managers/:id/credentials
  */
 export async function Manager_GetCredentials(
@@ -1023,7 +1029,7 @@ export async function Manager_GetCredentials(
   });
 }
 /**
- * Recuentos credentials de Manager.
+ * Counts credentials of Manager.
  * /Managers/:id/credentials/count
  */
 export async function Manager_CountCredentials(
@@ -1045,7 +1051,7 @@ export async function Manager_CountCredentials(
   });
 }
 /**
- * assets consultas de Manager.
+ * Queries assets of Manager.
  * /Managers/:id/assets
  */
 export async function Manager_GetAssets(
@@ -1067,7 +1073,7 @@ export async function Manager_GetAssets(
   });
 }
 /**
- * Recuentos assets de Manager.
+ * Counts assets of Manager.
  * /Managers/:id/assets/count
  */
 export async function Manager_CountAssets(
@@ -1089,7 +1095,7 @@ export async function Manager_CountAssets(
   });
 }
 /**
- * cctvDashboards consultas de Manager.
+ * Queries cctvDashboards of Manager.
  * /Managers/:id/cctvDashboards
  */
 export async function Manager_GetCctvDashboards(
@@ -1111,7 +1117,7 @@ export async function Manager_GetCctvDashboards(
   });
 }
 /**
- * Recuentos cctvDashboards de Manager.
+ * Counts cctvDashboards of Manager.
  * /Managers/:id/cctvDashboards/count
  */
 export async function Manager_CountCctvDashboards(
@@ -1133,7 +1139,7 @@ export async function Manager_CountCctvDashboards(
   });
 }
 /**
- * countReports consultas de Manager.
+ * Queries countReports of Manager.
  * /Managers/:id/countReports
  */
 export async function Manager_GetCountReports(
@@ -1155,7 +1161,7 @@ export async function Manager_GetCountReports(
   });
 }
 /**
- * Recuentos countReports de Manager.
+ * Counts countReports of Manager.
  * /Managers/:id/countReports/count
  */
 export async function Manager_CountCountReports(
@@ -1177,7 +1183,7 @@ export async function Manager_CountCountReports(
   });
 }
 /**
- * eventDashboards consultas de Manager.
+ * Queries eventDashboards of Manager.
  * /Managers/:id/eventDashboards
  */
 export async function Manager_GetEventDashboards(
@@ -1199,7 +1205,7 @@ export async function Manager_GetEventDashboards(
   });
 }
 /**
- * Recuentos eventDashboards de Manager.
+ * Counts eventDashboards of Manager.
  * /Managers/:id/eventDashboards/count
  */
 export async function Manager_CountEventDashboards(
@@ -1221,7 +1227,7 @@ export async function Manager_CountEventDashboards(
   });
 }
 /**
- * peopleCounterReports consultas de Manager.
+ * Queries peopleCounterReports of Manager.
  * /Managers/:id/peopleCounterReports
  */
 export async function Manager_GetPeopleCounterReports(
@@ -1243,7 +1249,7 @@ export async function Manager_GetPeopleCounterReports(
   });
 }
 /**
- * Recuentos peopleCounterReports de Manager.
+ * Counts peopleCounterReports of Manager.
  * /Managers/:id/peopleCounterReports/count
  */
 export async function Manager_CountPeopleCounterReports(
@@ -1265,7 +1271,7 @@ export async function Manager_CountPeopleCounterReports(
   });
 }
 /**
- * reports consultas de Manager.
+ * Queries reports of Manager.
  * /Managers/:id/reports
  */
 export async function Manager_GetReports(
@@ -1287,7 +1293,7 @@ export async function Manager_GetReports(
   });
 }
 /**
- * Recuentos reports de Manager.
+ * Counts reports of Manager.
  * /Managers/:id/reports/count
  */
 export async function Manager_CountReports(
@@ -1309,7 +1315,7 @@ export async function Manager_CountReports(
   });
 }
 /**
- * storeVideoAnalyticDashboards consultas de Manager.
+ * Queries storeVideoAnalyticDashboards of Manager.
  * /Managers/:id/storeVideoAnalyticDashboards
  */
 export async function Manager_GetStoreVideoAnalyticDashboards(
@@ -1331,7 +1337,7 @@ export async function Manager_GetStoreVideoAnalyticDashboards(
   });
 }
 /**
- * Recuentos storeVideoAnalyticDashboards de Manager.
+ * Counts storeVideoAnalyticDashboards of Manager.
  * /Managers/:id/storeVideoAnalyticDashboards/count
  */
 export async function Manager_CountStoreVideoAnalyticDashboards(
@@ -1353,7 +1359,7 @@ export async function Manager_CountStoreVideoAnalyticDashboards(
   });
 }
 /**
- * trafficFlowAnalysis consultas de Manager.
+ * Queries trafficFlowAnalysis of Manager.
  * /Managers/:id/trafficFlowAnalysis
  */
 export async function Manager_GetTrafficFlowAnalysis(
@@ -1375,7 +1381,7 @@ export async function Manager_GetTrafficFlowAnalysis(
   });
 }
 /**
- * Recuentos trafficFlowAnalysis de Manager.
+ * Counts trafficFlowAnalysis of Manager.
  * /Managers/:id/trafficFlowAnalysis/count
  */
 export async function Manager_CountTrafficFlowAnalysis(
@@ -1397,7 +1403,7 @@ export async function Manager_CountTrafficFlowAnalysis(
   });
 }
 /**
- * views consultas de Manager.
+ * Queries views of Manager.
  * /Managers/:id/views
  */
 export async function Manager_GetViews(
@@ -1419,7 +1425,7 @@ export async function Manager_GetViews(
   });
 }
 /**
- * Recuentos views de Manager.
+ * Counts views of Manager.
  * /Managers/:id/views/count
  */
 export async function Manager_CountViews(
@@ -1523,7 +1529,6 @@ export async function Manager_logout(): Promise<any> {
     method: 'POST',
     url: '/Managers/logout',
     routeParams: {},
-    body: {},
   });
 }
 /**
@@ -1537,7 +1542,6 @@ export async function Manager_verify(id: string): Promise<any> {
     routeParams: {
       id,
     },
-    body: {},
   });
 }
 /**
@@ -1669,7 +1673,6 @@ export async function Manager_otpDisable(id: string): Promise<any> {
     routeParams: {
       id,
     },
-    body: {},
   });
 }
 /**
@@ -1834,7 +1837,7 @@ export async function Manager_removeFile(
 export async function Manager_upload(
   id: string,
   property: string,
-  file: File,
+  file: UploadableFile,
   onProgress?: (progress: number) => void,
 ): Promise<any> {
   const _urlParams: any = {};

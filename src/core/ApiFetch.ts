@@ -1,6 +1,11 @@
 // Types for the filter object used in the API
 // Details in https://loopback.io/doc/en/lb3/Querying-data.html
 import { getLocalStorageValue } from './LocalStorage';
+import {
+  getFetchAdapter,
+  getFormDataConstructor,
+  getXMLHttpRequestConstructor,
+} from './Runtime';
 
 // List of operators
 const Operators = {
@@ -107,6 +112,19 @@ export type ApiFetchOptions = {
   body?: any;
 };
 
+export type UploadableFile =
+  | ArrayBuffer
+  | ArrayBufferView
+  | {
+      name?: string;
+      type?: string;
+      size?: number;
+      arrayBuffer?: () => Promise<ArrayBuffer>;
+      stream?: () => unknown;
+      text?: () => Promise<string>;
+      [key: string]: any;
+    };
+
 const DateFields = [
   'created',
   'modified',
@@ -172,7 +190,6 @@ function prepareUrl(
         if (value == null) {
           return array;
         }
-        // Handle filter
 
         if (key === 'filter' && typeof value === 'object') {
           if (value.order) {
@@ -221,37 +238,120 @@ export class FetchError extends Error {
   }
 }
 
-function getAccessToken(): Promise<string | null> {
-  const token = getLocalStorageValue('vsaas$accessToken');
-  if (token) {
-    return Promise.resolve(token);
+function getMissingRuntimeErrorMessage(runtimeName: string): string {
+  return `No ${runtimeName} implementation available. In browsers this is provided globally. In Node.js use Node 18+ or configureWebSdkRuntime(...) before calling the SDK.`;
+}
+
+function getFetchImplementation() {
+  const fetchImplementation = getFetchAdapter();
+
+  if (!fetchImplementation) {
+    throw new FetchError(
+      0,
+      'MissingRuntime',
+      getMissingRuntimeErrorMessage('fetch'),
+      undefined,
+    );
   }
 
-  const maxTries = 50;
-  const interval = 100;
+  return fetchImplementation;
+}
 
-  let tries = 0;
-  const checkAccessToken = () => {
-    tries++;
-    const token = getLocalStorageValue('vsaas$accessToken');
-    return token ? token : null;
+function getUploadFormDataConstructor() {
+  const FormDataConstructor = getFormDataConstructor();
+
+  if (!FormDataConstructor) {
+    throw new FetchError(
+      0,
+      'MissingRuntime',
+      getMissingRuntimeErrorMessage('FormData'),
+      undefined,
+    );
+  }
+
+  return FormDataConstructor;
+}
+
+function getBlobConstructor():
+  | (new (blobParts?: any[], options?: { type?: string }) => any)
+  | undefined {
+  if (
+    typeof globalThis !== 'object' ||
+    globalThis == null ||
+    typeof (globalThis as { Blob?: unknown }).Blob !== 'function'
+  ) {
+    return undefined;
+  }
+
+  return (globalThis as { Blob: new (blobParts?: any[], options?: any) => any })
+    .Blob;
+}
+
+function isArrayBuffer(value: unknown): value is ArrayBuffer {
+  return typeof ArrayBuffer !== 'undefined' && value instanceof ArrayBuffer;
+}
+
+function isArrayBufferView(value: unknown): value is ArrayBufferView {
+  return typeof ArrayBuffer !== 'undefined' && ArrayBuffer.isView(value);
+}
+
+function normalizeUploadableFile(
+  file: UploadableFile,
+  index: number,
+): { value: any; fileName?: string } {
+  if (isArrayBuffer(file) || isArrayBufferView(file)) {
+    const BlobConstructor = getBlobConstructor();
+    const fileName = `file-${index}`;
+
+    if (BlobConstructor) {
+      return {
+        value: new BlobConstructor([file], {
+          type: 'application/octet-stream',
+        }),
+        fileName,
+      };
+    }
+
+    return {
+      value: file,
+      fileName,
+    };
+  }
+
+  const fileName =
+    typeof file.name === 'string' && file.name.length > 0
+      ? file.name
+      : undefined;
+
+  return {
+    value: file,
+    fileName,
   };
-  return new Promise((resolve) => {
-    const intervalId = setInterval(() => {
-      const token = checkAccessToken();
+}
 
-      if (token) {
-        console.log('Token found after', tries, 'tries');
-        clearInterval(intervalId);
-        resolve(token);
-      }
-      if (tries >= maxTries) {
-        console.warn('Max tries reached, no token found');
-        clearInterval(intervalId);
-        resolve(null);
-      }
-    }, interval);
-  });
+async function parseJSONResponse(
+  status: number,
+  statusText: string,
+  getText: () => Promise<string>,
+) {
+  const text = await getText();
+
+  if (!text) {
+    return undefined;
+  }
+
+  let json: any;
+  try {
+    json = JSON.parse(text, Reviver);
+  } catch (error) {
+    throw new FetchError(status, statusText, text, error);
+  }
+
+  if (status < 200 || status >= 300) {
+    throw new FetchError(status, statusText, json.code, json);
+  }
+
+  return json;
 }
 
 /**
@@ -263,12 +363,9 @@ export async function ApiFetch(options: ApiFetchOptions): Promise<any> {
 
   const url = prepareUrl(baseUrl + options.url, routeParams, urlParams);
 
-  const headers: { [key: string]: string } = {
-    'Content-Type': 'application/json',
-  };
+  const headers: { [key: string]: string } = {};
 
-  const accessToken = await getAccessToken();
-
+  const accessToken = getLocalStorageValue('vsaas$accessToken');
   if (accessToken) {
     headers['Authorization'] = accessToken;
   }
@@ -278,29 +375,16 @@ export async function ApiFetch(options: ApiFetchOptions): Promise<any> {
     headers,
   };
 
-  if (body) {
+  if (body !== undefined) {
+    headers['Content-Type'] = 'application/json';
     fetchOptions.body = JSON.stringify(body);
   }
 
   try {
-    const res = await fetch(url, fetchOptions);
-    const text = await res.text();
+    const fetchImplementation = getFetchImplementation();
+    const res = await fetchImplementation(url, fetchOptions);
 
-    if (!text) {
-      return undefined;
-    }
-
-    let json: any;
-    try {
-      json = JSON.parse(text, Reviver);
-    } catch (e) {
-      throw new FetchError(res.status, res.statusText, text, e);
-    }
-
-    if (res.status < 200 || res.status >= 300) {
-      throw new FetchError(res.status, res.statusText, json.code, json);
-    }
-    return json;
+    return parseJSONResponse(res.status, res.statusText, () => res.text());
   } catch (e: any) {
     if (e instanceof FetchError) {
       throw e;
@@ -312,7 +396,7 @@ export async function ApiFetch(options: ApiFetchOptions): Promise<any> {
 
 type UploadFileOptions = {
   url: string;
-  file: File | File[];
+  file: UploadableFile | UploadableFile[];
   routeParams?: ApiFetchRouteParams;
   urlParams?: ApiFetchUrlParams;
   onProgress?: (progress: number) => void;
@@ -328,43 +412,79 @@ export async function UploadFile(options: UploadFileOptions): Promise<any> {
 
   const url = prepareUrl(baseUrl + options.url, routeParams, urlParams);
 
-  const form = new FormData();
-  if (Array.isArray(file)) {
-    for (const f of file) {
-      form.append('file', f);
-    }
-  } else {
-    form.append('file', file);
-  }
+  const FormDataConstructor = getUploadFormDataConstructor();
+  const form = new FormDataConstructor();
+  const files = Array.isArray(file) ? file : [file];
 
-  const xhr = new XMLHttpRequest();
-  xhr.open('POST', url, true);
-  xhr.setRequestHeader('Authorization', accessToken || '');
-  xhr.upload.onprogress = (e) => {
-    if (e.lengthComputable && onProgress) {
-      onProgress((e.loaded / e.total) * 100);
-    }
-  };
+  files.forEach((currentFile, index) => {
+    const normalizedFile = normalizeUploadableFile(currentFile, index);
 
-  return new Promise((resolve, reject) => {
-    xhr.onload = () => {
-      if (xhr.status < 200 || xhr.status >= 300) {
-        reject(xhr.statusText);
-      } else {
-        try {
-          resolve(JSON.parse(xhr.responseText, Reviver));
-        } catch (e) {
-          resolve(xhr.responseText);
-        }
+    if (normalizedFile.fileName) {
+      form.append('file', normalizedFile.value, normalizedFile.fileName);
+      return;
+    }
+
+    form.append('file', normalizedFile.value);
+  });
+
+  const XMLHttpRequestConstructor = getXMLHttpRequestConstructor();
+  if (XMLHttpRequestConstructor) {
+    const xhr = new XMLHttpRequestConstructor();
+    xhr.open('POST', url, true);
+
+    if (accessToken) {
+      xhr.setRequestHeader('Authorization', accessToken);
+    }
+
+    xhr.upload.onprogress = (e) => {
+      if (e.lengthComputable && onProgress) {
+        onProgress((e.loaded / e.total) * 100);
       }
     };
 
-    xhr.onerror = () => {
-      reject(xhr.statusText);
-    };
+    return new Promise((resolve, reject) => {
+      xhr.onload = () => {
+        if (xhr.status < 200 || xhr.status >= 300) {
+          reject(xhr.statusText);
+        } else {
+          try {
+            resolve(JSON.parse(xhr.responseText, Reviver));
+          } catch (e) {
+            resolve(xhr.responseText);
+          }
+        }
+      };
 
-    xhr.send(form);
+      xhr.onerror = () => {
+        reject(xhr.statusText);
+      };
+
+      xhr.send(form);
+    });
+  }
+
+  const fetchImplementation = getFetchImplementation();
+  const headers: { [key: string]: string } = {};
+
+  if (accessToken) {
+    headers['Authorization'] = accessToken;
+  }
+
+  const res = await fetchImplementation(url, {
+    method: 'POST',
+    headers,
+    body: form,
   });
+
+  const data = await parseJSONResponse(res.status, res.statusText, () =>
+    res.text(),
+  );
+
+  if (onProgress) {
+    onProgress(100);
+  }
+
+  return data;
 }
 
 function prepareOrderFilter<T>(order: Order<T>) {

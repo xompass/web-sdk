@@ -16,6 +16,8 @@ export type EventTrigger = {
   type: string;
   name: string;
   description?: string;
+  customerId?: string;
+  projectId?: string;
   subject?: string;
   enabled: boolean;
   eventGroupingByMinutes: number;

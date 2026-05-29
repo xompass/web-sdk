@@ -1,14 +1,14 @@
-import { ApiFetch, UploadFile, Filter } from '../core/ApiFetch';
+import { ApiFetch, UploadFile, Filter, UploadableFile } from '../core/ApiFetch';
 import { FaceDatabase } from '../models/FaceDatabase';
 import { FaceSubject } from '../models/FaceSubject';
-import { FaceImage } from '../models/FaceSubject';
+import { FaceDatabaseFaceSubject } from '../models/FaceSubject';
 
 /**
  * Api services for the `FaceDatabase` model.
  */
 
 /**
- * Buscar un elemento relacionado por id para faceSubjects.
+ * Find a related item by id for faceSubjects.
  * /FaceDatabases/:id/faceSubjects/:fk
  */
 export async function FaceDatabase_FindByIdFaceSubjects(
@@ -25,24 +25,7 @@ export async function FaceDatabase_FindByIdFaceSubjects(
   });
 }
 /**
- * Suprimir un elemento relacionado por id para faceSubjects.
- * /FaceDatabases/:id/faceSubjects/:fk
- */
-export async function FaceDatabase_DestroyByIdFaceSubjects(
-  id: string,
-  fk: string,
-): Promise<void> {
-  return ApiFetch({
-    method: 'DELETE',
-    url: '/FaceDatabases/:id/faceSubjects/:fk',
-    routeParams: {
-      id,
-      fk,
-    },
-  });
-}
-/**
- * Actualizar un elemento relacionado por id para faceSubjects.
+ * Update a related item by id for faceSubjects.
  * /FaceDatabases/:id/faceSubjects/:fk
  */
 export async function FaceDatabase_UpdateByIdFaceSubjects(
@@ -61,7 +44,60 @@ export async function FaceDatabase_UpdateByIdFaceSubjects(
   });
 }
 /**
- * faceSubjects consultas de FaceDatabase.
+ * Add a related item by id for faceSubjects.
+ * /FaceDatabases/:id/faceSubjects/rel/:fk
+ */
+export async function FaceDatabase_LinkFaceSubjects(
+  id: string,
+  fk: string,
+  data: any = {},
+): Promise<FaceDatabaseFaceSubject> {
+  return ApiFetch({
+    method: 'PUT',
+    url: '/FaceDatabases/:id/faceSubjects/rel/:fk',
+    routeParams: {
+      id,
+      fk,
+    },
+    body: data,
+  });
+}
+/**
+ * Remove the faceSubjects relation to an item by id.
+ * /FaceDatabases/:id/faceSubjects/rel/:fk
+ */
+export async function FaceDatabase_UnlinkFaceSubjects(
+  id: string,
+  fk: string,
+): Promise<void> {
+  return ApiFetch({
+    method: 'DELETE',
+    url: '/FaceDatabases/:id/faceSubjects/rel/:fk',
+    routeParams: {
+      id,
+      fk,
+    },
+  });
+}
+/**
+ * Check the existence of faceSubjects relation to an item by id.
+ * /FaceDatabases/:id/faceSubjects/rel/:fk
+ */
+export async function FaceDatabase_ExistsFaceSubjects(
+  id: string,
+  fk: string,
+): Promise<boolean> {
+  return ApiFetch({
+    method: 'HEAD',
+    url: '/FaceDatabases/:id/faceSubjects/rel/:fk',
+    routeParams: {
+      id,
+      fk,
+    },
+  });
+}
+/**
+ * Queries faceSubjects of FaceDatabase.
  * /FaceDatabases/:id/faceSubjects
  */
 export async function FaceDatabase_GetFaceSubjects(
@@ -83,7 +119,7 @@ export async function FaceDatabase_GetFaceSubjects(
   });
 }
 /**
- * Crea una nueva instancia en faceSubjects de este modelo.
+ * Creates a new instance in faceSubjects of this model.
  * /FaceDatabases/:id/faceSubjects
  */
 export async function FaceDatabase_CreateFaceSubjects(
@@ -100,7 +136,7 @@ export async function FaceDatabase_CreateFaceSubjects(
   });
 }
 /**
- * Recuentos faceSubjects de FaceDatabase.
+ * Counts faceSubjects of FaceDatabase.
  * /FaceDatabases/:id/faceSubjects/count
  */
 export async function FaceDatabase_CountFaceSubjects(
@@ -203,16 +239,116 @@ export async function FaceDatabase_deleteById(id: string): Promise<void> {
   });
 }
 /**
-  * Uploads images for a face subject. 
-      The maximum number of images is 10, 
-      and each image must be a JPEG with a maximum size of 100kB 
-      and minimum dimensions of 36x36 pixels.
-  * /FaceDatabases/:id/faceSubjects/:fk/upload
-  */
+ * Removes a face subject from this database. If the subject is not linked to any other database, it is deleted entirely.
+ * /FaceDatabases/:id/faceSubjects/:fk
+ */
+export async function FaceDatabase_removeFaceSubject(
+  id: string,
+  fk: string,
+): Promise<void> {
+  return ApiFetch({
+    method: 'DELETE',
+    url: '/FaceDatabases/:id/faceSubjects/:fk',
+    routeParams: {
+      id,
+      fk,
+    },
+  });
+}
+/**
+ * Lists face images for a specific face subject.
+ * /FaceDatabases/:id/faceSubjects/:nk/images
+ */
+export async function FaceDatabase_listFaceImages(
+  id: string,
+  nk: string,
+  filter: Filter<any> = {},
+): Promise<any[]> {
+  const _urlParams: any = {};
+  if (filter != null) {
+    _urlParams['filter'] = filter;
+  }
+
+  return ApiFetch({
+    method: 'GET',
+    url: '/FaceDatabases/:id/faceSubjects/:nk/images',
+    urlParams: _urlParams,
+    routeParams: {
+      id,
+      nk,
+    },
+  });
+}
+/**
+ * Find a face image by ID for a specific face subject.
+ * /FaceDatabases/:id/faceSubjects/:nk/images/:fk
+ */
+export async function FaceDatabase_findFaceImageById(
+  id: string,
+  nk: string,
+  fk: string,
+): Promise<any> {
+  return ApiFetch({
+    method: 'GET',
+    url: '/FaceDatabases/:id/faceSubjects/:nk/images/:fk',
+    routeParams: {
+      id,
+      nk,
+      fk,
+    },
+  });
+}
+/**
+ * Counts face images for a specific face subject.
+ * /FaceDatabases/:id/faceSubjects/:nk/images/count
+ */
+export async function FaceDatabase_countFaceImages(
+  id: string,
+  nk: string,
+  where: any = {},
+): Promise<any> {
+  const _urlParams: any = {};
+  if (where != null) {
+    _urlParams['where'] = where;
+  }
+
+  return ApiFetch({
+    method: 'GET',
+    url: '/FaceDatabases/:id/faceSubjects/:nk/images/count',
+    urlParams: _urlParams,
+    routeParams: {
+      id,
+      nk,
+    },
+  });
+}
+/**
+ * Deletes a face image globally from a face subject.
+ * /FaceDatabases/:id/faceSubjects/:nk/images/:fk
+ */
+export async function FaceDatabase_deleteFaceImage(
+  id: string,
+  nk: string,
+  fk: string,
+): Promise<void> {
+  return ApiFetch({
+    method: 'DELETE',
+    url: '/FaceDatabases/:id/faceSubjects/:nk/images/:fk',
+    routeParams: {
+      id,
+      nk,
+      fk,
+    },
+  });
+}
+/**
+ * Uploads images for a face subject. The maximum number of images is 10, and each image must be a JPEG with a maximum size of 100kB and minimum dimensions of 36x36 pixels.
+ * /FaceDatabases/:id/faceSubjects/:fk/upload
+ */
 export async function FaceDatabase_uploadFaceSubject(
   id: string,
   fk: string,
-  file: File,
+  file: UploadableFile,
   onProgress?: (progress: number) => void,
 ): Promise<any> {
   return UploadFile({
@@ -227,7 +363,7 @@ export async function FaceDatabase_uploadFaceSubject(
 }
 /**
  * Downloads a face image for a specific face subject.
- * /FaceDatabases/:id/faceSubjects/:nk/images/:file
+ * /FaceDatabases/:id/faceSubjects/:nk/images/:file/download
  */
 export async function FaceDatabase_downloadFaceImage(
   id: string,
@@ -236,7 +372,7 @@ export async function FaceDatabase_downloadFaceImage(
 ): Promise<any> {
   return ApiFetch({
     method: 'GET',
-    url: '/FaceDatabases/:id/faceSubjects/:nk/images/:file',
+    url: '/FaceDatabases/:id/faceSubjects/:nk/images/:file/download',
     routeParams: {
       id,
       nk,
@@ -259,7 +395,6 @@ export async function FaceDatabase_syncFaceSubject(
       id,
       fk,
     },
-    body: {},
   });
 }
 /**
@@ -272,93 +407,6 @@ export async function FaceDatabase_syncFaceDatabase(id: string): Promise<any> {
     url: '/FaceDatabases/:id/sync',
     routeParams: {
       id,
-    },
-    body: {},
-  });
-}
-/**
- * Buscar un elemento relacionado por id para images.
- * /FaceDatabases/:id/faceSubjects/:nk/images/:fk
- */
-export async function FaceDatabase_FindByIdFaceSubjectsImages(
-  id: string,
-  nk: string,
-  fk: string,
-): Promise<FaceImage> {
-  return ApiFetch({
-    method: 'GET',
-    url: '/FaceDatabases/:id/faceSubjects/:nk/images/:fk',
-    routeParams: {
-      id,
-      nk,
-      fk,
-    },
-  });
-}
-/**
- * Suprimir un elemento relacionado por id para images.
- * /FaceDatabases/:id/faceSubjects/:nk/images/:fk
- */
-export async function FaceDatabase_DestroyByIdFaceSubjectsImages(
-  id: string,
-  nk: string,
-  fk: string,
-): Promise<void> {
-  return ApiFetch({
-    method: 'DELETE',
-    url: '/FaceDatabases/:id/faceSubjects/:nk/images/:fk',
-    routeParams: {
-      id,
-      nk,
-      fk,
-    },
-  });
-}
-/**
- * images consultas de FaceSubject.
- * /FaceDatabases/:id/faceSubjects/:nk/images
- */
-export async function FaceDatabase_GetFaceSubjectsImages(
-  id: string,
-  nk: string,
-  filter: Filter<any> = {},
-): Promise<FaceImage[]> {
-  const _urlParams: any = {};
-  if (filter != null) {
-    _urlParams['filter'] = filter;
-  }
-
-  return ApiFetch({
-    method: 'GET',
-    url: '/FaceDatabases/:id/faceSubjects/:nk/images',
-    urlParams: _urlParams,
-    routeParams: {
-      id,
-      nk,
-    },
-  });
-}
-/**
- * Recuentos images de FaceSubject.
- * /FaceDatabases/:id/faceSubjects/:nk/images/count
- */
-export async function FaceDatabase_CountFaceSubjectsImages(
-  id: string,
-  nk: string,
-  where: any = {},
-): Promise<number> {
-  const _urlParams: any = {};
-  if (where != null) {
-    _urlParams['where'] = where;
-  }
-
-  return ApiFetch({
-    method: 'GET',
-    url: '/FaceDatabases/:id/faceSubjects/:nk/images/count',
-    urlParams: _urlParams,
-    routeParams: {
-      id,
-      nk,
     },
   });
 }

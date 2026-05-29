@@ -62,5 +62,6 @@ export type ObjectRecognitionNumericContent = {
       BLACKLIST?: boolean;
       PERSISTENCE?: boolean;
     };
+    trackId?: number;
   }[];
 };

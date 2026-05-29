@@ -1,11 +1,11 @@
-import { ApiFetch, UploadFile, Filter } from '../core/ApiFetch';
+import { ApiFetch, UploadFile, Filter, UploadableFile } from '../core/ApiFetch';
 import { Var } from '../models/Var';
 import { Admin } from '../models/Admin';
 import { Customer } from '../models/Customer';
 import { Country } from '../models/Country';
-import { ToolkitTemplate } from '../models/ToolkitTemplate';
 import { Toolkit } from '../models/Toolkit';
 import { VarStorageContainer } from '../models/Var';
+import { ToolkitTemplate } from '../models/ToolkitTemplate';
 import { Tool } from '../models/Tool';
 import { AssetType } from '../models/AssetType';
 
@@ -14,7 +14,7 @@ import { AssetType } from '../models/AssetType';
  */
 
 /**
- * Buscar un elemento relacionado por id para admins.
+ * Find a related item by id for admins.
  * /Vars/:id/admins/:fk
  */
 export async function Var_FindByIdAdmins(
@@ -31,7 +31,7 @@ export async function Var_FindByIdAdmins(
   });
 }
 /**
- * Actualizar un elemento relacionado por id para customers.
+ * Update a related item by id for customers.
  * /Vars/:id/customers/:fk
  */
 export async function Var_UpdateByIdCustomers(
@@ -50,7 +50,7 @@ export async function Var_UpdateByIdCustomers(
   });
 }
 /**
- * Capta la relación belongsTo country.
+ * Fetches belongsTo relation country.
  * /Vars/:id/country
  */
 export async function Var_GetCountry(id: string): Promise<Country> {
@@ -63,7 +63,7 @@ export async function Var_GetCountry(id: string): Promise<Country> {
   });
 }
 /**
- * Actualizar un elemento relacionado por id para toolkits.
+ * Update a related item by id for toolkits.
  * /Vars/:id/toolkits/:fk
  */
 export async function Var_UpdateByIdToolkits(
@@ -82,7 +82,7 @@ export async function Var_UpdateByIdToolkits(
   });
 }
 /**
- * Capta la relación hasOne container.
+ * Fetches hasOne relation container.
  * /Vars/:id/container
  */
 export async function Var_GetContainer(
@@ -97,7 +97,7 @@ export async function Var_GetContainer(
   });
 }
 /**
- * admins consultas de Var.
+ * Queries admins of Var.
  * /Vars/:id/admins
  */
 export async function Var_GetAdmins(
@@ -119,7 +119,7 @@ export async function Var_GetAdmins(
   });
 }
 /**
- * Crea una nueva instancia en admins de este modelo.
+ * Creates a new instance in admins of this model.
  * /Vars/:id/admins
  */
 export async function Var_CreateAdmins(
@@ -136,7 +136,7 @@ export async function Var_CreateAdmins(
   });
 }
 /**
- * Recuentos admins de Var.
+ * Counts admins of Var.
  * /Vars/:id/admins/count
  */
 export async function Var_CountAdmins(
@@ -158,7 +158,7 @@ export async function Var_CountAdmins(
   });
 }
 /**
- * customers consultas de Var.
+ * Queries customers of Var.
  * /Vars/:id/customers
  */
 export async function Var_GetCustomers(
@@ -180,7 +180,7 @@ export async function Var_GetCustomers(
   });
 }
 /**
- * Crea una nueva instancia en customers de este modelo.
+ * Creates a new instance in customers of this model.
  * /Vars/:id/customers
  */
 export async function Var_CreateCustomers(
@@ -197,7 +197,7 @@ export async function Var_CreateCustomers(
   });
 }
 /**
- * Recuentos customers de Var.
+ * Counts customers of Var.
  * /Vars/:id/customers/count
  */
 export async function Var_CountCustomers(
@@ -219,7 +219,7 @@ export async function Var_CountCustomers(
   });
 }
 /**
- * toolkitTemplates consultas de Var.
+ * Queries toolkitTemplates of Var.
  * /Vars/:id/toolkitTemplates
  */
 export async function Var_GetToolkitTemplates(
@@ -241,7 +241,7 @@ export async function Var_GetToolkitTemplates(
   });
 }
 /**
- * Recuentos toolkitTemplates de Var.
+ * Counts toolkitTemplates of Var.
  * /Vars/:id/toolkitTemplates/count
  */
 export async function Var_CountToolkitTemplates(
@@ -263,7 +263,7 @@ export async function Var_CountToolkitTemplates(
   });
 }
 /**
- * toolkits consultas de Var.
+ * Queries toolkits of Var.
  * /Vars/:id/toolkits
  */
 export async function Var_GetToolkits(
@@ -285,7 +285,7 @@ export async function Var_GetToolkits(
   });
 }
 /**
- * Recuentos toolkits de Var.
+ * Counts toolkits of Var.
  * /Vars/:id/toolkits/count
  */
 export async function Var_CountToolkits(
@@ -510,7 +510,7 @@ export async function Var_removeFile(
 export async function Var_upload(
   id: string,
   property: string,
-  file: File,
+  file: UploadableFile,
   onProgress?: (progress: number) => void,
 ): Promise<any> {
   const _urlParams: any = {};
@@ -553,7 +553,7 @@ export async function Var_download(
   });
 }
 /**
- * Buscar un elemento relacionado por id para adminTools.
+ * Find a related item by id for adminTools.
  * /Vars/:id/toolkits/:nk/adminTools/:fk
  */
 export async function Var_FindByIdToolkitsAdminTools(
@@ -572,7 +572,7 @@ export async function Var_FindByIdToolkitsAdminTools(
   });
 }
 /**
- * Añadir un elemento relacionado por id para adminTools.
+ * Add a related item by id for adminTools.
  * /Vars/:id/toolkits/:nk/adminTools/rel/:fk
  */
 export async function Var_LinkToolkitsAdminTools(
@@ -588,11 +588,10 @@ export async function Var_LinkToolkitsAdminTools(
       nk,
       fk,
     },
-    body: {},
   });
 }
 /**
- * Eliminar la relación adminTools con un elemento por id.
+ * Remove the adminTools relation to an item by id.
  * /Vars/:id/toolkits/:nk/adminTools/rel/:fk
  */
 export async function Var_UnlinkToolkitsAdminTools(
@@ -611,7 +610,7 @@ export async function Var_UnlinkToolkitsAdminTools(
   });
 }
 /**
- * Buscar un elemento relacionado por id para tools.
+ * Find a related item by id for tools.
  * /Vars/:id/toolkits/:nk/tools/:fk
  */
 export async function Var_FindByIdToolkitsTools(
@@ -630,7 +629,7 @@ export async function Var_FindByIdToolkitsTools(
   });
 }
 /**
- * Añadir un elemento relacionado por id para tools.
+ * Add a related item by id for tools.
  * /Vars/:id/toolkits/:nk/tools/rel/:fk
  */
 export async function Var_LinkToolkitsTools(
@@ -646,11 +645,10 @@ export async function Var_LinkToolkitsTools(
       nk,
       fk,
     },
-    body: {},
   });
 }
 /**
- * Eliminar la relación tools con un elemento por id.
+ * Remove the tools relation to an item by id.
  * /Vars/:id/toolkits/:nk/tools/rel/:fk
  */
 export async function Var_UnlinkToolkitsTools(
@@ -669,7 +667,7 @@ export async function Var_UnlinkToolkitsTools(
   });
 }
 /**
- * adminTools consultas de Toolkit.
+ * Queries adminTools of Toolkit.
  * /Vars/:id/toolkits/:nk/adminTools
  */
 export async function Var_GetToolkitsAdminTools(
@@ -693,7 +691,7 @@ export async function Var_GetToolkitsAdminTools(
   });
 }
 /**
- * Recuentos adminTools de Toolkit.
+ * Counts adminTools of Toolkit.
  * /Vars/:id/toolkits/:nk/adminTools/count
  */
 export async function Var_CountToolkitsAdminTools(
@@ -717,7 +715,7 @@ export async function Var_CountToolkitsAdminTools(
   });
 }
 /**
- * tools consultas de Toolkit.
+ * Queries tools of Toolkit.
  * /Vars/:id/toolkits/:nk/tools
  */
 export async function Var_GetToolkitsTools(
@@ -741,7 +739,7 @@ export async function Var_GetToolkitsTools(
   });
 }
 /**
- * Recuentos tools de Toolkit.
+ * Counts tools of Toolkit.
  * /Vars/:id/toolkits/:nk/tools/count
  */
 export async function Var_CountToolkitsTools(

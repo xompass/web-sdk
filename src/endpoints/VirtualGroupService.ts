@@ -7,7 +7,7 @@ import { VirtualVariable } from '../models/VirtualVariable';
  */
 
 /**
- * Buscar un elemento relacionado por id para virtualExpressions.
+ * Find a related item by id for virtualExpressions.
  * /VirtualGroups/:id/virtualExpressions/:fk
  */
 export async function VirtualGroup_FindByIdVirtualExpressions(
@@ -24,7 +24,7 @@ export async function VirtualGroup_FindByIdVirtualExpressions(
   });
 }
 /**
- * Suprimir un elemento relacionado por id para virtualExpressions.
+ * Delete a related item by id for virtualExpressions.
  * /VirtualGroups/:id/virtualExpressions/:fk
  */
 export async function VirtualGroup_DestroyByIdVirtualExpressions(
@@ -41,7 +41,7 @@ export async function VirtualGroup_DestroyByIdVirtualExpressions(
   });
 }
 /**
- * Actualizar un elemento relacionado por id para virtualExpressions.
+ * Update a related item by id for virtualExpressions.
  * /VirtualGroups/:id/virtualExpressions/:fk
  */
 export async function VirtualGroup_UpdateByIdVirtualExpressions(
@@ -60,7 +60,7 @@ export async function VirtualGroup_UpdateByIdVirtualExpressions(
   });
 }
 /**
- * Buscar un elemento relacionado por id para virtualVariables.
+ * Find a related item by id for virtualVariables.
  * /VirtualGroups/:id/virtualVariables/:fk
  */
 export async function VirtualGroup_FindByIdVirtualVariables(
@@ -77,7 +77,7 @@ export async function VirtualGroup_FindByIdVirtualVariables(
   });
 }
 /**
- * Suprimir un elemento relacionado por id para virtualVariables.
+ * Delete a related item by id for virtualVariables.
  * /VirtualGroups/:id/virtualVariables/:fk
  */
 export async function VirtualGroup_DestroyByIdVirtualVariables(
@@ -94,7 +94,7 @@ export async function VirtualGroup_DestroyByIdVirtualVariables(
   });
 }
 /**
- * Actualizar un elemento relacionado por id para virtualVariables.
+ * Update a related item by id for virtualVariables.
  * /VirtualGroups/:id/virtualVariables/:fk
  */
 export async function VirtualGroup_UpdateByIdVirtualVariables(
@@ -113,7 +113,7 @@ export async function VirtualGroup_UpdateByIdVirtualVariables(
   });
 }
 /**
- * virtualExpressions consultas de VirtualGroup.
+ * Queries virtualExpressions of VirtualGroup.
  * /VirtualGroups/:id/virtualExpressions
  */
 export async function VirtualGroup_GetVirtualExpressions(
@@ -135,7 +135,7 @@ export async function VirtualGroup_GetVirtualExpressions(
   });
 }
 /**
- * Crea una nueva instancia en virtualExpressions de este modelo.
+ * Creates a new instance in virtualExpressions of this model.
  * /VirtualGroups/:id/virtualExpressions
  */
 export async function VirtualGroup_CreateVirtualExpressions(
@@ -152,7 +152,7 @@ export async function VirtualGroup_CreateVirtualExpressions(
   });
 }
 /**
- * Recuentos virtualExpressions de VirtualGroup.
+ * Counts virtualExpressions of VirtualGroup.
  * /VirtualGroups/:id/virtualExpressions/count
  */
 export async function VirtualGroup_CountVirtualExpressions(
@@ -174,7 +174,7 @@ export async function VirtualGroup_CountVirtualExpressions(
   });
 }
 /**
- * virtualVariables consultas de VirtualGroup.
+ * Queries virtualVariables of VirtualGroup.
  * /VirtualGroups/:id/virtualVariables
  */
 export async function VirtualGroup_GetVirtualVariables(
@@ -196,7 +196,7 @@ export async function VirtualGroup_GetVirtualVariables(
   });
 }
 /**
- * Crea una nueva instancia en virtualVariables de este modelo.
+ * Creates a new instance in virtualVariables of this model.
  * /VirtualGroups/:id/virtualVariables
  */
 export async function VirtualGroup_CreateVirtualVariables(
@@ -213,7 +213,7 @@ export async function VirtualGroup_CreateVirtualVariables(
   });
 }
 /**
- * Recuentos virtualVariables de VirtualGroup.
+ * Counts virtualVariables of VirtualGroup.
  * /VirtualGroups/:id/virtualVariables/count
  */
 export async function VirtualGroup_CountVirtualVariables(

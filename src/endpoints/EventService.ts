@@ -6,7 +6,7 @@ import { Log } from '../models/Log';
  */
 
 /**
- * Buscar un elemento relacionado por id para trackingLogs.
+ * Find a related item by id for trackingLogs.
  * /Events/:id/trackingLogs/:fk
  */
 export async function Event_FindByIdTrackingLogs(
@@ -23,7 +23,7 @@ export async function Event_FindByIdTrackingLogs(
   });
 }
 /**
- * trackingLogs consultas de Event.
+ * Queries trackingLogs of Event.
  * /Events/:id/trackingLogs
  */
 export async function Event_GetTrackingLogs(
@@ -45,7 +45,7 @@ export async function Event_GetTrackingLogs(
   });
 }
 /**
- * Recuentos trackingLogs de Event.
+ * Counts trackingLogs of Event.
  * /Events/:id/trackingLogs/count
  */
 export async function Event_CountTrackingLogs(

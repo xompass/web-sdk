@@ -305,11 +305,6 @@ export type ObjectRecognitionBasedOnRulesTRCParameters = {
         minProbability?: number;
       };
     };
-    celular?: {
-      thresholds?: {
-        minProbability?: number;
-      };
-    };
     cuadratura?: {
       thresholds?: {
         minProbability?: number;
@@ -395,7 +390,7 @@ export type ObjectRecognitionBasedOnRulesTRCParameters = {
         minProbability?: number;
       };
     };
-    'coffe-closed'?: {
+    'coffee-closed'?: {
       thresholds?: {
         minProbability?: number;
       };

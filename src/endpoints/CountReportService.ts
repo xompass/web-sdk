@@ -7,7 +7,7 @@ import { Manager } from '../models/Manager';
  */
 
 /**
- * Buscar un elemento relacionado por id para sections.
+ * Find a related item by id for sections.
  * /CountReports/:id/sections/:fk
  */
 export async function CountReport_FindByIdSections(
@@ -24,7 +24,7 @@ export async function CountReport_FindByIdSections(
   });
 }
 /**
- * Suprimir un elemento relacionado por id para sections.
+ * Delete a related item by id for sections.
  * /CountReports/:id/sections/:fk
  */
 export async function CountReport_DestroyByIdSections(
@@ -41,7 +41,7 @@ export async function CountReport_DestroyByIdSections(
   });
 }
 /**
- * Actualizar un elemento relacionado por id para sections.
+ * Update a related item by id for sections.
  * /CountReports/:id/sections/:fk
  */
 export async function CountReport_UpdateByIdSections(
@@ -60,7 +60,7 @@ export async function CountReport_UpdateByIdSections(
   });
 }
 /**
- * Buscar un elemento relacionado por id para managers.
+ * Find a related item by id for managers.
  * /CountReports/:id/managers/:fk
  */
 export async function CountReport_FindByIdManagers(
@@ -77,7 +77,7 @@ export async function CountReport_FindByIdManagers(
   });
 }
 /**
- * sections consultas de CountReport.
+ * Queries sections of CountReport.
  * /CountReports/:id/sections
  */
 export async function CountReport_GetSections(
@@ -99,7 +99,7 @@ export async function CountReport_GetSections(
   });
 }
 /**
- * Crea una nueva instancia en sections de este modelo.
+ * Creates a new instance in sections of this model.
  * /CountReports/:id/sections
  */
 export async function CountReport_CreateSections(
@@ -116,7 +116,7 @@ export async function CountReport_CreateSections(
   });
 }
 /**
- * Recuentos sections de CountReport.
+ * Counts sections of CountReport.
  * /CountReports/:id/sections/count
  */
 export async function CountReport_CountSections(
@@ -138,7 +138,7 @@ export async function CountReport_CountSections(
   });
 }
 /**
- * managers consultas de CountReport.
+ * Queries managers of CountReport.
  * /CountReports/:id/managers
  */
 export async function CountReport_GetManagers(
@@ -160,7 +160,7 @@ export async function CountReport_GetManagers(
   });
 }
 /**
- * Recuentos managers de CountReport.
+ * Counts managers of CountReport.
  * /CountReports/:id/managers/count
  */
 export async function CountReport_CountManagers(

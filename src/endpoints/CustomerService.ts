@@ -1,4 +1,4 @@
-import { ApiFetch, UploadFile, Filter } from '../core/ApiFetch';
+import { ApiFetch, UploadFile, Filter, UploadableFile } from '../core/ApiFetch';
 import { Customer } from '../models/Customer';
 import { AssetTag } from '../models/AssetTag';
 import { Asset } from '../models/Asset';
@@ -18,7 +18,6 @@ import { Dispatch } from '../models/Dispatch';
 import { EdgeAgent } from '../models/EdgeAgent';
 import { EmergencyContact } from '../models/EmergencyContact';
 import { EventState } from '../models/EventState';
-import { EventSubject } from '../models/EventSubject';
 import { Manager } from '../models/Manager';
 import { Project } from '../models/Project';
 import { SensorUptime } from '../models/SensorUptime';
@@ -80,7 +79,7 @@ import {
  */
 
 /**
- * Buscar un elemento relacionado por id para assets.
+ * Find a related item by id for assets.
  * /Customers/:id/assets/:fk
  */
 export async function Customer_FindByIdAssets(
@@ -97,7 +96,7 @@ export async function Customer_FindByIdAssets(
   });
 }
 /**
- * Buscar un elemento relacionado por id para assetTemplates.
+ * Find a related item by id for assetTemplates.
  * /Customers/:id/assetTemplates/:fk
  */
 export async function Customer_FindByIdAssetTemplates(
@@ -114,7 +113,7 @@ export async function Customer_FindByIdAssetTemplates(
   });
 }
 /**
- * Buscar un elemento relacionado por id para credentials.
+ * Find a related item by id for credentials.
  * /Customers/:id/credentials/:fk
  */
 export async function Customer_FindByIdCredentials(
@@ -131,7 +130,7 @@ export async function Customer_FindByIdCredentials(
   });
 }
 /**
- * Comprobar la existencia de la relación credentials con un elemento por id.
+ * Check the existence of credentials relation to an item by id.
  * /Customers/:id/credentials/rel/:fk
  */
 export async function Customer_ExistsCredentials(
@@ -148,7 +147,7 @@ export async function Customer_ExistsCredentials(
   });
 }
 /**
- * Buscar un elemento relacionado por id para apiKeys.
+ * Find a related item by id for apiKeys.
  * /Customers/:id/apiKeys/:fk
  */
 export async function Customer_FindByIdApiKeys(
@@ -165,7 +164,7 @@ export async function Customer_FindByIdApiKeys(
   });
 }
 /**
- * Suprimir un elemento relacionado por id para apiKeys.
+ * Delete a related item by id for apiKeys.
  * /Customers/:id/apiKeys/:fk
  */
 export async function Customer_DestroyByIdApiKeys(
@@ -182,7 +181,7 @@ export async function Customer_DestroyByIdApiKeys(
   });
 }
 /**
- * Actualizar un elemento relacionado por id para apiKeys.
+ * Update a related item by id for apiKeys.
  * /Customers/:id/apiKeys/:fk
  */
 export async function Customer_UpdateByIdApiKeys(
@@ -201,7 +200,7 @@ export async function Customer_UpdateByIdApiKeys(
   });
 }
 /**
- * Capta la relación belongsTo country.
+ * Fetches belongsTo relation country.
  * /Customers/:id/country
  */
 export async function Customer_GetCountry(id: string): Promise<Country> {
@@ -214,7 +213,7 @@ export async function Customer_GetCountry(id: string): Promise<Country> {
   });
 }
 /**
- * Capta la relación hasOne config.
+ * Fetches hasOne relation config.
  * /Customers/:id/config
  */
 export async function Customer_GetConfig(id: string): Promise<CustomerConfig> {
@@ -227,7 +226,7 @@ export async function Customer_GetConfig(id: string): Promise<CustomerConfig> {
   });
 }
 /**
- * Actualizar config de este modelo.
+ * Update config of this model.
  * /Customers/:id/config
  */
 export async function Customer_UpdateConfig(
@@ -244,7 +243,7 @@ export async function Customer_UpdateConfig(
   });
 }
 /**
- * Actualizar un elemento relacionado por id para operabilitySummaries.
+ * Update a related item by id for operabilitySummaries.
  * /Customers/:id/operabilitySummaries/:fk
  */
 export async function Customer_UpdateByIdOperabilitySummaries(
@@ -263,7 +262,7 @@ export async function Customer_UpdateByIdOperabilitySummaries(
   });
 }
 /**
- * Capta la relación hasOne restrictionTable.
+ * Fetches hasOne relation restrictionTable.
  * /Customers/:id/restrictionTable
  */
 export async function Customer_GetRestrictionTable(
@@ -278,7 +277,7 @@ export async function Customer_GetRestrictionTable(
   });
 }
 /**
- * Capta la relación hasOne container.
+ * Fetches hasOne relation container.
  * /Customers/:id/container
  */
 export async function Customer_GetContainer(
@@ -293,7 +292,7 @@ export async function Customer_GetContainer(
   });
 }
 /**
- * Buscar un elemento relacionado por id para defaultEventComments.
+ * Find a related item by id for defaultEventComments.
  * /Customers/:id/defaultEventComments/:fk
  */
 export async function Customer_FindByIdDefaultEventComments(
@@ -310,7 +309,7 @@ export async function Customer_FindByIdDefaultEventComments(
   });
 }
 /**
- * Suprimir un elemento relacionado por id para defaultEventComments.
+ * Delete a related item by id for defaultEventComments.
  * /Customers/:id/defaultEventComments/:fk
  */
 export async function Customer_DestroyByIdDefaultEventComments(
@@ -327,7 +326,7 @@ export async function Customer_DestroyByIdDefaultEventComments(
   });
 }
 /**
- * Actualizar un elemento relacionado por id para defaultEventComments.
+ * Update a related item by id for defaultEventComments.
  * /Customers/:id/defaultEventComments/:fk
  */
 export async function Customer_UpdateByIdDefaultEventComments(
@@ -346,7 +345,7 @@ export async function Customer_UpdateByIdDefaultEventComments(
   });
 }
 /**
- * Buscar un elemento relacionado por id para devices.
+ * Find a related item by id for devices.
  * /Customers/:id/devices/:fk
  */
 export async function Customer_FindByIdDevices(
@@ -363,7 +362,7 @@ export async function Customer_FindByIdDevices(
   });
 }
 /**
- * Suprimir un elemento relacionado por id para devices.
+ * Delete a related item by id for devices.
  * /Customers/:id/devices/:fk
  */
 export async function Customer_DestroyByIdDevices(
@@ -380,7 +379,7 @@ export async function Customer_DestroyByIdDevices(
   });
 }
 /**
- * Actualizar un elemento relacionado por id para devices.
+ * Update a related item by id for devices.
  * /Customers/:id/devices/:fk
  */
 export async function Customer_UpdateByIdDevices(
@@ -399,7 +398,7 @@ export async function Customer_UpdateByIdDevices(
   });
 }
 /**
- * Buscar un elemento relacionado por id para deviceEventTypes.
+ * Find a related item by id for deviceEventTypes.
  * /Customers/:id/deviceEventTypes/:fk
  */
 export async function Customer_FindByIdDeviceEventTypes(
@@ -416,7 +415,7 @@ export async function Customer_FindByIdDeviceEventTypes(
   });
 }
 /**
- * Capta la relación hasOne dispatch.
+ * Fetches hasOne relation dispatch.
  * /Customers/:id/dispatch
  */
 export async function Customer_GetDispatch(id: string): Promise<Dispatch> {
@@ -429,7 +428,7 @@ export async function Customer_GetDispatch(id: string): Promise<Dispatch> {
   });
 }
 /**
- * Crea una nueva instancia en dispatch de este modelo.
+ * Creates a new instance in dispatch of this model.
  * /Customers/:id/dispatch
  */
 export async function Customer_CreateDispatch(
@@ -446,7 +445,7 @@ export async function Customer_CreateDispatch(
   });
 }
 /**
- * Actualizar dispatch de este modelo.
+ * Update dispatch of this model.
  * /Customers/:id/dispatch
  */
 export async function Customer_UpdateDispatch(
@@ -463,7 +462,7 @@ export async function Customer_UpdateDispatch(
   });
 }
 /**
- * Buscar un elemento relacionado por id para edgeAgents.
+ * Find a related item by id for edgeAgents.
  * /Customers/:id/edgeAgents/:fk
  */
 export async function Customer_FindByIdEdgeAgents(
@@ -480,7 +479,7 @@ export async function Customer_FindByIdEdgeAgents(
   });
 }
 /**
- * Suprimir un elemento relacionado por id para edgeAgents.
+ * Delete a related item by id for edgeAgents.
  * /Customers/:id/edgeAgents/:fk
  */
 export async function Customer_DestroyByIdEdgeAgents(
@@ -497,7 +496,7 @@ export async function Customer_DestroyByIdEdgeAgents(
   });
 }
 /**
- * Actualizar un elemento relacionado por id para edgeAgents.
+ * Update a related item by id for edgeAgents.
  * /Customers/:id/edgeAgents/:fk
  */
 export async function Customer_UpdateByIdEdgeAgents(
@@ -516,7 +515,7 @@ export async function Customer_UpdateByIdEdgeAgents(
   });
 }
 /**
- * Buscar un elemento relacionado por id para emergencyContacts.
+ * Find a related item by id for emergencyContacts.
  * /Customers/:id/emergencyContacts/:fk
  */
 export async function Customer_FindByIdEmergencyContacts(
@@ -533,7 +532,7 @@ export async function Customer_FindByIdEmergencyContacts(
   });
 }
 /**
- * Suprimir un elemento relacionado por id para emergencyContacts.
+ * Delete a related item by id for emergencyContacts.
  * /Customers/:id/emergencyContacts/:fk
  */
 export async function Customer_DestroyByIdEmergencyContacts(
@@ -550,7 +549,7 @@ export async function Customer_DestroyByIdEmergencyContacts(
   });
 }
 /**
- * Actualizar un elemento relacionado por id para emergencyContacts.
+ * Update a related item by id for emergencyContacts.
  * /Customers/:id/emergencyContacts/:fk
  */
 export async function Customer_UpdateByIdEmergencyContacts(
@@ -569,7 +568,7 @@ export async function Customer_UpdateByIdEmergencyContacts(
   });
 }
 /**
- * Buscar un elemento relacionado por id para eventStates.
+ * Find a related item by id for eventStates.
  * /Customers/:id/eventStates/:fk
  */
 export async function Customer_FindByIdEventStates(
@@ -586,7 +585,7 @@ export async function Customer_FindByIdEventStates(
   });
 }
 /**
- * Suprimir un elemento relacionado por id para eventStates.
+ * Delete a related item by id for eventStates.
  * /Customers/:id/eventStates/:fk
  */
 export async function Customer_DestroyByIdEventStates(
@@ -603,7 +602,7 @@ export async function Customer_DestroyByIdEventStates(
   });
 }
 /**
- * Actualizar un elemento relacionado por id para eventStates.
+ * Update a related item by id for eventStates.
  * /Customers/:id/eventStates/:fk
  */
 export async function Customer_UpdateByIdEventStates(
@@ -622,60 +621,7 @@ export async function Customer_UpdateByIdEventStates(
   });
 }
 /**
- * Buscar un elemento relacionado por id para eventSubjects.
- * /Customers/:id/eventSubjects/:fk
- */
-export async function Customer_FindByIdEventSubjects(
-  id: string,
-  fk: string,
-): Promise<EventSubject> {
-  return ApiFetch({
-    method: 'GET',
-    url: '/Customers/:id/eventSubjects/:fk',
-    routeParams: {
-      id,
-      fk,
-    },
-  });
-}
-/**
- * Suprimir un elemento relacionado por id para eventSubjects.
- * /Customers/:id/eventSubjects/:fk
- */
-export async function Customer_DestroyByIdEventSubjects(
-  id: string,
-  fk: string,
-): Promise<void> {
-  return ApiFetch({
-    method: 'DELETE',
-    url: '/Customers/:id/eventSubjects/:fk',
-    routeParams: {
-      id,
-      fk,
-    },
-  });
-}
-/**
- * Actualizar un elemento relacionado por id para eventSubjects.
- * /Customers/:id/eventSubjects/:fk
- */
-export async function Customer_UpdateByIdEventSubjects(
-  id: string,
-  fk: string,
-  data: any = {},
-): Promise<EventSubject> {
-  return ApiFetch({
-    method: 'PUT',
-    url: '/Customers/:id/eventSubjects/:fk',
-    routeParams: {
-      id,
-      fk,
-    },
-    body: data,
-  });
-}
-/**
- * Buscar un elemento relacionado por id para managers.
+ * Find a related item by id for managers.
  * /Customers/:id/managers/:fk
  */
 export async function Customer_FindByIdManagers(
@@ -692,7 +638,7 @@ export async function Customer_FindByIdManagers(
   });
 }
 /**
- * Buscar un elemento relacionado por id para projects.
+ * Find a related item by id for projects.
  * /Customers/:id/projects/:fk
  */
 export async function Customer_FindByIdProjects(
@@ -709,7 +655,7 @@ export async function Customer_FindByIdProjects(
   });
 }
 /**
- * Suprimir un elemento relacionado por id para projects.
+ * Delete a related item by id for projects.
  * /Customers/:id/projects/:fk
  */
 export async function Customer_DestroyByIdProjects(
@@ -726,7 +672,7 @@ export async function Customer_DestroyByIdProjects(
   });
 }
 /**
- * Actualizar un elemento relacionado por id para projects.
+ * Update a related item by id for projects.
  * /Customers/:id/projects/:fk
  */
 export async function Customer_UpdateByIdProjects(
@@ -745,7 +691,7 @@ export async function Customer_UpdateByIdProjects(
   });
 }
 /**
- * Buscar un elemento relacionado por id para storylineCategories.
+ * Find a related item by id for storylineCategories.
  * /Customers/:id/storylineCategories/:fk
  */
 export async function Customer_FindByIdStorylineCategories(
@@ -762,7 +708,7 @@ export async function Customer_FindByIdStorylineCategories(
   });
 }
 /**
- * Suprimir un elemento relacionado por id para storylineCategories.
+ * Delete a related item by id for storylineCategories.
  * /Customers/:id/storylineCategories/:fk
  */
 export async function Customer_DestroyByIdStorylineCategories(
@@ -779,7 +725,7 @@ export async function Customer_DestroyByIdStorylineCategories(
   });
 }
 /**
- * Actualizar un elemento relacionado por id para storylineCategories.
+ * Update a related item by id for storylineCategories.
  * /Customers/:id/storylineCategories/:fk
  */
 export async function Customer_UpdateByIdStorylineCategories(
@@ -798,7 +744,7 @@ export async function Customer_UpdateByIdStorylineCategories(
   });
 }
 /**
- * Buscar un elemento relacionado por id para telegramChats.
+ * Find a related item by id for telegramChats.
  * /Customers/:id/telegramChats/:fk
  */
 export async function Customer_FindByIdTelegramChats(
@@ -815,7 +761,7 @@ export async function Customer_FindByIdTelegramChats(
   });
 }
 /**
- * Suprimir un elemento relacionado por id para telegramChats.
+ * Delete a related item by id for telegramChats.
  * /Customers/:id/telegramChats/:fk
  */
 export async function Customer_DestroyByIdTelegramChats(
@@ -832,7 +778,7 @@ export async function Customer_DestroyByIdTelegramChats(
   });
 }
 /**
- * Actualizar un elemento relacionado por id para telegramChats.
+ * Update a related item by id for telegramChats.
  * /Customers/:id/telegramChats/:fk
  */
 export async function Customer_UpdateByIdTelegramChats(
@@ -851,7 +797,7 @@ export async function Customer_UpdateByIdTelegramChats(
   });
 }
 /**
- * Capta la relación belongsTo timeZone.
+ * Fetches belongsTo relation timeZone.
  * /Customers/:id/timeZone
  */
 export async function Customer_GetTimeZone(id: string): Promise<TimeZone> {
@@ -864,7 +810,7 @@ export async function Customer_GetTimeZone(id: string): Promise<TimeZone> {
   });
 }
 /**
- * Buscar un elemento relacionado por id para toolkits.
+ * Find a related item by id for toolkits.
  * /Customers/:id/toolkits/:fk
  */
 export async function Customer_FindByIdToolkits(
@@ -881,7 +827,7 @@ export async function Customer_FindByIdToolkits(
   });
 }
 /**
- * Añadir un elemento relacionado por id para toolkits.
+ * Add a related item by id for toolkits.
  * /Customers/:id/toolkits/rel/:fk
  */
 export async function Customer_LinkToolkits(
@@ -895,11 +841,10 @@ export async function Customer_LinkToolkits(
       id,
       fk,
     },
-    body: {},
   });
 }
 /**
- * Eliminar la relación toolkits con un elemento por id.
+ * Remove the toolkits relation to an item by id.
  * /Customers/:id/toolkits/rel/:fk
  */
 export async function Customer_UnlinkToolkits(
@@ -916,7 +861,7 @@ export async function Customer_UnlinkToolkits(
   });
 }
 /**
- * Capta la relación belongsTo var.
+ * Fetches belongsTo relation var.
  * /Customers/:id/var
  */
 export async function Customer_GetVar(id: string): Promise<Var> {
@@ -929,7 +874,7 @@ export async function Customer_GetVar(id: string): Promise<Var> {
   });
 }
 /**
- * Buscar un elemento relacionado por id para yoloClasses.
+ * Find a related item by id for yoloClasses.
  * /Customers/:id/yoloClasses/:fk
  */
 export async function Customer_FindByIdYoloClasses(
@@ -946,7 +891,7 @@ export async function Customer_FindByIdYoloClasses(
   });
 }
 /**
- * Añadir un elemento relacionado por id para yoloClasses.
+ * Add a related item by id for yoloClasses.
  * /Customers/:id/yoloClasses/rel/:fk
  */
 export async function Customer_LinkYoloClasses(
@@ -965,7 +910,7 @@ export async function Customer_LinkYoloClasses(
   });
 }
 /**
- * Eliminar la relación yoloClasses con un elemento por id.
+ * Remove the yoloClasses relation to an item by id.
  * /Customers/:id/yoloClasses/rel/:fk
  */
 export async function Customer_UnlinkYoloClasses(
@@ -982,7 +927,7 @@ export async function Customer_UnlinkYoloClasses(
   });
 }
 /**
- * Comprobar la existencia de la relación yoloClasses con un elemento por id.
+ * Check the existence of yoloClasses relation to an item by id.
  * /Customers/:id/yoloClasses/rel/:fk
  */
 export async function Customer_ExistsYoloClasses(
@@ -999,7 +944,7 @@ export async function Customer_ExistsYoloClasses(
   });
 }
 /**
- * assetTags consultas de Customer.
+ * Queries assetTags of Customer.
  * /Customers/:id/assetTags
  */
 export async function Customer_GetAssetTags(
@@ -1021,7 +966,7 @@ export async function Customer_GetAssetTags(
   });
 }
 /**
- * assets consultas de Customer.
+ * Queries assets of Customer.
  * /Customers/:id/assets
  */
 export async function Customer_GetAssets(
@@ -1043,7 +988,7 @@ export async function Customer_GetAssets(
   });
 }
 /**
- * Recuentos assets de Customer.
+ * Counts assets of Customer.
  * /Customers/:id/assets/count
  */
 export async function Customer_CountAssets(
@@ -1065,7 +1010,7 @@ export async function Customer_CountAssets(
   });
 }
 /**
- * assetTemplates consultas de Customer.
+ * Queries assetTemplates of Customer.
  * /Customers/:id/assetTemplates
  */
 export async function Customer_GetAssetTemplates(
@@ -1087,7 +1032,7 @@ export async function Customer_GetAssetTemplates(
   });
 }
 /**
- * Recuentos assetTemplates de Customer.
+ * Counts assetTemplates of Customer.
  * /Customers/:id/assetTemplates/count
  */
 export async function Customer_CountAssetTemplates(
@@ -1109,7 +1054,7 @@ export async function Customer_CountAssetTemplates(
   });
 }
 /**
- * countReports consultas de Customer.
+ * Queries countReports of Customer.
  * /Customers/:id/countReports
  */
 export async function Customer_GetCountReports(
@@ -1131,7 +1076,7 @@ export async function Customer_GetCountReports(
   });
 }
 /**
- * credentials consultas de Customer.
+ * Queries credentials of Customer.
  * /Customers/:id/credentials
  */
 export async function Customer_GetCredentials(
@@ -1153,7 +1098,7 @@ export async function Customer_GetCredentials(
   });
 }
 /**
- * Recuentos credentials de Customer.
+ * Counts credentials of Customer.
  * /Customers/:id/credentials/count
  */
 export async function Customer_CountCredentials(
@@ -1175,7 +1120,7 @@ export async function Customer_CountCredentials(
   });
 }
 /**
- * apiKeys consultas de Customer.
+ * Queries apiKeys of Customer.
  * /Customers/:id/apiKeys
  */
 export async function Customer_GetApiKeys(
@@ -1197,7 +1142,7 @@ export async function Customer_GetApiKeys(
   });
 }
 /**
- * Crea una nueva instancia en apiKeys de este modelo.
+ * Creates a new instance in apiKeys of this model.
  * /Customers/:id/apiKeys
  */
 export async function Customer_CreateApiKeys(
@@ -1214,7 +1159,7 @@ export async function Customer_CreateApiKeys(
   });
 }
 /**
- * Recuentos apiKeys de Customer.
+ * Counts apiKeys of Customer.
  * /Customers/:id/apiKeys/count
  */
 export async function Customer_CountApiKeys(
@@ -1236,7 +1181,7 @@ export async function Customer_CountApiKeys(
   });
 }
 /**
- * operabilitySummaries consultas de Customer.
+ * Queries operabilitySummaries of Customer.
  * /Customers/:id/operabilitySummaries
  */
 export async function Customer_GetOperabilitySummaries(
@@ -1258,7 +1203,7 @@ export async function Customer_GetOperabilitySummaries(
   });
 }
 /**
- * Recuentos operabilitySummaries de Customer.
+ * Counts operabilitySummaries of Customer.
  * /Customers/:id/operabilitySummaries/count
  */
 export async function Customer_CountOperabilitySummaries(
@@ -1280,7 +1225,7 @@ export async function Customer_CountOperabilitySummaries(
   });
 }
 /**
- * defaultEventComments consultas de Customer.
+ * Queries defaultEventComments of Customer.
  * /Customers/:id/defaultEventComments
  */
 export async function Customer_GetDefaultEventComments(
@@ -1302,7 +1247,7 @@ export async function Customer_GetDefaultEventComments(
   });
 }
 /**
- * Crea una nueva instancia en defaultEventComments de este modelo.
+ * Creates a new instance in defaultEventComments of this model.
  * /Customers/:id/defaultEventComments
  */
 export async function Customer_CreateDefaultEventComments(
@@ -1319,7 +1264,7 @@ export async function Customer_CreateDefaultEventComments(
   });
 }
 /**
- * Recuentos defaultEventComments de Customer.
+ * Counts defaultEventComments of Customer.
  * /Customers/:id/defaultEventComments/count
  */
 export async function Customer_CountDefaultEventComments(
@@ -1341,7 +1286,7 @@ export async function Customer_CountDefaultEventComments(
   });
 }
 /**
- * devices consultas de Customer.
+ * Queries devices of Customer.
  * /Customers/:id/devices
  */
 export async function Customer_GetDevices(
@@ -1363,7 +1308,7 @@ export async function Customer_GetDevices(
   });
 }
 /**
- * Crea una nueva instancia en devices de este modelo.
+ * Creates a new instance in devices of this model.
  * /Customers/:id/devices
  */
 export async function Customer_CreateDevices(
@@ -1380,7 +1325,7 @@ export async function Customer_CreateDevices(
   });
 }
 /**
- * Recuentos devices de Customer.
+ * Counts devices of Customer.
  * /Customers/:id/devices/count
  */
 export async function Customer_CountDevices(
@@ -1402,7 +1347,7 @@ export async function Customer_CountDevices(
   });
 }
 /**
- * deviceEventTypes consultas de Customer.
+ * Queries deviceEventTypes of Customer.
  * /Customers/:id/deviceEventTypes
  */
 export async function Customer_GetDeviceEventTypes(
@@ -1424,7 +1369,7 @@ export async function Customer_GetDeviceEventTypes(
   });
 }
 /**
- * Recuentos deviceEventTypes de Customer.
+ * Counts deviceEventTypes of Customer.
  * /Customers/:id/deviceEventTypes/count
  */
 export async function Customer_CountDeviceEventTypes(
@@ -1446,7 +1391,7 @@ export async function Customer_CountDeviceEventTypes(
   });
 }
 /**
- * edgeAgents consultas de Customer.
+ * Queries edgeAgents of Customer.
  * /Customers/:id/edgeAgents
  */
 export async function Customer_GetEdgeAgents(
@@ -1468,7 +1413,7 @@ export async function Customer_GetEdgeAgents(
   });
 }
 /**
- * Crea una nueva instancia en edgeAgents de este modelo.
+ * Creates a new instance in edgeAgents of this model.
  * /Customers/:id/edgeAgents
  */
 export async function Customer_CreateEdgeAgents(
@@ -1485,7 +1430,7 @@ export async function Customer_CreateEdgeAgents(
   });
 }
 /**
- * Recuentos edgeAgents de Customer.
+ * Counts edgeAgents of Customer.
  * /Customers/:id/edgeAgents/count
  */
 export async function Customer_CountEdgeAgents(
@@ -1507,7 +1452,7 @@ export async function Customer_CountEdgeAgents(
   });
 }
 /**
- * emergencyContacts consultas de Customer.
+ * Queries emergencyContacts of Customer.
  * /Customers/:id/emergencyContacts
  */
 export async function Customer_GetEmergencyContacts(
@@ -1529,7 +1474,7 @@ export async function Customer_GetEmergencyContacts(
   });
 }
 /**
- * Crea una nueva instancia en emergencyContacts de este modelo.
+ * Creates a new instance in emergencyContacts of this model.
  * /Customers/:id/emergencyContacts
  */
 export async function Customer_CreateEmergencyContacts(
@@ -1546,7 +1491,7 @@ export async function Customer_CreateEmergencyContacts(
   });
 }
 /**
- * Recuentos emergencyContacts de Customer.
+ * Counts emergencyContacts of Customer.
  * /Customers/:id/emergencyContacts/count
  */
 export async function Customer_CountEmergencyContacts(
@@ -1568,7 +1513,7 @@ export async function Customer_CountEmergencyContacts(
   });
 }
 /**
- * eventStates consultas de Customer.
+ * Queries eventStates of Customer.
  * /Customers/:id/eventStates
  */
 export async function Customer_GetEventStates(
@@ -1590,7 +1535,7 @@ export async function Customer_GetEventStates(
   });
 }
 /**
- * Crea una nueva instancia en eventStates de este modelo.
+ * Creates a new instance in eventStates of this model.
  * /Customers/:id/eventStates
  */
 export async function Customer_CreateEventStates(
@@ -1607,7 +1552,7 @@ export async function Customer_CreateEventStates(
   });
 }
 /**
- * Recuentos eventStates de Customer.
+ * Counts eventStates of Customer.
  * /Customers/:id/eventStates/count
  */
 export async function Customer_CountEventStates(
@@ -1629,68 +1574,7 @@ export async function Customer_CountEventStates(
   });
 }
 /**
- * eventSubjects consultas de Customer.
- * /Customers/:id/eventSubjects
- */
-export async function Customer_GetEventSubjects(
-  id: string,
-  filter: Filter<any> = {},
-): Promise<EventSubject[]> {
-  const _urlParams: any = {};
-  if (filter != null) {
-    _urlParams['filter'] = filter;
-  }
-
-  return ApiFetch({
-    method: 'GET',
-    url: '/Customers/:id/eventSubjects',
-    urlParams: _urlParams,
-    routeParams: {
-      id,
-    },
-  });
-}
-/**
- * Crea una nueva instancia en eventSubjects de este modelo.
- * /Customers/:id/eventSubjects
- */
-export async function Customer_CreateEventSubjects(
-  id: string,
-  data: any = {},
-): Promise<EventSubject> {
-  return ApiFetch({
-    method: 'POST',
-    url: '/Customers/:id/eventSubjects',
-    routeParams: {
-      id,
-    },
-    body: data,
-  });
-}
-/**
- * Recuentos eventSubjects de Customer.
- * /Customers/:id/eventSubjects/count
- */
-export async function Customer_CountEventSubjects(
-  id: string,
-  where: any = {},
-): Promise<number> {
-  const _urlParams: any = {};
-  if (where != null) {
-    _urlParams['where'] = where;
-  }
-
-  return ApiFetch({
-    method: 'GET',
-    url: '/Customers/:id/eventSubjects/count',
-    urlParams: _urlParams,
-    routeParams: {
-      id,
-    },
-  });
-}
-/**
- * managers consultas de Customer.
+ * Queries managers of Customer.
  * /Customers/:id/managers
  */
 export async function Customer_GetManagers(
@@ -1712,7 +1596,7 @@ export async function Customer_GetManagers(
   });
 }
 /**
- * Crea una nueva instancia en managers de este modelo.
+ * Creates a new instance in managers of this model.
  * /Customers/:id/managers
  */
 export async function Customer_CreateManagers(
@@ -1729,7 +1613,7 @@ export async function Customer_CreateManagers(
   });
 }
 /**
- * Recuentos managers de Customer.
+ * Counts managers of Customer.
  * /Customers/:id/managers/count
  */
 export async function Customer_CountManagers(
@@ -1751,7 +1635,7 @@ export async function Customer_CountManagers(
   });
 }
 /**
- * projects consultas de Customer.
+ * Queries projects of Customer.
  * /Customers/:id/projects
  */
 export async function Customer_GetProjects(
@@ -1773,7 +1657,7 @@ export async function Customer_GetProjects(
   });
 }
 /**
- * Recuentos projects de Customer.
+ * Counts projects of Customer.
  * /Customers/:id/projects/count
  */
 export async function Customer_CountProjects(
@@ -1795,7 +1679,7 @@ export async function Customer_CountProjects(
   });
 }
 /**
- * storylines consultas de Customer.
+ * Queries storylines of Customer.
  * /Customers/:id/storylines
  */
 export async function Customer_GetStorylines(
@@ -1817,7 +1701,7 @@ export async function Customer_GetStorylines(
   });
 }
 /**
- * storylineCategories consultas de Customer.
+ * Queries storylineCategories of Customer.
  * /Customers/:id/storylineCategories
  */
 export async function Customer_GetStorylineCategories(
@@ -1839,7 +1723,7 @@ export async function Customer_GetStorylineCategories(
   });
 }
 /**
- * Crea una nueva instancia en storylineCategories de este modelo.
+ * Creates a new instance in storylineCategories of this model.
  * /Customers/:id/storylineCategories
  */
 export async function Customer_CreateStorylineCategories(
@@ -1856,7 +1740,7 @@ export async function Customer_CreateStorylineCategories(
   });
 }
 /**
- * Recuentos storylineCategories de Customer.
+ * Counts storylineCategories of Customer.
  * /Customers/:id/storylineCategories/count
  */
 export async function Customer_CountStorylineCategories(
@@ -1878,7 +1762,7 @@ export async function Customer_CountStorylineCategories(
   });
 }
 /**
- * telegramChats consultas de Customer.
+ * Queries telegramChats of Customer.
  * /Customers/:id/telegramChats
  */
 export async function Customer_GetTelegramChats(
@@ -1900,7 +1784,7 @@ export async function Customer_GetTelegramChats(
   });
 }
 /**
- * Crea una nueva instancia en telegramChats de este modelo.
+ * Creates a new instance in telegramChats of this model.
  * /Customers/:id/telegramChats
  */
 export async function Customer_CreateTelegramChats(
@@ -1917,7 +1801,7 @@ export async function Customer_CreateTelegramChats(
   });
 }
 /**
- * Recuentos telegramChats de Customer.
+ * Counts telegramChats of Customer.
  * /Customers/:id/telegramChats/count
  */
 export async function Customer_CountTelegramChats(
@@ -1939,7 +1823,7 @@ export async function Customer_CountTelegramChats(
   });
 }
 /**
- * toolkits consultas de Customer.
+ * Queries toolkits of Customer.
  * /Customers/:id/toolkits
  */
 export async function Customer_GetToolkits(
@@ -1961,7 +1845,7 @@ export async function Customer_GetToolkits(
   });
 }
 /**
- * Recuentos toolkits de Customer.
+ * Counts toolkits of Customer.
  * /Customers/:id/toolkits/count
  */
 export async function Customer_CountToolkits(
@@ -1983,7 +1867,7 @@ export async function Customer_CountToolkits(
   });
 }
 /**
- * yoloClasses consultas de Customer.
+ * Queries yoloClasses of Customer.
  * /Customers/:id/yoloClasses
  */
 export async function Customer_GetYoloClasses(
@@ -2005,7 +1889,7 @@ export async function Customer_GetYoloClasses(
   });
 }
 /**
- * Recuentos yoloClasses de Customer.
+ * Counts yoloClasses of Customer.
  * /Customers/:id/yoloClasses/count
  */
 export async function Customer_CountYoloClasses(
@@ -2055,7 +1939,7 @@ export async function Customer_findById(
 export async function Customer_UploadStorylines(
   id: string,
   nk: string,
-  file: File[],
+  file: UploadableFile[],
   onProgress?: (progress: number) => void,
 ): Promise<any> {
   return UploadFile({
@@ -2447,7 +2331,7 @@ export async function Customer_removeFile(
 export async function Customer_upload(
   id: string,
   property: string,
-  file: File,
+  file: UploadableFile,
   onProgress?: (progress: number) => void,
 ): Promise<any> {
   const _urlParams: any = {};
@@ -3126,7 +3010,6 @@ export async function Customer_resetTelegrambot(
       id,
       nk,
     },
-    body: {},
   });
 }
 /**
@@ -3147,7 +3030,7 @@ export async function Customer_ExportAssets(
   });
 }
 /**
- * Capta la relación hasOne config.
+ * Fetches hasOne relation config.
  * /Customers/:id/assets/:nk/config
  */
 export async function Customer_GetAssetsConfig(
@@ -3164,7 +3047,7 @@ export async function Customer_GetAssetsConfig(
   });
 }
 /**
- * Actualizar config de este modelo.
+ * Update config of this model.
  * /Customers/:id/assets/:nk/config
  */
 export async function Customer_UpdateAssetsConfig(
@@ -3183,7 +3066,7 @@ export async function Customer_UpdateAssetsConfig(
   });
 }
 /**
- * Capta la relación hasOne milestone.
+ * Fetches hasOne relation milestone.
  * /Customers/:id/assets/:nk/milestone
  */
 export async function Customer_GetAssetsMilestone(
@@ -3200,7 +3083,7 @@ export async function Customer_GetAssetsMilestone(
   });
 }
 /**
- * Buscar un elemento relacionado por id para staffs.
+ * Find a related item by id for staffs.
  * /Customers/:id/assets/:nk/staffs/:fk
  */
 export async function Customer_FindByIdAssetsStaffs(
@@ -3219,7 +3102,7 @@ export async function Customer_FindByIdAssetsStaffs(
   });
 }
 /**
- * Suprimir un elemento relacionado por id para staffs.
+ * Delete a related item by id for staffs.
  * /Customers/:id/assets/:nk/staffs/:fk
  */
 export async function Customer_DestroyByIdAssetsStaffs(
@@ -3238,7 +3121,7 @@ export async function Customer_DestroyByIdAssetsStaffs(
   });
 }
 /**
- * Actualizar un elemento relacionado por id para staffs.
+ * Update a related item by id for staffs.
  * /Customers/:id/assets/:nk/staffs/:fk
  */
 export async function Customer_UpdateByIdAssetsStaffs(
@@ -3259,7 +3142,7 @@ export async function Customer_UpdateByIdAssetsStaffs(
   });
 }
 /**
- * Buscar un elemento relacionado por id para assetStates.
+ * Find a related item by id for assetStates.
  * /Customers/:id/assets/:nk/assetStates/:fk
  */
 export async function Customer_FindByIdAssetsAssetStates(
@@ -3278,7 +3161,7 @@ export async function Customer_FindByIdAssetsAssetStates(
   });
 }
 /**
- * Suprimir un elemento relacionado por id para assetStates.
+ * Delete a related item by id for assetStates.
  * /Customers/:id/assets/:nk/assetStates/:fk
  */
 export async function Customer_DestroyByIdAssetsAssetStates(
@@ -3297,7 +3180,7 @@ export async function Customer_DestroyByIdAssetsAssetStates(
   });
 }
 /**
- * Actualizar un elemento relacionado por id para assetStates.
+ * Update a related item by id for assetStates.
  * /Customers/:id/assets/:nk/assetStates/:fk
  */
 export async function Customer_UpdateByIdAssetsAssetStates(
@@ -3318,7 +3201,7 @@ export async function Customer_UpdateByIdAssetsAssetStates(
   });
 }
 /**
- * Capta la relación belongsTo currentState.
+ * Fetches belongsTo relation currentState.
  * /Customers/:id/assets/:nk/currentState
  */
 export async function Customer_GetAssetsCurrentState(
@@ -3335,7 +3218,7 @@ export async function Customer_GetAssetsCurrentState(
   });
 }
 /**
- * Buscar un elemento relacionado por id para credentials.
+ * Find a related item by id for credentials.
  * /Customers/:id/assets/:nk/credentials/:fk
  */
 export async function Customer_FindByIdAssetsCredentials(
@@ -3354,7 +3237,7 @@ export async function Customer_FindByIdAssetsCredentials(
   });
 }
 /**
- * Buscar un elemento relacionado por id para admins.
+ * Find a related item by id for admins.
  * /Customers/:id/assets/:nk/admins/:fk
  */
 export async function Customer_FindByIdAssetsAdmins(
@@ -3373,7 +3256,7 @@ export async function Customer_FindByIdAssetsAdmins(
   });
 }
 /**
- * Buscar un elemento relacionado por id para events.
+ * Find a related item by id for events.
  * /Customers/:id/assets/:nk/events/:fk
  */
 export async function Customer_FindByIdAssetsEvents(
@@ -3392,7 +3275,7 @@ export async function Customer_FindByIdAssetsEvents(
   });
 }
 /**
- * Actualizar un elemento relacionado por id para events.
+ * Update a related item by id for events.
  * /Customers/:id/assets/:nk/events/:fk
  */
 export async function Customer_UpdateByIdAssetsEvents(
@@ -3413,7 +3296,7 @@ export async function Customer_UpdateByIdAssetsEvents(
   });
 }
 /**
- * Buscar un elemento relacionado por id para eventGroups.
+ * Find a related item by id for eventGroups.
  * /Customers/:id/assets/:nk/eventGroups/:fk
  */
 export async function Customer_FindByIdAssetsEventGroups(
@@ -3432,7 +3315,7 @@ export async function Customer_FindByIdAssetsEventGroups(
   });
 }
 /**
- * Suprimir un elemento relacionado por id para eventGroups.
+ * Delete a related item by id for eventGroups.
  * /Customers/:id/assets/:nk/eventGroups/:fk
  */
 export async function Customer_DestroyByIdAssetsEventGroups(
@@ -3451,7 +3334,7 @@ export async function Customer_DestroyByIdAssetsEventGroups(
   });
 }
 /**
- * Actualizar un elemento relacionado por id para eventGroups.
+ * Update a related item by id for eventGroups.
  * /Customers/:id/assets/:nk/eventGroups/:fk
  */
 export async function Customer_UpdateByIdAssetsEventGroups(
@@ -3472,7 +3355,7 @@ export async function Customer_UpdateByIdAssetsEventGroups(
   });
 }
 /**
- * Buscar un elemento relacionado por id para eventSummaries.
+ * Find a related item by id for eventSummaries.
  * /Customers/:id/assets/:nk/eventSummaries/:fk
  */
 export async function Customer_FindByIdAssetsEventSummaries(
@@ -3491,7 +3374,7 @@ export async function Customer_FindByIdAssetsEventSummaries(
   });
 }
 /**
- * Buscar un elemento relacionado por id para eventSummaryForAssets.
+ * Find a related item by id for eventSummaryForAssets.
  * /Customers/:id/assets/:nk/eventSummaryForAssets/:fk
  */
 export async function Customer_FindByIdAssetsEventSummaryForAssets(
@@ -3510,7 +3393,7 @@ export async function Customer_FindByIdAssetsEventSummaryForAssets(
   });
 }
 /**
- * Buscar un elemento relacionado por id para eventTriggers.
+ * Find a related item by id for eventTriggers.
  * /Customers/:id/assets/:nk/eventTriggers/:fk
  */
 export async function Customer_FindByIdAssetsEventTriggers(
@@ -3529,7 +3412,7 @@ export async function Customer_FindByIdAssetsEventTriggers(
   });
 }
 /**
- * Suprimir un elemento relacionado por id para eventTriggers.
+ * Delete a related item by id for eventTriggers.
  * /Customers/:id/assets/:nk/eventTriggers/:fk
  */
 export async function Customer_DestroyByIdAssetsEventTriggers(
@@ -3548,7 +3431,7 @@ export async function Customer_DestroyByIdAssetsEventTriggers(
   });
 }
 /**
- * Actualizar un elemento relacionado por id para eventTriggers.
+ * Update a related item by id for eventTriggers.
  * /Customers/:id/assets/:nk/eventTriggers/:fk
  */
 export async function Customer_UpdateByIdAssetsEventTriggers(
@@ -3569,7 +3452,7 @@ export async function Customer_UpdateByIdAssetsEventTriggers(
   });
 }
 /**
- * Buscar un elemento relacionado por id para healthcheckEvents.
+ * Find a related item by id for healthcheckEvents.
  * /Customers/:id/assets/:nk/healthcheckEvents/:fk
  */
 export async function Customer_FindByIdAssetsHealthcheckEvents(
@@ -3588,7 +3471,7 @@ export async function Customer_FindByIdAssetsHealthcheckEvents(
   });
 }
 /**
- * Actualizar un elemento relacionado por id para healthcheckEvents.
+ * Update a related item by id for healthcheckEvents.
  * /Customers/:id/assets/:nk/healthcheckEvents/:fk
  */
 export async function Customer_UpdateByIdAssetsHealthcheckEvents(
@@ -3609,7 +3492,7 @@ export async function Customer_UpdateByIdAssetsHealthcheckEvents(
   });
 }
 /**
- * Buscar un elemento relacionado por id para managers.
+ * Find a related item by id for managers.
  * /Customers/:id/assets/:nk/managers/:fk
  */
 export async function Customer_FindByIdAssetsManagers(
@@ -3628,7 +3511,7 @@ export async function Customer_FindByIdAssetsManagers(
   });
 }
 /**
- * Buscar un elemento relacionado por id para sensors.
+ * Find a related item by id for sensors.
  * /Customers/:id/assets/:nk/sensors/:fk
  */
 export async function Customer_FindByIdAssetsSensors(
@@ -3647,7 +3530,7 @@ export async function Customer_FindByIdAssetsSensors(
   });
 }
 /**
- * Suprimir un elemento relacionado por id para sensors.
+ * Delete a related item by id for sensors.
  * /Customers/:id/assets/:nk/sensors/:fk
  */
 export async function Customer_DestroyByIdAssetsSensors(
@@ -3666,7 +3549,7 @@ export async function Customer_DestroyByIdAssetsSensors(
   });
 }
 /**
- * Actualizar un elemento relacionado por id para sensors.
+ * Update a related item by id for sensors.
  * /Customers/:id/assets/:nk/sensors/:fk
  */
 export async function Customer_UpdateByIdAssetsSensors(
@@ -3687,7 +3570,7 @@ export async function Customer_UpdateByIdAssetsSensors(
   });
 }
 /**
- * Buscar un elemento relacionado por id para sensorUptimes.
+ * Find a related item by id for sensorUptimes.
  * /Customers/:id/assets/:nk/sensorUptimes/:fk
  */
 export async function Customer_FindByIdAssetsSensorUptimes(
@@ -3706,7 +3589,7 @@ export async function Customer_FindByIdAssetsSensorUptimes(
   });
 }
 /**
- * Buscar un elemento relacionado por id para sensorUptimeCollectors.
+ * Find a related item by id for sensorUptimeCollectors.
  * /Customers/:id/assets/:nk/sensorUptimeCollectors/:fk
  */
 export async function Customer_FindByIdAssetsSensorUptimeCollectors(
@@ -3725,7 +3608,7 @@ export async function Customer_FindByIdAssetsSensorUptimeCollectors(
   });
 }
 /**
- * Buscar un elemento relacionado por id para summaries.
+ * Find a related item by id for summaries.
  * /Customers/:id/assets/:nk/summaries/:fk
  */
 export async function Customer_FindByIdAssetsSummaries(
@@ -3744,7 +3627,7 @@ export async function Customer_FindByIdAssetsSummaries(
   });
 }
 /**
- * assets consultas de Asset.
+ * Queries assets of Asset.
  * /Customers/:id/assets/:nk/assets
  */
 export async function Customer_GetAssetsAssets(
@@ -3768,7 +3651,7 @@ export async function Customer_GetAssetsAssets(
   });
 }
 /**
- * Crea una nueva instancia en assets de este modelo.
+ * Creates a new instance in assets of this model.
  * /Customers/:id/assets/:nk/assets
  */
 export async function Customer_CreateAssetsAssets(
@@ -3787,7 +3670,7 @@ export async function Customer_CreateAssetsAssets(
   });
 }
 /**
- * Recuentos assets de Asset.
+ * Counts assets of Asset.
  * /Customers/:id/assets/:nk/assets/count
  */
 export async function Customer_CountAssetsAssets(
@@ -3811,7 +3694,7 @@ export async function Customer_CountAssetsAssets(
   });
 }
 /**
- * staffs consultas de Asset.
+ * Queries staffs of Asset.
  * /Customers/:id/assets/:nk/staffs
  */
 export async function Customer_GetAssetsStaffs(
@@ -3835,7 +3718,7 @@ export async function Customer_GetAssetsStaffs(
   });
 }
 /**
- * Crea una nueva instancia en staffs de este modelo.
+ * Creates a new instance in staffs of this model.
  * /Customers/:id/assets/:nk/staffs
  */
 export async function Customer_CreateAssetsStaffs(
@@ -3854,7 +3737,7 @@ export async function Customer_CreateAssetsStaffs(
   });
 }
 /**
- * Recuentos staffs de Asset.
+ * Counts staffs of Asset.
  * /Customers/:id/assets/:nk/staffs/count
  */
 export async function Customer_CountAssetsStaffs(
@@ -3878,7 +3761,7 @@ export async function Customer_CountAssetsStaffs(
   });
 }
 /**
- * assetStates consultas de Asset.
+ * Queries assetStates of Asset.
  * /Customers/:id/assets/:nk/assetStates
  */
 export async function Customer_GetAssetsAssetStates(
@@ -3902,7 +3785,7 @@ export async function Customer_GetAssetsAssetStates(
   });
 }
 /**
- * Crea una nueva instancia en assetStates de este modelo.
+ * Creates a new instance in assetStates of this model.
  * /Customers/:id/assets/:nk/assetStates
  */
 export async function Customer_CreateAssetsAssetStates(
@@ -3921,7 +3804,7 @@ export async function Customer_CreateAssetsAssetStates(
   });
 }
 /**
- * Recuentos assetStates de Asset.
+ * Counts assetStates of Asset.
  * /Customers/:id/assets/:nk/assetStates/count
  */
 export async function Customer_CountAssetsAssetStates(
@@ -3945,7 +3828,7 @@ export async function Customer_CountAssetsAssetStates(
   });
 }
 /**
- * credentials consultas de Asset.
+ * Queries credentials of Asset.
  * /Customers/:id/assets/:nk/credentials
  */
 export async function Customer_GetAssetsCredentials(
@@ -3969,7 +3852,7 @@ export async function Customer_GetAssetsCredentials(
   });
 }
 /**
- * Recuentos credentials de Asset.
+ * Counts credentials of Asset.
  * /Customers/:id/assets/:nk/credentials/count
  */
 export async function Customer_CountAssetsCredentials(
@@ -3993,7 +3876,7 @@ export async function Customer_CountAssetsCredentials(
   });
 }
 /**
- * admins consultas de Asset.
+ * Queries admins of Asset.
  * /Customers/:id/assets/:nk/admins
  */
 export async function Customer_GetAssetsAdmins(
@@ -4017,7 +3900,7 @@ export async function Customer_GetAssetsAdmins(
   });
 }
 /**
- * Recuentos admins de Asset.
+ * Counts admins of Asset.
  * /Customers/:id/assets/:nk/admins/count
  */
 export async function Customer_CountAssetsAdmins(
@@ -4041,7 +3924,7 @@ export async function Customer_CountAssetsAdmins(
   });
 }
 /**
- * events consultas de Asset.
+ * Queries events of Asset.
  * /Customers/:id/assets/:nk/events
  */
 export async function Customer_GetAssetsEvents(
@@ -4065,7 +3948,7 @@ export async function Customer_GetAssetsEvents(
   });
 }
 /**
- * Recuentos events de Asset.
+ * Counts events of Asset.
  * /Customers/:id/assets/:nk/events/count
  */
 export async function Customer_CountAssetsEvents(
@@ -4089,7 +3972,7 @@ export async function Customer_CountAssetsEvents(
   });
 }
 /**
- * eventGroups consultas de Asset.
+ * Queries eventGroups of Asset.
  * /Customers/:id/assets/:nk/eventGroups
  */
 export async function Customer_GetAssetsEventGroups(
@@ -4113,7 +3996,7 @@ export async function Customer_GetAssetsEventGroups(
   });
 }
 /**
- * Crea una nueva instancia en eventGroups de este modelo.
+ * Creates a new instance in eventGroups of this model.
  * /Customers/:id/assets/:nk/eventGroups
  */
 export async function Customer_CreateAssetsEventGroups(
@@ -4132,7 +4015,7 @@ export async function Customer_CreateAssetsEventGroups(
   });
 }
 /**
- * Recuentos eventGroups de Asset.
+ * Counts eventGroups of Asset.
  * /Customers/:id/assets/:nk/eventGroups/count
  */
 export async function Customer_CountAssetsEventGroups(
@@ -4156,7 +4039,7 @@ export async function Customer_CountAssetsEventGroups(
   });
 }
 /**
- * eventSummaries consultas de Asset.
+ * Queries eventSummaries of Asset.
  * /Customers/:id/assets/:nk/eventSummaries
  */
 export async function Customer_GetAssetsEventSummaries(
@@ -4180,7 +4063,7 @@ export async function Customer_GetAssetsEventSummaries(
   });
 }
 /**
- * Recuentos eventSummaries de Asset.
+ * Counts eventSummaries of Asset.
  * /Customers/:id/assets/:nk/eventSummaries/count
  */
 export async function Customer_CountAssetsEventSummaries(
@@ -4204,7 +4087,7 @@ export async function Customer_CountAssetsEventSummaries(
   });
 }
 /**
- * eventSummaryForAssets consultas de Asset.
+ * Queries eventSummaryForAssets of Asset.
  * /Customers/:id/assets/:nk/eventSummaryForAssets
  */
 export async function Customer_GetAssetsEventSummaryForAssets(
@@ -4228,7 +4111,7 @@ export async function Customer_GetAssetsEventSummaryForAssets(
   });
 }
 /**
- * Recuentos eventSummaryForAssets de Asset.
+ * Counts eventSummaryForAssets of Asset.
  * /Customers/:id/assets/:nk/eventSummaryForAssets/count
  */
 export async function Customer_CountAssetsEventSummaryForAssets(
@@ -4252,7 +4135,7 @@ export async function Customer_CountAssetsEventSummaryForAssets(
   });
 }
 /**
- * eventTriggers consultas de Asset.
+ * Queries eventTriggers of Asset.
  * /Customers/:id/assets/:nk/eventTriggers
  */
 export async function Customer_GetAssetsEventTriggers(
@@ -4276,7 +4159,7 @@ export async function Customer_GetAssetsEventTriggers(
   });
 }
 /**
- * Crea una nueva instancia en eventTriggers de este modelo.
+ * Creates a new instance in eventTriggers of this model.
  * /Customers/:id/assets/:nk/eventTriggers
  */
 export async function Customer_CreateAssetsEventTriggers(
@@ -4295,7 +4178,7 @@ export async function Customer_CreateAssetsEventTriggers(
   });
 }
 /**
- * Recuentos eventTriggers de Asset.
+ * Counts eventTriggers of Asset.
  * /Customers/:id/assets/:nk/eventTriggers/count
  */
 export async function Customer_CountAssetsEventTriggers(
@@ -4319,7 +4202,7 @@ export async function Customer_CountAssetsEventTriggers(
   });
 }
 /**
- * healthcheckEvents consultas de Asset.
+ * Queries healthcheckEvents of Asset.
  * /Customers/:id/assets/:nk/healthcheckEvents
  */
 export async function Customer_GetAssetsHealthcheckEvents(
@@ -4343,7 +4226,7 @@ export async function Customer_GetAssetsHealthcheckEvents(
   });
 }
 /**
- * Recuentos healthcheckEvents de Asset.
+ * Counts healthcheckEvents of Asset.
  * /Customers/:id/assets/:nk/healthcheckEvents/count
  */
 export async function Customer_CountAssetsHealthcheckEvents(
@@ -4367,7 +4250,7 @@ export async function Customer_CountAssetsHealthcheckEvents(
   });
 }
 /**
- * managers consultas de Asset.
+ * Queries managers of Asset.
  * /Customers/:id/assets/:nk/managers
  */
 export async function Customer_GetAssetsManagers(
@@ -4391,7 +4274,7 @@ export async function Customer_GetAssetsManagers(
   });
 }
 /**
- * Recuentos managers de Asset.
+ * Counts managers of Asset.
  * /Customers/:id/assets/:nk/managers/count
  */
 export async function Customer_CountAssetsManagers(
@@ -4415,7 +4298,7 @@ export async function Customer_CountAssetsManagers(
   });
 }
 /**
- * sensors consultas de Asset.
+ * Queries sensors of Asset.
  * /Customers/:id/assets/:nk/sensors
  */
 export async function Customer_GetAssetsSensors(
@@ -4439,7 +4322,7 @@ export async function Customer_GetAssetsSensors(
   });
 }
 /**
- * Crea una nueva instancia en sensors de este modelo.
+ * Creates a new instance in sensors of this model.
  * /Customers/:id/assets/:nk/sensors
  */
 export async function Customer_CreateAssetsSensors(
@@ -4458,7 +4341,7 @@ export async function Customer_CreateAssetsSensors(
   });
 }
 /**
- * Recuentos sensors de Asset.
+ * Counts sensors of Asset.
  * /Customers/:id/assets/:nk/sensors/count
  */
 export async function Customer_CountAssetsSensors(
@@ -4482,7 +4365,7 @@ export async function Customer_CountAssetsSensors(
   });
 }
 /**
- * sensorUptimes consultas de Asset.
+ * Queries sensorUptimes of Asset.
  * /Customers/:id/assets/:nk/sensorUptimes
  */
 export async function Customer_GetAssetsSensorUptimes(
@@ -4506,7 +4389,7 @@ export async function Customer_GetAssetsSensorUptimes(
   });
 }
 /**
- * Recuentos sensorUptimes de Asset.
+ * Counts sensorUptimes of Asset.
  * /Customers/:id/assets/:nk/sensorUptimes/count
  */
 export async function Customer_CountAssetsSensorUptimes(
@@ -4530,7 +4413,7 @@ export async function Customer_CountAssetsSensorUptimes(
   });
 }
 /**
- * sensorUptimeCollectors consultas de Asset.
+ * Queries sensorUptimeCollectors of Asset.
  * /Customers/:id/assets/:nk/sensorUptimeCollectors
  */
 export async function Customer_GetAssetsSensorUptimeCollectors(
@@ -4554,7 +4437,7 @@ export async function Customer_GetAssetsSensorUptimeCollectors(
   });
 }
 /**
- * Recuentos sensorUptimeCollectors de Asset.
+ * Counts sensorUptimeCollectors of Asset.
  * /Customers/:id/assets/:nk/sensorUptimeCollectors/count
  */
 export async function Customer_CountAssetsSensorUptimeCollectors(
@@ -4578,7 +4461,7 @@ export async function Customer_CountAssetsSensorUptimeCollectors(
   });
 }
 /**
- * summaries consultas de Asset.
+ * Queries summaries of Asset.
  * /Customers/:id/assets/:nk/summaries
  */
 export async function Customer_GetAssetsSummaries(
@@ -4602,7 +4485,7 @@ export async function Customer_GetAssetsSummaries(
   });
 }
 /**
- * Recuentos summaries de Asset.
+ * Counts summaries of Asset.
  * /Customers/:id/assets/:nk/summaries/count
  */
 export async function Customer_CountAssetsSummaries(
@@ -4626,7 +4509,7 @@ export async function Customer_CountAssetsSummaries(
   });
 }
 /**
- * Capta la relación hasOne config.
+ * Fetches hasOne relation config.
  * /Customers/:id/assetTemplates/:nk/config
  */
 export async function Customer_GetAssetTemplatesConfig(
@@ -4643,7 +4526,7 @@ export async function Customer_GetAssetTemplatesConfig(
   });
 }
 /**
- * Actualizar config de este modelo.
+ * Update config of this model.
  * /Customers/:id/assetTemplates/:nk/config
  */
 export async function Customer_UpdateAssetTemplatesConfig(
@@ -4662,7 +4545,7 @@ export async function Customer_UpdateAssetTemplatesConfig(
   });
 }
 /**
- * Buscar un elemento relacionado por id para assetStateTemplates.
+ * Find a related item by id for assetStateTemplates.
  * /Customers/:id/assetTemplates/:nk/assetStateTemplates/:fk
  */
 export async function Customer_FindByIdAssetTemplatesAssetStateTemplates(
@@ -4681,7 +4564,7 @@ export async function Customer_FindByIdAssetTemplatesAssetStateTemplates(
   });
 }
 /**
- * Suprimir un elemento relacionado por id para assetStateTemplates.
+ * Delete a related item by id for assetStateTemplates.
  * /Customers/:id/assetTemplates/:nk/assetStateTemplates/:fk
  */
 export async function Customer_DestroyByIdAssetTemplatesAssetStateTemplates(
@@ -4700,7 +4583,7 @@ export async function Customer_DestroyByIdAssetTemplatesAssetStateTemplates(
   });
 }
 /**
- * Actualizar un elemento relacionado por id para assetStateTemplates.
+ * Update a related item by id for assetStateTemplates.
  * /Customers/:id/assetTemplates/:nk/assetStateTemplates/:fk
  */
 export async function Customer_UpdateByIdAssetTemplatesAssetStateTemplates(
@@ -4721,7 +4604,7 @@ export async function Customer_UpdateByIdAssetTemplatesAssetStateTemplates(
   });
 }
 /**
- * Capta la relación belongsTo defaultState.
+ * Fetches belongsTo relation defaultState.
  * /Customers/:id/assetTemplates/:nk/defaultState
  */
 export async function Customer_GetAssetTemplatesDefaultState(
@@ -4738,7 +4621,7 @@ export async function Customer_GetAssetTemplatesDefaultState(
   });
 }
 /**
- * Buscar un elemento relacionado por id para defaultResponsibleAdmins.
+ * Find a related item by id for defaultResponsibleAdmins.
  * /Customers/:id/assetTemplates/:nk/defaultResponsibleAdmins/:fk
  */
 export async function Customer_FindByIdAssetTemplatesDefaultResponsibleAdmins(
@@ -4757,7 +4640,7 @@ export async function Customer_FindByIdAssetTemplatesDefaultResponsibleAdmins(
   });
 }
 /**
- * Buscar un elemento relacionado por id para eventGroupTemplates.
+ * Find a related item by id for eventGroupTemplates.
  * /Customers/:id/assetTemplates/:nk/eventGroupTemplates/:fk
  */
 export async function Customer_FindByIdAssetTemplatesEventGroupTemplates(
@@ -4776,7 +4659,7 @@ export async function Customer_FindByIdAssetTemplatesEventGroupTemplates(
   });
 }
 /**
- * Suprimir un elemento relacionado por id para eventGroupTemplates.
+ * Delete a related item by id for eventGroupTemplates.
  * /Customers/:id/assetTemplates/:nk/eventGroupTemplates/:fk
  */
 export async function Customer_DestroyByIdAssetTemplatesEventGroupTemplates(
@@ -4795,7 +4678,7 @@ export async function Customer_DestroyByIdAssetTemplatesEventGroupTemplates(
   });
 }
 /**
- * Actualizar un elemento relacionado por id para eventGroupTemplates.
+ * Update a related item by id for eventGroupTemplates.
  * /Customers/:id/assetTemplates/:nk/eventGroupTemplates/:fk
  */
 export async function Customer_UpdateByIdAssetTemplatesEventGroupTemplates(
@@ -4816,7 +4699,7 @@ export async function Customer_UpdateByIdAssetTemplatesEventGroupTemplates(
   });
 }
 /**
- * Buscar un elemento relacionado por id para eventTriggerTemplates.
+ * Find a related item by id for eventTriggerTemplates.
  * /Customers/:id/assetTemplates/:nk/eventTriggerTemplates/:fk
  */
 export async function Customer_FindByIdAssetTemplatesEventTriggerTemplates(
@@ -4835,7 +4718,7 @@ export async function Customer_FindByIdAssetTemplatesEventTriggerTemplates(
   });
 }
 /**
- * Suprimir un elemento relacionado por id para eventTriggerTemplates.
+ * Delete a related item by id for eventTriggerTemplates.
  * /Customers/:id/assetTemplates/:nk/eventTriggerTemplates/:fk
  */
 export async function Customer_DestroyByIdAssetTemplatesEventTriggerTemplates(
@@ -4854,7 +4737,7 @@ export async function Customer_DestroyByIdAssetTemplatesEventTriggerTemplates(
   });
 }
 /**
- * Actualizar un elemento relacionado por id para eventTriggerTemplates.
+ * Update a related item by id for eventTriggerTemplates.
  * /Customers/:id/assetTemplates/:nk/eventTriggerTemplates/:fk
  */
 export async function Customer_UpdateByIdAssetTemplatesEventTriggerTemplates(
@@ -4875,7 +4758,7 @@ export async function Customer_UpdateByIdAssetTemplatesEventTriggerTemplates(
   });
 }
 /**
- * Buscar un elemento relacionado por id para defaultResponsibleManagers.
+ * Find a related item by id for defaultResponsibleManagers.
  * /Customers/:id/assetTemplates/:nk/defaultResponsibleManagers/:fk
  */
 export async function Customer_FindByIdAssetTemplatesDefaultResponsibleManagers(
@@ -4894,7 +4777,7 @@ export async function Customer_FindByIdAssetTemplatesDefaultResponsibleManagers(
   });
 }
 /**
- * Buscar un elemento relacionado por id para sensorTemplates.
+ * Find a related item by id for sensorTemplates.
  * /Customers/:id/assetTemplates/:nk/sensorTemplates/:fk
  */
 export async function Customer_FindByIdAssetTemplatesSensorTemplates(
@@ -4913,7 +4796,7 @@ export async function Customer_FindByIdAssetTemplatesSensorTemplates(
   });
 }
 /**
- * Suprimir un elemento relacionado por id para sensorTemplates.
+ * Delete a related item by id for sensorTemplates.
  * /Customers/:id/assetTemplates/:nk/sensorTemplates/:fk
  */
 export async function Customer_DestroyByIdAssetTemplatesSensorTemplates(
@@ -4932,7 +4815,7 @@ export async function Customer_DestroyByIdAssetTemplatesSensorTemplates(
   });
 }
 /**
- * Actualizar un elemento relacionado por id para sensorTemplates.
+ * Update a related item by id for sensorTemplates.
  * /Customers/:id/assetTemplates/:nk/sensorTemplates/:fk
  */
 export async function Customer_UpdateByIdAssetTemplatesSensorTemplates(
@@ -4953,7 +4836,7 @@ export async function Customer_UpdateByIdAssetTemplatesSensorTemplates(
   });
 }
 /**
- * assetTemplates consultas de AssetTemplate.
+ * Queries assetTemplates of AssetTemplate.
  * /Customers/:id/assetTemplates/:nk/assetTemplates
  */
 export async function Customer_GetAssetTemplatesAssetTemplates(
@@ -4977,7 +4860,7 @@ export async function Customer_GetAssetTemplatesAssetTemplates(
   });
 }
 /**
- * Crea una nueva instancia en assetTemplates de este modelo.
+ * Creates a new instance in assetTemplates of this model.
  * /Customers/:id/assetTemplates/:nk/assetTemplates
  */
 export async function Customer_CreateAssetTemplatesAssetTemplates(
@@ -4996,7 +4879,7 @@ export async function Customer_CreateAssetTemplatesAssetTemplates(
   });
 }
 /**
- * Recuentos assetTemplates de AssetTemplate.
+ * Counts assetTemplates of AssetTemplate.
  * /Customers/:id/assetTemplates/:nk/assetTemplates/count
  */
 export async function Customer_CountAssetTemplatesAssetTemplates(
@@ -5020,7 +4903,7 @@ export async function Customer_CountAssetTemplatesAssetTemplates(
   });
 }
 /**
- * assetStateTemplates consultas de AssetTemplate.
+ * Queries assetStateTemplates of AssetTemplate.
  * /Customers/:id/assetTemplates/:nk/assetStateTemplates
  */
 export async function Customer_GetAssetTemplatesAssetStateTemplates(
@@ -5044,7 +4927,7 @@ export async function Customer_GetAssetTemplatesAssetStateTemplates(
   });
 }
 /**
- * Crea una nueva instancia en assetStateTemplates de este modelo.
+ * Creates a new instance in assetStateTemplates of this model.
  * /Customers/:id/assetTemplates/:nk/assetStateTemplates
  */
 export async function Customer_CreateAssetTemplatesAssetStateTemplates(
@@ -5063,7 +4946,7 @@ export async function Customer_CreateAssetTemplatesAssetStateTemplates(
   });
 }
 /**
- * Recuentos assetStateTemplates de AssetTemplate.
+ * Counts assetStateTemplates of AssetTemplate.
  * /Customers/:id/assetTemplates/:nk/assetStateTemplates/count
  */
 export async function Customer_CountAssetTemplatesAssetStateTemplates(
@@ -5087,7 +4970,7 @@ export async function Customer_CountAssetTemplatesAssetStateTemplates(
   });
 }
 /**
- * defaultResponsibleAdmins consultas de AssetTemplate.
+ * Queries defaultResponsibleAdmins of AssetTemplate.
  * /Customers/:id/assetTemplates/:nk/defaultResponsibleAdmins
  */
 export async function Customer_GetAssetTemplatesDefaultResponsibleAdmins(
@@ -5111,7 +4994,7 @@ export async function Customer_GetAssetTemplatesDefaultResponsibleAdmins(
   });
 }
 /**
- * Recuentos defaultResponsibleAdmins de AssetTemplate.
+ * Counts defaultResponsibleAdmins of AssetTemplate.
  * /Customers/:id/assetTemplates/:nk/defaultResponsibleAdmins/count
  */
 export async function Customer_CountAssetTemplatesDefaultResponsibleAdmins(
@@ -5135,7 +5018,7 @@ export async function Customer_CountAssetTemplatesDefaultResponsibleAdmins(
   });
 }
 /**
- * eventGroupTemplates consultas de AssetTemplate.
+ * Queries eventGroupTemplates of AssetTemplate.
  * /Customers/:id/assetTemplates/:nk/eventGroupTemplates
  */
 export async function Customer_GetAssetTemplatesEventGroupTemplates(
@@ -5159,7 +5042,7 @@ export async function Customer_GetAssetTemplatesEventGroupTemplates(
   });
 }
 /**
- * Crea una nueva instancia en eventGroupTemplates de este modelo.
+ * Creates a new instance in eventGroupTemplates of this model.
  * /Customers/:id/assetTemplates/:nk/eventGroupTemplates
  */
 export async function Customer_CreateAssetTemplatesEventGroupTemplates(
@@ -5178,7 +5061,7 @@ export async function Customer_CreateAssetTemplatesEventGroupTemplates(
   });
 }
 /**
- * Recuentos eventGroupTemplates de AssetTemplate.
+ * Counts eventGroupTemplates of AssetTemplate.
  * /Customers/:id/assetTemplates/:nk/eventGroupTemplates/count
  */
 export async function Customer_CountAssetTemplatesEventGroupTemplates(
@@ -5202,7 +5085,7 @@ export async function Customer_CountAssetTemplatesEventGroupTemplates(
   });
 }
 /**
- * eventTriggerTemplates consultas de AssetTemplate.
+ * Queries eventTriggerTemplates of AssetTemplate.
  * /Customers/:id/assetTemplates/:nk/eventTriggerTemplates
  */
 export async function Customer_GetAssetTemplatesEventTriggerTemplates(
@@ -5226,7 +5109,7 @@ export async function Customer_GetAssetTemplatesEventTriggerTemplates(
   });
 }
 /**
- * Crea una nueva instancia en eventTriggerTemplates de este modelo.
+ * Creates a new instance in eventTriggerTemplates of this model.
  * /Customers/:id/assetTemplates/:nk/eventTriggerTemplates
  */
 export async function Customer_CreateAssetTemplatesEventTriggerTemplates(
@@ -5245,7 +5128,7 @@ export async function Customer_CreateAssetTemplatesEventTriggerTemplates(
   });
 }
 /**
- * Recuentos eventTriggerTemplates de AssetTemplate.
+ * Counts eventTriggerTemplates of AssetTemplate.
  * /Customers/:id/assetTemplates/:nk/eventTriggerTemplates/count
  */
 export async function Customer_CountAssetTemplatesEventTriggerTemplates(
@@ -5269,7 +5152,7 @@ export async function Customer_CountAssetTemplatesEventTriggerTemplates(
   });
 }
 /**
- * defaultResponsibleManagers consultas de AssetTemplate.
+ * Queries defaultResponsibleManagers of AssetTemplate.
  * /Customers/:id/assetTemplates/:nk/defaultResponsibleManagers
  */
 export async function Customer_GetAssetTemplatesDefaultResponsibleManagers(
@@ -5293,7 +5176,7 @@ export async function Customer_GetAssetTemplatesDefaultResponsibleManagers(
   });
 }
 /**
- * Recuentos defaultResponsibleManagers de AssetTemplate.
+ * Counts defaultResponsibleManagers of AssetTemplate.
  * /Customers/:id/assetTemplates/:nk/defaultResponsibleManagers/count
  */
 export async function Customer_CountAssetTemplatesDefaultResponsibleManagers(
@@ -5317,7 +5200,7 @@ export async function Customer_CountAssetTemplatesDefaultResponsibleManagers(
   });
 }
 /**
- * sensorTemplates consultas de AssetTemplate.
+ * Queries sensorTemplates of AssetTemplate.
  * /Customers/:id/assetTemplates/:nk/sensorTemplates
  */
 export async function Customer_GetAssetTemplatesSensorTemplates(
@@ -5341,7 +5224,7 @@ export async function Customer_GetAssetTemplatesSensorTemplates(
   });
 }
 /**
- * Crea una nueva instancia en sensorTemplates de este modelo.
+ * Creates a new instance in sensorTemplates of this model.
  * /Customers/:id/assetTemplates/:nk/sensorTemplates
  */
 export async function Customer_CreateAssetTemplatesSensorTemplates(
@@ -5360,7 +5243,7 @@ export async function Customer_CreateAssetTemplatesSensorTemplates(
   });
 }
 /**
- * Recuentos sensorTemplates de AssetTemplate.
+ * Counts sensorTemplates of AssetTemplate.
  * /Customers/:id/assetTemplates/:nk/sensorTemplates/count
  */
 export async function Customer_CountAssetTemplatesSensorTemplates(
@@ -5384,7 +5267,7 @@ export async function Customer_CountAssetTemplatesSensorTemplates(
   });
 }
 /**
- * Suprimir un elemento relacionado por id para assets.
+ * Delete a related item by id for assets.
  * /Customers/:id/projects/:nk/assets/:fk
  */
 export async function Customer_DestroyByIdProjectsAssets(
@@ -5403,7 +5286,7 @@ export async function Customer_DestroyByIdProjectsAssets(
   });
 }
 /**
- * Actualizar un elemento relacionado por id para assets.
+ * Update a related item by id for assets.
  * /Customers/:id/projects/:nk/assets/:fk
  */
 export async function Customer_UpdateByIdProjectsAssets(
@@ -5424,7 +5307,7 @@ export async function Customer_UpdateByIdProjectsAssets(
   });
 }
 /**
- * Suprimir un elemento relacionado por id para assetTemplates.
+ * Delete a related item by id for assetTemplates.
  * /Customers/:id/projects/:nk/assetTemplates/:fk
  */
 export async function Customer_DestroyByIdProjectsAssetTemplates(
@@ -5443,7 +5326,7 @@ export async function Customer_DestroyByIdProjectsAssetTemplates(
   });
 }
 /**
- * Actualizar un elemento relacionado por id para assetTemplates.
+ * Update a related item by id for assetTemplates.
  * /Customers/:id/projects/:nk/assetTemplates/:fk
  */
 export async function Customer_UpdateByIdProjectsAssetTemplates(
@@ -5464,7 +5347,7 @@ export async function Customer_UpdateByIdProjectsAssetTemplates(
   });
 }
 /**
- * Buscar un elemento relacionado por id para countReports.
+ * Find a related item by id for countReports.
  * /Customers/:id/projects/:nk/countReports/:fk
  */
 export async function Customer_FindByIdProjectsCountReports(
@@ -5483,7 +5366,7 @@ export async function Customer_FindByIdProjectsCountReports(
   });
 }
 /**
- * Suprimir un elemento relacionado por id para countReports.
+ * Delete a related item by id for countReports.
  * /Customers/:id/projects/:nk/countReports/:fk
  */
 export async function Customer_DestroyByIdProjectsCountReports(
@@ -5502,7 +5385,7 @@ export async function Customer_DestroyByIdProjectsCountReports(
   });
 }
 /**
- * Actualizar un elemento relacionado por id para countReports.
+ * Update a related item by id for countReports.
  * /Customers/:id/projects/:nk/countReports/:fk
  */
 export async function Customer_UpdateByIdProjectsCountReports(
@@ -5523,7 +5406,7 @@ export async function Customer_UpdateByIdProjectsCountReports(
   });
 }
 /**
- * Buscar un elemento relacionado por id para cctvDashboards.
+ * Find a related item by id for cctvDashboards.
  * /Customers/:id/projects/:nk/cctvDashboards/:fk
  */
 export async function Customer_FindByIdProjectsCctvDashboards(
@@ -5542,7 +5425,7 @@ export async function Customer_FindByIdProjectsCctvDashboards(
   });
 }
 /**
- * Suprimir un elemento relacionado por id para cctvDashboards.
+ * Delete a related item by id for cctvDashboards.
  * /Customers/:id/projects/:nk/cctvDashboards/:fk
  */
 export async function Customer_DestroyByIdProjectsCctvDashboards(
@@ -5561,7 +5444,7 @@ export async function Customer_DestroyByIdProjectsCctvDashboards(
   });
 }
 /**
- * Actualizar un elemento relacionado por id para cctvDashboards.
+ * Update a related item by id for cctvDashboards.
  * /Customers/:id/projects/:nk/cctvDashboards/:fk
  */
 export async function Customer_UpdateByIdProjectsCctvDashboards(
@@ -5582,7 +5465,7 @@ export async function Customer_UpdateByIdProjectsCctvDashboards(
   });
 }
 /**
- * Buscar un elemento relacionado por id para eventDashboards.
+ * Find a related item by id for eventDashboards.
  * /Customers/:id/projects/:nk/eventDashboards/:fk
  */
 export async function Customer_FindByIdProjectsEventDashboards(
@@ -5601,7 +5484,7 @@ export async function Customer_FindByIdProjectsEventDashboards(
   });
 }
 /**
- * Suprimir un elemento relacionado por id para eventDashboards.
+ * Delete a related item by id for eventDashboards.
  * /Customers/:id/projects/:nk/eventDashboards/:fk
  */
 export async function Customer_DestroyByIdProjectsEventDashboards(
@@ -5620,7 +5503,7 @@ export async function Customer_DestroyByIdProjectsEventDashboards(
   });
 }
 /**
- * Actualizar un elemento relacionado por id para eventDashboards.
+ * Update a related item by id for eventDashboards.
  * /Customers/:id/projects/:nk/eventDashboards/:fk
  */
 export async function Customer_UpdateByIdProjectsEventDashboards(
@@ -5641,7 +5524,7 @@ export async function Customer_UpdateByIdProjectsEventDashboards(
   });
 }
 /**
- * Buscar un elemento relacionado por id para eventSummaryForProjects.
+ * Find a related item by id for eventSummaryForProjects.
  * /Customers/:id/projects/:nk/eventSummaryForProjects/:fk
  */
 export async function Customer_FindByIdProjectsEventSummaryForProjects(
@@ -5660,7 +5543,7 @@ export async function Customer_FindByIdProjectsEventSummaryForProjects(
   });
 }
 /**
- * Buscar un elemento relacionado por id para embeddedReports.
+ * Find a related item by id for embeddedReports.
  * /Customers/:id/projects/:nk/embeddedReports/:fk
  */
 export async function Customer_FindByIdProjectsEmbeddedReports(
@@ -5679,7 +5562,7 @@ export async function Customer_FindByIdProjectsEmbeddedReports(
   });
 }
 /**
- * Suprimir un elemento relacionado por id para embeddedReports.
+ * Delete a related item by id for embeddedReports.
  * /Customers/:id/projects/:nk/embeddedReports/:fk
  */
 export async function Customer_DestroyByIdProjectsEmbeddedReports(
@@ -5698,7 +5581,7 @@ export async function Customer_DestroyByIdProjectsEmbeddedReports(
   });
 }
 /**
- * Actualizar un elemento relacionado por id para embeddedReports.
+ * Update a related item by id for embeddedReports.
  * /Customers/:id/projects/:nk/embeddedReports/:fk
  */
 export async function Customer_UpdateByIdProjectsEmbeddedReports(
@@ -5719,7 +5602,7 @@ export async function Customer_UpdateByIdProjectsEmbeddedReports(
   });
 }
 /**
- * Buscar un elemento relacionado por id para biPanels.
+ * Find a related item by id for biPanels.
  * /Customers/:id/projects/:nk/biPanels/:fk
  */
 export async function Customer_FindByIdProjectsBiPanels(
@@ -5738,7 +5621,7 @@ export async function Customer_FindByIdProjectsBiPanels(
   });
 }
 /**
- * Suprimir un elemento relacionado por id para biPanels.
+ * Delete a related item by id for biPanels.
  * /Customers/:id/projects/:nk/biPanels/:fk
  */
 export async function Customer_DestroyByIdProjectsBiPanels(
@@ -5757,7 +5640,7 @@ export async function Customer_DestroyByIdProjectsBiPanels(
   });
 }
 /**
- * Actualizar un elemento relacionado por id para biPanels.
+ * Update a related item by id for biPanels.
  * /Customers/:id/projects/:nk/biPanels/:fk
  */
 export async function Customer_UpdateByIdProjectsBiPanels(
@@ -5778,7 +5661,7 @@ export async function Customer_UpdateByIdProjectsBiPanels(
   });
 }
 /**
- * Buscar un elemento relacionado por id para peopleCounterReports.
+ * Find a related item by id for peopleCounterReports.
  * /Customers/:id/projects/:nk/peopleCounterReports/:fk
  */
 export async function Customer_FindByIdProjectsPeopleCounterReports(
@@ -5797,7 +5680,7 @@ export async function Customer_FindByIdProjectsPeopleCounterReports(
   });
 }
 /**
- * Suprimir un elemento relacionado por id para peopleCounterReports.
+ * Delete a related item by id for peopleCounterReports.
  * /Customers/:id/projects/:nk/peopleCounterReports/:fk
  */
 export async function Customer_DestroyByIdProjectsPeopleCounterReports(
@@ -5816,7 +5699,7 @@ export async function Customer_DestroyByIdProjectsPeopleCounterReports(
   });
 }
 /**
- * Actualizar un elemento relacionado por id para peopleCounterReports.
+ * Update a related item by id for peopleCounterReports.
  * /Customers/:id/projects/:nk/peopleCounterReports/:fk
  */
 export async function Customer_UpdateByIdProjectsPeopleCounterReports(
@@ -5837,7 +5720,7 @@ export async function Customer_UpdateByIdProjectsPeopleCounterReports(
   });
 }
 /**
- * Buscar un elemento relacionado por id para tags.
+ * Find a related item by id for tags.
  * /Customers/:id/projects/:nk/tags/:fk
  */
 export async function Customer_FindByIdProjectsTags(
@@ -5856,7 +5739,7 @@ export async function Customer_FindByIdProjectsTags(
   });
 }
 /**
- * Añadir un elemento relacionado por id para tags.
+ * Add a related item by id for tags.
  * /Customers/:id/projects/:nk/tags/rel/:fk
  */
 export async function Customer_LinkProjectsTags(
@@ -5872,11 +5755,10 @@ export async function Customer_LinkProjectsTags(
       nk,
       fk,
     },
-    body: {},
   });
 }
 /**
- * Eliminar la relación tags con un elemento por id.
+ * Remove the tags relation to an item by id.
  * /Customers/:id/projects/:nk/tags/rel/:fk
  */
 export async function Customer_UnlinkProjectsTags(
@@ -5895,7 +5777,7 @@ export async function Customer_UnlinkProjectsTags(
   });
 }
 /**
- * Buscar un elemento relacionado por id para reports.
+ * Find a related item by id for reports.
  * /Customers/:id/projects/:nk/reports/:fk
  */
 export async function Customer_FindByIdProjectsReports(
@@ -5914,7 +5796,7 @@ export async function Customer_FindByIdProjectsReports(
   });
 }
 /**
- * Suprimir un elemento relacionado por id para reports.
+ * Delete a related item by id for reports.
  * /Customers/:id/projects/:nk/reports/:fk
  */
 export async function Customer_DestroyByIdProjectsReports(
@@ -5933,7 +5815,7 @@ export async function Customer_DestroyByIdProjectsReports(
   });
 }
 /**
- * Actualizar un elemento relacionado por id para reports.
+ * Update a related item by id for reports.
  * /Customers/:id/projects/:nk/reports/:fk
  */
 export async function Customer_UpdateByIdProjectsReports(
@@ -5954,7 +5836,7 @@ export async function Customer_UpdateByIdProjectsReports(
   });
 }
 /**
- * Buscar un elemento relacionado por id para allowedSensorTypes.
+ * Find a related item by id for allowedSensorTypes.
  * /Customers/:id/projects/:nk/allowedSensorTypes/:fk
  */
 export async function Customer_FindByIdProjectsAllowedSensorTypes(
@@ -5973,7 +5855,7 @@ export async function Customer_FindByIdProjectsAllowedSensorTypes(
   });
 }
 /**
- * Añadir un elemento relacionado por id para allowedSensorTypes.
+ * Add a related item by id for allowedSensorTypes.
  * /Customers/:id/projects/:nk/allowedSensorTypes/rel/:fk
  */
 export async function Customer_LinkProjectsAllowedSensorTypes(
@@ -5994,7 +5876,7 @@ export async function Customer_LinkProjectsAllowedSensorTypes(
   });
 }
 /**
- * Eliminar la relación allowedSensorTypes con un elemento por id.
+ * Remove the allowedSensorTypes relation to an item by id.
  * /Customers/:id/projects/:nk/allowedSensorTypes/rel/:fk
  */
 export async function Customer_UnlinkProjectsAllowedSensorTypes(
@@ -6013,7 +5895,7 @@ export async function Customer_UnlinkProjectsAllowedSensorTypes(
   });
 }
 /**
- * Buscar un elemento relacionado por id para storeVideoAnalyticDashboards.
+ * Find a related item by id for storeVideoAnalyticDashboards.
  * /Customers/:id/projects/:nk/storeVideoAnalyticDashboards/:fk
  */
 export async function Customer_FindByIdProjectsStoreVideoAnalyticDashboards(
@@ -6032,7 +5914,7 @@ export async function Customer_FindByIdProjectsStoreVideoAnalyticDashboards(
   });
 }
 /**
- * Suprimir un elemento relacionado por id para storeVideoAnalyticDashboards.
+ * Delete a related item by id for storeVideoAnalyticDashboards.
  * /Customers/:id/projects/:nk/storeVideoAnalyticDashboards/:fk
  */
 export async function Customer_DestroyByIdProjectsStoreVideoAnalyticDashboards(
@@ -6051,7 +5933,7 @@ export async function Customer_DestroyByIdProjectsStoreVideoAnalyticDashboards(
   });
 }
 /**
- * Actualizar un elemento relacionado por id para storeVideoAnalyticDashboards.
+ * Update a related item by id for storeVideoAnalyticDashboards.
  * /Customers/:id/projects/:nk/storeVideoAnalyticDashboards/:fk
  */
 export async function Customer_UpdateByIdProjectsStoreVideoAnalyticDashboards(
@@ -6072,7 +5954,7 @@ export async function Customer_UpdateByIdProjectsStoreVideoAnalyticDashboards(
   });
 }
 /**
- * Buscar un elemento relacionado por id para storylines.
+ * Find a related item by id for storylines.
  * /Customers/:id/projects/:nk/storylines/:fk
  */
 export async function Customer_FindByIdProjectsStorylines(
@@ -6091,7 +5973,7 @@ export async function Customer_FindByIdProjectsStorylines(
   });
 }
 /**
- * Suprimir un elemento relacionado por id para storylines.
+ * Delete a related item by id for storylines.
  * /Customers/:id/projects/:nk/storylines/:fk
  */
 export async function Customer_DestroyByIdProjectsStorylines(
@@ -6110,7 +5992,7 @@ export async function Customer_DestroyByIdProjectsStorylines(
   });
 }
 /**
- * Actualizar un elemento relacionado por id para storylines.
+ * Update a related item by id for storylines.
  * /Customers/:id/projects/:nk/storylines/:fk
  */
 export async function Customer_UpdateByIdProjectsStorylines(
@@ -6131,7 +6013,7 @@ export async function Customer_UpdateByIdProjectsStorylines(
   });
 }
 /**
- * Buscar un elemento relacionado por id para adminTools.
+ * Find a related item by id for adminTools.
  * /Customers/:id/projects/:nk/adminTools/:fk
  */
 export async function Customer_FindByIdProjectsAdminTools(
@@ -6150,7 +6032,7 @@ export async function Customer_FindByIdProjectsAdminTools(
   });
 }
 /**
- * Añadir un elemento relacionado por id para adminTools.
+ * Add a related item by id for adminTools.
  * /Customers/:id/projects/:nk/adminTools/rel/:fk
  */
 export async function Customer_LinkProjectsAdminTools(
@@ -6166,11 +6048,10 @@ export async function Customer_LinkProjectsAdminTools(
       nk,
       fk,
     },
-    body: {},
   });
 }
 /**
- * Eliminar la relación adminTools con un elemento por id.
+ * Remove the adminTools relation to an item by id.
  * /Customers/:id/projects/:nk/adminTools/rel/:fk
  */
 export async function Customer_UnlinkProjectsAdminTools(
@@ -6189,7 +6070,7 @@ export async function Customer_UnlinkProjectsAdminTools(
   });
 }
 /**
- * Buscar un elemento relacionado por id para tools.
+ * Find a related item by id for tools.
  * /Customers/:id/projects/:nk/tools/:fk
  */
 export async function Customer_FindByIdProjectsTools(
@@ -6208,7 +6089,7 @@ export async function Customer_FindByIdProjectsTools(
   });
 }
 /**
- * Añadir un elemento relacionado por id para tools.
+ * Add a related item by id for tools.
  * /Customers/:id/projects/:nk/tools/rel/:fk
  */
 export async function Customer_LinkProjectsTools(
@@ -6224,11 +6105,10 @@ export async function Customer_LinkProjectsTools(
       nk,
       fk,
     },
-    body: {},
   });
 }
 /**
- * Eliminar la relación tools con un elemento por id.
+ * Remove the tools relation to an item by id.
  * /Customers/:id/projects/:nk/tools/rel/:fk
  */
 export async function Customer_UnlinkProjectsTools(
@@ -6247,7 +6127,7 @@ export async function Customer_UnlinkProjectsTools(
   });
 }
 /**
- * Buscar un elemento relacionado por id para trafficFlowAnalysis.
+ * Find a related item by id for trafficFlowAnalysis.
  * /Customers/:id/projects/:nk/trafficFlowAnalysis/:fk
  */
 export async function Customer_FindByIdProjectsTrafficFlowAnalysis(
@@ -6266,7 +6146,7 @@ export async function Customer_FindByIdProjectsTrafficFlowAnalysis(
   });
 }
 /**
- * Suprimir un elemento relacionado por id para trafficFlowAnalysis.
+ * Delete a related item by id for trafficFlowAnalysis.
  * /Customers/:id/projects/:nk/trafficFlowAnalysis/:fk
  */
 export async function Customer_DestroyByIdProjectsTrafficFlowAnalysis(
@@ -6285,7 +6165,7 @@ export async function Customer_DestroyByIdProjectsTrafficFlowAnalysis(
   });
 }
 /**
- * Actualizar un elemento relacionado por id para trafficFlowAnalysis.
+ * Update a related item by id for trafficFlowAnalysis.
  * /Customers/:id/projects/:nk/trafficFlowAnalysis/:fk
  */
 export async function Customer_UpdateByIdProjectsTrafficFlowAnalysis(
@@ -6306,7 +6186,7 @@ export async function Customer_UpdateByIdProjectsTrafficFlowAnalysis(
   });
 }
 /**
- * Buscar un elemento relacionado por id para virtualExpressions.
+ * Find a related item by id for virtualExpressions.
  * /Customers/:id/projects/:nk/virtualExpressions/:fk
  */
 export async function Customer_FindByIdProjectsVirtualExpressions(
@@ -6325,7 +6205,7 @@ export async function Customer_FindByIdProjectsVirtualExpressions(
   });
 }
 /**
- * Buscar un elemento relacionado por id para virtualGroups.
+ * Find a related item by id for virtualGroups.
  * /Customers/:id/projects/:nk/virtualGroups/:fk
  */
 export async function Customer_FindByIdProjectsVirtualGroups(
@@ -6344,7 +6224,7 @@ export async function Customer_FindByIdProjectsVirtualGroups(
   });
 }
 /**
- * Suprimir un elemento relacionado por id para virtualGroups.
+ * Delete a related item by id for virtualGroups.
  * /Customers/:id/projects/:nk/virtualGroups/:fk
  */
 export async function Customer_DestroyByIdProjectsVirtualGroups(
@@ -6363,7 +6243,7 @@ export async function Customer_DestroyByIdProjectsVirtualGroups(
   });
 }
 /**
- * Actualizar un elemento relacionado por id para virtualGroups.
+ * Update a related item by id for virtualGroups.
  * /Customers/:id/projects/:nk/virtualGroups/:fk
  */
 export async function Customer_UpdateByIdProjectsVirtualGroups(
@@ -6384,7 +6264,7 @@ export async function Customer_UpdateByIdProjectsVirtualGroups(
   });
 }
 /**
- * Buscar un elemento relacionado por id para virtualVariables.
+ * Find a related item by id for virtualVariables.
  * /Customers/:id/projects/:nk/virtualVariables/:fk
  */
 export async function Customer_FindByIdProjectsVirtualVariables(
@@ -6403,7 +6283,7 @@ export async function Customer_FindByIdProjectsVirtualVariables(
   });
 }
 /**
- * Buscar un elemento relacionado por id para yoloClasses.
+ * Find a related item by id for yoloClasses.
  * /Customers/:id/projects/:nk/yoloClasses/:fk
  */
 export async function Customer_FindByIdProjectsYoloClasses(
@@ -6422,7 +6302,7 @@ export async function Customer_FindByIdProjectsYoloClasses(
   });
 }
 /**
- * Añadir un elemento relacionado por id para yoloClasses.
+ * Add a related item by id for yoloClasses.
  * /Customers/:id/projects/:nk/yoloClasses/rel/:fk
  */
 export async function Customer_LinkProjectsYoloClasses(
@@ -6443,7 +6323,7 @@ export async function Customer_LinkProjectsYoloClasses(
   });
 }
 /**
- * Eliminar la relación yoloClasses con un elemento por id.
+ * Remove the yoloClasses relation to an item by id.
  * /Customers/:id/projects/:nk/yoloClasses/rel/:fk
  */
 export async function Customer_UnlinkProjectsYoloClasses(
@@ -6462,7 +6342,7 @@ export async function Customer_UnlinkProjectsYoloClasses(
   });
 }
 /**
- * assets consultas de Project.
+ * Queries assets of Project.
  * /Customers/:id/projects/:nk/assets
  */
 export async function Customer_GetProjectsAssets(
@@ -6486,7 +6366,7 @@ export async function Customer_GetProjectsAssets(
   });
 }
 /**
- * Crea una nueva instancia en assets de este modelo.
+ * Creates a new instance in assets of this model.
  * /Customers/:id/projects/:nk/assets
  */
 export async function Customer_CreateProjectsAssets(
@@ -6505,7 +6385,7 @@ export async function Customer_CreateProjectsAssets(
   });
 }
 /**
- * Recuentos assets de Project.
+ * Counts assets of Project.
  * /Customers/:id/projects/:nk/assets/count
  */
 export async function Customer_CountProjectsAssets(
@@ -6529,7 +6409,7 @@ export async function Customer_CountProjectsAssets(
   });
 }
 /**
- * assetTemplates consultas de Project.
+ * Queries assetTemplates of Project.
  * /Customers/:id/projects/:nk/assetTemplates
  */
 export async function Customer_GetProjectsAssetTemplates(
@@ -6553,7 +6433,7 @@ export async function Customer_GetProjectsAssetTemplates(
   });
 }
 /**
- * Crea una nueva instancia en assetTemplates de este modelo.
+ * Creates a new instance in assetTemplates of this model.
  * /Customers/:id/projects/:nk/assetTemplates
  */
 export async function Customer_CreateProjectsAssetTemplates(
@@ -6572,7 +6452,7 @@ export async function Customer_CreateProjectsAssetTemplates(
   });
 }
 /**
- * Recuentos assetTemplates de Project.
+ * Counts assetTemplates of Project.
  * /Customers/:id/projects/:nk/assetTemplates/count
  */
 export async function Customer_CountProjectsAssetTemplates(
@@ -6596,7 +6476,7 @@ export async function Customer_CountProjectsAssetTemplates(
   });
 }
 /**
- * countReports consultas de Project.
+ * Queries countReports of Project.
  * /Customers/:id/projects/:nk/countReports
  */
 export async function Customer_GetProjectsCountReports(
@@ -6620,7 +6500,7 @@ export async function Customer_GetProjectsCountReports(
   });
 }
 /**
- * Crea una nueva instancia en countReports de este modelo.
+ * Creates a new instance in countReports of this model.
  * /Customers/:id/projects/:nk/countReports
  */
 export async function Customer_CreateProjectsCountReports(
@@ -6639,7 +6519,7 @@ export async function Customer_CreateProjectsCountReports(
   });
 }
 /**
- * Recuentos countReports de Project.
+ * Counts countReports of Project.
  * /Customers/:id/projects/:nk/countReports/count
  */
 export async function Customer_CountProjectsCountReports(
@@ -6663,7 +6543,7 @@ export async function Customer_CountProjectsCountReports(
   });
 }
 /**
- * healthcheckEvents consultas de Project.
+ * Queries healthcheckEvents of Project.
  * /Customers/:id/projects/:nk/healthcheckEvents
  */
 export async function Customer_GetProjectsHealthcheckEvents(
@@ -6687,7 +6567,7 @@ export async function Customer_GetProjectsHealthcheckEvents(
   });
 }
 /**
- * Recuentos healthcheckEvents de Project.
+ * Counts healthcheckEvents of Project.
  * /Customers/:id/projects/:nk/healthcheckEvents/count
  */
 export async function Customer_CountProjectsHealthcheckEvents(
@@ -6711,7 +6591,7 @@ export async function Customer_CountProjectsHealthcheckEvents(
   });
 }
 /**
- * cctvDashboards consultas de Project.
+ * Queries cctvDashboards of Project.
  * /Customers/:id/projects/:nk/cctvDashboards
  */
 export async function Customer_GetProjectsCctvDashboards(
@@ -6754,7 +6634,7 @@ export async function Customer_CreateProjectsCctvDashboards(
   });
 }
 /**
- * Recuentos cctvDashboards de Project.
+ * Counts cctvDashboards of Project.
  * /Customers/:id/projects/:nk/cctvDashboards/count
  */
 export async function Customer_CountProjectsCctvDashboards(
@@ -6778,7 +6658,7 @@ export async function Customer_CountProjectsCctvDashboards(
   });
 }
 /**
- * eventDashboards consultas de Project.
+ * Queries eventDashboards of Project.
  * /Customers/:id/projects/:nk/eventDashboards
  */
 export async function Customer_GetProjectsEventDashboards(
@@ -6802,7 +6682,7 @@ export async function Customer_GetProjectsEventDashboards(
   });
 }
 /**
- * Crea una nueva instancia en eventDashboards de este modelo.
+ * Creates a new instance in eventDashboards of this model.
  * /Customers/:id/projects/:nk/eventDashboards
  */
 export async function Customer_CreateProjectsEventDashboards(
@@ -6821,7 +6701,7 @@ export async function Customer_CreateProjectsEventDashboards(
   });
 }
 /**
- * Recuentos eventDashboards de Project.
+ * Counts eventDashboards of Project.
  * /Customers/:id/projects/:nk/eventDashboards/count
  */
 export async function Customer_CountProjectsEventDashboards(
@@ -6845,7 +6725,7 @@ export async function Customer_CountProjectsEventDashboards(
   });
 }
 /**
- * eventSummaryForProjects consultas de Project.
+ * Queries eventSummaryForProjects of Project.
  * /Customers/:id/projects/:nk/eventSummaryForProjects
  */
 export async function Customer_GetProjectsEventSummaryForProjects(
@@ -6869,7 +6749,7 @@ export async function Customer_GetProjectsEventSummaryForProjects(
   });
 }
 /**
- * Recuentos eventSummaryForProjects de Project.
+ * Counts eventSummaryForProjects of Project.
  * /Customers/:id/projects/:nk/eventSummaryForProjects/count
  */
 export async function Customer_CountProjectsEventSummaryForProjects(
@@ -6893,7 +6773,7 @@ export async function Customer_CountProjectsEventSummaryForProjects(
   });
 }
 /**
- * embeddedReports consultas de Project.
+ * Queries embeddedReports of Project.
  * /Customers/:id/projects/:nk/embeddedReports
  */
 export async function Customer_GetProjectsEmbeddedReports(
@@ -6917,7 +6797,7 @@ export async function Customer_GetProjectsEmbeddedReports(
   });
 }
 /**
- * Crea una nueva instancia en embeddedReports de este modelo.
+ * Creates a new instance in embeddedReports of this model.
  * /Customers/:id/projects/:nk/embeddedReports
  */
 export async function Customer_CreateProjectsEmbeddedReports(
@@ -6936,7 +6816,7 @@ export async function Customer_CreateProjectsEmbeddedReports(
   });
 }
 /**
- * Recuentos embeddedReports de Project.
+ * Counts embeddedReports of Project.
  * /Customers/:id/projects/:nk/embeddedReports/count
  */
 export async function Customer_CountProjectsEmbeddedReports(
@@ -6960,7 +6840,7 @@ export async function Customer_CountProjectsEmbeddedReports(
   });
 }
 /**
- * biPanels consultas de Project.
+ * Queries biPanels of Project.
  * /Customers/:id/projects/:nk/biPanels
  */
 export async function Customer_GetProjectsBiPanels(
@@ -6984,7 +6864,7 @@ export async function Customer_GetProjectsBiPanels(
   });
 }
 /**
- * Crea una nueva instancia en biPanels de este modelo.
+ * Creates a new instance in biPanels of this model.
  * /Customers/:id/projects/:nk/biPanels
  */
 export async function Customer_CreateProjectsBiPanels(
@@ -7003,7 +6883,7 @@ export async function Customer_CreateProjectsBiPanels(
   });
 }
 /**
- * Recuentos biPanels de Project.
+ * Counts biPanels of Project.
  * /Customers/:id/projects/:nk/biPanels/count
  */
 export async function Customer_CountProjectsBiPanels(
@@ -7027,7 +6907,7 @@ export async function Customer_CountProjectsBiPanels(
   });
 }
 /**
- * peopleCounterReports consultas de Project.
+ * Queries peopleCounterReports of Project.
  * /Customers/:id/projects/:nk/peopleCounterReports
  */
 export async function Customer_GetProjectsPeopleCounterReports(
@@ -7051,7 +6931,7 @@ export async function Customer_GetProjectsPeopleCounterReports(
   });
 }
 /**
- * Crea una nueva instancia en peopleCounterReports de este modelo.
+ * Creates a new instance in peopleCounterReports of this model.
  * /Customers/:id/projects/:nk/peopleCounterReports
  */
 export async function Customer_CreateProjectsPeopleCounterReports(
@@ -7070,7 +6950,7 @@ export async function Customer_CreateProjectsPeopleCounterReports(
   });
 }
 /**
- * Recuentos peopleCounterReports de Project.
+ * Counts peopleCounterReports of Project.
  * /Customers/:id/projects/:nk/peopleCounterReports/count
  */
 export async function Customer_CountProjectsPeopleCounterReports(
@@ -7094,7 +6974,7 @@ export async function Customer_CountProjectsPeopleCounterReports(
   });
 }
 /**
- * tags consultas de Project.
+ * Queries tags of Project.
  * /Customers/:id/projects/:nk/tags
  */
 export async function Customer_GetProjectsTags(
@@ -7118,7 +6998,7 @@ export async function Customer_GetProjectsTags(
   });
 }
 /**
- * Recuentos tags de Project.
+ * Counts tags of Project.
  * /Customers/:id/projects/:nk/tags/count
  */
 export async function Customer_CountProjectsTags(
@@ -7142,7 +7022,7 @@ export async function Customer_CountProjectsTags(
   });
 }
 /**
- * reports consultas de Project.
+ * Queries reports of Project.
  * /Customers/:id/projects/:nk/reports
  */
 export async function Customer_GetProjectsReports(
@@ -7166,7 +7046,7 @@ export async function Customer_GetProjectsReports(
   });
 }
 /**
- * Crea una nueva instancia en reports de este modelo.
+ * Creates a new instance in reports of this model.
  * /Customers/:id/projects/:nk/reports
  */
 export async function Customer_CreateProjectsReports(
@@ -7185,7 +7065,7 @@ export async function Customer_CreateProjectsReports(
   });
 }
 /**
- * Recuentos reports de Project.
+ * Counts reports of Project.
  * /Customers/:id/projects/:nk/reports/count
  */
 export async function Customer_CountProjectsReports(
@@ -7209,7 +7089,7 @@ export async function Customer_CountProjectsReports(
   });
 }
 /**
- * allowedSensorTypes consultas de Project.
+ * Queries allowedSensorTypes of Project.
  * /Customers/:id/projects/:nk/allowedSensorTypes
  */
 export async function Customer_GetProjectsAllowedSensorTypes(
@@ -7233,7 +7113,7 @@ export async function Customer_GetProjectsAllowedSensorTypes(
   });
 }
 /**
- * Recuentos allowedSensorTypes de Project.
+ * Counts allowedSensorTypes of Project.
  * /Customers/:id/projects/:nk/allowedSensorTypes/count
  */
 export async function Customer_CountProjectsAllowedSensorTypes(
@@ -7257,7 +7137,7 @@ export async function Customer_CountProjectsAllowedSensorTypes(
   });
 }
 /**
- * storeVideoAnalyticDashboards consultas de Project.
+ * Queries storeVideoAnalyticDashboards of Project.
  * /Customers/:id/projects/:nk/storeVideoAnalyticDashboards
  */
 export async function Customer_GetProjectsStoreVideoAnalyticDashboards(
@@ -7281,7 +7161,7 @@ export async function Customer_GetProjectsStoreVideoAnalyticDashboards(
   });
 }
 /**
- * Crea una nueva instancia en storeVideoAnalyticDashboards de este modelo.
+ * Creates a new instance in storeVideoAnalyticDashboards of this model.
  * /Customers/:id/projects/:nk/storeVideoAnalyticDashboards
  */
 export async function Customer_CreateProjectsStoreVideoAnalyticDashboards(
@@ -7300,7 +7180,7 @@ export async function Customer_CreateProjectsStoreVideoAnalyticDashboards(
   });
 }
 /**
- * Recuentos storeVideoAnalyticDashboards de Project.
+ * Counts storeVideoAnalyticDashboards of Project.
  * /Customers/:id/projects/:nk/storeVideoAnalyticDashboards/count
  */
 export async function Customer_CountProjectsStoreVideoAnalyticDashboards(
@@ -7324,7 +7204,7 @@ export async function Customer_CountProjectsStoreVideoAnalyticDashboards(
   });
 }
 /**
- * storylines consultas de Project.
+ * Queries storylines of Project.
  * /Customers/:id/projects/:nk/storylines
  */
 export async function Customer_GetProjectsStorylines(
@@ -7348,7 +7228,7 @@ export async function Customer_GetProjectsStorylines(
   });
 }
 /**
- * Crea una nueva instancia en storylines de este modelo.
+ * Creates a new instance in storylines of this model.
  * /Customers/:id/projects/:nk/storylines
  */
 export async function Customer_CreateProjectsStorylines(
@@ -7367,7 +7247,7 @@ export async function Customer_CreateProjectsStorylines(
   });
 }
 /**
- * Recuentos storylines de Project.
+ * Counts storylines of Project.
  * /Customers/:id/projects/:nk/storylines/count
  */
 export async function Customer_CountProjectsStorylines(
@@ -7391,7 +7271,7 @@ export async function Customer_CountProjectsStorylines(
   });
 }
 /**
- * adminTools consultas de Project.
+ * Queries adminTools of Project.
  * /Customers/:id/projects/:nk/adminTools
  */
 export async function Customer_GetProjectsAdminTools(
@@ -7415,7 +7295,7 @@ export async function Customer_GetProjectsAdminTools(
   });
 }
 /**
- * Recuentos adminTools de Project.
+ * Counts adminTools of Project.
  * /Customers/:id/projects/:nk/adminTools/count
  */
 export async function Customer_CountProjectsAdminTools(
@@ -7439,7 +7319,7 @@ export async function Customer_CountProjectsAdminTools(
   });
 }
 /**
- * tools consultas de Project.
+ * Queries tools of Project.
  * /Customers/:id/projects/:nk/tools
  */
 export async function Customer_GetProjectsTools(
@@ -7463,7 +7343,7 @@ export async function Customer_GetProjectsTools(
   });
 }
 /**
- * Recuentos tools de Project.
+ * Counts tools of Project.
  * /Customers/:id/projects/:nk/tools/count
  */
 export async function Customer_CountProjectsTools(
@@ -7487,7 +7367,7 @@ export async function Customer_CountProjectsTools(
   });
 }
 /**
- * trafficFlowAnalysis consultas de Project.
+ * Queries trafficFlowAnalysis of Project.
  * /Customers/:id/projects/:nk/trafficFlowAnalysis
  */
 export async function Customer_GetProjectsTrafficFlowAnalysis(
@@ -7511,7 +7391,7 @@ export async function Customer_GetProjectsTrafficFlowAnalysis(
   });
 }
 /**
- * Crea una nueva instancia en trafficFlowAnalysis de este modelo.
+ * Creates a new instance in trafficFlowAnalysis of this model.
  * /Customers/:id/projects/:nk/trafficFlowAnalysis
  */
 export async function Customer_CreateProjectsTrafficFlowAnalysis(
@@ -7530,7 +7410,7 @@ export async function Customer_CreateProjectsTrafficFlowAnalysis(
   });
 }
 /**
- * Recuentos trafficFlowAnalysis de Project.
+ * Counts trafficFlowAnalysis of Project.
  * /Customers/:id/projects/:nk/trafficFlowAnalysis/count
  */
 export async function Customer_CountProjectsTrafficFlowAnalysis(
@@ -7554,7 +7434,7 @@ export async function Customer_CountProjectsTrafficFlowAnalysis(
   });
 }
 /**
- * virtualExpressions consultas de Project.
+ * Queries virtualExpressions of Project.
  * /Customers/:id/projects/:nk/virtualExpressions
  */
 export async function Customer_GetProjectsVirtualExpressions(
@@ -7578,7 +7458,7 @@ export async function Customer_GetProjectsVirtualExpressions(
   });
 }
 /**
- * Recuentos virtualExpressions de Project.
+ * Counts virtualExpressions of Project.
  * /Customers/:id/projects/:nk/virtualExpressions/count
  */
 export async function Customer_CountProjectsVirtualExpressions(
@@ -7602,7 +7482,7 @@ export async function Customer_CountProjectsVirtualExpressions(
   });
 }
 /**
- * virtualGroups consultas de Project.
+ * Queries virtualGroups of Project.
  * /Customers/:id/projects/:nk/virtualGroups
  */
 export async function Customer_GetProjectsVirtualGroups(
@@ -7626,7 +7506,7 @@ export async function Customer_GetProjectsVirtualGroups(
   });
 }
 /**
- * Crea una nueva instancia en virtualGroups de este modelo.
+ * Creates a new instance in virtualGroups of this model.
  * /Customers/:id/projects/:nk/virtualGroups
  */
 export async function Customer_CreateProjectsVirtualGroups(
@@ -7645,7 +7525,7 @@ export async function Customer_CreateProjectsVirtualGroups(
   });
 }
 /**
- * Recuentos virtualGroups de Project.
+ * Counts virtualGroups of Project.
  * /Customers/:id/projects/:nk/virtualGroups/count
  */
 export async function Customer_CountProjectsVirtualGroups(
@@ -7669,7 +7549,7 @@ export async function Customer_CountProjectsVirtualGroups(
   });
 }
 /**
- * virtualVariables consultas de Project.
+ * Queries virtualVariables of Project.
  * /Customers/:id/projects/:nk/virtualVariables
  */
 export async function Customer_GetProjectsVirtualVariables(
@@ -7693,7 +7573,7 @@ export async function Customer_GetProjectsVirtualVariables(
   });
 }
 /**
- * Recuentos virtualVariables de Project.
+ * Counts virtualVariables of Project.
  * /Customers/:id/projects/:nk/virtualVariables/count
  */
 export async function Customer_CountProjectsVirtualVariables(
@@ -7717,7 +7597,7 @@ export async function Customer_CountProjectsVirtualVariables(
   });
 }
 /**
- * yoloClasses consultas de Project.
+ * Queries yoloClasses of Project.
  * /Customers/:id/projects/:nk/yoloClasses
  */
 export async function Customer_GetProjectsYoloClasses(
@@ -7741,7 +7621,7 @@ export async function Customer_GetProjectsYoloClasses(
   });
 }
 /**
- * Recuentos yoloClasses de Project.
+ * Counts yoloClasses of Project.
  * /Customers/:id/projects/:nk/yoloClasses/count
  */
 export async function Customer_CountProjectsYoloClasses(
@@ -7779,7 +7659,6 @@ export async function Customer_CreateProjectsTelegram(
       id,
       nk,
     },
-    body: {},
   });
 }
 /**
@@ -8040,7 +7919,7 @@ export async function Customer_EvaluateProjectsVirtualExpressions(
   });
 }
 /**
- * Buscar un elemento relacionado por id para edgeAgents.
+ * Find a related item by id for edgeAgents.
  * /Customers/:id/devices/:nk/edgeAgents/:fk
  */
 export async function Customer_FindByIdDevicesEdgeAgents(
@@ -8059,7 +7938,7 @@ export async function Customer_FindByIdDevicesEdgeAgents(
   });
 }
 /**
- * Suprimir un elemento relacionado por id para edgeAgents.
+ * Delete a related item by id for edgeAgents.
  * /Customers/:id/devices/:nk/edgeAgents/:fk
  */
 export async function Customer_DestroyByIdDevicesEdgeAgents(
@@ -8099,7 +7978,7 @@ export async function Customer_UpdateByIdDevicesEdgeAgents(
   });
 }
 /**
- * edgeAgents consultas de Device.
+ * Queries edgeAgents of Device.
  * /Customers/:id/devices/:nk/edgeAgents
  */
 export async function Customer_GetDevicesEdgeAgents(
@@ -8123,7 +8002,7 @@ export async function Customer_GetDevicesEdgeAgents(
   });
 }
 /**
- * Crea una nueva instancia en edgeAgents de este modelo.
+ * Creates a new instance in edgeAgents of this model.
  * /Customers/:id/devices/:nk/edgeAgents
  */
 export async function Customer_CreateDevicesEdgeAgents(
@@ -8142,7 +8021,7 @@ export async function Customer_CreateDevicesEdgeAgents(
   });
 }
 /**
- * Recuentos edgeAgents de Device.
+ * Counts edgeAgents of Device.
  * /Customers/:id/devices/:nk/edgeAgents/count
  */
 export async function Customer_CountDevicesEdgeAgents(
@@ -8166,7 +8045,7 @@ export async function Customer_CountDevicesEdgeAgents(
   });
 }
 /**
- * Añadir un elemento relacionado por id para assets.
+ * Add a related item by id for assets.
  * /Customers/:id/storylines/:nk/assets/rel/:fk
  */
 export async function Customer_LinkStorylinesAssets(
@@ -8182,11 +8061,10 @@ export async function Customer_LinkStorylinesAssets(
       nk,
       fk,
     },
-    body: {},
   });
 }
 /**
- * Eliminar la relación assets con un elemento por id.
+ * Remove the assets relation to an item by id.
  * /Customers/:id/storylines/:nk/assets/rel/:fk
  */
 export async function Customer_UnlinkStorylinesAssets(
@@ -8205,7 +8083,7 @@ export async function Customer_UnlinkStorylinesAssets(
   });
 }
 /**
- * Suprimir un elemento relacionado por id para storypoints.
+ * Delete a related item by id for storypoints.
  * /Customers/:id/storylines/:nk/storypoints/:fk
  */
 export async function Customer_DestroyByIdStorylinesStorypoints(
@@ -8224,7 +8102,7 @@ export async function Customer_DestroyByIdStorylinesStorypoints(
   });
 }
 /**
- * Actualizar un elemento relacionado por id para storypoints.
+ * Update a related item by id for storypoints.
  * /Customers/:id/storylines/:nk/storypoints/:fk
  */
 export async function Customer_UpdateByIdStorylinesStorypoints(
@@ -8245,7 +8123,7 @@ export async function Customer_UpdateByIdStorylinesStorypoints(
   });
 }
 /**
- * storypoints consultas de Storyline.
+ * Queries storypoints of Storyline.
  * /Customers/:id/storylines/:nk/storypoints
  */
 export async function Customer_GetStorylinesStorypoints(
@@ -8269,7 +8147,7 @@ export async function Customer_GetStorylinesStorypoints(
   });
 }
 /**
- * Crea una nueva instancia en storypoints de este modelo.
+ * Creates a new instance in storypoints of this model.
  * /Customers/:id/storylines/:nk/storypoints
  */
 export async function Customer_CreateStorylinesStorypoints(
@@ -8288,7 +8166,7 @@ export async function Customer_CreateStorylinesStorypoints(
   });
 }
 /**
- * Suprimir un elemento relacionado por id para sections.
+ * Delete a related item by id for sections.
  * /Customers/:id/countReports/:nk/sections/:fk
  */
 export async function Customer_DestroyByIdCountReportsSections(
@@ -8307,7 +8185,7 @@ export async function Customer_DestroyByIdCountReportsSections(
   });
 }
 /**
- * Actualizar un elemento relacionado por id para sections.
+ * Update a related item by id for sections.
  * /Customers/:id/countReports/:nk/sections/:fk
  */
 export async function Customer_UpdateByIdCountReportsSections(
@@ -8328,7 +8206,7 @@ export async function Customer_UpdateByIdCountReportsSections(
   });
 }
 /**
- * sections consultas de CountReport.
+ * Queries sections of CountReport.
  * /Customers/:id/countReports/:nk/sections
  */
 export async function Customer_GetCountReportsSections(
@@ -8352,7 +8230,7 @@ export async function Customer_GetCountReportsSections(
   });
 }
 /**
- * Crea una nueva instancia en sections de este modelo.
+ * Creates a new instance in sections of this model.
  * /Customers/:id/countReports/:nk/sections
  */
 export async function Customer_CreateCountReportsSections(

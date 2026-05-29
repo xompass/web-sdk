@@ -1,6 +1,7 @@
 import { AssetStateTemplate } from './AssetStateTemplate';
 import { AssetTemplate } from './AssetTemplate';
 import { EventGroupTemplate } from './EventGroupTemplate';
+import { EventSubject } from './EventSubject';
 import { EventTriggerAssetStateTemplate } from './EventTriggerAssetStateTemplate';
 import { EventTriggerRuleTemplate } from './EventTriggerRuleTemplate';
 import { Log } from './Log';
@@ -20,9 +21,11 @@ export type EventTriggerTemplate = {
   modified?: Date;
   deleted?: Date;
   id?: string;
+  subjectTypeId?: string;
   assetTemplateId?: string;
   eventGroupTemplateId?: string;
   _ruleTemplates?: EventTriggerRuleTemplate[];
+  subjectType?: EventSubject;
   assetTemplate?: AssetTemplate;
   eventGroupTemplate?: EventGroupTemplate;
   assetStateTemplates?: AssetStateTemplate[];

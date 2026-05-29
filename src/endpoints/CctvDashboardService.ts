@@ -7,7 +7,7 @@ import { Manager } from '../models/Manager';
  */
 
 /**
- * Buscar un elemento relacionado por id para assets.
+ * Find a related item by id for assets.
  * /CctvDashboards/:id/assets/:fk
  */
 export async function CctvDashboard_FindByIdAssets(
@@ -24,7 +24,7 @@ export async function CctvDashboard_FindByIdAssets(
   });
 }
 /**
- * Añadir un elemento relacionado por id para assets.
+ * Add a related item by id for assets.
  * /CctvDashboards/:id/assets/rel/:fk
  */
 export async function CctvDashboard_LinkAssets(
@@ -38,11 +38,10 @@ export async function CctvDashboard_LinkAssets(
       id,
       fk,
     },
-    body: {},
   });
 }
 /**
- * Eliminar la relación assets con un elemento por id.
+ * Remove the assets relation to an item by id.
  * /CctvDashboards/:id/assets/rel/:fk
  */
 export async function CctvDashboard_UnlinkAssets(
@@ -59,7 +58,7 @@ export async function CctvDashboard_UnlinkAssets(
   });
 }
 /**
- * Comprobar la existencia de la relación assets con un elemento por id.
+ * Check the existence of assets relation to an item by id.
  * /CctvDashboards/:id/assets/rel/:fk
  */
 export async function CctvDashboard_ExistsAssets(
@@ -76,7 +75,7 @@ export async function CctvDashboard_ExistsAssets(
   });
 }
 /**
- * Buscar un elemento relacionado por id para managers.
+ * Find a related item by id for managers.
  * /CctvDashboards/:id/managers/:fk
  */
 export async function CctvDashboard_FindByIdManagers(
@@ -93,7 +92,7 @@ export async function CctvDashboard_FindByIdManagers(
   });
 }
 /**
- * assets consultas de CctvDashboard.
+ * Queries assets of CctvDashboard.
  * /CctvDashboards/:id/assets
  */
 export async function CctvDashboard_GetAssets(
@@ -115,7 +114,7 @@ export async function CctvDashboard_GetAssets(
   });
 }
 /**
- * Recuentos assets de CctvDashboard.
+ * Counts assets of CctvDashboard.
  * /CctvDashboards/:id/assets/count
  */
 export async function CctvDashboard_CountAssets(
@@ -137,7 +136,7 @@ export async function CctvDashboard_CountAssets(
   });
 }
 /**
- * managers consultas de CctvDashboard.
+ * Queries managers of CctvDashboard.
  * /CctvDashboards/:id/managers
  */
 export async function CctvDashboard_GetManagers(
@@ -159,7 +158,7 @@ export async function CctvDashboard_GetManagers(
   });
 }
 /**
- * Recuentos managers de CctvDashboard.
+ * Counts managers of CctvDashboard.
  * /CctvDashboards/:id/managers/count
  */
 export async function CctvDashboard_CountManagers(

@@ -46,6 +46,8 @@ export type Sensor = {
   type: SensorTypeLabel;
   name?: string;
   description?: string;
+  customerId?: string;
+  projectId?: string;
   relativeId: string;
   enabled?: boolean;
   unit?: string;

@@ -6,7 +6,7 @@ import { Log } from '../models/Log';
  */
 
 /**
- * Buscar un elemento relacionado por id para trackingLogs.
+ * Find a related item by id for trackingLogs.
  * /HealthcheckEvents/:id/trackingLogs/:fk
  */
 export async function HealthcheckEvent_FindByIdTrackingLogs(
@@ -23,7 +23,7 @@ export async function HealthcheckEvent_FindByIdTrackingLogs(
   });
 }
 /**
- * trackingLogs consultas de HealthcheckEvent.
+ * Queries trackingLogs of HealthcheckEvent.
  * /HealthcheckEvents/:id/trackingLogs
  */
 export async function HealthcheckEvent_GetTrackingLogs(
@@ -45,7 +45,7 @@ export async function HealthcheckEvent_GetTrackingLogs(
   });
 }
 /**
- * Recuentos trackingLogs de HealthcheckEvent.
+ * Counts trackingLogs of HealthcheckEvent.
  * /HealthcheckEvents/:id/trackingLogs/count
  */
 export async function HealthcheckEvent_CountTrackingLogs(

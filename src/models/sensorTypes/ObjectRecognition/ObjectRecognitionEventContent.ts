@@ -90,6 +90,7 @@ export type ObjectRecognitionEventContent = {
       BLACKLIST?: boolean;
       PERSISTENCE?: boolean;
     };
+    trackId?: number;
   }[];
   filtered?: boolean;
 };

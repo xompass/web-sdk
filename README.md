@@ -1,3 +1,26 @@
+# Node.js usage
+
+`@xompass/web-sdk` now works in browsers and in Node.js without changing the existing browser API.
+
+- Browser: uses the existing global `localStorage`, `fetch` and `XMLHttpRequest`.
+- Node.js 18+: works with the global `fetch` and `FormData`, and falls back to in-memory storage when `localStorage` does not exist.
+- Older Node.js: inject your own runtime implementations with `configureWebSdkRuntime`.
+- Upload endpoints keep accepting browser `File`, and now also expose a Node-safe `UploadableFile` type for `Blob`, `Uint8Array` and `ArrayBuffer` inputs.
+
+```ts
+import {
+  ApiClient,
+  configureWebSdkRuntime,
+  createMemoryStorage,
+} from '@xompass/web-sdk';
+
+configureWebSdkRuntime({
+  storage: createMemoryStorage(),
+});
+
+const client = new ApiClient('https://api.example.com');
+```
+
 # How to publish a new version
 
 ## Prerequisites

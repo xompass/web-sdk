@@ -10,7 +10,7 @@ import { DeviceEventStateChange } from '../models/DeviceEventStateChange';
  */
 
 /**
- * Capta la relación hasOne config.
+ * Fetches hasOne relation config.
  * /Devices/:id/config
  */
 export async function Device_GetConfig(id: string): Promise<DeviceConfig> {
@@ -23,7 +23,7 @@ export async function Device_GetConfig(id: string): Promise<DeviceConfig> {
   });
 }
 /**
- * Crea una nueva instancia en config de este modelo.
+ * Creates a new instance in config of this model.
  * /Devices/:id/config
  */
 export async function Device_CreateConfig(
@@ -40,7 +40,7 @@ export async function Device_CreateConfig(
   });
 }
 /**
- * Actualizar config de este modelo.
+ * Update config of this model.
  * /Devices/:id/config
  */
 export async function Device_UpdateConfig(
@@ -57,7 +57,7 @@ export async function Device_UpdateConfig(
   });
 }
 /**
- * Buscar un elemento relacionado por id para events.
+ * Find a related item by id for events.
  * /Devices/:id/events/:fk
  */
 export async function Device_FindByIdEvents(
@@ -74,7 +74,7 @@ export async function Device_FindByIdEvents(
   });
 }
 /**
- * Actualizar un elemento relacionado por id para events.
+ * Update a related item by id for events.
  * /Devices/:id/events/:fk
  */
 export async function Device_UpdateByIdEvents(
@@ -93,7 +93,7 @@ export async function Device_UpdateByIdEvents(
   });
 }
 /**
- * Añadir un elemento relacionado por id para telegramChats.
+ * Add a related item by id for telegramChats.
  * /Devices/:id/telegramChats/rel/:fk
  */
 export async function Device_LinkTelegramChats(
@@ -112,7 +112,7 @@ export async function Device_LinkTelegramChats(
   });
 }
 /**
- * Eliminar la relación telegramChats con un elemento por id.
+ * Remove the telegramChats relation to an item by id.
  * /Devices/:id/telegramChats/rel/:fk
  */
 export async function Device_UnlinkTelegramChats(
@@ -129,7 +129,7 @@ export async function Device_UnlinkTelegramChats(
   });
 }
 /**
- * events consultas de Device.
+ * Queries events of Device.
  * /Devices/:id/events
  */
 export async function Device_GetEvents(
@@ -151,7 +151,7 @@ export async function Device_GetEvents(
   });
 }
 /**
- * Recuentos events de Device.
+ * Counts events of Device.
  * /Devices/:id/events/count
  */
 export async function Device_CountEvents(
@@ -183,7 +183,6 @@ export async function Device_cmdcRestart(id: string): Promise<any> {
     routeParams: {
       id,
     },
-    body: {},
   });
 }
 /**
@@ -201,11 +200,10 @@ export async function Device_cmdcRestartModule(
       id,
       name,
     },
-    body: {},
   });
 }
 /**
- * Buscar un elemento relacionado por id para comments.
+ * Find a related item by id for comments.
  * /Devices/:id/events/:nk/comments/:fk
  */
 export async function Device_FindByIdEventsComments(
@@ -224,7 +222,7 @@ export async function Device_FindByIdEventsComments(
   });
 }
 /**
- * Suprimir un elemento relacionado por id para comments.
+ * Delete a related item by id for comments.
  * /Devices/:id/events/:nk/comments/:fk
  */
 export async function Device_DestroyByIdEventsComments(
@@ -243,7 +241,7 @@ export async function Device_DestroyByIdEventsComments(
   });
 }
 /**
- * Actualizar un elemento relacionado por id para comments.
+ * Update a related item by id for comments.
  * /Devices/:id/events/:nk/comments/:fk
  */
 export async function Device_UpdateByIdEventsComments(
@@ -264,7 +262,7 @@ export async function Device_UpdateByIdEventsComments(
   });
 }
 /**
- * Buscar un elemento relacionado por id para data.
+ * Find a related item by id for data.
  * /Devices/:id/events/:nk/data/:fk
  */
 export async function Device_FindByIdEventsData(
@@ -283,7 +281,7 @@ export async function Device_FindByIdEventsData(
   });
 }
 /**
- * Buscar un elemento relacionado por id para stateChanges.
+ * Find a related item by id for stateChanges.
  * /Devices/:id/events/:nk/stateChanges/:fk
  */
 export async function Device_FindByIdEventsStateChanges(
@@ -302,7 +300,7 @@ export async function Device_FindByIdEventsStateChanges(
   });
 }
 /**
- * comments consultas de DeviceEvent.
+ * Queries comments of DeviceEvent.
  * /Devices/:id/events/:nk/comments
  */
 export async function Device_GetEventsComments(
@@ -326,7 +324,7 @@ export async function Device_GetEventsComments(
   });
 }
 /**
- * Crea una nueva instancia en comments de este modelo.
+ * Creates a new instance in comments of this model.
  * /Devices/:id/events/:nk/comments
  */
 export async function Device_CreateEventsComments(
@@ -345,7 +343,7 @@ export async function Device_CreateEventsComments(
   });
 }
 /**
- * Recuentos comments de DeviceEvent.
+ * Counts comments of DeviceEvent.
  * /Devices/:id/events/:nk/comments/count
  */
 export async function Device_CountEventsComments(
@@ -369,7 +367,7 @@ export async function Device_CountEventsComments(
   });
 }
 /**
- * data consultas de DeviceEvent.
+ * Queries data of DeviceEvent.
  * /Devices/:id/events/:nk/data
  */
 export async function Device_GetEventsData(
@@ -393,7 +391,7 @@ export async function Device_GetEventsData(
   });
 }
 /**
- * Recuentos data de DeviceEvent.
+ * Counts data of DeviceEvent.
  * /Devices/:id/events/:nk/data/count
  */
 export async function Device_CountEventsData(
@@ -417,7 +415,7 @@ export async function Device_CountEventsData(
   });
 }
 /**
- * stateChanges consultas de DeviceEvent.
+ * Queries stateChanges of DeviceEvent.
  * /Devices/:id/events/:nk/stateChanges
  */
 export async function Device_GetEventsStateChanges(
@@ -441,7 +439,7 @@ export async function Device_GetEventsStateChanges(
   });
 }
 /**
- * Crea una nueva instancia en stateChanges de este modelo.
+ * Creates a new instance in stateChanges of this model.
  * /Devices/:id/events/:nk/stateChanges
  */
 export async function Device_CreateEventsStateChanges(
@@ -460,7 +458,7 @@ export async function Device_CreateEventsStateChanges(
   });
 }
 /**
- * Recuentos stateChanges de DeviceEvent.
+ * Counts stateChanges of DeviceEvent.
  * /Devices/:id/events/:nk/stateChanges/count
  */
 export async function Device_CountEventsStateChanges(

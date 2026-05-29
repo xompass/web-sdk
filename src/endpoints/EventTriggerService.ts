@@ -13,7 +13,7 @@ import { EventStateChange } from '../models/EventStateChange';
  */
 
 /**
- * Buscar un elemento relacionado por id para emergencyContacts.
+ * Find a related item by id for emergencyContacts.
  * /EventTriggers/:id/emergencyContacts/:fk
  */
 export async function EventTrigger_FindByIdEmergencyContacts(
@@ -30,7 +30,7 @@ export async function EventTrigger_FindByIdEmergencyContacts(
   });
 }
 /**
- * Añadir un elemento relacionado por id para emergencyContacts.
+ * Add a related item by id for emergencyContacts.
  * /EventTriggers/:id/emergencyContacts/rel/:fk
  */
 export async function EventTrigger_LinkEmergencyContacts(
@@ -49,7 +49,7 @@ export async function EventTrigger_LinkEmergencyContacts(
   });
 }
 /**
- * Eliminar la relación emergencyContacts con un elemento por id.
+ * Remove the emergencyContacts relation to an item by id.
  * /EventTriggers/:id/emergencyContacts/rel/:fk
  */
 export async function EventTrigger_UnlinkEmergencyContacts(
@@ -66,7 +66,7 @@ export async function EventTrigger_UnlinkEmergencyContacts(
   });
 }
 /**
- * Buscar un elemento relacionado por id para events.
+ * Find a related item by id for events.
  * /EventTriggers/:id/events/:fk
  */
 export async function EventTrigger_FindByIdEvents(
@@ -83,7 +83,7 @@ export async function EventTrigger_FindByIdEvents(
   });
 }
 /**
- * Actualizar un elemento relacionado por id para events.
+ * Update a related item by id for events.
  * /EventTriggers/:id/events/:fk
  */
 export async function EventTrigger_UpdateByIdEvents(
@@ -102,7 +102,7 @@ export async function EventTrigger_UpdateByIdEvents(
   });
 }
 /**
- * Buscar un elemento relacionado por id para assetStates.
+ * Find a related item by id for assetStates.
  * /EventTriggers/:id/assetStates/:fk
  */
 export async function EventTrigger_FindByIdAssetStates(
@@ -119,7 +119,7 @@ export async function EventTrigger_FindByIdAssetStates(
   });
 }
 /**
- * Añadir un elemento relacionado por id para assetStates.
+ * Add a related item by id for assetStates.
  * /EventTriggers/:id/assetStates/rel/:fk
  */
 export async function EventTrigger_LinkAssetStates(
@@ -138,7 +138,7 @@ export async function EventTrigger_LinkAssetStates(
   });
 }
 /**
- * Eliminar la relación assetStates con un elemento por id.
+ * Remove the assetStates relation to an item by id.
  * /EventTriggers/:id/assetStates/rel/:fk
  */
 export async function EventTrigger_UnlinkAssetStates(
@@ -155,7 +155,7 @@ export async function EventTrigger_UnlinkAssetStates(
   });
 }
 /**
- * Comprobar la existencia de la relación assetStates con un elemento por id.
+ * Check the existence of assetStates relation to an item by id.
  * /EventTriggers/:id/assetStates/rel/:fk
  */
 export async function EventTrigger_ExistsAssetStates(
@@ -172,7 +172,7 @@ export async function EventTrigger_ExistsAssetStates(
   });
 }
 /**
- * Buscar un elemento relacionado por id para states.
+ * Find a related item by id for states.
  * /EventTriggers/:id/states/:fk
  */
 export async function EventTrigger_FindByIdStates(
@@ -189,7 +189,7 @@ export async function EventTrigger_FindByIdStates(
   });
 }
 /**
- * Actualizar un elemento relacionado por id para states.
+ * Update a related item by id for states.
  * /EventTriggers/:id/states/:fk
  */
 export async function EventTrigger_UpdateByIdStates(
@@ -208,7 +208,7 @@ export async function EventTrigger_UpdateByIdStates(
   });
 }
 /**
- * Buscar un elemento relacionado por id para rules.
+ * Find a related item by id for rules.
  * /EventTriggers/:id/rules/:fk
  */
 export async function EventTrigger_FindByIdRules(
@@ -225,7 +225,7 @@ export async function EventTrigger_FindByIdRules(
   });
 }
 /**
- * Suprimir un elemento relacionado por id para rules.
+ * Delete a related item by id for rules.
  * /EventTriggers/:id/rules/:fk
  */
 export async function EventTrigger_DestroyByIdRules(
@@ -242,7 +242,7 @@ export async function EventTrigger_DestroyByIdRules(
   });
 }
 /**
- * Actualizar un elemento relacionado por id para rules.
+ * Update a related item by id for rules.
  * /EventTriggers/:id/rules/:fk
  */
 export async function EventTrigger_UpdateByIdRules(
@@ -261,7 +261,7 @@ export async function EventTrigger_UpdateByIdRules(
   });
 }
 /**
- * Añadir un elemento relacionado por id para telegramChats.
+ * Add a related item by id for telegramChats.
  * /EventTriggers/:id/telegramChats/rel/:fk
  */
 export async function EventTrigger_LinkTelegramChats(
@@ -280,7 +280,7 @@ export async function EventTrigger_LinkTelegramChats(
   });
 }
 /**
- * Eliminar la relación telegramChats con un elemento por id.
+ * Remove the telegramChats relation to an item by id.
  * /EventTriggers/:id/telegramChats/rel/:fk
  */
 export async function EventTrigger_UnlinkTelegramChats(
@@ -297,7 +297,7 @@ export async function EventTrigger_UnlinkTelegramChats(
   });
 }
 /**
- * emergencyContacts consultas de EventTrigger.
+ * Queries emergencyContacts of EventTrigger.
  * /EventTriggers/:id/emergencyContacts
  */
 export async function EventTrigger_GetEmergencyContacts(
@@ -319,7 +319,7 @@ export async function EventTrigger_GetEmergencyContacts(
   });
 }
 /**
- * Recuentos emergencyContacts de EventTrigger.
+ * Counts emergencyContacts of EventTrigger.
  * /EventTriggers/:id/emergencyContacts/count
  */
 export async function EventTrigger_CountEmergencyContacts(
@@ -341,7 +341,7 @@ export async function EventTrigger_CountEmergencyContacts(
   });
 }
 /**
- * events consultas de EventTrigger.
+ * Queries events of EventTrigger.
  * /EventTriggers/:id/events
  */
 export async function EventTrigger_GetEvents(
@@ -363,7 +363,7 @@ export async function EventTrigger_GetEvents(
   });
 }
 /**
- * Recuentos events de EventTrigger.
+ * Counts events of EventTrigger.
  * /EventTriggers/:id/events/count
  */
 export async function EventTrigger_CountEvents(
@@ -385,7 +385,7 @@ export async function EventTrigger_CountEvents(
   });
 }
 /**
- * assetStates consultas de EventTrigger.
+ * Queries assetStates of EventTrigger.
  * /EventTriggers/:id/assetStates
  */
 export async function EventTrigger_GetAssetStates(
@@ -407,7 +407,7 @@ export async function EventTrigger_GetAssetStates(
   });
 }
 /**
- * Recuentos assetStates de EventTrigger.
+ * Counts assetStates of EventTrigger.
  * /EventTriggers/:id/assetStates/count
  */
 export async function EventTrigger_CountAssetStates(
@@ -429,7 +429,7 @@ export async function EventTrigger_CountAssetStates(
   });
 }
 /**
- * states consultas de EventTrigger.
+ * Queries states of EventTrigger.
  * /EventTriggers/:id/states
  */
 export async function EventTrigger_GetStates(
@@ -451,7 +451,7 @@ export async function EventTrigger_GetStates(
   });
 }
 /**
- * Recuentos states de EventTrigger.
+ * Counts states of EventTrigger.
  * /EventTriggers/:id/states/count
  */
 export async function EventTrigger_CountStates(
@@ -473,7 +473,7 @@ export async function EventTrigger_CountStates(
   });
 }
 /**
- * rules consultas de EventTrigger.
+ * Queries rules of EventTrigger.
  * /EventTriggers/:id/rules
  */
 export async function EventTrigger_GetRules(
@@ -495,7 +495,7 @@ export async function EventTrigger_GetRules(
   });
 }
 /**
- * Crea una nueva instancia en rules de este modelo.
+ * Creates a new instance in rules of this model.
  * /EventTriggers/:id/rules
  */
 export async function EventTrigger_CreateRules(
@@ -512,7 +512,7 @@ export async function EventTrigger_CreateRules(
   });
 }
 /**
- * Recuentos rules de EventTrigger.
+ * Counts rules of EventTrigger.
  * /EventTriggers/:id/rules/count
  */
 export async function EventTrigger_CountRules(
@@ -561,7 +561,7 @@ export async function EventTrigger_DownloadByIdEventsData(
   nk: string,
   fk: string,
   file?: string,
-  draw?: boolean,
+  draw?: string,
   wm?: boolean,
 ): Promise<any> {
   const _urlParams: any = {};
@@ -584,7 +584,7 @@ export async function EventTrigger_DownloadByIdEventsData(
   });
 }
 /**
- * Buscar un elemento relacionado por id para comments.
+ * Find a related item by id for comments.
  * /EventTriggers/:id/events/:nk/comments/:fk
  */
 export async function EventTrigger_FindByIdEventsComments(
@@ -603,7 +603,7 @@ export async function EventTrigger_FindByIdEventsComments(
   });
 }
 /**
- * Suprimir un elemento relacionado por id para comments.
+ * Delete a related item by id for comments.
  * /EventTriggers/:id/events/:nk/comments/:fk
  */
 export async function EventTrigger_DestroyByIdEventsComments(
@@ -622,7 +622,7 @@ export async function EventTrigger_DestroyByIdEventsComments(
   });
 }
 /**
- * Actualizar un elemento relacionado por id para comments.
+ * Update a related item by id for comments.
  * /EventTriggers/:id/events/:nk/comments/:fk
  */
 export async function EventTrigger_UpdateByIdEventsComments(
@@ -643,7 +643,7 @@ export async function EventTrigger_UpdateByIdEventsComments(
   });
 }
 /**
- * Buscar un elemento relacionado por id para data.
+ * Find a related item by id for data.
  * /EventTriggers/:id/events/:nk/data/:fk
  */
 export async function EventTrigger_FindByIdEventsData(
@@ -662,7 +662,7 @@ export async function EventTrigger_FindByIdEventsData(
   });
 }
 /**
- * Actualizar un elemento relacionado por id para data.
+ * Update a related item by id for data.
  * /EventTriggers/:id/events/:nk/data/:fk
  */
 export async function EventTrigger_UpdateByIdEventsData(
@@ -683,7 +683,7 @@ export async function EventTrigger_UpdateByIdEventsData(
   });
 }
 /**
- * Buscar un elemento relacionado por id para stateChanges.
+ * Find a related item by id for stateChanges.
  * /EventTriggers/:id/events/:nk/stateChanges/:fk
  */
 export async function EventTrigger_FindByIdEventsStateChanges(
@@ -702,7 +702,7 @@ export async function EventTrigger_FindByIdEventsStateChanges(
   });
 }
 /**
- * comments consultas de Event.
+ * Queries comments of Event.
  * /EventTriggers/:id/events/:nk/comments
  */
 export async function EventTrigger_GetEventsComments(
@@ -726,7 +726,7 @@ export async function EventTrigger_GetEventsComments(
   });
 }
 /**
- * Crea una nueva instancia en comments de este modelo.
+ * Creates a new instance in comments of this model.
  * /EventTriggers/:id/events/:nk/comments
  */
 export async function EventTrigger_CreateEventsComments(
@@ -745,7 +745,7 @@ export async function EventTrigger_CreateEventsComments(
   });
 }
 /**
- * Recuentos comments de Event.
+ * Counts comments of Event.
  * /EventTriggers/:id/events/:nk/comments/count
  */
 export async function EventTrigger_CountEventsComments(
@@ -769,7 +769,7 @@ export async function EventTrigger_CountEventsComments(
   });
 }
 /**
- * data consultas de Event.
+ * Queries data of Event.
  * /EventTriggers/:id/events/:nk/data
  */
 export async function EventTrigger_GetEventsData(
@@ -793,7 +793,7 @@ export async function EventTrigger_GetEventsData(
   });
 }
 /**
- * Recuentos data de Event.
+ * Counts data of Event.
  * /EventTriggers/:id/events/:nk/data/count
  */
 export async function EventTrigger_CountEventsData(
@@ -817,7 +817,7 @@ export async function EventTrigger_CountEventsData(
   });
 }
 /**
- * stateChanges consultas de Event.
+ * Queries stateChanges of Event.
  * /EventTriggers/:id/events/:nk/stateChanges
  */
 export async function EventTrigger_GetEventsStateChanges(
@@ -841,7 +841,7 @@ export async function EventTrigger_GetEventsStateChanges(
   });
 }
 /**
- * Crea una nueva instancia en stateChanges de este modelo.
+ * Creates a new instance in stateChanges of this model.
  * /EventTriggers/:id/events/:nk/stateChanges
  */
 export async function EventTrigger_CreateEventsStateChanges(
@@ -860,7 +860,7 @@ export async function EventTrigger_CreateEventsStateChanges(
   });
 }
 /**
- * Recuentos stateChanges de Event.
+ * Counts stateChanges of Event.
  * /EventTriggers/:id/events/:nk/stateChanges/count
  */
 export async function EventTrigger_CountEventsStateChanges(

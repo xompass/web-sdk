@@ -7,7 +7,7 @@ import { Log } from '../models/Log';
  */
 
 /**
- * Buscar un elemento relacionado por id para trackingLogs.
+ * Find a related item by id for trackingLogs.
  * /DeviceEvents/:id/trackingLogs/:fk
  */
 export async function DeviceEvent_FindByIdTrackingLogs(
@@ -24,7 +24,7 @@ export async function DeviceEvent_FindByIdTrackingLogs(
   });
 }
 /**
- * trackingLogs consultas de DeviceEvent.
+ * Queries trackingLogs of DeviceEvent.
  * /DeviceEvents/:id/trackingLogs
  */
 export async function DeviceEvent_GetTrackingLogs(
@@ -46,7 +46,7 @@ export async function DeviceEvent_GetTrackingLogs(
   });
 }
 /**
- * Recuentos trackingLogs de DeviceEvent.
+ * Counts trackingLogs of DeviceEvent.
  * /DeviceEvents/:id/trackingLogs/count
  */
 export async function DeviceEvent_CountTrackingLogs(

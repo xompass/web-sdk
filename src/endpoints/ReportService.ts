@@ -7,7 +7,7 @@ import { Asset } from '../models/Asset';
  */
 
 /**
- * Buscar un elemento relacionado por id para managers.
+ * Find a related item by id for managers.
  * /Reports/:id/managers/:fk
  */
 export async function Report_FindByIdManagers(
@@ -24,7 +24,7 @@ export async function Report_FindByIdManagers(
   });
 }
 /**
- * Buscar un elemento relacionado por id para assets.
+ * Find a related item by id for assets.
  * /Reports/:id/assets/:fk
  */
 export async function Report_FindByIdAssets(
@@ -41,7 +41,7 @@ export async function Report_FindByIdAssets(
   });
 }
 /**
- * Añadir un elemento relacionado por id para assets.
+ * Add a related item by id for assets.
  * /Reports/:id/assets/rel/:fk
  */
 export async function Report_LinkAssets(
@@ -55,11 +55,10 @@ export async function Report_LinkAssets(
       id,
       fk,
     },
-    body: {},
   });
 }
 /**
- * Eliminar la relación assets con un elemento por id.
+ * Remove the assets relation to an item by id.
  * /Reports/:id/assets/rel/:fk
  */
 export async function Report_UnlinkAssets(
@@ -76,7 +75,7 @@ export async function Report_UnlinkAssets(
   });
 }
 /**
- * Comprobar la existencia de la relación assets con un elemento por id.
+ * Check the existence of assets relation to an item by id.
  * /Reports/:id/assets/rel/:fk
  */
 export async function Report_ExistsAssets(
@@ -93,7 +92,7 @@ export async function Report_ExistsAssets(
   });
 }
 /**
- * managers consultas de Report.
+ * Queries managers of Report.
  * /Reports/:id/managers
  */
 export async function Report_GetManagers(
@@ -115,7 +114,7 @@ export async function Report_GetManagers(
   });
 }
 /**
- * Recuentos managers de Report.
+ * Counts managers of Report.
  * /Reports/:id/managers/count
  */
 export async function Report_CountManagers(
@@ -137,7 +136,7 @@ export async function Report_CountManagers(
   });
 }
 /**
- * assets consultas de Report.
+ * Queries assets of Report.
  * /Reports/:id/assets
  */
 export async function Report_GetAssets(
@@ -159,7 +158,7 @@ export async function Report_GetAssets(
   });
 }
 /**
- * Recuentos assets de Report.
+ * Counts assets of Report.
  * /Reports/:id/assets/count
  */
 export async function Report_CountAssets(
