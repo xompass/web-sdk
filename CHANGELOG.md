@@ -1,5 +1,17 @@
 # @xompass/web-sdk
 
+## 0.32.2
+
+### Patch Changes
+
+- Use pnpm over npm
+
+## 0.32.1
+
+### Patch Changes
+
+- fix build
+
 ## 0.32.0
 
 ### Minor Changes

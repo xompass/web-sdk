@@ -136,11 +136,15 @@ export class ApiClient {
       }
 
       let loginFunc: (
-        credentials: {
-          username?: string;
-          email?: string;
-          password: string;
-        },
+        credentials:
+          | {
+              username: string;
+              password: string;
+            }
+          | {
+              email: string;
+              password: string;
+            },
         include: any,
       ) => Promise<CommonAccessToken>;
 

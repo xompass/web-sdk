@@ -1,0 +1,14 @@
+nodeVersion: 24.0.0
+engineStrict: true
+minimumReleaseAge: 4320
+minimumReleaseAgeStrict: true
+blockExoticSubdeps: true
+strictDepBuilds: true
+allowBuilds:
+  esbuild: true
+trustPolicy: no-downgrade
+# Temporary narrow exception for tsup's current chokidar transitively pinned release.
+trustPolicyExclude:
+  - chokidar@4.0.3
+verifyStoreIntegrity: true
+resolutionMode: time-based

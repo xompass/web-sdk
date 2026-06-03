@@ -1,11 +1,16 @@
 {
   "name": "@xompass/web-sdk",
-  "version": "0.32.0",
+  "version": "0.32.2",
   "description": "",
+  "packageManager": "pnpm@11.3.0",
+  "engines": {
+    "node": "24.x"
+  },
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "scripts": {
+    "preinstall": "node -e \"const ua=process.env.npm_config_user_agent||''; const execPath=process.env.npm_execpath||''; const blocked=ua.startsWith('npm/') || ua.startsWith('yarn/') || execPath.includes('npm-cli.js') || execPath.includes('yarn'); if (blocked) { console.error('This package must be installed with pnpm. Run corepack enable and then pnpm install.'); process.exit(1); }\"",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsup src/index.ts --format cjs,esm --dts",
     "publish": "pnpm run build && pnpm publish",
@@ -19,7 +24,7 @@
     "@typescript-eslint/eslint-plugin": "^5.56.0",
     "@typescript-eslint/parser": "^5.56.0",
     "eslint": "^8.36.0",
-    "tsup": "^6.7.0",
+    "tsup": "^8.5.1",
     "typescript": "^4.9.5"
   },
   "prettier": {

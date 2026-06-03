@@ -25,9 +25,9 @@ const client = new ApiClient('https://api.example.com');
 
 ## Prerequisites
 
-1. Node.js 16+ (https://nodejs.org/en/download/)
-2. pnpm 7+ (https://pnpm.io/installation)
-3. changeset 2.2 [https://www.npmjs.com/package/@changesets/cli](https://www.npmjs.com/package/@changesets/cli)
+1. Node.js 24.x (https://nodejs.org/en/download/)
+2. `corepack enable`
+3. `pnpm install --frozen-lockfile`
 
 ## Steps
 
@@ -41,3 +41,27 @@ pnpm changeset
 
 4. Commit the changes and push the branch to GitHub.
 5. Review the changeset and merge the PR.
+
+## Local validation
+
+Antes de abrir o actualizar un PR, correr:
+
+```bash
+pnpm install --frozen-lockfile
+pnpm lint
+pnpm build
+```
+
+Este paquete usa `pnpm` como package manager oficial. No debe regenerarse `package-lock.json`.
+
+## Supply chain policy
+
+La politica de seguridad de dependencias vive en `pnpm-workspace.yaml`.
+
+- fuerza Node 24 con `engineStrict`;
+- exige releases con al menos 3 dias de antiguedad;
+- bloquea subdependencias exoticas;
+- habilita `trustPolicy: no-downgrade`;
+- exige aprobacion explicita de build scripts y hoy solo permite `esbuild`.
+
+Excepcion documentada: `trustPolicyExclude` solo permite `chokidar@4.0.3`, que hoy entra como dependencia transitiva de `tsup@8.5.1`. Si esa dependencia cambia, la exclusion debe reevaluarse y no copiarse a otros paquetes por defecto.
