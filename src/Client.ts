@@ -170,7 +170,11 @@ export class ApiClient {
       const token = await loginFunc(credentials, {
         include: {
           relation: 'user',
-          scope: userInclude,
+          scope: userInclude
+            ? {
+                include: userInclude,
+              }
+            : undefined,
         },
       });
 
@@ -184,7 +188,11 @@ export class ApiClient {
       setLocalStorageValue('vsaas$userId', this.userId, ttl);
       setLocalStorageValue('vsaas$principalType', this.principalType, ttl);
 
-      const user = token.user as User;
+      const user = token.user as User | undefined;
+      if (!user) {
+        return this.login();
+      }
+
       user.type = this.principalType;
 
       this.cachedUser = user;

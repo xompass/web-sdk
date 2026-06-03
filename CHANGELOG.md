@@ -1,5 +1,11 @@
 # @xompass/web-sdk
 
+## 0.32.4
+
+### Patch Changes
+
+- fix login
+
 ## 0.32.3
 
 ### Patch Changes
