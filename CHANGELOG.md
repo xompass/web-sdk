@@ -1,5 +1,17 @@
 # @xompass/web-sdk
 
+## 0.32.0
+
+### Minor Changes
+
+- 4b13b02: Now can be used in nodejs
+
+### Patch Changes
+
+- 0d73551: Expor superadmin service and fix login body
+- 4b13b02: Add browser-safe runtime adapters so the SDK can run in Node.js with
+  in-memory storage fallback and configurable fetch/upload implementations.
+
 ## 0.30.0
 
 ### Minor Changes
