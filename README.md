@@ -52,7 +52,12 @@ pnpm lint
 pnpm build
 ```
 
-Este paquete usa `pnpm` como package manager oficial. No debe regenerarse `package-lock.json`.
+Este repositorio usa `pnpm` como package manager oficial. No debe regenerarse `package-lock.json`.
+El paquete publicado puede instalarse desde aplicaciones consumidoras con `npm`, `pnpm` o `yarn`.
+
+```bash
+npm install @xompass/web-sdk
+```
 
 ## Supply chain policy
 

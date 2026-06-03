@@ -1,5 +1,11 @@
 # @xompass/web-sdk
 
+## 0.32.3
+
+### Patch Changes
+
+- fix npm installations
+
 ## 0.32.2
 
 ### Patch Changes
