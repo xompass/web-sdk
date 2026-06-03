@@ -82,7 +82,9 @@ export async function SuperAdmin_deleteById(id: string): Promise<void> {
  * /SuperAdmins/login
  */
 export async function SuperAdmin_login(
-  credentials: any,
+  credentials:
+    | { username: string; password: string }
+    | { email: string; password: string },
   include: Include<any> = {
     relation: 'user',
     scope: { include: ['container'] },
@@ -100,7 +102,7 @@ export async function SuperAdmin_login(
     urlParams: _urlParams,
     routeParams: {},
     body: {
-      credentials,
+      ...credentials,
     },
   });
 }

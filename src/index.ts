@@ -38,6 +38,7 @@ export * from './endpoints/SensorService';
 export * from './endpoints/SensorTemplateService';
 export * from './endpoints/SensorTypeService';
 export * from './endpoints/StoreVideoAnalyticDashboardService';
+export * from './endpoints/SuperAdminService';
 export * from './endpoints/TimeZoneService';
 export * from './endpoints/TrafficFlowAnalysisService';
 export * from './endpoints/VarService';

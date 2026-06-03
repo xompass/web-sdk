@@ -1498,7 +1498,9 @@ export async function Manager_deleteById(id: string): Promise<void> {
  * /Managers/login
  */
 export async function Manager_login(
-  credentials: any,
+  credentials:
+    | { username: string; password: string }
+    | { email: string; password: string },
   include: Include<any> = {
     relation: 'user',
     scope: { include: ['container'] },
@@ -1516,7 +1518,7 @@ export async function Manager_login(
     urlParams: _urlParams,
     routeParams: {},
     body: {
-      credentials,
+      ...credentials,
     },
   });
 }

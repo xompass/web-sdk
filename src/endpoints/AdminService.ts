@@ -361,7 +361,9 @@ export async function Admin_deleteById(id: string): Promise<void> {
  * /Admins/login
  */
 export async function Admin_login(
-  credentials: any,
+  credentials:
+    | { username: string; password: string }
+    | { email: string; password: string },
   include: Include<any> = {
     relation: 'user',
     scope: { include: ['container'] },
@@ -379,7 +381,7 @@ export async function Admin_login(
     urlParams: _urlParams,
     routeParams: {},
     body: {
-      credentials,
+      ...credentials,
     },
   });
 }
