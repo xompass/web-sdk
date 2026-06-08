@@ -1,5 +1,11 @@
 # @xompass/web-sdk
 
+## 0.32.5
+
+### Patch Changes
+
+- Fix encode url params
+
 ## 0.32.4
 
 ### Patch Changes

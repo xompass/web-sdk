@@ -1,6 +1,6 @@
 {
   "name": "@xompass/web-sdk",
-  "version": "0.32.4",
+  "version": "0.32.5",
   "description": "",
   "packageManager": "pnpm@11.3.0",
   "engines": {
@@ -10,7 +10,6 @@
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "scripts": {
-    "preinstall": "node -e \"const path=require('node:path'); const ua=process.env.npm_config_user_agent||''; const execPath=process.env.npm_execpath||''; const initCwd=process.env.INIT_CWD||''; const isRepoInstall=initCwd && path.resolve(initCwd)===process.cwd(); const blocked=ua.startsWith('npm/') || ua.startsWith('yarn/') || execPath.includes('npm-cli.js') || execPath.includes('yarn'); if (isRepoInstall && blocked) { console.error('This repository must be installed with pnpm. Run corepack enable and then pnpm install.'); process.exit(1); }\"",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsup src/index.ts --format cjs,esm --dts",
     "prepublish": "pnpm run build",

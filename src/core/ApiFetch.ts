@@ -216,7 +216,9 @@ function prepareUrl(
           value = JSON.stringify(value);
         }
 
-        array.push(`${key}=${value}`);
+        array.push(
+          `${encodeURIComponent(key)}=${encodeURIComponent(String(value))}`,
+        );
         return array;
       }, [])
       .join('&');
