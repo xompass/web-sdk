@@ -119,7 +119,7 @@ export async function SensorTemplate_UpdateByIdStateTemplates(
  */
 export async function SensorTemplate_GetAssetStateTemplates(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<AssetStateTemplate>,
 ): Promise<AssetStateTemplate[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -141,7 +141,7 @@ export async function SensorTemplate_GetAssetStateTemplates(
  */
 export async function SensorTemplate_CountAssetStateTemplates(
   id: string,
-  where: any = {},
+  where?: Filter<AssetStateTemplate>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -163,7 +163,7 @@ export async function SensorTemplate_CountAssetStateTemplates(
  */
 export async function SensorTemplate_GetStateTemplates(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<SensorAssetStateTemplate>,
 ): Promise<SensorAssetStateTemplate[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -185,7 +185,7 @@ export async function SensorTemplate_GetStateTemplates(
  */
 export async function SensorTemplate_CountStateTemplates(
   id: string,
-  where: any = {},
+  where?: Filter<SensorAssetStateTemplate>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -220,7 +220,7 @@ export async function SensorTemplate_exists(id: string): Promise<boolean> {
  */
 export async function SensorTemplate_findById(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<SensorTemplate>,
 ): Promise<SensorTemplate> {
   const _urlParams: any = {};
   if (filter != null) {

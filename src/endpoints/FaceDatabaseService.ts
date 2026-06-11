@@ -1,4 +1,4 @@
-import { ApiFetch, UploadFile, Filter, UploadableFile } from '../core/ApiFetch';
+import { ApiFetch, Filter, UploadFile, UploadableFile } from '../core/ApiFetch';
 import { FaceDatabase } from '../models/FaceDatabase';
 import { FaceSubject } from '../models/FaceSubject';
 import { FaceDatabaseFaceSubject } from '../models/FaceSubject';
@@ -102,7 +102,7 @@ export async function FaceDatabase_ExistsFaceSubjects(
  */
 export async function FaceDatabase_GetFaceSubjects(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<FaceSubject>,
 ): Promise<FaceSubject[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -141,7 +141,7 @@ export async function FaceDatabase_CreateFaceSubjects(
  */
 export async function FaceDatabase_CountFaceSubjects(
   id: string,
-  where: any = {},
+  where?: Filter<FaceSubject>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -190,7 +190,7 @@ export async function FaceDatabase_exists(id: string): Promise<boolean> {
  */
 export async function FaceDatabase_findById(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<FaceDatabase>,
 ): Promise<FaceDatabase> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -211,7 +211,7 @@ export async function FaceDatabase_findById(
  * /FaceDatabases
  */
 export async function FaceDatabase_find(
-  filter: Filter<any> = {},
+  filter?: Filter<FaceDatabase>,
 ): Promise<FaceDatabase[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -262,7 +262,7 @@ export async function FaceDatabase_removeFaceSubject(
 export async function FaceDatabase_listFaceImages(
   id: string,
   nk: string,
-  filter: Filter<any> = {},
+  filter?: Filter<FaceSubject>,
 ): Promise<any[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -305,7 +305,7 @@ export async function FaceDatabase_findFaceImageById(
 export async function FaceDatabase_countFaceImages(
   id: string,
   nk: string,
-  where: any = {},
+  where?: Filter<FaceSubject>['where'],
 ): Promise<any> {
   const _urlParams: any = {};
   if (where != null) {

@@ -134,7 +134,7 @@ export async function Device_UnlinkTelegramChats(
  */
 export async function Device_GetEvents(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<DeviceEvent>,
 ): Promise<DeviceEvent[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -156,7 +156,7 @@ export async function Device_GetEvents(
  */
 export async function Device_CountEvents(
   id: string,
-  where: any = {},
+  where?: Filter<DeviceEvent>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -306,7 +306,7 @@ export async function Device_FindByIdEventsStateChanges(
 export async function Device_GetEventsComments(
   id: string,
   nk: string,
-  filter: Filter<any> = {},
+  filter?: Filter<DeviceEventComment>,
 ): Promise<DeviceEventComment[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -349,7 +349,7 @@ export async function Device_CreateEventsComments(
 export async function Device_CountEventsComments(
   id: string,
   nk: string,
-  where: any = {},
+  where?: Filter<DeviceEvent>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -373,7 +373,7 @@ export async function Device_CountEventsComments(
 export async function Device_GetEventsData(
   id: string,
   nk: string,
-  filter: Filter<any> = {},
+  filter?: Filter<DeviceEventData>,
 ): Promise<DeviceEventData[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -397,7 +397,7 @@ export async function Device_GetEventsData(
 export async function Device_CountEventsData(
   id: string,
   nk: string,
-  where: any = {},
+  where?: Filter<DeviceEvent>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -421,7 +421,7 @@ export async function Device_CountEventsData(
 export async function Device_GetEventsStateChanges(
   id: string,
   nk: string,
-  filter: Filter<any> = {},
+  filter?: Filter<DeviceEventStateChange>,
 ): Promise<DeviceEventStateChange[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -464,7 +464,7 @@ export async function Device_CreateEventsStateChanges(
 export async function Device_CountEventsStateChanges(
   id: string,
   nk: string,
-  where: any = {},
+  where?: Filter<DeviceEvent>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {

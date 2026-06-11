@@ -100,7 +100,7 @@ export async function EventTriggerAssetState_UpdateByIdRules(
  */
 export async function EventTriggerAssetState_GetRules(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<EventTriggerRule>,
 ): Promise<EventTriggerRule[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -139,7 +139,7 @@ export async function EventTriggerAssetState_CreateRules(
  */
 export async function EventTriggerAssetState_CountRules(
   id: string,
-  where: any = {},
+  where?: Filter<EventTriggerRule>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {

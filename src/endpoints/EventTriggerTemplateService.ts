@@ -172,7 +172,7 @@ export async function EventTriggerTemplate_UpdateByIdRuleTemplates(
  */
 export async function EventTriggerTemplate_GetAssetStateTemplates(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<AssetStateTemplate>,
 ): Promise<AssetStateTemplate[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -194,7 +194,7 @@ export async function EventTriggerTemplate_GetAssetStateTemplates(
  */
 export async function EventTriggerTemplate_CountAssetStateTemplates(
   id: string,
-  where: any = {},
+  where?: Filter<AssetStateTemplate>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -216,7 +216,7 @@ export async function EventTriggerTemplate_CountAssetStateTemplates(
  */
 export async function EventTriggerTemplate_GetStateTemplates(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<EventTriggerAssetStateTemplate>,
 ): Promise<EventTriggerAssetStateTemplate[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -238,7 +238,7 @@ export async function EventTriggerTemplate_GetStateTemplates(
  */
 export async function EventTriggerTemplate_CountStateTemplates(
   id: string,
-  where: any = {},
+  where?: Filter<EventTriggerAssetStateTemplate>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -260,7 +260,7 @@ export async function EventTriggerTemplate_CountStateTemplates(
  */
 export async function EventTriggerTemplate_GetRuleTemplates(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<EventTriggerRuleTemplate>,
 ): Promise<EventTriggerRuleTemplate[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -299,7 +299,7 @@ export async function EventTriggerTemplate_CreateRuleTemplates(
  */
 export async function EventTriggerTemplate_CountRuleTemplates(
   id: string,
-  where: any = {},
+  where?: Filter<EventTriggerRuleTemplate>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {

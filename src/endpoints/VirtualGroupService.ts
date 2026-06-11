@@ -118,7 +118,7 @@ export async function VirtualGroup_UpdateByIdVirtualVariables(
  */
 export async function VirtualGroup_GetVirtualExpressions(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<VirtualExpression>,
 ): Promise<VirtualExpression[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -157,7 +157,7 @@ export async function VirtualGroup_CreateVirtualExpressions(
  */
 export async function VirtualGroup_CountVirtualExpressions(
   id: string,
-  where: any = {},
+  where?: Filter<VirtualExpression>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -179,7 +179,7 @@ export async function VirtualGroup_CountVirtualExpressions(
  */
 export async function VirtualGroup_GetVirtualVariables(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<VirtualVariable>,
 ): Promise<VirtualVariable[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -218,7 +218,7 @@ export async function VirtualGroup_CreateVirtualVariables(
  */
 export async function VirtualGroup_CountVirtualVariables(
   id: string,
-  where: any = {},
+  where?: Filter<VirtualVariable>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {

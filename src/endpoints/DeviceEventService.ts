@@ -29,7 +29,7 @@ export async function DeviceEvent_FindByIdTrackingLogs(
  */
 export async function DeviceEvent_GetTrackingLogs(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<Log>,
 ): Promise<Log[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -51,7 +51,7 @@ export async function DeviceEvent_GetTrackingLogs(
  */
 export async function DeviceEvent_CountTrackingLogs(
   id: string,
-  where: any = {},
+  where?: Filter<Log>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -98,7 +98,7 @@ export async function DeviceEvent_exists(id: string): Promise<boolean> {
  */
 export async function DeviceEvent_findById(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<DeviceEvent>,
 ): Promise<DeviceEvent> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -119,7 +119,7 @@ export async function DeviceEvent_findById(
  * /DeviceEvents
  */
 export async function DeviceEvent_find(
-  filter: Filter<any> = {},
+  filter?: Filter<DeviceEvent>,
 ): Promise<DeviceEvent[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -138,7 +138,7 @@ export async function DeviceEvent_find(
  * /DeviceEvents/findOne
  */
 export async function DeviceEvent_findOne(
-  filter: Filter<any> = {},
+  filter?: Filter<DeviceEvent>,
 ): Promise<DeviceEvent> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -169,7 +169,9 @@ export async function DeviceEvent_deleteById(id: string): Promise<void> {
  * Count instances of the model matched by where from the data source.
  * /DeviceEvents/count
  */
-export async function DeviceEvent_count(where: any = {}): Promise<number> {
+export async function DeviceEvent_count(
+  where?: Filter<DeviceEvent>['where'],
+): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
     _urlParams['where'] = where;

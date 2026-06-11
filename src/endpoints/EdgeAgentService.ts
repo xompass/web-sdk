@@ -101,7 +101,7 @@ export async function EdgeAgent_UnlinkTelegramChats(
  */
 export async function EdgeAgent_GetAssets(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<Asset>,
 ): Promise<Asset[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -123,7 +123,7 @@ export async function EdgeAgent_GetAssets(
  */
 export async function EdgeAgent_BulkLinkAssets(
   id: string,
-  where: any,
+  where: Filter<Asset>['where'],
 ): Promise<any[]> {
   const _urlParams: any = {};
   if (where != null) {
@@ -145,7 +145,7 @@ export async function EdgeAgent_BulkLinkAssets(
  */
 export async function EdgeAgent_BulkUnlinkAssets(
   id: string,
-  where: any,
+  where: Filter<Asset>['where'],
 ): Promise<void> {
   const _urlParams: any = {};
   if (where != null) {

@@ -29,7 +29,7 @@ export async function EdgeAgentTemplate_FindByIdTags(
  */
 export async function EdgeAgentTemplate_GetTags(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<EdgeAgentTemplateTag>,
 ): Promise<EdgeAgentTemplateTag[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -51,7 +51,7 @@ export async function EdgeAgentTemplate_GetTags(
  */
 export async function EdgeAgentTemplate_CountTags(
   id: string,
-  where: any = {},
+  where?: Filter<EdgeAgentTemplateTag>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -73,7 +73,7 @@ export async function EdgeAgentTemplate_CountTags(
  */
 export async function EdgeAgentTemplate_findById(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<EdgeAgentTemplate>,
 ): Promise<EdgeAgentTemplate> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -94,7 +94,7 @@ export async function EdgeAgentTemplate_findById(
  * /EdgeAgentTemplates
  */
 export async function EdgeAgentTemplate_find(
-  filter: Filter<any> = {},
+  filter?: Filter<EdgeAgentTemplate>,
 ): Promise<EdgeAgentTemplate[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -113,7 +113,7 @@ export async function EdgeAgentTemplate_find(
  * /EdgeAgentTemplates/count
  */
 export async function EdgeAgentTemplate_count(
-  where: any = {},
+  where?: Filter<EdgeAgentTemplate>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {

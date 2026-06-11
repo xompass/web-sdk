@@ -302,7 +302,7 @@ export async function EventTrigger_UnlinkTelegramChats(
  */
 export async function EventTrigger_GetEmergencyContacts(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<EmergencyContact>,
 ): Promise<EmergencyContact[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -324,7 +324,7 @@ export async function EventTrigger_GetEmergencyContacts(
  */
 export async function EventTrigger_CountEmergencyContacts(
   id: string,
-  where: any = {},
+  where?: Filter<EmergencyContact>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -346,7 +346,7 @@ export async function EventTrigger_CountEmergencyContacts(
  */
 export async function EventTrigger_GetEvents(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<Event>,
 ): Promise<Event[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -368,7 +368,7 @@ export async function EventTrigger_GetEvents(
  */
 export async function EventTrigger_CountEvents(
   id: string,
-  where: any = {},
+  where?: Filter<Event>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -390,7 +390,7 @@ export async function EventTrigger_CountEvents(
  */
 export async function EventTrigger_GetAssetStates(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<AssetState>,
 ): Promise<AssetState[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -412,7 +412,7 @@ export async function EventTrigger_GetAssetStates(
  */
 export async function EventTrigger_CountAssetStates(
   id: string,
-  where: any = {},
+  where?: Filter<AssetState>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -434,7 +434,7 @@ export async function EventTrigger_CountAssetStates(
  */
 export async function EventTrigger_GetStates(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<EventTriggerAssetState>,
 ): Promise<EventTriggerAssetState[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -456,7 +456,7 @@ export async function EventTrigger_GetStates(
  */
 export async function EventTrigger_CountStates(
   id: string,
-  where: any = {},
+  where?: Filter<EventTriggerAssetState>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -478,7 +478,7 @@ export async function EventTrigger_CountStates(
  */
 export async function EventTrigger_GetRules(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<EventTriggerRule>,
 ): Promise<EventTriggerRule[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -517,7 +517,7 @@ export async function EventTrigger_CreateRules(
  */
 export async function EventTrigger_CountRules(
   id: string,
-  where: any = {},
+  where?: Filter<EventTriggerRule>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -708,7 +708,7 @@ export async function EventTrigger_FindByIdEventsStateChanges(
 export async function EventTrigger_GetEventsComments(
   id: string,
   nk: string,
-  filter: Filter<any> = {},
+  filter?: Filter<EventComment>,
 ): Promise<EventComment[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -751,7 +751,7 @@ export async function EventTrigger_CreateEventsComments(
 export async function EventTrigger_CountEventsComments(
   id: string,
   nk: string,
-  where: any = {},
+  where?: Filter<Event>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -775,7 +775,7 @@ export async function EventTrigger_CountEventsComments(
 export async function EventTrigger_GetEventsData(
   id: string,
   nk: string,
-  filter: Filter<any> = {},
+  filter?: Filter<EventData>,
 ): Promise<EventData[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -799,7 +799,7 @@ export async function EventTrigger_GetEventsData(
 export async function EventTrigger_CountEventsData(
   id: string,
   nk: string,
-  where: any = {},
+  where?: Filter<Event>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -823,7 +823,7 @@ export async function EventTrigger_CountEventsData(
 export async function EventTrigger_GetEventsStateChanges(
   id: string,
   nk: string,
-  filter: Filter<any> = {},
+  filter?: Filter<EventStateChange>,
 ): Promise<EventStateChange[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -866,7 +866,7 @@ export async function EventTrigger_CreateEventsStateChanges(
 export async function EventTrigger_CountEventsStateChanges(
   id: string,
   nk: string,
-  where: any = {},
+  where?: Filter<Event>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {

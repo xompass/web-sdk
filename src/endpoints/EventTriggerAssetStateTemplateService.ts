@@ -64,7 +64,7 @@ export async function EventTriggerAssetStateTemplate_UpdateByIdRuleTemplates(
  */
 export async function EventTriggerAssetStateTemplate_GetRuleTemplates(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<EventTriggerRuleTemplate>,
 ): Promise<EventTriggerRuleTemplate[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -103,7 +103,7 @@ export async function EventTriggerAssetStateTemplate_CreateRuleTemplates(
  */
 export async function EventTriggerAssetStateTemplate_CountRuleTemplates(
   id: string,
-  where: any = {},
+  where?: Filter<EventTriggerRuleTemplate>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {

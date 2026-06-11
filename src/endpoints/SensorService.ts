@@ -337,7 +337,7 @@ export async function Sensor_FindByIdSummaries(
  */
 export async function Sensor_GetDatasets(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<Dataset>,
 ): Promise<Dataset[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -376,7 +376,7 @@ export async function Sensor_CreateDatasets(
  */
 export async function Sensor_CountDatasets(
   id: string,
-  where: any = {},
+  where?: Filter<Dataset>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -398,7 +398,7 @@ export async function Sensor_CountDatasets(
  */
 export async function Sensor_GetAlerts(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<Alert>,
 ): Promise<Alert[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -420,7 +420,7 @@ export async function Sensor_GetAlerts(
  */
 export async function Sensor_CountAlerts(
   id: string,
-  where: any = {},
+  where?: Filter<Alert>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -442,7 +442,7 @@ export async function Sensor_CountAlerts(
  */
 export async function Sensor_GetAlertHistory(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<AlertHistory>,
 ): Promise<AlertHistory[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -464,7 +464,7 @@ export async function Sensor_GetAlertHistory(
  */
 export async function Sensor_CountAlertHistory(
   id: string,
-  where: any = {},
+  where?: Filter<AlertHistory>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -486,7 +486,7 @@ export async function Sensor_CountAlertHistory(
  */
 export async function Sensor_GetAssetStates(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<AssetState>,
 ): Promise<AssetState[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -508,7 +508,7 @@ export async function Sensor_GetAssetStates(
  */
 export async function Sensor_CountAssetStates(
   id: string,
-  where: any = {},
+  where?: Filter<AssetState>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -530,7 +530,7 @@ export async function Sensor_CountAssetStates(
  */
 export async function Sensor_GetStates(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<SensorAssetState>,
 ): Promise<SensorAssetState[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -552,7 +552,7 @@ export async function Sensor_GetStates(
  */
 export async function Sensor_CountStates(
   id: string,
-  where: any = {},
+  where?: Filter<SensorAssetState>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -574,7 +574,7 @@ export async function Sensor_CountStates(
  */
 export async function Sensor_GetSummaries(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<Summary>,
 ): Promise<Summary[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -596,7 +596,7 @@ export async function Sensor_GetSummaries(
  */
 export async function Sensor_CountSummaries(
   id: string,
-  where: any = {},
+  where?: Filter<Summary>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -631,7 +631,7 @@ export async function Sensor_exists(id: string): Promise<boolean> {
  */
 export async function Sensor_findById(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<Sensor>,
 ): Promise<Sensor> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -651,7 +651,7 @@ export async function Sensor_findById(
  * Find all instances of the model matched by filter from the data source.
  * /Sensors
  */
-export async function Sensor_find(filter: Filter<any> = {}): Promise<Sensor[]> {
+export async function Sensor_find(filter?: Filter<Sensor>): Promise<Sensor[]> {
   const _urlParams: any = {};
   if (filter != null) {
     _urlParams['filter'] = filter;
@@ -668,9 +668,7 @@ export async function Sensor_find(filter: Filter<any> = {}): Promise<Sensor[]> {
  * Find first instance of the model matched by filter from the data source.
  * /Sensors/findOne
  */
-export async function Sensor_findOne(
-  filter: Filter<any> = {},
-): Promise<Sensor> {
+export async function Sensor_findOne(filter?: Filter<Sensor>): Promise<Sensor> {
   const _urlParams: any = {};
   if (filter != null) {
     _urlParams['filter'] = filter;
@@ -769,7 +767,7 @@ export async function Sensor_getCurrentState(
  */
 export async function Sensor_withCurrentState(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<Sensor>,
 ): Promise<Sensor> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -851,7 +849,7 @@ export async function Sensor_UpdateByIdDatasetsData(
 export async function Sensor_GetDatasetsData(
   id: string,
   nk: string,
-  filter: Filter<any> = {},
+  filter?: Filter<Data>,
 ): Promise<Data[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -894,7 +892,7 @@ export async function Sensor_CreateDatasetsData(
 export async function Sensor_CountDatasetsData(
   id: string,
   nk: string,
-  where: any = {},
+  where?: Filter<Dataset>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {

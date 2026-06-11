@@ -82,7 +82,7 @@ export async function PeopleCounterReport_UpdateByIdSeries(
  */
 export async function PeopleCounterReport_GetManagers(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<Manager>,
 ): Promise<Manager[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -104,7 +104,7 @@ export async function PeopleCounterReport_GetManagers(
  */
 export async function PeopleCounterReport_CountManagers(
   id: string,
-  where: any = {},
+  where?: Filter<Manager>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -126,7 +126,7 @@ export async function PeopleCounterReport_CountManagers(
  */
 export async function PeopleCounterReport_GetSeries(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<PeopleCounterReportSerie>,
 ): Promise<PeopleCounterReportSerie[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -165,7 +165,7 @@ export async function PeopleCounterReport_CreateSeries(
  */
 export async function PeopleCounterReport_CountSeries(
   id: string,
-  where: any = {},
+  where?: Filter<PeopleCounterReportSerie>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {

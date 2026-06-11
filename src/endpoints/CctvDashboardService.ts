@@ -97,7 +97,7 @@ export async function CctvDashboard_FindByIdManagers(
  */
 export async function CctvDashboard_GetAssets(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<Asset>,
 ): Promise<Asset[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -119,7 +119,7 @@ export async function CctvDashboard_GetAssets(
  */
 export async function CctvDashboard_CountAssets(
   id: string,
-  where: any = {},
+  where?: Filter<Asset>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {

@@ -1,9 +1,9 @@
 import {
   ApiFetch,
-  UploadFile,
   Filter,
-  Include,
+  UploadFile,
   UploadableFile,
+  Include,
 } from '../core/ApiFetch';
 import { Manager } from '../models/Manager';
 import { CommonAccessToken } from '../models/CommonAccessToken';
@@ -968,7 +968,7 @@ export async function Manager_UnlinkViews(
  */
 export async function Manager_GetActivityLogs(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<Log>,
 ): Promise<Log[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -990,7 +990,7 @@ export async function Manager_GetActivityLogs(
  */
 export async function Manager_CountActivityLogs(
   id: string,
-  where: any = {},
+  where?: Filter<Log>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -1012,7 +1012,7 @@ export async function Manager_CountActivityLogs(
  */
 export async function Manager_GetCredentials(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<Credential>,
 ): Promise<Credential[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -1034,7 +1034,7 @@ export async function Manager_GetCredentials(
  */
 export async function Manager_CountCredentials(
   id: string,
-  where: any = {},
+  where?: Filter<Credential>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -1056,7 +1056,7 @@ export async function Manager_CountCredentials(
  */
 export async function Manager_GetAssets(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<Asset>,
 ): Promise<Asset[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -1078,7 +1078,7 @@ export async function Manager_GetAssets(
  */
 export async function Manager_CountAssets(
   id: string,
-  where: any = {},
+  where?: Filter<Asset>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -1100,7 +1100,7 @@ export async function Manager_CountAssets(
  */
 export async function Manager_GetCctvDashboards(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<CctvDashboard>,
 ): Promise<CctvDashboard[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -1122,7 +1122,7 @@ export async function Manager_GetCctvDashboards(
  */
 export async function Manager_CountCctvDashboards(
   id: string,
-  where: any = {},
+  where?: Filter<CctvDashboard>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -1144,7 +1144,7 @@ export async function Manager_CountCctvDashboards(
  */
 export async function Manager_GetCountReports(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<CountReport>,
 ): Promise<CountReport[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -1166,7 +1166,7 @@ export async function Manager_GetCountReports(
  */
 export async function Manager_CountCountReports(
   id: string,
-  where: any = {},
+  where?: Filter<CountReport>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -1188,7 +1188,7 @@ export async function Manager_CountCountReports(
  */
 export async function Manager_GetEventDashboards(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<EventDashboard>,
 ): Promise<EventDashboard[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -1210,7 +1210,7 @@ export async function Manager_GetEventDashboards(
  */
 export async function Manager_CountEventDashboards(
   id: string,
-  where: any = {},
+  where?: Filter<EventDashboard>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -1232,7 +1232,7 @@ export async function Manager_CountEventDashboards(
  */
 export async function Manager_GetPeopleCounterReports(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<PeopleCounterReport>,
 ): Promise<PeopleCounterReport[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -1254,7 +1254,7 @@ export async function Manager_GetPeopleCounterReports(
  */
 export async function Manager_CountPeopleCounterReports(
   id: string,
-  where: any = {},
+  where?: Filter<PeopleCounterReport>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -1276,7 +1276,7 @@ export async function Manager_CountPeopleCounterReports(
  */
 export async function Manager_GetReports(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<Report>,
 ): Promise<Report[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -1298,7 +1298,7 @@ export async function Manager_GetReports(
  */
 export async function Manager_CountReports(
   id: string,
-  where: any = {},
+  where?: Filter<Report>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -1320,7 +1320,7 @@ export async function Manager_CountReports(
  */
 export async function Manager_GetStoreVideoAnalyticDashboards(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<StoreVideoAnalyticDashboard>,
 ): Promise<StoreVideoAnalyticDashboard[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -1342,7 +1342,7 @@ export async function Manager_GetStoreVideoAnalyticDashboards(
  */
 export async function Manager_CountStoreVideoAnalyticDashboards(
   id: string,
-  where: any = {},
+  where?: Filter<StoreVideoAnalyticDashboard>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -1364,7 +1364,7 @@ export async function Manager_CountStoreVideoAnalyticDashboards(
  */
 export async function Manager_GetTrafficFlowAnalysis(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<TrafficFlowAnalysis>,
 ): Promise<TrafficFlowAnalysis[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -1386,7 +1386,7 @@ export async function Manager_GetTrafficFlowAnalysis(
  */
 export async function Manager_CountTrafficFlowAnalysis(
   id: string,
-  where: any = {},
+  where?: Filter<TrafficFlowAnalysis>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -1408,7 +1408,7 @@ export async function Manager_CountTrafficFlowAnalysis(
  */
 export async function Manager_GetViews(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<View>,
 ): Promise<View[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -1430,7 +1430,7 @@ export async function Manager_GetViews(
  */
 export async function Manager_CountViews(
   id: string,
-  where: any = {},
+  where?: Filter<View>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -1464,7 +1464,7 @@ export async function Manager_create(data: any = {}): Promise<Manager> {
  */
 export async function Manager_findById(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<Manager>,
 ): Promise<Manager> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -1517,9 +1517,7 @@ export async function Manager_login(
     url: '/Managers/login',
     urlParams: _urlParams,
     routeParams: {},
-    body: {
-      ...credentials,
-    },
+    body: { ...credentials },
   });
 }
 /**

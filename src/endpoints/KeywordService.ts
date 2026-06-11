@@ -24,7 +24,7 @@ export async function Keyword_exists(id: string): Promise<boolean> {
  */
 export async function Keyword_findById(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<Keyword>,
 ): Promise<Keyword> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -45,7 +45,7 @@ export async function Keyword_findById(
  * /Keywords
  */
 export async function Keyword_find(
-  filter: Filter<any> = {},
+  filter?: Filter<Keyword>,
 ): Promise<Keyword[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -64,7 +64,7 @@ export async function Keyword_find(
  * /Keywords/findOne
  */
 export async function Keyword_findOne(
-  filter: Filter<any> = {},
+  filter?: Filter<Keyword>,
 ): Promise<Keyword> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -82,7 +82,9 @@ export async function Keyword_findOne(
  * Count instances of the model matched by where from the data source.
  * /Keywords/count
  */
-export async function Keyword_count(where: any = {}): Promise<number> {
+export async function Keyword_count(
+  where?: Filter<Keyword>['where'],
+): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
     _urlParams['where'] = where;

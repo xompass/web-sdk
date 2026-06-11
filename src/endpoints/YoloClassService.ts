@@ -24,7 +24,7 @@ export async function YoloClass_exists(id: string): Promise<boolean> {
  */
 export async function YoloClass_findById(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<YoloClass>,
 ): Promise<YoloClass> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -45,7 +45,7 @@ export async function YoloClass_findById(
  * /YoloClasses
  */
 export async function YoloClass_find(
-  filter: Filter<any> = {},
+  filter?: Filter<YoloClass>,
 ): Promise<YoloClass[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -64,7 +64,7 @@ export async function YoloClass_find(
  * /YoloClasses/findOne
  */
 export async function YoloClass_findOne(
-  filter: Filter<any> = {},
+  filter?: Filter<YoloClass>,
 ): Promise<YoloClass> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -82,7 +82,9 @@ export async function YoloClass_findOne(
  * Count instances of the model matched by where from the data source.
  * /YoloClasses/count
  */
-export async function YoloClass_count(where: any = {}): Promise<number> {
+export async function YoloClass_count(
+  where?: Filter<YoloClass>['where'],
+): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
     _urlParams['where'] = where;

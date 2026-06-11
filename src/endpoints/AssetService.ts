@@ -1,4 +1,4 @@
-import { ApiFetch, UploadFile, Filter, UploadableFile } from '../core/ApiFetch';
+import { ApiFetch, Filter, UploadFile, UploadableFile } from '../core/ApiFetch';
 import { Asset } from '../models/Asset';
 import { AssetOperabilitySummary } from '../models/AssetOperabilitySummary';
 import { AssetRestrictionTable } from '../models/AssetRestrictionTable';
@@ -6,10 +6,10 @@ import { AssetStorageContainer } from '../models/Asset';
 import { Dataset } from '../models/Dataset';
 import { EdgeAgent } from '../models/EdgeAgent';
 import { EdgeAgentAsset } from '../models/EdgeAgent';
-import { Event } from '../models/Event';
-import { EventTrigger } from '../models/EventTrigger';
 import { HealthcheckEvent } from '../models/HealthcheckEvent';
 import { RateLimit } from '../models/RateLimit';
+import { Event } from '../models/Event';
+import { EventTrigger } from '../models/EventTrigger';
 import { SensorWithCurrentState } from '../models/Sensor';
 import { EventTriggerAssetState } from '../models/EventTriggerAssetState';
 import { SensorAssetState } from '../models/SensorAssetState';
@@ -228,7 +228,7 @@ export async function Asset_UpdateRateLimit(
  */
 export async function Asset_GetOperabilitySummaries(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<AssetOperabilitySummary>,
 ): Promise<AssetOperabilitySummary[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -250,7 +250,7 @@ export async function Asset_GetOperabilitySummaries(
  */
 export async function Asset_CountOperabilitySummaries(
   id: string,
-  where: any = {},
+  where?: Filter<AssetOperabilitySummary>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -272,7 +272,7 @@ export async function Asset_CountOperabilitySummaries(
  */
 export async function Asset_GetDatasets(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<Dataset>,
 ): Promise<Dataset[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -294,7 +294,7 @@ export async function Asset_GetDatasets(
  */
 export async function Asset_CountDatasets(
   id: string,
-  where: any = {},
+  where?: Filter<Dataset>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -316,7 +316,7 @@ export async function Asset_CountDatasets(
  */
 export async function Asset_GetEdgeAgents(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<EdgeAgent>,
 ): Promise<EdgeAgent[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -360,7 +360,7 @@ export async function Asset_CountEdgeAgents(
  */
 export async function Asset_GetEvents(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<Event>,
 ): Promise<Event[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -382,7 +382,7 @@ export async function Asset_GetEvents(
  */
 export async function Asset_GetEventTriggers(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<EventTrigger>,
 ): Promise<EventTrigger[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -404,7 +404,7 @@ export async function Asset_GetEventTriggers(
  */
 export async function Asset_GetHealthcheckEvents(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<HealthcheckEvent>,
 ): Promise<HealthcheckEvent[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -443,7 +443,7 @@ export async function Asset_CreateHealthcheckEvents(
  */
 export async function Asset_findById(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<Asset>,
 ): Promise<Asset> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -463,7 +463,7 @@ export async function Asset_findById(
  * Find all instances of the model matched by filter from the data source.
  * /Assets
  */
-export async function Asset_find(filter: Filter<any> = {}): Promise<Asset[]> {
+export async function Asset_find(filter?: Filter<Asset>): Promise<Asset[]> {
   const _urlParams: any = {};
   if (filter != null) {
     _urlParams['filter'] = filter;
@@ -480,7 +480,7 @@ export async function Asset_find(filter: Filter<any> = {}): Promise<Asset[]> {
  * Find first instance of the model matched by filter from the data source.
  * /Assets/findOne
  */
-export async function Asset_findOne(filter: Filter<any> = {}): Promise<Asset> {
+export async function Asset_findOne(filter?: Filter<Asset>): Promise<Asset> {
   const _urlParams: any = {};
   if (filter != null) {
     _urlParams['filter'] = filter;
@@ -662,7 +662,7 @@ export async function Asset_download(
  */
 export async function Asset_getSensorsWithCurrentState(
   id: string,
-  filter: Filter<any> = {},
+  filter: Filter<SensorWithCurrentState> = {},
 ): Promise<SensorWithCurrentState> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -679,38 +679,12 @@ export async function Asset_getSensorsWithCurrentState(
   });
 }
 /**
- * Set the current asset state and queue the next one, using its cron configuration
- * /Assets/:id/assetStates/setAndQueue
- */
-export async function Asset_setAndQueueAssetStates(
-  id: string,
-  minimalResponse?: boolean,
-  timeZone?: string,
-): Promise<any> {
-  const _urlParams: any = {};
-  if (minimalResponse != null) {
-    _urlParams['minimal_response'] = minimalResponse;
-  }
-  if (timeZone != null) {
-    _urlParams['timeZone'] = timeZone;
-  }
-
-  return ApiFetch({
-    method: 'POST',
-    url: '/Assets/:id/assetStates/setAndQueue',
-    urlParams: _urlParams,
-    routeParams: {
-      id,
-    },
-  });
-}
-/**
  * Find and filter datasets
  * /Assets/:id/datasets/filter
  */
 export async function Asset_findAndFilterDatasets(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<Dataset>,
 ): Promise<Dataset[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -721,86 +695,6 @@ export async function Asset_findAndFilterDatasets(
     method: 'GET',
     url: '/Assets/:id/datasets/filter',
     urlParams: _urlParams,
-    routeParams: {
-      id,
-    },
-  });
-}
-/**
- * Get the current TTL, if there is AssetConfig dataTTL, then get the CustomerConfig dataTTL info)
- * /Assets/:id/currentTTL
- */
-export async function Asset_getCurrentTTL(id: string): Promise<any> {
-  return ApiFetch({
-    method: 'GET',
-    url: '/Assets/:id/currentTTL',
-    routeParams: {
-      id,
-    },
-  });
-}
-/**
- * Delete datasets using a TTL condition since it was created
- * /Assets/:id/datasets/ttl
- */
-export async function Asset_deleteDatasetsByTTL(
-  id: string,
-  ttl?: number,
-  minimalResponse?: string,
-): Promise<void> {
-  const _urlParams: any = {};
-  if (ttl != null) {
-    _urlParams['ttl'] = ttl;
-  }
-  if (minimalResponse != null) {
-    _urlParams['minimal_response'] = minimalResponse;
-  }
-
-  return ApiFetch({
-    method: 'DELETE',
-    url: '/Assets/:id/datasets/ttl',
-    urlParams: _urlParams,
-    routeParams: {
-      id,
-    },
-  });
-}
-/**
- * Delete events using a TTL condition since it was created
- * /Assets/:id/events/ttl
- */
-export async function Asset_deleteEventsByTTL(
-  id: string,
-  ttl?: number,
-  minimalResponse?: string,
-): Promise<void> {
-  const _urlParams: any = {};
-  if (ttl != null) {
-    _urlParams['ttl'] = ttl;
-  }
-  if (minimalResponse != null) {
-    _urlParams['minimal_response'] = minimalResponse;
-  }
-
-  return ApiFetch({
-    method: 'DELETE',
-    url: '/Assets/:id/events/ttl',
-    urlParams: _urlParams,
-    routeParams: {
-      id,
-    },
-  });
-}
-/**
- * Get merged restriction table
- * /Assets/:id/restrictionTable/merged
- */
-export async function Asset_getMergedRestrictionTable(
-  id: string,
-): Promise<any> {
-  return ApiFetch({
-    method: 'GET',
-    url: '/Assets/:id/restrictionTable/merged',
     routeParams: {
       id,
     },
@@ -832,7 +726,7 @@ export async function Asset_notifyHealthStatus(
 export async function Asset_GetAssetStatesEventTriggerAssetStates(
   id: string,
   nk: string,
-  filter: Filter<any> = {},
+  filter?: Filter<EventTriggerAssetState>,
 ): Promise<EventTriggerAssetState[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -856,7 +750,7 @@ export async function Asset_GetAssetStatesEventTriggerAssetStates(
 export async function Asset_GetAssetStatesStates(
   id: string,
   nk: string,
-  filter: Filter<any> = {},
+  filter?: Filter<SensorAssetState>,
 ): Promise<SensorAssetState[]> {
   const _urlParams: any = {};
   if (filter != null) {

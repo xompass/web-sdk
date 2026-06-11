@@ -34,10 +34,7 @@ export type XMLHttpRequestProgressEvent = {
 };
 
 export type XMLHttpRequestUploadAdapter = {
-  onprogress:
-    | ((event: XMLHttpRequestProgressEvent) => void)
-    | null
-    | undefined;
+  onprogress: ((event: XMLHttpRequestProgressEvent) => void) | null | undefined;
 };
 
 export type XMLHttpRequestAdapter = {
@@ -102,9 +99,10 @@ function getGlobalFetch(): FetchAdapter | undefined {
   }
 
   return (input, init) =>
-    ((globalThis as { fetch: FetchAdapter }).fetch(input, init) as Promise<
-      FetchResponse
-    >);
+    (globalThis as { fetch: FetchAdapter }).fetch(
+      input,
+      init,
+    ) as Promise<FetchResponse>;
 }
 
 function getGlobalFormData(): FormDataConstructor | undefined {
@@ -180,8 +178,7 @@ export function configureWebSdkRuntime(config: WebSdkRuntimeConfig): void {
   }
 
   if ('xmlHttpRequest' in config) {
-    runtime.xmlHttpRequest =
-      config.xmlHttpRequest ?? getGlobalXMLHttpRequest();
+    runtime.xmlHttpRequest = config.xmlHttpRequest ?? getGlobalXMLHttpRequest();
   }
 }
 

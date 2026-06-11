@@ -24,7 +24,7 @@ export async function Country_exists(id: string): Promise<boolean> {
  */
 export async function Country_findById(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<Country>,
 ): Promise<Country> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -45,7 +45,7 @@ export async function Country_findById(
  * /Countries
  */
 export async function Country_find(
-  filter: Filter<any> = {},
+  filter?: Filter<Country>,
 ): Promise<Country[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -64,7 +64,7 @@ export async function Country_find(
  * /Countries/findOne
  */
 export async function Country_findOne(
-  filter: Filter<any> = {},
+  filter?: Filter<Country>,
 ): Promise<Country> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -82,7 +82,9 @@ export async function Country_findOne(
  * Count instances of the model matched by where from the data source.
  * /Countries/count
  */
-export async function Country_count(where: any = {}): Promise<number> {
+export async function Country_count(
+  where?: Filter<Country>['where'],
+): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
     _urlParams['where'] = where;

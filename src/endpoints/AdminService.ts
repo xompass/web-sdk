@@ -1,9 +1,9 @@
 import {
   ApiFetch,
-  UploadFile,
   Filter,
-  Include,
+  UploadFile,
   UploadableFile,
+  Include,
 } from '../core/ApiFetch';
 import { Admin } from '../models/Admin';
 import { CommonAccessToken } from '../models/CommonAccessToken';
@@ -313,23 +313,7 @@ export async function Admin_CountActivityLogs(
  * Create a new instance of the model and persist it into the data source.
  * /Admins
  */
-type AdminCreateData = Omit<
-  Admin,
-  | 'id'
-  | 'created'
-  | 'modified'
-  | 'deleted'
-  | 'accessTokens'
-  | 'country'
-  | 'container'
-  | 'credentials'
-  | 'assets'
-  | 'activityLogs'
-  | 'trackingLogs'
-  | 'timeZone'
-  | 'var'
->;
-export async function Admin_create(data: AdminCreateData): Promise<Admin> {
+export async function Admin_create(data: any = {}): Promise<Admin> {
   return ApiFetch({
     method: 'POST',
     url: '/Admins',
@@ -396,9 +380,7 @@ export async function Admin_login(
     url: '/Admins/login',
     urlParams: _urlParams,
     routeParams: {},
-    body: {
-      ...credentials,
-    },
+    body: { ...credentials },
   });
 }
 /**

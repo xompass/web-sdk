@@ -64,7 +64,7 @@ export async function BIPanel_UpdateByIdSeries(
  */
 export async function BIPanel_GetSeries(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<BIPanelSerie>,
 ): Promise<BIPanelSerie[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -103,7 +103,7 @@ export async function BIPanel_CreateSeries(
  */
 export async function BIPanel_CountSeries(
   id: string,
-  where: any = {},
+  where?: Filter<BIPanelSerie>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {

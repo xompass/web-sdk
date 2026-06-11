@@ -1,4 +1,4 @@
-import { ApiFetch, UploadFile, Filter, UploadableFile } from '../core/ApiFetch';
+import { ApiFetch, Filter, UploadFile, UploadableFile } from '../core/ApiFetch';
 import { Manager } from '../models/Manager';
 import { StoreVideoAnalyticDashboardStorageContainer } from '../models/StoreVideoAnalyticDashboard';
 
@@ -44,7 +44,7 @@ export async function StoreVideoAnalyticDashboard_GetContainer(
  */
 export async function StoreVideoAnalyticDashboard_GetManagers(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<Manager>,
 ): Promise<Manager[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -66,7 +66,7 @@ export async function StoreVideoAnalyticDashboard_GetManagers(
  */
 export async function StoreVideoAnalyticDashboard_CountManagers(
   id: string,
-  where: any = {},
+  where?: Filter<Manager>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {

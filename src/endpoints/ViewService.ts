@@ -46,7 +46,7 @@ export async function View_ExistsManagers(
  */
 export async function View_GetManagers(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<Manager>,
 ): Promise<Manager[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -68,7 +68,7 @@ export async function View_GetManagers(
  */
 export async function View_CountManagers(
   id: string,
-  where: any = {},
+  where?: Filter<Manager>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -103,7 +103,7 @@ export async function View_exists(id: string): Promise<boolean> {
  */
 export async function View_findById(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<View>,
 ): Promise<View> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -123,7 +123,7 @@ export async function View_findById(
  * Find all instances of the model matched by filter from the data source.
  * /Views
  */
-export async function View_find(filter: Filter<any> = {}): Promise<View[]> {
+export async function View_find(filter?: Filter<View>): Promise<View[]> {
   const _urlParams: any = {};
   if (filter != null) {
     _urlParams['filter'] = filter;
@@ -140,7 +140,7 @@ export async function View_find(filter: Filter<any> = {}): Promise<View[]> {
  * Find first instance of the model matched by filter from the data source.
  * /Views/findOne
  */
-export async function View_findOne(filter: Filter<any> = {}): Promise<View> {
+export async function View_findOne(filter?: Filter<View>): Promise<View> {
   const _urlParams: any = {};
   if (filter != null) {
     _urlParams['filter'] = filter;
@@ -157,7 +157,9 @@ export async function View_findOne(filter: Filter<any> = {}): Promise<View> {
  * Count instances of the model matched by where from the data source.
  * /Views/count
  */
-export async function View_count(where: any = {}): Promise<number> {
+export async function View_count(
+  where?: Filter<View>['where'],
+): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
     _urlParams['where'] = where;

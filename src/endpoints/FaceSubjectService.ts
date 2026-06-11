@@ -11,7 +11,7 @@ import { FaceSubject } from '../models/FaceSubject';
  */
 export async function FaceSubject_findById(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<FaceSubject>,
 ): Promise<FaceSubject> {
   const _urlParams: any = {};
   if (filter != null) {

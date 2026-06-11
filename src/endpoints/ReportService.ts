@@ -97,7 +97,7 @@ export async function Report_ExistsAssets(
  */
 export async function Report_GetManagers(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<Manager>,
 ): Promise<Manager[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -119,7 +119,7 @@ export async function Report_GetManagers(
  */
 export async function Report_CountManagers(
   id: string,
-  where: any = {},
+  where?: Filter<Manager>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -141,7 +141,7 @@ export async function Report_CountManagers(
  */
 export async function Report_GetAssets(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<Asset>,
 ): Promise<Asset[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -163,7 +163,7 @@ export async function Report_GetAssets(
  */
 export async function Report_CountAssets(
   id: string,
-  where: any = {},
+  where?: Filter<Asset>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {

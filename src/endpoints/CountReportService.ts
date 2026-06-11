@@ -82,7 +82,7 @@ export async function CountReport_FindByIdManagers(
  */
 export async function CountReport_GetSections(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<CountReportSection>,
 ): Promise<CountReportSection[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -121,7 +121,7 @@ export async function CountReport_CreateSections(
  */
 export async function CountReport_CountSections(
   id: string,
-  where: any = {},
+  where?: Filter<CountReportSection>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -143,7 +143,7 @@ export async function CountReport_CountSections(
  */
 export async function CountReport_GetManagers(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<Manager>,
 ): Promise<Manager[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -165,7 +165,7 @@ export async function CountReport_GetManagers(
  */
 export async function CountReport_CountManagers(
   id: string,
-  where: any = {},
+  where?: Filter<Manager>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {

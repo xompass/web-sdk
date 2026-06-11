@@ -349,6 +349,12 @@ export * from './models/sensorTypes/OverlapDetection/OverlapDetectionParameters'
 export * from './models/sensorTypes/OverlapDetection/OverlapDetectionSummary';
 export * from './models/sensorTypes/OverlapDetection/OverlapDetectionTRCParameters';
 export * from './models/sensorTypes/OverlapDetection/OverlapDetectionTrigger';
+export * from './models/sensorTypes/PanicButton/PanicButtonContent';
+export * from './models/sensorTypes/PanicButton/PanicButtonEventContent';
+export * from './models/sensorTypes/PanicButton/PanicButtonFeedback';
+export * from './models/sensorTypes/PanicButton/PanicButtonParameters';
+export * from './models/sensorTypes/PanicButton/PanicButtonSummary';
+export * from './models/sensorTypes/PanicButton/PanicButtonTrigger';
 export * from './models/sensorTypes/PeriodicObjectCounting/PeriodicObjectCountingContent';
 export * from './models/sensorTypes/PeriodicObjectCounting/PeriodicObjectCountingEventContent';
 export * from './models/sensorTypes/PeriodicObjectCounting/PeriodicObjectCountingParameters';

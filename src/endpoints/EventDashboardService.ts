@@ -208,7 +208,7 @@ export async function EventDashboard_FindByIdManagers(
  */
 export async function EventDashboard_GetAssets(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<Asset>,
 ): Promise<Asset[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -230,7 +230,7 @@ export async function EventDashboard_GetAssets(
  */
 export async function EventDashboard_CountAssets(
   id: string,
-  where: any = {},
+  where?: Filter<Asset>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -252,7 +252,7 @@ export async function EventDashboard_CountAssets(
  */
 export async function EventDashboard_GetEventDashboardEventTriggers(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<EventDashboardEventTrigger>,
 ): Promise<EventDashboardEventTrigger[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -274,7 +274,7 @@ export async function EventDashboard_GetEventDashboardEventTriggers(
  */
 export async function EventDashboard_GetEventTriggers(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<EventTrigger>,
 ): Promise<EventTrigger[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -296,7 +296,7 @@ export async function EventDashboard_GetEventTriggers(
  */
 export async function EventDashboard_CountEventTriggers(
   id: string,
-  where: any = {},
+  where?: Filter<EventTrigger>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -318,7 +318,7 @@ export async function EventDashboard_CountEventTriggers(
  */
 export async function EventDashboard_GetManagers(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<Manager>,
 ): Promise<Manager[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -340,7 +340,7 @@ export async function EventDashboard_GetManagers(
  */
 export async function EventDashboard_CountManagers(
   id: string,
-  where: any = {},
+  where?: Filter<Manager>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -362,7 +362,7 @@ export async function EventDashboard_CountManagers(
  */
 export async function EventDashboard_findById(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<EventDashboard>,
 ): Promise<EventDashboard> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -413,7 +413,7 @@ export type EventDashboard_GetEventsResponse = {
 
 export async function EventDashboard_GetEvents(
   id: string,
-  filter: Filter<Event> = {},
+  filter?: Filter<Event>,
   eventTriggers?: boolean,
   assets?: boolean,
 ): Promise<EventDashboard_GetEventsResponse> {

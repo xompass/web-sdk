@@ -1,9 +1,7 @@
-import { ApiFetch, UploadFile, Filter, UploadableFile } from '../core/ApiFetch';
+import { ApiFetch, Filter, UploadFile, UploadableFile } from '../core/ApiFetch';
 import { Customer } from '../models/Customer';
-import { AssetTag } from '../models/AssetTag';
 import { Asset } from '../models/Asset';
 import { AssetTemplate } from '../models/AssetTemplate';
-import { CountReport } from '../models/CountReport';
 import { Credential } from '../models/Credential';
 import { ApiKey } from '../models/ApiKey';
 import { Country } from '../models/Country';
@@ -20,9 +18,6 @@ import { EmergencyContact } from '../models/EmergencyContact';
 import { EventState } from '../models/EventState';
 import { Manager } from '../models/Manager';
 import { Project } from '../models/Project';
-import { SensorUptime } from '../models/SensorUptime';
-import { SensorUptimeCollector } from '../models/SensorUptimeCollector';
-import { Storyline } from '../models/Storyline';
 import { StorylineCategory } from '../models/StorylineCategory';
 import { TelegramChat } from '../models/TelegramChat';
 import { TimeZone } from '../models/TimeZone';
@@ -30,6 +25,10 @@ import { Toolkit } from '../models/Toolkit';
 import { Var } from '../models/Var';
 import { YoloClass } from '../models/YoloClass';
 import { YoloClassCustomer } from '../models/YoloClassCustomer';
+import { AssetTag } from '../models/AssetTag';
+import { CountReport } from '../models/CountReport';
+import { Storyline } from '../models/Storyline';
+import { SensorUptimeCollector } from '../models/SensorUptimeCollector';
 import { Sensor } from '../models/Sensor';
 import { Tool } from '../models/Tool';
 import { AssetType } from '../models/AssetType';
@@ -45,6 +44,7 @@ import { EventSummary } from '../models/EventSummary';
 import { EventSummaryForAsset } from '../models/EventSummaryForAsset';
 import { EventTrigger } from '../models/EventTrigger';
 import { HealthcheckEvent } from '../models/HealthcheckEvent';
+import { SensorUptime } from '../models/SensorUptime';
 import { Summary } from '../models/Summary';
 import { AssetStateTemplate } from '../models/AssetStateTemplate';
 import { EventGroupTemplate } from '../models/EventGroupTemplate';
@@ -949,7 +949,7 @@ export async function Customer_ExistsYoloClasses(
  */
 export async function Customer_GetAssetTags(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<AssetTag>,
 ): Promise<AssetTag[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -971,7 +971,7 @@ export async function Customer_GetAssetTags(
  */
 export async function Customer_GetAssets(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<Asset>,
 ): Promise<Asset[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -993,7 +993,7 @@ export async function Customer_GetAssets(
  */
 export async function Customer_CountAssets(
   id: string,
-  where: any = {},
+  where?: Filter<Asset>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -1015,7 +1015,7 @@ export async function Customer_CountAssets(
  */
 export async function Customer_GetAssetTemplates(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<AssetTemplate>,
 ): Promise<AssetTemplate[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -1037,7 +1037,7 @@ export async function Customer_GetAssetTemplates(
  */
 export async function Customer_CountAssetTemplates(
   id: string,
-  where: any = {},
+  where?: Filter<AssetTemplate>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -1059,7 +1059,7 @@ export async function Customer_CountAssetTemplates(
  */
 export async function Customer_GetCountReports(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<CountReport>,
 ): Promise<CountReport[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -1081,7 +1081,7 @@ export async function Customer_GetCountReports(
  */
 export async function Customer_GetCredentials(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<Credential>,
 ): Promise<Credential[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -1103,7 +1103,7 @@ export async function Customer_GetCredentials(
  */
 export async function Customer_CountCredentials(
   id: string,
-  where: any = {},
+  where?: Filter<Credential>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -1125,7 +1125,7 @@ export async function Customer_CountCredentials(
  */
 export async function Customer_GetApiKeys(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<ApiKey>,
 ): Promise<ApiKey[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -1164,7 +1164,7 @@ export async function Customer_CreateApiKeys(
  */
 export async function Customer_CountApiKeys(
   id: string,
-  where: any = {},
+  where?: Filter<ApiKey>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -1186,7 +1186,7 @@ export async function Customer_CountApiKeys(
  */
 export async function Customer_GetOperabilitySummaries(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<CustomerOperabilitySummary>,
 ): Promise<CustomerOperabilitySummary[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -1230,7 +1230,7 @@ export async function Customer_CountOperabilitySummaries(
  */
 export async function Customer_GetDefaultEventComments(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<DefaultEventComment>,
 ): Promise<DefaultEventComment[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -1269,7 +1269,7 @@ export async function Customer_CreateDefaultEventComments(
  */
 export async function Customer_CountDefaultEventComments(
   id: string,
-  where: any = {},
+  where?: Filter<DefaultEventComment>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -1291,7 +1291,7 @@ export async function Customer_CountDefaultEventComments(
  */
 export async function Customer_GetDevices(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<Device>,
 ): Promise<Device[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -1330,7 +1330,7 @@ export async function Customer_CreateDevices(
  */
 export async function Customer_CountDevices(
   id: string,
-  where: any = {},
+  where?: Filter<Device>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -1352,7 +1352,7 @@ export async function Customer_CountDevices(
  */
 export async function Customer_GetDeviceEventTypes(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<DeviceEventType>,
 ): Promise<DeviceEventType[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -1374,7 +1374,7 @@ export async function Customer_GetDeviceEventTypes(
  */
 export async function Customer_CountDeviceEventTypes(
   id: string,
-  where: any = {},
+  where?: Filter<DeviceEventType>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -1396,7 +1396,7 @@ export async function Customer_CountDeviceEventTypes(
  */
 export async function Customer_GetEdgeAgents(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<EdgeAgent>,
 ): Promise<EdgeAgent[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -1435,7 +1435,7 @@ export async function Customer_CreateEdgeAgents(
  */
 export async function Customer_CountEdgeAgents(
   id: string,
-  where: any = {},
+  where?: Filter<EdgeAgent>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -1457,7 +1457,7 @@ export async function Customer_CountEdgeAgents(
  */
 export async function Customer_GetEmergencyContacts(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<EmergencyContact>,
 ): Promise<EmergencyContact[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -1496,7 +1496,7 @@ export async function Customer_CreateEmergencyContacts(
  */
 export async function Customer_CountEmergencyContacts(
   id: string,
-  where: any = {},
+  where?: Filter<EmergencyContact>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -1518,7 +1518,7 @@ export async function Customer_CountEmergencyContacts(
  */
 export async function Customer_GetEventStates(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<EventState>,
 ): Promise<EventState[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -1557,7 +1557,7 @@ export async function Customer_CreateEventStates(
  */
 export async function Customer_CountEventStates(
   id: string,
-  where: any = {},
+  where?: Filter<EventState>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -1579,7 +1579,7 @@ export async function Customer_CountEventStates(
  */
 export async function Customer_GetManagers(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<Manager>,
 ): Promise<Manager[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -1618,7 +1618,7 @@ export async function Customer_CreateManagers(
  */
 export async function Customer_CountManagers(
   id: string,
-  where: any = {},
+  where?: Filter<Manager>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -1640,7 +1640,7 @@ export async function Customer_CountManagers(
  */
 export async function Customer_GetProjects(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<Project>,
 ): Promise<Project[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -1662,7 +1662,7 @@ export async function Customer_GetProjects(
  */
 export async function Customer_CountProjects(
   id: string,
-  where: any = {},
+  where?: Filter<Project>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -1684,7 +1684,7 @@ export async function Customer_CountProjects(
  */
 export async function Customer_GetStorylines(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<Storyline>,
 ): Promise<Storyline[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -1706,7 +1706,7 @@ export async function Customer_GetStorylines(
  */
 export async function Customer_GetStorylineCategories(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<StorylineCategory>,
 ): Promise<StorylineCategory[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -1745,7 +1745,7 @@ export async function Customer_CreateStorylineCategories(
  */
 export async function Customer_CountStorylineCategories(
   id: string,
-  where: any = {},
+  where?: Filter<StorylineCategory>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -1767,7 +1767,7 @@ export async function Customer_CountStorylineCategories(
  */
 export async function Customer_GetTelegramChats(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<TelegramChat>,
 ): Promise<TelegramChat[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -1806,7 +1806,7 @@ export async function Customer_CreateTelegramChats(
  */
 export async function Customer_CountTelegramChats(
   id: string,
-  where: any = {},
+  where?: Filter<TelegramChat>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -1828,7 +1828,7 @@ export async function Customer_CountTelegramChats(
  */
 export async function Customer_GetToolkits(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<Toolkit>,
 ): Promise<Toolkit[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -1850,7 +1850,7 @@ export async function Customer_GetToolkits(
  */
 export async function Customer_CountToolkits(
   id: string,
-  where: any = {},
+  where?: Filter<Toolkit>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -1872,7 +1872,7 @@ export async function Customer_CountToolkits(
  */
 export async function Customer_GetYoloClasses(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<YoloClass>,
 ): Promise<YoloClass[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -1894,7 +1894,7 @@ export async function Customer_GetYoloClasses(
  */
 export async function Customer_CountYoloClasses(
   id: string,
-  where: any = {},
+  where?: Filter<YoloClass>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -1916,7 +1916,7 @@ export async function Customer_CountYoloClasses(
  */
 export async function Customer_findById(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<Customer>,
 ): Promise<Customer> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -2029,7 +2029,7 @@ export async function Customer_InstantiateToolkits(
  */
 export async function Customer_assetsWithLastUptimeCollectors(
   id: string,
-  where: any = {},
+  where?: Filter<SensorUptimeCollector>['where'],
 ): Promise<SensorUptimeCollector[]> {
   const _urlParams: any = {};
   if (where != null) {
@@ -2100,7 +2100,7 @@ export async function Customer_GetLastAssetsSensorsWithUptimeCollectors(
  */
 export async function Customer_GetSensors(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<Sensor>,
 ): Promise<Sensor[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -2123,7 +2123,7 @@ export async function Customer_GetSensors(
 export async function Customer_GetProjectsSensors(
   id: string,
   nk: string,
-  filter: Filter<any> = {},
+  filter?: Filter<Sensor>,
 ): Promise<Sensor[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -2148,7 +2148,7 @@ export async function Customer_GetAssetsSensorsWithStatesByClass(
   id: string,
   fk: string,
   class_: string,
-  filter: Filter<any> = {},
+  filter?: Filter<Sensor>,
 ): Promise<Sensor[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -2174,7 +2174,7 @@ export async function Customer_GetAssetsSensorsWithStatesByClass(
  */
 export async function Customer_GetAdminTools(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<Tool>,
 ): Promise<Tool[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -2196,7 +2196,7 @@ export async function Customer_GetAdminTools(
  */
 export async function Customer_GetTools(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<Tool>,
 ): Promise<Tool[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -2219,7 +2219,7 @@ export async function Customer_GetTools(
 export async function Customer_GetToolkitsAssetTypes(
   id: string,
   fk: string,
-  filter: Filter<any> = {},
+  filter?: Filter<AssetType>,
 ): Promise<AssetType[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -2243,7 +2243,7 @@ export async function Customer_GetToolkitsAssetTypes(
 export async function Customer_GetProjectsAssetTypes(
   id: string,
   fk: string,
-  filter: Filter<any> = {},
+  filter?: Filter<AssetType>,
 ): Promise<AssetType[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -2407,8 +2407,8 @@ export async function Customer_subscribeAssets(
  */
 export async function Customer_unsubscribeAssets(
   id: string,
-  where: any = {},
   socketId?: string,
+  where?: Filter<Asset>['where'],
 ): Promise<void> {
   const _urlParams: any = {};
   if (where != null) {
@@ -2459,8 +2459,8 @@ export async function Customer_subscribeDevices(
  */
 export async function Customer_unsubscribeDevices(
   id: string,
-  where: any = {},
   socketId?: string,
+  where?: Filter<Device>['where'],
 ): Promise<void> {
   const _urlParams: any = {};
   if (where != null) {
@@ -2483,7 +2483,7 @@ export async function Customer_unsubscribeDevices(
  */
 export async function Customer_findAndFilterDatasets(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<Dataset>,
 ): Promise<Dataset[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -2505,7 +2505,7 @@ export async function Customer_findAndFilterDatasets(
  */
 export async function Customer_findAndFilterEvents(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<Event>,
 ): Promise<Event[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -2528,7 +2528,7 @@ export async function Customer_findAndFilterEvents(
 export async function Customer_getDeviceLogs(
   id: string,
   nk: string,
-  query: any = {},
+  query?: any,
 ): Promise<any> {
   const _urlParams: any = {};
   if (query != null) {
@@ -2585,7 +2585,7 @@ export async function Customer_getDeviceVersion(
  */
 export async function Customer_findDeviceUptimes(
   id: string,
-  where: any = {},
+  where?: Filter<Device>['where'],
 ): Promise<any> {
   const _urlParams: any = {};
   if (where != null) {
@@ -2607,7 +2607,7 @@ export async function Customer_findDeviceUptimes(
  */
 export async function Customer_findDeviceVersions(
   id: string,
-  where: any = {},
+  where?: Filter<Device>['where'],
 ): Promise<any> {
   const _urlParams: any = {};
   if (where != null) {
@@ -2618,21 +2618,6 @@ export async function Customer_findDeviceVersions(
     method: 'GET',
     url: '/Customers/:id/devices/versions',
     urlParams: _urlParams,
-    routeParams: {
-      id,
-    },
-  });
-}
-/**
- * Get merged restriction table
- * /Customers/:id/restrictionTable/merged
- */
-export async function Customer_getMergedRestrictionTable(
-  id: string,
-): Promise<any> {
-  return ApiFetch({
-    method: 'GET',
-    url: '/Customers/:id/restrictionTable/merged',
     routeParams: {
       id,
     },
@@ -2785,7 +2770,7 @@ export async function Customer_getEvents(
 export async function Customer_getProjectEvents(
   id: string,
   nk: string,
-  filter: Filter<any> = {},
+  filter?: Filter<Project>,
 ): Promise<any[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -2920,7 +2905,7 @@ export async function Customer_deleteBlackListedVehicle(
  */
 export async function Customer_replaceBlackList(
   id: string,
-  data: any = {},
+  data?: any,
 ): Promise<any[]> {
   return ApiFetch({
     method: 'PUT',
@@ -2937,7 +2922,7 @@ export async function Customer_replaceBlackList(
  */
 export async function Customer_mergeBlackList(
   id: string,
-  data: any = {},
+  data?: any,
 ): Promise<any> {
   return ApiFetch({
     method: 'PATCH',
@@ -2954,7 +2939,7 @@ export async function Customer_mergeBlackList(
  */
 export async function Customer_createManyBlackList(
   id: string,
-  data: any[] = [],
+  data?: any[],
 ): Promise<any[]> {
   return ApiFetch({
     method: 'POST',
@@ -3006,6 +2991,45 @@ export async function Customer_resetTelegrambot(
   return ApiFetch({
     method: 'PATCH',
     url: '/Customers/:id/telegram/:nk/softBotReset',
+    routeParams: {
+      id,
+      nk,
+    },
+  });
+}
+/**
+ * Get manager hash for dispatch sync
+ * /Customers/:id/dispatch/managers
+ */
+export async function Customer_getManagersHash(
+  id: string,
+  filter?: Filter<Dispatch>,
+): Promise<any[]> {
+  const _urlParams: any = {};
+  if (filter != null) {
+    _urlParams['filter'] = filter;
+  }
+
+  return ApiFetch({
+    method: 'GET',
+    url: '/Customers/:id/dispatch/managers',
+    urlParams: _urlParams,
+    routeParams: {
+      id,
+    },
+  });
+}
+/**
+ * Get Device Siblings in Edge Commandcenter
+ * /Customers/:id/devices/:nk/siblings
+ */
+export async function Customer_getDeviceSiblings(
+  id: string,
+  nk: string,
+): Promise<any[]> {
+  return ApiFetch({
+    method: 'GET',
+    url: '/Customers/:id/devices/:nk/siblings',
     routeParams: {
       id,
       nk,
@@ -3676,7 +3700,7 @@ export async function Customer_CreateAssetsAssets(
 export async function Customer_CountAssetsAssets(
   id: string,
   nk: string,
-  where: any = {},
+  where?: Filter<Asset>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -3700,7 +3724,7 @@ export async function Customer_CountAssetsAssets(
 export async function Customer_GetAssetsStaffs(
   id: string,
   nk: string,
-  filter: Filter<any> = {},
+  filter?: Filter<AssetStaff>,
 ): Promise<AssetStaff[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -3743,7 +3767,7 @@ export async function Customer_CreateAssetsStaffs(
 export async function Customer_CountAssetsStaffs(
   id: string,
   nk: string,
-  where: any = {},
+  where?: Filter<Asset>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -3767,7 +3791,7 @@ export async function Customer_CountAssetsStaffs(
 export async function Customer_GetAssetsAssetStates(
   id: string,
   nk: string,
-  filter: Filter<any> = {},
+  filter?: Filter<AssetState>,
 ): Promise<AssetState[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -3810,7 +3834,7 @@ export async function Customer_CreateAssetsAssetStates(
 export async function Customer_CountAssetsAssetStates(
   id: string,
   nk: string,
-  where: any = {},
+  where?: Filter<Asset>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -3834,7 +3858,7 @@ export async function Customer_CountAssetsAssetStates(
 export async function Customer_GetAssetsCredentials(
   id: string,
   nk: string,
-  filter: Filter<any> = {},
+  filter?: Filter<Credential>,
 ): Promise<Credential[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -3858,7 +3882,7 @@ export async function Customer_GetAssetsCredentials(
 export async function Customer_CountAssetsCredentials(
   id: string,
   nk: string,
-  where: any = {},
+  where?: Filter<Credential>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -3882,7 +3906,7 @@ export async function Customer_CountAssetsCredentials(
 export async function Customer_GetAssetsAdmins(
   id: string,
   nk: string,
-  filter: Filter<any> = {},
+  filter?: Filter<Admin>,
 ): Promise<Admin[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -3906,7 +3930,7 @@ export async function Customer_GetAssetsAdmins(
 export async function Customer_CountAssetsAdmins(
   id: string,
   nk: string,
-  where: any = {},
+  where?: Filter<Asset>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -3930,7 +3954,7 @@ export async function Customer_CountAssetsAdmins(
 export async function Customer_GetAssetsEvents(
   id: string,
   nk: string,
-  filter: Filter<any> = {},
+  filter?: Filter<Event>,
 ): Promise<Event[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -3954,7 +3978,7 @@ export async function Customer_GetAssetsEvents(
 export async function Customer_CountAssetsEvents(
   id: string,
   nk: string,
-  where: any = {},
+  where?: Filter<Asset>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -3978,7 +4002,7 @@ export async function Customer_CountAssetsEvents(
 export async function Customer_GetAssetsEventGroups(
   id: string,
   nk: string,
-  filter: Filter<any> = {},
+  filter?: Filter<EventGroup>,
 ): Promise<EventGroup[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -4021,7 +4045,7 @@ export async function Customer_CreateAssetsEventGroups(
 export async function Customer_CountAssetsEventGroups(
   id: string,
   nk: string,
-  where: any = {},
+  where?: Filter<Asset>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -4045,7 +4069,7 @@ export async function Customer_CountAssetsEventGroups(
 export async function Customer_GetAssetsEventSummaries(
   id: string,
   nk: string,
-  filter: Filter<any> = {},
+  filter?: Filter<EventSummary>,
 ): Promise<EventSummary[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -4069,7 +4093,7 @@ export async function Customer_GetAssetsEventSummaries(
 export async function Customer_CountAssetsEventSummaries(
   id: string,
   nk: string,
-  where: any = {},
+  where?: Filter<Asset>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -4093,7 +4117,7 @@ export async function Customer_CountAssetsEventSummaries(
 export async function Customer_GetAssetsEventSummaryForAssets(
   id: string,
   nk: string,
-  filter: Filter<any> = {},
+  filter?: Filter<EventSummaryForAsset>,
 ): Promise<EventSummaryForAsset[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -4117,7 +4141,7 @@ export async function Customer_GetAssetsEventSummaryForAssets(
 export async function Customer_CountAssetsEventSummaryForAssets(
   id: string,
   nk: string,
-  where: any = {},
+  where?: Filter<Asset>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -4141,7 +4165,7 @@ export async function Customer_CountAssetsEventSummaryForAssets(
 export async function Customer_GetAssetsEventTriggers(
   id: string,
   nk: string,
-  filter: Filter<any> = {},
+  filter?: Filter<EventTrigger>,
 ): Promise<EventTrigger[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -4184,7 +4208,7 @@ export async function Customer_CreateAssetsEventTriggers(
 export async function Customer_CountAssetsEventTriggers(
   id: string,
   nk: string,
-  where: any = {},
+  where?: Filter<Asset>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -4208,7 +4232,7 @@ export async function Customer_CountAssetsEventTriggers(
 export async function Customer_GetAssetsHealthcheckEvents(
   id: string,
   nk: string,
-  filter: Filter<any> = {},
+  filter?: Filter<HealthcheckEvent>,
 ): Promise<HealthcheckEvent[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -4232,7 +4256,7 @@ export async function Customer_GetAssetsHealthcheckEvents(
 export async function Customer_CountAssetsHealthcheckEvents(
   id: string,
   nk: string,
-  where: any = {},
+  where?: Filter<Asset>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -4256,7 +4280,7 @@ export async function Customer_CountAssetsHealthcheckEvents(
 export async function Customer_GetAssetsManagers(
   id: string,
   nk: string,
-  filter: Filter<any> = {},
+  filter?: Filter<Manager>,
 ): Promise<Manager[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -4280,7 +4304,7 @@ export async function Customer_GetAssetsManagers(
 export async function Customer_CountAssetsManagers(
   id: string,
   nk: string,
-  where: any = {},
+  where?: Filter<Manager>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -4304,7 +4328,7 @@ export async function Customer_CountAssetsManagers(
 export async function Customer_GetAssetsSensors(
   id: string,
   nk: string,
-  filter: Filter<any> = {},
+  filter?: Filter<Sensor>,
 ): Promise<Sensor[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -4347,7 +4371,7 @@ export async function Customer_CreateAssetsSensors(
 export async function Customer_CountAssetsSensors(
   id: string,
   nk: string,
-  where: any = {},
+  where?: Filter<Asset>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -4371,7 +4395,7 @@ export async function Customer_CountAssetsSensors(
 export async function Customer_GetAssetsSensorUptimes(
   id: string,
   nk: string,
-  filter: Filter<any> = {},
+  filter?: Filter<SensorUptime>,
 ): Promise<SensorUptime[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -4395,7 +4419,7 @@ export async function Customer_GetAssetsSensorUptimes(
 export async function Customer_CountAssetsSensorUptimes(
   id: string,
   nk: string,
-  where: any = {},
+  where?: Filter<SensorUptime>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -4419,7 +4443,7 @@ export async function Customer_CountAssetsSensorUptimes(
 export async function Customer_GetAssetsSensorUptimeCollectors(
   id: string,
   nk: string,
-  filter: Filter<any> = {},
+  filter?: Filter<SensorUptimeCollector>,
 ): Promise<SensorUptimeCollector[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -4443,7 +4467,7 @@ export async function Customer_GetAssetsSensorUptimeCollectors(
 export async function Customer_CountAssetsSensorUptimeCollectors(
   id: string,
   nk: string,
-  where: any = {},
+  where?: Filter<SensorUptimeCollector>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -4467,7 +4491,7 @@ export async function Customer_CountAssetsSensorUptimeCollectors(
 export async function Customer_GetAssetsSummaries(
   id: string,
   nk: string,
-  filter: Filter<any> = {},
+  filter?: Filter<Summary>,
 ): Promise<Summary[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -4491,7 +4515,7 @@ export async function Customer_GetAssetsSummaries(
 export async function Customer_CountAssetsSummaries(
   id: string,
   nk: string,
-  where: any = {},
+  where?: Filter<Asset>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -4842,7 +4866,7 @@ export async function Customer_UpdateByIdAssetTemplatesSensorTemplates(
 export async function Customer_GetAssetTemplatesAssetTemplates(
   id: string,
   nk: string,
-  filter: Filter<any> = {},
+  filter?: Filter<AssetTemplate>,
 ): Promise<AssetTemplate[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -4885,7 +4909,7 @@ export async function Customer_CreateAssetTemplatesAssetTemplates(
 export async function Customer_CountAssetTemplatesAssetTemplates(
   id: string,
   nk: string,
-  where: any = {},
+  where?: Filter<AssetTemplate>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -4909,7 +4933,7 @@ export async function Customer_CountAssetTemplatesAssetTemplates(
 export async function Customer_GetAssetTemplatesAssetStateTemplates(
   id: string,
   nk: string,
-  filter: Filter<any> = {},
+  filter?: Filter<AssetStateTemplate>,
 ): Promise<AssetStateTemplate[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -4952,7 +4976,7 @@ export async function Customer_CreateAssetTemplatesAssetStateTemplates(
 export async function Customer_CountAssetTemplatesAssetStateTemplates(
   id: string,
   nk: string,
-  where: any = {},
+  where?: Filter<AssetTemplate>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -4976,7 +5000,7 @@ export async function Customer_CountAssetTemplatesAssetStateTemplates(
 export async function Customer_GetAssetTemplatesDefaultResponsibleAdmins(
   id: string,
   nk: string,
-  filter: Filter<any> = {},
+  filter?: Filter<Admin>,
 ): Promise<Admin[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -5000,7 +5024,7 @@ export async function Customer_GetAssetTemplatesDefaultResponsibleAdmins(
 export async function Customer_CountAssetTemplatesDefaultResponsibleAdmins(
   id: string,
   nk: string,
-  where: any = {},
+  where?: Filter<AssetTemplate>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -5024,7 +5048,7 @@ export async function Customer_CountAssetTemplatesDefaultResponsibleAdmins(
 export async function Customer_GetAssetTemplatesEventGroupTemplates(
   id: string,
   nk: string,
-  filter: Filter<any> = {},
+  filter?: Filter<EventGroupTemplate>,
 ): Promise<EventGroupTemplate[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -5067,7 +5091,7 @@ export async function Customer_CreateAssetTemplatesEventGroupTemplates(
 export async function Customer_CountAssetTemplatesEventGroupTemplates(
   id: string,
   nk: string,
-  where: any = {},
+  where?: Filter<AssetTemplate>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -5091,7 +5115,7 @@ export async function Customer_CountAssetTemplatesEventGroupTemplates(
 export async function Customer_GetAssetTemplatesEventTriggerTemplates(
   id: string,
   nk: string,
-  filter: Filter<any> = {},
+  filter?: Filter<EventTriggerTemplate>,
 ): Promise<EventTriggerTemplate[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -5134,7 +5158,7 @@ export async function Customer_CreateAssetTemplatesEventTriggerTemplates(
 export async function Customer_CountAssetTemplatesEventTriggerTemplates(
   id: string,
   nk: string,
-  where: any = {},
+  where?: Filter<AssetTemplate>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -5158,7 +5182,7 @@ export async function Customer_CountAssetTemplatesEventTriggerTemplates(
 export async function Customer_GetAssetTemplatesDefaultResponsibleManagers(
   id: string,
   nk: string,
-  filter: Filter<any> = {},
+  filter?: Filter<Manager>,
 ): Promise<Manager[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -5182,7 +5206,7 @@ export async function Customer_GetAssetTemplatesDefaultResponsibleManagers(
 export async function Customer_CountAssetTemplatesDefaultResponsibleManagers(
   id: string,
   nk: string,
-  where: any = {},
+  where?: Filter<AssetTemplate>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -5206,7 +5230,7 @@ export async function Customer_CountAssetTemplatesDefaultResponsibleManagers(
 export async function Customer_GetAssetTemplatesSensorTemplates(
   id: string,
   nk: string,
-  filter: Filter<any> = {},
+  filter?: Filter<SensorTemplate>,
 ): Promise<SensorTemplate[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -5249,7 +5273,7 @@ export async function Customer_CreateAssetTemplatesSensorTemplates(
 export async function Customer_CountAssetTemplatesSensorTemplates(
   id: string,
   nk: string,
-  where: any = {},
+  where?: Filter<AssetTemplate>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -6348,7 +6372,7 @@ export async function Customer_UnlinkProjectsYoloClasses(
 export async function Customer_GetProjectsAssets(
   id: string,
   nk: string,
-  filter: Filter<any> = {},
+  filter?: Filter<Asset>,
 ): Promise<Asset[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -6391,7 +6415,7 @@ export async function Customer_CreateProjectsAssets(
 export async function Customer_CountProjectsAssets(
   id: string,
   nk: string,
-  where: any = {},
+  where?: Filter<Project>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -6415,7 +6439,7 @@ export async function Customer_CountProjectsAssets(
 export async function Customer_GetProjectsAssetTemplates(
   id: string,
   nk: string,
-  filter: Filter<any> = {},
+  filter?: Filter<AssetTemplate>,
 ): Promise<AssetTemplate[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -6458,7 +6482,7 @@ export async function Customer_CreateProjectsAssetTemplates(
 export async function Customer_CountProjectsAssetTemplates(
   id: string,
   nk: string,
-  where: any = {},
+  where?: Filter<AssetTemplate>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -6482,7 +6506,7 @@ export async function Customer_CountProjectsAssetTemplates(
 export async function Customer_GetProjectsCountReports(
   id: string,
   nk: string,
-  filter: Filter<any> = {},
+  filter?: Filter<CountReport>,
 ): Promise<CountReport[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -6525,7 +6549,7 @@ export async function Customer_CreateProjectsCountReports(
 export async function Customer_CountProjectsCountReports(
   id: string,
   nk: string,
-  where: any = {},
+  where?: Filter<CountReport>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -6549,7 +6573,7 @@ export async function Customer_CountProjectsCountReports(
 export async function Customer_GetProjectsHealthcheckEvents(
   id: string,
   nk: string,
-  filter: Filter<any> = {},
+  filter?: Filter<HealthcheckEvent>,
 ): Promise<HealthcheckEvent[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -6573,7 +6597,7 @@ export async function Customer_GetProjectsHealthcheckEvents(
 export async function Customer_CountProjectsHealthcheckEvents(
   id: string,
   nk: string,
-  where: any = {},
+  where?: Filter<Project>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -6597,7 +6621,7 @@ export async function Customer_CountProjectsHealthcheckEvents(
 export async function Customer_GetProjectsCctvDashboards(
   id: string,
   nk: string,
-  filter: Filter<any> = {},
+  filter?: Filter<CctvDashboard>,
 ): Promise<CctvDashboard[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -6615,7 +6639,7 @@ export async function Customer_GetProjectsCctvDashboards(
   });
 }
 /**
- * Crea una nueva instancia en cctvDashboards de este modelo.
+ * Creates a new instance in cctvDashboards of this model.
  * /Customers/:id/projects/:nk/cctvDashboards
  */
 export async function Customer_CreateProjectsCctvDashboards(
@@ -6640,7 +6664,7 @@ export async function Customer_CreateProjectsCctvDashboards(
 export async function Customer_CountProjectsCctvDashboards(
   id: string,
   nk: string,
-  where: any = {},
+  where?: Filter<Project>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -6664,7 +6688,7 @@ export async function Customer_CountProjectsCctvDashboards(
 export async function Customer_GetProjectsEventDashboards(
   id: string,
   nk: string,
-  filter: Filter<any> = {},
+  filter?: Filter<EventDashboard>,
 ): Promise<EventDashboard[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -6707,7 +6731,7 @@ export async function Customer_CreateProjectsEventDashboards(
 export async function Customer_CountProjectsEventDashboards(
   id: string,
   nk: string,
-  where: any = {},
+  where?: Filter<Project>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -6731,7 +6755,7 @@ export async function Customer_CountProjectsEventDashboards(
 export async function Customer_GetProjectsEventSummaryForProjects(
   id: string,
   nk: string,
-  filter: Filter<any> = {},
+  filter?: Filter<EventSummaryForProject>,
 ): Promise<EventSummaryForProject[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -6755,7 +6779,7 @@ export async function Customer_GetProjectsEventSummaryForProjects(
 export async function Customer_CountProjectsEventSummaryForProjects(
   id: string,
   nk: string,
-  where: any = {},
+  where?: Filter<Project>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -6779,7 +6803,7 @@ export async function Customer_CountProjectsEventSummaryForProjects(
 export async function Customer_GetProjectsEmbeddedReports(
   id: string,
   nk: string,
-  filter: Filter<any> = {},
+  filter?: Filter<EmbeddedReport>,
 ): Promise<EmbeddedReport[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -6822,7 +6846,7 @@ export async function Customer_CreateProjectsEmbeddedReports(
 export async function Customer_CountProjectsEmbeddedReports(
   id: string,
   nk: string,
-  where: any = {},
+  where?: Filter<Project>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -6846,7 +6870,7 @@ export async function Customer_CountProjectsEmbeddedReports(
 export async function Customer_GetProjectsBiPanels(
   id: string,
   nk: string,
-  filter: Filter<any> = {},
+  filter?: Filter<BIPanel>,
 ): Promise<BIPanel[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -6889,7 +6913,7 @@ export async function Customer_CreateProjectsBiPanels(
 export async function Customer_CountProjectsBiPanels(
   id: string,
   nk: string,
-  where: any = {},
+  where?: Filter<Project>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -6913,7 +6937,7 @@ export async function Customer_CountProjectsBiPanels(
 export async function Customer_GetProjectsPeopleCounterReports(
   id: string,
   nk: string,
-  filter: Filter<any> = {},
+  filter?: Filter<PeopleCounterReport>,
 ): Promise<PeopleCounterReport[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -6956,7 +6980,7 @@ export async function Customer_CreateProjectsPeopleCounterReports(
 export async function Customer_CountProjectsPeopleCounterReports(
   id: string,
   nk: string,
-  where: any = {},
+  where?: Filter<Project>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -6980,7 +7004,7 @@ export async function Customer_CountProjectsPeopleCounterReports(
 export async function Customer_GetProjectsTags(
   id: string,
   nk: string,
-  filter: Filter<any> = {},
+  filter?: Filter<ProjectTag>,
 ): Promise<ProjectTag[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -7004,7 +7028,7 @@ export async function Customer_GetProjectsTags(
 export async function Customer_CountProjectsTags(
   id: string,
   nk: string,
-  where: any = {},
+  where?: Filter<Project>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -7028,7 +7052,7 @@ export async function Customer_CountProjectsTags(
 export async function Customer_GetProjectsReports(
   id: string,
   nk: string,
-  filter: Filter<any> = {},
+  filter?: Filter<Report>,
 ): Promise<Report[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -7052,7 +7076,7 @@ export async function Customer_GetProjectsReports(
 export async function Customer_CreateProjectsReports(
   id: string,
   nk: string,
-  data: Partial<Report>,
+  data: any = {},
 ): Promise<Report> {
   return ApiFetch({
     method: 'POST',
@@ -7071,7 +7095,7 @@ export async function Customer_CreateProjectsReports(
 export async function Customer_CountProjectsReports(
   id: string,
   nk: string,
-  where: any = {},
+  where?: Filter<Project>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -7095,7 +7119,7 @@ export async function Customer_CountProjectsReports(
 export async function Customer_GetProjectsAllowedSensorTypes(
   id: string,
   nk: string,
-  filter: Filter<any> = {},
+  filter?: Filter<SensorType>,
 ): Promise<SensorType[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -7119,7 +7143,7 @@ export async function Customer_GetProjectsAllowedSensorTypes(
 export async function Customer_CountProjectsAllowedSensorTypes(
   id: string,
   nk: string,
-  where: any = {},
+  where?: Filter<Project>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -7143,7 +7167,7 @@ export async function Customer_CountProjectsAllowedSensorTypes(
 export async function Customer_GetProjectsStoreVideoAnalyticDashboards(
   id: string,
   nk: string,
-  filter: Filter<any> = {},
+  filter?: Filter<StoreVideoAnalyticDashboard>,
 ): Promise<StoreVideoAnalyticDashboard[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -7186,7 +7210,7 @@ export async function Customer_CreateProjectsStoreVideoAnalyticDashboards(
 export async function Customer_CountProjectsStoreVideoAnalyticDashboards(
   id: string,
   nk: string,
-  where: any = {},
+  where?: Filter<Project>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -7210,7 +7234,7 @@ export async function Customer_CountProjectsStoreVideoAnalyticDashboards(
 export async function Customer_GetProjectsStorylines(
   id: string,
   nk: string,
-  filter: Filter<any> = {},
+  filter?: Filter<Storyline>,
 ): Promise<Storyline[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -7253,7 +7277,7 @@ export async function Customer_CreateProjectsStorylines(
 export async function Customer_CountProjectsStorylines(
   id: string,
   nk: string,
-  where: any = {},
+  where?: Filter<Storyline>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -7277,7 +7301,7 @@ export async function Customer_CountProjectsStorylines(
 export async function Customer_GetProjectsAdminTools(
   id: string,
   nk: string,
-  filter: Filter<any> = {},
+  filter?: Filter<Tool>,
 ): Promise<Tool[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -7301,7 +7325,7 @@ export async function Customer_GetProjectsAdminTools(
 export async function Customer_CountProjectsAdminTools(
   id: string,
   nk: string,
-  where: any = {},
+  where?: Filter<Project>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -7325,7 +7349,7 @@ export async function Customer_CountProjectsAdminTools(
 export async function Customer_GetProjectsTools(
   id: string,
   nk: string,
-  filter: Filter<any> = {},
+  filter?: Filter<Tool>,
 ): Promise<Tool[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -7349,7 +7373,7 @@ export async function Customer_GetProjectsTools(
 export async function Customer_CountProjectsTools(
   id: string,
   nk: string,
-  where: any = {},
+  where?: Filter<Project>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -7373,7 +7397,7 @@ export async function Customer_CountProjectsTools(
 export async function Customer_GetProjectsTrafficFlowAnalysis(
   id: string,
   nk: string,
-  filter: Filter<any> = {},
+  filter?: Filter<TrafficFlowAnalysis>,
 ): Promise<TrafficFlowAnalysis[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -7416,7 +7440,7 @@ export async function Customer_CreateProjectsTrafficFlowAnalysis(
 export async function Customer_CountProjectsTrafficFlowAnalysis(
   id: string,
   nk: string,
-  where: any = {},
+  where?: Filter<Project>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -7440,7 +7464,7 @@ export async function Customer_CountProjectsTrafficFlowAnalysis(
 export async function Customer_GetProjectsVirtualExpressions(
   id: string,
   nk: string,
-  filter: Filter<any> = {},
+  filter?: Filter<VirtualExpression>,
 ): Promise<VirtualExpression[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -7464,7 +7488,7 @@ export async function Customer_GetProjectsVirtualExpressions(
 export async function Customer_CountProjectsVirtualExpressions(
   id: string,
   nk: string,
-  where: any = {},
+  where?: Filter<Project>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -7488,7 +7512,7 @@ export async function Customer_CountProjectsVirtualExpressions(
 export async function Customer_GetProjectsVirtualGroups(
   id: string,
   nk: string,
-  filter: Filter<any> = {},
+  filter?: Filter<VirtualGroup>,
 ): Promise<VirtualGroup[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -7531,7 +7555,7 @@ export async function Customer_CreateProjectsVirtualGroups(
 export async function Customer_CountProjectsVirtualGroups(
   id: string,
   nk: string,
-  where: any = {},
+  where?: Filter<Project>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -7555,7 +7579,7 @@ export async function Customer_CountProjectsVirtualGroups(
 export async function Customer_GetProjectsVirtualVariables(
   id: string,
   nk: string,
-  filter: Filter<any> = {},
+  filter?: Filter<VirtualVariable>,
 ): Promise<VirtualVariable[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -7579,7 +7603,7 @@ export async function Customer_GetProjectsVirtualVariables(
 export async function Customer_CountProjectsVirtualVariables(
   id: string,
   nk: string,
-  where: any = {},
+  where?: Filter<Project>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -7603,7 +7627,7 @@ export async function Customer_CountProjectsVirtualVariables(
 export async function Customer_GetProjectsYoloClasses(
   id: string,
   nk: string,
-  filter: Filter<any> = {},
+  filter?: Filter<YoloClass>,
 ): Promise<YoloClass[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -7627,7 +7651,7 @@ export async function Customer_GetProjectsYoloClasses(
 export async function Customer_CountProjectsYoloClasses(
   id: string,
   nk: string,
-  where: any = {},
+  where?: Filter<YoloClass>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -7957,7 +7981,7 @@ export async function Customer_DestroyByIdDevicesEdgeAgents(
   });
 }
 /**
- * Actualizar un elemento relacionado por id para edgeAgents.
+ * Update a related item by id for edgeAgents.
  * /Customers/:id/devices/:nk/edgeAgents/:fk
  */
 export async function Customer_UpdateByIdDevicesEdgeAgents(
@@ -7984,7 +8008,7 @@ export async function Customer_UpdateByIdDevicesEdgeAgents(
 export async function Customer_GetDevicesEdgeAgents(
   id: string,
   nk: string,
-  filter: Filter<any> = {},
+  filter?: Filter<EdgeAgent>,
 ): Promise<EdgeAgent[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -8027,7 +8051,7 @@ export async function Customer_CreateDevicesEdgeAgents(
 export async function Customer_CountDevicesEdgeAgents(
   id: string,
   nk: string,
-  where: any = {},
+  where?: Filter<EdgeAgent>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -8129,7 +8153,7 @@ export async function Customer_UpdateByIdStorylinesStorypoints(
 export async function Customer_GetStorylinesStorypoints(
   id: string,
   nk: string,
-  filter: Filter<any> = {},
+  filter?: Filter<Storypoint>,
 ): Promise<Storypoint[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -8212,7 +8236,7 @@ export async function Customer_UpdateByIdCountReportsSections(
 export async function Customer_GetCountReportsSections(
   id: string,
   nk: string,
-  filter: Filter<any> = {},
+  filter?: Filter<CountReportSection>,
 ): Promise<CountReportSection[]> {
   const _urlParams: any = {};
   if (filter != null) {

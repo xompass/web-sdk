@@ -28,7 +28,7 @@ export async function HealthcheckEvent_FindByIdTrackingLogs(
  */
 export async function HealthcheckEvent_GetTrackingLogs(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<Log>,
 ): Promise<Log[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -50,7 +50,7 @@ export async function HealthcheckEvent_GetTrackingLogs(
  */
 export async function HealthcheckEvent_CountTrackingLogs(
   id: string,
-  where: any = {},
+  where?: Filter<Log>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {

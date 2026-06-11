@@ -1,4 +1,4 @@
-import { ApiFetch, UploadFile, Filter, UploadableFile } from '../core/ApiFetch';
+import { ApiFetch, Filter, UploadFile, UploadableFile } from '../core/ApiFetch';
 import { AssetTemplateStorageContainer } from '../models/AssetTemplate';
 import { EventTriggerAssetStateTemplate } from '../models/EventTriggerAssetStateTemplate';
 import { SensorAssetStateTemplate } from '../models/SensorAssetStateTemplate';
@@ -198,7 +198,7 @@ export async function AssetTemplate_instantiate(
 export async function AssetTemplate_GetAssetStateTemplatesEventTriggerAssetStateTemplates(
   id: string,
   nk: string,
-  filter: Filter<any> = {},
+  filter?: Filter<EventTriggerAssetStateTemplate>,
 ): Promise<EventTriggerAssetStateTemplate[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -222,7 +222,7 @@ export async function AssetTemplate_GetAssetStateTemplatesEventTriggerAssetState
 export async function AssetTemplate_GetAssetStateTemplatesStateTemplates(
   id: string,
   nk: string,
-  filter: Filter<any> = {},
+  filter?: Filter<SensorAssetStateTemplate>,
 ): Promise<SensorAssetStateTemplate[]> {
   const _urlParams: any = {};
   if (filter != null) {

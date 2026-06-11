@@ -24,7 +24,7 @@ export async function TimeZone_exists(id: string): Promise<boolean> {
  */
 export async function TimeZone_findById(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<TimeZone>,
 ): Promise<TimeZone> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -45,7 +45,7 @@ export async function TimeZone_findById(
  * /TimeZones
  */
 export async function TimeZone_find(
-  filter: Filter<any> = {},
+  filter?: Filter<TimeZone>,
 ): Promise<TimeZone[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -64,7 +64,7 @@ export async function TimeZone_find(
  * /TimeZones/findOne
  */
 export async function TimeZone_findOne(
-  filter: Filter<any> = {},
+  filter?: Filter<TimeZone>,
 ): Promise<TimeZone> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -82,7 +82,9 @@ export async function TimeZone_findOne(
  * Count instances of the model matched by where from the data source.
  * /TimeZones/count
  */
-export async function TimeZone_count(where: any = {}): Promise<number> {
+export async function TimeZone_count(
+  where?: Filter<TimeZone>['where'],
+): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
     _urlParams['where'] = where;

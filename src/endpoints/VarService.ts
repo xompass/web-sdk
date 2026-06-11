@@ -1,4 +1,4 @@
-import { ApiFetch, UploadFile, Filter, UploadableFile } from '../core/ApiFetch';
+import { ApiFetch, Filter, UploadFile, UploadableFile } from '../core/ApiFetch';
 import { Var } from '../models/Var';
 import { Admin } from '../models/Admin';
 import { Customer } from '../models/Customer';
@@ -102,7 +102,7 @@ export async function Var_GetContainer(
  */
 export async function Var_GetAdmins(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<Admin>,
 ): Promise<Admin[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -141,7 +141,7 @@ export async function Var_CreateAdmins(
  */
 export async function Var_CountAdmins(
   id: string,
-  where: any = {},
+  where?: Filter<Admin>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -163,7 +163,7 @@ export async function Var_CountAdmins(
  */
 export async function Var_GetCustomers(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<Customer>,
 ): Promise<Customer[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -202,7 +202,7 @@ export async function Var_CreateCustomers(
  */
 export async function Var_CountCustomers(
   id: string,
-  where: any = {},
+  where?: Filter<Customer>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -224,7 +224,7 @@ export async function Var_CountCustomers(
  */
 export async function Var_GetToolkitTemplates(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<ToolkitTemplate>,
 ): Promise<ToolkitTemplate[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -246,7 +246,7 @@ export async function Var_GetToolkitTemplates(
  */
 export async function Var_CountToolkitTemplates(
   id: string,
-  where: any = {},
+  where?: Filter<ToolkitTemplate>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -268,7 +268,7 @@ export async function Var_CountToolkitTemplates(
  */
 export async function Var_GetToolkits(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<Toolkit>,
 ): Promise<Toolkit[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -290,7 +290,7 @@ export async function Var_GetToolkits(
  */
 export async function Var_CountToolkits(
   id: string,
-  where: any = {},
+  where?: Filter<Toolkit>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -312,7 +312,7 @@ export async function Var_CountToolkits(
  */
 export async function Var_findById(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<Var>,
 ): Promise<Var> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -353,7 +353,7 @@ export async function Var_InstantiateToolkitTemplates(
  */
 export async function Var_GetAdminTools(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<Tool>,
 ): Promise<Tool[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -375,7 +375,7 @@ export async function Var_GetAdminTools(
  */
 export async function Var_GetTools(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<Tool>,
 ): Promise<Tool[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -398,7 +398,7 @@ export async function Var_GetTools(
 export async function Var_GetToolkitTemplatesAssetTypes(
   id: string,
   fk: string,
-  filter: Filter<any> = {},
+  filter?: Filter<AssetType>,
 ): Promise<AssetType[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -422,7 +422,7 @@ export async function Var_GetToolkitTemplatesAssetTypes(
 export async function Var_GetToolkitsAssetTypes(
   id: string,
   fk: string,
-  filter: Filter<any> = {},
+  filter?: Filter<AssetType>,
 ): Promise<AssetType[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -673,7 +673,7 @@ export async function Var_UnlinkToolkitsTools(
 export async function Var_GetToolkitsAdminTools(
   id: string,
   nk: string,
-  filter: Filter<any> = {},
+  filter?: Filter<Tool>,
 ): Promise<Tool[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -697,7 +697,7 @@ export async function Var_GetToolkitsAdminTools(
 export async function Var_CountToolkitsAdminTools(
   id: string,
   nk: string,
-  where: any = {},
+  where?: Filter<Toolkit>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -721,7 +721,7 @@ export async function Var_CountToolkitsAdminTools(
 export async function Var_GetToolkitsTools(
   id: string,
   nk: string,
-  filter: Filter<any> = {},
+  filter?: Filter<Tool>,
 ): Promise<Tool[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -745,7 +745,7 @@ export async function Var_GetToolkitsTools(
 export async function Var_CountToolkitsTools(
   id: string,
   nk: string,
-  where: any = {},
+  where?: Filter<Toolkit>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {

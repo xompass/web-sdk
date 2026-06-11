@@ -25,7 +25,7 @@ export async function ApiKey_GetRateLimit(id: string): Promise<RateLimit> {
  */
 export async function ApiKey_UpdateRateLimit(
   id: string,
-  data: Omit<RateLimit, 'id'>,
+  data: any = {},
 ): Promise<RateLimit> {
   return ApiFetch({
     method: 'PUT',
@@ -42,7 +42,7 @@ export async function ApiKey_UpdateRateLimit(
  */
 export async function ApiKey_findById(
   id: string,
-  filter: Filter<ApiKey> = {},
+  filter?: Filter<ApiKey>,
 ): Promise<ApiKey> {
   const _urlParams: any = {};
   if (filter != null) {

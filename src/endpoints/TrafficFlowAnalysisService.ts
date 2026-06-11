@@ -136,7 +136,7 @@ export async function TrafficFlowAnalysis_UpdateByIdVertices(
  */
 export async function TrafficFlowAnalysis_GetManagers(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<Manager>,
 ): Promise<Manager[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -158,7 +158,7 @@ export async function TrafficFlowAnalysis_GetManagers(
  */
 export async function TrafficFlowAnalysis_CountManagers(
   id: string,
-  where: any = {},
+  where?: Filter<Manager>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -180,7 +180,7 @@ export async function TrafficFlowAnalysis_CountManagers(
  */
 export async function TrafficFlowAnalysis_GetKpis(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<TrafficFlowAnalysisKPI>,
 ): Promise<TrafficFlowAnalysisKPI[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -219,7 +219,7 @@ export async function TrafficFlowAnalysis_CreateKpis(
  */
 export async function TrafficFlowAnalysis_CountKpis(
   id: string,
-  where: any = {},
+  where?: Filter<TrafficFlowAnalysisKPI>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -241,7 +241,7 @@ export async function TrafficFlowAnalysis_CountKpis(
  */
 export async function TrafficFlowAnalysis_GetVertices(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<TrafficFlowAnalysisVertice>,
 ): Promise<TrafficFlowAnalysisVertice[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -280,7 +280,7 @@ export async function TrafficFlowAnalysis_CreateVertices(
  */
 export async function TrafficFlowAnalysis_CountVertices(
   id: string,
-  where: any = {},
+  where?: Filter<TrafficFlowAnalysisVertice>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {

@@ -24,7 +24,7 @@ export async function GlobalEventState_exists(id: string): Promise<boolean> {
  */
 export async function GlobalEventState_findById(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<GlobalEventState>,
 ): Promise<GlobalEventState> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -45,7 +45,7 @@ export async function GlobalEventState_findById(
  * /GlobalEventStates
  */
 export async function GlobalEventState_find(
-  filter: Filter<any> = {},
+  filter?: Filter<GlobalEventState>,
 ): Promise<GlobalEventState[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -64,7 +64,7 @@ export async function GlobalEventState_find(
  * /GlobalEventStates/findOne
  */
 export async function GlobalEventState_findOne(
-  filter: Filter<any> = {},
+  filter?: Filter<GlobalEventState>,
 ): Promise<GlobalEventState> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -82,7 +82,9 @@ export async function GlobalEventState_findOne(
  * Count instances of the model matched by where from the data source.
  * /GlobalEventStates/count
  */
-export async function GlobalEventState_count(where: any = {}): Promise<number> {
+export async function GlobalEventState_count(
+  where?: Filter<GlobalEventState>['where'],
+): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
     _urlParams['where'] = where;

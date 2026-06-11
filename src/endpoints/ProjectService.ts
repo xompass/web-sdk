@@ -271,7 +271,7 @@ export async function Project_UpdateByIdResponseProtocols(
  */
 export async function Project_GetEventSubjects(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<EventSubject>,
 ): Promise<EventSubject[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -293,7 +293,7 @@ export async function Project_GetEventSubjects(
  */
 export async function Project_CountEventSubjects(
   id: string,
-  where: any = {},
+  where?: Filter<EventSubject>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -315,7 +315,7 @@ export async function Project_CountEventSubjects(
  */
 export async function Project_GetAssetOperabilitySummaries(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<AssetOperabilitySummary>,
 ): Promise<AssetOperabilitySummary[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -337,7 +337,7 @@ export async function Project_GetAssetOperabilitySummaries(
  */
 export async function Project_CountAssetOperabilitySummaries(
   id: string,
-  where: any = {},
+  where?: Filter<AssetOperabilitySummary>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -359,7 +359,7 @@ export async function Project_CountAssetOperabilitySummaries(
  */
 export async function Project_GetFaceDatabases(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<FaceDatabase>,
 ): Promise<FaceDatabase[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -398,7 +398,7 @@ export async function Project_CreateFaceDatabases(
  */
 export async function Project_CountFaceDatabases(
   id: string,
-  where: any = {},
+  where?: Filter<FaceDatabase>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -420,7 +420,7 @@ export async function Project_CountFaceDatabases(
  */
 export async function Project_GetFaceSubjects(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<FaceSubject>,
 ): Promise<FaceSubject[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -442,7 +442,7 @@ export async function Project_GetFaceSubjects(
  */
 export async function Project_CountFaceSubjects(
   id: string,
-  where: any = {},
+  where?: Filter<FaceSubject>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -464,7 +464,7 @@ export async function Project_CountFaceSubjects(
  */
 export async function Project_GetOperabilitySummaries(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<ProjectOperabilitySummary>,
 ): Promise<ProjectOperabilitySummary[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -486,7 +486,7 @@ export async function Project_GetOperabilitySummaries(
  */
 export async function Project_CountOperabilitySummaries(
   id: string,
-  where: any = {},
+  where?: Filter<ProjectOperabilitySummary>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -508,7 +508,7 @@ export async function Project_CountOperabilitySummaries(
  */
 export async function Project_GetResponseProtocols(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<ResponseProtocol>,
 ): Promise<ResponseProtocol[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -547,7 +547,7 @@ export async function Project_CreateResponseProtocols(
  */
 export async function Project_CountResponseProtocols(
   id: string,
-  where: any = {},
+  where?: Filter<ResponseProtocol>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -968,7 +968,7 @@ export async function Project_replaceWatchlistVehicles(
 export async function Project_GetResponseProtocolsAssets(
   id: string,
   nk: string,
-  filter: Filter<any> = {},
+  filter?: Filter<Asset>,
 ): Promise<Asset[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -992,7 +992,7 @@ export async function Project_GetResponseProtocolsAssets(
 export async function Project_CountResponseProtocolsAssets(
   id: string,
   nk: string,
-  where: any = {},
+  where?: Filter<ResponseProtocol>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {

@@ -128,8 +128,8 @@ export class ApiClient {
         'username' in credentials
           ? credentials.username
           : 'email' in credentials
-          ? credentials.email
-          : undefined;
+            ? credentials.email
+            : undefined;
 
       if (!credentials.password || !username) {
         throw new Error('Invalid credentials');

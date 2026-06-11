@@ -1,5 +1,11 @@
 # @xompass/web-sdk
 
+## 0.33.0
+
+### Minor Changes
+
+- Panic button and improve typing
+
 ## 0.32.5
 
 ### Patch Changes
