@@ -41,6 +41,8 @@ import { ObjectRecognitionNumericParameters } from './sensorTypes/ObjectRecognit
 import { MissingHelmetDetectionParameters } from './sensorTypes/MissingHelmetDetection/MissingHelmetDetectionParameters';
 import { PeriodicObjectCountingParameters } from './sensorTypes/PeriodicObjectCounting/PeriodicObjectCountingParameters';
 import { CargoContainerISOReaderParameters } from './sensorTypes/CargoContainerISOReader/CargoContainerISOReaderParameters';
+import { PanicButtonParameters } from './sensorTypes/PanicButton/PanicButtonParameters';
+import { FaceRecognitionParameters } from './sensorTypes/FaceRecognition/FaceRecognitionParameters';
 
 export type Sensor = {
   type: SensorTypeLabel;
@@ -80,7 +82,9 @@ export type Sensor = {
     | ObjectRecognitionNumericParameters
     | MissingHelmetDetectionParameters
     | PeriodicObjectCountingParameters
-    | CargoContainerISOReaderParameters;
+    | CargoContainerISOReaderParameters
+    | FaceRecognitionParameters
+    | PanicButtonParameters;
   triggers?: any;
   extendedProperties?: any;
   healthcheck?: SensorHealthcheck;

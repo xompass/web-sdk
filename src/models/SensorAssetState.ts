@@ -27,6 +27,9 @@ import { MultiZoneObjectTrackingTrigger } from './sensorTypes/MultiZoneObjectTra
 import { GranularityDetectionTrigger } from './sensorTypes/GranularityDetection/GranularityDetectionTrigger';
 import { ObjectRecognitionNumericTrigger } from './sensorTypes/ObjectRecognitionNumeric/ObjectRecognitionNumericTrigger';
 import { MissingHelmetDetectionTrigger } from './sensorTypes/MissingHelmetDetection/MissingHelmetDetectionTrigger';
+import { PanicButtonTrigger } from './sensorTypes/PanicButton/PanicButtonTrigger';
+import { FaceRecognitionTrigger } from './sensorTypes/FaceRecognition/FaceRecognitionTrigger';
+import { PeriodicObjectCountingTrigger } from './sensorTypes/PeriodicObjectCounting/PeriodicObjectCountingTrigger';
 
 export type SensorAssetState = {
   type?: SensorTypeLabel;
@@ -54,7 +57,10 @@ export type SensorAssetState = {
     | MultiZoneObjectTrackingTrigger
     | GranularityDetectionTrigger
     | ObjectRecognitionNumericTrigger
-    | MissingHelmetDetectionTrigger;
+    | MissingHelmetDetectionTrigger
+    | PanicButtonTrigger
+    | PeriodicObjectCountingTrigger
+    | FaceRecognitionTrigger;
   thresholdType?: string;
   thresholds?: Threshold[];
   notification?: Notification;

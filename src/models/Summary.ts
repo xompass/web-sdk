@@ -15,6 +15,7 @@ import { CrossLineRecognitionSummary } from './sensorTypes/CrossLineRecognition/
 import { DebugSummary } from './sensorTypes/Debug/DebugSummary';
 import { FaceDetectionSummary } from './sensorTypes/FaceDetection/FaceDetectionSummary';
 import { FaceMaskDetectionSummary } from './sensorTypes/FaceMaskDetection/FaceMaskDetectionSummary';
+import { FaceRecognitionSummary } from './sensorTypes/FaceRecognition/FaceRecognitionSummary';
 import { FuelingDetectionSummary } from './sensorTypes/FuelingDetection/FuelingDetectionSummary';
 import { GPSSummary } from './sensorTypes/GPS/GPSSummary';
 import { MotionDetectionSummary } from './sensorTypes/MotionDetection/MotionDetectionSummary';
@@ -37,6 +38,12 @@ import { StoppedLicensePlateSummary } from './sensorTypes/StoppedLicensePlate/St
 import { StringSummary } from './sensorTypes/String/StringSummary';
 import { LicensePlateTextSummary } from './sensorTypes/LicensePlateText/LicensePlateTextSummary';
 import { VideoSummary } from './sensorTypes/Video/VideoSummary';
+import { PanicButtonSummary } from './sensorTypes/PanicButton/PanicButtonSummary';
+import { GranularityDetectionSummary } from './sensorTypes/GranularityDetection/GranularityDetectionSummary';
+import { MultiZoneObjectTrackingSummary } from './sensorTypes/MultiZoneObjectTracking/MultiZoneObjectTrackingSummary';
+import { ObjectRecognitionNumericSummary } from './sensorTypes/ObjectRecognitionNumeric/ObjectRecognitionNumericSummary';
+import { MissingHelmetDetectionSummary } from './sensorTypes/MissingHelmetDetection/MissingHelmetDetectionSummary';
+import { PeriodicObjectCountingSummary } from './sensorTypes/PeriodicObjectCounting/PeriodicObjectCountingSummary';
 
 export type Summary = {
   id?: string;
@@ -77,7 +84,14 @@ export type Summary = {
     | StoppedLicensePlateSummary
     | StringSummary
     | LicensePlateTextSummary
-    | VideoSummary;
+    | VideoSummary
+    | FaceRecognitionSummary
+    | PanicButtonSummary
+    | GranularityDetectionSummary
+    | MultiZoneObjectTrackingSummary
+    | ObjectRecognitionNumericSummary
+    | MissingHelmetDetectionSummary
+    | PeriodicObjectCountingSummary;
   updated: boolean;
   created?: Date;
   modified?: Date;

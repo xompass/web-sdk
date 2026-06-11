@@ -36,6 +36,13 @@ import { StoppedLicensePlateSummary } from './sensorTypes/StoppedLicensePlate/St
 import { StringSummary } from './sensorTypes/String/StringSummary';
 import { LicensePlateTextSummary } from './sensorTypes/LicensePlateText/LicensePlateTextSummary';
 import { VideoSummary } from './sensorTypes/Video/VideoSummary';
+import { FaceRecognitionSummary } from './sensorTypes/FaceRecognition/FaceRecognitionSummary';
+import { PanicButtonSummary } from './sensorTypes/PanicButton/PanicButtonSummary';
+import { GranularityDetectionSummary } from './sensorTypes/GranularityDetection/GranularityDetectionSummary';
+import { MultiZoneObjectTrackingSummary } from './sensorTypes/MultiZoneObjectTracking/MultiZoneObjectTrackingSummary';
+import { ObjectRecognitionNumericSummary } from './sensorTypes/ObjectRecognitionNumeric/ObjectRecognitionNumericSummary';
+import { MissingHelmetDetectionSummary } from './sensorTypes/MissingHelmetDetection/MissingHelmetDetectionSummary';
+import { PeriodicObjectCountingSummary } from './sensorTypes/PeriodicObjectCounting/PeriodicObjectCountingSummary';
 
 export type SummaryForAsset = {
   id?: string;
@@ -76,7 +83,14 @@ export type SummaryForAsset = {
     | StoppedLicensePlateSummary
     | StringSummary
     | LicensePlateTextSummary
-    | VideoSummary;
+    | VideoSummary
+    | FaceRecognitionSummary
+    | PanicButtonSummary
+    | GranularityDetectionSummary
+    | MultiZoneObjectTrackingSummary
+    | ObjectRecognitionNumericSummary
+    | MissingHelmetDetectionSummary
+    | PeriodicObjectCountingSummary;
   updated: boolean;
   created?: Date;
   modified?: Date;

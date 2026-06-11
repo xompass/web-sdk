@@ -31,6 +31,7 @@ import { ObjectRecognitionNumericContent } from './sensorTypes/ObjectRecognition
 import { OpeningDetectionContent } from './sensorTypes/OpeningDetection/OpeningDetectionContent';
 import { OpticalCharacterRecognitionContent } from './sensorTypes/OpticalCharacterRecognition/OpticalCharacterRecognitionContent';
 import { OverlapDetectionContent } from './sensorTypes/OverlapDetection/OverlapDetectionContent';
+import { PanicButtonContent } from './sensorTypes/PanicButton/PanicButtonContent';
 import { PeriodicObjectCountingContent } from './sensorTypes/PeriodicObjectCounting/PeriodicObjectCountingContent';
 import { PoseDetectionContent } from './sensorTypes/PoseDetection/PoseDetectionContent';
 import { QueueSizeContent } from './sensorTypes/QueueSize/QueueSizeContent';
@@ -115,6 +116,7 @@ export type Data = {
       type: SensorTypeLabels['OpticalCharacterRecognition'];
       content: OpticalCharacterRecognitionContent;
     }
+  | { type: SensorTypeLabels['PanicButton']; content: PanicButtonContent }
   | { type: SensorTypeLabels['PoseDetection']; content: PoseDetectionContent }
   | { type: SensorTypeLabels['Referrer']; content: ReferrerContent }
   | { type: SensorTypeLabels['SceneChange']; content: SceneChangeContent }

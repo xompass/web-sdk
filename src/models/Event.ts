@@ -6,7 +6,10 @@ import { EventSummary } from './EventSummary';
 import { EventTrigger } from './EventTrigger';
 import { Point } from './GeoJSON';
 import { Log } from './Log';
-import { SensorTypeLabel } from './sensorTypes/SensorTypeLabel';
+import {
+  SensorTypeLabel,
+  SensorTypeLabels,
+} from './sensorTypes/SensorTypeLabel';
 
 // EventContent types (alphabetical)
 import { BeaconTrackingEventContent } from './sensorTypes/BeaconTracking/BeaconTrackingEventContent';
@@ -72,6 +75,10 @@ import { SpeedChangeFeedback } from './sensorTypes/SpeedChange/SpeedChangeFeedba
 import { StoppedLicensePlateFeedback } from './sensorTypes/StoppedLicensePlate/StoppedLicensePlateFeedback';
 import { StoppedObjectsDetectorFeedback } from './sensorTypes/StoppedObjectsDetector/StoppedObjectsDetectorFeedback';
 import { VideoFeedback } from './sensorTypes/Video/VideoFeedback';
+import { PanicButtonEventContent } from './sensorTypes/PanicButton/PanicButtonEventContent';
+import { PanicButtonFeedback } from './sensorTypes/PanicButton/PanicButtonFeedback';
+import { GranularityDetectionFeedback } from './sensorTypes/GranularityDetection/GranularityDetectionFeedback';
+import { ObjectRecognitionNumericFeedback } from './sensorTypes/ObjectRecognitionNumeric/ObjectRecognitionNumericFeedback';
 
 export type Event = {
   id?: string;
@@ -108,69 +115,257 @@ export type EventData = {
   to: Date;
   filtered?: boolean;
   content:
-    | BeaconTrackingEventContent
-    | BooleanEventContent
-    | CheckoutEventContent
-    | ColorPresenceEventContent
-    | OpeningDetectionEventContent
-    | CrossedBarriersDetectionEventContent
-    | CrossLineMultiRecognitionEventContent
-    | CrossLineRecognitionEventContent
-    | DebugEventContent
-    | FaceDetectionEventContent
-    | FaceMaskDetectionEventContent
-    | FuelingDetectionEventContent
-    | GPSEventContent
-    | MotionDetectionEventContent
-    | NumberEventContent
-    | LicensePlateEventContent
-    | LineCrossingDetectionEventContent
-    | ObjectCountingEventContent
-    | QueueSizeEventContent
-    | NoPlateDetectionEventContent
-    | ObjectRecognitionEventContent
-    | StoppedObjectsDetectorEventContent
-    | NaiveSocialDistancingEventContent
-    | SpeedChangeEventContent
-    | OpticalCharacterRecognitionEventContent
-    | PoseDetectionEventContent
-    | ReferrerEventContent
-    | SceneChangeEventContent
-    | ShoppingHoursEventContent
-    | StoppedLicensePlateEventContent
-    | StringEventContent
-    | LicensePlateTextEventContent
-    | MultiZoneObjectTrackingEventContent
-    | PeriodicObjectCountingEventContent
-    | ObjectRecognitionNumericEventContent
-    | GranularityDetectionEventContent
-    | CargoContainerISOReaderEventContent
-    | MissingHelmetDetectionEventContent
-    | HeatmapEventContent
-    | OverlapDetectionEventContent
-    | MultiLineCrossingDetectionEventContent
-    | VideoEventContent;
+    | {
+        type: SensorTypeLabels['BeaconTracking'];
+        content: BeaconTrackingEventContent;
+      }
+    | { type: SensorTypeLabels['Boolean']; content: BooleanEventContent }
+    | { type: SensorTypeLabels['Checkout']; content: CheckoutEventContent }
+    | {
+        type: SensorTypeLabels['ColorPresence'];
+        content: ColorPresenceEventContent;
+      }
+    | {
+        type: SensorTypeLabels['OpeningDetection'];
+        content: OpeningDetectionEventContent;
+      }
+    | {
+        type: SensorTypeLabels['CrossedBarriersDetection'];
+        content: CrossedBarriersDetectionEventContent;
+      }
+    | {
+        type: SensorTypeLabels['CrossLineMultiRecognition'];
+        content: CrossLineMultiRecognitionEventContent;
+      }
+    | {
+        type: SensorTypeLabels['CrossLineRecognition'];
+        content: CrossLineRecognitionEventContent;
+      }
+    | { type: SensorTypeLabels['Debug']; content: DebugEventContent }
+    | {
+        type: SensorTypeLabels['FaceDetection'];
+        content: FaceDetectionEventContent;
+      }
+    | {
+        type: SensorTypeLabels['FaceMaskDetection'];
+        content: FaceMaskDetectionEventContent;
+      }
+    | {
+        type: SensorTypeLabels['FuelingDetection'];
+        content: FuelingDetectionEventContent;
+      }
+    | { type: SensorTypeLabels['GPS']; content: GPSEventContent }
+    | {
+        type: SensorTypeLabels['MotionDetection'];
+        content: MotionDetectionEventContent;
+      }
+    | { type: SensorTypeLabels['Number']; content: NumberEventContent }
+    | {
+        type: SensorTypeLabels['LicensePlate'];
+        content: LicensePlateEventContent;
+      }
+    | {
+        type: SensorTypeLabels['LineCrossingDetection'];
+        content: LineCrossingDetectionEventContent;
+      }
+    | {
+        type: SensorTypeLabels['ObjectCounting'];
+        content: ObjectCountingEventContent;
+      }
+    | { type: SensorTypeLabels['QueueSize']; content: QueueSizeEventContent }
+    | {
+        type: SensorTypeLabels['NoPlateDetection'];
+        content: NoPlateDetectionEventContent;
+      }
+    | {
+        type: SensorTypeLabels['ObjectRecognition'];
+        content: ObjectRecognitionEventContent;
+      }
+    | {
+        type: SensorTypeLabels['StoppedObjectsDetector'];
+        content: StoppedObjectsDetectorEventContent;
+      }
+    | {
+        type: SensorTypeLabels['NaiveSocialDistancing'];
+        content: NaiveSocialDistancingEventContent;
+      }
+    | {
+        type: SensorTypeLabels['SpeedChange'];
+        content: SpeedChangeEventContent;
+      }
+    | {
+        type: SensorTypeLabels['OpticalCharacterRecognition'];
+        content: OpticalCharacterRecognitionEventContent;
+      }
+    | {
+        type: SensorTypeLabels['PanicButton'];
+        content: PanicButtonEventContent;
+      }
+    | {
+        type: SensorTypeLabels['PoseDetection'];
+        content: PoseDetectionEventContent;
+      }
+    | { type: SensorTypeLabels['Referrer']; content: ReferrerEventContent }
+    | {
+        type: SensorTypeLabels['SceneChange'];
+        content: SceneChangeEventContent;
+      }
+    | {
+        type: SensorTypeLabels['ShoppingHours'];
+        content: ShoppingHoursEventContent;
+      }
+    | {
+        type: SensorTypeLabels['StoppedLicensePlate'];
+        content: StoppedLicensePlateEventContent;
+      }
+    | { type: SensorTypeLabels['String']; content: StringEventContent }
+    | {
+        type: SensorTypeLabels['LicensePlateText'];
+        content: LicensePlateTextEventContent;
+      }
+    | { type: SensorTypeLabels['Video']; content: VideoEventContent }
+    | {
+        type: SensorTypeLabels['GranularityDetection'];
+        content: GranularityDetectionEventContent;
+      }
+    | {
+        type: SensorTypeLabels['ObjectRecognitionNumeric'];
+        content: ObjectRecognitionNumericEventContent;
+      }
+    | {
+        type: SensorTypeLabels['MissingHelmetDetection'];
+        content: MissingHelmetDetectionEventContent;
+      }
+    | {
+        type: SensorTypeLabels['PeriodicObjectCounting'];
+        content: PeriodicObjectCountingEventContent;
+      }
+    | {
+        type: SensorTypeLabels['MultiZoneObjectTracking'];
+        content: MultiZoneObjectTrackingEventContent;
+      }
+    | {
+        type: SensorTypeLabels['CargoContainerISOReader'];
+        content: CargoContainerISOReaderEventContent;
+      }
+    | {
+        type: SensorTypeLabels['OverlapDetection'];
+        content: OverlapDetectionEventContent;
+      }
+    | {
+        type: SensorTypeLabels['MultiLineCrossingDetection'];
+        content: MultiLineCrossingDetectionEventContent;
+      }
+    | { type: SensorTypeLabels['Heatmap']; content: HeatmapEventContent };
   location?: Point;
   feedback?:
-    | ColorPresenceFeedback
-    | OpeningDetectionFeedback
-    | FaceDetectionFeedback
-    | FaceMaskDetectionFeedback
-    | FuelingDetectionFeedback
-    | MotionDetectionFeedback
-    | LicensePlateFeedback
-    | LineCrossingDetectionFeedback
-    | NoPlateDetectionFeedback
-    | ObjectRecognitionFeedback
-    | StoppedObjectsDetectorFeedback
-    | NaiveSocialDistancingFeedback
-    | SpeedChangeFeedback
-    | OpticalCharacterRecognitionFeedback
-    | PoseDetectionFeedback
-    | ReferrerFeedback
-    | SceneChangeFeedback
-    | StoppedLicensePlateFeedback
-    | VideoFeedback;
+    | {
+        type: SensorTypeLabels['ColorPresence'];
+        content: ColorPresenceFeedback;
+      }
+    | {
+        type: SensorTypeLabels['OpeningDetection'];
+        content: OpeningDetectionFeedback;
+      }
+    | {
+        type: SensorTypeLabels['FaceDetection'];
+        content: FaceDetectionFeedback;
+      }
+    | {
+        type: SensorTypeLabels['FaceMaskDetection'];
+        content: FaceMaskDetectionFeedback;
+      }
+    | {
+        type: SensorTypeLabels['FuelingDetection'];
+        content: FuelingDetectionFeedback;
+      }
+    | {
+        type: SensorTypeLabels['MotionDetection'];
+        content: MotionDetectionFeedback;
+      }
+    | {
+        type: SensorTypeLabels['LicensePlate'];
+        content: LicensePlateFeedback;
+      }
+    | {
+        type: SensorTypeLabels['LineCrossingDetection'];
+        content: LineCrossingDetectionFeedback;
+      }
+    | {
+        type: SensorTypeLabels['NoPlateDetection'];
+        content: NoPlateDetectionFeedback;
+      }
+    | {
+        type: SensorTypeLabels['ObjectRecognition'];
+        content: ObjectRecognitionFeedback;
+      }
+    | {
+        type: SensorTypeLabels['StoppedObjectsDetector'];
+        content: StoppedObjectsDetectorFeedback;
+      }
+    | {
+        type: SensorTypeLabels['NaiveSocialDistancing'];
+        content: NaiveSocialDistancingFeedback;
+      }
+    | {
+        type: SensorTypeLabels['SpeedChange'];
+        content: SpeedChangeFeedback;
+      }
+    | {
+        type: SensorTypeLabels['OpticalCharacterRecognition'];
+        content: OpticalCharacterRecognitionFeedback;
+      }
+    | {
+        type: SensorTypeLabels['PanicButton'];
+        content: PanicButtonFeedback;
+      }
+    | {
+        type: SensorTypeLabels['PoseDetection'];
+        content: PoseDetectionFeedback;
+      }
+    | { type: SensorTypeLabels['Referrer']; content: ReferrerFeedback }
+    | {
+        type: SensorTypeLabels['SceneChange'];
+        content: SceneChangeFeedback;
+      }
+    | {
+        type: SensorTypeLabels['StoppedLicensePlate'];
+        content: StoppedLicensePlateFeedback;
+      }
+    | { type: SensorTypeLabels['Video']; content: VideoFeedback }
+    | {
+        type: SensorTypeLabels['GranularityDetection'];
+        content: GranularityDetectionFeedback;
+      }
+    | {
+        type: SensorTypeLabels['ObjectRecognitionNumeric'];
+        content: ObjectRecognitionNumericFeedback;
+      }
+    | {
+        type: SensorTypeLabels['MissingHelmetDetection'];
+        content: MissingHelmetDetectionEventContent;
+      }
+    | {
+        type: SensorTypeLabels['PeriodicObjectCounting'];
+        content: PeriodicObjectCountingEventContent;
+      }
+    | {
+        type: SensorTypeLabels['MultiZoneObjectTracking'];
+        content: MultiZoneObjectTrackingEventContent;
+      }
+    | {
+        type: SensorTypeLabels['CargoContainerISOReader'];
+        content: CargoContainerISOReaderEventContent;
+      }
+    | {
+        type: SensorTypeLabels['OverlapDetection'];
+        content: OverlapDetectionEventContent;
+      }
+    | {
+        type: SensorTypeLabels['MultiLineCrossingDetection'];
+        content: MultiLineCrossingDetectionEventContent;
+      }
+    | { type: SensorTypeLabels['Heatmap']; content: HeatmapEventContent };
   fake?: boolean;
   tags?: string[];
   referenceId?: string;

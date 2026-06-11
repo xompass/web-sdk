@@ -26,6 +26,14 @@ import { OpticalCharacterRecognitionParameters } from './sensorTypes/OpticalChar
 import { PoseDetectionParameters } from './sensorTypes/PoseDetection/PoseDetectionParameters';
 import { SceneChangeParameters } from './sensorTypes/SceneChange/SceneChangeParameters';
 import { StoppedLicensePlateParameters } from './sensorTypes/StoppedLicensePlate/StoppedLicensePlateParameters';
+import { MultiZoneObjectTrackingParameters } from './sensorTypes/MultiZoneObjectTracking/MultiZoneObjectTrackingParameters';
+import { GranularityDetectionParameters } from './sensorTypes/GranularityDetection/GranularityDetectionParameters';
+import { ObjectRecognitionNumericParameters } from './sensorTypes/ObjectRecognitionNumeric/ObjectRecognitionNumericParameters';
+import { MissingHelmetDetectionParameters } from './sensorTypes/MissingHelmetDetection/MissingHelmetDetectionParameters';
+import { PeriodicObjectCountingParameters } from './sensorTypes/PeriodicObjectCounting/PeriodicObjectCountingParameters';
+import { CargoContainerISOReaderParameters } from './sensorTypes/CargoContainerISOReader/CargoContainerISOReaderParameters';
+import { FaceRecognitionParameters } from './sensorTypes/FaceRecognition/FaceRecognitionParameters';
+import { PanicButtonParameters } from './sensorTypes/PanicButton/PanicButtonParameters';
 
 export type SensorTemplate = {
   type: SensorTypeLabel;
@@ -57,7 +65,15 @@ export type SensorTemplate = {
     | OpticalCharacterRecognitionParameters
     | PoseDetectionParameters
     | SceneChangeParameters
-    | StoppedLicensePlateParameters;
+    | StoppedLicensePlateParameters
+    | MultiZoneObjectTrackingParameters
+    | GranularityDetectionParameters
+    | ObjectRecognitionNumericParameters
+    | MissingHelmetDetectionParameters
+    | PeriodicObjectCountingParameters
+    | CargoContainerISOReaderParameters
+    | FaceRecognitionParameters
+    | PanicButtonParameters;
   triggers?: any;
   extendedProperties?: any;
   created?: Date;

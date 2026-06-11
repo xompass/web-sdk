@@ -32,6 +32,7 @@ const _SensorTypeLabels = {
   OpeningDetection: 'OpeningDetection',
   OpticalCharacterRecognition: 'OpticalCharacterRecognition',
   OverlapDetection: 'OverlapDetection',
+  PanicButton: 'PanicButton',
   PeriodicObjectCounting: 'PeriodicObjectCounting',
   PoseDetection: 'PoseDetection',
   QueueSize: 'QueueSize',

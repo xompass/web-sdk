@@ -183,7 +183,7 @@ export async function Admin_GetVar(id: string): Promise<Var> {
  */
 export async function Admin_GetCredentials(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<Credential>,
 ): Promise<Credential[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -205,7 +205,7 @@ export async function Admin_GetCredentials(
  */
 export async function Admin_CountCredentials(
   id: string,
-  where: any = {},
+  where?: Filter<Credential>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -227,7 +227,7 @@ export async function Admin_CountCredentials(
  */
 export async function Admin_GetAssets(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<Asset>,
 ): Promise<Asset[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -249,7 +249,7 @@ export async function Admin_GetAssets(
  */
 export async function Admin_CountAssets(
   id: string,
-  where: any = {},
+  where?: Filter<Asset>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -271,7 +271,7 @@ export async function Admin_CountAssets(
  */
 export async function Admin_GetActivityLogs(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<Log>,
 ): Promise<Log[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -293,7 +293,7 @@ export async function Admin_GetActivityLogs(
  */
 export async function Admin_CountActivityLogs(
   id: string,
-  where: any = {},
+  where?: Filter<Log>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -313,7 +313,23 @@ export async function Admin_CountActivityLogs(
  * Create a new instance of the model and persist it into the data source.
  * /Admins
  */
-export async function Admin_create(data: any = {}): Promise<Admin> {
+type AdminCreateData = Omit<
+  Admin,
+  | 'id'
+  | 'created'
+  | 'modified'
+  | 'deleted'
+  | 'accessTokens'
+  | 'country'
+  | 'container'
+  | 'credentials'
+  | 'assets'
+  | 'activityLogs'
+  | 'trackingLogs'
+  | 'timeZone'
+  | 'var'
+>;
+export async function Admin_create(data: AdminCreateData): Promise<Admin> {
   return ApiFetch({
     method: 'POST',
     url: '/Admins',
@@ -327,7 +343,7 @@ export async function Admin_create(data: any = {}): Promise<Admin> {
  */
 export async function Admin_findById(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<Admin>,
 ): Promise<Admin> {
   const _urlParams: any = {};
   if (filter != null) {
