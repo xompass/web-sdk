@@ -1,5 +1,11 @@
 # @xompass/web-sdk
 
+## 0.33.1
+
+### Patch Changes
+
+- Fix fields check and between filter
+
 ## 0.33.0
 
 ### Minor Changes

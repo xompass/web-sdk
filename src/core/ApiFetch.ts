@@ -17,6 +17,7 @@ const Operators = {
   lte: 'lte',
   inq: 'inq',
   nin: 'nin',
+  between: 'between',
   and: 'and',
   or: 'or',
   like: 'like',
@@ -31,8 +32,44 @@ export type Order<T> = {
   [P in keyof T]?: T[P] extends Function ? never : string;
 };
 
+type FieldPrimitive =
+  | Date
+  | string
+  | number
+  | boolean
+  | bigint
+  | symbol
+  | null
+  | undefined;
+type FieldTarget<T> = T extends (infer Item)[] ? NonNullable<Item> : NonNullable<T>;
+type TopLevelField<T> = {
+  [P in keyof T & string]: T[P] extends Function ? never : P;
+}[keyof T & string];
+type SecondLevelField<T, P extends TopLevelField<T>> = FieldTarget<T[P]> extends object
+  ? string extends TopLevelField<FieldTarget<T[P]>>
+    ? `${P}.${string}`
+    : {
+        [K in TopLevelField<FieldTarget<T[P]>>]:
+          | `${P}.${K}`
+          | (FieldTarget<FieldTarget<T[P]>[K]> extends FieldPrimitive
+              ? never
+              : FieldTarget<FieldTarget<T[P]>[K]> extends object
+                ? `${P}.${K}.${string}`
+                : never);
+      }[TopLevelField<FieldTarget<T[P]>>]
+  : never;
+type FieldPath<T> = {
+  [P in TopLevelField<T>]:
+    | P
+    | (FieldTarget<T[P]> extends FieldPrimitive
+        ? never
+        : FieldTarget<T[P]> extends object
+          ? SecondLevelField<T, P>
+          : never);
+}[TopLevelField<T>];
+
 // Allows to specify the fields to be returned
-export type SimpleFields<T> = (keyof T)[];
+export type SimpleFields<T> = FieldPath<T>[];
 
 // Allows to specify if a field must be returned or excluded
 export type Fields<T> =
@@ -55,10 +92,19 @@ export type Include<T> =
   | IncludeWithScope<T>[]
   | SimpleInclude<T>;
 
+type ArrayFieldValue<T> = T extends (infer Item)[] ? Item[] : T[];
+type BetweenFieldValue<T> = [T, T];
+
 export type FieldOperator<T> = {
-  [O in Operator]?: O extends 'and' | 'or' | 'inq' | 'nin'
+  [O in Operator]?: O extends 'and' | 'or'
     ? Partial<T>[]
-    : Partial<T>;
+    : O extends 'inq' | 'nin'
+      ? ArrayFieldValue<T>
+      : O extends 'between'
+        ? BetweenFieldValue<T>
+        : O extends 'like' | 'nlike'
+          ? string
+          : T;
 };
 
 // Allows to specify a where clause

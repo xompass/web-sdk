@@ -1,6 +1,6 @@
 {
   "name": "@xompass/web-sdk",
-  "version": "0.33.0",
+  "version": "0.33.1",
   "description": "",
   "packageManager": "pnpm@11.5.2",
   "engines": {
