@@ -13,6 +13,7 @@ export type EventTriggerAssetState = {
   muted?: boolean;
   hidden?: boolean;
   starred?: boolean;
+  watchlistId?: string;
   notifications?: any;
   created?: Date;
   modified?: Date;

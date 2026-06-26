@@ -11,6 +11,7 @@ export type EventTriggerAssetStateTemplate = {
   muted?: boolean;
   hidden?: boolean;
   starred?: boolean;
+  watchlistId?: string;
   notifications?: any;
   created?: Date;
   modified?: Date;

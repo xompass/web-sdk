@@ -7,6 +7,7 @@ import { ProjectOperabilitySummary } from '../models/ProjectOperabilitySummary';
 import { ProjectRestrictionTable } from '../models/ProjectRestrictionTable';
 import { RateLimit } from '../models/RateLimit';
 import { ResponseProtocol } from '../models/ResponseProtocol';
+import { Event } from '../models/Event';
 import { Asset } from '../models/Asset';
 import {
   LicensePlateDetection,
@@ -20,6 +21,7 @@ import {
   WatchlistVehicleCreate,
   WatchlistVehicleUpdate,
 } from '../models/Watchlist';
+import { FaceDetection } from '../models/FaceDetection';
 
 /**
  * Api services for the `Project` model.
@@ -459,6 +461,28 @@ export async function Project_CountFaceSubjects(
   });
 }
 /**
+ * Queries events of Project.
+ * /Projects/:id/events
+ */
+export async function Project_GetEvents(
+  id: string,
+  filter?: Filter<Event>,
+): Promise<Event[]> {
+  const _urlParams: any = {};
+  if (filter != null) {
+    _urlParams['filter'] = filter;
+  }
+
+  return ApiFetch({
+    method: 'GET',
+    url: '/Projects/:id/events',
+    urlParams: _urlParams,
+    routeParams: {
+      id,
+    },
+  });
+}
+/**
  * Queries operabilitySummaries of Project.
  * /Projects/:id/operabilitySummaries
  */
@@ -650,6 +674,86 @@ export async function Project_ApplyAssetState(
       id,
     },
     body: body,
+  });
+}
+/**
+ * Search face detections by subject
+ * /Projects/:id/faceDetections/search
+ */
+export async function Project_searchFaceDetections(
+  id: string,
+  subjectId?: string,
+  from?: Date,
+  to?: Date,
+  assetId?: string,
+  sensorId?: string,
+  limit?: number,
+): Promise<FaceDetection[]> {
+  const _urlParams: any = {};
+  if (subjectId != null) {
+    _urlParams['subjectId'] = subjectId;
+  }
+  if (from != null) {
+    _urlParams['from'] = from;
+  }
+  if (to != null) {
+    _urlParams['to'] = to;
+  }
+  if (assetId != null) {
+    _urlParams['assetId'] = assetId;
+  }
+  if (sensorId != null) {
+    _urlParams['sensorId'] = sensorId;
+  }
+  if (limit != null) {
+    _urlParams['limit'] = limit;
+  }
+
+  return ApiFetch({
+    method: 'GET',
+    url: '/Projects/:id/faceDetections/search',
+    urlParams: _urlParams,
+    routeParams: {
+      id,
+    },
+  });
+}
+/**
+ * Get face detections by date range
+ * /Projects/:id/faceDetections
+ */
+export async function Project_getFaceDetections(
+  id: string,
+  from?: Date,
+  to?: Date,
+  assetId?: string,
+  sensorId?: string,
+  limit?: number,
+): Promise<FaceDetection[]> {
+  const _urlParams: any = {};
+  if (from != null) {
+    _urlParams['from'] = from;
+  }
+  if (to != null) {
+    _urlParams['to'] = to;
+  }
+  if (assetId != null) {
+    _urlParams['assetId'] = assetId;
+  }
+  if (sensorId != null) {
+    _urlParams['sensorId'] = sensorId;
+  }
+  if (limit != null) {
+    _urlParams['limit'] = limit;
+  }
+
+  return ApiFetch({
+    method: 'GET',
+    url: '/Projects/:id/faceDetections',
+    urlParams: _urlParams,
+    routeParams: {
+      id,
+    },
   });
 }
 /**

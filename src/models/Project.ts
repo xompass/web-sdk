@@ -7,6 +7,7 @@ import { CountReport } from './CountReport';
 import { Credential } from './Credential';
 import { Customer } from './Customer';
 import { EmbeddedReport } from './EmbeddedReport';
+import { Event } from './Event';
 import { EventDashboard } from './EventDashboard';
 import { EventSubject } from './EventSubject';
 import { EventSummaryForProject } from './EventSummaryForProject';
@@ -67,6 +68,7 @@ export type Project = {
   assetOperabilitySummaries?: AssetOperabilitySummary[];
   faceDatabases?: FaceDatabase[];
   faceSubjects?: FaceSubject[];
+  events?: Event[];
   operabilitySummaries?: ProjectOperabilitySummary[];
   restrictionTable?: ProjectRestrictionTable;
   tags?: ProjectTag[];

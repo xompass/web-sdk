@@ -1,3 +1,5 @@
+import { DetectionFrame } from "./DetectionFrame";
+
 export type Watchlist = {
   id: string;
   customerId: string;
@@ -92,13 +94,6 @@ export type LicensePlateDetection = {
   createdAt?: number;
   distance?: number;
   similarity?: number;
-};
-
-export type DetectionFrame = {
-  x: number;
-  y: number;
-  w: number;
-  h: number;
 };
 
 export type LicensePlateDetectionQuery = {

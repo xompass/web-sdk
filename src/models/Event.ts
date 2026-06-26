@@ -1,11 +1,13 @@
 // Core models
 import { Asset } from './Asset';
+import { Customer } from './Customer';
 import { EventComment } from './EventComment';
 import { EventStateChange } from './EventStateChange';
 import { EventSummary } from './EventSummary';
 import { EventTrigger } from './EventTrigger';
 import { Point } from './GeoJSON';
 import { Log } from './Log';
+import { Project } from './Project';
 import {
   SensorTypeLabel,
   SensorTypeLabels,
@@ -96,16 +98,20 @@ export type Event = {
   modified?: Date;
   deleted?: Date;
   assetId?: string;
+  customerId?: string;
   _comments?: EventComment[];
   _data?: EventData[];
   _lastData?: EventData;
   _stateChanges?: EventStateChange[];
   summaryId?: string;
   eventTriggerId?: string;
+  projectId?: string;
   asset?: Asset;
+  customer?: Customer;
   summary?: EventSummary;
   eventTrigger?: EventTrigger;
   trackingLogs?: Log[];
+  project?: Project;
 };
 
 export type EventData = {

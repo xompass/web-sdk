@@ -1,9 +1,9 @@
 import { Asset } from './Asset';
-import { AssetStatusDetails } from './AssetStatusDetails';
 import { EventComment } from './EventComment';
 import { EventStateChange } from './EventStateChange';
 import { Log } from './Log';
 import { Project } from './Project';
+import { AssetStatusDetails } from './AssetStatusDetails';
 
 export type HealthcheckEvent = {
   currentState?: string;

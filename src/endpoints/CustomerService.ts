@@ -27,13 +27,13 @@ import { YoloClass } from '../models/YoloClass';
 import { YoloClassCustomer } from '../models/YoloClassCustomer';
 import { AssetTag } from '../models/AssetTag';
 import { CountReport } from '../models/CountReport';
+import { Event } from '../models/Event';
 import { Storyline } from '../models/Storyline';
 import { SensorUptimeCollector } from '../models/SensorUptimeCollector';
 import { Sensor } from '../models/Sensor';
 import { Tool } from '../models/Tool';
 import { AssetType } from '../models/AssetType';
 import { Dataset } from '../models/Dataset';
-import { Event } from '../models/Event';
 import { AssetConfig } from '../models/AssetConfig';
 import { AssetMilestone } from '../models/AssetMilestone';
 import { AssetStaff } from '../models/AssetStaff';
@@ -1208,7 +1208,7 @@ export async function Customer_GetOperabilitySummaries(
  */
 export async function Customer_CountOperabilitySummaries(
   id: string,
-  where: any = {},
+  where?: Filter<CustomerOperabilitySummary>['where'],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -1506,6 +1506,28 @@ export async function Customer_CountEmergencyContacts(
   return ApiFetch({
     method: 'GET',
     url: '/Customers/:id/emergencyContacts/count',
+    urlParams: _urlParams,
+    routeParams: {
+      id,
+    },
+  });
+}
+/**
+ * Queries events of Customer.
+ * /Customers/:id/events
+ */
+export async function Customer_GetEvents(
+  id: string,
+  filter?: Filter<Event>,
+): Promise<Event[]> {
+  const _urlParams: any = {};
+  if (filter != null) {
+    _urlParams['filter'] = filter;
+  }
+
+  return ApiFetch({
+    method: 'GET',
+    url: '/Customers/:id/events',
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -2432,7 +2454,7 @@ export async function Customer_unsubscribeAssets(
 export async function Customer_subscribeDevices(
   id: string,
   socketId: string,
-  where: any = {},
+  where?: Filter<Device>['where'],
 ): Promise<any> {
   const _urlParams: any = {};
   if (where != null) {
@@ -2728,62 +2750,6 @@ export async function Customer_getLicensePlates(
     urlParams: _urlParams,
     routeParams: {
       id,
-    },
-  });
-}
-/**
- * Get events
- * /Customers/:id/events
- */
-export type Customer_getEventsResponse = Event & {
-  asset?: {
-    name: string;
-    referenceId?: string;
-  };
-  eventTrigger?: {
-    name: string;
-    subject: string;
-  };
-};
-export async function Customer_getEvents(
-  id: string,
-  filter: Filter<Event> = {},
-): Promise<Customer_getEventsResponse[]> {
-  const _urlParams: any = {};
-  if (filter != null) {
-    _urlParams['filter'] = filter;
-  }
-
-  return ApiFetch({
-    method: 'GET',
-    url: '/Customers/:id/events',
-    urlParams: _urlParams,
-    routeParams: {
-      id,
-    },
-  });
-}
-/**
- * Get events
- * /Customers/:id/projects/:nk/events
- */
-export async function Customer_getProjectEvents(
-  id: string,
-  nk: string,
-  filter?: Filter<Project>,
-): Promise<any[]> {
-  const _urlParams: any = {};
-  if (filter != null) {
-    _urlParams['filter'] = filter;
-  }
-
-  return ApiFetch({
-    method: 'GET',
-    url: '/Customers/:id/projects/:nk/events',
-    urlParams: _urlParams,
-    routeParams: {
-      id,
-      nk,
     },
   });
 }
@@ -3657,7 +3623,7 @@ export async function Customer_FindByIdAssetsSummaries(
 export async function Customer_GetAssetsAssets(
   id: string,
   nk: string,
-  filter: Filter<any> = {},
+  filter?: Filter<Asset>,
 ): Promise<Asset[]> {
   const _urlParams: any = {};
   if (filter != null) {
