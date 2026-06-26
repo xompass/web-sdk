@@ -1,5 +1,11 @@
 # @xompass/web-sdk
 
+## 0.34.0
+
+### Minor Changes
+
+- faceDetection search
+
 ## 0.33.1
 
 ### Patch Changes
