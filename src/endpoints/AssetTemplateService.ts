@@ -1,11 +1,7 @@
-import { ApiFetch, Filter, UploadFile, UploadableFile } from '../core/ApiFetch';
-import { AssetTemplateStorageContainer } from '../models/AssetTemplate';
-import { EventTriggerAssetStateTemplate } from '../models/EventTriggerAssetStateTemplate';
-import { SensorAssetStateTemplate } from '../models/SensorAssetStateTemplate';
-
-/**
- * Api services for the `AssetTemplate` model.
- */
+import { ApiFetch, Filter, UploadFile, UploadableFile } from "../core/ApiFetch";
+import { AssetTemplateStorageContainer } from "../models/AssetTemplate";
+import { EventTriggerAssetStateTemplate } from "../models/EventTriggerAssetStateTemplate";
+import { SensorAssetStateTemplate } from "../models/SensorAssetStateTemplate";
 
 /**
  * Fetches hasOne relation container.
@@ -15,8 +11,8 @@ export async function AssetTemplate_GetContainer(
   id: string,
 ): Promise<AssetTemplateStorageContainer> {
   return ApiFetch({
-    method: 'GET',
-    url: '/AssetTemplates/:id/container',
+    method: "GET",
+    url: "/AssetTemplates/:id/container",
     routeParams: {
       id,
     },
@@ -31,8 +27,8 @@ export async function AssetTemplate_subscribe(
   socketId: string,
 ): Promise<any> {
   return ApiFetch({
-    method: 'PUT',
-    url: '/AssetTemplates/:id/sockets/:socketId/subscribe',
+    method: "PUT",
+    url: "/AssetTemplates/:id/sockets/:socketId/subscribe",
     routeParams: {
       id,
       socketId,
@@ -48,8 +44,8 @@ export async function AssetTemplate_unsubscribe(
   socketId: string,
 ): Promise<void> {
   return ApiFetch({
-    method: 'DELETE',
-    url: '/AssetTemplates/:id/sockets/:socketId/unsubscribe',
+    method: "DELETE",
+    url: "/AssetTemplates/:id/sockets/:socketId/unsubscribe",
     routeParams: {
       id,
       socketId,
@@ -62,8 +58,8 @@ export async function AssetTemplate_unsubscribe(
  */
 export async function AssetTemplate_getContainerInfo(id: string): Promise<any> {
   return ApiFetch({
-    method: 'GET',
-    url: '/AssetTemplates/:id/container/info',
+    method: "GET",
+    url: "/AssetTemplates/:id/container/info",
     routeParams: {
       id,
     },
@@ -73,10 +69,10 @@ export async function AssetTemplate_getContainerInfo(id: string): Promise<any> {
  * List all files within specified container
  * /AssetTemplates/:id/container/files
  */
-export async function AssetTemplate_getFiles(id: string): Promise<any> {
+export async function AssetTemplate_getFiles(id: string): Promise<any[]> {
   return ApiFetch({
-    method: 'GET',
-    url: '/AssetTemplates/:id/container/files',
+    method: "GET",
+    url: "/AssetTemplates/:id/container/files",
     routeParams: {
       id,
     },
@@ -91,8 +87,8 @@ export async function AssetTemplate_getFile(
   file: string,
 ): Promise<any> {
   return ApiFetch({
-    method: 'GET',
-    url: '/AssetTemplates/:id/container/files/:file',
+    method: "GET",
+    url: "/AssetTemplates/:id/container/files/:file",
     routeParams: {
       id,
       file,
@@ -110,12 +106,12 @@ export async function AssetTemplate_removeFile(
 ): Promise<void> {
   const _urlParams: any = {};
   if (property != null) {
-    _urlParams['property'] = property;
+    _urlParams["property"] = property;
   }
 
   return ApiFetch({
-    method: 'DELETE',
-    url: '/AssetTemplates/:id/container/files/:file',
+    method: "DELETE",
+    url: "/AssetTemplates/:id/container/files/:file",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -135,11 +131,11 @@ export async function AssetTemplate_upload(
 ): Promise<any> {
   const _urlParams: any = {};
   if (property != null) {
-    _urlParams['property'] = property;
+    _urlParams["property"] = property;
   }
 
   return UploadFile({
-    url: '/AssetTemplates/:id/container/upload',
+    url: "/AssetTemplates/:id/container/upload",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -159,12 +155,12 @@ export async function AssetTemplate_download(
 ): Promise<any> {
   const _urlParams: any = {};
   if (property != null) {
-    _urlParams['property'] = property;
+    _urlParams["property"] = property;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/AssetTemplates/:id/container/download/:file',
+    method: "GET",
+    url: "/AssetTemplates/:id/container/download/:file",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -178,17 +174,15 @@ export async function AssetTemplate_download(
  */
 export async function AssetTemplate_instantiate(
   id: string,
-  options: any = {},
+  options?: any,
 ): Promise<any> {
   return ApiFetch({
-    method: 'POST',
-    url: '/AssetTemplates/:id/instantiate',
+    method: "POST",
+    url: "/AssetTemplates/:id/instantiate",
     routeParams: {
       id,
     },
-    body: {
-      options,
-    },
+    body: options,
   });
 }
 /**
@@ -202,12 +196,12 @@ export async function AssetTemplate_GetAssetStateTemplatesEventTriggerAssetState
 ): Promise<EventTriggerAssetStateTemplate[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams['filter'] = filter;
+    _urlParams["filter"] = filter;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/AssetTemplates/:id/assetStateTemplates/:nk/eventTriggerAssetStateTemplates',
+    method: "GET",
+    url: "/AssetTemplates/:id/assetStateTemplates/:nk/eventTriggerAssetStateTemplates",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -226,12 +220,12 @@ export async function AssetTemplate_GetAssetStateTemplatesStateTemplates(
 ): Promise<SensorAssetStateTemplate[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams['filter'] = filter;
+    _urlParams["filter"] = filter;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/AssetTemplates/:id/assetStateTemplates/:nk/stateTemplates',
+    method: "GET",
+    url: "/AssetTemplates/:id/assetStateTemplates/:nk/stateTemplates",
     urlParams: _urlParams,
     routeParams: {
       id,

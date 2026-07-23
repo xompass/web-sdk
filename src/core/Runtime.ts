@@ -58,20 +58,20 @@ export type WebSdkRuntimeConfig = {
   xmlHttpRequest?: XMLHttpRequestConstructor;
 };
 
-const STORAGE_PROBE_KEY = '__xompass_web_sdk_probe__';
+const STORAGE_PROBE_KEY = "__xompass_web_sdk_probe__";
 
 function isStorageAdapter(value: unknown): value is StorageAdapter {
   return (
     value != null &&
-    typeof value === 'object' &&
-    typeof (value as StorageAdapter).getItem === 'function' &&
-    typeof (value as StorageAdapter).setItem === 'function' &&
-    typeof (value as StorageAdapter).removeItem === 'function'
+    typeof value === "object" &&
+    typeof (value as StorageAdapter).getItem === "function" &&
+    typeof (value as StorageAdapter).setItem === "function" &&
+    typeof (value as StorageAdapter).removeItem === "function"
   );
 }
 
 function getBrowserStorage(): StorageAdapter | undefined {
-  if (typeof globalThis !== 'object' || globalThis == null) {
+  if (typeof globalThis !== "object" || globalThis == null) {
     return undefined;
   }
 
@@ -91,9 +91,9 @@ function getBrowserStorage(): StorageAdapter | undefined {
 
 function getGlobalFetch(): FetchAdapter | undefined {
   if (
-    typeof globalThis !== 'object' ||
+    typeof globalThis !== "object" ||
     globalThis == null ||
-    typeof (globalThis as { fetch?: unknown }).fetch !== 'function'
+    typeof (globalThis as { fetch?: unknown }).fetch !== "function"
   ) {
     return undefined;
   }
@@ -107,9 +107,9 @@ function getGlobalFetch(): FetchAdapter | undefined {
 
 function getGlobalFormData(): FormDataConstructor | undefined {
   if (
-    typeof globalThis !== 'object' ||
+    typeof globalThis !== "object" ||
     globalThis == null ||
-    typeof (globalThis as { FormData?: unknown }).FormData !== 'function'
+    typeof (globalThis as { FormData?: unknown }).FormData !== "function"
   ) {
     return undefined;
   }
@@ -119,10 +119,10 @@ function getGlobalFormData(): FormDataConstructor | undefined {
 
 function getGlobalXMLHttpRequest(): XMLHttpRequestConstructor | undefined {
   if (
-    typeof globalThis !== 'object' ||
+    typeof globalThis !== "object" ||
     globalThis == null ||
     typeof (globalThis as { XMLHttpRequest?: unknown }).XMLHttpRequest !==
-      'function'
+      "function"
   ) {
     return undefined;
   }
@@ -165,19 +165,19 @@ function getDefaultRuntime() {
 let runtime = getDefaultRuntime();
 
 export function configureWebSdkRuntime(config: WebSdkRuntimeConfig): void {
-  if ('storage' in config) {
+  if ("storage" in config) {
     runtime.storage = config.storage ?? getDefaultStorage();
   }
 
-  if ('fetch' in config) {
+  if ("fetch" in config) {
     runtime.fetch = config.fetch ?? getGlobalFetch();
   }
 
-  if ('formData' in config) {
+  if ("formData" in config) {
     runtime.formData = config.formData ?? getGlobalFormData();
   }
 
-  if ('xmlHttpRequest' in config) {
+  if ("xmlHttpRequest" in config) {
     runtime.xmlHttpRequest = config.xmlHttpRequest ?? getGlobalXMLHttpRequest();
   }
 }

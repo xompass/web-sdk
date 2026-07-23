@@ -23,9 +23,9 @@ export type Log = {
   modelName?: string;
   embeddedModelId?: string;
   embeddedModelName?: string;
-  trackingLogs?: Log[];
-  user?: any;
-  remoteModel?: any;
-  trackingModel?: any;
   embeddedModel?: any;
+  remoteModel?: any;
+  trackingLogs?: Log[];
+  trackingModel?: any;
+  user?: any;
 };

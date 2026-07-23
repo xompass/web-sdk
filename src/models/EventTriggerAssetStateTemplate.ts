@@ -1,7 +1,7 @@
-import { AssetStateTemplate } from './AssetStateTemplate';
-import { EventTriggerRuleTemplate } from './EventTriggerRuleTemplate';
-import { EventTriggerTemplate } from './EventTriggerTemplate';
-import { Log } from './Log';
+import { AssetStateTemplate } from "./AssetStateTemplate";
+import { EventTriggerRuleTemplate } from "./EventTriggerRuleTemplate";
+import { EventTriggerTemplate } from "./EventTriggerTemplate";
+import { Log } from "./Log";
 
 export type EventTriggerAssetStateTemplate = {
   type?: string;
@@ -22,5 +22,6 @@ export type EventTriggerAssetStateTemplate = {
   _ruleTemplates?: EventTriggerRuleTemplate[];
   assetStateTemplate?: AssetStateTemplate;
   eventTriggerTemplate?: EventTriggerTemplate;
+  ruleTemplates?: EventTriggerRuleTemplate[];
   trackingLogs?: Log[];
 };

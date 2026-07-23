@@ -2,7 +2,7 @@ export type PoseDetectionContent = {
   image?: {
     container?: string;
     name?: string;
-    type?: 'image/jpg' | 'image/jpeg' | 'image/png';
+    type?: "image/jpg" | "image/jpeg" | "image/png";
     field?: string;
     originalFilename?: string;
     meta?: Record<string, any>;
@@ -12,7 +12,7 @@ export type PoseDetectionContent = {
     image?: {
       container?: string;
       name?: string;
-      type?: 'image/jpg' | 'image/jpeg' | 'image/png';
+      type?: "image/jpg" | "image/jpeg" | "image/png";
       field?: string;
       originalFilename?: string;
       meta?: Record<string, any>;
@@ -21,16 +21,16 @@ export type PoseDetectionContent = {
   };
   poses?: {
     label:
-      | 'NONE'
-      | 'HANDS_UP'
-      | 'ON_FLOOR'
-      | 'RUNNING'
-      | 'SEATED'
-      | 'STANDING'
-      | 'THROWING_THINGS'
-      | 'FIGHT'
-      | 'SQUAT_HEUR1'
-      | 'SQUAT_HEUR2';
+      | "NONE"
+      | "HANDS_UP"
+      | "ON_FLOOR"
+      | "RUNNING"
+      | "SEATED"
+      | "STANDING"
+      | "THROWING_THINGS"
+      | "FIGHT"
+      | "SQUAT_HEUR1"
+      | "SQUAT_HEUR2";
     probability: number;
     keypoints?: {
       Nose?: {

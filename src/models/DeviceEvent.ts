@@ -1,8 +1,8 @@
-import { Device } from './Device';
-import { DeviceEventComment } from './DeviceEventComment';
-import { DeviceEventData } from './DeviceEventData';
-import { DeviceEventStateChange } from './DeviceEventStateChange';
-import { Log } from './Log';
+import { Device } from "./Device";
+import { DeviceEventComment } from "./DeviceEventComment";
+import { DeviceEventData } from "./DeviceEventData";
+import { DeviceEventStateChange } from "./DeviceEventStateChange";
+import { Log } from "./Log";
 
 export type DeviceEvent = {
   id?: string;
@@ -13,14 +13,16 @@ export type DeviceEvent = {
   seen: boolean;
   hidden: boolean;
   starred: boolean;
-  currentState?: string;
+  currentState?: "OPENED" | "IN_PROGRESS" | "RESOLVED" | "CLOSED";
   created?: Date;
   modified?: Date;
   deleted?: Date;
   deviceId?: string;
   _comments?: DeviceEventComment[];
   _stateChanges?: DeviceEventStateChange[];
-  device?: Device;
+  comments?: DeviceEventComment[];
   data?: DeviceEventData[];
+  device?: Device;
+  stateChanges?: DeviceEventStateChange[];
   trackingLogs?: Log[];
 };

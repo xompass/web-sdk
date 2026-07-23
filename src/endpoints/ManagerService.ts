@@ -1,32 +1,24 @@
+import { ApiFetch, Filter, UploadFile, UploadableFile } from "../core/ApiFetch";
+import { Asset } from "../models/Asset";
+import { CctvDashboard } from "../models/CctvDashboard";
+import { CommonAccessToken } from "../models/CommonAccessToken";
+import { CountReport } from "../models/CountReport";
+import { Country } from "../models/Country";
+import { Credential } from "../models/Credential";
+import { Customer } from "../models/Customer";
+import { EventDashboard } from "../models/EventDashboard";
+import { Log } from "../models/Log";
 import {
-  ApiFetch,
-  Filter,
-  UploadFile,
-  UploadableFile,
-  Include,
-} from '../core/ApiFetch';
-import { Manager } from '../models/Manager';
-import { CommonAccessToken } from '../models/CommonAccessToken';
-import { Log } from '../models/Log';
-import { Credential } from '../models/Credential';
-import { Customer } from '../models/Customer';
-import { Country } from '../models/Country';
-import { Asset } from '../models/Asset';
-import { CctvDashboard } from '../models/CctvDashboard';
-import { CountReport } from '../models/CountReport';
-import { EventDashboard } from '../models/EventDashboard';
-import { ManagerStorageContainer } from '../models/Manager';
-import { PeopleCounterReport } from '../models/PeopleCounterReport';
-import { Permission } from '../models/Manager';
-import { Report } from '../models/Report';
-import { StoreVideoAnalyticDashboard } from '../models/StoreVideoAnalyticDashboard';
-import { TimeZone } from '../models/TimeZone';
-import { TrafficFlowAnalysis } from '../models/TrafficFlowAnalysis';
-import { View } from '../models/View';
-
-/**
- * Api services for the `Manager` model.
- */
+  Manager,
+  ManagerStorageContainer,
+  Permission,
+} from "../models/Manager";
+import { PeopleCounterReport } from "../models/PeopleCounterReport";
+import { Report } from "../models/Report";
+import { StoreVideoAnalyticDashboard } from "../models/StoreVideoAnalyticDashboard";
+import { TimeZone } from "../models/TimeZone";
+import { TrafficFlowAnalysis } from "../models/TrafficFlowAnalysis";
+import { View } from "../models/View";
 
 /**
  * Find a related item by id for accessTokens.
@@ -37,8 +29,8 @@ export async function Manager_FindByIdAccessTokens(
   fk: string,
 ): Promise<CommonAccessToken> {
   return ApiFetch({
-    method: 'GET',
-    url: '/Managers/:id/accessTokens/:fk',
+    method: "GET",
+    url: "/Managers/:id/accessTokens/:fk",
     routeParams: {
       id,
       fk,
@@ -54,8 +46,8 @@ export async function Manager_FindByIdActivityLogs(
   fk: string,
 ): Promise<Log> {
   return ApiFetch({
-    method: 'GET',
-    url: '/Managers/:id/activityLogs/:fk',
+    method: "GET",
+    url: "/Managers/:id/activityLogs/:fk",
     routeParams: {
       id,
       fk,
@@ -71,8 +63,8 @@ export async function Manager_FindByIdCredentials(
   fk: string,
 ): Promise<Credential> {
   return ApiFetch({
-    method: 'GET',
-    url: '/Managers/:id/credentials/:fk',
+    method: "GET",
+    url: "/Managers/:id/credentials/:fk",
     routeParams: {
       id,
       fk,
@@ -88,8 +80,8 @@ export async function Manager_ExistsCredentials(
   fk: string,
 ): Promise<boolean> {
   return ApiFetch({
-    method: 'HEAD',
-    url: '/Managers/:id/credentials/rel/:fk',
+    method: "HEAD",
+    url: "/Managers/:id/credentials/rel/:fk",
     routeParams: {
       id,
       fk,
@@ -102,8 +94,8 @@ export async function Manager_ExistsCredentials(
  */
 export async function Manager_GetCustomer(id: string): Promise<Customer> {
   return ApiFetch({
-    method: 'GET',
-    url: '/Managers/:id/customer',
+    method: "GET",
+    url: "/Managers/:id/customer",
     routeParams: {
       id,
     },
@@ -115,8 +107,8 @@ export async function Manager_GetCustomer(id: string): Promise<Customer> {
  */
 export async function Manager_GetCountry(id: string): Promise<Country> {
   return ApiFetch({
-    method: 'GET',
-    url: '/Managers/:id/country',
+    method: "GET",
+    url: "/Managers/:id/country",
     routeParams: {
       id,
     },
@@ -131,8 +123,8 @@ export async function Manager_FindByIdAssets(
   fk: string,
 ): Promise<Asset> {
   return ApiFetch({
-    method: 'GET',
-    url: '/Managers/:id/assets/:fk',
+    method: "GET",
+    url: "/Managers/:id/assets/:fk",
     routeParams: {
       id,
       fk,
@@ -148,8 +140,8 @@ export async function Manager_DestroyByIdAssets(
   fk: string,
 ): Promise<void> {
   return ApiFetch({
-    method: 'DELETE',
-    url: '/Managers/:id/assets/:fk',
+    method: "DELETE",
+    url: "/Managers/:id/assets/:fk",
     routeParams: {
       id,
       fk,
@@ -163,11 +155,11 @@ export async function Manager_DestroyByIdAssets(
 export async function Manager_UpdateByIdAssets(
   id: string,
   fk: string,
-  data: any = {},
+  data?: any,
 ): Promise<Asset> {
   return ApiFetch({
-    method: 'PUT',
-    url: '/Managers/:id/assets/:fk',
+    method: "PUT",
+    url: "/Managers/:id/assets/:fk",
     routeParams: {
       id,
       fk,
@@ -182,11 +174,11 @@ export async function Manager_UpdateByIdAssets(
 export async function Manager_LinkAssets(
   id: string,
   fk: string,
-  data: any = {},
+  data?: any,
 ): Promise<any> {
   return ApiFetch({
-    method: 'PUT',
-    url: '/Managers/:id/assets/rel/:fk',
+    method: "PUT",
+    url: "/Managers/:id/assets/rel/:fk",
     routeParams: {
       id,
       fk,
@@ -203,8 +195,8 @@ export async function Manager_UnlinkAssets(
   fk: string,
 ): Promise<void> {
   return ApiFetch({
-    method: 'DELETE',
-    url: '/Managers/:id/assets/rel/:fk',
+    method: "DELETE",
+    url: "/Managers/:id/assets/rel/:fk",
     routeParams: {
       id,
       fk,
@@ -220,8 +212,8 @@ export async function Manager_FindByIdCctvDashboards(
   fk: string,
 ): Promise<CctvDashboard> {
   return ApiFetch({
-    method: 'GET',
-    url: '/Managers/:id/cctvDashboards/:fk',
+    method: "GET",
+    url: "/Managers/:id/cctvDashboards/:fk",
     routeParams: {
       id,
       fk,
@@ -237,8 +229,8 @@ export async function Manager_DestroyByIdCctvDashboards(
   fk: string,
 ): Promise<void> {
   return ApiFetch({
-    method: 'DELETE',
-    url: '/Managers/:id/cctvDashboards/:fk',
+    method: "DELETE",
+    url: "/Managers/:id/cctvDashboards/:fk",
     routeParams: {
       id,
       fk,
@@ -252,11 +244,11 @@ export async function Manager_DestroyByIdCctvDashboards(
 export async function Manager_UpdateByIdCctvDashboards(
   id: string,
   fk: string,
-  data: any = {},
+  data?: any,
 ): Promise<CctvDashboard> {
   return ApiFetch({
-    method: 'PUT',
-    url: '/Managers/:id/cctvDashboards/:fk',
+    method: "PUT",
+    url: "/Managers/:id/cctvDashboards/:fk",
     routeParams: {
       id,
       fk,
@@ -271,11 +263,11 @@ export async function Manager_UpdateByIdCctvDashboards(
 export async function Manager_LinkCctvDashboards(
   id: string,
   fk: string,
-  data: any = {},
+  data?: any,
 ): Promise<any> {
   return ApiFetch({
-    method: 'PUT',
-    url: '/Managers/:id/cctvDashboards/rel/:fk',
+    method: "PUT",
+    url: "/Managers/:id/cctvDashboards/rel/:fk",
     routeParams: {
       id,
       fk,
@@ -292,8 +284,8 @@ export async function Manager_UnlinkCctvDashboards(
   fk: string,
 ): Promise<void> {
   return ApiFetch({
-    method: 'DELETE',
-    url: '/Managers/:id/cctvDashboards/rel/:fk',
+    method: "DELETE",
+    url: "/Managers/:id/cctvDashboards/rel/:fk",
     routeParams: {
       id,
       fk,
@@ -309,8 +301,8 @@ export async function Manager_FindByIdCountReports(
   fk: string,
 ): Promise<CountReport> {
   return ApiFetch({
-    method: 'GET',
-    url: '/Managers/:id/countReports/:fk',
+    method: "GET",
+    url: "/Managers/:id/countReports/:fk",
     routeParams: {
       id,
       fk,
@@ -326,8 +318,8 @@ export async function Manager_DestroyByIdCountReports(
   fk: string,
 ): Promise<void> {
   return ApiFetch({
-    method: 'DELETE',
-    url: '/Managers/:id/countReports/:fk',
+    method: "DELETE",
+    url: "/Managers/:id/countReports/:fk",
     routeParams: {
       id,
       fk,
@@ -341,11 +333,11 @@ export async function Manager_DestroyByIdCountReports(
 export async function Manager_UpdateByIdCountReports(
   id: string,
   fk: string,
-  data: any = {},
+  data?: any,
 ): Promise<CountReport> {
   return ApiFetch({
-    method: 'PUT',
-    url: '/Managers/:id/countReports/:fk',
+    method: "PUT",
+    url: "/Managers/:id/countReports/:fk",
     routeParams: {
       id,
       fk,
@@ -360,11 +352,11 @@ export async function Manager_UpdateByIdCountReports(
 export async function Manager_LinkCountReports(
   id: string,
   fk: string,
-  data: any = {},
+  data?: any,
 ): Promise<any> {
   return ApiFetch({
-    method: 'PUT',
-    url: '/Managers/:id/countReports/rel/:fk',
+    method: "PUT",
+    url: "/Managers/:id/countReports/rel/:fk",
     routeParams: {
       id,
       fk,
@@ -381,8 +373,8 @@ export async function Manager_UnlinkCountReports(
   fk: string,
 ): Promise<void> {
   return ApiFetch({
-    method: 'DELETE',
-    url: '/Managers/:id/countReports/rel/:fk',
+    method: "DELETE",
+    url: "/Managers/:id/countReports/rel/:fk",
     routeParams: {
       id,
       fk,
@@ -398,8 +390,8 @@ export async function Manager_FindByIdEventDashboards(
   fk: string,
 ): Promise<EventDashboard> {
   return ApiFetch({
-    method: 'GET',
-    url: '/Managers/:id/eventDashboards/:fk',
+    method: "GET",
+    url: "/Managers/:id/eventDashboards/:fk",
     routeParams: {
       id,
       fk,
@@ -415,8 +407,8 @@ export async function Manager_DestroyByIdEventDashboards(
   fk: string,
 ): Promise<void> {
   return ApiFetch({
-    method: 'DELETE',
-    url: '/Managers/:id/eventDashboards/:fk',
+    method: "DELETE",
+    url: "/Managers/:id/eventDashboards/:fk",
     routeParams: {
       id,
       fk,
@@ -430,11 +422,11 @@ export async function Manager_DestroyByIdEventDashboards(
 export async function Manager_UpdateByIdEventDashboards(
   id: string,
   fk: string,
-  data: any = {},
+  data?: any,
 ): Promise<EventDashboard> {
   return ApiFetch({
-    method: 'PUT',
-    url: '/Managers/:id/eventDashboards/:fk',
+    method: "PUT",
+    url: "/Managers/:id/eventDashboards/:fk",
     routeParams: {
       id,
       fk,
@@ -449,11 +441,11 @@ export async function Manager_UpdateByIdEventDashboards(
 export async function Manager_LinkEventDashboards(
   id: string,
   fk: string,
-  data: any = {},
+  data?: any,
 ): Promise<any> {
   return ApiFetch({
-    method: 'PUT',
-    url: '/Managers/:id/eventDashboards/rel/:fk',
+    method: "PUT",
+    url: "/Managers/:id/eventDashboards/rel/:fk",
     routeParams: {
       id,
       fk,
@@ -470,8 +462,8 @@ export async function Manager_UnlinkEventDashboards(
   fk: string,
 ): Promise<void> {
   return ApiFetch({
-    method: 'DELETE',
-    url: '/Managers/:id/eventDashboards/rel/:fk',
+    method: "DELETE",
+    url: "/Managers/:id/eventDashboards/rel/:fk",
     routeParams: {
       id,
       fk,
@@ -486,8 +478,8 @@ export async function Manager_GetContainer(
   id: string,
 ): Promise<ManagerStorageContainer> {
   return ApiFetch({
-    method: 'GET',
-    url: '/Managers/:id/container',
+    method: "GET",
+    url: "/Managers/:id/container",
     routeParams: {
       id,
     },
@@ -502,8 +494,8 @@ export async function Manager_FindByIdPeopleCounterReports(
   fk: string,
 ): Promise<PeopleCounterReport> {
   return ApiFetch({
-    method: 'GET',
-    url: '/Managers/:id/peopleCounterReports/:fk',
+    method: "GET",
+    url: "/Managers/:id/peopleCounterReports/:fk",
     routeParams: {
       id,
       fk,
@@ -519,8 +511,8 @@ export async function Manager_DestroyByIdPeopleCounterReports(
   fk: string,
 ): Promise<void> {
   return ApiFetch({
-    method: 'DELETE',
-    url: '/Managers/:id/peopleCounterReports/:fk',
+    method: "DELETE",
+    url: "/Managers/:id/peopleCounterReports/:fk",
     routeParams: {
       id,
       fk,
@@ -534,11 +526,11 @@ export async function Manager_DestroyByIdPeopleCounterReports(
 export async function Manager_UpdateByIdPeopleCounterReports(
   id: string,
   fk: string,
-  data: any = {},
+  data?: any,
 ): Promise<PeopleCounterReport> {
   return ApiFetch({
-    method: 'PUT',
-    url: '/Managers/:id/peopleCounterReports/:fk',
+    method: "PUT",
+    url: "/Managers/:id/peopleCounterReports/:fk",
     routeParams: {
       id,
       fk,
@@ -553,11 +545,11 @@ export async function Manager_UpdateByIdPeopleCounterReports(
 export async function Manager_LinkPeopleCounterReports(
   id: string,
   fk: string,
-  data: any = {},
+  data?: any,
 ): Promise<any> {
   return ApiFetch({
-    method: 'PUT',
-    url: '/Managers/:id/peopleCounterReports/rel/:fk',
+    method: "PUT",
+    url: "/Managers/:id/peopleCounterReports/rel/:fk",
     routeParams: {
       id,
       fk,
@@ -574,8 +566,8 @@ export async function Manager_UnlinkPeopleCounterReports(
   fk: string,
 ): Promise<void> {
   return ApiFetch({
-    method: 'DELETE',
-    url: '/Managers/:id/peopleCounterReports/rel/:fk',
+    method: "DELETE",
+    url: "/Managers/:id/peopleCounterReports/rel/:fk",
     routeParams: {
       id,
       fk,
@@ -588,8 +580,8 @@ export async function Manager_UnlinkPeopleCounterReports(
  */
 export async function Manager_GetPermission(id: string): Promise<Permission> {
   return ApiFetch({
-    method: 'GET',
-    url: '/Managers/:id/permission',
+    method: "GET",
+    url: "/Managers/:id/permission",
     routeParams: {
       id,
     },
@@ -601,11 +593,11 @@ export async function Manager_GetPermission(id: string): Promise<Permission> {
  */
 export async function Manager_CreatePermission(
   id: string,
-  data: any = {},
+  data?: any,
 ): Promise<Permission> {
   return ApiFetch({
-    method: 'POST',
-    url: '/Managers/:id/permission',
+    method: "POST",
+    url: "/Managers/:id/permission",
     routeParams: {
       id,
     },
@@ -618,11 +610,11 @@ export async function Manager_CreatePermission(
  */
 export async function Manager_UpdatePermission(
   id: string,
-  data: any = {},
+  data?: any,
 ): Promise<Permission> {
   return ApiFetch({
-    method: 'PUT',
-    url: '/Managers/:id/permission',
+    method: "PUT",
+    url: "/Managers/:id/permission",
     routeParams: {
       id,
     },
@@ -638,8 +630,8 @@ export async function Manager_FindByIdReports(
   fk: string,
 ): Promise<Report> {
   return ApiFetch({
-    method: 'GET',
-    url: '/Managers/:id/reports/:fk',
+    method: "GET",
+    url: "/Managers/:id/reports/:fk",
     routeParams: {
       id,
       fk,
@@ -655,8 +647,8 @@ export async function Manager_DestroyByIdReports(
   fk: string,
 ): Promise<void> {
   return ApiFetch({
-    method: 'DELETE',
-    url: '/Managers/:id/reports/:fk',
+    method: "DELETE",
+    url: "/Managers/:id/reports/:fk",
     routeParams: {
       id,
       fk,
@@ -670,11 +662,11 @@ export async function Manager_DestroyByIdReports(
 export async function Manager_UpdateByIdReports(
   id: string,
   fk: string,
-  data: any = {},
+  data?: any,
 ): Promise<Report> {
   return ApiFetch({
-    method: 'PUT',
-    url: '/Managers/:id/reports/:fk',
+    method: "PUT",
+    url: "/Managers/:id/reports/:fk",
     routeParams: {
       id,
       fk,
@@ -689,11 +681,11 @@ export async function Manager_UpdateByIdReports(
 export async function Manager_LinkReports(
   id: string,
   fk: string,
-  data: any = {},
+  data?: any,
 ): Promise<any> {
   return ApiFetch({
-    method: 'PUT',
-    url: '/Managers/:id/reports/rel/:fk',
+    method: "PUT",
+    url: "/Managers/:id/reports/rel/:fk",
     routeParams: {
       id,
       fk,
@@ -710,8 +702,8 @@ export async function Manager_UnlinkReports(
   fk: string,
 ): Promise<void> {
   return ApiFetch({
-    method: 'DELETE',
-    url: '/Managers/:id/reports/rel/:fk',
+    method: "DELETE",
+    url: "/Managers/:id/reports/rel/:fk",
     routeParams: {
       id,
       fk,
@@ -727,8 +719,8 @@ export async function Manager_FindByIdStoreVideoAnalyticDashboards(
   fk: string,
 ): Promise<StoreVideoAnalyticDashboard> {
   return ApiFetch({
-    method: 'GET',
-    url: '/Managers/:id/storeVideoAnalyticDashboards/:fk',
+    method: "GET",
+    url: "/Managers/:id/storeVideoAnalyticDashboards/:fk",
     routeParams: {
       id,
       fk,
@@ -744,8 +736,8 @@ export async function Manager_DestroyByIdStoreVideoAnalyticDashboards(
   fk: string,
 ): Promise<void> {
   return ApiFetch({
-    method: 'DELETE',
-    url: '/Managers/:id/storeVideoAnalyticDashboards/:fk',
+    method: "DELETE",
+    url: "/Managers/:id/storeVideoAnalyticDashboards/:fk",
     routeParams: {
       id,
       fk,
@@ -759,11 +751,11 @@ export async function Manager_DestroyByIdStoreVideoAnalyticDashboards(
 export async function Manager_UpdateByIdStoreVideoAnalyticDashboards(
   id: string,
   fk: string,
-  data: any = {},
+  data?: any,
 ): Promise<StoreVideoAnalyticDashboard> {
   return ApiFetch({
-    method: 'PUT',
-    url: '/Managers/:id/storeVideoAnalyticDashboards/:fk',
+    method: "PUT",
+    url: "/Managers/:id/storeVideoAnalyticDashboards/:fk",
     routeParams: {
       id,
       fk,
@@ -778,11 +770,11 @@ export async function Manager_UpdateByIdStoreVideoAnalyticDashboards(
 export async function Manager_LinkStoreVideoAnalyticDashboards(
   id: string,
   fk: string,
-  data: any = {},
+  data?: any,
 ): Promise<any> {
   return ApiFetch({
-    method: 'PUT',
-    url: '/Managers/:id/storeVideoAnalyticDashboards/rel/:fk',
+    method: "PUT",
+    url: "/Managers/:id/storeVideoAnalyticDashboards/rel/:fk",
     routeParams: {
       id,
       fk,
@@ -799,8 +791,8 @@ export async function Manager_UnlinkStoreVideoAnalyticDashboards(
   fk: string,
 ): Promise<void> {
   return ApiFetch({
-    method: 'DELETE',
-    url: '/Managers/:id/storeVideoAnalyticDashboards/rel/:fk',
+    method: "DELETE",
+    url: "/Managers/:id/storeVideoAnalyticDashboards/rel/:fk",
     routeParams: {
       id,
       fk,
@@ -813,8 +805,8 @@ export async function Manager_UnlinkStoreVideoAnalyticDashboards(
  */
 export async function Manager_GetTimeZone(id: string): Promise<TimeZone> {
   return ApiFetch({
-    method: 'GET',
-    url: '/Managers/:id/timeZone',
+    method: "GET",
+    url: "/Managers/:id/timeZone",
     routeParams: {
       id,
     },
@@ -829,8 +821,8 @@ export async function Manager_FindByIdTrafficFlowAnalysis(
   fk: string,
 ): Promise<TrafficFlowAnalysis> {
   return ApiFetch({
-    method: 'GET',
-    url: '/Managers/:id/trafficFlowAnalysis/:fk',
+    method: "GET",
+    url: "/Managers/:id/trafficFlowAnalysis/:fk",
     routeParams: {
       id,
       fk,
@@ -846,8 +838,8 @@ export async function Manager_DestroyByIdTrafficFlowAnalysis(
   fk: string,
 ): Promise<void> {
   return ApiFetch({
-    method: 'DELETE',
-    url: '/Managers/:id/trafficFlowAnalysis/:fk',
+    method: "DELETE",
+    url: "/Managers/:id/trafficFlowAnalysis/:fk",
     routeParams: {
       id,
       fk,
@@ -861,11 +853,11 @@ export async function Manager_DestroyByIdTrafficFlowAnalysis(
 export async function Manager_UpdateByIdTrafficFlowAnalysis(
   id: string,
   fk: string,
-  data: any = {},
+  data?: any,
 ): Promise<TrafficFlowAnalysis> {
   return ApiFetch({
-    method: 'PUT',
-    url: '/Managers/:id/trafficFlowAnalysis/:fk',
+    method: "PUT",
+    url: "/Managers/:id/trafficFlowAnalysis/:fk",
     routeParams: {
       id,
       fk,
@@ -880,11 +872,11 @@ export async function Manager_UpdateByIdTrafficFlowAnalysis(
 export async function Manager_LinkTrafficFlowAnalysis(
   id: string,
   fk: string,
-  data: any = {},
+  data?: any,
 ): Promise<any> {
   return ApiFetch({
-    method: 'PUT',
-    url: '/Managers/:id/trafficFlowAnalysis/rel/:fk',
+    method: "PUT",
+    url: "/Managers/:id/trafficFlowAnalysis/rel/:fk",
     routeParams: {
       id,
       fk,
@@ -901,8 +893,8 @@ export async function Manager_UnlinkTrafficFlowAnalysis(
   fk: string,
 ): Promise<void> {
   return ApiFetch({
-    method: 'DELETE',
-    url: '/Managers/:id/trafficFlowAnalysis/rel/:fk',
+    method: "DELETE",
+    url: "/Managers/:id/trafficFlowAnalysis/rel/:fk",
     routeParams: {
       id,
       fk,
@@ -918,8 +910,8 @@ export async function Manager_FindByIdViews(
   fk: string,
 ): Promise<View> {
   return ApiFetch({
-    method: 'GET',
-    url: '/Managers/:id/views/:fk',
+    method: "GET",
+    url: "/Managers/:id/views/:fk",
     routeParams: {
       id,
       fk,
@@ -933,11 +925,11 @@ export async function Manager_FindByIdViews(
 export async function Manager_LinkViews(
   id: string,
   fk: string,
-  data: any = {},
+  data?: any,
 ): Promise<any> {
   return ApiFetch({
-    method: 'PUT',
-    url: '/Managers/:id/views/rel/:fk',
+    method: "PUT",
+    url: "/Managers/:id/views/rel/:fk",
     routeParams: {
       id,
       fk,
@@ -954,8 +946,8 @@ export async function Manager_UnlinkViews(
   fk: string,
 ): Promise<void> {
   return ApiFetch({
-    method: 'DELETE',
-    url: '/Managers/:id/views/rel/:fk',
+    method: "DELETE",
+    url: "/Managers/:id/views/rel/:fk",
     routeParams: {
       id,
       fk,
@@ -972,12 +964,12 @@ export async function Manager_GetActivityLogs(
 ): Promise<Log[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams['filter'] = filter;
+    _urlParams["filter"] = filter;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/Managers/:id/activityLogs',
+    method: "GET",
+    url: "/Managers/:id/activityLogs",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -990,16 +982,16 @@ export async function Manager_GetActivityLogs(
  */
 export async function Manager_CountActivityLogs(
   id: string,
-  where?: Filter<Log>['where'],
+  where?: Filter<Log>["where"],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams['where'] = where;
+    _urlParams["where"] = where;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/Managers/:id/activityLogs/count',
+    method: "GET",
+    url: "/Managers/:id/activityLogs/count",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -1016,12 +1008,12 @@ export async function Manager_GetCredentials(
 ): Promise<Credential[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams['filter'] = filter;
+    _urlParams["filter"] = filter;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/Managers/:id/credentials',
+    method: "GET",
+    url: "/Managers/:id/credentials",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -1034,16 +1026,16 @@ export async function Manager_GetCredentials(
  */
 export async function Manager_CountCredentials(
   id: string,
-  where?: Filter<Credential>['where'],
+  where?: Filter<Credential>["where"],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams['where'] = where;
+    _urlParams["where"] = where;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/Managers/:id/credentials/count',
+    method: "GET",
+    url: "/Managers/:id/credentials/count",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -1060,12 +1052,12 @@ export async function Manager_GetAssets(
 ): Promise<Asset[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams['filter'] = filter;
+    _urlParams["filter"] = filter;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/Managers/:id/assets',
+    method: "GET",
+    url: "/Managers/:id/assets",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -1078,16 +1070,16 @@ export async function Manager_GetAssets(
  */
 export async function Manager_CountAssets(
   id: string,
-  where?: Filter<Asset>['where'],
+  where?: Filter<Asset>["where"],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams['where'] = where;
+    _urlParams["where"] = where;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/Managers/:id/assets/count',
+    method: "GET",
+    url: "/Managers/:id/assets/count",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -1104,12 +1096,12 @@ export async function Manager_GetCctvDashboards(
 ): Promise<CctvDashboard[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams['filter'] = filter;
+    _urlParams["filter"] = filter;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/Managers/:id/cctvDashboards',
+    method: "GET",
+    url: "/Managers/:id/cctvDashboards",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -1122,16 +1114,16 @@ export async function Manager_GetCctvDashboards(
  */
 export async function Manager_CountCctvDashboards(
   id: string,
-  where?: Filter<CctvDashboard>['where'],
+  where?: Filter<CctvDashboard>["where"],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams['where'] = where;
+    _urlParams["where"] = where;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/Managers/:id/cctvDashboards/count',
+    method: "GET",
+    url: "/Managers/:id/cctvDashboards/count",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -1148,12 +1140,12 @@ export async function Manager_GetCountReports(
 ): Promise<CountReport[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams['filter'] = filter;
+    _urlParams["filter"] = filter;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/Managers/:id/countReports',
+    method: "GET",
+    url: "/Managers/:id/countReports",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -1166,16 +1158,16 @@ export async function Manager_GetCountReports(
  */
 export async function Manager_CountCountReports(
   id: string,
-  where?: Filter<CountReport>['where'],
+  where?: Filter<CountReport>["where"],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams['where'] = where;
+    _urlParams["where"] = where;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/Managers/:id/countReports/count',
+    method: "GET",
+    url: "/Managers/:id/countReports/count",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -1192,12 +1184,12 @@ export async function Manager_GetEventDashboards(
 ): Promise<EventDashboard[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams['filter'] = filter;
+    _urlParams["filter"] = filter;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/Managers/:id/eventDashboards',
+    method: "GET",
+    url: "/Managers/:id/eventDashboards",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -1210,16 +1202,16 @@ export async function Manager_GetEventDashboards(
  */
 export async function Manager_CountEventDashboards(
   id: string,
-  where?: Filter<EventDashboard>['where'],
+  where?: Filter<EventDashboard>["where"],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams['where'] = where;
+    _urlParams["where"] = where;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/Managers/:id/eventDashboards/count',
+    method: "GET",
+    url: "/Managers/:id/eventDashboards/count",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -1236,12 +1228,12 @@ export async function Manager_GetPeopleCounterReports(
 ): Promise<PeopleCounterReport[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams['filter'] = filter;
+    _urlParams["filter"] = filter;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/Managers/:id/peopleCounterReports',
+    method: "GET",
+    url: "/Managers/:id/peopleCounterReports",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -1254,16 +1246,16 @@ export async function Manager_GetPeopleCounterReports(
  */
 export async function Manager_CountPeopleCounterReports(
   id: string,
-  where?: Filter<PeopleCounterReport>['where'],
+  where?: Filter<PeopleCounterReport>["where"],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams['where'] = where;
+    _urlParams["where"] = where;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/Managers/:id/peopleCounterReports/count',
+    method: "GET",
+    url: "/Managers/:id/peopleCounterReports/count",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -1280,12 +1272,12 @@ export async function Manager_GetReports(
 ): Promise<Report[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams['filter'] = filter;
+    _urlParams["filter"] = filter;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/Managers/:id/reports',
+    method: "GET",
+    url: "/Managers/:id/reports",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -1298,16 +1290,16 @@ export async function Manager_GetReports(
  */
 export async function Manager_CountReports(
   id: string,
-  where?: Filter<Report>['where'],
+  where?: Filter<Report>["where"],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams['where'] = where;
+    _urlParams["where"] = where;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/Managers/:id/reports/count',
+    method: "GET",
+    url: "/Managers/:id/reports/count",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -1324,12 +1316,12 @@ export async function Manager_GetStoreVideoAnalyticDashboards(
 ): Promise<StoreVideoAnalyticDashboard[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams['filter'] = filter;
+    _urlParams["filter"] = filter;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/Managers/:id/storeVideoAnalyticDashboards',
+    method: "GET",
+    url: "/Managers/:id/storeVideoAnalyticDashboards",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -1342,16 +1334,16 @@ export async function Manager_GetStoreVideoAnalyticDashboards(
  */
 export async function Manager_CountStoreVideoAnalyticDashboards(
   id: string,
-  where?: Filter<StoreVideoAnalyticDashboard>['where'],
+  where?: Filter<StoreVideoAnalyticDashboard>["where"],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams['where'] = where;
+    _urlParams["where"] = where;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/Managers/:id/storeVideoAnalyticDashboards/count',
+    method: "GET",
+    url: "/Managers/:id/storeVideoAnalyticDashboards/count",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -1368,12 +1360,12 @@ export async function Manager_GetTrafficFlowAnalysis(
 ): Promise<TrafficFlowAnalysis[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams['filter'] = filter;
+    _urlParams["filter"] = filter;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/Managers/:id/trafficFlowAnalysis',
+    method: "GET",
+    url: "/Managers/:id/trafficFlowAnalysis",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -1386,16 +1378,16 @@ export async function Manager_GetTrafficFlowAnalysis(
  */
 export async function Manager_CountTrafficFlowAnalysis(
   id: string,
-  where?: Filter<TrafficFlowAnalysis>['where'],
+  where?: Filter<TrafficFlowAnalysis>["where"],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams['where'] = where;
+    _urlParams["where"] = where;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/Managers/:id/trafficFlowAnalysis/count',
+    method: "GET",
+    url: "/Managers/:id/trafficFlowAnalysis/count",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -1412,12 +1404,12 @@ export async function Manager_GetViews(
 ): Promise<View[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams['filter'] = filter;
+    _urlParams["filter"] = filter;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/Managers/:id/views',
+    method: "GET",
+    url: "/Managers/:id/views",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -1430,16 +1422,16 @@ export async function Manager_GetViews(
  */
 export async function Manager_CountViews(
   id: string,
-  where?: Filter<View>['where'],
+  where?: Filter<View>["where"],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams['where'] = where;
+    _urlParams["where"] = where;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/Managers/:id/views/count',
+    method: "GET",
+    url: "/Managers/:id/views/count",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -1450,11 +1442,10 @@ export async function Manager_CountViews(
  * Create a new instance of the model and persist it into the data source.
  * /Managers
  */
-export async function Manager_create(data: any = {}): Promise<Manager> {
+export async function Manager_create(data?: any): Promise<Manager> {
   return ApiFetch({
-    method: 'POST',
-    url: '/Managers',
-    routeParams: {},
+    method: "POST",
+    url: "/Managers",
     body: data,
   });
 }
@@ -1468,16 +1459,33 @@ export async function Manager_findById(
 ): Promise<Manager> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams['filter'] = filter;
+    _urlParams["filter"] = filter;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/Managers/:id',
+    method: "GET",
+    url: "/Managers/:id",
     urlParams: _urlParams,
     routeParams: {
       id,
     },
+  });
+}
+/**
+ * Replace attributes for a model instance and persist it into the data source.
+ * /Managers/:id/replace
+ */
+export async function Manager_replaceById(
+  id: string,
+  data?: any,
+): Promise<Manager> {
+  return ApiFetch({
+    method: "POST",
+    url: "/Managers/:id/replace",
+    routeParams: {
+      id,
+    },
+    body: data,
   });
 }
 /**
@@ -1486,11 +1494,28 @@ export async function Manager_findById(
  */
 export async function Manager_deleteById(id: string): Promise<void> {
   return ApiFetch({
-    method: 'DELETE',
-    url: '/Managers/:id',
+    method: "DELETE",
+    url: "/Managers/:id",
     routeParams: {
       id,
     },
+  });
+}
+/**
+ * Patch attributes for a model instance and persist it into the data source.
+ * /Managers/:id
+ */
+export async function Manager_patchAttributes(
+  id: string,
+  data?: any,
+): Promise<Manager> {
+  return ApiFetch({
+    method: "PUT",
+    url: "/Managers/:id",
+    routeParams: {
+      id,
+    },
+    body: data,
   });
 }
 /**
@@ -1501,22 +1526,17 @@ export async function Manager_login(
   credentials:
     | { username: string; password: string }
     | { email: string; password: string },
-  include: Include<any> = {
-    relation: 'user',
-    scope: { include: ['container'] },
-  },
-  rememberMe: boolean = true,
+  include?: Filter<Manager>["include"],
 ): Promise<any> {
   const _urlParams: any = {};
   if (include != null) {
-    _urlParams['include'] = include;
+    _urlParams["include"] = include;
   }
 
   return ApiFetch({
-    method: 'POST',
-    url: '/Managers/login',
+    method: "POST",
+    url: "/Managers/login",
     urlParams: _urlParams,
-    routeParams: {},
     body: { ...credentials },
   });
 }
@@ -1526,9 +1546,8 @@ export async function Manager_login(
  */
 export async function Manager_logout(): Promise<any> {
   return ApiFetch({
-    method: 'POST',
-    url: '/Managers/logout',
-    routeParams: {},
+    method: "POST",
+    url: "/Managers/logout",
   });
 }
 /**
@@ -1537,8 +1556,8 @@ export async function Manager_logout(): Promise<any> {
  */
 export async function Manager_verify(id: string): Promise<any> {
   return ApiFetch({
-    method: 'POST',
-    url: '/Managers/:id/verify',
+    method: "POST",
+    url: "/Managers/:id/verify",
     routeParams: {
       id,
     },
@@ -1555,20 +1574,19 @@ export async function Manager_confirm(
 ): Promise<any> {
   const _urlParams: any = {};
   if (uid != null) {
-    _urlParams['uid'] = uid;
+    _urlParams["uid"] = uid;
   }
   if (token != null) {
-    _urlParams['token'] = token;
+    _urlParams["token"] = token;
   }
   if (redirect != null) {
-    _urlParams['redirect'] = redirect;
+    _urlParams["redirect"] = redirect;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/Managers/confirm',
+    method: "GET",
+    url: "/Managers/confirm",
     urlParams: _urlParams,
-    routeParams: {},
   });
 }
 /**
@@ -1577,12 +1595,9 @@ export async function Manager_confirm(
  */
 export async function Manager_resetPassword(options: any): Promise<any> {
   return ApiFetch({
-    method: 'POST',
-    url: '/Managers/reset',
-    routeParams: {},
-    body: {
-      options,
-    },
+    method: "POST",
+    url: "/Managers/reset",
+    body: options,
   });
 }
 /**
@@ -1594,13 +1609,9 @@ export async function Manager_changePassword(
   newPassword: string,
 ): Promise<any> {
   return ApiFetch({
-    method: 'POST',
-    url: '/Managers/change-password',
-    routeParams: {},
-    body: {
-      oldPassword,
-      newPassword,
-    },
+    method: "POST",
+    url: "/Managers/change-password",
+    body: { oldPassword, newPassword },
   });
 }
 /**
@@ -1609,12 +1620,9 @@ export async function Manager_changePassword(
  */
 export async function Manager_setPassword(newPassword: string): Promise<any> {
   return ApiFetch({
-    method: 'POST',
-    url: '/Managers/reset-password',
-    routeParams: {},
-    body: {
-      newPassword,
-    },
+    method: "POST",
+    url: "/Managers/reset-password",
+    body: { newPassword },
   });
 }
 /**
@@ -1623,16 +1631,16 @@ export async function Manager_setPassword(newPassword: string): Promise<any> {
  */
 export async function Manager_getCurrentToken(
   id: string,
-  include?: string,
+  include?: Filter<CommonAccessToken>["include"],
 ): Promise<CommonAccessToken> {
   const _urlParams: any = {};
   if (include != null) {
-    _urlParams['include'] = include;
+    _urlParams["include"] = include;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/Managers/:id/currentAccessToken',
+    method: "GET",
+    url: "/Managers/:id/currentAccessToken",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -1645,21 +1653,18 @@ export async function Manager_getCurrentToken(
  */
 export async function Manager_otpLogin(
   credentials: any,
-  include?: string,
+  include?: Filter<Manager>["include"],
 ): Promise<any> {
   const _urlParams: any = {};
   if (include != null) {
-    _urlParams['include'] = include;
+    _urlParams["include"] = include;
   }
 
   return ApiFetch({
-    method: 'POST',
-    url: '/Managers/otp/login',
+    method: "POST",
+    url: "/Managers/otp/login",
     urlParams: _urlParams,
-    routeParams: {},
-    body: {
-      credentials,
-    },
+    body: { ...credentials },
   });
 }
 /**
@@ -1668,8 +1673,8 @@ export async function Manager_otpLogin(
  */
 export async function Manager_otpDisable(id: string): Promise<any> {
   return ApiFetch({
-    method: 'PATCH',
-    url: '/Managers/:id/otp/disable',
+    method: "PATCH",
+    url: "/Managers/:id/otp/disable",
     routeParams: {
       id,
     },
@@ -1681,10 +1686,10 @@ export async function Manager_otpDisable(id: string): Promise<any> {
  */
 export async function Manager_getMiniAppUserSessionsActive(
   id: string,
-): Promise<any> {
+): Promise<any[]> {
   return ApiFetch({
-    method: 'GET',
-    url: '/Managers/:id/miniapp/activeSessions',
+    method: "GET",
+    url: "/Managers/:id/miniapp/activeSessions",
     routeParams: {
       id,
     },
@@ -1699,8 +1704,8 @@ export async function Manager_MiniAppUserSessionActiveLogout(
   data: any,
 ): Promise<any> {
   return ApiFetch({
-    method: 'POST',
-    url: '/Managers/:id/telegram/miniapp/logout',
+    method: "POST",
+    url: "/Managers/:id/telegram/miniapp/logout",
     routeParams: {
       id,
     },
@@ -1713,8 +1718,8 @@ export async function Manager_MiniAppUserSessionActiveLogout(
  */
 export async function Manager_otpCheck(id: string): Promise<any> {
   return ApiFetch({
-    method: 'GET',
-    url: '/Managers/:id/otp/check',
+    method: "GET",
+    url: "/Managers/:id/otp/check",
     routeParams: {
       id,
     },
@@ -1726,8 +1731,8 @@ export async function Manager_otpCheck(id: string): Promise<any> {
  */
 export async function Manager_otpGenerate(id: string): Promise<any> {
   return ApiFetch({
-    method: 'GET',
-    url: '/Managers/:id/otp/generate',
+    method: "GET",
+    url: "/Managers/:id/otp/generate",
     routeParams: {
       id,
     },
@@ -1737,19 +1742,14 @@ export async function Manager_otpGenerate(id: string): Promise<any> {
  * Verify the OTP for the currently logged in user.
  * /Managers/:id/otp/verify
  */
-export async function Manager_otpVerify(
-  id: string,
-  obj: any = {},
-): Promise<any> {
+export async function Manager_otpVerify(id: string, obj?: any): Promise<any> {
   return ApiFetch({
-    method: 'POST',
-    url: '/Managers/:id/otp/verify',
+    method: "POST",
+    url: "/Managers/:id/otp/verify",
     routeParams: {
       id,
     },
-    body: {
-      obj,
-    },
+    body: { ...obj },
   });
 }
 /**
@@ -1758,12 +1758,9 @@ export async function Manager_otpVerify(
  */
 export async function Manager_verifyAccount(options: any): Promise<any> {
   return ApiFetch({
-    method: 'POST',
-    url: '/Managers/verify',
-    routeParams: {},
-    body: {
-      options,
-    },
+    method: "POST",
+    url: "/Managers/verify",
+    body: options,
   });
 }
 /**
@@ -1772,8 +1769,8 @@ export async function Manager_verifyAccount(options: any): Promise<any> {
  */
 export async function Manager_getContainerInfo(id: string): Promise<any> {
   return ApiFetch({
-    method: 'GET',
-    url: '/Managers/:id/container/info',
+    method: "GET",
+    url: "/Managers/:id/container/info",
     routeParams: {
       id,
     },
@@ -1783,10 +1780,10 @@ export async function Manager_getContainerInfo(id: string): Promise<any> {
  * List all files within specified container
  * /Managers/:id/container/files
  */
-export async function Manager_getFiles(id: string): Promise<any> {
+export async function Manager_getFiles(id: string): Promise<any[]> {
   return ApiFetch({
-    method: 'GET',
-    url: '/Managers/:id/container/files',
+    method: "GET",
+    url: "/Managers/:id/container/files",
     routeParams: {
       id,
     },
@@ -1798,8 +1795,8 @@ export async function Manager_getFiles(id: string): Promise<any> {
  */
 export async function Manager_getFile(id: string, file: string): Promise<any> {
   return ApiFetch({
-    method: 'GET',
-    url: '/Managers/:id/container/files/:file',
+    method: "GET",
+    url: "/Managers/:id/container/files/:file",
     routeParams: {
       id,
       file,
@@ -1817,12 +1814,12 @@ export async function Manager_removeFile(
 ): Promise<void> {
   const _urlParams: any = {};
   if (property != null) {
-    _urlParams['property'] = property;
+    _urlParams["property"] = property;
   }
 
   return ApiFetch({
-    method: 'DELETE',
-    url: '/Managers/:id/container/files/:file',
+    method: "DELETE",
+    url: "/Managers/:id/container/files/:file",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -1842,11 +1839,11 @@ export async function Manager_upload(
 ): Promise<any> {
   const _urlParams: any = {};
   if (property != null) {
-    _urlParams['property'] = property;
+    _urlParams["property"] = property;
   }
 
   return UploadFile({
-    url: '/Managers/:id/container/upload',
+    url: "/Managers/:id/container/upload",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -1866,12 +1863,12 @@ export async function Manager_download(
 ): Promise<any> {
   const _urlParams: any = {};
   if (property != null) {
-    _urlParams['property'] = property;
+    _urlParams["property"] = property;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/Managers/:id/container/download/:file',
+    method: "GET",
+    url: "/Managers/:id/container/download/:file",
     urlParams: _urlParams,
     routeParams: {
       id,

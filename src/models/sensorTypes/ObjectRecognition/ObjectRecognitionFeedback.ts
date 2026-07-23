@@ -1,10 +1,10 @@
-import { YoloClassLabel } from '../YoloClassLabel';
+import { YoloClassLabel } from "../YoloClassLabel";
 
 export type ObjectRecognitionFeedback = {
   image?: {
     container?: string;
     name?: string;
-    type?: 'image/jpg' | 'image/jpeg' | 'image/png';
+    type?: "image/jpg" | "image/jpeg" | "image/png";
     field?: string;
     originalFilename?: string;
     meta?: Record<string, any>;
@@ -14,7 +14,7 @@ export type ObjectRecognitionFeedback = {
     image?: {
       container?: string;
       name?: string;
-      type?: 'image/jpg' | 'image/jpeg' | 'image/png';
+      type?: "image/jpg" | "image/jpeg" | "image/png";
       field?: string;
       originalFilename?: string;
       meta?: Record<string, any>;
@@ -24,15 +24,15 @@ export type ObjectRecognitionFeedback = {
       container?: string;
       name?: string;
       type?:
-        | 'application/octet-stream'
-        | 'video/x-flv'
-        | 'video/mp4'
-        | 'application/x-mpegURL'
-        | 'video/MP2T'
-        | 'video/3gpp'
-        | 'video/quicktime'
-        | 'video/x-msvideo'
-        | 'video/x-ms-wmv';
+        | "application/octet-stream"
+        | "video/x-flv"
+        | "video/mp4"
+        | "application/x-mpegURL"
+        | "video/MP2T"
+        | "video/3gpp"
+        | "video/quicktime"
+        | "video/x-msvideo"
+        | "video/x-ms-wmv";
       field?: string;
       originalFilename?: string;
       meta?: Record<string, any>;
@@ -65,16 +65,16 @@ export type ObjectRecognitionFeedback = {
     colors?: {
       percentage: number;
       label:
-        | 'white'
-        | 'gray'
-        | 'black'
-        | 'red'
-        | 'yellow'
-        | 'brown'
-        | 'green'
-        | 'cyan'
-        | 'blue'
-        | 'purple';
+        | "white"
+        | "gray"
+        | "black"
+        | "red"
+        | "yellow"
+        | "brown"
+        | "green"
+        | "cyan"
+        | "blue"
+        | "purple";
     }[];
     colorExperimental?: {
       rgb: {
@@ -93,10 +93,10 @@ export type ObjectRecognitionFeedback = {
     };
     trackId?: number;
     diagnosis?:
-      | 'TRUE_POSITIVE'
-      | 'TRUE_NEGATIVE'
-      | 'FALSE_POSITIVE'
-      | 'FALSE_NEGATIVE';
+      | "TRUE_POSITIVE"
+      | "TRUE_NEGATIVE"
+      | "FALSE_POSITIVE"
+      | "FALSE_NEGATIVE";
   }[];
   filtered?: boolean;
 };

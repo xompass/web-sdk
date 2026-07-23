@@ -1,10 +1,6 @@
-import { ApiFetch, Filter } from '../core/ApiFetch';
-import { View } from '../models/View';
-import { Manager } from '../models/Manager';
-
-/**
- * Api services for the `View` model.
- */
+import { ApiFetch, Filter } from "../core/ApiFetch";
+import { Manager } from "../models/Manager";
+import { View } from "../models/View";
 
 /**
  * Find a related item by id for managers.
@@ -15,8 +11,8 @@ export async function View_FindByIdManagers(
   fk: string,
 ): Promise<Manager> {
   return ApiFetch({
-    method: 'GET',
-    url: '/Views/:id/managers/:fk',
+    method: "GET",
+    url: "/Views/:id/managers/:fk",
     routeParams: {
       id,
       fk,
@@ -32,8 +28,8 @@ export async function View_ExistsManagers(
   fk: string,
 ): Promise<boolean> {
   return ApiFetch({
-    method: 'HEAD',
-    url: '/Views/:id/managers/rel/:fk',
+    method: "HEAD",
+    url: "/Views/:id/managers/rel/:fk",
     routeParams: {
       id,
       fk,
@@ -50,12 +46,12 @@ export async function View_GetManagers(
 ): Promise<Manager[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams['filter'] = filter;
+    _urlParams["filter"] = filter;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/Views/:id/managers',
+    method: "GET",
+    url: "/Views/:id/managers",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -68,16 +64,16 @@ export async function View_GetManagers(
  */
 export async function View_CountManagers(
   id: string,
-  where?: Filter<Manager>['where'],
+  where?: Filter<Manager>["where"],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams['where'] = where;
+    _urlParams["where"] = where;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/Views/:id/managers/count',
+    method: "GET",
+    url: "/Views/:id/managers/count",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -90,8 +86,8 @@ export async function View_CountManagers(
  */
 export async function View_exists(id: string): Promise<boolean> {
   return ApiFetch({
-    method: 'GET',
-    url: '/Views/:id/exists',
+    method: "GET",
+    url: "/Views/:id/exists",
     routeParams: {
       id,
     },
@@ -107,12 +103,12 @@ export async function View_findById(
 ): Promise<View> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams['filter'] = filter;
+    _urlParams["filter"] = filter;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/Views/:id',
+    method: "GET",
+    url: "/Views/:id",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -126,14 +122,13 @@ export async function View_findById(
 export async function View_find(filter?: Filter<View>): Promise<View[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams['filter'] = filter;
+    _urlParams["filter"] = filter;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/Views',
+    method: "GET",
+    url: "/Views",
     urlParams: _urlParams,
-    routeParams: {},
   });
 }
 /**
@@ -143,14 +138,13 @@ export async function View_find(filter?: Filter<View>): Promise<View[]> {
 export async function View_findOne(filter?: Filter<View>): Promise<View> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams['filter'] = filter;
+    _urlParams["filter"] = filter;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/Views/findOne',
+    method: "GET",
+    url: "/Views/findOne",
     urlParams: _urlParams,
-    routeParams: {},
   });
 }
 /**
@@ -158,17 +152,16 @@ export async function View_findOne(filter?: Filter<View>): Promise<View> {
  * /Views/count
  */
 export async function View_count(
-  where?: Filter<View>['where'],
+  where?: Filter<View>["where"],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams['where'] = where;
+    _urlParams["where"] = where;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/Views/count',
+    method: "GET",
+    url: "/Views/count",
     urlParams: _urlParams,
-    routeParams: {},
   });
 }

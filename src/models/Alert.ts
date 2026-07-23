@@ -1,8 +1,8 @@
-import { Asset } from './Asset';
-import { AssetState } from './AssetState';
-import { Log } from './Log';
-import { Sensor } from './Sensor';
-import { SensorAssetState } from './SensorAssetState';
+import { Asset } from "./Asset";
+import { AssetState } from "./AssetState";
+import { Log } from "./Log";
+import { Sensor } from "./Sensor";
+import { SensorAssetState } from "./SensorAssetState";
 
 export type Alert = {
   type?: string;
@@ -28,7 +28,7 @@ export type Alert = {
   stateId?: string;
   asset?: Asset;
   assetState?: AssetState;
-  trackingLogs?: Log[];
   sensor?: Sensor;
   state?: SensorAssetState;
+  trackingLogs?: Log[];
 };

@@ -1,10 +1,6 @@
-import { ApiFetch, Filter } from '../core/ApiFetch';
-import { Asset } from '../models/Asset';
-import { EdgeAgentAsset } from '../models/EdgeAgent';
-
-/**
- * Api services for the `EdgeAgent` model.
- */
+import { ApiFetch, Filter } from "../core/ApiFetch";
+import { Asset } from "../models/Asset";
+import { EdgeAgentAsset } from "../models/EdgeAgent";
 
 /**
  * Find a related item by id for assets.
@@ -15,8 +11,8 @@ export async function EdgeAgent_FindByIdAssets(
   fk: string,
 ): Promise<Asset> {
   return ApiFetch({
-    method: 'GET',
-    url: '/EdgeAgents/:id/assets/:fk',
+    method: "GET",
+    url: "/EdgeAgents/:id/assets/:fk",
     routeParams: {
       id,
       fk,
@@ -30,11 +26,11 @@ export async function EdgeAgent_FindByIdAssets(
 export async function EdgeAgent_LinkAssets(
   id: string,
   fk: string,
-  data: any = {},
+  data?: any,
 ): Promise<EdgeAgentAsset> {
   return ApiFetch({
-    method: 'PUT',
-    url: '/EdgeAgents/:id/assets/rel/:fk',
+    method: "PUT",
+    url: "/EdgeAgents/:id/assets/rel/:fk",
     routeParams: {
       id,
       fk,
@@ -51,8 +47,8 @@ export async function EdgeAgent_UnlinkAssets(
   fk: string,
 ): Promise<void> {
   return ApiFetch({
-    method: 'DELETE',
-    url: '/EdgeAgents/:id/assets/rel/:fk',
+    method: "DELETE",
+    url: "/EdgeAgents/:id/assets/rel/:fk",
     routeParams: {
       id,
       fk,
@@ -66,11 +62,11 @@ export async function EdgeAgent_UnlinkAssets(
 export async function EdgeAgent_LinkTelegramChats(
   id: string,
   fk: string,
-  data: any = {},
+  data?: any,
 ): Promise<any> {
   return ApiFetch({
-    method: 'PUT',
-    url: '/EdgeAgents/:id/telegramChats/rel/:fk',
+    method: "PUT",
+    url: "/EdgeAgents/:id/telegramChats/rel/:fk",
     routeParams: {
       id,
       fk,
@@ -87,8 +83,8 @@ export async function EdgeAgent_UnlinkTelegramChats(
   fk: string,
 ): Promise<void> {
   return ApiFetch({
-    method: 'DELETE',
-    url: '/EdgeAgents/:id/telegramChats/rel/:fk',
+    method: "DELETE",
+    url: "/EdgeAgents/:id/telegramChats/rel/:fk",
     routeParams: {
       id,
       fk,
@@ -105,12 +101,12 @@ export async function EdgeAgent_GetAssets(
 ): Promise<Asset[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams['filter'] = filter;
+    _urlParams["filter"] = filter;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/EdgeAgents/:id/assets',
+    method: "GET",
+    url: "/EdgeAgents/:id/assets",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -123,16 +119,16 @@ export async function EdgeAgent_GetAssets(
  */
 export async function EdgeAgent_BulkLinkAssets(
   id: string,
-  where: Filter<Asset>['where'],
+  where: Filter<Asset>["where"],
 ): Promise<any[]> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams['where'] = where;
+    _urlParams["where"] = where;
   }
 
   return ApiFetch({
-    method: 'PUT',
-    url: '/EdgeAgents/:id/assets/rel',
+    method: "PUT",
+    url: "/EdgeAgents/:id/assets/rel",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -145,16 +141,16 @@ export async function EdgeAgent_BulkLinkAssets(
  */
 export async function EdgeAgent_BulkUnlinkAssets(
   id: string,
-  where: Filter<Asset>['where'],
+  where: Filter<Asset>["where"],
 ): Promise<void> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams['where'] = where;
+    _urlParams["where"] = where;
   }
 
   return ApiFetch({
-    method: 'DELETE',
-    url: '/EdgeAgents/:id/assets/rel',
+    method: "DELETE",
+    url: "/EdgeAgents/:id/assets/rel",
     urlParams: _urlParams,
     routeParams: {
       id,

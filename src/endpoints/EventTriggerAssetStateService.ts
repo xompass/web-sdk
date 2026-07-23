@@ -1,9 +1,5 @@
-import { ApiFetch, Filter } from '../core/ApiFetch';
-import { EventTriggerRule } from '../models/EventTriggerRule';
-
-/**
- * Api services for the `EventTriggerAssetState` model.
- */
+import { ApiFetch, Filter } from "../core/ApiFetch";
+import { EventTriggerRule } from "../models/EventTriggerRule";
 
 /**
  * Add a related item by id for emergencyContacts.
@@ -12,11 +8,11 @@ import { EventTriggerRule } from '../models/EventTriggerRule';
 export async function EventTriggerAssetState_LinkEmergencyContacts(
   id: string,
   fk: string,
-  data: any = {},
+  data?: any,
 ): Promise<any> {
   return ApiFetch({
-    method: 'PUT',
-    url: '/EventTriggerAssetStates/:id/emergencyContacts/rel/:fk',
+    method: "PUT",
+    url: "/EventTriggerAssetStates/:id/emergencyContacts/rel/:fk",
     routeParams: {
       id,
       fk,
@@ -33,8 +29,8 @@ export async function EventTriggerAssetState_UnlinkEmergencyContacts(
   fk: string,
 ): Promise<void> {
   return ApiFetch({
-    method: 'DELETE',
-    url: '/EventTriggerAssetStates/:id/emergencyContacts/rel/:fk',
+    method: "DELETE",
+    url: "/EventTriggerAssetStates/:id/emergencyContacts/rel/:fk",
     routeParams: {
       id,
       fk,
@@ -50,8 +46,8 @@ export async function EventTriggerAssetState_FindByIdRules(
   fk: string,
 ): Promise<EventTriggerRule> {
   return ApiFetch({
-    method: 'GET',
-    url: '/EventTriggerAssetStates/:id/rules/:fk',
+    method: "GET",
+    url: "/EventTriggerAssetStates/:id/rules/:fk",
     routeParams: {
       id,
       fk,
@@ -67,8 +63,8 @@ export async function EventTriggerAssetState_DestroyByIdRules(
   fk: string,
 ): Promise<void> {
   return ApiFetch({
-    method: 'DELETE',
-    url: '/EventTriggerAssetStates/:id/rules/:fk',
+    method: "DELETE",
+    url: "/EventTriggerAssetStates/:id/rules/:fk",
     routeParams: {
       id,
       fk,
@@ -82,11 +78,11 @@ export async function EventTriggerAssetState_DestroyByIdRules(
 export async function EventTriggerAssetState_UpdateByIdRules(
   id: string,
   fk: string,
-  data: any = {},
+  data?: any,
 ): Promise<EventTriggerRule> {
   return ApiFetch({
-    method: 'PUT',
-    url: '/EventTriggerAssetStates/:id/rules/:fk',
+    method: "PUT",
+    url: "/EventTriggerAssetStates/:id/rules/:fk",
     routeParams: {
       id,
       fk,
@@ -104,12 +100,12 @@ export async function EventTriggerAssetState_GetRules(
 ): Promise<EventTriggerRule[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams['filter'] = filter;
+    _urlParams["filter"] = filter;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/EventTriggerAssetStates/:id/rules',
+    method: "GET",
+    url: "/EventTriggerAssetStates/:id/rules",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -122,11 +118,11 @@ export async function EventTriggerAssetState_GetRules(
  */
 export async function EventTriggerAssetState_CreateRules(
   id: string,
-  data: any = {},
+  data?: any,
 ): Promise<EventTriggerRule> {
   return ApiFetch({
-    method: 'POST',
-    url: '/EventTriggerAssetStates/:id/rules',
+    method: "POST",
+    url: "/EventTriggerAssetStates/:id/rules",
     routeParams: {
       id,
     },
@@ -139,16 +135,16 @@ export async function EventTriggerAssetState_CreateRules(
  */
 export async function EventTriggerAssetState_CountRules(
   id: string,
-  where?: Filter<EventTriggerRule>['where'],
+  where?: Filter<EventTriggerRule>["where"],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams['where'] = where;
+    _urlParams["where"] = where;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/EventTriggerAssetStates/:id/rules/count',
+    method: "GET",
+    url: "/EventTriggerAssetStates/:id/rules/count",
     urlParams: _urlParams,
     routeParams: {
       id,

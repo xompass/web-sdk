@@ -1,6 +1,6 @@
-import { Asset } from './Asset';
-import { Log } from './Log';
-import { Project } from './Project';
+import { Asset } from "./Asset";
+import { Log } from "./Log";
+import { Project } from "./Project";
 
 export type AssetOperabilitySummary = {
   name?: string;
@@ -17,6 +17,6 @@ export type AssetOperabilitySummary = {
   assetId?: string;
   projectId?: string;
   asset?: Asset;
-  trackingLogs?: Log[];
   project?: Project;
+  trackingLogs?: Log[];
 };

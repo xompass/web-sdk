@@ -1,4 +1,4 @@
-import { Log } from './Log';
+import { Log } from "./Log";
 
 export type DeviceEventComment = {
   id?: string;
@@ -9,6 +9,6 @@ export type DeviceEventComment = {
   deleted?: Date;
   userId?: string;
   principalType?: string;
-  user?: any;
   trackingLogs?: Log[];
+  user?: any;
 };

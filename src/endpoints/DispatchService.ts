@@ -1,8 +1,4 @@
-import { ApiFetch } from '../core/ApiFetch';
-
-/**
- * Api services for the `Dispatch` model.
- */
+import { ApiFetch } from "../core/ApiFetch";
 
 /**
  * Forward event data to the dispatch service.
@@ -10,13 +6,11 @@ import { ApiFetch } from '../core/ApiFetch';
  */
 export async function Dispatch_forward(id: string, payload: any): Promise<any> {
   return ApiFetch({
-    method: 'POST',
-    url: '/Dispatches/:id/forward',
+    method: "POST",
+    url: "/Dispatches/:id/forward",
     routeParams: {
       id,
     },
-    body: {
-      payload,
-    },
+    body: payload,
   });
 }

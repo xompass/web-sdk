@@ -1,7 +1,7 @@
-import { Log } from './Log';
-import { Project } from './Project';
-import { VirtualExpression } from './VirtualExpression';
-import { VirtualVariable } from './VirtualVariable';
+import { Log } from "./Log";
+import { Project } from "./Project";
+import { VirtualExpression } from "./VirtualExpression";
+import { VirtualVariable } from "./VirtualVariable";
 
 export type VirtualGroup = {
   name?: string;
@@ -11,8 +11,8 @@ export type VirtualGroup = {
   deleted?: Date;
   id?: string;
   projectId?: string;
-  trackingLogs?: Log[];
   project?: Project;
+  trackingLogs?: Log[];
   virtualExpressions?: VirtualExpression[];
   virtualVariables?: VirtualVariable[];
 };

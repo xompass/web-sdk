@@ -1,36 +1,35 @@
-import { ApiKey } from './ApiKey';
-import { Asset } from './Asset';
-import { AssetStateChange } from './AssetStateChange';
-import { AssetTag } from './AssetTag';
-import { AssetTemplate } from './AssetTemplate';
-import { CountReport } from './CountReport';
-import { Country } from './Country';
-import { Credential } from './Credential';
-import { CustomerOperabilitySummary } from './CustomerOperabilitySummary';
-import { CustomerRestrictionTable } from './CustomerRestrictionTable';
-import { DefaultEventComment } from './DefaultEventComment';
-import { Device } from './Device';
-import { DeviceEventType } from './DeviceEventType';
-import { Dispatch } from './Dispatch';
-import { EdgeAgent } from './EdgeAgent';
-import { EmergencyContact } from './EmergencyContact';
-import { Event } from './Event';
-import { EventState } from './EventState';
-import { EventSubject } from './EventSubject';
-import { Log } from './Log';
-import { Manager } from './Manager';
-import { Project } from './Project';
-import { SensorUptime } from './SensorUptime';
-import { SensorUptimeCollector } from './SensorUptimeCollector';
-import { Storyline } from './Storyline';
-import { StorylineCategory } from './StorylineCategory';
-import { TelegramChat } from './TelegramChat';
-import { TimeZone } from './TimeZone';
-import { Toolkit } from './Toolkit';
-import { Var } from './Var';
-import { YoloClass } from './YoloClass';
-
-import { FileMetadata } from './FileMetadata';
+import { ApiKey } from "./ApiKey";
+import { Asset } from "./Asset";
+import { AssetStateChange } from "./AssetStateChange";
+import { AssetTag } from "./AssetTag";
+import { AssetTemplate } from "./AssetTemplate";
+import { CountReport } from "./CountReport";
+import { Country } from "./Country";
+import { Credential } from "./Credential";
+import { CustomerOperabilitySummary } from "./CustomerOperabilitySummary";
+import { CustomerRestrictionTable } from "./CustomerRestrictionTable";
+import { DefaultEventComment } from "./DefaultEventComment";
+import { Device } from "./Device";
+import { DeviceEventType } from "./DeviceEventType";
+import { Dispatch } from "./Dispatch";
+import { EdgeAgent } from "./EdgeAgent";
+import { EmergencyContact } from "./EmergencyContact";
+import { Event } from "./Event";
+import { EventState } from "./EventState";
+import { EventSubject } from "./EventSubject";
+import { FileMetadata } from "./FileMetadata";
+import { Log } from "./Log";
+import { Manager } from "./Manager";
+import { Project } from "./Project";
+import { SensorUptime } from "./SensorUptime";
+import { SensorUptimeCollector } from "./SensorUptimeCollector";
+import { Storyline } from "./Storyline";
+import { StorylineCategory } from "./StorylineCategory";
+import { TelegramChat } from "./TelegramChat";
+import { TimeZone } from "./TimeZone";
+import { Toolkit } from "./Toolkit";
+import { Var } from "./Var";
+import { YoloClass } from "./YoloClass";
 
 export type Customer = {
   name: string;
@@ -46,39 +45,48 @@ export type Customer = {
   timeZoneId?: string;
   toolkitIds?: string[];
   varId?: string;
-  assetTags?: AssetTag[];
-  assets?: Asset[];
-  assetTemplates?: AssetTemplate[];
-  countReports?: CountReport[];
-  credentials?: Credential[];
-  apiKeys?: ApiKey[];
-  country?: Country;
-  assetStateChanges?: AssetStateChange[];
   activeDirectory?: CustomerActiveDirectory;
-  operabilitySummaries?: CustomerOperabilitySummary[];
-  restrictionTable?: CustomerRestrictionTable;
+  apiKeys?: ApiKey[];
+  assetStateChanges?: AssetStateChange[];
+  assetTags?: AssetTag[];
+  assetTemplates?: AssetTemplate[];
+  assets?: Asset[];
+  config?: CustomerConfig[];
   container?: CustomerStorageContainer;
+  countReports?: CountReport[];
+  country?: Country;
+  credentials?: Credential[];
   defaultEventComments?: DefaultEventComment[];
-  devices?: Device[];
   deviceEventTypes?: DeviceEventType[];
+  devices?: Device[];
   dispatch?: Dispatch;
   edgeAgents?: EdgeAgent[];
   emergencyContacts?: EmergencyContact[];
-  events?: Event[];
   eventStates?: EventState[];
   eventSubjects?: EventSubject[];
-  trackingLogs?: Log[];
+  events?: Event[];
   managers?: Manager[];
+  operabilitySummaries?: CustomerOperabilitySummary[];
   projects?: Project[];
+  restrictionTable?: CustomerRestrictionTable;
   sensorUptime?: SensorUptime[];
   sensorUptimeCollector?: SensorUptimeCollector[];
-  storylines?: Storyline[];
   storylineCategories?: StorylineCategory[];
+  storylines?: Storyline[];
   telegramChats?: TelegramChat[];
   timeZone?: TimeZone;
   toolkits?: Toolkit[];
+  trackingLogs?: Log[];
   var?: Var;
   yoloClasses?: YoloClass[];
+};
+
+export type CustomerActiveDirectory = {
+  allowedDomains?: string[];
+  allowedTenantIds?: string[];
+  id?: string;
+  customerId?: string;
+  customer?: Customer;
 };
 
 export type CustomerConfig = {
@@ -87,13 +95,7 @@ export type CustomerConfig = {
   created?: Date;
   modified?: Date;
   deleted?: Date;
-};
-
-export type CustomerActiveDirectory = {
-  allowedDomains?: string[];
-  allowedTenantIds?: string[];
-  id?: string;
-  customerId?: string;
+  trackingLogs?: Log[];
 };
 
 export type CustomerStorageContainer = {
@@ -103,4 +105,7 @@ export type CustomerStorageContainer = {
   deleted?: Date;
   customerId?: string;
   _logo?: FileMetadata;
+  customer?: Customer;
+  logo?: FileMetadata[];
+  trackingLogs?: Log[];
 };

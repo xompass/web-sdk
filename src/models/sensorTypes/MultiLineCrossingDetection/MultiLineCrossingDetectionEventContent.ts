@@ -1,11 +1,11 @@
-import { YoloClassLabel } from '../YoloClassLabel';
+import { YoloClassLabel } from "../YoloClassLabel";
 
 export type MultiLineCrossingDetectionEventContent = {
   files?: {
     image?: {
       container?: string;
       name?: string;
-      type?: 'image/jpg' | 'image/jpeg' | 'image/png';
+      type?: "image/jpg" | "image/jpeg" | "image/png";
       field?: string;
       originalFilename?: string;
       meta?: Record<string, any>;
@@ -14,7 +14,7 @@ export type MultiLineCrossingDetectionEventContent = {
     sequence?: {
       container?: string;
       name?: string;
-      type?: 'image/jpg' | 'image/jpeg' | 'image/png';
+      type?: "image/jpg" | "image/jpeg" | "image/png";
       field?: string;
       originalFilename?: string;
       meta?: Record<string, any>;
@@ -25,7 +25,7 @@ export type MultiLineCrossingDetectionEventContent = {
     id: string;
     class: YoloClassLabel;
     lineId: string;
-    direction: 'incoming' | 'outgoing';
+    direction: "incoming" | "outgoing";
     frameId?: string;
     probability: number;
     frame: {

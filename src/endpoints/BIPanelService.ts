@@ -1,9 +1,5 @@
-import { ApiFetch, Filter } from '../core/ApiFetch';
-import { BIPanelSerie } from '../models/BIPanel';
-
-/**
- * Api services for the `BIPanel` model.
- */
+import { ApiFetch, Filter } from "../core/ApiFetch";
+import { BIPanelSerie } from "../models/BIPanel";
 
 /**
  * Find a related item by id for series.
@@ -14,8 +10,8 @@ export async function BIPanel_FindByIdSeries(
   fk: string,
 ): Promise<BIPanelSerie> {
   return ApiFetch({
-    method: 'GET',
-    url: '/BIPanels/:id/series/:fk',
+    method: "GET",
+    url: "/BIPanels/:id/series/:fk",
     routeParams: {
       id,
       fk,
@@ -31,8 +27,8 @@ export async function BIPanel_DestroyByIdSeries(
   fk: string,
 ): Promise<void> {
   return ApiFetch({
-    method: 'DELETE',
-    url: '/BIPanels/:id/series/:fk',
+    method: "DELETE",
+    url: "/BIPanels/:id/series/:fk",
     routeParams: {
       id,
       fk,
@@ -46,11 +42,11 @@ export async function BIPanel_DestroyByIdSeries(
 export async function BIPanel_UpdateByIdSeries(
   id: string,
   fk: string,
-  data: any = {},
+  data?: any,
 ): Promise<BIPanelSerie> {
   return ApiFetch({
-    method: 'PUT',
-    url: '/BIPanels/:id/series/:fk',
+    method: "PUT",
+    url: "/BIPanels/:id/series/:fk",
     routeParams: {
       id,
       fk,
@@ -68,12 +64,12 @@ export async function BIPanel_GetSeries(
 ): Promise<BIPanelSerie[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams['filter'] = filter;
+    _urlParams["filter"] = filter;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/BIPanels/:id/series',
+    method: "GET",
+    url: "/BIPanels/:id/series",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -86,11 +82,11 @@ export async function BIPanel_GetSeries(
  */
 export async function BIPanel_CreateSeries(
   id: string,
-  data: any = {},
+  data?: any,
 ): Promise<BIPanelSerie> {
   return ApiFetch({
-    method: 'POST',
-    url: '/BIPanels/:id/series',
+    method: "POST",
+    url: "/BIPanels/:id/series",
     routeParams: {
       id,
     },
@@ -103,16 +99,16 @@ export async function BIPanel_CreateSeries(
  */
 export async function BIPanel_CountSeries(
   id: string,
-  where?: Filter<BIPanelSerie>['where'],
+  where?: Filter<BIPanelSerie>["where"],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams['where'] = where;
+    _urlParams["where"] = where;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/BIPanels/:id/series/count',
+    method: "GET",
+    url: "/BIPanels/:id/series/count",
     urlParams: _urlParams,
     routeParams: {
       id,

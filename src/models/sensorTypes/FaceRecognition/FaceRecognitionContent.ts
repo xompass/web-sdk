@@ -3,7 +3,7 @@ export type FaceRecognitionContent = {
     image?: {
       container?: string;
       name?: string;
-      type?: 'image/jpg' | 'image/jpeg' | 'image/png';
+      type?: "image/jpg" | "image/jpeg" | "image/png";
       field?: string;
       originalFilename?: string;
       meta?: Record<string, any>;
@@ -12,7 +12,7 @@ export type FaceRecognitionContent = {
     faces?: {
       container?: string;
       name?: string;
-      type?: 'image/jpg' | 'image/jpeg' | 'image/png';
+      type?: "image/jpg" | "image/jpeg" | "image/png";
       field?: string;
       originalFilename?: string;
       meta?: Record<string, any>;
@@ -30,5 +30,5 @@ export type FaceRecognitionContent = {
       h: number;
     };
   }[];
-  mode?: 'MATCH' | 'NO_MATCH' | 'ALL';
+  mode?: "MATCH" | "NO_MATCH" | "ALL";
 };

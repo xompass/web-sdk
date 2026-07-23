@@ -1,0 +1,25 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "categories": {
+    "correctness": "off",
+    "suspicious": "off",
+    "pedantic": "off",
+    "perf": "off",
+    "style": "off",
+    "restriction": "off",
+    "nursery": "off"
+  },
+  "env": {
+    "node": true,
+    "es2021": true
+  },
+  "ignorePatterns": ["dist/**", "coverage/**", "node_modules/**"],
+  "rules": {
+    "no-var": "error",
+    "no-unused-vars": "warn",
+    "prefer-const": "warn",
+    "no-const-assign": "error",
+    "no-undef": "error",
+    "curly": ["error", "all"]
+  }
+}

@@ -1,6 +1,6 @@
-import { Log } from './Log';
-import { Project } from './Project';
-import { SensorType } from './SensorType';
+import { Log } from "./Log";
+import { Project } from "./Project";
+import { SensorType } from "./SensorType";
 
 export type ProjectAllowedSensorType = {
   created?: Date;
@@ -9,7 +9,7 @@ export type ProjectAllowedSensorType = {
   id?: string;
   projectId?: string;
   sensorTypeId?: string;
-  trackingLogs?: Log[];
   project?: Project;
   sensorType?: SensorType;
+  trackingLogs?: Log[];
 };

@@ -1,7 +1,7 @@
-import { Asset } from './Asset';
-import { Log } from './Log';
-import { Manager } from './Manager';
-import { Project } from './Project';
+import { Asset } from "./Asset";
+import { Log } from "./Log";
+import { Manager } from "./Manager";
+import { Project } from "./Project";
 
 export type BaseReport = {
   name: string;
@@ -25,7 +25,7 @@ export type BaseReport = {
 };
 
 export type RoundOfGuardReport = BaseReport & {
-  type: 'ROUND_OF_GUARD';
+  type: "ROUND_OF_GUARD";
   parameters: {
     roundGroupTimeM: number;
     maxImagesPerRound: number;
@@ -35,39 +35,39 @@ export type RoundOfGuardReport = BaseReport & {
 };
 
 export type StoreOpeningReport = BaseReport & {
-  type: 'STORE_OPENING';
+  type: "STORE_OPENING";
 };
 
 export type AccessControlReport = BaseReport & {
-  type: 'ACCESS_CONTROL';
+  type: "ACCESS_CONTROL";
   parameters: {
     maxImagesPerHour: number;
     classes: string[];
-    viewMode: 'entry' | 'exit' | 'both';
+    viewMode: "entry" | "exit" | "both";
   };
 };
 
 export type EventImageReportBySubjectParameters = {
   maxImagesPerHour: number;
-  filterType: 'subject';
+  filterType: "subject";
   eventSubjectId?: string;
 };
 
 export type EventImageReportByStateParameters = {
   maxImagesPerHour: number;
-  filterType: 'state';
+  filterType: "state";
   eventStateId?: string;
 };
 
 export type EventImageReport = BaseReport & {
-  type: 'EVENT_IMAGE';
+  type: "EVENT_IMAGE";
   parameters:
     | EventImageReportBySubjectParameters
     | EventImageReportByStateParameters;
 };
 
 export type OpenGateReport = BaseReport & {
-  type: 'OPEN_GATE';
+  type: "OPEN_GATE";
   parameters: {
     maxImagesPerHour: number;
     subject?: string;
@@ -81,4 +81,4 @@ export type Report =
   | OpenGateReport
   | EventImageReport;
 
-export type ReportType = Report['type'];
+export type ReportType = Report["type"];

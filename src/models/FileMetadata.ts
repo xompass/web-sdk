@@ -1,3 +1,5 @@
+import { Log } from "./Log";
+
 export type FileMetadata = {
   container?: string;
   name?: string;
@@ -10,4 +12,5 @@ export type FileMetadata = {
   modified?: Date;
   deleted?: Date;
   id?: string;
+  trackingLogs?: Log[];
 };

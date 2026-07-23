@@ -1,11 +1,11 @@
-import { Asset } from './Asset';
-import { CommonAccessToken } from './CommonAccessToken';
-import { Country } from './Country';
-import { Credential } from './Credential';
-import { Log } from './Log';
-import { TimeZone } from './TimeZone';
-import { Var } from './Var';
-import { FileMetadata } from './FileMetadata';
+import { Asset } from "./Asset";
+import { CommonAccessToken } from "./CommonAccessToken";
+import { Country } from "./Country";
+import { Credential } from "./Credential";
+import { FileMetadata } from "./FileMetadata";
+import { Log } from "./Log";
+import { TimeZone } from "./TimeZone";
+import { Var } from "./Var";
 
 export type Admin = {
   name: string;
@@ -26,13 +26,13 @@ export type Admin = {
   timeZoneId?: string;
   varId?: string;
   accessTokens?: CommonAccessToken[];
-  country?: Country;
-  container?: AdminStorageContainer;
-  credentials?: Credential[];
-  assets?: Asset[];
   activityLogs?: Log[];
-  trackingLogs?: Log[];
+  assets?: Asset[];
+  container?: AdminStorageContainer;
+  country?: Country;
+  credentials?: Credential[];
   timeZone?: TimeZone;
+  trackingLogs?: Log[];
   var?: Var;
 };
 
@@ -43,4 +43,7 @@ export type AdminStorageContainer = {
   deleted?: Date;
   adminId?: string;
   _profile?: FileMetadata;
+  admin?: Admin;
+  profile?: FileMetadata[];
+  trackingLogs?: Log[];
 };

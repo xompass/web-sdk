@@ -1,19 +1,19 @@
-import { Asset } from './Asset';
-import { CctvDashboard } from './CctvDashboard';
-import { CommonAccessToken } from './CommonAccessToken';
-import { CountReport } from './CountReport';
-import { Country } from './Country';
-import { Credential } from './Credential';
-import { Customer } from './Customer';
-import { EventDashboard } from './EventDashboard';
-import { Log } from './Log';
-import { PeopleCounterReport } from './PeopleCounterReport';
-import { Report } from './Report';
-import { StoreVideoAnalyticDashboard } from './StoreVideoAnalyticDashboard';
-import { TimeZone } from './TimeZone';
-import { TrafficFlowAnalysis } from './TrafficFlowAnalysis';
-import { View } from './View';
-import { FileMetadata } from './FileMetadata';
+import { Asset } from "./Asset";
+import { CctvDashboard } from "./CctvDashboard";
+import { CommonAccessToken } from "./CommonAccessToken";
+import { CountReport } from "./CountReport";
+import { Country } from "./Country";
+import { Credential } from "./Credential";
+import { Customer } from "./Customer";
+import { EventDashboard } from "./EventDashboard";
+import { FileMetadata } from "./FileMetadata";
+import { Log } from "./Log";
+import { PeopleCounterReport } from "./PeopleCounterReport";
+import { Report } from "./Report";
+import { StoreVideoAnalyticDashboard } from "./StoreVideoAnalyticDashboard";
+import { TimeZone } from "./TimeZone";
+import { TrafficFlowAnalysis } from "./TrafficFlowAnalysis";
+import { View } from "./View";
 
 export type Manager = {
   name: string;
@@ -35,20 +35,20 @@ export type Manager = {
   timeZoneId?: string;
   accessTokens?: CommonAccessToken[];
   activityLogs?: Log[];
-  trackingLogs?: Log[];
-  credentials?: Credential[];
-  customer?: Customer;
-  country?: Country;
   assets?: Asset[];
   cctvDashboards?: CctvDashboard[];
-  countReports?: CountReport[];
-  eventDashboards?: EventDashboard[];
   container?: ManagerStorageContainer;
+  countReports?: CountReport[];
+  country?: Country;
+  credentials?: Credential[];
+  customer?: Customer;
+  eventDashboards?: EventDashboard[];
   peopleCounterReports?: PeopleCounterReport[];
   permission?: Permission;
   reports?: Report[];
   storeVideoAnalyticDashboards?: StoreVideoAnalyticDashboard[];
   timeZone?: TimeZone;
+  trackingLogs?: Log[];
   trafficFlowAnalysis?: TrafficFlowAnalysis[];
   views?: View[];
 };
@@ -60,6 +60,9 @@ export type ManagerStorageContainer = {
   deleted?: Date;
   managerId?: string;
   _profile?: FileMetadata;
+  manager?: Manager;
+  profile?: FileMetadata[];
+  trackingLogs?: Log[];
 };
 
 export type Permission = {
@@ -110,6 +113,7 @@ export type Permission = {
   deleted?: Date;
   id?: string;
   managerId?: string;
+  trackingLogs?: Log[];
 };
 
 export type CRUD = {

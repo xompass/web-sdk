@@ -1,10 +1,6 @@
-import { ApiFetch, Filter, UploadFile, UploadableFile } from '../core/ApiFetch';
-import { Manager } from '../models/Manager';
-import { StoreVideoAnalyticDashboardStorageContainer } from '../models/StoreVideoAnalyticDashboard';
-
-/**
- * Api services for the `StoreVideoAnalyticDashboard` model.
- */
+import { ApiFetch, Filter, UploadFile, UploadableFile } from "../core/ApiFetch";
+import { Manager } from "../models/Manager";
+import { StoreVideoAnalyticDashboardStorageContainer } from "../models/StoreVideoAnalyticDashboard";
 
 /**
  * Find a related item by id for managers.
@@ -15,8 +11,8 @@ export async function StoreVideoAnalyticDashboard_FindByIdManagers(
   fk: string,
 ): Promise<Manager> {
   return ApiFetch({
-    method: 'GET',
-    url: '/StoreVideoAnalyticDashboards/:id/managers/:fk',
+    method: "GET",
+    url: "/StoreVideoAnalyticDashboards/:id/managers/:fk",
     routeParams: {
       id,
       fk,
@@ -31,8 +27,8 @@ export async function StoreVideoAnalyticDashboard_GetContainer(
   id: string,
 ): Promise<StoreVideoAnalyticDashboardStorageContainer> {
   return ApiFetch({
-    method: 'GET',
-    url: '/StoreVideoAnalyticDashboards/:id/container',
+    method: "GET",
+    url: "/StoreVideoAnalyticDashboards/:id/container",
     routeParams: {
       id,
     },
@@ -48,12 +44,12 @@ export async function StoreVideoAnalyticDashboard_GetManagers(
 ): Promise<Manager[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams['filter'] = filter;
+    _urlParams["filter"] = filter;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/StoreVideoAnalyticDashboards/:id/managers',
+    method: "GET",
+    url: "/StoreVideoAnalyticDashboards/:id/managers",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -66,16 +62,16 @@ export async function StoreVideoAnalyticDashboard_GetManagers(
  */
 export async function StoreVideoAnalyticDashboard_CountManagers(
   id: string,
-  where?: Filter<Manager>['where'],
+  where?: Filter<Manager>["where"],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams['where'] = where;
+    _urlParams["where"] = where;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/StoreVideoAnalyticDashboards/:id/managers/count',
+    method: "GET",
+    url: "/StoreVideoAnalyticDashboards/:id/managers/count",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -93,12 +89,12 @@ export async function StoreVideoAnalyticDashboard_removeFile(
 ): Promise<void> {
   const _urlParams: any = {};
   if (property != null) {
-    _urlParams['property'] = property;
+    _urlParams["property"] = property;
   }
 
   return ApiFetch({
-    method: 'DELETE',
-    url: '/StoreVideoAnalyticDashboards/:id/container/files/:file',
+    method: "DELETE",
+    url: "/StoreVideoAnalyticDashboards/:id/container/files/:file",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -118,11 +114,11 @@ export async function StoreVideoAnalyticDashboard_upload(
 ): Promise<any> {
   const _urlParams: any = {};
   if (property != null) {
-    _urlParams['property'] = property;
+    _urlParams["property"] = property;
   }
 
   return UploadFile({
-    url: '/StoreVideoAnalyticDashboards/:id/container/upload',
+    url: "/StoreVideoAnalyticDashboards/:id/container/upload",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -142,12 +138,12 @@ export async function StoreVideoAnalyticDashboard_download(
 ): Promise<any> {
   const _urlParams: any = {};
   if (property != null) {
-    _urlParams['property'] = property;
+    _urlParams["property"] = property;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/StoreVideoAnalyticDashboards/:id/container/download/:file',
+    method: "GET",
+    url: "/StoreVideoAnalyticDashboards/:id/container/download/:file",
     urlParams: _urlParams,
     routeParams: {
       id,

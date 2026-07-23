@@ -1,10 +1,6 @@
-import { ApiFetch, Filter } from '../core/ApiFetch';
-import { CountReportSection } from '../models/CountReport';
-import { Manager } from '../models/Manager';
-
-/**
- * Api services for the `CountReport` model.
- */
+import { ApiFetch, Filter } from "../core/ApiFetch";
+import { CountReportSection } from "../models/CountReport";
+import { Manager } from "../models/Manager";
 
 /**
  * Find a related item by id for sections.
@@ -15,8 +11,8 @@ export async function CountReport_FindByIdSections(
   fk: string,
 ): Promise<CountReportSection> {
   return ApiFetch({
-    method: 'GET',
-    url: '/CountReports/:id/sections/:fk',
+    method: "GET",
+    url: "/CountReports/:id/sections/:fk",
     routeParams: {
       id,
       fk,
@@ -32,8 +28,8 @@ export async function CountReport_DestroyByIdSections(
   fk: string,
 ): Promise<void> {
   return ApiFetch({
-    method: 'DELETE',
-    url: '/CountReports/:id/sections/:fk',
+    method: "DELETE",
+    url: "/CountReports/:id/sections/:fk",
     routeParams: {
       id,
       fk,
@@ -47,11 +43,11 @@ export async function CountReport_DestroyByIdSections(
 export async function CountReport_UpdateByIdSections(
   id: string,
   fk: string,
-  data: any = {},
+  data?: any,
 ): Promise<CountReportSection> {
   return ApiFetch({
-    method: 'PUT',
-    url: '/CountReports/:id/sections/:fk',
+    method: "PUT",
+    url: "/CountReports/:id/sections/:fk",
     routeParams: {
       id,
       fk,
@@ -68,8 +64,8 @@ export async function CountReport_FindByIdManagers(
   fk: string,
 ): Promise<Manager> {
   return ApiFetch({
-    method: 'GET',
-    url: '/CountReports/:id/managers/:fk',
+    method: "GET",
+    url: "/CountReports/:id/managers/:fk",
     routeParams: {
       id,
       fk,
@@ -86,12 +82,12 @@ export async function CountReport_GetSections(
 ): Promise<CountReportSection[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams['filter'] = filter;
+    _urlParams["filter"] = filter;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/CountReports/:id/sections',
+    method: "GET",
+    url: "/CountReports/:id/sections",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -104,11 +100,11 @@ export async function CountReport_GetSections(
  */
 export async function CountReport_CreateSections(
   id: string,
-  data: any = {},
+  data?: any,
 ): Promise<CountReportSection> {
   return ApiFetch({
-    method: 'POST',
-    url: '/CountReports/:id/sections',
+    method: "POST",
+    url: "/CountReports/:id/sections",
     routeParams: {
       id,
     },
@@ -121,16 +117,16 @@ export async function CountReport_CreateSections(
  */
 export async function CountReport_CountSections(
   id: string,
-  where?: Filter<CountReportSection>['where'],
+  where?: Filter<CountReportSection>["where"],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams['where'] = where;
+    _urlParams["where"] = where;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/CountReports/:id/sections/count',
+    method: "GET",
+    url: "/CountReports/:id/sections/count",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -147,12 +143,12 @@ export async function CountReport_GetManagers(
 ): Promise<Manager[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams['filter'] = filter;
+    _urlParams["filter"] = filter;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/CountReports/:id/managers',
+    method: "GET",
+    url: "/CountReports/:id/managers",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -165,16 +161,16 @@ export async function CountReport_GetManagers(
  */
 export async function CountReport_CountManagers(
   id: string,
-  where?: Filter<Manager>['where'],
+  where?: Filter<Manager>["where"],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams['where'] = where;
+    _urlParams["where"] = where;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/CountReports/:id/managers/count',
+    method: "GET",
+    url: "/CountReports/:id/managers/count",
     urlParams: _urlParams,
     routeParams: {
       id,

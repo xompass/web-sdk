@@ -1,10 +1,6 @@
-import { ApiFetch, Filter } from '../core/ApiFetch';
-import { Manager } from '../models/Manager';
-import { PeopleCounterReportSerie } from '../models/PeopleCounterReport';
-
-/**
- * Api services for the `PeopleCounterReport` model.
- */
+import { ApiFetch, Filter } from "../core/ApiFetch";
+import { Manager } from "../models/Manager";
+import { PeopleCounterReportSerie } from "../models/PeopleCounterReport";
 
 /**
  * Find a related item by id for managers.
@@ -15,8 +11,8 @@ export async function PeopleCounterReport_FindByIdManagers(
   fk: string,
 ): Promise<Manager> {
   return ApiFetch({
-    method: 'GET',
-    url: '/PeopleCounterReports/:id/managers/:fk',
+    method: "GET",
+    url: "/PeopleCounterReports/:id/managers/:fk",
     routeParams: {
       id,
       fk,
@@ -32,8 +28,8 @@ export async function PeopleCounterReport_FindByIdSeries(
   fk: string,
 ): Promise<PeopleCounterReportSerie> {
   return ApiFetch({
-    method: 'GET',
-    url: '/PeopleCounterReports/:id/series/:fk',
+    method: "GET",
+    url: "/PeopleCounterReports/:id/series/:fk",
     routeParams: {
       id,
       fk,
@@ -49,8 +45,8 @@ export async function PeopleCounterReport_DestroyByIdSeries(
   fk: string,
 ): Promise<void> {
   return ApiFetch({
-    method: 'DELETE',
-    url: '/PeopleCounterReports/:id/series/:fk',
+    method: "DELETE",
+    url: "/PeopleCounterReports/:id/series/:fk",
     routeParams: {
       id,
       fk,
@@ -64,11 +60,11 @@ export async function PeopleCounterReport_DestroyByIdSeries(
 export async function PeopleCounterReport_UpdateByIdSeries(
   id: string,
   fk: string,
-  data: any = {},
+  data?: any,
 ): Promise<PeopleCounterReportSerie> {
   return ApiFetch({
-    method: 'PUT',
-    url: '/PeopleCounterReports/:id/series/:fk',
+    method: "PUT",
+    url: "/PeopleCounterReports/:id/series/:fk",
     routeParams: {
       id,
       fk,
@@ -86,12 +82,12 @@ export async function PeopleCounterReport_GetManagers(
 ): Promise<Manager[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams['filter'] = filter;
+    _urlParams["filter"] = filter;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/PeopleCounterReports/:id/managers',
+    method: "GET",
+    url: "/PeopleCounterReports/:id/managers",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -104,16 +100,16 @@ export async function PeopleCounterReport_GetManagers(
  */
 export async function PeopleCounterReport_CountManagers(
   id: string,
-  where?: Filter<Manager>['where'],
+  where?: Filter<Manager>["where"],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams['where'] = where;
+    _urlParams["where"] = where;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/PeopleCounterReports/:id/managers/count',
+    method: "GET",
+    url: "/PeopleCounterReports/:id/managers/count",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -130,12 +126,12 @@ export async function PeopleCounterReport_GetSeries(
 ): Promise<PeopleCounterReportSerie[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams['filter'] = filter;
+    _urlParams["filter"] = filter;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/PeopleCounterReports/:id/series',
+    method: "GET",
+    url: "/PeopleCounterReports/:id/series",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -148,11 +144,11 @@ export async function PeopleCounterReport_GetSeries(
  */
 export async function PeopleCounterReport_CreateSeries(
   id: string,
-  data: any = {},
+  data?: any,
 ): Promise<PeopleCounterReportSerie> {
   return ApiFetch({
-    method: 'POST',
-    url: '/PeopleCounterReports/:id/series',
+    method: "POST",
+    url: "/PeopleCounterReports/:id/series",
     routeParams: {
       id,
     },
@@ -165,16 +161,16 @@ export async function PeopleCounterReport_CreateSeries(
  */
 export async function PeopleCounterReport_CountSeries(
   id: string,
-  where?: Filter<PeopleCounterReportSerie>['where'],
+  where?: Filter<PeopleCounterReportSerie>["where"],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams['where'] = where;
+    _urlParams["where"] = where;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/PeopleCounterReports/:id/series/count',
+    method: "GET",
+    url: "/PeopleCounterReports/:id/series/count",
     urlParams: _urlParams,
     routeParams: {
       id,

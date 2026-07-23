@@ -1,15 +1,15 @@
-import { Admin } from './Admin';
-import { AssetConfig } from './AssetConfig';
-import { AssetStateTemplate } from './AssetStateTemplate';
-import { AssetWizardType } from './AssetWizardType';
-import { Customer } from './Customer';
-import { EventGroupTemplate } from './EventGroupTemplate';
-import { EventTriggerTemplate } from './EventTriggerTemplate';
-import { Log } from './Log';
-import { Manager } from './Manager';
-import { Project } from './Project';
-import { SensorTemplate } from './SensorTemplate';
-import { FileMetadata } from './FileMetadata';
+import { Admin } from "./Admin";
+import { AssetConfig } from "./AssetConfig";
+import { AssetStateTemplate } from "./AssetStateTemplate";
+import { AssetWizardType } from "./AssetWizardType";
+import { Customer } from "./Customer";
+import { EventGroupTemplate } from "./EventGroupTemplate";
+import { EventTriggerTemplate } from "./EventTriggerTemplate";
+import { FileMetadata } from "./FileMetadata";
+import { Log } from "./Log";
+import { Manager } from "./Manager";
+import { Project } from "./Project";
+import { SensorTemplate } from "./SensorTemplate";
 
 export type AssetTemplate = {
   type: string;
@@ -29,20 +29,21 @@ export type AssetTemplate = {
   assetWizardTypeId?: string;
   customerId?: string;
   projectId?: string;
-  assetTemplates?: AssetTemplate[];
-  assetTemplate?: AssetTemplate;
   assetStateTemplates?: AssetStateTemplate[];
-  defaultState?: AssetStateTemplate;
-  container?: AssetTemplateStorageContainer;
+  assetTemplate?: AssetTemplate;
+  assetTemplates?: AssetTemplate[];
   assetWizardType?: AssetWizardType;
-  defaultResponsibleAdmins?: Admin[];
+  config?: AssetConfig[];
+  container?: AssetTemplateStorageContainer;
   customer?: Customer;
+  defaultResponsibleAdmins?: Admin[];
+  defaultResponsibleManagers?: Manager[];
+  defaultState?: AssetStateTemplate;
   eventGroupTemplates?: EventGroupTemplate[];
   eventTriggerTemplates?: EventTriggerTemplate[];
-  trackingLogs?: Log[];
-  defaultResponsibleManagers?: Manager[];
   project?: Project;
   sensorTemplates?: SensorTemplate[];
+  trackingLogs?: Log[];
 };
 
 export type AssetTemplateStorageContainer = {
@@ -54,4 +55,9 @@ export type AssetTemplateStorageContainer = {
   _picture?: FileMetadata;
   _background?: FileMetadata;
   _files?: FileMetadata[];
+  assetTemplate?: AssetTemplate;
+  background?: FileMetadata[];
+  files?: FileMetadata[];
+  picture?: FileMetadata[];
+  trackingLogs?: Log[];
 };

@@ -1,27 +1,27 @@
 // Types for the filter object used in the API
 // Details in https://loopback.io/doc/en/lb3/Querying-data.html
-import { getLocalStorageValue } from './LocalStorage';
+import { getLocalStorageValue } from "./LocalStorage";
 import {
   getFetchAdapter,
   getFormDataConstructor,
   getXMLHttpRequestConstructor,
-} from './Runtime';
+} from "./Runtime";
 
 // List of operators
 const Operators = {
-  eq: 'eq',
-  neq: 'neq',
-  gt: 'gt',
-  gte: 'gte',
-  lt: 'lt',
-  lte: 'lte',
-  inq: 'inq',
-  nin: 'nin',
-  between: 'between',
-  and: 'and',
-  or: 'or',
-  like: 'like',
-  nlike: 'nlike',
+  eq: "eq",
+  neq: "neq",
+  gt: "gt",
+  gte: "gte",
+  lt: "lt",
+  lte: "lte",
+  inq: "inq",
+  nin: "nin",
+  between: "between",
+  and: "and",
+  or: "or",
+  like: "like",
+  nlike: "nlike",
 } as const;
 
 // List of operators as a type
@@ -41,23 +41,26 @@ type FieldPrimitive =
   | symbol
   | null
   | undefined;
-type FieldTarget<T> = T extends (infer Item)[] ? NonNullable<Item> : NonNullable<T>;
+type FieldTarget<T> = T extends (infer Item)[]
+  ? NonNullable<Item>
+  : NonNullable<T>;
 type TopLevelField<T> = {
   [P in keyof T & string]: T[P] extends Function ? never : P;
 }[keyof T & string];
-type SecondLevelField<T, P extends TopLevelField<T>> = FieldTarget<T[P]> extends object
-  ? string extends TopLevelField<FieldTarget<T[P]>>
-    ? `${P}.${string}`
-    : {
-        [K in TopLevelField<FieldTarget<T[P]>>]:
-          | `${P}.${K}`
-          | (FieldTarget<FieldTarget<T[P]>[K]> extends FieldPrimitive
-              ? never
-              : FieldTarget<FieldTarget<T[P]>[K]> extends object
-                ? `${P}.${K}.${string}`
-                : never);
-      }[TopLevelField<FieldTarget<T[P]>>]
-  : never;
+type SecondLevelField<T, P extends TopLevelField<T>> =
+  FieldTarget<T[P]> extends object
+    ? string extends TopLevelField<FieldTarget<T[P]>>
+      ? `${P}.${string}`
+      : {
+          [K in TopLevelField<FieldTarget<T[P]>>]:
+            | `${P}.${K}`
+            | (FieldTarget<FieldTarget<T[P]>[K]> extends FieldPrimitive
+                ? never
+                : FieldTarget<FieldTarget<T[P]>[K]> extends object
+                  ? `${P}.${K}.${string}`
+                  : never);
+        }[TopLevelField<FieldTarget<T[P]>>]
+    : never;
 type FieldPath<T> = {
   [P in TopLevelField<T>]:
     | P
@@ -96,13 +99,13 @@ type ArrayFieldValue<T> = T extends (infer Item)[] ? Item[] : T[];
 type BetweenFieldValue<T> = [T, T];
 
 export type FieldOperator<T> = {
-  [O in Operator]?: O extends 'and' | 'or'
+  [O in Operator]?: O extends "and" | "or"
     ? Partial<T>[]
-    : O extends 'inq' | 'nin'
+    : O extends "inq" | "nin"
       ? ArrayFieldValue<T>
-      : O extends 'between'
+      : O extends "between"
         ? BetweenFieldValue<T>
-        : O extends 'like' | 'nlike'
+        : O extends "like" | "nlike"
           ? string
           : T;
 };
@@ -126,15 +129,15 @@ export type Filter<T> = {
   where?: Where<T>;
 };
 
-export type FilterExcludingWhere<T> = Omit<Filter<T>, 'where'>;
+export type FilterExcludingWhere<T> = Omit<Filter<T>, "where">;
 
 export type ApiFetchMethod =
-  | 'GET'
-  | 'POST'
-  | 'PUT'
-  | 'DELETE'
-  | 'PATCH'
-  | 'HEAD';
+  | "GET"
+  | "POST"
+  | "PUT"
+  | "DELETE"
+  | "PATCH"
+  | "HEAD";
 
 export type ApiFetchRouteParams = {
   [key: string]: string | number | undefined;
@@ -172,33 +175,34 @@ export type UploadableFile =
     };
 
 const DateFields = [
-  'created',
-  'modified',
-  'deleted',
-  'from',
-  'to',
-  'requested',
-  'expiresAt',
-  'started',
-  'birthday',
-  'storypointDate',
-  'nextCheck',
-  'lastCheck',
-  'lastValue',
-  'valueValidUntil',
-  'date',
+  "created",
+  "createdAt",
+  "modified",
+  "deleted",
+  "from",
+  "to",
+  "requested",
+  "expiresAt",
+  "started",
+  "birthday",
+  "storypointDate",
+  "nextCheck",
+  "lastCheck",
+  "lastValue",
+  "valueValidUntil",
+  "date",
 ];
 
 const Reviver = (key: string, value: any) => {
   if (
-    (typeof value === 'string' || typeof value === 'number') &&
+    (typeof value === "string" || typeof value === "number") &&
     DateFields.includes(key)
   ) {
     let date;
 
     if (
-      key === 'expiresAt' &&
-      typeof value === 'number' &&
+      key === "expiresAt" &&
+      typeof value === "number" &&
       value < 1000000000000
     ) {
       date = new Date(value * 1000);
@@ -206,7 +210,7 @@ const Reviver = (key: string, value: any) => {
       date = new Date(value);
     }
 
-    if (date.toString() !== 'Invalid Date') {
+    if (date.toString() !== "Invalid Date") {
       return date;
     }
   }
@@ -222,13 +226,13 @@ function prepareUrl(
   if (routeParams) {
     for (const key in routeParams) {
       url = url.replace(
-        new RegExp(`:${key}(/|$)`, 'g'),
+        new RegExp(`:${key}(/|$)`, "g"),
         `${routeParams[key]}$1`,
       );
     }
   }
 
-  let queryString = '';
+  let queryString = "";
   if (urlParams) {
     queryString += Object.keys(urlParams)
       .reduce((array: string[], key) => {
@@ -237,7 +241,7 @@ function prepareUrl(
           return array;
         }
 
-        if (key === 'filter' && typeof value === 'object') {
+        if (key === "filter" && typeof value === "object") {
           if (value.order) {
             value.order = prepareOrderFilter(value.order);
           }
@@ -248,7 +252,7 @@ function prepareUrl(
         }
 
         // Handle order
-        if (key === 'order' && typeof value === 'object') {
+        if (key === "order" && typeof value === "object") {
           const _order = prepareOrderFilter(value);
           if (!_order) {
             return array;
@@ -258,7 +262,7 @@ function prepareUrl(
 
         if (value instanceof Date) {
           value = value.toISOString();
-        } else if (typeof value === 'object') {
+        } else if (typeof value === "object") {
           value = JSON.stringify(value);
         }
 
@@ -267,10 +271,10 @@ function prepareUrl(
         );
         return array;
       }, [])
-      .join('&');
+      .join("&");
   }
 
-  return `${url}${queryString ? `?${queryString}` : ''}`;
+  return `${url}${queryString ? `?${queryString}` : ""}`;
 }
 
 export class FetchError extends Error {
@@ -296,8 +300,8 @@ function getFetchImplementation() {
   if (!fetchImplementation) {
     throw new FetchError(
       0,
-      'MissingRuntime',
-      getMissingRuntimeErrorMessage('fetch'),
+      "MissingRuntime",
+      getMissingRuntimeErrorMessage("fetch"),
       undefined,
     );
   }
@@ -311,8 +315,8 @@ function getUploadFormDataConstructor() {
   if (!FormDataConstructor) {
     throw new FetchError(
       0,
-      'MissingRuntime',
-      getMissingRuntimeErrorMessage('FormData'),
+      "MissingRuntime",
+      getMissingRuntimeErrorMessage("FormData"),
       undefined,
     );
   }
@@ -324,9 +328,9 @@ function getBlobConstructor():
   | (new (blobParts?: any[], options?: { type?: string }) => any)
   | undefined {
   if (
-    typeof globalThis !== 'object' ||
+    typeof globalThis !== "object" ||
     globalThis == null ||
-    typeof (globalThis as { Blob?: unknown }).Blob !== 'function'
+    typeof (globalThis as { Blob?: unknown }).Blob !== "function"
   ) {
     return undefined;
   }
@@ -336,11 +340,11 @@ function getBlobConstructor():
 }
 
 function isArrayBuffer(value: unknown): value is ArrayBuffer {
-  return typeof ArrayBuffer !== 'undefined' && value instanceof ArrayBuffer;
+  return typeof ArrayBuffer !== "undefined" && value instanceof ArrayBuffer;
 }
 
 function isArrayBufferView(value: unknown): value is ArrayBufferView {
-  return typeof ArrayBuffer !== 'undefined' && ArrayBuffer.isView(value);
+  return typeof ArrayBuffer !== "undefined" && ArrayBuffer.isView(value);
 }
 
 function normalizeUploadableFile(
@@ -354,7 +358,7 @@ function normalizeUploadableFile(
     if (BlobConstructor) {
       return {
         value: new BlobConstructor([file], {
-          type: 'application/octet-stream',
+          type: "application/octet-stream",
         }),
         fileName,
       };
@@ -367,7 +371,7 @@ function normalizeUploadableFile(
   }
 
   const fileName =
-    typeof file.name === 'string' && file.name.length > 0
+    typeof file.name === "string" && file.name.length > 0
       ? file.name
       : undefined;
 
@@ -407,15 +411,15 @@ async function parseJSONResponse(
  */
 export async function ApiFetch(options: ApiFetchOptions): Promise<any> {
   const { method, routeParams, urlParams, body } = options;
-  const baseUrl = getLocalStorageValue('vsaas$baseUrl');
+  const baseUrl = getLocalStorageValue("vsaas$baseUrl");
 
   const url = prepareUrl(baseUrl + options.url, routeParams, urlParams);
 
   const headers: { [key: string]: string } = {};
 
-  const accessToken = getLocalStorageValue('vsaas$accessToken');
+  const accessToken = getLocalStorageValue("vsaas$accessToken");
   if (accessToken) {
-    headers['Authorization'] = accessToken;
+    headers["Authorization"] = accessToken;
   }
 
   const fetchOptions: { [key: string]: any } = {
@@ -424,7 +428,7 @@ export async function ApiFetch(options: ApiFetchOptions): Promise<any> {
   };
 
   if (body !== undefined) {
-    headers['Content-Type'] = 'application/json';
+    headers["Content-Type"] = "application/json";
     fetchOptions.body = JSON.stringify(body);
   }
 
@@ -438,7 +442,7 @@ export async function ApiFetch(options: ApiFetchOptions): Promise<any> {
       throw e;
     }
 
-    throw new FetchError(0, 'Unknown', e.message, e);
+    throw new FetchError(0, "Unknown", e.message, e);
   }
 }
 
@@ -455,8 +459,8 @@ type UploadFileOptions = {
  */
 export async function UploadFile(options: UploadFileOptions): Promise<any> {
   const { file, routeParams, urlParams, onProgress } = options;
-  const baseUrl = getLocalStorageValue('vsaas$baseUrl');
-  const accessToken = getLocalStorageValue('vsaas$accessToken');
+  const baseUrl = getLocalStorageValue("vsaas$baseUrl");
+  const accessToken = getLocalStorageValue("vsaas$accessToken");
 
   const url = prepareUrl(baseUrl + options.url, routeParams, urlParams);
 
@@ -468,20 +472,20 @@ export async function UploadFile(options: UploadFileOptions): Promise<any> {
     const normalizedFile = normalizeUploadableFile(currentFile, index);
 
     if (normalizedFile.fileName) {
-      form.append('file', normalizedFile.value, normalizedFile.fileName);
+      form.append("file", normalizedFile.value, normalizedFile.fileName);
       return;
     }
 
-    form.append('file', normalizedFile.value);
+    form.append("file", normalizedFile.value);
   });
 
   const XMLHttpRequestConstructor = getXMLHttpRequestConstructor();
   if (XMLHttpRequestConstructor) {
     const xhr = new XMLHttpRequestConstructor();
-    xhr.open('POST', url, true);
+    xhr.open("POST", url, true);
 
     if (accessToken) {
-      xhr.setRequestHeader('Authorization', accessToken);
+      xhr.setRequestHeader("Authorization", accessToken);
     }
 
     xhr.upload.onprogress = (e) => {
@@ -497,7 +501,7 @@ export async function UploadFile(options: UploadFileOptions): Promise<any> {
         } else {
           try {
             resolve(JSON.parse(xhr.responseText, Reviver));
-          } catch (e) {
+          } catch {
             resolve(xhr.responseText);
           }
         }
@@ -515,11 +519,11 @@ export async function UploadFile(options: UploadFileOptions): Promise<any> {
   const headers: { [key: string]: string } = {};
 
   if (accessToken) {
-    headers['Authorization'] = accessToken;
+    headers["Authorization"] = accessToken;
   }
 
   const res = await fetchImplementation(url, {
-    method: 'POST',
+    method: "POST",
     headers,
     body: form,
   });
@@ -549,7 +553,7 @@ function prepareOrderFilter<T>(order: Order<T>) {
 }
 
 function prepareIncludeFilter<T>(include: Include<T>): Record<string, any> {
-  if (!include || typeof include === 'string') {
+  if (!include || typeof include === "string") {
     return include;
   }
 
@@ -562,7 +566,7 @@ function prepareIncludeFilter<T>(include: Include<T>): Record<string, any> {
     return _include;
   }
 
-  if (typeof include === 'object') {
+  if (typeof include === "object") {
     if (include.scope) {
       if (include.scope.order) {
         include.scope.order = prepareOrderFilter(include.scope.order) as any;
@@ -575,11 +579,13 @@ function prepareIncludeFilter<T>(include: Include<T>): Record<string, any> {
 }
 
 export function getHTTPErrorMessage(error: any): string {
-  if (!error) return '';
+  if (!error) {
+    return "";
+  }
   if (error.response) {
-    return error.response.data + '';
+    return error.response.data + "";
   } else if (error.request) {
-    return error.request + '';
+    return error.request + "";
   } else {
     return error.message;
   }

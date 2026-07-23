@@ -1,6 +1,6 @@
-import { Log } from './Log';
-import { Manager } from './Manager';
-import { Project } from './Project';
+import { Log } from "./Log";
+import { Manager } from "./Manager";
+import { Project } from "./Project";
 
 export type TrafficFlowAnalysis = {
   name: string;
@@ -13,9 +13,11 @@ export type TrafficFlowAnalysis = {
   projectId?: string;
   _kpis?: TrafficFlowAnalysisKPI[];
   _vertices?: TrafficFlowAnalysisVertice[];
-  trackingLogs?: Log[];
-  project?: Project;
+  kpis?: TrafficFlowAnalysisKPI[];
   managers?: Manager[];
+  project?: Project;
+  trackingLogs?: Log[];
+  vertices?: TrafficFlowAnalysisVertice[];
 };
 
 export type TrafficFlowAnalysisEdge = {
@@ -34,6 +36,7 @@ export type TrafficFlowAnalysisKPI = {
   modified?: Date;
   deleted?: Date;
   id?: string;
+  trackingLogs?: Log[];
 };
 
 export type TrafficFlowAnalysisVertice = {
@@ -44,4 +47,5 @@ export type TrafficFlowAnalysisVertice = {
   modified?: Date;
   deleted?: Date;
   id?: string;
+  trackingLogs?: Log[];
 };

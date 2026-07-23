@@ -7,8 +7,8 @@ strictDepBuilds: true
 allowBuilds:
   esbuild: true
 trustPolicy: no-downgrade
-# Temporary narrow exception for tsup's current chokidar transitively pinned release.
-trustPolicyExclude:
-  - chokidar@4.0.3
 verifyStoreIntegrity: true
 resolutionMode: time-based
+overrides:
+  lightningcss: 1.32.0
+  postcss: 8.5.19

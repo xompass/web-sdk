@@ -1,10 +1,10 @@
-import { AssetStateTemplate } from './AssetStateTemplate';
-import { AssetTemplate } from './AssetTemplate';
-import { EventGroupTemplate } from './EventGroupTemplate';
-import { EventSubject } from './EventSubject';
-import { EventTriggerAssetStateTemplate } from './EventTriggerAssetStateTemplate';
-import { EventTriggerRuleTemplate } from './EventTriggerRuleTemplate';
-import { Log } from './Log';
+import { AssetStateTemplate } from "./AssetStateTemplate";
+import { AssetTemplate } from "./AssetTemplate";
+import { EventGroupTemplate } from "./EventGroupTemplate";
+import { EventSubject } from "./EventSubject";
+import { EventTriggerAssetStateTemplate } from "./EventTriggerAssetStateTemplate";
+import { EventTriggerRuleTemplate } from "./EventTriggerRuleTemplate";
+import { Log } from "./Log";
 
 export type EventTriggerTemplate = {
   type: string;
@@ -25,10 +25,11 @@ export type EventTriggerTemplate = {
   assetTemplateId?: string;
   eventGroupTemplateId?: string;
   _ruleTemplates?: EventTriggerRuleTemplate[];
-  subjectType?: EventSubject;
+  assetStateTemplates?: AssetStateTemplate[];
   assetTemplate?: AssetTemplate;
   eventGroupTemplate?: EventGroupTemplate;
-  assetStateTemplates?: AssetStateTemplate[];
+  ruleTemplates?: EventTriggerRuleTemplate[];
   stateTemplates?: EventTriggerAssetStateTemplate[];
+  subjectType?: EventSubject;
   trackingLogs?: Log[];
 };

@@ -1,6 +1,6 @@
-import { Device } from './Device';
-import { DeviceEvent } from './DeviceEvent';
-import { Log } from './Log';
+import { Device } from "./Device";
+import { DeviceEvent } from "./DeviceEvent";
+import { Log } from "./Log";
 
 export type DeviceEventData = {
   id?: string;
@@ -9,7 +9,7 @@ export type DeviceEventData = {
   tags?: string[];
   content: any;
   meta?: any;
-  level?: string;
+  level?: "ERROR" | "INFO" | "WARNING" | "DEBUG" | "FATAL" | "NONE";
   created?: Date;
   modified?: Date;
   deleted?: Date;

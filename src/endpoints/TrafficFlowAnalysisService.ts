@@ -1,11 +1,9 @@
-import { ApiFetch, Filter } from '../core/ApiFetch';
-import { Manager } from '../models/Manager';
-import { TrafficFlowAnalysisKPI } from '../models/TrafficFlowAnalysis';
-import { TrafficFlowAnalysisVertice } from '../models/TrafficFlowAnalysis';
-
-/**
- * Api services for the `TrafficFlowAnalysis` model.
- */
+import { ApiFetch, Filter } from "../core/ApiFetch";
+import { Manager } from "../models/Manager";
+import {
+  TrafficFlowAnalysisKPI,
+  TrafficFlowAnalysisVertice,
+} from "../models/TrafficFlowAnalysis";
 
 /**
  * Find a related item by id for managers.
@@ -16,8 +14,8 @@ export async function TrafficFlowAnalysis_FindByIdManagers(
   fk: string,
 ): Promise<Manager> {
   return ApiFetch({
-    method: 'GET',
-    url: '/TrafficFlowAnalysis/:id/managers/:fk',
+    method: "GET",
+    url: "/TrafficFlowAnalysis/:id/managers/:fk",
     routeParams: {
       id,
       fk,
@@ -33,8 +31,8 @@ export async function TrafficFlowAnalysis_FindByIdKpis(
   fk: string,
 ): Promise<TrafficFlowAnalysisKPI> {
   return ApiFetch({
-    method: 'GET',
-    url: '/TrafficFlowAnalysis/:id/kpis/:fk',
+    method: "GET",
+    url: "/TrafficFlowAnalysis/:id/kpis/:fk",
     routeParams: {
       id,
       fk,
@@ -50,8 +48,8 @@ export async function TrafficFlowAnalysis_DestroyByIdKpis(
   fk: string,
 ): Promise<void> {
   return ApiFetch({
-    method: 'DELETE',
-    url: '/TrafficFlowAnalysis/:id/kpis/:fk',
+    method: "DELETE",
+    url: "/TrafficFlowAnalysis/:id/kpis/:fk",
     routeParams: {
       id,
       fk,
@@ -65,11 +63,11 @@ export async function TrafficFlowAnalysis_DestroyByIdKpis(
 export async function TrafficFlowAnalysis_UpdateByIdKpis(
   id: string,
   fk: string,
-  data: any = {},
+  data?: any,
 ): Promise<TrafficFlowAnalysisKPI> {
   return ApiFetch({
-    method: 'PUT',
-    url: '/TrafficFlowAnalysis/:id/kpis/:fk',
+    method: "PUT",
+    url: "/TrafficFlowAnalysis/:id/kpis/:fk",
     routeParams: {
       id,
       fk,
@@ -86,8 +84,8 @@ export async function TrafficFlowAnalysis_FindByIdVertices(
   fk: string,
 ): Promise<TrafficFlowAnalysisVertice> {
   return ApiFetch({
-    method: 'GET',
-    url: '/TrafficFlowAnalysis/:id/vertices/:fk',
+    method: "GET",
+    url: "/TrafficFlowAnalysis/:id/vertices/:fk",
     routeParams: {
       id,
       fk,
@@ -103,8 +101,8 @@ export async function TrafficFlowAnalysis_DestroyByIdVertices(
   fk: string,
 ): Promise<void> {
   return ApiFetch({
-    method: 'DELETE',
-    url: '/TrafficFlowAnalysis/:id/vertices/:fk',
+    method: "DELETE",
+    url: "/TrafficFlowAnalysis/:id/vertices/:fk",
     routeParams: {
       id,
       fk,
@@ -118,11 +116,11 @@ export async function TrafficFlowAnalysis_DestroyByIdVertices(
 export async function TrafficFlowAnalysis_UpdateByIdVertices(
   id: string,
   fk: string,
-  data: any = {},
+  data?: any,
 ): Promise<TrafficFlowAnalysisVertice> {
   return ApiFetch({
-    method: 'PUT',
-    url: '/TrafficFlowAnalysis/:id/vertices/:fk',
+    method: "PUT",
+    url: "/TrafficFlowAnalysis/:id/vertices/:fk",
     routeParams: {
       id,
       fk,
@@ -140,12 +138,12 @@ export async function TrafficFlowAnalysis_GetManagers(
 ): Promise<Manager[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams['filter'] = filter;
+    _urlParams["filter"] = filter;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/TrafficFlowAnalysis/:id/managers',
+    method: "GET",
+    url: "/TrafficFlowAnalysis/:id/managers",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -158,16 +156,16 @@ export async function TrafficFlowAnalysis_GetManagers(
  */
 export async function TrafficFlowAnalysis_CountManagers(
   id: string,
-  where?: Filter<Manager>['where'],
+  where?: Filter<Manager>["where"],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams['where'] = where;
+    _urlParams["where"] = where;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/TrafficFlowAnalysis/:id/managers/count',
+    method: "GET",
+    url: "/TrafficFlowAnalysis/:id/managers/count",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -184,12 +182,12 @@ export async function TrafficFlowAnalysis_GetKpis(
 ): Promise<TrafficFlowAnalysisKPI[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams['filter'] = filter;
+    _urlParams["filter"] = filter;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/TrafficFlowAnalysis/:id/kpis',
+    method: "GET",
+    url: "/TrafficFlowAnalysis/:id/kpis",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -202,11 +200,11 @@ export async function TrafficFlowAnalysis_GetKpis(
  */
 export async function TrafficFlowAnalysis_CreateKpis(
   id: string,
-  data: any = {},
+  data?: any,
 ): Promise<TrafficFlowAnalysisKPI> {
   return ApiFetch({
-    method: 'POST',
-    url: '/TrafficFlowAnalysis/:id/kpis',
+    method: "POST",
+    url: "/TrafficFlowAnalysis/:id/kpis",
     routeParams: {
       id,
     },
@@ -219,16 +217,16 @@ export async function TrafficFlowAnalysis_CreateKpis(
  */
 export async function TrafficFlowAnalysis_CountKpis(
   id: string,
-  where?: Filter<TrafficFlowAnalysisKPI>['where'],
+  where?: Filter<TrafficFlowAnalysisKPI>["where"],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams['where'] = where;
+    _urlParams["where"] = where;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/TrafficFlowAnalysis/:id/kpis/count',
+    method: "GET",
+    url: "/TrafficFlowAnalysis/:id/kpis/count",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -245,12 +243,12 @@ export async function TrafficFlowAnalysis_GetVertices(
 ): Promise<TrafficFlowAnalysisVertice[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams['filter'] = filter;
+    _urlParams["filter"] = filter;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/TrafficFlowAnalysis/:id/vertices',
+    method: "GET",
+    url: "/TrafficFlowAnalysis/:id/vertices",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -263,11 +261,11 @@ export async function TrafficFlowAnalysis_GetVertices(
  */
 export async function TrafficFlowAnalysis_CreateVertices(
   id: string,
-  data: any = {},
+  data?: any,
 ): Promise<TrafficFlowAnalysisVertice> {
   return ApiFetch({
-    method: 'POST',
-    url: '/TrafficFlowAnalysis/:id/vertices',
+    method: "POST",
+    url: "/TrafficFlowAnalysis/:id/vertices",
     routeParams: {
       id,
     },
@@ -280,16 +278,16 @@ export async function TrafficFlowAnalysis_CreateVertices(
  */
 export async function TrafficFlowAnalysis_CountVertices(
   id: string,
-  where?: Filter<TrafficFlowAnalysisVertice>['where'],
+  where?: Filter<TrafficFlowAnalysisVertice>["where"],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams['where'] = where;
+    _urlParams["where"] = where;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/TrafficFlowAnalysis/:id/vertices/count',
+    method: "GET",
+    url: "/TrafficFlowAnalysis/:id/vertices/count",
     urlParams: _urlParams,
     routeParams: {
       id,

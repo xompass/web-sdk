@@ -1,10 +1,6 @@
-import { ApiFetch, Filter } from '../core/ApiFetch';
-import { VirtualExpression } from '../models/VirtualExpression';
-import { VirtualVariable } from '../models/VirtualVariable';
-
-/**
- * Api services for the `VirtualGroup` model.
- */
+import { ApiFetch, Filter } from "../core/ApiFetch";
+import { VirtualExpression } from "../models/VirtualExpression";
+import { VirtualVariable } from "../models/VirtualVariable";
 
 /**
  * Find a related item by id for virtualExpressions.
@@ -15,8 +11,8 @@ export async function VirtualGroup_FindByIdVirtualExpressions(
   fk: string,
 ): Promise<VirtualExpression> {
   return ApiFetch({
-    method: 'GET',
-    url: '/VirtualGroups/:id/virtualExpressions/:fk',
+    method: "GET",
+    url: "/VirtualGroups/:id/virtualExpressions/:fk",
     routeParams: {
       id,
       fk,
@@ -32,8 +28,8 @@ export async function VirtualGroup_DestroyByIdVirtualExpressions(
   fk: string,
 ): Promise<void> {
   return ApiFetch({
-    method: 'DELETE',
-    url: '/VirtualGroups/:id/virtualExpressions/:fk',
+    method: "DELETE",
+    url: "/VirtualGroups/:id/virtualExpressions/:fk",
     routeParams: {
       id,
       fk,
@@ -47,11 +43,11 @@ export async function VirtualGroup_DestroyByIdVirtualExpressions(
 export async function VirtualGroup_UpdateByIdVirtualExpressions(
   id: string,
   fk: string,
-  data: any = {},
+  data?: any,
 ): Promise<VirtualExpression> {
   return ApiFetch({
-    method: 'PUT',
-    url: '/VirtualGroups/:id/virtualExpressions/:fk',
+    method: "PUT",
+    url: "/VirtualGroups/:id/virtualExpressions/:fk",
     routeParams: {
       id,
       fk,
@@ -68,8 +64,8 @@ export async function VirtualGroup_FindByIdVirtualVariables(
   fk: string,
 ): Promise<VirtualVariable> {
   return ApiFetch({
-    method: 'GET',
-    url: '/VirtualGroups/:id/virtualVariables/:fk',
+    method: "GET",
+    url: "/VirtualGroups/:id/virtualVariables/:fk",
     routeParams: {
       id,
       fk,
@@ -85,8 +81,8 @@ export async function VirtualGroup_DestroyByIdVirtualVariables(
   fk: string,
 ): Promise<void> {
   return ApiFetch({
-    method: 'DELETE',
-    url: '/VirtualGroups/:id/virtualVariables/:fk',
+    method: "DELETE",
+    url: "/VirtualGroups/:id/virtualVariables/:fk",
     routeParams: {
       id,
       fk,
@@ -100,11 +96,11 @@ export async function VirtualGroup_DestroyByIdVirtualVariables(
 export async function VirtualGroup_UpdateByIdVirtualVariables(
   id: string,
   fk: string,
-  data: any = {},
+  data?: any,
 ): Promise<VirtualVariable> {
   return ApiFetch({
-    method: 'PUT',
-    url: '/VirtualGroups/:id/virtualVariables/:fk',
+    method: "PUT",
+    url: "/VirtualGroups/:id/virtualVariables/:fk",
     routeParams: {
       id,
       fk,
@@ -122,12 +118,12 @@ export async function VirtualGroup_GetVirtualExpressions(
 ): Promise<VirtualExpression[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams['filter'] = filter;
+    _urlParams["filter"] = filter;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/VirtualGroups/:id/virtualExpressions',
+    method: "GET",
+    url: "/VirtualGroups/:id/virtualExpressions",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -140,11 +136,11 @@ export async function VirtualGroup_GetVirtualExpressions(
  */
 export async function VirtualGroup_CreateVirtualExpressions(
   id: string,
-  data: any = {},
+  data?: any,
 ): Promise<VirtualExpression> {
   return ApiFetch({
-    method: 'POST',
-    url: '/VirtualGroups/:id/virtualExpressions',
+    method: "POST",
+    url: "/VirtualGroups/:id/virtualExpressions",
     routeParams: {
       id,
     },
@@ -157,16 +153,16 @@ export async function VirtualGroup_CreateVirtualExpressions(
  */
 export async function VirtualGroup_CountVirtualExpressions(
   id: string,
-  where?: Filter<VirtualExpression>['where'],
+  where?: Filter<VirtualExpression>["where"],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams['where'] = where;
+    _urlParams["where"] = where;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/VirtualGroups/:id/virtualExpressions/count',
+    method: "GET",
+    url: "/VirtualGroups/:id/virtualExpressions/count",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -183,12 +179,12 @@ export async function VirtualGroup_GetVirtualVariables(
 ): Promise<VirtualVariable[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams['filter'] = filter;
+    _urlParams["filter"] = filter;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/VirtualGroups/:id/virtualVariables',
+    method: "GET",
+    url: "/VirtualGroups/:id/virtualVariables",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -201,11 +197,11 @@ export async function VirtualGroup_GetVirtualVariables(
  */
 export async function VirtualGroup_CreateVirtualVariables(
   id: string,
-  data: any = {},
+  data?: any,
 ): Promise<VirtualVariable> {
   return ApiFetch({
-    method: 'POST',
-    url: '/VirtualGroups/:id/virtualVariables',
+    method: "POST",
+    url: "/VirtualGroups/:id/virtualVariables",
     routeParams: {
       id,
     },
@@ -218,16 +214,16 @@ export async function VirtualGroup_CreateVirtualVariables(
  */
 export async function VirtualGroup_CountVirtualVariables(
   id: string,
-  where?: Filter<VirtualVariable>['where'],
+  where?: Filter<VirtualVariable>["where"],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams['where'] = where;
+    _urlParams["where"] = where;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/VirtualGroups/:id/virtualVariables/count',
+    method: "GET",
+    url: "/VirtualGroups/:id/virtualVariables/count",
     urlParams: _urlParams,
     routeParams: {
       id,

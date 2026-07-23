@@ -2,34 +2,37 @@
   "name": "@xompass/web-sdk",
   "version": "0.34.0",
   "description": "",
-  "packageManager": "pnpm@11.5.2",
-  "engines": {
-    "node": "24.x"
-  },
+  "keywords": [],
+  "license": "ISC",
+  "author": "",
+  "files": [
+    "dist"
+  ],
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsup src/index.ts --format cjs,esm --dts",
-    "prepublish": "pnpm run build",
-    "lint": "tsc"
+    "dev": "vite build --watch",
+    "build": "tsc --noEmit && vite build && tsc -p tsconfig.build.json",
+    "test": "vitest run",
+    "lint": "oxlint --config .oxlintrc.json src && tsc --noEmit",
+    "lint:fix": "oxlint --fix --config .oxlintrc.json src",
+    "format": "oxfmt --config .oxfmtrc.json --write src vite.config.ts package.json tsconfig.json tsconfig.node.json tsconfig.build.json .oxlintrc.json .oxfmtrc.json",
+    "format:check": "oxfmt --config .oxfmtrc.json --threads=1 --check src vite.config.ts package.json tsconfig.json tsconfig.node.json tsconfig.build.json .oxlintrc.json .oxfmtrc.json",
+    "prepublishOnly": "pnpm run build",
+    "publish": "changeset publish"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
-    "@changesets/cli": "^2.26.1",
-    "@typescript-eslint/eslint-plugin": "^5.56.0",
-    "@typescript-eslint/parser": "^5.56.0",
-    "eslint": "^8.36.0",
-    "tsup": "^8.5.1",
-    "typescript": "^4.9.5"
+    "@changesets/cli": "2.31.0",
+    "@types/node": "24.13.3",
+    "oxfmt": "0.56.0",
+    "oxlint": "1.74.0",
+    "typescript": "6.0.3",
+    "vite": "8.1.3",
+    "vitest": "4.1.10"
   },
-  "prettier": {
-    "tabWidth": 2,
-    "semi": true,
-    "singleQuote": true,
-    "trailingComma": "all"
-  }
+  "engines": {
+    "node": "24.x"
+  },
+  "packageManager": "pnpm@11.7.0"
 }

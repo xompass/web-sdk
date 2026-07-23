@@ -1,13 +1,9 @@
-import { ApiFetch, Filter } from '../core/ApiFetch';
-import { DeviceConfig } from '../models/Device';
-import { DeviceEvent } from '../models/DeviceEvent';
-import { DeviceEventComment } from '../models/DeviceEventComment';
-import { DeviceEventData } from '../models/DeviceEventData';
-import { DeviceEventStateChange } from '../models/DeviceEventStateChange';
-
-/**
- * Api services for the `Device` model.
- */
+import { ApiFetch, Filter } from "../core/ApiFetch";
+import { DeviceConfig } from "../models/Device";
+import { DeviceEvent } from "../models/DeviceEvent";
+import { DeviceEventComment } from "../models/DeviceEventComment";
+import { DeviceEventData } from "../models/DeviceEventData";
+import { DeviceEventStateChange } from "../models/DeviceEventStateChange";
 
 /**
  * Fetches hasOne relation config.
@@ -15,8 +11,8 @@ import { DeviceEventStateChange } from '../models/DeviceEventStateChange';
  */
 export async function Device_GetConfig(id: string): Promise<DeviceConfig> {
   return ApiFetch({
-    method: 'GET',
-    url: '/Devices/:id/config',
+    method: "GET",
+    url: "/Devices/:id/config",
     routeParams: {
       id,
     },
@@ -28,11 +24,11 @@ export async function Device_GetConfig(id: string): Promise<DeviceConfig> {
  */
 export async function Device_CreateConfig(
   id: string,
-  data: any = {},
+  data?: any,
 ): Promise<DeviceConfig> {
   return ApiFetch({
-    method: 'POST',
-    url: '/Devices/:id/config',
+    method: "POST",
+    url: "/Devices/:id/config",
     routeParams: {
       id,
     },
@@ -45,11 +41,11 @@ export async function Device_CreateConfig(
  */
 export async function Device_UpdateConfig(
   id: string,
-  data: any = {},
+  data?: any,
 ): Promise<DeviceConfig> {
   return ApiFetch({
-    method: 'PUT',
-    url: '/Devices/:id/config',
+    method: "PUT",
+    url: "/Devices/:id/config",
     routeParams: {
       id,
     },
@@ -65,8 +61,8 @@ export async function Device_FindByIdEvents(
   fk: string,
 ): Promise<DeviceEvent> {
   return ApiFetch({
-    method: 'GET',
-    url: '/Devices/:id/events/:fk',
+    method: "GET",
+    url: "/Devices/:id/events/:fk",
     routeParams: {
       id,
       fk,
@@ -80,11 +76,11 @@ export async function Device_FindByIdEvents(
 export async function Device_UpdateByIdEvents(
   id: string,
   fk: string,
-  data: any = {},
+  data?: any,
 ): Promise<DeviceEvent> {
   return ApiFetch({
-    method: 'PUT',
-    url: '/Devices/:id/events/:fk',
+    method: "PUT",
+    url: "/Devices/:id/events/:fk",
     routeParams: {
       id,
       fk,
@@ -99,11 +95,11 @@ export async function Device_UpdateByIdEvents(
 export async function Device_LinkTelegramChats(
   id: string,
   fk: string,
-  data: any = {},
+  data?: any,
 ): Promise<any> {
   return ApiFetch({
-    method: 'PUT',
-    url: '/Devices/:id/telegramChats/rel/:fk',
+    method: "PUT",
+    url: "/Devices/:id/telegramChats/rel/:fk",
     routeParams: {
       id,
       fk,
@@ -120,8 +116,8 @@ export async function Device_UnlinkTelegramChats(
   fk: string,
 ): Promise<void> {
   return ApiFetch({
-    method: 'DELETE',
-    url: '/Devices/:id/telegramChats/rel/:fk',
+    method: "DELETE",
+    url: "/Devices/:id/telegramChats/rel/:fk",
     routeParams: {
       id,
       fk,
@@ -138,12 +134,12 @@ export async function Device_GetEvents(
 ): Promise<DeviceEvent[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams['filter'] = filter;
+    _urlParams["filter"] = filter;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/Devices/:id/events',
+    method: "GET",
+    url: "/Devices/:id/events",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -156,16 +152,16 @@ export async function Device_GetEvents(
  */
 export async function Device_CountEvents(
   id: string,
-  where?: Filter<DeviceEvent>['where'],
+  where?: Filter<DeviceEvent>["where"],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams['where'] = where;
+    _urlParams["where"] = where;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/Devices/:id/events/count',
+    method: "GET",
+    url: "/Devices/:id/events/count",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -178,8 +174,8 @@ export async function Device_CountEvents(
  */
 export async function Device_cmdcRestart(id: string): Promise<any> {
   return ApiFetch({
-    method: 'POST',
-    url: '/Devices/:id/cmdc/restart',
+    method: "POST",
+    url: "/Devices/:id/cmdc/restart",
     routeParams: {
       id,
     },
@@ -194,8 +190,8 @@ export async function Device_cmdcRestartModule(
   name: string,
 ): Promise<any> {
   return ApiFetch({
-    method: 'POST',
-    url: '/Devices/:id/cmdc/modules/:name/restart',
+    method: "POST",
+    url: "/Devices/:id/cmdc/modules/:name/restart",
     routeParams: {
       id,
       name,
@@ -212,8 +208,8 @@ export async function Device_FindByIdEventsComments(
   fk: string,
 ): Promise<DeviceEventComment> {
   return ApiFetch({
-    method: 'GET',
-    url: '/Devices/:id/events/:nk/comments/:fk',
+    method: "GET",
+    url: "/Devices/:id/events/:nk/comments/:fk",
     routeParams: {
       id,
       nk,
@@ -231,8 +227,8 @@ export async function Device_DestroyByIdEventsComments(
   fk: string,
 ): Promise<void> {
   return ApiFetch({
-    method: 'DELETE',
-    url: '/Devices/:id/events/:nk/comments/:fk',
+    method: "DELETE",
+    url: "/Devices/:id/events/:nk/comments/:fk",
     routeParams: {
       id,
       nk,
@@ -248,11 +244,11 @@ export async function Device_UpdateByIdEventsComments(
   id: string,
   nk: string,
   fk: string,
-  data: any = {},
+  data?: any,
 ): Promise<DeviceEventComment> {
   return ApiFetch({
-    method: 'PUT',
-    url: '/Devices/:id/events/:nk/comments/:fk',
+    method: "PUT",
+    url: "/Devices/:id/events/:nk/comments/:fk",
     routeParams: {
       id,
       nk,
@@ -271,8 +267,8 @@ export async function Device_FindByIdEventsData(
   fk: string,
 ): Promise<DeviceEventData> {
   return ApiFetch({
-    method: 'GET',
-    url: '/Devices/:id/events/:nk/data/:fk',
+    method: "GET",
+    url: "/Devices/:id/events/:nk/data/:fk",
     routeParams: {
       id,
       nk,
@@ -290,8 +286,8 @@ export async function Device_FindByIdEventsStateChanges(
   fk: string,
 ): Promise<DeviceEventStateChange> {
   return ApiFetch({
-    method: 'GET',
-    url: '/Devices/:id/events/:nk/stateChanges/:fk',
+    method: "GET",
+    url: "/Devices/:id/events/:nk/stateChanges/:fk",
     routeParams: {
       id,
       nk,
@@ -310,12 +306,12 @@ export async function Device_GetEventsComments(
 ): Promise<DeviceEventComment[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams['filter'] = filter;
+    _urlParams["filter"] = filter;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/Devices/:id/events/:nk/comments',
+    method: "GET",
+    url: "/Devices/:id/events/:nk/comments",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -330,11 +326,11 @@ export async function Device_GetEventsComments(
 export async function Device_CreateEventsComments(
   id: string,
   nk: string,
-  data: any = {},
+  data?: any,
 ): Promise<DeviceEventComment> {
   return ApiFetch({
-    method: 'POST',
-    url: '/Devices/:id/events/:nk/comments',
+    method: "POST",
+    url: "/Devices/:id/events/:nk/comments",
     routeParams: {
       id,
       nk,
@@ -349,16 +345,16 @@ export async function Device_CreateEventsComments(
 export async function Device_CountEventsComments(
   id: string,
   nk: string,
-  where?: Filter<DeviceEvent>['where'],
+  where?: Filter<DeviceEvent>["where"],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams['where'] = where;
+    _urlParams["where"] = where;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/Devices/:id/events/:nk/comments/count',
+    method: "GET",
+    url: "/Devices/:id/events/:nk/comments/count",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -377,12 +373,12 @@ export async function Device_GetEventsData(
 ): Promise<DeviceEventData[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams['filter'] = filter;
+    _urlParams["filter"] = filter;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/Devices/:id/events/:nk/data',
+    method: "GET",
+    url: "/Devices/:id/events/:nk/data",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -397,16 +393,16 @@ export async function Device_GetEventsData(
 export async function Device_CountEventsData(
   id: string,
   nk: string,
-  where?: Filter<DeviceEvent>['where'],
+  where?: Filter<DeviceEvent>["where"],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams['where'] = where;
+    _urlParams["where"] = where;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/Devices/:id/events/:nk/data/count',
+    method: "GET",
+    url: "/Devices/:id/events/:nk/data/count",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -425,12 +421,12 @@ export async function Device_GetEventsStateChanges(
 ): Promise<DeviceEventStateChange[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams['filter'] = filter;
+    _urlParams["filter"] = filter;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/Devices/:id/events/:nk/stateChanges',
+    method: "GET",
+    url: "/Devices/:id/events/:nk/stateChanges",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -445,11 +441,11 @@ export async function Device_GetEventsStateChanges(
 export async function Device_CreateEventsStateChanges(
   id: string,
   nk: string,
-  data: any = {},
+  data?: any,
 ): Promise<DeviceEventStateChange> {
   return ApiFetch({
-    method: 'POST',
-    url: '/Devices/:id/events/:nk/stateChanges',
+    method: "POST",
+    url: "/Devices/:id/events/:nk/stateChanges",
     routeParams: {
       id,
       nk,
@@ -464,16 +460,16 @@ export async function Device_CreateEventsStateChanges(
 export async function Device_CountEventsStateChanges(
   id: string,
   nk: string,
-  where?: Filter<DeviceEvent>['where'],
+  where?: Filter<DeviceEvent>["where"],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams['where'] = where;
+    _urlParams["where"] = where;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/Devices/:id/events/:nk/stateChanges/count',
+    method: "GET",
+    url: "/Devices/:id/events/:nk/stateChanges/count",
     urlParams: _urlParams,
     routeParams: {
       id,

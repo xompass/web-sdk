@@ -1,5 +1,5 @@
-import { Log } from './Log';
-import { Project } from './Project';
+import { Log } from "./Log";
+import { Project } from "./Project";
 
 export type EmbeddedReport = {
   name: string;
@@ -10,6 +10,6 @@ export type EmbeddedReport = {
   deleted?: Date;
   id?: string;
   projectId?: string;
-  trackingLogs?: Log[];
   project?: Project;
+  trackingLogs?: Log[];
 };

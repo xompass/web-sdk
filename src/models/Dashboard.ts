@@ -1,5 +1,5 @@
-import { Log } from './Log';
-import { Project } from './Project';
+import { Log } from "./Log";
+import { Project } from "./Project";
 
 export type Dashboard = {
   created?: Date;
@@ -7,6 +7,6 @@ export type Dashboard = {
   deleted?: Date;
   id?: string;
   projectId?: string;
-  trackingLogs?: Log[];
   project?: Project;
+  trackingLogs?: Log[];
 };

@@ -1,8 +1,8 @@
-import { Log } from './Log';
-import { Project } from './Project';
-import { Tool } from './Tool';
-import { ToolkitTemplate } from './ToolkitTemplate';
-import { Var } from './Var';
+import { Log } from "./Log";
+import { Project } from "./Project";
+import { Tool } from "./Tool";
+import { ToolkitTemplate } from "./ToolkitTemplate";
+import { Var } from "./Var";
 
 export type Toolkit = {
   name?: string;
@@ -20,10 +20,10 @@ export type Toolkit = {
   toolIds?: string[];
   templateId?: string;
   varId?: string;
-  trackingLogs?: Log[];
   adminTools?: Tool[];
-  tools?: Tool[];
   projects?: Project[];
   template?: ToolkitTemplate;
+  tools?: Tool[];
+  trackingLogs?: Log[];
   var?: Var;
 };

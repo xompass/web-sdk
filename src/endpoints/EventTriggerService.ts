@@ -1,16 +1,11 @@
-import { ApiFetch, Filter } from '../core/ApiFetch';
-import { EmergencyContact } from '../models/EmergencyContact';
-import { Event } from '../models/Event';
-import { AssetState } from '../models/AssetState';
-import { EventTriggerAssetState } from '../models/EventTriggerAssetState';
-import { EventTriggerRule } from '../models/EventTriggerRule';
-import { EventComment } from '../models/EventComment';
-import { EventData } from '../models/Event';
-import { EventStateChange } from '../models/EventStateChange';
-
-/**
- * Api services for the `EventTrigger` model.
- */
+import { ApiFetch, Filter } from "../core/ApiFetch";
+import { AssetState } from "../models/AssetState";
+import { EmergencyContact } from "../models/EmergencyContact";
+import { Event, EventData } from "../models/Event";
+import { EventComment } from "../models/EventComment";
+import { EventStateChange } from "../models/EventStateChange";
+import { EventTriggerAssetState } from "../models/EventTriggerAssetState";
+import { EventTriggerRule } from "../models/EventTriggerRule";
 
 /**
  * Find a related item by id for emergencyContacts.
@@ -21,8 +16,8 @@ export async function EventTrigger_FindByIdEmergencyContacts(
   fk: string,
 ): Promise<EmergencyContact> {
   return ApiFetch({
-    method: 'GET',
-    url: '/EventTriggers/:id/emergencyContacts/:fk',
+    method: "GET",
+    url: "/EventTriggers/:id/emergencyContacts/:fk",
     routeParams: {
       id,
       fk,
@@ -36,11 +31,11 @@ export async function EventTrigger_FindByIdEmergencyContacts(
 export async function EventTrigger_LinkEmergencyContacts(
   id: string,
   fk: string,
-  data: any = {},
+  data?: any,
 ): Promise<any> {
   return ApiFetch({
-    method: 'PUT',
-    url: '/EventTriggers/:id/emergencyContacts/rel/:fk',
+    method: "PUT",
+    url: "/EventTriggers/:id/emergencyContacts/rel/:fk",
     routeParams: {
       id,
       fk,
@@ -57,8 +52,8 @@ export async function EventTrigger_UnlinkEmergencyContacts(
   fk: string,
 ): Promise<void> {
   return ApiFetch({
-    method: 'DELETE',
-    url: '/EventTriggers/:id/emergencyContacts/rel/:fk',
+    method: "DELETE",
+    url: "/EventTriggers/:id/emergencyContacts/rel/:fk",
     routeParams: {
       id,
       fk,
@@ -74,8 +69,8 @@ export async function EventTrigger_FindByIdEvents(
   fk: string,
 ): Promise<Event> {
   return ApiFetch({
-    method: 'GET',
-    url: '/EventTriggers/:id/events/:fk',
+    method: "GET",
+    url: "/EventTriggers/:id/events/:fk",
     routeParams: {
       id,
       fk,
@@ -89,11 +84,11 @@ export async function EventTrigger_FindByIdEvents(
 export async function EventTrigger_UpdateByIdEvents(
   id: string,
   fk: string,
-  data: any = {},
+  data?: any,
 ): Promise<Event> {
   return ApiFetch({
-    method: 'PUT',
-    url: '/EventTriggers/:id/events/:fk',
+    method: "PUT",
+    url: "/EventTriggers/:id/events/:fk",
     routeParams: {
       id,
       fk,
@@ -110,8 +105,8 @@ export async function EventTrigger_FindByIdAssetStates(
   fk: string,
 ): Promise<AssetState> {
   return ApiFetch({
-    method: 'GET',
-    url: '/EventTriggers/:id/assetStates/:fk',
+    method: "GET",
+    url: "/EventTriggers/:id/assetStates/:fk",
     routeParams: {
       id,
       fk,
@@ -125,11 +120,11 @@ export async function EventTrigger_FindByIdAssetStates(
 export async function EventTrigger_LinkAssetStates(
   id: string,
   fk: string,
-  data: any = {},
+  data?: any,
 ): Promise<EventTriggerAssetState> {
   return ApiFetch({
-    method: 'PUT',
-    url: '/EventTriggers/:id/assetStates/rel/:fk',
+    method: "PUT",
+    url: "/EventTriggers/:id/assetStates/rel/:fk",
     routeParams: {
       id,
       fk,
@@ -146,8 +141,8 @@ export async function EventTrigger_UnlinkAssetStates(
   fk: string,
 ): Promise<void> {
   return ApiFetch({
-    method: 'DELETE',
-    url: '/EventTriggers/:id/assetStates/rel/:fk',
+    method: "DELETE",
+    url: "/EventTriggers/:id/assetStates/rel/:fk",
     routeParams: {
       id,
       fk,
@@ -163,8 +158,8 @@ export async function EventTrigger_ExistsAssetStates(
   fk: string,
 ): Promise<boolean> {
   return ApiFetch({
-    method: 'HEAD',
-    url: '/EventTriggers/:id/assetStates/rel/:fk',
+    method: "HEAD",
+    url: "/EventTriggers/:id/assetStates/rel/:fk",
     routeParams: {
       id,
       fk,
@@ -180,8 +175,8 @@ export async function EventTrigger_FindByIdStates(
   fk: string,
 ): Promise<EventTriggerAssetState> {
   return ApiFetch({
-    method: 'GET',
-    url: '/EventTriggers/:id/states/:fk',
+    method: "GET",
+    url: "/EventTriggers/:id/states/:fk",
     routeParams: {
       id,
       fk,
@@ -195,11 +190,11 @@ export async function EventTrigger_FindByIdStates(
 export async function EventTrigger_UpdateByIdStates(
   id: string,
   fk: string,
-  data: any = {},
+  data?: any,
 ): Promise<EventTriggerAssetState> {
   return ApiFetch({
-    method: 'PUT',
-    url: '/EventTriggers/:id/states/:fk',
+    method: "PUT",
+    url: "/EventTriggers/:id/states/:fk",
     routeParams: {
       id,
       fk,
@@ -216,8 +211,8 @@ export async function EventTrigger_FindByIdRules(
   fk: string,
 ): Promise<EventTriggerRule> {
   return ApiFetch({
-    method: 'GET',
-    url: '/EventTriggers/:id/rules/:fk',
+    method: "GET",
+    url: "/EventTriggers/:id/rules/:fk",
     routeParams: {
       id,
       fk,
@@ -233,8 +228,8 @@ export async function EventTrigger_DestroyByIdRules(
   fk: string,
 ): Promise<void> {
   return ApiFetch({
-    method: 'DELETE',
-    url: '/EventTriggers/:id/rules/:fk',
+    method: "DELETE",
+    url: "/EventTriggers/:id/rules/:fk",
     routeParams: {
       id,
       fk,
@@ -248,11 +243,11 @@ export async function EventTrigger_DestroyByIdRules(
 export async function EventTrigger_UpdateByIdRules(
   id: string,
   fk: string,
-  data: any = {},
+  data?: any,
 ): Promise<EventTriggerRule> {
   return ApiFetch({
-    method: 'PUT',
-    url: '/EventTriggers/:id/rules/:fk',
+    method: "PUT",
+    url: "/EventTriggers/:id/rules/:fk",
     routeParams: {
       id,
       fk,
@@ -267,11 +262,11 @@ export async function EventTrigger_UpdateByIdRules(
 export async function EventTrigger_LinkTelegramChats(
   id: string,
   fk: string,
-  data: any = {},
+  data?: any,
 ): Promise<any> {
   return ApiFetch({
-    method: 'PUT',
-    url: '/EventTriggers/:id/telegramChats/rel/:fk',
+    method: "PUT",
+    url: "/EventTriggers/:id/telegramChats/rel/:fk",
     routeParams: {
       id,
       fk,
@@ -288,8 +283,8 @@ export async function EventTrigger_UnlinkTelegramChats(
   fk: string,
 ): Promise<void> {
   return ApiFetch({
-    method: 'DELETE',
-    url: '/EventTriggers/:id/telegramChats/rel/:fk',
+    method: "DELETE",
+    url: "/EventTriggers/:id/telegramChats/rel/:fk",
     routeParams: {
       id,
       fk,
@@ -306,12 +301,12 @@ export async function EventTrigger_GetEmergencyContacts(
 ): Promise<EmergencyContact[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams['filter'] = filter;
+    _urlParams["filter"] = filter;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/EventTriggers/:id/emergencyContacts',
+    method: "GET",
+    url: "/EventTriggers/:id/emergencyContacts",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -324,16 +319,16 @@ export async function EventTrigger_GetEmergencyContacts(
  */
 export async function EventTrigger_CountEmergencyContacts(
   id: string,
-  where?: Filter<EmergencyContact>['where'],
+  where?: Filter<EmergencyContact>["where"],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams['where'] = where;
+    _urlParams["where"] = where;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/EventTriggers/:id/emergencyContacts/count',
+    method: "GET",
+    url: "/EventTriggers/:id/emergencyContacts/count",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -350,12 +345,12 @@ export async function EventTrigger_GetEvents(
 ): Promise<Event[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams['filter'] = filter;
+    _urlParams["filter"] = filter;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/EventTriggers/:id/events',
+    method: "GET",
+    url: "/EventTriggers/:id/events",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -368,16 +363,16 @@ export async function EventTrigger_GetEvents(
  */
 export async function EventTrigger_CountEvents(
   id: string,
-  where?: Filter<Event>['where'],
+  where?: Filter<Event>["where"],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams['where'] = where;
+    _urlParams["where"] = where;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/EventTriggers/:id/events/count',
+    method: "GET",
+    url: "/EventTriggers/:id/events/count",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -394,12 +389,12 @@ export async function EventTrigger_GetAssetStates(
 ): Promise<AssetState[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams['filter'] = filter;
+    _urlParams["filter"] = filter;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/EventTriggers/:id/assetStates',
+    method: "GET",
+    url: "/EventTriggers/:id/assetStates",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -412,16 +407,16 @@ export async function EventTrigger_GetAssetStates(
  */
 export async function EventTrigger_CountAssetStates(
   id: string,
-  where?: Filter<AssetState>['where'],
+  where?: Filter<AssetState>["where"],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams['where'] = where;
+    _urlParams["where"] = where;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/EventTriggers/:id/assetStates/count',
+    method: "GET",
+    url: "/EventTriggers/:id/assetStates/count",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -438,12 +433,12 @@ export async function EventTrigger_GetStates(
 ): Promise<EventTriggerAssetState[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams['filter'] = filter;
+    _urlParams["filter"] = filter;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/EventTriggers/:id/states',
+    method: "GET",
+    url: "/EventTriggers/:id/states",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -456,16 +451,16 @@ export async function EventTrigger_GetStates(
  */
 export async function EventTrigger_CountStates(
   id: string,
-  where?: Filter<EventTriggerAssetState>['where'],
+  where?: Filter<EventTriggerAssetState>["where"],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams['where'] = where;
+    _urlParams["where"] = where;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/EventTriggers/:id/states/count',
+    method: "GET",
+    url: "/EventTriggers/:id/states/count",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -482,12 +477,12 @@ export async function EventTrigger_GetRules(
 ): Promise<EventTriggerRule[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams['filter'] = filter;
+    _urlParams["filter"] = filter;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/EventTriggers/:id/rules',
+    method: "GET",
+    url: "/EventTriggers/:id/rules",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -500,11 +495,11 @@ export async function EventTrigger_GetRules(
  */
 export async function EventTrigger_CreateRules(
   id: string,
-  data: any = {},
+  data?: any,
 ): Promise<EventTriggerRule> {
   return ApiFetch({
-    method: 'POST',
-    url: '/EventTriggers/:id/rules',
+    method: "POST",
+    url: "/EventTriggers/:id/rules",
     routeParams: {
       id,
     },
@@ -517,16 +512,16 @@ export async function EventTrigger_CreateRules(
  */
 export async function EventTrigger_CountRules(
   id: string,
-  where?: Filter<EventTriggerRule>['where'],
+  where?: Filter<EventTriggerRule>["where"],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams['where'] = where;
+    _urlParams["where"] = where;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/EventTriggers/:id/rules/count',
+    method: "GET",
+    url: "/EventTriggers/:id/rules/count",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -543,8 +538,8 @@ export async function EventTrigger_DownloadEvents(
   file: string,
 ): Promise<any> {
   return ApiFetch({
-    method: 'GET',
-    url: '/EventTriggers/:id/events/:nk/download/:file',
+    method: "GET",
+    url: "/EventTriggers/:id/events/:nk/download/:file",
     routeParams: {
       id,
       nk,
@@ -565,16 +560,19 @@ export async function EventTrigger_DownloadByIdEventsData(
   wm?: boolean,
 ): Promise<any> {
   const _urlParams: any = {};
+  if (file != null) {
+    _urlParams["file"] = file;
+  }
   if (draw != null) {
-    _urlParams['draw'] = draw;
+    _urlParams["draw"] = draw;
   }
   if (wm != null) {
-    _urlParams['wm'] = wm;
+    _urlParams["wm"] = wm;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/EventTriggers/:id/events/:nk/data/:fk/download',
+    method: "GET",
+    url: "/EventTriggers/:id/events/:nk/data/:fk/download",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -593,8 +591,8 @@ export async function EventTrigger_FindByIdEventsComments(
   fk: string,
 ): Promise<EventComment> {
   return ApiFetch({
-    method: 'GET',
-    url: '/EventTriggers/:id/events/:nk/comments/:fk',
+    method: "GET",
+    url: "/EventTriggers/:id/events/:nk/comments/:fk",
     routeParams: {
       id,
       nk,
@@ -612,8 +610,8 @@ export async function EventTrigger_DestroyByIdEventsComments(
   fk: string,
 ): Promise<void> {
   return ApiFetch({
-    method: 'DELETE',
-    url: '/EventTriggers/:id/events/:nk/comments/:fk',
+    method: "DELETE",
+    url: "/EventTriggers/:id/events/:nk/comments/:fk",
     routeParams: {
       id,
       nk,
@@ -629,11 +627,11 @@ export async function EventTrigger_UpdateByIdEventsComments(
   id: string,
   nk: string,
   fk: string,
-  data: any = {},
+  data?: any,
 ): Promise<EventComment> {
   return ApiFetch({
-    method: 'PUT',
-    url: '/EventTriggers/:id/events/:nk/comments/:fk',
+    method: "PUT",
+    url: "/EventTriggers/:id/events/:nk/comments/:fk",
     routeParams: {
       id,
       nk,
@@ -652,8 +650,8 @@ export async function EventTrigger_FindByIdEventsData(
   fk: string,
 ): Promise<EventData> {
   return ApiFetch({
-    method: 'GET',
-    url: '/EventTriggers/:id/events/:nk/data/:fk',
+    method: "GET",
+    url: "/EventTriggers/:id/events/:nk/data/:fk",
     routeParams: {
       id,
       nk,
@@ -669,11 +667,11 @@ export async function EventTrigger_UpdateByIdEventsData(
   id: string,
   nk: string,
   fk: string,
-  data: any = {},
+  data?: any,
 ): Promise<EventData> {
   return ApiFetch({
-    method: 'PUT',
-    url: '/EventTriggers/:id/events/:nk/data/:fk',
+    method: "PUT",
+    url: "/EventTriggers/:id/events/:nk/data/:fk",
     routeParams: {
       id,
       nk,
@@ -692,8 +690,8 @@ export async function EventTrigger_FindByIdEventsStateChanges(
   fk: string,
 ): Promise<EventStateChange> {
   return ApiFetch({
-    method: 'GET',
-    url: '/EventTriggers/:id/events/:nk/stateChanges/:fk',
+    method: "GET",
+    url: "/EventTriggers/:id/events/:nk/stateChanges/:fk",
     routeParams: {
       id,
       nk,
@@ -712,12 +710,12 @@ export async function EventTrigger_GetEventsComments(
 ): Promise<EventComment[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams['filter'] = filter;
+    _urlParams["filter"] = filter;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/EventTriggers/:id/events/:nk/comments',
+    method: "GET",
+    url: "/EventTriggers/:id/events/:nk/comments",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -732,11 +730,11 @@ export async function EventTrigger_GetEventsComments(
 export async function EventTrigger_CreateEventsComments(
   id: string,
   nk: string,
-  data: any = {},
+  data?: any,
 ): Promise<EventComment> {
   return ApiFetch({
-    method: 'POST',
-    url: '/EventTriggers/:id/events/:nk/comments',
+    method: "POST",
+    url: "/EventTriggers/:id/events/:nk/comments",
     routeParams: {
       id,
       nk,
@@ -751,16 +749,16 @@ export async function EventTrigger_CreateEventsComments(
 export async function EventTrigger_CountEventsComments(
   id: string,
   nk: string,
-  where?: Filter<Event>['where'],
+  where?: Filter<Event>["where"],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams['where'] = where;
+    _urlParams["where"] = where;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/EventTriggers/:id/events/:nk/comments/count',
+    method: "GET",
+    url: "/EventTriggers/:id/events/:nk/comments/count",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -779,12 +777,12 @@ export async function EventTrigger_GetEventsData(
 ): Promise<EventData[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams['filter'] = filter;
+    _urlParams["filter"] = filter;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/EventTriggers/:id/events/:nk/data',
+    method: "GET",
+    url: "/EventTriggers/:id/events/:nk/data",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -799,16 +797,16 @@ export async function EventTrigger_GetEventsData(
 export async function EventTrigger_CountEventsData(
   id: string,
   nk: string,
-  where?: Filter<Event>['where'],
+  where?: Filter<Event>["where"],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams['where'] = where;
+    _urlParams["where"] = where;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/EventTriggers/:id/events/:nk/data/count',
+    method: "GET",
+    url: "/EventTriggers/:id/events/:nk/data/count",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -827,12 +825,12 @@ export async function EventTrigger_GetEventsStateChanges(
 ): Promise<EventStateChange[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams['filter'] = filter;
+    _urlParams["filter"] = filter;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/EventTriggers/:id/events/:nk/stateChanges',
+    method: "GET",
+    url: "/EventTriggers/:id/events/:nk/stateChanges",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -847,11 +845,11 @@ export async function EventTrigger_GetEventsStateChanges(
 export async function EventTrigger_CreateEventsStateChanges(
   id: string,
   nk: string,
-  data: any = {},
+  data?: any,
 ): Promise<EventStateChange> {
   return ApiFetch({
-    method: 'POST',
-    url: '/EventTriggers/:id/events/:nk/stateChanges',
+    method: "POST",
+    url: "/EventTriggers/:id/events/:nk/stateChanges",
     routeParams: {
       id,
       nk,
@@ -866,16 +864,16 @@ export async function EventTrigger_CreateEventsStateChanges(
 export async function EventTrigger_CountEventsStateChanges(
   id: string,
   nk: string,
-  where?: Filter<Event>['where'],
+  where?: Filter<Event>["where"],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams['where'] = where;
+    _urlParams["where"] = where;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/EventTriggers/:id/events/:nk/stateChanges/count',
+    method: "GET",
+    url: "/EventTriggers/:id/events/:nk/stateChanges/count",
     urlParams: _urlParams,
     routeParams: {
       id,

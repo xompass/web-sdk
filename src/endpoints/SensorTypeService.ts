@@ -1,14 +1,5 @@
-import { ApiFetch, Filter } from '../core/ApiFetch';
-import { Alert } from '../models/Alert';
-import { Data } from '../models/Data';
-import { EventTriggerRuleClause } from '../models/EventTriggerRule';
-import { Sensor } from '../models/Sensor';
-import { Summary } from '../models/Summary';
-import { Threshold } from '../models/Threshold';
-
-/**
- * Api services for the `SensorType` model.
- */
+import { ApiFetch, Filter } from "../core/ApiFetch";
+import { SensorType } from "../models/SensorType";
 
 /**
  * Get the alerts schema in JSON Schema format
@@ -16,8 +7,8 @@ import { Threshold } from '../models/Threshold';
  */
 export async function SensorType_GetSchemasAlerts(id: string): Promise<any> {
   return ApiFetch({
-    method: 'GET',
-    url: '/SensorTypes/:id/schemas/alerts',
+    method: "GET",
+    url: "/SensorTypes/:id/schemas/alerts",
     routeParams: {
       id,
     },
@@ -31,8 +22,8 @@ export async function SensorType_FindByTypeSchemasAlerts(
   type: string,
 ): Promise<any> {
   return ApiFetch({
-    method: 'GET',
-    url: '/SensorTypes/type/:type/schemas/alerts',
+    method: "GET",
+    url: "/SensorTypes/type/:type/schemas/alerts",
     routeParams: {
       type,
     },
@@ -44,8 +35,8 @@ export async function SensorType_FindByTypeSchemasAlerts(
  */
 export async function SensorType_GetSchemasData(id: string): Promise<any> {
   return ApiFetch({
-    method: 'GET',
-    url: '/SensorTypes/:id/schemas/data',
+    method: "GET",
+    url: "/SensorTypes/:id/schemas/data",
     routeParams: {
       id,
     },
@@ -59,8 +50,8 @@ export async function SensorType_FindByTypeSchemasData(
   type: string,
 ): Promise<any> {
   return ApiFetch({
-    method: 'GET',
-    url: '/SensorTypes/type/:type/schemas/data',
+    method: "GET",
+    url: "/SensorTypes/type/:type/schemas/data",
     routeParams: {
       type,
     },
@@ -74,8 +65,8 @@ export async function SensorType_GetSchemasEventTriggerRuleClauses(
   id: string,
 ): Promise<any> {
   return ApiFetch({
-    method: 'GET',
-    url: '/SensorTypes/:id/schemas/eventTriggerRuleClauses',
+    method: "GET",
+    url: "/SensorTypes/:id/schemas/eventTriggerRuleClauses",
     routeParams: {
       id,
     },
@@ -89,8 +80,8 @@ export async function SensorType_FindByTypeSchemasEventTriggerRuleClauses(
   type: string,
 ): Promise<any> {
   return ApiFetch({
-    method: 'GET',
-    url: '/SensorTypes/type/:type/schemas/eventTriggerRuleClauses',
+    method: "GET",
+    url: "/SensorTypes/type/:type/schemas/eventTriggerRuleClauses",
     routeParams: {
       type,
     },
@@ -102,8 +93,8 @@ export async function SensorType_FindByTypeSchemasEventTriggerRuleClauses(
  */
 export async function SensorType_GetSchemasSensors(id: string): Promise<any> {
   return ApiFetch({
-    method: 'GET',
-    url: '/SensorTypes/:id/schemas/sensors',
+    method: "GET",
+    url: "/SensorTypes/:id/schemas/sensors",
     routeParams: {
       id,
     },
@@ -117,8 +108,8 @@ export async function SensorType_FindByTypeSchemasSensors(
   type: string,
 ): Promise<any> {
   return ApiFetch({
-    method: 'GET',
-    url: '/SensorTypes/type/:type/schemas/sensors',
+    method: "GET",
+    url: "/SensorTypes/type/:type/schemas/sensors",
     routeParams: {
       type,
     },
@@ -130,8 +121,8 @@ export async function SensorType_FindByTypeSchemasSensors(
  */
 export async function SensorType_GetSchemasSummaries(id: string): Promise<any> {
   return ApiFetch({
-    method: 'GET',
-    url: '/SensorTypes/:id/schemas/summaries',
+    method: "GET",
+    url: "/SensorTypes/:id/schemas/summaries",
     routeParams: {
       id,
     },
@@ -145,8 +136,8 @@ export async function SensorType_FindByTypeSchemasSummaries(
   type: string,
 ): Promise<any> {
   return ApiFetch({
-    method: 'GET',
-    url: '/SensorTypes/type/:type/schemas/summaries',
+    method: "GET",
+    url: "/SensorTypes/type/:type/schemas/summaries",
     routeParams: {
       type,
     },
@@ -160,8 +151,8 @@ export async function SensorType_GetSchemasThresholds(
   id: string,
 ): Promise<any> {
   return ApiFetch({
-    method: 'GET',
-    url: '/SensorTypes/:id/schemas/thresholds',
+    method: "GET",
+    url: "/SensorTypes/:id/schemas/thresholds",
     routeParams: {
       id,
     },
@@ -175,8 +166,8 @@ export async function SensorType_FindByTypeSchemasThresholds(
   type: string,
 ): Promise<any> {
   return ApiFetch({
-    method: 'GET',
-    url: '/SensorTypes/type/:type/schemas/thresholds',
+    method: "GET",
+    url: "/SensorTypes/type/:type/schemas/thresholds",
     routeParams: {
       type,
     },
@@ -187,18 +178,17 @@ export async function SensorType_FindByTypeSchemasThresholds(
  * /SensorTypes/schemas/alerts
  */
 export async function SensorType_FindSchemasAlerts(
-  filter?: Filter<Alert>,
+  filter?: Filter<SensorType>,
 ): Promise<any[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams['filter'] = filter;
+    _urlParams["filter"] = filter;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/SensorTypes/schemas/alerts',
+    method: "GET",
+    url: "/SensorTypes/schemas/alerts",
     urlParams: _urlParams,
-    routeParams: {},
   });
 }
 /**
@@ -206,18 +196,17 @@ export async function SensorType_FindSchemasAlerts(
  * /SensorTypes/schemas/data
  */
 export async function SensorType_FindSchemasData(
-  filter?: Filter<Data>,
+  filter?: Filter<SensorType>,
 ): Promise<any[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams['filter'] = filter;
+    _urlParams["filter"] = filter;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/SensorTypes/schemas/data',
+    method: "GET",
+    url: "/SensorTypes/schemas/data",
     urlParams: _urlParams,
-    routeParams: {},
   });
 }
 /**
@@ -225,18 +214,17 @@ export async function SensorType_FindSchemasData(
  * /SensorTypes/schemas/eventTriggerRuleClauses
  */
 export async function SensorType_FindSchemasEventTriggerRuleClauses(
-  filter?: Filter<EventTriggerRuleClause>,
+  filter?: Filter<SensorType>,
 ): Promise<any[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams['filter'] = filter;
+    _urlParams["filter"] = filter;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/SensorTypes/schemas/eventTriggerRuleClauses',
+    method: "GET",
+    url: "/SensorTypes/schemas/eventTriggerRuleClauses",
     urlParams: _urlParams,
-    routeParams: {},
   });
 }
 /**
@@ -244,18 +232,17 @@ export async function SensorType_FindSchemasEventTriggerRuleClauses(
  * /SensorTypes/schemas/sensors
  */
 export async function SensorType_FindSchemasSensors(
-  filter?: Filter<Sensor>,
+  filter?: Filter<SensorType>,
 ): Promise<any[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams['filter'] = filter;
+    _urlParams["filter"] = filter;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/SensorTypes/schemas/sensors',
+    method: "GET",
+    url: "/SensorTypes/schemas/sensors",
     urlParams: _urlParams,
-    routeParams: {},
   });
 }
 /**
@@ -263,18 +250,17 @@ export async function SensorType_FindSchemasSensors(
  * /SensorTypes/schemas/summaries
  */
 export async function SensorType_FindSchemasSummaries(
-  filter?: Filter<Summary>,
+  filter?: Filter<SensorType>,
 ): Promise<any[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams['filter'] = filter;
+    _urlParams["filter"] = filter;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/SensorTypes/schemas/summaries',
+    method: "GET",
+    url: "/SensorTypes/schemas/summaries",
     urlParams: _urlParams,
-    routeParams: {},
   });
 }
 /**
@@ -282,18 +268,17 @@ export async function SensorType_FindSchemasSummaries(
  * /SensorTypes/schemas/thresholds
  */
 export async function SensorType_FindSchemasThresholds(
-  filter?: Filter<Threshold>,
+  filter?: Filter<SensorType>,
 ): Promise<any[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams['filter'] = filter;
+    _urlParams["filter"] = filter;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/SensorTypes/schemas/thresholds',
+    method: "GET",
+    url: "/SensorTypes/schemas/thresholds",
     urlParams: _urlParams,
-    routeParams: {},
   });
 }
 /**
@@ -302,9 +287,8 @@ export async function SensorType_FindSchemasThresholds(
  */
 export async function SensorType_getSchemasConfig(): Promise<any> {
   return ApiFetch({
-    method: 'GET',
-    url: '/SensorTypes/schemas/config',
-    routeParams: {},
+    method: "GET",
+    url: "/SensorTypes/schemas/config",
   });
 }
 /**
@@ -313,8 +297,8 @@ export async function SensorType_getSchemasConfig(): Promise<any> {
  */
 export async function SensorType_GetSchemas(id: string): Promise<any> {
   return ApiFetch({
-    method: 'GET',
-    url: '/SensorTypes/:id/schemas',
+    method: "GET",
+    url: "/SensorTypes/:id/schemas",
     routeParams: {
       id,
     },

@@ -1,5 +1,5 @@
-import { AssetType } from './AssetType';
-import { Log } from './Log';
+import { AssetType } from "./AssetType";
+import { Log } from "./Log";
 
 export type Tool = {
   name?: string;
@@ -12,6 +12,6 @@ export type Tool = {
   deleted?: Date;
   id?: string;
   assetTypeIds?: string[];
-  trackingLogs?: Log[];
   assetTypes?: AssetType[];
+  trackingLogs?: Log[];
 };

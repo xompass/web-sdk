@@ -1,11 +1,11 @@
-import { Asset } from './Asset';
-import { EventTrigger } from './EventTrigger';
-import { Log } from './Log';
-import { Manager } from './Manager';
-import { Project } from './Project';
+import { Asset } from "./Asset";
+import { EventTrigger } from "./EventTrigger";
+import { Log } from "./Log";
+import { Manager } from "./Manager";
+import { Project } from "./Project";
 
 export type EventDashboard = {
-  type: string;
+  type: "AUTO" | "COVID_19" | "GENERIC" | "SAFE_CITY" | "STORE_ANOMALIES";
   name: string;
   description?: string;
   created?: Date;
@@ -17,9 +17,9 @@ export type EventDashboard = {
   assets?: Asset[];
   eventDashboardEventTriggers?: EventDashboardEventTrigger[];
   eventTriggers?: EventTrigger[];
-  trackingLogs?: Log[];
   managers?: Manager[];
   project?: Project;
+  trackingLogs?: Log[];
 };
 
 export type EventDashboardEventTrigger = {
@@ -31,4 +31,7 @@ export type EventDashboardEventTrigger = {
   id?: string;
   eventDashboardId?: string;
   eventTriggerId?: string;
+  eventDashboard?: EventDashboard;
+  eventTrigger?: EventTrigger;
+  trackingLogs?: Log[];
 };

@@ -1,10 +1,6 @@
-import { ApiFetch, Filter } from '../core/ApiFetch';
-import { Asset } from '../models/Asset';
-import { Manager } from '../models/Manager';
-
-/**
- * Api services for the `CctvDashboard` model.
- */
+import { ApiFetch, Filter } from "../core/ApiFetch";
+import { Asset } from "../models/Asset";
+import { Manager } from "../models/Manager";
 
 /**
  * Find a related item by id for assets.
@@ -15,8 +11,8 @@ export async function CctvDashboard_FindByIdAssets(
   fk: string,
 ): Promise<Asset> {
   return ApiFetch({
-    method: 'GET',
-    url: '/CctvDashboards/:id/assets/:fk',
+    method: "GET",
+    url: "/CctvDashboards/:id/assets/:fk",
     routeParams: {
       id,
       fk,
@@ -32,8 +28,8 @@ export async function CctvDashboard_LinkAssets(
   fk: string,
 ): Promise<Asset> {
   return ApiFetch({
-    method: 'PUT',
-    url: '/CctvDashboards/:id/assets/rel/:fk',
+    method: "PUT",
+    url: "/CctvDashboards/:id/assets/rel/:fk",
     routeParams: {
       id,
       fk,
@@ -49,8 +45,8 @@ export async function CctvDashboard_UnlinkAssets(
   fk: string,
 ): Promise<void> {
   return ApiFetch({
-    method: 'DELETE',
-    url: '/CctvDashboards/:id/assets/rel/:fk',
+    method: "DELETE",
+    url: "/CctvDashboards/:id/assets/rel/:fk",
     routeParams: {
       id,
       fk,
@@ -66,8 +62,8 @@ export async function CctvDashboard_ExistsAssets(
   fk: string,
 ): Promise<boolean> {
   return ApiFetch({
-    method: 'HEAD',
-    url: '/CctvDashboards/:id/assets/rel/:fk',
+    method: "HEAD",
+    url: "/CctvDashboards/:id/assets/rel/:fk",
     routeParams: {
       id,
       fk,
@@ -83,8 +79,8 @@ export async function CctvDashboard_FindByIdManagers(
   fk: string,
 ): Promise<Manager> {
   return ApiFetch({
-    method: 'GET',
-    url: '/CctvDashboards/:id/managers/:fk',
+    method: "GET",
+    url: "/CctvDashboards/:id/managers/:fk",
     routeParams: {
       id,
       fk,
@@ -101,12 +97,12 @@ export async function CctvDashboard_GetAssets(
 ): Promise<Asset[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams['filter'] = filter;
+    _urlParams["filter"] = filter;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/CctvDashboards/:id/assets',
+    method: "GET",
+    url: "/CctvDashboards/:id/assets",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -119,16 +115,16 @@ export async function CctvDashboard_GetAssets(
  */
 export async function CctvDashboard_CountAssets(
   id: string,
-  where?: Filter<Asset>['where'],
+  where?: Filter<Asset>["where"],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams['where'] = where;
+    _urlParams["where"] = where;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/CctvDashboards/:id/assets/count',
+    method: "GET",
+    url: "/CctvDashboards/:id/assets/count",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -141,16 +137,16 @@ export async function CctvDashboard_CountAssets(
  */
 export async function CctvDashboard_GetManagers(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<Manager>,
 ): Promise<Manager[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams['filter'] = filter;
+    _urlParams["filter"] = filter;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/CctvDashboards/:id/managers',
+    method: "GET",
+    url: "/CctvDashboards/:id/managers",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -163,16 +159,16 @@ export async function CctvDashboard_GetManagers(
  */
 export async function CctvDashboard_CountManagers(
   id: string,
-  where: any = {},
+  where?: Filter<Manager>["where"],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams['where'] = where;
+    _urlParams["where"] = where;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/CctvDashboards/:id/managers/count',
+    method: "GET",
+    url: "/CctvDashboards/:id/managers/count",
     urlParams: _urlParams,
     routeParams: {
       id,

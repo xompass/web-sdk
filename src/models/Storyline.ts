@@ -1,18 +1,18 @@
-import { Asset } from './Asset';
-import { Customer } from './Customer';
-import { Log } from './Log';
-import { Project } from './Project';
-import { StorylineCategory } from './StorylineCategory';
-import { Storypoint } from './Storypoint';
-import { FileMetadata } from './FileMetadata';
+import { Asset } from "./Asset";
+import { Customer } from "./Customer";
+import { FileMetadata } from "./FileMetadata";
+import { Log } from "./Log";
+import { Project } from "./Project";
+import { StorylineCategory } from "./StorylineCategory";
+import { Storypoint } from "./Storypoint";
 
 export type Storyline = {
   name: string;
-  status?: string;
+  status?: "IN_PROGRESS" | "CLOSED" | "FINISHED";
   storylineDate: Date;
   description?: string;
   placeOfReference?: string;
-  storypointsOrder?: any;
+  storypointsOrder?: any[];
   created?: Date;
   modified?: Date;
   deleted?: Date;
@@ -23,14 +23,14 @@ export type Storyline = {
   principalType?: string;
   assetIds?: string[];
   storylineCategoryId?: string;
-  trackingLogs?: Log[];
-  project?: Project;
-  customer?: Customer;
-  author?: any;
   assets?: Asset[];
-  storylineCategory?: StorylineCategory;
+  author?: any;
   container?: StorylineStorageContainer;
+  customer?: Customer;
+  project?: Project;
+  storylineCategory?: StorylineCategory;
   storypoints?: Storypoint[];
+  trackingLogs?: Log[];
 };
 
 export type StorylineStorageContainer = {
@@ -41,4 +41,7 @@ export type StorylineStorageContainer = {
   deleted?: Date;
   storylineId?: string;
   _files?: FileMetadata[];
+  files?: FileMetadata[];
+  storyline?: Storyline;
+  trackingLogs?: Log[];
 };

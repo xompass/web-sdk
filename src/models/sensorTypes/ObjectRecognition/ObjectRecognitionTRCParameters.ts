@@ -180,12 +180,12 @@ export type ObjectRecognitionBasedOnRulesTRCParameters = {
         minProbability?: number;
       };
     };
-    'pallet-jack'?: {
+    "pallet-jack"?: {
       thresholds?: {
         minProbability?: number;
       };
     };
-    'pallet-stacker'?: {
+    "pallet-stacker"?: {
       thresholds?: {
         minProbability?: number;
       };
@@ -290,12 +290,12 @@ export type ObjectRecognitionBasedOnRulesTRCParameters = {
         minProbability?: number;
       };
     };
-    'bolsa-fajos'?: {
+    "bolsa-fajos"?: {
       thresholds?: {
         minProbability?: number;
       };
     };
-    'bolsa-monedas'?: {
+    "bolsa-monedas"?: {
       thresholds?: {
         minProbability?: number;
       };
@@ -370,37 +370,37 @@ export type ObjectRecognitionBasedOnRulesTRCParameters = {
         minProbability?: number;
       };
     };
-    'safety-shoes'?: {
+    "safety-shoes"?: {
       thresholds?: {
         minProbability?: number;
       };
     };
-    'capuc-open'?: {
+    "capuc-open"?: {
       thresholds?: {
         minProbability?: number;
       };
     };
-    'capuc-closed'?: {
+    "capuc-closed"?: {
       thresholds?: {
         minProbability?: number;
       };
     };
-    'coffee-open'?: {
+    "coffee-open"?: {
       thresholds?: {
         minProbability?: number;
       };
     };
-    'coffee-closed'?: {
+    "coffee-closed"?: {
       thresholds?: {
         minProbability?: number;
       };
     };
-    'coffee-container'?: {
+    "coffee-container"?: {
       thresholds?: {
         minProbability?: number;
       };
     };
-    'empty-cups'?: {
+    "empty-cups"?: {
       thresholds?: {
         minProbability?: number;
       };
@@ -410,12 +410,12 @@ export type ObjectRecognitionBasedOnRulesTRCParameters = {
         minProbability?: number;
       };
     };
-    'cashier-open'?: {
+    "cashier-open"?: {
       thresholds?: {
         minProbability?: number;
       };
     };
-    'cashier-closed'?: {
+    "cashier-closed"?: {
       thresholds?: {
         minProbability?: number;
       };
@@ -425,7 +425,7 @@ export type ObjectRecognitionBasedOnRulesTRCParameters = {
         minProbability?: number;
       };
     };
-    'empty-slot'?: {
+    "empty-slot"?: {
       thresholds?: {
         minProbability?: number;
       };
@@ -460,17 +460,27 @@ export type ObjectRecognitionBasedOnRulesTRCParameters = {
         minProbability?: number;
       };
     };
+    hooded_person?: {
+      thresholds?: {
+        minProbability?: number;
+      };
+    };
+    sausage?: {
+      thresholds?: {
+        minProbability?: number;
+      };
+    };
   };
 };
 
 export type ObjectRecognitionBlacklistSearchTRCParameters = {
   minNumOfChars?: number;
   matchMethod?:
-    | 'exact'
-    | 'prefix'
-    | 'contains'
-    | 'fuzzy'
-    | 'not_match'
-    | 'null';
+    | "exact"
+    | "prefix"
+    | "contains"
+    | "fuzzy"
+    | "not_match"
+    | "null";
   fuzzyMaxDistance?: number;
 };

@@ -1,5 +1,6 @@
-import { Log } from './Log';
-import { Project } from './Project';
+import { FaceDatabase } from "./FaceDatabase";
+import { Log } from "./Log";
+import { Project } from "./Project";
 
 export type FaceSubject = {
   name: string;
@@ -18,8 +19,8 @@ export type FaceSubject = {
   projectId?: string;
   faceDatabaseLinks?: FaceDatabaseFaceSubject[];
   images?: FaceImage[];
-  trackingLogs?: Log[];
   project?: Project;
+  trackingLogs?: Log[];
 };
 
 export type FaceDatabaseFaceSubject = {
@@ -29,6 +30,9 @@ export type FaceDatabaseFaceSubject = {
   id?: string;
   faceDatabaseId?: string;
   faceSubjectId?: string;
+  faceDatabase?: FaceDatabase;
+  faceSubject?: FaceSubject;
+  trackingLogs?: Log[];
 };
 
 export type FaceImage = {
@@ -44,4 +48,6 @@ export type FaceImage = {
   deleted?: Date;
   id?: string;
   faceSubjectId?: string;
+  faceSubject?: FaceSubject;
+  trackingLogs?: Log[];
 };

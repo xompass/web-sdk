@@ -1,7 +1,7 @@
-import { Asset } from './Asset';
-import { Customer } from './Customer';
-import { Log } from './Log';
-import { Project } from './Project';
+import { Asset } from "./Asset";
+import { Customer } from "./Customer";
+import { Log } from "./Log";
+import { Project } from "./Project";
 
 export type ResponseProtocol = {
   name: string;
@@ -13,8 +13,8 @@ export type ResponseProtocol = {
   id?: string;
   projectId?: string;
   customerId?: string;
-  trackingLogs?: Log[];
-  project?: Project;
-  customer?: Customer;
   assets?: Asset[];
+  customer?: Customer;
+  project?: Project;
+  trackingLogs?: Log[];
 };

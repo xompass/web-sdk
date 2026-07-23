@@ -1,7 +1,7 @@
-import { Customer } from './Customer';
-import { FaceSubject } from './FaceSubject';
-import { Log } from './Log';
-import { Project } from './Project';
+import { Customer } from "./Customer";
+import { FaceSubject } from "./FaceSubject";
+import { Log } from "./Log";
+import { Project } from "./Project";
 
 export type FaceDatabase = {
   name: string;
@@ -17,6 +17,6 @@ export type FaceDatabase = {
   projectId?: string;
   customer?: Customer;
   faceSubjects?: FaceSubject[];
-  trackingLogs?: Log[];
   project?: Project;
+  trackingLogs?: Log[];
 };

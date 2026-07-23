@@ -1,10 +1,6 @@
-import { ApiFetch, Filter } from '../core/ApiFetch';
-import { Manager } from '../models/Manager';
-import { Asset } from '../models/Asset';
-
-/**
- * Api services for the `Report` model.
- */
+import { ApiFetch, Filter } from "../core/ApiFetch";
+import { Asset } from "../models/Asset";
+import { Manager } from "../models/Manager";
 
 /**
  * Find a related item by id for managers.
@@ -15,8 +11,8 @@ export async function Report_FindByIdManagers(
   fk: string,
 ): Promise<Manager> {
   return ApiFetch({
-    method: 'GET',
-    url: '/Reports/:id/managers/:fk',
+    method: "GET",
+    url: "/Reports/:id/managers/:fk",
     routeParams: {
       id,
       fk,
@@ -32,8 +28,8 @@ export async function Report_FindByIdAssets(
   fk: string,
 ): Promise<Asset> {
   return ApiFetch({
-    method: 'GET',
-    url: '/Reports/:id/assets/:fk',
+    method: "GET",
+    url: "/Reports/:id/assets/:fk",
     routeParams: {
       id,
       fk,
@@ -49,8 +45,8 @@ export async function Report_LinkAssets(
   fk: string,
 ): Promise<Asset> {
   return ApiFetch({
-    method: 'PUT',
-    url: '/Reports/:id/assets/rel/:fk',
+    method: "PUT",
+    url: "/Reports/:id/assets/rel/:fk",
     routeParams: {
       id,
       fk,
@@ -66,8 +62,8 @@ export async function Report_UnlinkAssets(
   fk: string,
 ): Promise<void> {
   return ApiFetch({
-    method: 'DELETE',
-    url: '/Reports/:id/assets/rel/:fk',
+    method: "DELETE",
+    url: "/Reports/:id/assets/rel/:fk",
     routeParams: {
       id,
       fk,
@@ -83,8 +79,8 @@ export async function Report_ExistsAssets(
   fk: string,
 ): Promise<boolean> {
   return ApiFetch({
-    method: 'HEAD',
-    url: '/Reports/:id/assets/rel/:fk',
+    method: "HEAD",
+    url: "/Reports/:id/assets/rel/:fk",
     routeParams: {
       id,
       fk,
@@ -101,12 +97,12 @@ export async function Report_GetManagers(
 ): Promise<Manager[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams['filter'] = filter;
+    _urlParams["filter"] = filter;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/Reports/:id/managers',
+    method: "GET",
+    url: "/Reports/:id/managers",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -119,16 +115,16 @@ export async function Report_GetManagers(
  */
 export async function Report_CountManagers(
   id: string,
-  where?: Filter<Manager>['where'],
+  where?: Filter<Manager>["where"],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams['where'] = where;
+    _urlParams["where"] = where;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/Reports/:id/managers/count',
+    method: "GET",
+    url: "/Reports/:id/managers/count",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -145,12 +141,12 @@ export async function Report_GetAssets(
 ): Promise<Asset[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams['filter'] = filter;
+    _urlParams["filter"] = filter;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/Reports/:id/assets',
+    method: "GET",
+    url: "/Reports/:id/assets",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -163,16 +159,16 @@ export async function Report_GetAssets(
  */
 export async function Report_CountAssets(
   id: string,
-  where?: Filter<Asset>['where'],
+  where?: Filter<Asset>["where"],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams['where'] = where;
+    _urlParams["where"] = where;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/Reports/:id/assets/count',
+    method: "GET",
+    url: "/Reports/:id/assets/count",
     urlParams: _urlParams,
     routeParams: {
       id,

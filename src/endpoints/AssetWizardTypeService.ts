@@ -1,9 +1,5 @@
-import { ApiFetch, Filter } from '../core/ApiFetch';
-import { EdgeAgentTemplate } from '../models/EdgeAgentTemplate';
-
-/**
- * Api services for the `AssetWizardType` model.
- */
+import { ApiFetch, Filter } from "../core/ApiFetch";
+import { EdgeAgentTemplate } from "../models/EdgeAgentTemplate";
 
 /**
  * Find a related item by id for edgeAgentTemplates.
@@ -14,8 +10,8 @@ export async function AssetWizardType_FindByIdEdgeAgentTemplates(
   fk: string,
 ): Promise<EdgeAgentTemplate> {
   return ApiFetch({
-    method: 'GET',
-    url: '/AssetWizardTypes/:id/edgeAgentTemplates/:fk',
+    method: "GET",
+    url: "/AssetWizardTypes/:id/edgeAgentTemplates/:fk",
     routeParams: {
       id,
       fk,
@@ -32,12 +28,12 @@ export async function AssetWizardType_GetEdgeAgentTemplates(
 ): Promise<EdgeAgentTemplate[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams['filter'] = filter;
+    _urlParams["filter"] = filter;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/AssetWizardTypes/:id/edgeAgentTemplates',
+    method: "GET",
+    url: "/AssetWizardTypes/:id/edgeAgentTemplates",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -50,16 +46,16 @@ export async function AssetWizardType_GetEdgeAgentTemplates(
  */
 export async function AssetWizardType_CountEdgeAgentTemplates(
   id: string,
-  where?: Filter<EdgeAgentTemplate>['where'],
+  where?: Filter<EdgeAgentTemplate>["where"],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams['where'] = where;
+    _urlParams["where"] = where;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/AssetWizardTypes/:id/edgeAgentTemplates/count',
+    method: "GET",
+    url: "/AssetWizardTypes/:id/edgeAgentTemplates/count",
     urlParams: _urlParams,
     routeParams: {
       id,

@@ -1,8 +1,8 @@
-import { EventSummaryForAsset } from './EventSummaryForAsset';
-import { Log } from './Log';
-import { Project } from './Project';
-import { BasedOnRulesEventSummaryForProject } from './eventTypes/BasedOnRulesEventSummaryForProject';
-import { BlacklistSearchEventSummaryForProject } from './eventTypes/BlacklistSearchEventSummaryForProject';
+import { EventSummaryForAsset } from "./EventSummaryForAsset";
+import { Log } from "./Log";
+import { Project } from "./Project";
+import { BasedOnRulesEventSummaryForProject } from "./eventSummaryTypes/BasedOnRulesEventSummaryForProject";
+import { BlacklistSearchEventSummaryForProject } from "./eventSummaryTypes/BlacklistSearchEventSummaryForProject";
 
 export type EventSummaryForProject = {
   0?:
@@ -94,6 +94,6 @@ export type EventSummaryForProject = {
   id?: string;
   projectId?: string;
   eventSummaryForAssets?: EventSummaryForAsset[];
-  trackingLogs?: Log[];
   project?: Project;
+  trackingLogs?: Log[];
 };

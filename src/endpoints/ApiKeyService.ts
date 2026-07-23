@@ -1,10 +1,6 @@
-import { ApiFetch, Filter } from '../core/ApiFetch';
-import { ApiKey } from '../models/ApiKey';
-import { RateLimit } from '../models/RateLimit';
-
-/**
- * Api services for the `ApiKey` model.
- */
+import { ApiFetch, Filter } from "../core/ApiFetch";
+import { ApiKey } from "../models/ApiKey";
+import { RateLimit } from "../models/RateLimit";
 
 /**
  * Fetches hasOne relation rateLimit.
@@ -12,8 +8,8 @@ import { RateLimit } from '../models/RateLimit';
  */
 export async function ApiKey_GetRateLimit(id: string): Promise<RateLimit> {
   return ApiFetch({
-    method: 'GET',
-    url: '/ApiKeys/:id/rateLimit',
+    method: "GET",
+    url: "/ApiKeys/:id/rateLimit",
     routeParams: {
       id,
     },
@@ -25,11 +21,11 @@ export async function ApiKey_GetRateLimit(id: string): Promise<RateLimit> {
  */
 export async function ApiKey_UpdateRateLimit(
   id: string,
-  data: any = {},
+  data?: any,
 ): Promise<RateLimit> {
   return ApiFetch({
-    method: 'PUT',
-    url: '/ApiKeys/:id/rateLimit',
+    method: "PUT",
+    url: "/ApiKeys/:id/rateLimit",
     routeParams: {
       id,
     },
@@ -46,12 +42,12 @@ export async function ApiKey_findById(
 ): Promise<ApiKey> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams['filter'] = filter;
+    _urlParams["filter"] = filter;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/ApiKeys/:id',
+    method: "GET",
+    url: "/ApiKeys/:id",
     urlParams: _urlParams,
     routeParams: {
       id,

@@ -1,8 +1,8 @@
-import { Customer } from './Customer';
-import { EventTrigger } from './EventTrigger';
-import { EventTriggerTemplate } from './EventTriggerTemplate';
-import { Log } from './Log';
-import { Project } from './Project';
+import { Customer } from "./Customer";
+import { EventTrigger } from "./EventTrigger";
+import { EventTriggerTemplate } from "./EventTriggerTemplate";
+import { Log } from "./Log";
+import { Project } from "./Project";
 
 export type EventSubject = {
   name: string;
@@ -15,8 +15,8 @@ export type EventSubject = {
   customerId?: string;
   projectId?: string;
   customer?: Customer;
-  eventTriggers?: EventTrigger[];
   eventTriggerTemplates?: EventTriggerTemplate[];
-  trackingLogs?: Log[];
+  eventTriggers?: EventTrigger[];
   project?: Project;
+  trackingLogs?: Log[];
 };

@@ -1,10 +1,10 @@
-import { Asset } from './Asset';
-import { Event } from './Event';
-import { EventSummaryForAsset } from './EventSummaryForAsset';
-import { EventTrigger } from './EventTrigger';
-import { Log } from './Log';
-import { BasedOnRulesEventSummary } from './eventTypes/BasedOnRulesEventSummary';
-import { BlacklistSearchEventSummary } from './eventTypes/BlacklistSearchEventSummary';
+import { Asset } from "./Asset";
+import { Event } from "./Event";
+import { EventSummaryForAsset } from "./EventSummaryForAsset";
+import { EventTrigger } from "./EventTrigger";
+import { Log } from "./Log";
+import { BasedOnRulesEventSummary } from "./eventSummaryTypes/BasedOnRulesEventSummary";
+import { BlacklistSearchEventSummary } from "./eventSummaryTypes/BlacklistSearchEventSummary";
 
 export type EventSummary = {
   0?: BasedOnRulesEventSummary | BlacklistSearchEventSummary;
@@ -48,8 +48,8 @@ export type EventSummary = {
   eventSummaryForAssetId?: string;
   eventTriggerId?: string;
   asset?: Asset;
-  events?: Event[];
   eventSummaryForAsset?: EventSummaryForAsset;
   eventTrigger?: EventTrigger;
+  events?: Event[];
   trackingLogs?: Log[];
 };

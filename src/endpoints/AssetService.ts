@@ -1,24 +1,18 @@
-import { ApiFetch, Filter, UploadFile, UploadableFile } from '../core/ApiFetch';
-import { Asset } from '../models/Asset';
-import { AssetOperabilitySummary } from '../models/AssetOperabilitySummary';
-import { AssetRestrictionTable } from '../models/AssetRestrictionTable';
-import { AssetStorageContainer } from '../models/Asset';
-import { Dataset } from '../models/Dataset';
-import { EdgeAgent } from '../models/EdgeAgent';
-import { EdgeAgentAsset } from '../models/EdgeAgent';
-import { HealthcheckEvent } from '../models/HealthcheckEvent';
-import { RateLimit } from '../models/RateLimit';
-import { Event } from '../models/Event';
-import { EventTrigger } from '../models/EventTrigger';
-import { SensorWithCurrentState } from '../models/Sensor';
-import { EventTriggerAssetState } from '../models/EventTriggerAssetState';
-import { SensorAssetState } from '../models/SensorAssetState';
-import { EventComment } from '../models/EventComment';
-import { EventStateChange } from '../models/EventStateChange';
-
-/**
- * Api services for the `Asset` model.
- */
+import { ApiFetch, Filter, UploadFile, UploadableFile } from "../core/ApiFetch";
+import { Asset, AssetStorageContainer } from "../models/Asset";
+import { AssetOperabilitySummary } from "../models/AssetOperabilitySummary";
+import { AssetRestrictionTable } from "../models/AssetRestrictionTable";
+import { Dataset } from "../models/Dataset";
+import { EdgeAgent, EdgeAgentAsset } from "../models/EdgeAgent";
+import { Event } from "../models/Event";
+import { EventComment } from "../models/EventComment";
+import { EventStateChange } from "../models/EventStateChange";
+import { EventTrigger } from "../models/EventTrigger";
+import { EventTriggerAssetState } from "../models/EventTriggerAssetState";
+import { HealthcheckEvent } from "../models/HealthcheckEvent";
+import { RateLimit } from "../models/RateLimit";
+import { SensorWithCurrentState } from "../models/Sensor";
+import { SensorAssetState } from "../models/SensorAssetState";
 
 /**
  * Update a related item by id for operabilitySummaries.
@@ -27,11 +21,11 @@ import { EventStateChange } from '../models/EventStateChange';
 export async function Asset_UpdateByIdOperabilitySummaries(
   id: string,
   fk: string,
-  data: any = {},
+  data?: any,
 ): Promise<AssetOperabilitySummary> {
   return ApiFetch({
-    method: 'PUT',
-    url: '/Assets/:id/operabilitySummaries/:fk',
+    method: "PUT",
+    url: "/Assets/:id/operabilitySummaries/:fk",
     routeParams: {
       id,
       fk,
@@ -47,8 +41,8 @@ export async function Asset_GetRestrictionTable(
   id: string,
 ): Promise<AssetRestrictionTable> {
   return ApiFetch({
-    method: 'GET',
-    url: '/Assets/:id/restrictionTable',
+    method: "GET",
+    url: "/Assets/:id/restrictionTable",
     routeParams: {
       id,
     },
@@ -62,8 +56,8 @@ export async function Asset_GetContainer(
   id: string,
 ): Promise<AssetStorageContainer> {
   return ApiFetch({
-    method: 'GET',
-    url: '/Assets/:id/container',
+    method: "GET",
+    url: "/Assets/:id/container",
     routeParams: {
       id,
     },
@@ -78,8 +72,8 @@ export async function Asset_FindByIdDatasets(
   fk: string,
 ): Promise<Dataset> {
   return ApiFetch({
-    method: 'GET',
-    url: '/Assets/:id/datasets/:fk',
+    method: "GET",
+    url: "/Assets/:id/datasets/:fk",
     routeParams: {
       id,
       fk,
@@ -95,8 +89,8 @@ export async function Asset_FindByIdEdgeAgents(
   fk: string,
 ): Promise<EdgeAgent> {
   return ApiFetch({
-    method: 'GET',
-    url: '/Assets/:id/edgeAgents/:fk',
+    method: "GET",
+    url: "/Assets/:id/edgeAgents/:fk",
     routeParams: {
       id,
       fk,
@@ -110,11 +104,11 @@ export async function Asset_FindByIdEdgeAgents(
 export async function Asset_LinkEdgeAgents(
   id: string,
   fk: string,
-  data: any = {},
+  data?: any,
 ): Promise<EdgeAgentAsset> {
   return ApiFetch({
-    method: 'PUT',
-    url: '/Assets/:id/edgeAgents/rel/:fk',
+    method: "PUT",
+    url: "/Assets/:id/edgeAgents/rel/:fk",
     routeParams: {
       id,
       fk,
@@ -131,8 +125,8 @@ export async function Asset_UnlinkEdgeAgents(
   fk: string,
 ): Promise<void> {
   return ApiFetch({
-    method: 'DELETE',
-    url: '/Assets/:id/edgeAgents/rel/:fk',
+    method: "DELETE",
+    url: "/Assets/:id/edgeAgents/rel/:fk",
     routeParams: {
       id,
       fk,
@@ -148,8 +142,8 @@ export async function Asset_FindByIdHealthcheckEvents(
   fk: string,
 ): Promise<HealthcheckEvent> {
   return ApiFetch({
-    method: 'GET',
-    url: '/Assets/:id/healthcheckEvents/:fk',
+    method: "GET",
+    url: "/Assets/:id/healthcheckEvents/:fk",
     routeParams: {
       id,
       fk,
@@ -163,11 +157,11 @@ export async function Asset_FindByIdHealthcheckEvents(
 export async function Asset_UpdateByIdHealthcheckEvents(
   id: string,
   fk: string,
-  data: any = {},
+  data?: any,
 ): Promise<HealthcheckEvent> {
   return ApiFetch({
-    method: 'PUT',
-    url: '/Assets/:id/healthcheckEvents/:fk',
+    method: "PUT",
+    url: "/Assets/:id/healthcheckEvents/:fk",
     routeParams: {
       id,
       fk,
@@ -181,8 +175,8 @@ export async function Asset_UpdateByIdHealthcheckEvents(
  */
 export async function Asset_GetRateLimit(id: string): Promise<RateLimit> {
   return ApiFetch({
-    method: 'GET',
-    url: '/Assets/:id/rateLimit',
+    method: "GET",
+    url: "/Assets/:id/rateLimit",
     routeParams: {
       id,
     },
@@ -194,11 +188,11 @@ export async function Asset_GetRateLimit(id: string): Promise<RateLimit> {
  */
 export async function Asset_CreateRateLimit(
   id: string,
-  data: any = {},
+  data?: any,
 ): Promise<RateLimit> {
   return ApiFetch({
-    method: 'POST',
-    url: '/Assets/:id/rateLimit',
+    method: "POST",
+    url: "/Assets/:id/rateLimit",
     routeParams: {
       id,
     },
@@ -211,11 +205,11 @@ export async function Asset_CreateRateLimit(
  */
 export async function Asset_UpdateRateLimit(
   id: string,
-  data: any = {},
+  data?: any,
 ): Promise<RateLimit> {
   return ApiFetch({
-    method: 'PUT',
-    url: '/Assets/:id/rateLimit',
+    method: "PUT",
+    url: "/Assets/:id/rateLimit",
     routeParams: {
       id,
     },
@@ -232,12 +226,12 @@ export async function Asset_GetOperabilitySummaries(
 ): Promise<AssetOperabilitySummary[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams['filter'] = filter;
+    _urlParams["filter"] = filter;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/Assets/:id/operabilitySummaries',
+    method: "GET",
+    url: "/Assets/:id/operabilitySummaries",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -250,16 +244,16 @@ export async function Asset_GetOperabilitySummaries(
  */
 export async function Asset_CountOperabilitySummaries(
   id: string,
-  where?: Filter<AssetOperabilitySummary>['where'],
+  where?: Filter<AssetOperabilitySummary>["where"],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams['where'] = where;
+    _urlParams["where"] = where;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/Assets/:id/operabilitySummaries/count',
+    method: "GET",
+    url: "/Assets/:id/operabilitySummaries/count",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -276,12 +270,12 @@ export async function Asset_GetDatasets(
 ): Promise<Dataset[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams['filter'] = filter;
+    _urlParams["filter"] = filter;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/Assets/:id/datasets',
+    method: "GET",
+    url: "/Assets/:id/datasets",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -294,16 +288,16 @@ export async function Asset_GetDatasets(
  */
 export async function Asset_CountDatasets(
   id: string,
-  where?: Filter<Dataset>['where'],
+  where?: Filter<Dataset>["where"],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams['where'] = where;
+    _urlParams["where"] = where;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/Assets/:id/datasets/count',
+    method: "GET",
+    url: "/Assets/:id/datasets/count",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -320,12 +314,12 @@ export async function Asset_GetEdgeAgents(
 ): Promise<EdgeAgent[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams['filter'] = filter;
+    _urlParams["filter"] = filter;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/Assets/:id/edgeAgents',
+    method: "GET",
+    url: "/Assets/:id/edgeAgents",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -338,16 +332,16 @@ export async function Asset_GetEdgeAgents(
  */
 export async function Asset_CountEdgeAgents(
   id: string,
-  where: any = {},
+  where?: Filter<EdgeAgent>["where"],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams['where'] = where;
+    _urlParams["where"] = where;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/Assets/:id/edgeAgents/count',
+    method: "GET",
+    url: "/Assets/:id/edgeAgents/count",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -364,12 +358,12 @@ export async function Asset_GetEvents(
 ): Promise<Event[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams['filter'] = filter;
+    _urlParams["filter"] = filter;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/Assets/:id/events',
+    method: "GET",
+    url: "/Assets/:id/events",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -386,12 +380,12 @@ export async function Asset_GetEventTriggers(
 ): Promise<EventTrigger[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams['filter'] = filter;
+    _urlParams["filter"] = filter;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/Assets/:id/eventTriggers',
+    method: "GET",
+    url: "/Assets/:id/eventTriggers",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -408,12 +402,12 @@ export async function Asset_GetHealthcheckEvents(
 ): Promise<HealthcheckEvent[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams['filter'] = filter;
+    _urlParams["filter"] = filter;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/Assets/:id/healthcheckEvents',
+    method: "GET",
+    url: "/Assets/:id/healthcheckEvents",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -426,11 +420,11 @@ export async function Asset_GetHealthcheckEvents(
  */
 export async function Asset_CreateHealthcheckEvents(
   id: string,
-  data: any = {},
+  data?: any,
 ): Promise<HealthcheckEvent> {
   return ApiFetch({
-    method: 'POST',
-    url: '/Assets/:id/healthcheckEvents',
+    method: "POST",
+    url: "/Assets/:id/healthcheckEvents",
     routeParams: {
       id,
     },
@@ -447,12 +441,12 @@ export async function Asset_findById(
 ): Promise<Asset> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams['filter'] = filter;
+    _urlParams["filter"] = filter;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/Assets/:id',
+    method: "GET",
+    url: "/Assets/:id",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -466,14 +460,13 @@ export async function Asset_findById(
 export async function Asset_find(filter?: Filter<Asset>): Promise<Asset[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams['filter'] = filter;
+    _urlParams["filter"] = filter;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/Assets',
+    method: "GET",
+    url: "/Assets",
     urlParams: _urlParams,
-    routeParams: {},
   });
 }
 /**
@@ -483,14 +476,13 @@ export async function Asset_find(filter?: Filter<Asset>): Promise<Asset[]> {
 export async function Asset_findOne(filter?: Filter<Asset>): Promise<Asset> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams['filter'] = filter;
+    _urlParams["filter"] = filter;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/Assets/findOne',
+    method: "GET",
+    url: "/Assets/findOne",
     urlParams: _urlParams,
-    routeParams: {},
   });
 }
 /**
@@ -502,8 +494,8 @@ export async function Asset_subscribe(
   socketId: string,
 ): Promise<any> {
   return ApiFetch({
-    method: 'PUT',
-    url: '/Assets/:id/sockets/:socketId/subscribe',
+    method: "PUT",
+    url: "/Assets/:id/sockets/:socketId/subscribe",
     routeParams: {
       id,
       socketId,
@@ -519,8 +511,8 @@ export async function Asset_unsubscribe(
   socketId: string,
 ): Promise<void> {
   return ApiFetch({
-    method: 'DELETE',
-    url: '/Assets/:id/sockets/:socketId/unsubscribe',
+    method: "DELETE",
+    url: "/Assets/:id/sockets/:socketId/unsubscribe",
     routeParams: {
       id,
       socketId,
@@ -533,8 +525,8 @@ export async function Asset_unsubscribe(
  */
 export async function Asset_getContainerInfo(id: string): Promise<any> {
   return ApiFetch({
-    method: 'GET',
-    url: '/Assets/:id/container/info',
+    method: "GET",
+    url: "/Assets/:id/container/info",
     routeParams: {
       id,
     },
@@ -544,10 +536,10 @@ export async function Asset_getContainerInfo(id: string): Promise<any> {
  * List all files within specified container
  * /Assets/:id/container/files
  */
-export async function Asset_getFiles(id: string): Promise<any> {
+export async function Asset_getFiles(id: string): Promise<any[]> {
   return ApiFetch({
-    method: 'GET',
-    url: '/Assets/:id/container/files',
+    method: "GET",
+    url: "/Assets/:id/container/files",
     routeParams: {
       id,
     },
@@ -559,8 +551,8 @@ export async function Asset_getFiles(id: string): Promise<any> {
  */
 export async function Asset_getFile(id: string, file: string): Promise<any> {
   return ApiFetch({
-    method: 'GET',
-    url: '/Assets/:id/container/files/:file',
+    method: "GET",
+    url: "/Assets/:id/container/files/:file",
     routeParams: {
       id,
       file,
@@ -580,18 +572,18 @@ export async function Asset_removeFile(
 ): Promise<void> {
   const _urlParams: any = {};
   if (property != null) {
-    _urlParams['property'] = property;
+    _urlParams["property"] = property;
   }
   if (datasourceName != null) {
-    _urlParams['datasourceName'] = datasourceName;
+    _urlParams["datasourceName"] = datasourceName;
   }
   if (resourceName != null) {
-    _urlParams['resource_name'] = resourceName;
+    _urlParams["resource_name"] = resourceName;
   }
 
   return ApiFetch({
-    method: 'DELETE',
-    url: '/Assets/:id/container/files/:file',
+    method: "DELETE",
+    url: "/Assets/:id/container/files/:file",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -612,14 +604,14 @@ export async function Asset_upload(
 ): Promise<any> {
   const _urlParams: any = {};
   if (property != null) {
-    _urlParams['property'] = property;
+    _urlParams["property"] = property;
   }
   if (resourceName != null) {
-    _urlParams['resource_name'] = resourceName;
+    _urlParams["resource_name"] = resourceName;
   }
 
   return UploadFile({
-    url: '/Assets/:id/container/upload',
+    url: "/Assets/:id/container/upload",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -640,15 +632,15 @@ export async function Asset_download(
 ): Promise<any> {
   const _urlParams: any = {};
   if (property != null) {
-    _urlParams['property'] = property;
+    _urlParams["property"] = property;
   }
   if (datasourceName != null) {
-    _urlParams['datasourceName'] = datasourceName;
+    _urlParams["datasourceName"] = datasourceName;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/Assets/:id/container/download/:file',
+    method: "GET",
+    url: "/Assets/:id/container/download/:file",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -662,16 +654,16 @@ export async function Asset_download(
  */
 export async function Asset_getSensorsWithCurrentState(
   id: string,
-  filter: Filter<SensorWithCurrentState> = {},
-): Promise<SensorWithCurrentState> {
+  filter?: Filter<SensorWithCurrentState>,
+): Promise<SensorWithCurrentState[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams['filter'] = filter;
+    _urlParams["filter"] = filter;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/Assets/:id/sensors/withCurrentState',
+    method: "GET",
+    url: "/Assets/:id/sensors/withCurrentState",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -688,12 +680,12 @@ export async function Asset_findAndFilterDatasets(
 ): Promise<Dataset[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams['filter'] = filter;
+    _urlParams["filter"] = filter;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/Assets/:id/datasets/filter',
+    method: "GET",
+    url: "/Assets/:id/datasets/filter",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -709,14 +701,12 @@ export async function Asset_notifyHealthStatus(
   status: any,
 ): Promise<any> {
   return ApiFetch({
-    method: 'POST',
-    url: '/Assets/:id/notify-health-status',
+    method: "POST",
+    url: "/Assets/:id/notify-health-status",
     routeParams: {
       id,
     },
-    body: {
-      status,
-    },
+    body: status,
   });
 }
 /**
@@ -730,12 +720,12 @@ export async function Asset_GetAssetStatesEventTriggerAssetStates(
 ): Promise<EventTriggerAssetState[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams['filter'] = filter;
+    _urlParams["filter"] = filter;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/Assets/:id/assetStates/:nk/eventTriggerAssetStates',
+    method: "GET",
+    url: "/Assets/:id/assetStates/:nk/eventTriggerAssetStates",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -754,12 +744,12 @@ export async function Asset_GetAssetStatesStates(
 ): Promise<SensorAssetState[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams['filter'] = filter;
+    _urlParams["filter"] = filter;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/Assets/:id/assetStates/:nk/states',
+    method: "GET",
+    url: "/Assets/:id/assetStates/:nk/states",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -777,8 +767,8 @@ export async function Asset_DestroyByIdHealthcheckEventsComments(
   fk: string,
 ): Promise<void> {
   return ApiFetch({
-    method: 'DELETE',
-    url: '/Assets/:id/healthcheckEvents/:nk/comments/:fk',
+    method: "DELETE",
+    url: "/Assets/:id/healthcheckEvents/:nk/comments/:fk",
     routeParams: {
       id,
       nk,
@@ -794,11 +784,11 @@ export async function Asset_UpdateByIdHealthcheckEventsComments(
   id: string,
   nk: string,
   fk: string,
-  data: any = {},
+  data?: any,
 ): Promise<EventComment> {
   return ApiFetch({
-    method: 'PUT',
-    url: '/Assets/:id/healthcheckEvents/:nk/comments/:fk',
+    method: "PUT",
+    url: "/Assets/:id/healthcheckEvents/:nk/comments/:fk",
     routeParams: {
       id,
       nk,
@@ -814,11 +804,11 @@ export async function Asset_UpdateByIdHealthcheckEventsComments(
 export async function Asset_CreateHealthcheckEventsComments(
   id: string,
   nk: string,
-  data: any = {},
+  data?: any,
 ): Promise<EventComment> {
   return ApiFetch({
-    method: 'POST',
-    url: '/Assets/:id/healthcheckEvents/:nk/comments',
+    method: "POST",
+    url: "/Assets/:id/healthcheckEvents/:nk/comments",
     routeParams: {
       id,
       nk,
@@ -833,11 +823,11 @@ export async function Asset_CreateHealthcheckEventsComments(
 export async function Asset_CreateHealthcheckEventsStateChanges(
   id: string,
   nk: string,
-  data: any = {},
+  data?: any,
 ): Promise<EventStateChange> {
   return ApiFetch({
-    method: 'POST',
-    url: '/Assets/:id/healthcheckEvents/:nk/stateChanges',
+    method: "POST",
+    url: "/Assets/:id/healthcheckEvents/:nk/stateChanges",
     routeParams: {
       id,
       nk,

@@ -1,5 +1,5 @@
-import { Log } from './Log';
-import { Project } from './Project';
+import { Log } from "./Log";
+import { Project } from "./Project";
 
 export type ProjectOperabilitySummary = {
   month?: Date;
@@ -20,6 +20,6 @@ export type ProjectOperabilitySummary = {
   deleted?: Date;
   id?: string;
   projectId?: string;
-  trackingLogs?: Log[];
   project?: Project;
+  trackingLogs?: Log[];
 };

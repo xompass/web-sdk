@@ -1,11 +1,11 @@
-import { YoloClassLabel } from '../YoloClassLabel';
+import { YoloClassLabel } from "../YoloClassLabel";
 
 export type LineCrossingDetectionFeedback = {
   files?: {
     image?: {
       container?: string;
       name?: string;
-      type?: 'image/jpg' | 'image/jpeg' | 'image/png';
+      type?: "image/jpg" | "image/jpeg" | "image/png";
       field?: string;
       originalFilename?: string;
       meta?: Record<string, any>;
@@ -14,7 +14,7 @@ export type LineCrossingDetectionFeedback = {
     sequence?: {
       container?: string;
       name?: string;
-      type?: 'image/jpg' | 'image/jpeg' | 'image/png';
+      type?: "image/jpg" | "image/jpeg" | "image/png";
       field?: string;
       originalFilename?: string;
       meta?: Record<string, any>;
@@ -31,16 +31,16 @@ export type LineCrossingDetectionFeedback = {
       w: number;
       h: number;
     };
-    direction?: 'incoming' | 'outgoing';
+    direction?: "incoming" | "outgoing";
     filteredBy?: {
       PROBABILITY?: boolean;
       CLASS?: boolean;
     };
     diagnosis?:
-      | 'TRUE_POSITIVE'
-      | 'TRUE_NEGATIVE'
-      | 'FALSE_POSITIVE'
-      | 'FALSE_NEGATIVE';
+      | "TRUE_POSITIVE"
+      | "TRUE_NEGATIVE"
+      | "FALSE_POSITIVE"
+      | "FALSE_NEGATIVE";
   }[];
   filtered?: boolean;
 };

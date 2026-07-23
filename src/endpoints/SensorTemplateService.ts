@@ -1,11 +1,7 @@
-import { ApiFetch, Filter } from '../core/ApiFetch';
-import { SensorTemplate } from '../models/SensorTemplate';
-import { AssetStateTemplate } from '../models/AssetStateTemplate';
-import { SensorAssetStateTemplate } from '../models/SensorAssetStateTemplate';
-
-/**
- * Api services for the `SensorTemplate` model.
- */
+import { ApiFetch, Filter } from "../core/ApiFetch";
+import { AssetStateTemplate } from "../models/AssetStateTemplate";
+import { SensorAssetStateTemplate } from "../models/SensorAssetStateTemplate";
+import { SensorTemplate } from "../models/SensorTemplate";
 
 /**
  * Find a related item by id for assetStateTemplates.
@@ -16,8 +12,8 @@ export async function SensorTemplate_FindByIdAssetStateTemplates(
   fk: string,
 ): Promise<AssetStateTemplate> {
   return ApiFetch({
-    method: 'GET',
-    url: '/SensorTemplates/:id/assetStateTemplates/:fk',
+    method: "GET",
+    url: "/SensorTemplates/:id/assetStateTemplates/:fk",
     routeParams: {
       id,
       fk,
@@ -31,11 +27,11 @@ export async function SensorTemplate_FindByIdAssetStateTemplates(
 export async function SensorTemplate_LinkAssetStateTemplates(
   id: string,
   fk: string,
-  data: any = {},
+  data?: any,
 ): Promise<SensorAssetStateTemplate> {
   return ApiFetch({
-    method: 'PUT',
-    url: '/SensorTemplates/:id/assetStateTemplates/rel/:fk',
+    method: "PUT",
+    url: "/SensorTemplates/:id/assetStateTemplates/rel/:fk",
     routeParams: {
       id,
       fk,
@@ -52,8 +48,8 @@ export async function SensorTemplate_UnlinkAssetStateTemplates(
   fk: string,
 ): Promise<void> {
   return ApiFetch({
-    method: 'DELETE',
-    url: '/SensorTemplates/:id/assetStateTemplates/rel/:fk',
+    method: "DELETE",
+    url: "/SensorTemplates/:id/assetStateTemplates/rel/:fk",
     routeParams: {
       id,
       fk,
@@ -69,8 +65,8 @@ export async function SensorTemplate_ExistsAssetStateTemplates(
   fk: string,
 ): Promise<boolean> {
   return ApiFetch({
-    method: 'HEAD',
-    url: '/SensorTemplates/:id/assetStateTemplates/rel/:fk',
+    method: "HEAD",
+    url: "/SensorTemplates/:id/assetStateTemplates/rel/:fk",
     routeParams: {
       id,
       fk,
@@ -86,8 +82,8 @@ export async function SensorTemplate_FindByIdStateTemplates(
   fk: string,
 ): Promise<SensorAssetStateTemplate> {
   return ApiFetch({
-    method: 'GET',
-    url: '/SensorTemplates/:id/stateTemplates/:fk',
+    method: "GET",
+    url: "/SensorTemplates/:id/stateTemplates/:fk",
     routeParams: {
       id,
       fk,
@@ -101,11 +97,11 @@ export async function SensorTemplate_FindByIdStateTemplates(
 export async function SensorTemplate_UpdateByIdStateTemplates(
   id: string,
   fk: string,
-  data: any = {},
+  data?: any,
 ): Promise<SensorAssetStateTemplate> {
   return ApiFetch({
-    method: 'PUT',
-    url: '/SensorTemplates/:id/stateTemplates/:fk',
+    method: "PUT",
+    url: "/SensorTemplates/:id/stateTemplates/:fk",
     routeParams: {
       id,
       fk,
@@ -123,12 +119,12 @@ export async function SensorTemplate_GetAssetStateTemplates(
 ): Promise<AssetStateTemplate[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams['filter'] = filter;
+    _urlParams["filter"] = filter;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/SensorTemplates/:id/assetStateTemplates',
+    method: "GET",
+    url: "/SensorTemplates/:id/assetStateTemplates",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -141,16 +137,16 @@ export async function SensorTemplate_GetAssetStateTemplates(
  */
 export async function SensorTemplate_CountAssetStateTemplates(
   id: string,
-  where?: Filter<AssetStateTemplate>['where'],
+  where?: Filter<AssetStateTemplate>["where"],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams['where'] = where;
+    _urlParams["where"] = where;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/SensorTemplates/:id/assetStateTemplates/count',
+    method: "GET",
+    url: "/SensorTemplates/:id/assetStateTemplates/count",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -167,12 +163,12 @@ export async function SensorTemplate_GetStateTemplates(
 ): Promise<SensorAssetStateTemplate[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams['filter'] = filter;
+    _urlParams["filter"] = filter;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/SensorTemplates/:id/stateTemplates',
+    method: "GET",
+    url: "/SensorTemplates/:id/stateTemplates",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -185,16 +181,16 @@ export async function SensorTemplate_GetStateTemplates(
  */
 export async function SensorTemplate_CountStateTemplates(
   id: string,
-  where?: Filter<SensorAssetStateTemplate>['where'],
+  where?: Filter<SensorAssetStateTemplate>["where"],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams['where'] = where;
+    _urlParams["where"] = where;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/SensorTemplates/:id/stateTemplates/count',
+    method: "GET",
+    url: "/SensorTemplates/:id/stateTemplates/count",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -207,8 +203,8 @@ export async function SensorTemplate_CountStateTemplates(
  */
 export async function SensorTemplate_exists(id: string): Promise<boolean> {
   return ApiFetch({
-    method: 'GET',
-    url: '/SensorTemplates/:id/exists',
+    method: "GET",
+    url: "/SensorTemplates/:id/exists",
     routeParams: {
       id,
     },
@@ -224,12 +220,12 @@ export async function SensorTemplate_findById(
 ): Promise<SensorTemplate> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams['filter'] = filter;
+    _urlParams["filter"] = filter;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/SensorTemplates/:id',
+    method: "GET",
+    url: "/SensorTemplates/:id",
     urlParams: _urlParams,
     routeParams: {
       id,

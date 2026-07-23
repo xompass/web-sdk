@@ -8,7 +8,7 @@ export type ObjectRecognitionCamSurveillanceCameraSettings = {
       password?: string;
     };
   };
-  attributes?: Record<string, undefined>;
+  attributes?: Record<string, any>;
 };
 
 export type ObjectRecognitionCamSurveillanceNVRSettings = {
@@ -20,7 +20,7 @@ export type ObjectRecognitionCamSurveillanceNVRSettings = {
   nvr?: {
     channel: number;
   };
-  attributes?: Record<string, undefined>;
+  attributes?: Record<string, any>;
 };
 
 export type ObjectRecognitionCamVSAASFacesSettings = {
@@ -32,7 +32,7 @@ export type ObjectRecognitionCamVSAASFacesSettings = {
   camera: {
     url?: string;
     auth?: {
-      type?: 'basic' | 'digest';
+      type?: "basic" | "digest";
       user: string;
       password: string;
     };
@@ -40,5 +40,5 @@ export type ObjectRecognitionCamVSAASFacesSettings = {
   rekognition?: {
     cameraId?: string;
   };
-  attributes?: Record<string, undefined>;
+  attributes?: Record<string, any>;
 };
