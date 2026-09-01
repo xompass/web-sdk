@@ -8,6 +8,7 @@ import { VarStorageContainer } from '../models/Var';
 import { ToolkitTemplate } from '../models/ToolkitTemplate';
 import { Tool } from '../models/Tool';
 import { AssetType } from '../models/AssetType';
+import { SupportAdmin } from '../models/SupportAdmin';
 
 /**
  * Api services for the `Var` model.
@@ -57,6 +58,28 @@ export async function Var_GetCountry(id: string): Promise<Country> {
   return ApiFetch({
     method: 'GET',
     url: '/Vars/:id/country',
+    routeParams: {
+      id,
+    },
+  });
+}
+/**
+ * Queries SupportAdmins linked to this Var.
+ * /Vars/:id/linkedSupportAdmins
+ */
+export async function Var_GetSupportAdmins(
+  id: string,
+  filter?: Filter<SupportAdmin>,
+): Promise<SupportAdmin[]> {
+  const _urlParams: any = {};
+  if (filter != null) {
+    _urlParams['filter'] = filter;
+  }
+
+  return ApiFetch({
+    method: 'GET',
+    url: '/Vars/:id/linkedSupportAdmins',
+    urlParams: _urlParams,
     routeParams: {
       id,
     },
