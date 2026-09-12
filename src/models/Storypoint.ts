@@ -1,7 +1,7 @@
-import { Asset } from './Asset';
-import { FileMetadata } from './FileMetadata';
-import { Log } from './Log';
-import { Storyline } from './Storyline';
+import { Asset } from "./Asset";
+import { FileMetadata } from "./FileMetadata";
+import { Log } from "./Log";
+import { Storyline } from "./Storyline";
 
 export type Storypoint = {
   name: string;
@@ -14,7 +14,7 @@ export type Storypoint = {
   id?: string;
   storylineId?: string;
   assetId?: string;
-  trackingLogs?: Log[];
-  storyline?: Storyline;
   asset?: Asset;
+  storyline?: Storyline;
+  trackingLogs?: Log[];
 };

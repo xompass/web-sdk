@@ -1,10 +1,11 @@
-import { Asset } from './Asset';
-import { EventGroupTemplate } from './EventGroupTemplate';
-import { EventTrigger } from './EventTrigger';
-import { Log } from './Log';
+import { Asset } from "./Asset";
+import { EventGroupTemplate } from "./EventGroupTemplate";
+import { EventTrigger } from "./EventTrigger";
+import { Log } from "./Log";
 
 export type EventGroup = {
   name: string;
+  normalizedName?: string;
   description?: string;
   color?: string;
   icon?: string;
@@ -16,7 +17,7 @@ export type EventGroup = {
   assetId?: string;
   templateId?: string;
   asset?: Asset;
-  template?: EventGroupTemplate;
   eventTriggers?: EventTrigger[];
+  template?: EventGroupTemplate;
   trackingLogs?: Log[];
 };

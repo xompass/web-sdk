@@ -1,4 +1,4 @@
-import { getStorageAdapter } from './Runtime';
+import { getStorageAdapter } from "./Runtime";
 
 /**
  * Set a value in local storage with an optional TTL (time to live) in seconds.
@@ -49,9 +49,9 @@ export function getLocalStorageValue(key: string) {
 
   try {
     const parsed = JSON.parse(item);
-    if (parsed && typeof parsed === 'object') {
+    if (parsed && typeof parsed === "object") {
       const { val, exp } = parsed as { val: any; exp?: number };
-      if (typeof exp === 'number' && exp > 0) {
+      if (typeof exp === "number" && exp > 0) {
         const now = new Date().getTime();
 
         if (now > exp) {

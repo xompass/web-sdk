@@ -1,5 +1,5 @@
-import { Customer } from './Customer';
-import { Log } from './Log';
+import { Customer } from "./Customer";
+import { Log } from "./Log";
 
 export type CustomerOperabilitySummary = {
   month?: Date;
@@ -17,7 +17,6 @@ export type CustomerOperabilitySummary = {
   connectedAssetsStartPeriod?: number;
   created?: Date;
   modified?: Date;
-  deleted?: Date;
   id?: string;
   customerId?: string;
   customer?: Customer;

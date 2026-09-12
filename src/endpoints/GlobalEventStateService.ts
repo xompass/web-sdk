@@ -1,9 +1,5 @@
-import { ApiFetch, Filter } from '../core/ApiFetch';
-import { GlobalEventState } from '../models/GlobalEventState';
-
-/**
- * Api services for the `GlobalEventState` model.
- */
+import { ApiFetch, Filter } from "../core/ApiFetch";
+import { GlobalEventState } from "../models/GlobalEventState";
 
 /**
  * Check whether a model instance exists in the data source.
@@ -11,8 +7,8 @@ import { GlobalEventState } from '../models/GlobalEventState';
  */
 export async function GlobalEventState_exists(id: string): Promise<boolean> {
   return ApiFetch({
-    method: 'GET',
-    url: '/GlobalEventStates/:id/exists',
+    method: "GET",
+    url: "/GlobalEventStates/:id/exists",
     routeParams: {
       id,
     },
@@ -24,16 +20,16 @@ export async function GlobalEventState_exists(id: string): Promise<boolean> {
  */
 export async function GlobalEventState_findById(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<GlobalEventState>,
 ): Promise<GlobalEventState> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams['filter'] = filter;
+    _urlParams["filter"] = filter;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/GlobalEventStates/:id',
+    method: "GET",
+    url: "/GlobalEventStates/:id",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -45,18 +41,17 @@ export async function GlobalEventState_findById(
  * /GlobalEventStates
  */
 export async function GlobalEventState_find(
-  filter: Filter<any> = {},
+  filter?: Filter<GlobalEventState>,
 ): Promise<GlobalEventState[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams['filter'] = filter;
+    _urlParams["filter"] = filter;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/GlobalEventStates',
+    method: "GET",
+    url: "/GlobalEventStates",
     urlParams: _urlParams,
-    routeParams: {},
   });
 }
 /**
@@ -64,34 +59,34 @@ export async function GlobalEventState_find(
  * /GlobalEventStates/findOne
  */
 export async function GlobalEventState_findOne(
-  filter: Filter<any> = {},
+  filter?: Filter<GlobalEventState>,
 ): Promise<GlobalEventState> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams['filter'] = filter;
+    _urlParams["filter"] = filter;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/GlobalEventStates/findOne',
+    method: "GET",
+    url: "/GlobalEventStates/findOne",
     urlParams: _urlParams,
-    routeParams: {},
   });
 }
 /**
  * Count instances of the model matched by where from the data source.
  * /GlobalEventStates/count
  */
-export async function GlobalEventState_count(where: any = {}): Promise<number> {
+export async function GlobalEventState_count(
+  where?: Filter<GlobalEventState>["where"],
+): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams['where'] = where;
+    _urlParams["where"] = where;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/GlobalEventStates/count',
+    method: "GET",
+    url: "/GlobalEventStates/count",
     urlParams: _urlParams,
-    routeParams: {},
   });
 }

@@ -1,7 +1,7 @@
-import { AssetWizardType } from './AssetWizardType';
-import { EventType } from './EventType';
-import { Log } from './Log';
-import { SensorType } from './SensorType';
+import { AssetWizardType } from "./AssetWizardType";
+import { EventType } from "./EventType";
+import { Log } from "./Log";
+import { SensorType } from "./SensorType";
 
 export type AssetType = {
   type: string;
@@ -16,6 +16,6 @@ export type AssetType = {
   sensorTypeIds?: string[];
   assetWizardTypes?: AssetWizardType[];
   eventTypes?: EventType[];
-  trackingLogs?: Log[];
   sensorTypes?: SensorType[];
+  trackingLogs?: Log[];
 };

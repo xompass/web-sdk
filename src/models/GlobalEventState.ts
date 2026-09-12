@@ -1,4 +1,4 @@
-import { Log } from './Log';
+import { Log } from "./Log";
 
 export type GlobalEventState = {
   name: string;
@@ -7,7 +7,6 @@ export type GlobalEventState = {
   colors: any;
   created?: Date;
   modified?: Date;
-  deleted?: Date;
   id?: string;
   trackingLogs?: Log[];
 };

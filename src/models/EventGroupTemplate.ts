@@ -1,9 +1,10 @@
-import { AssetTemplate } from './AssetTemplate';
-import { EventTriggerTemplate } from './EventTriggerTemplate';
-import { Log } from './Log';
+import { AssetTemplate } from "./AssetTemplate";
+import { EventTriggerTemplate } from "./EventTriggerTemplate";
+import { Log } from "./Log";
 
 export type EventGroupTemplate = {
   name: string;
+  normalizedName?: string;
   description?: string;
   color?: string;
   icon?: string;

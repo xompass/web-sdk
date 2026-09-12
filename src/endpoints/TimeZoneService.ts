@@ -1,9 +1,5 @@
-import { ApiFetch, Filter } from '../core/ApiFetch';
-import { TimeZone } from '../models/TimeZone';
-
-/**
- * Api services for the `TimeZone` model.
- */
+import { ApiFetch, Filter } from "../core/ApiFetch";
+import { TimeZone } from "../models/TimeZone";
 
 /**
  * Check whether a model instance exists in the data source.
@@ -11,8 +7,8 @@ import { TimeZone } from '../models/TimeZone';
  */
 export async function TimeZone_exists(id: string): Promise<boolean> {
   return ApiFetch({
-    method: 'GET',
-    url: '/TimeZones/:id/exists',
+    method: "GET",
+    url: "/TimeZones/:id/exists",
     routeParams: {
       id,
     },
@@ -24,16 +20,16 @@ export async function TimeZone_exists(id: string): Promise<boolean> {
  */
 export async function TimeZone_findById(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<TimeZone>,
 ): Promise<TimeZone> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams['filter'] = filter;
+    _urlParams["filter"] = filter;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/TimeZones/:id',
+    method: "GET",
+    url: "/TimeZones/:id",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -45,18 +41,17 @@ export async function TimeZone_findById(
  * /TimeZones
  */
 export async function TimeZone_find(
-  filter: Filter<any> = {},
+  filter?: Filter<TimeZone>,
 ): Promise<TimeZone[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams['filter'] = filter;
+    _urlParams["filter"] = filter;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/TimeZones',
+    method: "GET",
+    url: "/TimeZones",
     urlParams: _urlParams,
-    routeParams: {},
   });
 }
 /**
@@ -64,34 +59,34 @@ export async function TimeZone_find(
  * /TimeZones/findOne
  */
 export async function TimeZone_findOne(
-  filter: Filter<any> = {},
+  filter?: Filter<TimeZone>,
 ): Promise<TimeZone> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams['filter'] = filter;
+    _urlParams["filter"] = filter;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/TimeZones/findOne',
+    method: "GET",
+    url: "/TimeZones/findOne",
     urlParams: _urlParams,
-    routeParams: {},
   });
 }
 /**
  * Count instances of the model matched by where from the data source.
  * /TimeZones/count
  */
-export async function TimeZone_count(where: any = {}): Promise<number> {
+export async function TimeZone_count(
+  where?: Filter<TimeZone>["where"],
+): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams['where'] = where;
+    _urlParams["where"] = where;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/TimeZones/count',
+    method: "GET",
+    url: "/TimeZones/count",
     urlParams: _urlParams,
-    routeParams: {},
   });
 }

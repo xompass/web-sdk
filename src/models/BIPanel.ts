@@ -1,5 +1,5 @@
-import { Log } from './Log';
-import { Project } from './Project';
+import { Log } from "./Log";
+import { Project } from "./Project";
 
 export type BIPanel = {
   name: string;
@@ -11,8 +11,9 @@ export type BIPanel = {
   id?: string;
   _series?: BIPanelSerie[];
   projectId?: string;
-  trackingLogs?: Log[];
   project?: Project;
+  series?: BIPanelSerie[];
+  trackingLogs?: Log[];
 };
 
 export type BIPanelChart = {
@@ -28,6 +29,7 @@ export type BIPanelSerie = {
   modified?: Date;
   deleted?: Date;
   id?: string;
+  trackingLogs?: Log[];
 };
 
 export type BIPanelSerieChart = {

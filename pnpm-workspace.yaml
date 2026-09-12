@@ -1,0 +1,14 @@
+nodeVersion: 24.0.0
+engineStrict: true
+minimumReleaseAge: 4320
+minimumReleaseAgeStrict: true
+blockExoticSubdeps: true
+strictDepBuilds: true
+allowBuilds:
+  esbuild: true
+trustPolicy: no-downgrade
+verifyStoreIntegrity: true
+resolutionMode: time-based
+overrides:
+  lightningcss: 1.32.0
+  postcss: 8.5.19

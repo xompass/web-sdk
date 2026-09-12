@@ -1,18 +1,30 @@
-import { Customer } from './Customer';
-import { Log } from './Log';
-import { Storyline } from './Storyline';
+import { Customer } from "./Customer";
+import { Log } from "./Log";
+import { Storyline } from "./Storyline";
 
 export type StorylineCategory = {
   id?: string;
   name: string;
   description?: string;
   colors?: any;
-  presetColor?: string;
+  presetColor?:
+    | "red"
+    | "yellow"
+    | "lime"
+    | "green"
+    | "blue"
+    | "purple"
+    | "pink"
+    | "orange"
+    | "volcano"
+    | "gold"
+    | "cyan"
+    | "geekblue";
   created?: Date;
   modified?: Date;
   deleted?: Date;
   customerId?: string;
-  trackingLogs?: Log[];
-  storyline?: Storyline[];
   customer?: Customer;
+  storyline?: Storyline[];
+  trackingLogs?: Log[];
 };

@@ -1,3 +1,5 @@
+import { DetectionFrame } from "./DetectionFrame";
+
 export type Watchlist = {
   id: string;
   customerId: string;
@@ -80,25 +82,23 @@ export type LicensePlateDetection = {
   dataIndex?: number;
   fileName?: string;
   datasourceName?: string;
-  from: number;
-  to?: number;
+  from: Date;
+  to?: Date;
   value: string;
   coordinates?: number[];
   frame?: DetectionFrame;
   class?: string;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  vehicle?: any;
-  expiresAt?: number;
-  createdAt?: number;
+  vehicle?: {
+    brand: string;
+    model: string;
+    year: string;
+    color: string;
+    type: string;
+  };
+  expiresAt?: Date;
+  createdAt?: Date;
   distance?: number;
   similarity?: number;
-};
-
-export type DetectionFrame = {
-  x: number;
-  y: number;
-  w: number;
-  h: number;
 };
 
 export type LicensePlateDetectionQuery = {

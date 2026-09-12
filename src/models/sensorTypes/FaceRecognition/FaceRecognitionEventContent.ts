@@ -3,7 +3,7 @@ export type FaceRecognitionEventContent = {
     image?: {
       container?: string;
       name?: string;
-      type?: 'image/jpg' | 'image/jpeg' | 'image/png';
+      type?: "image/jpg" | "image/jpeg" | "image/png";
       field?: string;
       originalFilename?: string;
       meta?: Record<string, any>;
@@ -12,7 +12,7 @@ export type FaceRecognitionEventContent = {
     faces?: {
       container?: string;
       name?: string;
-      type?: 'image/jpg' | 'image/jpeg' | 'image/png';
+      type?: "image/jpg" | "image/jpeg" | "image/png";
       field?: string;
       originalFilename?: string;
       meta?: Record<string, any>;
@@ -33,6 +33,6 @@ export type FaceRecognitionEventContent = {
       PROBABILITY?: boolean;
     };
   }[];
-  mode?: 'MATCH' | 'NO_MATCH' | 'ALL';
+  mode?: "MATCH" | "NO_MATCH" | "ALL";
   filtered?: boolean;
 };

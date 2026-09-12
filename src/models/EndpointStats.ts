@@ -1,4 +1,4 @@
-import { Log } from './Log';
+import { Log } from "./Log";
 
 export type EndpointStats = {
   hourInterval?: Date;
@@ -25,7 +25,6 @@ export type EndpointStats = {
   uploadCount?: number;
   created?: Date;
   modified?: Date;
-  deleted?: Date;
   id?: string;
   trackingLogs?: Log[];
 };

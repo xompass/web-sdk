@@ -1,0 +1,16 @@
+export type ConcentrationAlertParameters = {
+  points?: {
+    x: number;
+    y: number;
+  }[];
+  color?: string;
+  disableUpload?: boolean;
+  persistence?: {
+    classes: string[];
+    trackClasses?: string[];
+    enabled: boolean;
+    ttl?: number;
+    minImages?: number;
+    ratio?: number;
+  };
+};

@@ -1,3 +1,6 @@
+import { DefaultEventComment } from "./DefaultEventComment";
+import { Log } from "./Log";
+
 export type EventComment = {
   id?: string;
   content: string;
@@ -8,4 +11,7 @@ export type EventComment = {
   userId?: string;
   principalType?: string;
   defaultEventCommentId?: string;
+  defaultEventComment?: DefaultEventComment;
+  trackingLogs?: Log[];
+  user?: any;
 };

@@ -1,18 +1,17 @@
-import { Asset } from './Asset';
-import { AssetStatusDetails } from './AssetStatusDetails';
-import { EventComment } from './EventComment';
-import { EventStateChange } from './EventStateChange';
-import { Log } from './Log';
-import { Project } from './Project';
+import { Asset } from "./Asset";
+import { AssetStatusDetails } from "./AssetStatusDetails";
+import { EventComment } from "./EventComment";
+import { EventStateChange } from "./EventStateChange";
+import { Log } from "./Log";
+import { Project } from "./Project";
 
 export type HealthcheckEvent = {
-  currentState?: string;
+  currentState?: "IN_PROGRESS" | "RESOLVED" | "IGNORED" | "OPENED" | "PENDING";
   seen: boolean;
   expiresAt?: Date;
-  healthStatus?: string;
+  healthStatus?: "ONLINE" | "OFFLINE" | "OUTDATED" | "UNKNOWN";
   created?: Date;
   modified?: Date;
-  deleted?: Date;
   id?: string;
   assetId?: string;
   _comments?: EventComment[];
@@ -20,17 +19,23 @@ export type HealthcheckEvent = {
   _data?: HealthcheckEventData;
   projectId?: string;
   asset?: Asset;
-  trackingLogs?: Log[];
+  comments?: EventComment[];
+  data?: HealthcheckEventData[];
   project?: Project;
+  stateChanges?: EventStateChange[];
+  trackingLogs?: Log[];
 };
 
 export type HealthcheckEventData = {
   id?: string;
-  healthStatus: string;
+  healthStatus: "ONLINE" | "OFFLINE" | "UNKNOWN" | "OUTDATED";
   requested?: AssetStatusDetails;
   referenceImage?: AssetStatusDetails;
   healthcheckSensors?: AssetStatusDetails;
+  blackedImage?: AssetStatusDetails;
+  frozenImage?: AssetStatusDetails;
   created?: Date;
   modified?: Date;
   deleted?: Date;
+  trackingLogs?: Log[];
 };

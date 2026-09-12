@@ -9,5 +9,5 @@ export type StoreStoreVideoAnalyticsSettings = {
     password?: string;
     defaultCameraPassword?: string;
   };
-  attributes?: Record<string, undefined>;
+  attributes?: Record<string, any>;
 };

@@ -1,23 +1,12 @@
-import {
-  ApiFetch,
-  UploadFile,
-  Filter,
-  Include,
-  UploadableFile,
-} from '../core/ApiFetch';
-import { Admin } from '../models/Admin';
-import { CommonAccessToken } from '../models/CommonAccessToken';
-import { Country } from '../models/Country';
-import { AdminStorageContainer } from '../models/Admin';
-import { Credential } from '../models/Credential';
-import { Asset } from '../models/Asset';
-import { Log } from '../models/Log';
-import { TimeZone } from '../models/TimeZone';
-import { Var } from '../models/Var';
-
-/**
- * Api services for the `Admin` model.
- */
+import { ApiFetch, Filter, UploadFile, UploadableFile } from "../core/ApiFetch";
+import { Admin, AdminStorageContainer } from "../models/Admin";
+import { Asset } from "../models/Asset";
+import { CommonAccessToken } from "../models/CommonAccessToken";
+import { Country } from "../models/Country";
+import { Credential } from "../models/Credential";
+import { Log } from "../models/Log";
+import { TimeZone } from "../models/TimeZone";
+import { Var } from "../models/Var";
 
 /**
  * Find a related item by id for accessTokens.
@@ -28,8 +17,8 @@ export async function Admin_FindByIdAccessTokens(
   fk: string,
 ): Promise<CommonAccessToken> {
   return ApiFetch({
-    method: 'GET',
-    url: '/Admins/:id/accessTokens/:fk',
+    method: "GET",
+    url: "/Admins/:id/accessTokens/:fk",
     routeParams: {
       id,
       fk,
@@ -42,8 +31,8 @@ export async function Admin_FindByIdAccessTokens(
  */
 export async function Admin_GetCountry(id: string): Promise<Country> {
   return ApiFetch({
-    method: 'GET',
-    url: '/Admins/:id/country',
+    method: "GET",
+    url: "/Admins/:id/country",
     routeParams: {
       id,
     },
@@ -57,8 +46,8 @@ export async function Admin_GetContainer(
   id: string,
 ): Promise<AdminStorageContainer> {
   return ApiFetch({
-    method: 'GET',
-    url: '/Admins/:id/container',
+    method: "GET",
+    url: "/Admins/:id/container",
     routeParams: {
       id,
     },
@@ -73,8 +62,8 @@ export async function Admin_FindByIdCredentials(
   fk: string,
 ): Promise<Credential> {
   return ApiFetch({
-    method: 'GET',
-    url: '/Admins/:id/credentials/:fk',
+    method: "GET",
+    url: "/Admins/:id/credentials/:fk",
     routeParams: {
       id,
       fk,
@@ -90,8 +79,8 @@ export async function Admin_ExistsCredentials(
   fk: string,
 ): Promise<boolean> {
   return ApiFetch({
-    method: 'HEAD',
-    url: '/Admins/:id/credentials/rel/:fk',
+    method: "HEAD",
+    url: "/Admins/:id/credentials/rel/:fk",
     routeParams: {
       id,
       fk,
@@ -105,11 +94,11 @@ export async function Admin_ExistsCredentials(
 export async function Admin_LinkAssets(
   id: string,
   fk: string,
-  data: any = {},
+  data?: any,
 ): Promise<any> {
   return ApiFetch({
-    method: 'PUT',
-    url: '/Admins/:id/assets/rel/:fk',
+    method: "PUT",
+    url: "/Admins/:id/assets/rel/:fk",
     routeParams: {
       id,
       fk,
@@ -126,8 +115,8 @@ export async function Admin_UnlinkAssets(
   fk: string,
 ): Promise<void> {
   return ApiFetch({
-    method: 'DELETE',
-    url: '/Admins/:id/assets/rel/:fk',
+    method: "DELETE",
+    url: "/Admins/:id/assets/rel/:fk",
     routeParams: {
       id,
       fk,
@@ -143,8 +132,8 @@ export async function Admin_FindByIdActivityLogs(
   fk: string,
 ): Promise<Log> {
   return ApiFetch({
-    method: 'GET',
-    url: '/Admins/:id/activityLogs/:fk',
+    method: "GET",
+    url: "/Admins/:id/activityLogs/:fk",
     routeParams: {
       id,
       fk,
@@ -157,8 +146,8 @@ export async function Admin_FindByIdActivityLogs(
  */
 export async function Admin_GetTimeZone(id: string): Promise<TimeZone> {
   return ApiFetch({
-    method: 'GET',
-    url: '/Admins/:id/timeZone',
+    method: "GET",
+    url: "/Admins/:id/timeZone",
     routeParams: {
       id,
     },
@@ -170,8 +159,8 @@ export async function Admin_GetTimeZone(id: string): Promise<TimeZone> {
  */
 export async function Admin_GetVar(id: string): Promise<Var> {
   return ApiFetch({
-    method: 'GET',
-    url: '/Admins/:id/var',
+    method: "GET",
+    url: "/Admins/:id/var",
     routeParams: {
       id,
     },
@@ -183,16 +172,16 @@ export async function Admin_GetVar(id: string): Promise<Var> {
  */
 export async function Admin_GetCredentials(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<Credential>,
 ): Promise<Credential[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams['filter'] = filter;
+    _urlParams["filter"] = filter;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/Admins/:id/credentials',
+    method: "GET",
+    url: "/Admins/:id/credentials",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -205,16 +194,16 @@ export async function Admin_GetCredentials(
  */
 export async function Admin_CountCredentials(
   id: string,
-  where: any = {},
+  where?: Filter<Credential>["where"],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams['where'] = where;
+    _urlParams["where"] = where;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/Admins/:id/credentials/count',
+    method: "GET",
+    url: "/Admins/:id/credentials/count",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -227,16 +216,16 @@ export async function Admin_CountCredentials(
  */
 export async function Admin_GetAssets(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<Asset>,
 ): Promise<Asset[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams['filter'] = filter;
+    _urlParams["filter"] = filter;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/Admins/:id/assets',
+    method: "GET",
+    url: "/Admins/:id/assets",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -249,16 +238,16 @@ export async function Admin_GetAssets(
  */
 export async function Admin_CountAssets(
   id: string,
-  where: any = {},
+  where?: Filter<Asset>["where"],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams['where'] = where;
+    _urlParams["where"] = where;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/Admins/:id/assets/count',
+    method: "GET",
+    url: "/Admins/:id/assets/count",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -271,16 +260,16 @@ export async function Admin_CountAssets(
  */
 export async function Admin_GetActivityLogs(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<Log>,
 ): Promise<Log[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams['filter'] = filter;
+    _urlParams["filter"] = filter;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/Admins/:id/activityLogs',
+    method: "GET",
+    url: "/Admins/:id/activityLogs",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -293,16 +282,16 @@ export async function Admin_GetActivityLogs(
  */
 export async function Admin_CountActivityLogs(
   id: string,
-  where: any = {},
+  where?: Filter<Log>["where"],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams['where'] = where;
+    _urlParams["where"] = where;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/Admins/:id/activityLogs/count',
+    method: "GET",
+    url: "/Admins/:id/activityLogs/count",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -313,12 +302,24 @@ export async function Admin_CountActivityLogs(
  * Create a new instance of the model and persist it into the data source.
  * /Admins
  */
-export async function Admin_create(data: any = {}): Promise<Admin> {
+export async function Admin_create(data?: any): Promise<Admin> {
   return ApiFetch({
-    method: 'POST',
-    url: '/Admins',
-    routeParams: {},
+    method: "POST",
+    url: "/Admins",
     body: data,
+  });
+}
+/**
+ * Check whether a model instance exists in the data source.
+ * /Admins/:id/exists
+ */
+export async function Admin_exists(id: string): Promise<boolean> {
+  return ApiFetch({
+    method: "GET",
+    url: "/Admins/:id/exists",
+    routeParams: {
+      id,
+    },
   });
 }
 /**
@@ -327,20 +328,37 @@ export async function Admin_create(data: any = {}): Promise<Admin> {
  */
 export async function Admin_findById(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<Admin>,
 ): Promise<Admin> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams['filter'] = filter;
+    _urlParams["filter"] = filter;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/Admins/:id',
+    method: "GET",
+    url: "/Admins/:id",
     urlParams: _urlParams,
     routeParams: {
       id,
     },
+  });
+}
+/**
+ * Replace attributes for a model instance and persist it into the data source.
+ * /Admins/:id/replace
+ */
+export async function Admin_replaceById(
+  id: string,
+  data?: any,
+): Promise<Admin> {
+  return ApiFetch({
+    method: "POST",
+    url: "/Admins/:id/replace",
+    routeParams: {
+      id,
+    },
+    body: data,
   });
 }
 /**
@@ -349,11 +367,28 @@ export async function Admin_findById(
  */
 export async function Admin_deleteById(id: string): Promise<void> {
   return ApiFetch({
-    method: 'DELETE',
-    url: '/Admins/:id',
+    method: "DELETE",
+    url: "/Admins/:id",
     routeParams: {
       id,
     },
+  });
+}
+/**
+ * Patch attributes for a model instance and persist it into the data source.
+ * /Admins/:id
+ */
+export async function Admin_patchAttributes(
+  id: string,
+  data?: any,
+): Promise<Admin> {
+  return ApiFetch({
+    method: "PUT",
+    url: "/Admins/:id",
+    routeParams: {
+      id,
+    },
+    body: data,
   });
 }
 /**
@@ -361,28 +396,23 @@ export async function Admin_deleteById(id: string): Promise<void> {
  * /Admins/login
  */
 export async function Admin_login(
-  credentials:
-    | { username: string; password: string }
-    | { email: string; password: string },
-  include: Include<any> = {
-    relation: 'user',
-    scope: { include: ['container'] },
+  credentials: ({ username: string } | { email: string }) & {
+    password: string;
+    twoFactorMethod?: "totp" | "recovery";
+    twoFactorCode?: string;
   },
-  rememberMe: boolean = true,
+  include?: Filter<Admin>["include"],
 ): Promise<any> {
   const _urlParams: any = {};
   if (include != null) {
-    _urlParams['include'] = include;
+    _urlParams["include"] = include;
   }
 
   return ApiFetch({
-    method: 'POST',
-    url: '/Admins/login',
+    method: "POST",
+    url: "/Admins/login",
     urlParams: _urlParams,
-    routeParams: {},
-    body: {
-      ...credentials,
-    },
+    body: { ...credentials },
   });
 }
 /**
@@ -391,9 +421,8 @@ export async function Admin_login(
  */
 export async function Admin_logout(): Promise<any> {
   return ApiFetch({
-    method: 'POST',
-    url: '/Admins/logout',
-    routeParams: {},
+    method: "POST",
+    url: "/Admins/logout",
   });
 }
 /**
@@ -402,8 +431,8 @@ export async function Admin_logout(): Promise<any> {
  */
 export async function Admin_verify(id: string): Promise<any> {
   return ApiFetch({
-    method: 'POST',
-    url: '/Admins/:id/verify',
+    method: "POST",
+    url: "/Admins/:id/verify",
     routeParams: {
       id,
     },
@@ -417,23 +446,22 @@ export async function Admin_confirm(
   uid: string,
   token: string,
   redirect?: string,
-): Promise<any> {
+): Promise<CommonAccessToken> {
   const _urlParams: any = {};
   if (uid != null) {
-    _urlParams['uid'] = uid;
+    _urlParams["uid"] = uid;
   }
   if (token != null) {
-    _urlParams['token'] = token;
+    _urlParams["token"] = token;
   }
   if (redirect != null) {
-    _urlParams['redirect'] = redirect;
+    _urlParams["redirect"] = redirect;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/Admins/confirm',
+    method: "GET",
+    url: "/Admins/confirm",
     urlParams: _urlParams,
-    routeParams: {},
   });
 }
 /**
@@ -442,12 +470,9 @@ export async function Admin_confirm(
  */
 export async function Admin_resetPassword(options: any): Promise<any> {
   return ApiFetch({
-    method: 'POST',
-    url: '/Admins/reset',
-    routeParams: {},
-    body: {
-      options,
-    },
+    method: "POST",
+    url: "/Admins/reset",
+    body: options,
   });
 }
 /**
@@ -459,13 +484,9 @@ export async function Admin_changePassword(
   newPassword: string,
 ): Promise<any> {
   return ApiFetch({
-    method: 'POST',
-    url: '/Admins/change-password',
-    routeParams: {},
-    body: {
-      oldPassword,
-      newPassword,
-    },
+    method: "POST",
+    url: "/Admins/change-password",
+    body: { oldPassword, newPassword },
   });
 }
 /**
@@ -474,12 +495,9 @@ export async function Admin_changePassword(
  */
 export async function Admin_setPassword(newPassword: string): Promise<any> {
   return ApiFetch({
-    method: 'POST',
-    url: '/Admins/reset-password',
-    routeParams: {},
-    body: {
-      newPassword,
-    },
+    method: "POST",
+    url: "/Admins/reset-password",
+    body: { newPassword },
   });
 }
 /**
@@ -488,53 +506,17 @@ export async function Admin_setPassword(newPassword: string): Promise<any> {
  */
 export async function Admin_getCurrentToken(
   id: string,
-  include?: string,
+  include?: Filter<CommonAccessToken>["include"],
 ): Promise<CommonAccessToken> {
   const _urlParams: any = {};
   if (include != null) {
-    _urlParams['include'] = include;
+    _urlParams["include"] = include;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/Admins/:id/currentAccessToken',
+    method: "GET",
+    url: "/Admins/:id/currentAccessToken",
     urlParams: _urlParams,
-    routeParams: {
-      id,
-    },
-  });
-}
-/**
- * Login a user with username/email, password and OTP.
- * /Admins/otp/login
- */
-export async function Admin_otpLogin(
-  credentials: any,
-  include?: string,
-): Promise<any> {
-  const _urlParams: any = {};
-  if (include != null) {
-    _urlParams['include'] = include;
-  }
-
-  return ApiFetch({
-    method: 'POST',
-    url: '/Admins/otp/login',
-    urlParams: _urlParams,
-    routeParams: {},
-    body: {
-      credentials,
-    },
-  });
-}
-/**
- * Disable OTP for the currently logged in user.
- * /Admins/:id/otp/disable
- */
-export async function Admin_otpDisable(id: string): Promise<any> {
-  return ApiFetch({
-    method: 'PATCH',
-    url: '/Admins/:id/otp/disable',
     routeParams: {
       id,
     },
@@ -546,10 +528,10 @@ export async function Admin_otpDisable(id: string): Promise<any> {
  */
 export async function Admin_getMiniAppUserSessionsActive(
   id: string,
-): Promise<any> {
+): Promise<any[]> {
   return ApiFetch({
-    method: 'GET',
-    url: '/Admins/:id/miniapp/activeSessions',
+    method: "GET",
+    url: "/Admins/:id/miniapp/activeSessions",
     routeParams: {
       id,
     },
@@ -564,54 +546,12 @@ export async function Admin_MiniAppUserSessionActiveLogout(
   data: any,
 ): Promise<any> {
   return ApiFetch({
-    method: 'POST',
-    url: '/Admins/:id/telegram/miniapp/logout',
+    method: "POST",
+    url: "/Admins/:id/telegram/miniapp/logout",
     routeParams: {
       id,
     },
     body: data,
-  });
-}
-/**
- * Check if the user has the OTP authentication enabled.
- * /Admins/:id/otp/check
- */
-export async function Admin_otpCheck(id: string): Promise<any> {
-  return ApiFetch({
-    method: 'GET',
-    url: '/Admins/:id/otp/check',
-    routeParams: {
-      id,
-    },
-  });
-}
-/**
- * Generate the OTP url for the currently logged in user.
- * /Admins/:id/otp/generate
- */
-export async function Admin_otpGenerate(id: string): Promise<any> {
-  return ApiFetch({
-    method: 'GET',
-    url: '/Admins/:id/otp/generate',
-    routeParams: {
-      id,
-    },
-  });
-}
-/**
- * Verify the OTP for the currently logged in user.
- * /Admins/:id/otp/verify
- */
-export async function Admin_otpVerify(id: string, obj: any = {}): Promise<any> {
-  return ApiFetch({
-    method: 'POST',
-    url: '/Admins/:id/otp/verify',
-    routeParams: {
-      id,
-    },
-    body: {
-      obj,
-    },
   });
 }
 /**
@@ -620,12 +560,19 @@ export async function Admin_otpVerify(id: string, obj: any = {}): Promise<any> {
  */
 export async function Admin_verifyAccount(options: any): Promise<any> {
   return ApiFetch({
-    method: 'POST',
-    url: '/Admins/verify',
-    routeParams: {},
-    body: {
-      options,
-    },
+    method: "POST",
+    url: "/Admins/verify",
+    body: options,
+  });
+}
+/**
+ * Whether this environment requires email verification for this user type.
+ * /Admins/emailVerificationRequired
+ */
+export async function Admin_getEmailVerificationRequired(): Promise<any> {
+  return ApiFetch({
+    method: "GET",
+    url: "/Admins/emailVerificationRequired",
   });
 }
 /**
@@ -634,8 +581,8 @@ export async function Admin_verifyAccount(options: any): Promise<any> {
  */
 export async function Admin_getContainerInfo(id: string): Promise<any> {
   return ApiFetch({
-    method: 'GET',
-    url: '/Admins/:id/container/info',
+    method: "GET",
+    url: "/Admins/:id/container/info",
     routeParams: {
       id,
     },
@@ -645,10 +592,10 @@ export async function Admin_getContainerInfo(id: string): Promise<any> {
  * List all files within specified container
  * /Admins/:id/container/files
  */
-export async function Admin_getFiles(id: string): Promise<any> {
+export async function Admin_getFiles(id: string): Promise<any[]> {
   return ApiFetch({
-    method: 'GET',
-    url: '/Admins/:id/container/files',
+    method: "GET",
+    url: "/Admins/:id/container/files",
     routeParams: {
       id,
     },
@@ -660,8 +607,8 @@ export async function Admin_getFiles(id: string): Promise<any> {
  */
 export async function Admin_getFile(id: string, file: string): Promise<any> {
   return ApiFetch({
-    method: 'GET',
-    url: '/Admins/:id/container/files/:file',
+    method: "GET",
+    url: "/Admins/:id/container/files/:file",
     routeParams: {
       id,
       file,
@@ -679,12 +626,12 @@ export async function Admin_removeFile(
 ): Promise<void> {
   const _urlParams: any = {};
   if (property != null) {
-    _urlParams['property'] = property;
+    _urlParams["property"] = property;
   }
 
   return ApiFetch({
-    method: 'DELETE',
-    url: '/Admins/:id/container/files/:file',
+    method: "DELETE",
+    url: "/Admins/:id/container/files/:file",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -704,11 +651,11 @@ export async function Admin_upload(
 ): Promise<any> {
   const _urlParams: any = {};
   if (property != null) {
-    _urlParams['property'] = property;
+    _urlParams["property"] = property;
   }
 
   return UploadFile({
-    url: '/Admins/:id/container/upload',
+    url: "/Admins/:id/container/upload",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -728,12 +675,12 @@ export async function Admin_download(
 ): Promise<any> {
   const _urlParams: any = {};
   if (property != null) {
-    _urlParams['property'] = property;
+    _urlParams["property"] = property;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/Admins/:id/container/download/:file',
+    method: "GET",
+    url: "/Admins/:id/container/download/:file",
     urlParams: _urlParams,
     routeParams: {
       id,

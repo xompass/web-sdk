@@ -1,11 +1,7 @@
-import { ApiFetch, Filter } from '../core/ApiFetch';
-import { AssetStateTemplate } from '../models/AssetStateTemplate';
-import { EventTriggerAssetStateTemplate } from '../models/EventTriggerAssetStateTemplate';
-import { EventTriggerRuleTemplate } from '../models/EventTriggerRuleTemplate';
-
-/**
- * Api services for the `EventTriggerTemplate` model.
- */
+import { ApiFetch, Filter } from "../core/ApiFetch";
+import { AssetStateTemplate } from "../models/AssetStateTemplate";
+import { EventTriggerAssetStateTemplate } from "../models/EventTriggerAssetStateTemplate";
+import { EventTriggerRuleTemplate } from "../models/EventTriggerRuleTemplate";
 
 /**
  * Find a related item by id for assetStateTemplates.
@@ -16,8 +12,8 @@ export async function EventTriggerTemplate_FindByIdAssetStateTemplates(
   fk: string,
 ): Promise<AssetStateTemplate> {
   return ApiFetch({
-    method: 'GET',
-    url: '/EventTriggerTemplates/:id/assetStateTemplates/:fk',
+    method: "GET",
+    url: "/EventTriggerTemplates/:id/assetStateTemplates/:fk",
     routeParams: {
       id,
       fk,
@@ -31,11 +27,11 @@ export async function EventTriggerTemplate_FindByIdAssetStateTemplates(
 export async function EventTriggerTemplate_LinkAssetStateTemplates(
   id: string,
   fk: string,
-  data: any = {},
+  data?: any,
 ): Promise<EventTriggerAssetStateTemplate> {
   return ApiFetch({
-    method: 'PUT',
-    url: '/EventTriggerTemplates/:id/assetStateTemplates/rel/:fk',
+    method: "PUT",
+    url: "/EventTriggerTemplates/:id/assetStateTemplates/rel/:fk",
     routeParams: {
       id,
       fk,
@@ -52,8 +48,8 @@ export async function EventTriggerTemplate_UnlinkAssetStateTemplates(
   fk: string,
 ): Promise<void> {
   return ApiFetch({
-    method: 'DELETE',
-    url: '/EventTriggerTemplates/:id/assetStateTemplates/rel/:fk',
+    method: "DELETE",
+    url: "/EventTriggerTemplates/:id/assetStateTemplates/rel/:fk",
     routeParams: {
       id,
       fk,
@@ -69,8 +65,8 @@ export async function EventTriggerTemplate_ExistsAssetStateTemplates(
   fk: string,
 ): Promise<boolean> {
   return ApiFetch({
-    method: 'HEAD',
-    url: '/EventTriggerTemplates/:id/assetStateTemplates/rel/:fk',
+    method: "HEAD",
+    url: "/EventTriggerTemplates/:id/assetStateTemplates/rel/:fk",
     routeParams: {
       id,
       fk,
@@ -86,8 +82,8 @@ export async function EventTriggerTemplate_FindByIdStateTemplates(
   fk: string,
 ): Promise<EventTriggerAssetStateTemplate> {
   return ApiFetch({
-    method: 'GET',
-    url: '/EventTriggerTemplates/:id/stateTemplates/:fk',
+    method: "GET",
+    url: "/EventTriggerTemplates/:id/stateTemplates/:fk",
     routeParams: {
       id,
       fk,
@@ -101,11 +97,11 @@ export async function EventTriggerTemplate_FindByIdStateTemplates(
 export async function EventTriggerTemplate_UpdateByIdStateTemplates(
   id: string,
   fk: string,
-  data: any = {},
+  data?: any,
 ): Promise<EventTriggerAssetStateTemplate> {
   return ApiFetch({
-    method: 'PUT',
-    url: '/EventTriggerTemplates/:id/stateTemplates/:fk',
+    method: "PUT",
+    url: "/EventTriggerTemplates/:id/stateTemplates/:fk",
     routeParams: {
       id,
       fk,
@@ -122,8 +118,8 @@ export async function EventTriggerTemplate_FindByIdRuleTemplates(
   fk: string,
 ): Promise<EventTriggerRuleTemplate> {
   return ApiFetch({
-    method: 'GET',
-    url: '/EventTriggerTemplates/:id/ruleTemplates/:fk',
+    method: "GET",
+    url: "/EventTriggerTemplates/:id/ruleTemplates/:fk",
     routeParams: {
       id,
       fk,
@@ -139,8 +135,8 @@ export async function EventTriggerTemplate_DestroyByIdRuleTemplates(
   fk: string,
 ): Promise<void> {
   return ApiFetch({
-    method: 'DELETE',
-    url: '/EventTriggerTemplates/:id/ruleTemplates/:fk',
+    method: "DELETE",
+    url: "/EventTriggerTemplates/:id/ruleTemplates/:fk",
     routeParams: {
       id,
       fk,
@@ -154,11 +150,11 @@ export async function EventTriggerTemplate_DestroyByIdRuleTemplates(
 export async function EventTriggerTemplate_UpdateByIdRuleTemplates(
   id: string,
   fk: string,
-  data: any = {},
+  data?: any,
 ): Promise<EventTriggerRuleTemplate> {
   return ApiFetch({
-    method: 'PUT',
-    url: '/EventTriggerTemplates/:id/ruleTemplates/:fk',
+    method: "PUT",
+    url: "/EventTriggerTemplates/:id/ruleTemplates/:fk",
     routeParams: {
       id,
       fk,
@@ -172,16 +168,16 @@ export async function EventTriggerTemplate_UpdateByIdRuleTemplates(
  */
 export async function EventTriggerTemplate_GetAssetStateTemplates(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<AssetStateTemplate>,
 ): Promise<AssetStateTemplate[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams['filter'] = filter;
+    _urlParams["filter"] = filter;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/EventTriggerTemplates/:id/assetStateTemplates',
+    method: "GET",
+    url: "/EventTriggerTemplates/:id/assetStateTemplates",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -194,16 +190,16 @@ export async function EventTriggerTemplate_GetAssetStateTemplates(
  */
 export async function EventTriggerTemplate_CountAssetStateTemplates(
   id: string,
-  where: any = {},
+  where?: Filter<AssetStateTemplate>["where"],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams['where'] = where;
+    _urlParams["where"] = where;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/EventTriggerTemplates/:id/assetStateTemplates/count',
+    method: "GET",
+    url: "/EventTriggerTemplates/:id/assetStateTemplates/count",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -216,16 +212,16 @@ export async function EventTriggerTemplate_CountAssetStateTemplates(
  */
 export async function EventTriggerTemplate_GetStateTemplates(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<EventTriggerAssetStateTemplate>,
 ): Promise<EventTriggerAssetStateTemplate[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams['filter'] = filter;
+    _urlParams["filter"] = filter;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/EventTriggerTemplates/:id/stateTemplates',
+    method: "GET",
+    url: "/EventTriggerTemplates/:id/stateTemplates",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -238,16 +234,16 @@ export async function EventTriggerTemplate_GetStateTemplates(
  */
 export async function EventTriggerTemplate_CountStateTemplates(
   id: string,
-  where: any = {},
+  where?: Filter<EventTriggerAssetStateTemplate>["where"],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams['where'] = where;
+    _urlParams["where"] = where;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/EventTriggerTemplates/:id/stateTemplates/count',
+    method: "GET",
+    url: "/EventTriggerTemplates/:id/stateTemplates/count",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -260,16 +256,16 @@ export async function EventTriggerTemplate_CountStateTemplates(
  */
 export async function EventTriggerTemplate_GetRuleTemplates(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<EventTriggerRuleTemplate>,
 ): Promise<EventTriggerRuleTemplate[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams['filter'] = filter;
+    _urlParams["filter"] = filter;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/EventTriggerTemplates/:id/ruleTemplates',
+    method: "GET",
+    url: "/EventTriggerTemplates/:id/ruleTemplates",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -282,11 +278,11 @@ export async function EventTriggerTemplate_GetRuleTemplates(
  */
 export async function EventTriggerTemplate_CreateRuleTemplates(
   id: string,
-  data: any = {},
+  data?: any,
 ): Promise<EventTriggerRuleTemplate> {
   return ApiFetch({
-    method: 'POST',
-    url: '/EventTriggerTemplates/:id/ruleTemplates',
+    method: "POST",
+    url: "/EventTriggerTemplates/:id/ruleTemplates",
     routeParams: {
       id,
     },
@@ -299,16 +295,16 @@ export async function EventTriggerTemplate_CreateRuleTemplates(
  */
 export async function EventTriggerTemplate_CountRuleTemplates(
   id: string,
-  where: any = {},
+  where?: Filter<EventTriggerRuleTemplate>["where"],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams['where'] = where;
+    _urlParams["where"] = where;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/EventTriggerTemplates/:id/ruleTemplates/count',
+    method: "GET",
+    url: "/EventTriggerTemplates/:id/ruleTemplates/count",
     urlParams: _urlParams,
     routeParams: {
       id,

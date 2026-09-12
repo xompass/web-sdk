@@ -1,10 +1,11 @@
-import { Asset } from './Asset';
-import { Log } from './Log';
-import { Manager } from './Manager';
-import { Project } from './Project';
+import { Asset } from "./Asset";
+import { Log } from "./Log";
+import { Manager } from "./Manager";
+import { Project } from "./Project";
 
 export type CctvDashboard = {
   name: string;
+  normalizedName?: string;
   description?: string;
   created?: Date;
   modified?: Date;
@@ -13,7 +14,7 @@ export type CctvDashboard = {
   assetIds?: string[];
   projectId?: string;
   assets?: Asset[];
-  trackingLogs?: Log[];
   managers?: Manager[];
   project?: Project;
+  trackingLogs?: Log[];
 };

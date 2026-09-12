@@ -1,11 +1,6 @@
-import { ApiFetch, UploadFile, Filter, UploadableFile } from '../core/ApiFetch';
-import { FaceDatabase } from '../models/FaceDatabase';
-import { FaceSubject } from '../models/FaceSubject';
-import { FaceDatabaseFaceSubject } from '../models/FaceSubject';
-
-/**
- * Api services for the `FaceDatabase` model.
- */
+import { ApiFetch, Filter, UploadFile, UploadableFile } from "../core/ApiFetch";
+import { FaceDatabase } from "../models/FaceDatabase";
+import { FaceDatabaseFaceSubject, FaceSubject } from "../models/FaceSubject";
 
 /**
  * Find a related item by id for faceSubjects.
@@ -16,8 +11,8 @@ export async function FaceDatabase_FindByIdFaceSubjects(
   fk: string,
 ): Promise<FaceSubject> {
   return ApiFetch({
-    method: 'GET',
-    url: '/FaceDatabases/:id/faceSubjects/:fk',
+    method: "GET",
+    url: "/FaceDatabases/:id/faceSubjects/:fk",
     routeParams: {
       id,
       fk,
@@ -31,11 +26,11 @@ export async function FaceDatabase_FindByIdFaceSubjects(
 export async function FaceDatabase_UpdateByIdFaceSubjects(
   id: string,
   fk: string,
-  data: any = {},
+  data?: any,
 ): Promise<FaceSubject> {
   return ApiFetch({
-    method: 'PUT',
-    url: '/FaceDatabases/:id/faceSubjects/:fk',
+    method: "PUT",
+    url: "/FaceDatabases/:id/faceSubjects/:fk",
     routeParams: {
       id,
       fk,
@@ -50,11 +45,11 @@ export async function FaceDatabase_UpdateByIdFaceSubjects(
 export async function FaceDatabase_LinkFaceSubjects(
   id: string,
   fk: string,
-  data: any = {},
+  data?: any,
 ): Promise<FaceDatabaseFaceSubject> {
   return ApiFetch({
-    method: 'PUT',
-    url: '/FaceDatabases/:id/faceSubjects/rel/:fk',
+    method: "PUT",
+    url: "/FaceDatabases/:id/faceSubjects/rel/:fk",
     routeParams: {
       id,
       fk,
@@ -71,8 +66,8 @@ export async function FaceDatabase_UnlinkFaceSubjects(
   fk: string,
 ): Promise<void> {
   return ApiFetch({
-    method: 'DELETE',
-    url: '/FaceDatabases/:id/faceSubjects/rel/:fk',
+    method: "DELETE",
+    url: "/FaceDatabases/:id/faceSubjects/rel/:fk",
     routeParams: {
       id,
       fk,
@@ -88,8 +83,8 @@ export async function FaceDatabase_ExistsFaceSubjects(
   fk: string,
 ): Promise<boolean> {
   return ApiFetch({
-    method: 'HEAD',
-    url: '/FaceDatabases/:id/faceSubjects/rel/:fk',
+    method: "HEAD",
+    url: "/FaceDatabases/:id/faceSubjects/rel/:fk",
     routeParams: {
       id,
       fk,
@@ -102,16 +97,16 @@ export async function FaceDatabase_ExistsFaceSubjects(
  */
 export async function FaceDatabase_GetFaceSubjects(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<FaceSubject>,
 ): Promise<FaceSubject[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams['filter'] = filter;
+    _urlParams["filter"] = filter;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/FaceDatabases/:id/faceSubjects',
+    method: "GET",
+    url: "/FaceDatabases/:id/faceSubjects",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -124,11 +119,11 @@ export async function FaceDatabase_GetFaceSubjects(
  */
 export async function FaceDatabase_CreateFaceSubjects(
   id: string,
-  data: any = {},
+  data?: any,
 ): Promise<FaceSubject> {
   return ApiFetch({
-    method: 'POST',
-    url: '/FaceDatabases/:id/faceSubjects',
+    method: "POST",
+    url: "/FaceDatabases/:id/faceSubjects",
     routeParams: {
       id,
     },
@@ -141,16 +136,16 @@ export async function FaceDatabase_CreateFaceSubjects(
  */
 export async function FaceDatabase_CountFaceSubjects(
   id: string,
-  where: any = {},
+  where?: Filter<FaceSubject>["where"],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams['where'] = where;
+    _urlParams["where"] = where;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/FaceDatabases/:id/faceSubjects/count',
+    method: "GET",
+    url: "/FaceDatabases/:id/faceSubjects/count",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -161,13 +156,10 @@ export async function FaceDatabase_CountFaceSubjects(
  * Create a new instance of the model and persist it into the data source.
  * /FaceDatabases
  */
-export async function FaceDatabase_create(
-  data: any = {},
-): Promise<FaceDatabase> {
+export async function FaceDatabase_create(data?: any): Promise<FaceDatabase> {
   return ApiFetch({
-    method: 'POST',
-    url: '/FaceDatabases',
-    routeParams: {},
+    method: "POST",
+    url: "/FaceDatabases",
     body: data,
   });
 }
@@ -177,8 +169,8 @@ export async function FaceDatabase_create(
  */
 export async function FaceDatabase_exists(id: string): Promise<boolean> {
   return ApiFetch({
-    method: 'GET',
-    url: '/FaceDatabases/:id/exists',
+    method: "GET",
+    url: "/FaceDatabases/:id/exists",
     routeParams: {
       id,
     },
@@ -190,16 +182,16 @@ export async function FaceDatabase_exists(id: string): Promise<boolean> {
  */
 export async function FaceDatabase_findById(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<FaceDatabase>,
 ): Promise<FaceDatabase> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams['filter'] = filter;
+    _urlParams["filter"] = filter;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/FaceDatabases/:id',
+    method: "GET",
+    url: "/FaceDatabases/:id",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -211,18 +203,17 @@ export async function FaceDatabase_findById(
  * /FaceDatabases
  */
 export async function FaceDatabase_find(
-  filter: Filter<any> = {},
+  filter?: Filter<FaceDatabase>,
 ): Promise<FaceDatabase[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams['filter'] = filter;
+    _urlParams["filter"] = filter;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/FaceDatabases',
+    method: "GET",
+    url: "/FaceDatabases",
     urlParams: _urlParams,
-    routeParams: {},
   });
 }
 /**
@@ -231,11 +222,28 @@ export async function FaceDatabase_find(
  */
 export async function FaceDatabase_deleteById(id: string): Promise<void> {
   return ApiFetch({
-    method: 'DELETE',
-    url: '/FaceDatabases/:id',
+    method: "DELETE",
+    url: "/FaceDatabases/:id",
     routeParams: {
       id,
     },
+  });
+}
+/**
+ * Patch attributes for a model instance and persist it into the data source.
+ * /FaceDatabases/:id
+ */
+export async function FaceDatabase_patchAttributes(
+  id: string,
+  data?: any,
+): Promise<FaceDatabase> {
+  return ApiFetch({
+    method: "PUT",
+    url: "/FaceDatabases/:id",
+    routeParams: {
+      id,
+    },
+    body: data,
   });
 }
 /**
@@ -247,8 +255,8 @@ export async function FaceDatabase_removeFaceSubject(
   fk: string,
 ): Promise<void> {
   return ApiFetch({
-    method: 'DELETE',
-    url: '/FaceDatabases/:id/faceSubjects/:fk',
+    method: "DELETE",
+    url: "/FaceDatabases/:id/faceSubjects/:fk",
     routeParams: {
       id,
       fk,
@@ -262,16 +270,16 @@ export async function FaceDatabase_removeFaceSubject(
 export async function FaceDatabase_listFaceImages(
   id: string,
   nk: string,
-  filter: Filter<any> = {},
+  filter?: Filter<FaceSubject>,
 ): Promise<any[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams['filter'] = filter;
+    _urlParams["filter"] = filter;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/FaceDatabases/:id/faceSubjects/:nk/images',
+    method: "GET",
+    url: "/FaceDatabases/:id/faceSubjects/:nk/images",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -289,8 +297,8 @@ export async function FaceDatabase_findFaceImageById(
   fk: string,
 ): Promise<any> {
   return ApiFetch({
-    method: 'GET',
-    url: '/FaceDatabases/:id/faceSubjects/:nk/images/:fk',
+    method: "GET",
+    url: "/FaceDatabases/:id/faceSubjects/:nk/images/:fk",
     routeParams: {
       id,
       nk,
@@ -305,16 +313,16 @@ export async function FaceDatabase_findFaceImageById(
 export async function FaceDatabase_countFaceImages(
   id: string,
   nk: string,
-  where: any = {},
+  where?: Filter<FaceSubject>["where"],
 ): Promise<any> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams['where'] = where;
+    _urlParams["where"] = where;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/FaceDatabases/:id/faceSubjects/:nk/images/count',
+    method: "GET",
+    url: "/FaceDatabases/:id/faceSubjects/:nk/images/count",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -332,8 +340,8 @@ export async function FaceDatabase_deleteFaceImage(
   fk: string,
 ): Promise<void> {
   return ApiFetch({
-    method: 'DELETE',
-    url: '/FaceDatabases/:id/faceSubjects/:nk/images/:fk',
+    method: "DELETE",
+    url: "/FaceDatabases/:id/faceSubjects/:nk/images/:fk",
     routeParams: {
       id,
       nk,
@@ -352,7 +360,7 @@ export async function FaceDatabase_uploadFaceSubject(
   onProgress?: (progress: number) => void,
 ): Promise<any> {
   return UploadFile({
-    url: '/FaceDatabases/:id/faceSubjects/:fk/upload',
+    url: "/FaceDatabases/:id/faceSubjects/:fk/upload",
     routeParams: {
       id,
       fk,
@@ -371,8 +379,8 @@ export async function FaceDatabase_downloadFaceImage(
   file: string,
 ): Promise<any> {
   return ApiFetch({
-    method: 'GET',
-    url: '/FaceDatabases/:id/faceSubjects/:nk/images/:file/download',
+    method: "GET",
+    url: "/FaceDatabases/:id/faceSubjects/:nk/images/:file/download",
     routeParams: {
       id,
       nk,
@@ -389,8 +397,8 @@ export async function FaceDatabase_syncFaceSubject(
   fk: string,
 ): Promise<any> {
   return ApiFetch({
-    method: 'POST',
-    url: '/FaceDatabases/:id/faceSubjects/:fk/sync',
+    method: "POST",
+    url: "/FaceDatabases/:id/faceSubjects/:fk/sync",
     routeParams: {
       id,
       fk,
@@ -403,8 +411,8 @@ export async function FaceDatabase_syncFaceSubject(
  */
 export async function FaceDatabase_syncFaceDatabase(id: string): Promise<any> {
   return ApiFetch({
-    method: 'POST',
-    url: '/FaceDatabases/:id/sync',
+    method: "POST",
+    url: "/FaceDatabases/:id/sync",
     routeParams: {
       id,
     },

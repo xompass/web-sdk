@@ -1,3 +1,5 @@
+import { Log } from "./Log";
+
 export type EventStateChange = {
   id?: string;
   name: string;
@@ -7,4 +9,6 @@ export type EventStateChange = {
   deleted?: Date;
   userId?: string;
   principalType?: string;
+  trackingLogs?: Log[];
+  user?: any;
 };

@@ -1,10 +1,11 @@
-import { Admin } from './Admin';
-import { Country } from './Country';
-import { Customer } from './Customer';
-import { Log } from './Log';
-import { Toolkit } from './Toolkit';
-import { ToolkitTemplate } from './ToolkitTemplate';
-import { FileMetadata } from './FileMetadata';
+import { Admin } from "./Admin";
+import { Country } from "./Country";
+import { Customer } from "./Customer";
+import { FileMetadata } from "./FileMetadata";
+import { Log } from "./Log";
+import { SupportAdmin } from "./SupportAdmin";
+import { Toolkit } from "./Toolkit";
+import { ToolkitTemplate } from "./ToolkitTemplate";
 
 export type Var = {
   name: string;
@@ -17,13 +18,14 @@ export type Var = {
   id?: string;
   countryId?: string;
   toolkitTemplateIds?: string[];
-  trackingLogs?: Log[];
   admins?: Admin[];
-  customers?: Customer[];
+  container?: VarStorageContainer;
   country?: Country;
+  customers?: Customer[];
+  supportAdmins?: SupportAdmin[];
   toolkitTemplates?: ToolkitTemplate[];
   toolkits?: Toolkit[];
-  container?: VarStorageContainer;
+  trackingLogs?: Log[];
 };
 
 export type VarStorageContainer = {
@@ -33,4 +35,7 @@ export type VarStorageContainer = {
   deleted?: Date;
   varId?: string;
   _logo?: FileMetadata;
+  logo?: FileMetadata[];
+  trackingLogs?: Log[];
+  var?: Var;
 };

@@ -1,9 +1,9 @@
-import { Asset } from './Asset';
-import { Data } from './Data';
-import { Log } from './Log';
-import { Sensor } from './Sensor';
-import { Summary } from './Summary';
-import { SensorTypeLabel } from './sensorTypes/SensorTypeLabel';
+import { Asset } from "./Asset";
+import { Data } from "./Data";
+import { Log } from "./Log";
+import { Sensor } from "./Sensor";
+import { Summary } from "./Summary";
+import { SensorTypeLabel } from "./sensorTypes/SensorTypeLabel";
 
 export type Dataset = {
   id?: string;
@@ -17,13 +17,13 @@ export type Dataset = {
   isHealthcheck?: boolean;
   created?: Date;
   modified?: Date;
-  deleted?: Date;
   assetId?: string;
   _data?: Data[];
   sensorId?: string;
   summaryId?: string;
   asset?: Asset;
-  trackingLogs?: Log[];
+  data?: Data[];
   sensor?: Sensor;
   summary?: Summary;
+  trackingLogs?: Log[];
 };

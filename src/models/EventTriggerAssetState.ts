@@ -1,9 +1,9 @@
-import { AssetState } from './AssetState';
-import { EmergencyContact } from './EmergencyContact';
-import { EventTrigger } from './EventTrigger';
-import { EventTriggerAssetStateTemplate } from './EventTriggerAssetStateTemplate';
-import { EventTriggerRule } from './EventTriggerRule';
-import { Log } from './Log';
+import { AssetState } from "./AssetState";
+import { EmergencyContact } from "./EmergencyContact";
+import { EventTrigger } from "./EventTrigger";
+import { EventTriggerAssetStateTemplate } from "./EventTriggerAssetStateTemplate";
+import { EventTriggerRule } from "./EventTriggerRule";
+import { Log } from "./Log";
 
 export type EventTriggerAssetState = {
   type?: string;
@@ -13,10 +13,10 @@ export type EventTriggerAssetState = {
   muted?: boolean;
   hidden?: boolean;
   starred?: boolean;
+  watchlistId?: string;
   notifications?: any;
   created?: Date;
   modified?: Date;
-  deleted?: Date;
   id?: string;
   assetStateId?: string;
   eventTriggerId?: string;
@@ -25,6 +25,7 @@ export type EventTriggerAssetState = {
   assetState?: AssetState;
   emergencyContacts?: EmergencyContact[];
   eventTrigger?: EventTrigger;
+  rules?: EventTriggerRule[];
   template?: EventTriggerAssetStateTemplate;
   trackingLogs?: Log[];
 };

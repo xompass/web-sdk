@@ -1,9 +1,5 @@
-import { ApiFetch, Filter } from '../core/ApiFetch';
-import { Country } from '../models/Country';
-
-/**
- * Api services for the `Country` model.
- */
+import { ApiFetch, Filter } from "../core/ApiFetch";
+import { Country } from "../models/Country";
 
 /**
  * Check whether a model instance exists in the data source.
@@ -11,8 +7,8 @@ import { Country } from '../models/Country';
  */
 export async function Country_exists(id: string): Promise<boolean> {
   return ApiFetch({
-    method: 'GET',
-    url: '/Countries/:id/exists',
+    method: "GET",
+    url: "/Countries/:id/exists",
     routeParams: {
       id,
     },
@@ -24,16 +20,16 @@ export async function Country_exists(id: string): Promise<boolean> {
  */
 export async function Country_findById(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<Country>,
 ): Promise<Country> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams['filter'] = filter;
+    _urlParams["filter"] = filter;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/Countries/:id',
+    method: "GET",
+    url: "/Countries/:id",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -45,18 +41,17 @@ export async function Country_findById(
  * /Countries
  */
 export async function Country_find(
-  filter: Filter<any> = {},
+  filter?: Filter<Country>,
 ): Promise<Country[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams['filter'] = filter;
+    _urlParams["filter"] = filter;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/Countries',
+    method: "GET",
+    url: "/Countries",
     urlParams: _urlParams,
-    routeParams: {},
   });
 }
 /**
@@ -64,34 +59,34 @@ export async function Country_find(
  * /Countries/findOne
  */
 export async function Country_findOne(
-  filter: Filter<any> = {},
+  filter?: Filter<Country>,
 ): Promise<Country> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams['filter'] = filter;
+    _urlParams["filter"] = filter;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/Countries/findOne',
+    method: "GET",
+    url: "/Countries/findOne",
     urlParams: _urlParams,
-    routeParams: {},
   });
 }
 /**
  * Count instances of the model matched by where from the data source.
  * /Countries/count
  */
-export async function Country_count(where: any = {}): Promise<number> {
+export async function Country_count(
+  where?: Filter<Country>["where"],
+): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams['where'] = where;
+    _urlParams["where"] = where;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/Countries/count',
+    method: "GET",
+    url: "/Countries/count",
     urlParams: _urlParams,
-    routeParams: {},
   });
 }

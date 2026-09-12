@@ -25,7 +25,7 @@ export type NaiveSocialDistancingBasedOnRulesTRCParameters = {
         minProbability?: number;
       };
     };
-    'bolsa-fajos'?: {
+    "bolsa-fajos"?: {
       thresholds?: {
         minProbability?: number;
       };

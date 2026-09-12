@@ -1,8 +1,8 @@
-import { Asset } from './Asset';
-import { Customer } from './Customer';
-import { Device } from './Device';
-import { Log } from './Log';
-import { TelegramChat } from './TelegramChat';
+import { Asset } from "./Asset";
+import { Customer } from "./Customer";
+import { Device } from "./Device";
+import { Log } from "./Log";
+import { TelegramChat } from "./TelegramChat";
 
 export type EdgeAgent = {
   name?: string;
@@ -23,46 +23,29 @@ export type EdgeAgent = {
   id?: string;
   customerId?: string;
   deviceId?: string;
+  assets?: Asset[];
   customer?: Customer;
   device?: Device;
-  assets?: Asset[];
   edgeAgentAssets?: EdgeAgentAsset[];
-  trackingLogs?: Log[];
   telegramChats?: TelegramChat[];
+  trackingLogs?: Log[];
+};
+
+export type EdgeAgentAsset = {
+  created?: Date;
+  modified?: Date;
+  id?: string;
+  edgeAgentId?: string;
+  assetId?: string;
+  asset?: Asset;
+  edgeAgent?: EdgeAgent;
+  trackingLogs?: Log[];
 };
 
 export type EdgeAgentBroker = {
   namespace?: string;
   host?: string;
   port?: number;
-  qos?: string;
+  qos?: "at-most-once" | "at-least-once" | "exactly-once";
   id?: string;
 };
-
-export type EdgeAgentAsset = {
-  created?: Date;
-  modified?: Date;
-  deleted?: Date;
-  id?: string;
-  edgeAgentId?: string;
-  assetId?: string;
-};
-
-export type EdgeAgentBrokers = Record<
-  string,
-  {
-    host?: string;
-    port?: number;
-  }
->;
-
-export type EdgeAgentModules = Record<string, Record<string, any>>;
-
-export type EdgeAgentModuleParameters = Record<string, Record<string, any>>;
-
-export type EdgeAgentRoutes = Record<
-  string,
-  Record<string, Record<string, string[]>>
->;
-
-export type EdgeAgentSystems = Record<string, any>;

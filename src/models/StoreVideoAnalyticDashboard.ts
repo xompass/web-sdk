@@ -1,10 +1,11 @@
-import { Log } from './Log';
-import { Manager } from './Manager';
-import { Project } from './Project';
-import { FileMetadata } from './FileMetadata';
+import { FileMetadata } from "./FileMetadata";
+import { Log } from "./Log";
+import { Manager } from "./Manager";
+import { Project } from "./Project";
 
 export type StoreVideoAnalyticDashboard = {
   name: string;
+  normalizedName?: string;
   description?: string;
   layers?: any;
   created?: Date;
@@ -12,10 +13,10 @@ export type StoreVideoAnalyticDashboard = {
   deleted?: Date;
   id?: string;
   projectId?: string;
-  trackingLogs?: Log[];
-  project?: Project;
-  managers?: Manager[];
   container?: StoreVideoAnalyticDashboardStorageContainer;
+  managers?: Manager[];
+  project?: Project;
+  trackingLogs?: Log[];
 };
 
 export type StoreVideoAnalyticDashboardStorageContainer = {
@@ -25,4 +26,7 @@ export type StoreVideoAnalyticDashboardStorageContainer = {
   deleted?: Date;
   _layouts?: FileMetadata[];
   storeVideoAnalyticDashboardId?: string;
+  layouts?: FileMetadata[];
+  storeVideoAnalyticDashboard?: StoreVideoAnalyticDashboard;
+  trackingLogs?: Log[];
 };

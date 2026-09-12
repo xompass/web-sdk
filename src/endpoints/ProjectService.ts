@@ -1,13 +1,23 @@
-import { ApiFetch, Filter } from '../core/ApiFetch';
-import { EventSubject } from '../models/EventSubject';
-import { AssetOperabilitySummary } from '../models/AssetOperabilitySummary';
-import { FaceDatabase } from '../models/FaceDatabase';
-import { FaceSubject } from '../models/FaceSubject';
-import { ProjectOperabilitySummary } from '../models/ProjectOperabilitySummary';
-import { ProjectRestrictionTable } from '../models/ProjectRestrictionTable';
-import { RateLimit } from '../models/RateLimit';
-import { ResponseProtocol } from '../models/ResponseProtocol';
-import { Asset } from '../models/Asset';
+import { ApiFetch, Filter } from "../core/ApiFetch";
+import { Asset } from "../models/Asset";
+import { AssetOperabilitySummary } from "../models/AssetOperabilitySummary";
+import {
+  Project_ApplyAssetState_Body,
+  Project_GetCommonAssetStates_Response,
+  Project_ReviewFilteredEventData_Body,
+  Project_ReviewFilteredEventData_Response,
+  Project_SearchEvents_Body,
+  Project_SearchEvents_Response,
+} from "../models/EndpointTypes";
+import { Event } from "../models/Event";
+import { EventSubject } from "../models/EventSubject";
+import { FaceDatabase } from "../models/FaceDatabase";
+import { FaceDetection } from "../models/FaceDetection";
+import { FaceSubject } from "../models/FaceSubject";
+import { ProjectOperabilitySummary } from "../models/ProjectOperabilitySummary";
+import { ProjectRestrictionTable } from "../models/ProjectRestrictionTable";
+import { RateLimit } from "../models/RateLimit";
+import { ResponseProtocol } from "../models/ResponseProtocol";
 import {
   LicensePlateDetection,
   Watchlist,
@@ -19,11 +29,7 @@ import {
   WatchlistVehicle,
   WatchlistVehicleCreate,
   WatchlistVehicleUpdate,
-} from '../models/Watchlist';
-
-/**
- * Api services for the `Project` model.
- */
+} from "../models/Watchlist";
 
 /**
  * Find a related item by id for eventSubjects.
@@ -34,8 +40,8 @@ export async function Project_FindByIdEventSubjects(
   fk: string,
 ): Promise<EventSubject> {
   return ApiFetch({
-    method: 'GET',
-    url: '/Projects/:id/eventSubjects/:fk',
+    method: "GET",
+    url: "/Projects/:id/eventSubjects/:fk",
     routeParams: {
       id,
       fk,
@@ -49,11 +55,11 @@ export async function Project_FindByIdEventSubjects(
 export async function Project_UpdateByIdAssetOperabilitySummaries(
   id: string,
   fk: string,
-  data: any = {},
+  data?: any,
 ): Promise<AssetOperabilitySummary> {
   return ApiFetch({
-    method: 'PUT',
-    url: '/Projects/:id/assetOperabilitySummaries/:fk',
+    method: "PUT",
+    url: "/Projects/:id/assetOperabilitySummaries/:fk",
     routeParams: {
       id,
       fk,
@@ -70,8 +76,8 @@ export async function Project_FindByIdFaceDatabases(
   fk: string,
 ): Promise<FaceDatabase> {
   return ApiFetch({
-    method: 'GET',
-    url: '/Projects/:id/faceDatabases/:fk',
+    method: "GET",
+    url: "/Projects/:id/faceDatabases/:fk",
     routeParams: {
       id,
       fk,
@@ -87,8 +93,8 @@ export async function Project_DestroyByIdFaceDatabases(
   fk: string,
 ): Promise<void> {
   return ApiFetch({
-    method: 'DELETE',
-    url: '/Projects/:id/faceDatabases/:fk',
+    method: "DELETE",
+    url: "/Projects/:id/faceDatabases/:fk",
     routeParams: {
       id,
       fk,
@@ -102,11 +108,11 @@ export async function Project_DestroyByIdFaceDatabases(
 export async function Project_UpdateByIdFaceDatabases(
   id: string,
   fk: string,
-  data: any = {},
+  data?: any,
 ): Promise<FaceDatabase> {
   return ApiFetch({
-    method: 'PUT',
-    url: '/Projects/:id/faceDatabases/:fk',
+    method: "PUT",
+    url: "/Projects/:id/faceDatabases/:fk",
     routeParams: {
       id,
       fk,
@@ -123,8 +129,8 @@ export async function Project_FindByIdFaceSubjects(
   fk: string,
 ): Promise<FaceSubject> {
   return ApiFetch({
-    method: 'GET',
-    url: '/Projects/:id/faceSubjects/:fk',
+    method: "GET",
+    url: "/Projects/:id/faceSubjects/:fk",
     routeParams: {
       id,
       fk,
@@ -138,11 +144,11 @@ export async function Project_FindByIdFaceSubjects(
 export async function Project_UpdateByIdOperabilitySummaries(
   id: string,
   fk: string,
-  data: any = {},
+  data?: any,
 ): Promise<ProjectOperabilitySummary> {
   return ApiFetch({
-    method: 'PUT',
-    url: '/Projects/:id/operabilitySummaries/:fk',
+    method: "PUT",
+    url: "/Projects/:id/operabilitySummaries/:fk",
     routeParams: {
       id,
       fk,
@@ -158,8 +164,8 @@ export async function Project_GetRestrictionTable(
   id: string,
 ): Promise<ProjectRestrictionTable> {
   return ApiFetch({
-    method: 'GET',
-    url: '/Projects/:id/restrictionTable',
+    method: "GET",
+    url: "/Projects/:id/restrictionTable",
     routeParams: {
       id,
     },
@@ -171,8 +177,8 @@ export async function Project_GetRestrictionTable(
  */
 export async function Project_GetRateLimit(id: string): Promise<RateLimit> {
   return ApiFetch({
-    method: 'GET',
-    url: '/Projects/:id/rateLimit',
+    method: "GET",
+    url: "/Projects/:id/rateLimit",
     routeParams: {
       id,
     },
@@ -184,11 +190,11 @@ export async function Project_GetRateLimit(id: string): Promise<RateLimit> {
  */
 export async function Project_CreateRateLimit(
   id: string,
-  data: any = {},
+  data?: any,
 ): Promise<RateLimit> {
   return ApiFetch({
-    method: 'POST',
-    url: '/Projects/:id/rateLimit',
+    method: "POST",
+    url: "/Projects/:id/rateLimit",
     routeParams: {
       id,
     },
@@ -201,11 +207,11 @@ export async function Project_CreateRateLimit(
  */
 export async function Project_UpdateRateLimit(
   id: string,
-  data: any = {},
+  data?: any,
 ): Promise<RateLimit> {
   return ApiFetch({
-    method: 'PUT',
-    url: '/Projects/:id/rateLimit',
+    method: "PUT",
+    url: "/Projects/:id/rateLimit",
     routeParams: {
       id,
     },
@@ -221,8 +227,8 @@ export async function Project_FindByIdResponseProtocols(
   fk: string,
 ): Promise<ResponseProtocol> {
   return ApiFetch({
-    method: 'GET',
-    url: '/Projects/:id/responseProtocols/:fk',
+    method: "GET",
+    url: "/Projects/:id/responseProtocols/:fk",
     routeParams: {
       id,
       fk,
@@ -238,8 +244,8 @@ export async function Project_DestroyByIdResponseProtocols(
   fk: string,
 ): Promise<void> {
   return ApiFetch({
-    method: 'DELETE',
-    url: '/Projects/:id/responseProtocols/:fk',
+    method: "DELETE",
+    url: "/Projects/:id/responseProtocols/:fk",
     routeParams: {
       id,
       fk,
@@ -253,11 +259,11 @@ export async function Project_DestroyByIdResponseProtocols(
 export async function Project_UpdateByIdResponseProtocols(
   id: string,
   fk: string,
-  data: any = {},
+  data?: any,
 ): Promise<ResponseProtocol> {
   return ApiFetch({
-    method: 'PUT',
-    url: '/Projects/:id/responseProtocols/:fk',
+    method: "PUT",
+    url: "/Projects/:id/responseProtocols/:fk",
     routeParams: {
       id,
       fk,
@@ -271,16 +277,16 @@ export async function Project_UpdateByIdResponseProtocols(
  */
 export async function Project_GetEventSubjects(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<EventSubject>,
 ): Promise<EventSubject[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams['filter'] = filter;
+    _urlParams["filter"] = filter;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/Projects/:id/eventSubjects',
+    method: "GET",
+    url: "/Projects/:id/eventSubjects",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -293,16 +299,16 @@ export async function Project_GetEventSubjects(
  */
 export async function Project_CountEventSubjects(
   id: string,
-  where: any = {},
+  where?: Filter<EventSubject>["where"],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams['where'] = where;
+    _urlParams["where"] = where;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/Projects/:id/eventSubjects/count',
+    method: "GET",
+    url: "/Projects/:id/eventSubjects/count",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -315,16 +321,16 @@ export async function Project_CountEventSubjects(
  */
 export async function Project_GetAssetOperabilitySummaries(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<AssetOperabilitySummary>,
 ): Promise<AssetOperabilitySummary[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams['filter'] = filter;
+    _urlParams["filter"] = filter;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/Projects/:id/assetOperabilitySummaries',
+    method: "GET",
+    url: "/Projects/:id/assetOperabilitySummaries",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -337,16 +343,16 @@ export async function Project_GetAssetOperabilitySummaries(
  */
 export async function Project_CountAssetOperabilitySummaries(
   id: string,
-  where: any = {},
+  where?: Filter<AssetOperabilitySummary>["where"],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams['where'] = where;
+    _urlParams["where"] = where;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/Projects/:id/assetOperabilitySummaries/count',
+    method: "GET",
+    url: "/Projects/:id/assetOperabilitySummaries/count",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -359,16 +365,16 @@ export async function Project_CountAssetOperabilitySummaries(
  */
 export async function Project_GetFaceDatabases(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<FaceDatabase>,
 ): Promise<FaceDatabase[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams['filter'] = filter;
+    _urlParams["filter"] = filter;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/Projects/:id/faceDatabases',
+    method: "GET",
+    url: "/Projects/:id/faceDatabases",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -381,11 +387,11 @@ export async function Project_GetFaceDatabases(
  */
 export async function Project_CreateFaceDatabases(
   id: string,
-  data: any = {},
+  data?: any,
 ): Promise<FaceDatabase> {
   return ApiFetch({
-    method: 'POST',
-    url: '/Projects/:id/faceDatabases',
+    method: "POST",
+    url: "/Projects/:id/faceDatabases",
     routeParams: {
       id,
     },
@@ -398,16 +404,16 @@ export async function Project_CreateFaceDatabases(
  */
 export async function Project_CountFaceDatabases(
   id: string,
-  where: any = {},
+  where?: Filter<FaceDatabase>["where"],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams['where'] = where;
+    _urlParams["where"] = where;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/Projects/:id/faceDatabases/count',
+    method: "GET",
+    url: "/Projects/:id/faceDatabases/count",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -420,16 +426,16 @@ export async function Project_CountFaceDatabases(
  */
 export async function Project_GetFaceSubjects(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<FaceSubject>,
 ): Promise<FaceSubject[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams['filter'] = filter;
+    _urlParams["filter"] = filter;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/Projects/:id/faceSubjects',
+    method: "GET",
+    url: "/Projects/:id/faceSubjects",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -442,16 +448,60 @@ export async function Project_GetFaceSubjects(
  */
 export async function Project_CountFaceSubjects(
   id: string,
-  where: any = {},
+  where?: Filter<FaceSubject>["where"],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams['where'] = where;
+    _urlParams["where"] = where;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/Projects/:id/faceSubjects/count',
+    method: "GET",
+    url: "/Projects/:id/faceSubjects/count",
+    urlParams: _urlParams,
+    routeParams: {
+      id,
+    },
+  });
+}
+/**
+ * Queries events of Project.
+ * /Projects/:id/events
+ */
+export async function Project_GetEvents(
+  id: string,
+  filter?: Filter<Event>,
+): Promise<Event[]> {
+  const _urlParams: any = {};
+  if (filter != null) {
+    _urlParams["filter"] = filter;
+  }
+
+  return ApiFetch({
+    method: "GET",
+    url: "/Projects/:id/events",
+    urlParams: _urlParams,
+    routeParams: {
+      id,
+    },
+  });
+}
+/**
+ * Counts events of Project.
+ * /Projects/:id/events/count
+ */
+export async function Project_CountEvents(
+  id: string,
+  where?: Filter<Event>["where"],
+): Promise<number> {
+  const _urlParams: any = {};
+  if (where != null) {
+    _urlParams["where"] = where;
+  }
+
+  return ApiFetch({
+    method: "GET",
+    url: "/Projects/:id/events/count",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -464,16 +514,16 @@ export async function Project_CountFaceSubjects(
  */
 export async function Project_GetOperabilitySummaries(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<ProjectOperabilitySummary>,
 ): Promise<ProjectOperabilitySummary[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams['filter'] = filter;
+    _urlParams["filter"] = filter;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/Projects/:id/operabilitySummaries',
+    method: "GET",
+    url: "/Projects/:id/operabilitySummaries",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -486,16 +536,16 @@ export async function Project_GetOperabilitySummaries(
  */
 export async function Project_CountOperabilitySummaries(
   id: string,
-  where: any = {},
+  where?: Filter<ProjectOperabilitySummary>["where"],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams['where'] = where;
+    _urlParams["where"] = where;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/Projects/:id/operabilitySummaries/count',
+    method: "GET",
+    url: "/Projects/:id/operabilitySummaries/count",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -508,16 +558,16 @@ export async function Project_CountOperabilitySummaries(
  */
 export async function Project_GetResponseProtocols(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<ResponseProtocol>,
 ): Promise<ResponseProtocol[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams['filter'] = filter;
+    _urlParams["filter"] = filter;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/Projects/:id/responseProtocols',
+    method: "GET",
+    url: "/Projects/:id/responseProtocols",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -530,11 +580,11 @@ export async function Project_GetResponseProtocols(
  */
 export async function Project_CreateResponseProtocols(
   id: string,
-  data: any = {},
+  data?: any,
 ): Promise<ResponseProtocol> {
   return ApiFetch({
-    method: 'POST',
-    url: '/Projects/:id/responseProtocols',
+    method: "POST",
+    url: "/Projects/:id/responseProtocols",
     routeParams: {
       id,
     },
@@ -547,16 +597,16 @@ export async function Project_CreateResponseProtocols(
  */
 export async function Project_CountResponseProtocols(
   id: string,
-  where: any = {},
+  where?: Filter<ResponseProtocol>["where"],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams['where'] = where;
+    _urlParams["where"] = where;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/Projects/:id/responseProtocols/count',
+    method: "GET",
+    url: "/Projects/:id/responseProtocols/count",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -572,8 +622,8 @@ export async function Project_subscribe(
   socketId: string,
 ): Promise<any> {
   return ApiFetch({
-    method: 'PUT',
-    url: '/Projects/:id/sockets/:socketId/subscribe',
+    method: "PUT",
+    url: "/Projects/:id/sockets/:socketId/subscribe",
     routeParams: {
       id,
       socketId,
@@ -589,8 +639,8 @@ export async function Project_unsubscribe(
   socketId: string,
 ): Promise<void> {
   return ApiFetch({
-    method: 'DELETE',
-    url: '/Projects/:id/sockets/:socketId/unsubscribe',
+    method: "DELETE",
+    url: "/Projects/:id/sockets/:socketId/unsubscribe",
     routeParams: {
       id,
       socketId,
@@ -598,32 +648,29 @@ export async function Project_unsubscribe(
   });
 }
 /**
+ * Get the project home indicators for assets and events from the last 24 hours
+ * /Projects/:id/summary
+ */
+export async function Project_getSummary(id: string): Promise<any> {
+  return ApiFetch({
+    method: "GET",
+    url: "/Projects/:id/summary",
+    routeParams: {
+      id,
+    },
+  });
+}
+/**
  * Get common asset states
  * /Projects/:id/commonAssetStates
  */
-
-type Project_GetCommonAssetStates_Response = {
-  states: {
-    name: string;
-    assets: number[];
-  }[];
-  assets: {
-    id: string;
-    name: string;
-    currentState?: {
-      id: string;
-      name: string;
-    };
-  }[];
-};
-
 export async function Project_GetCommonAssetStates(
   id: string,
   assetIds: string[],
 ): Promise<Project_GetCommonAssetStates_Response> {
   return ApiFetch({
-    method: 'POST',
-    url: '/Projects/:id/commonAssetStates',
+    method: "POST",
+    url: "/Projects/:id/commonAssetStates",
     routeParams: {
       id,
     },
@@ -634,22 +681,97 @@ export async function Project_GetCommonAssetStates(
  * Apply asset state
  * /Projects/:id/applyAssetState
  */
-type Project_ApplyAssetState_Body = {
-  stateName: string;
-  assetIds: string[];
-};
-
 export async function Project_ApplyAssetState(
   id: string,
   body: Project_ApplyAssetState_Body,
 ): Promise<string[]> {
   return ApiFetch({
-    method: 'POST',
-    url: '/Projects/:id/applyAssetState',
+    method: "POST",
+    url: "/Projects/:id/applyAssetState",
     routeParams: {
       id,
     },
     body: body,
+  });
+}
+/**
+ * Search face detections by subject
+ * /Projects/:id/faceDetections/search
+ */
+export async function Project_searchFaceDetections(
+  id: string,
+  subjectId?: string,
+  from?: Date,
+  to?: Date,
+  assetId?: string,
+  sensorId?: string,
+  limit?: number,
+): Promise<FaceDetection[]> {
+  const _urlParams: any = {};
+  if (subjectId != null) {
+    _urlParams["subjectId"] = subjectId;
+  }
+  if (from != null) {
+    _urlParams["from"] = from;
+  }
+  if (to != null) {
+    _urlParams["to"] = to;
+  }
+  if (assetId != null) {
+    _urlParams["assetId"] = assetId;
+  }
+  if (sensorId != null) {
+    _urlParams["sensorId"] = sensorId;
+  }
+  if (limit != null) {
+    _urlParams["limit"] = limit;
+  }
+
+  return ApiFetch({
+    method: "GET",
+    url: "/Projects/:id/faceDetections/search",
+    urlParams: _urlParams,
+    routeParams: {
+      id,
+    },
+  });
+}
+/**
+ * Get face detections by date range
+ * /Projects/:id/faceDetections
+ */
+export async function Project_getFaceDetections(
+  id: string,
+  from?: Date,
+  to?: Date,
+  assetId?: string,
+  sensorId?: string,
+  limit?: number,
+): Promise<FaceDetection[]> {
+  const _urlParams: any = {};
+  if (from != null) {
+    _urlParams["from"] = from;
+  }
+  if (to != null) {
+    _urlParams["to"] = to;
+  }
+  if (assetId != null) {
+    _urlParams["assetId"] = assetId;
+  }
+  if (sensorId != null) {
+    _urlParams["sensorId"] = sensorId;
+  }
+  if (limit != null) {
+    _urlParams["limit"] = limit;
+  }
+
+  return ApiFetch({
+    method: "GET",
+    url: "/Projects/:id/faceDetections",
+    urlParams: _urlParams,
+    routeParams: {
+      id,
+    },
   });
 }
 /**
@@ -671,39 +793,39 @@ export async function Project_searchLicensePlates(
 ): Promise<LicensePlateDetection[]> {
   const _urlParams: any = {};
   if (licensePlate != null) {
-    _urlParams['licensePlate'] = licensePlate;
+    _urlParams["licensePlate"] = licensePlate;
   }
   if (from != null) {
-    _urlParams['from'] = from;
+    _urlParams["from"] = from;
   }
   if (to != null) {
-    _urlParams['to'] = to;
+    _urlParams["to"] = to;
   }
   if (method != null) {
-    _urlParams['method'] = method;
+    _urlParams["method"] = method;
   }
   if (maxDistance != null) {
-    _urlParams['maxDistance'] = maxDistance;
+    _urlParams["maxDistance"] = maxDistance;
   }
   if (transpositions != null) {
-    _urlParams['transpositions'] = transpositions;
+    _urlParams["transpositions"] = transpositions;
   }
   if (assetId != null) {
-    _urlParams['assetId'] = assetId;
+    _urlParams["assetId"] = assetId;
   }
   if (sensorId != null) {
-    _urlParams['sensorId'] = sensorId;
+    _urlParams["sensorId"] = sensorId;
   }
   if (class_ != null) {
-    _urlParams['class'] = class_;
+    _urlParams["class"] = class_;
   }
   if (limit != null) {
-    _urlParams['limit'] = limit;
+    _urlParams["limit"] = limit;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/Projects/:id/licensePlates/search',
+    method: "GET",
+    url: "/Projects/:id/licensePlates/search",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -727,33 +849,33 @@ export async function Project_getLicensePlates(
 ): Promise<LicensePlateDetection[]> {
   const _urlParams: any = {};
   if (from != null) {
-    _urlParams['from'] = from;
+    _urlParams["from"] = from;
   }
   if (to != null) {
-    _urlParams['to'] = to;
+    _urlParams["to"] = to;
   }
   if (assetId != null) {
-    _urlParams['assetId'] = assetId;
+    _urlParams["assetId"] = assetId;
   }
   if (sensorId != null) {
-    _urlParams['sensorId'] = sensorId;
+    _urlParams["sensorId"] = sensorId;
   }
   if (class_ != null) {
-    _urlParams['class'] = class_;
+    _urlParams["class"] = class_;
   }
   if (limit != null) {
-    _urlParams['limit'] = limit;
+    _urlParams["limit"] = limit;
   }
   if (groupInterval != null) {
-    _urlParams['groupInterval'] = groupInterval;
+    _urlParams["groupInterval"] = groupInterval;
   }
   if (groupMaxDistance != null) {
-    _urlParams['groupMaxDistance'] = groupMaxDistance;
+    _urlParams["groupMaxDistance"] = groupMaxDistance;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/Projects/:id/licensePlates',
+    method: "GET",
+    url: "/Projects/:id/licensePlates",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -768,8 +890,8 @@ export async function Project_getLicensePlatesWatchlists(
   id: string,
 ): Promise<Watchlist[]> {
   return ApiFetch({
-    method: 'GET',
-    url: '/Projects/:id/licensePlates/watchlists',
+    method: "GET",
+    url: "/Projects/:id/licensePlates/watchlists",
     routeParams: {
       id,
     },
@@ -784,8 +906,8 @@ export async function Project_createLicensePlateWatchlist(
   data: WatchlistCreate,
 ): Promise<Watchlist> {
   return ApiFetch({
-    method: 'POST',
-    url: '/Projects/:id/licensePlates/watchlists',
+    method: "POST",
+    url: "/Projects/:id/licensePlates/watchlists",
     routeParams: {
       id,
     },
@@ -802,8 +924,8 @@ export async function Project_updateLicensePlateWatchlist(
   data: WatchlistUpdate,
 ): Promise<Watchlist> {
   return ApiFetch({
-    method: 'PATCH',
-    url: '/Projects/:id/licensePlates/watchlists/:nk',
+    method: "PATCH",
+    url: "/Projects/:id/licensePlates/watchlists/:nk",
     routeParams: {
       id,
       nk,
@@ -820,8 +942,8 @@ export async function Project_deleteLicensePlateWatchlist(
   nk: string,
 ): Promise<void> {
   return ApiFetch({
-    method: 'DELETE',
-    url: '/Projects/:id/licensePlates/watchlists/:nk',
+    method: "DELETE",
+    url: "/Projects/:id/licensePlates/watchlists/:nk",
     routeParams: {
       id,
       nk,
@@ -838,8 +960,8 @@ export async function Project_addVehicleToWatchlist(
   data: WatchlistVehicleCreate,
 ): Promise<WatchlistVehicle> {
   return ApiFetch({
-    method: 'POST',
-    url: '/Projects/:id/licensePlates/watchlists/:nk/vehicles',
+    method: "POST",
+    url: "/Projects/:id/licensePlates/watchlists/:nk/vehicles",
     routeParams: {
       id,
       nk,
@@ -856,8 +978,8 @@ export async function Project_listVehiclesInWatchlist(
   nk: string,
 ): Promise<WatchlistVehicle[]> {
   return ApiFetch({
-    method: 'GET',
-    url: '/Projects/:id/licensePlates/watchlists/:nk/vehicles',
+    method: "GET",
+    url: "/Projects/:id/licensePlates/watchlists/:nk/vehicles",
     routeParams: {
       id,
       nk,
@@ -875,8 +997,8 @@ export async function Project_updateVehicleInWatchlist(
   data: WatchlistVehicleUpdate,
 ): Promise<WatchlistVehicle> {
   return ApiFetch({
-    method: 'PATCH',
-    url: '/Projects/:id/licensePlates/watchlists/:nk/vehicles/:licensePlate',
+    method: "PATCH",
+    url: "/Projects/:id/licensePlates/watchlists/:nk/vehicles/:licensePlate",
     routeParams: {
       id,
       nk,
@@ -895,8 +1017,8 @@ export async function Project_deleteVehicleFromWatchlist(
   licensePlate: string,
 ): Promise<void> {
   return ApiFetch({
-    method: 'DELETE',
-    url: '/Projects/:id/licensePlates/watchlists/:nk/vehicles/:licensePlate',
+    method: "DELETE",
+    url: "/Projects/:id/licensePlates/watchlists/:nk/vehicles/:licensePlate",
     routeParams: {
       id,
       nk,
@@ -911,11 +1033,11 @@ export async function Project_deleteVehicleFromWatchlist(
 export async function Project_createManyVehiclesInWatchlist(
   id: string,
   nk: string,
-  data: WatchlistVehicleCreate[] = [],
+  data: WatchlistVehicleCreate[],
 ): Promise<WatchlistBulkCreateResult[]> {
   return ApiFetch({
-    method: 'POST',
-    url: '/Projects/:id/licensePlates/watchlists/:nk/vehicles/bulk',
+    method: "POST",
+    url: "/Projects/:id/licensePlates/watchlists/:nk/vehicles/bulk",
     routeParams: {
       id,
       nk,
@@ -930,11 +1052,11 @@ export async function Project_createManyVehiclesInWatchlist(
 export async function Project_mergeWatchlistVehicles(
   id: string,
   nk: string,
-  data: WatchlistVehicleCreate[] = [],
+  data: WatchlistVehicleCreate[],
 ): Promise<WatchlistMergeResult[]> {
   return ApiFetch({
-    method: 'POST',
-    url: '/Projects/:id/licensePlates/watchlists/:nk/vehicles/merge',
+    method: "POST",
+    url: "/Projects/:id/licensePlates/watchlists/:nk/vehicles/merge",
     routeParams: {
       id,
       nk,
@@ -949,11 +1071,11 @@ export async function Project_mergeWatchlistVehicles(
 export async function Project_replaceWatchlistVehicles(
   id: string,
   nk: string,
-  data: WatchlistVehicleCreate[] = [],
+  data: WatchlistVehicleCreate[],
 ): Promise<WatchlistReplaceResult[]> {
   return ApiFetch({
-    method: 'POST',
-    url: '/Projects/:id/licensePlates/watchlists/:nk/vehicles/replace',
+    method: "POST",
+    url: "/Projects/:id/licensePlates/watchlists/:nk/vehicles/replace",
     routeParams: {
       id,
       nk,
@@ -962,22 +1084,98 @@ export async function Project_replaceWatchlistVehicles(
   });
 }
 /**
- * assets consultas de ResponseProtocol.
+ * Search and count project events using a request body
+ * /Projects/:id/events/search
+ */
+export async function Project_searchEvents(
+  id: string,
+  body: Project_SearchEvents_Body,
+): Promise<Project_SearchEvents_Response> {
+  return ApiFetch({
+    method: "POST",
+    url: "/Projects/:id/events/search",
+    routeParams: {
+      id,
+    },
+    body: body,
+  });
+}
+/**
+ * Mark filtered event data as reviewed through a revision
+ * /Projects/:id/events/:eventId/review-filtered-data
+ */
+export async function Project_reviewFilteredEventData(
+  id: string,
+  eventId: string,
+  body: Project_ReviewFilteredEventData_Body,
+): Promise<Project_ReviewFilteredEventData_Response> {
+  return ApiFetch({
+    method: "POST",
+    url: "/Projects/:id/events/:eventId/review-filtered-data",
+    routeParams: {
+      id,
+      eventId,
+    },
+    body: body,
+  });
+}
+/**
+ * Evaluate a virtual expression in a date interval
+ * /Projects/:id/virtualExpressions/:fk/evaluate
+ */
+export async function Project_EvaluateVirtualExpressions(
+  id: string,
+  fk: string,
+  from: Date,
+  to: Date,
+  groupIntervals?: any[],
+  groupMode?: "avg" | "sum" | "min" | "max",
+  groupUtc?: number,
+): Promise<any> {
+  const _urlParams: any = {};
+  if (from != null) {
+    _urlParams["from"] = from;
+  }
+  if (to != null) {
+    _urlParams["to"] = to;
+  }
+  if (groupIntervals != null) {
+    _urlParams["group_intervals"] = groupIntervals;
+  }
+  if (groupMode != null) {
+    _urlParams["group_mode"] = groupMode;
+  }
+  if (groupUtc != null) {
+    _urlParams["group_utc"] = groupUtc;
+  }
+
+  return ApiFetch({
+    method: "GET",
+    url: "/Projects/:id/virtualExpressions/:fk/evaluate",
+    urlParams: _urlParams,
+    routeParams: {
+      id,
+      fk,
+    },
+  });
+}
+/**
+ * Queries assets of ResponseProtocol.
  * /Projects/:id/responseProtocols/:nk/assets
  */
 export async function Project_GetResponseProtocolsAssets(
   id: string,
   nk: string,
-  filter: Filter<any> = {},
+  filter?: Filter<Asset>,
 ): Promise<Asset[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams['filter'] = filter;
+    _urlParams["filter"] = filter;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/Projects/:id/responseProtocols/:nk/assets',
+    method: "GET",
+    url: "/Projects/:id/responseProtocols/:nk/assets",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -992,16 +1190,16 @@ export async function Project_GetResponseProtocolsAssets(
 export async function Project_CountResponseProtocolsAssets(
   id: string,
   nk: string,
-  where: any = {},
+  where?: Filter<Asset>["where"],
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams['where'] = where;
+    _urlParams["where"] = where;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/Projects/:id/responseProtocols/:nk/assets/count',
+    method: "GET",
+    url: "/Projects/:id/responseProtocols/:nk/assets/count",
     urlParams: _urlParams,
     routeParams: {
       id,

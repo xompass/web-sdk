@@ -1,9 +1,5 @@
-import { ApiFetch, Filter } from '../core/ApiFetch';
-import { ProjectTag } from '../models/ProjectTag';
-
-/**
- * Api services for the `ProjectTag` model.
- */
+import { ApiFetch, Filter } from "../core/ApiFetch";
+import { ProjectTag } from "../models/ProjectTag";
 
 /**
  * Check whether a model instance exists in the data source.
@@ -11,8 +7,8 @@ import { ProjectTag } from '../models/ProjectTag';
  */
 export async function ProjectTag_exists(id: string): Promise<boolean> {
   return ApiFetch({
-    method: 'GET',
-    url: '/ProjectTags/:id/exists',
+    method: "GET",
+    url: "/ProjectTags/:id/exists",
     routeParams: {
       id,
     },
@@ -24,16 +20,16 @@ export async function ProjectTag_exists(id: string): Promise<boolean> {
  */
 export async function ProjectTag_findById(
   id: string,
-  filter: Filter<any> = {},
+  filter?: Filter<ProjectTag>,
 ): Promise<ProjectTag> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams['filter'] = filter;
+    _urlParams["filter"] = filter;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/ProjectTags/:id',
+    method: "GET",
+    url: "/ProjectTags/:id",
     urlParams: _urlParams,
     routeParams: {
       id,
@@ -45,18 +41,17 @@ export async function ProjectTag_findById(
  * /ProjectTags
  */
 export async function ProjectTag_find(
-  filter: Filter<any> = {},
+  filter?: Filter<ProjectTag>,
 ): Promise<ProjectTag[]> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams['filter'] = filter;
+    _urlParams["filter"] = filter;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/ProjectTags',
+    method: "GET",
+    url: "/ProjectTags",
     urlParams: _urlParams,
-    routeParams: {},
   });
 }
 /**
@@ -64,34 +59,34 @@ export async function ProjectTag_find(
  * /ProjectTags/findOne
  */
 export async function ProjectTag_findOne(
-  filter: Filter<any> = {},
+  filter?: Filter<ProjectTag>,
 ): Promise<ProjectTag> {
   const _urlParams: any = {};
   if (filter != null) {
-    _urlParams['filter'] = filter;
+    _urlParams["filter"] = filter;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/ProjectTags/findOne',
+    method: "GET",
+    url: "/ProjectTags/findOne",
     urlParams: _urlParams,
-    routeParams: {},
   });
 }
 /**
  * Count instances of the model matched by where from the data source.
  * /ProjectTags/count
  */
-export async function ProjectTag_count(where: any = {}): Promise<number> {
+export async function ProjectTag_count(
+  where?: Filter<ProjectTag>["where"],
+): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
-    _urlParams['where'] = where;
+    _urlParams["where"] = where;
   }
 
   return ApiFetch({
-    method: 'GET',
-    url: '/ProjectTags/count',
+    method: "GET",
+    url: "/ProjectTags/count",
     urlParams: _urlParams,
-    routeParams: {},
   });
 }

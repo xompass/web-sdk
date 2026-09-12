@@ -1,5 +1,5 @@
-import { Log } from './Log';
-import { Manager } from './Manager';
+import { Log } from "./Log";
+import { Manager } from "./Manager";
 
 export type View = {
   name: string;
@@ -9,6 +9,6 @@ export type View = {
   modified?: Date;
   deleted?: Date;
   id?: string;
-  trackingLogs?: Log[];
   managers?: Manager[];
+  trackingLogs?: Log[];
 };

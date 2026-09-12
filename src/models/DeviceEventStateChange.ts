@@ -1,14 +1,14 @@
-import { Log } from './Log';
+import { Log } from "./Log";
 
 export type DeviceEventStateChange = {
   id?: string;
-  name: string;
+  name: "OPENED" | "IN_PROGRESS" | "RESOLVED" | "CLOSED";
   description?: string;
   created?: Date;
   modified?: Date;
   deleted?: Date;
   userId?: string;
   principalType?: string;
-  user?: any;
   trackingLogs?: Log[];
+  user?: any;
 };

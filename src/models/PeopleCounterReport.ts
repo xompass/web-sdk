@@ -1,9 +1,10 @@
-import { Log } from './Log';
-import { Manager } from './Manager';
-import { Project } from './Project';
+import { Log } from "./Log";
+import { Manager } from "./Manager";
+import { Project } from "./Project";
 
 export type PeopleCounterReport = {
   name: string;
+  normalizedName?: string;
   description?: string;
   chart?: PeopleCounterReportChart;
   created?: Date;
@@ -12,9 +13,10 @@ export type PeopleCounterReport = {
   id?: string;
   _series?: PeopleCounterReportSerie[];
   projectId?: string;
-  trackingLogs?: Log[];
   managers?: Manager[];
   project?: Project;
+  series?: PeopleCounterReportSerie[];
+  trackingLogs?: Log[];
 };
 
 export type PeopleCounterReportChart = {
@@ -36,6 +38,7 @@ export type PeopleCounterReportSerie = {
   modified?: Date;
   deleted?: Date;
   id?: string;
+  trackingLogs?: Log[];
 };
 
 export type PeopleCounterReportSerieChart = {
@@ -44,27 +47,33 @@ export type PeopleCounterReportSerieChart = {
   visible?: boolean;
   id?: string;
 };
-export type PeopleCounterReportSeriePercentageChart = {
-  visible?: boolean;
-  id?: string;
-};
-export type PeopleCounterReportSerieTrendChart = {
-  visible?: boolean;
-  id?: string;
-};
-export type PeopleCounterReportSerieProfileChart = {
-  visible?: boolean;
-  id?: string;
-};
+
 export type PeopleCounterReportSerieHeatmap = {
   visible?: boolean;
   id?: string;
 };
+
 export type PeopleCounterReportSerieKPI = {
   visible?: boolean;
   id?: string;
 };
+
+export type PeopleCounterReportSeriePercentageChart = {
+  visible?: boolean;
+  id?: string;
+};
+
+export type PeopleCounterReportSerieProfileChart = {
+  visible?: boolean;
+  id?: string;
+};
+
 export type PeopleCounterReportSerieTable = {
+  visible?: boolean;
+  id?: string;
+};
+
+export type PeopleCounterReportSerieTrendChart = {
   visible?: boolean;
   id?: string;
 };
