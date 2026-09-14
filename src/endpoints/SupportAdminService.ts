@@ -1,4 +1,10 @@
-import { ApiFetch, Filter, UploadFile, UploadableFile } from "../core/ApiFetch";
+import {
+  ApiFetch,
+  Filter,
+  UploadFile,
+  UploadableFile,
+  unwrapCount,
+} from "../core/ApiFetch";
 import { CommonAccessToken } from "../models/CommonAccessToken";
 import { Log } from "../models/Log";
 import {
@@ -90,7 +96,7 @@ export async function SupportAdmin_CountActivityLogs(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/SupportAdmins/:id/activityLogs/count",
     urlParams: _urlParams,
@@ -98,6 +104,7 @@ export async function SupportAdmin_CountActivityLogs(
       id,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Create a new instance of the model and persist it into the data source.

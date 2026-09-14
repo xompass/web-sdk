@@ -1,4 +1,4 @@
-import { ApiFetch, Filter } from "../core/ApiFetch";
+import { ApiFetch, Filter, unwrapCount } from "../core/ApiFetch";
 import { Manager } from "../models/Manager";
 import { View } from "../models/View";
 
@@ -71,7 +71,7 @@ export async function View_CountManagers(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Views/:id/managers/count",
     urlParams: _urlParams,
@@ -79,6 +79,7 @@ export async function View_CountManagers(
       id,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Check whether a model instance exists in the data source.
@@ -159,9 +160,10 @@ export async function View_count(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Views/count",
     urlParams: _urlParams,
   });
+  return unwrapCount(result);
 }

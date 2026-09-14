@@ -1,4 +1,10 @@
-import { ApiFetch, Filter, UploadFile, UploadableFile } from "../core/ApiFetch";
+import {
+  ApiFetch,
+  Filter,
+  UploadFile,
+  UploadableFile,
+  unwrapCount,
+} from "../core/ApiFetch";
 import { Asset } from "../models/Asset";
 import { CctvDashboard } from "../models/CctvDashboard";
 import { CommonAccessToken } from "../models/CommonAccessToken";
@@ -989,7 +995,7 @@ export async function Manager_CountActivityLogs(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Managers/:id/activityLogs/count",
     urlParams: _urlParams,
@@ -997,6 +1003,7 @@ export async function Manager_CountActivityLogs(
       id,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries credentials of Manager.
@@ -1033,7 +1040,7 @@ export async function Manager_CountCredentials(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Managers/:id/credentials/count",
     urlParams: _urlParams,
@@ -1041,6 +1048,7 @@ export async function Manager_CountCredentials(
       id,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries assets of Manager.
@@ -1077,7 +1085,7 @@ export async function Manager_CountAssets(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Managers/:id/assets/count",
     urlParams: _urlParams,
@@ -1085,6 +1093,7 @@ export async function Manager_CountAssets(
       id,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries cctvDashboards of Manager.
@@ -1121,7 +1130,7 @@ export async function Manager_CountCctvDashboards(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Managers/:id/cctvDashboards/count",
     urlParams: _urlParams,
@@ -1129,6 +1138,7 @@ export async function Manager_CountCctvDashboards(
       id,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries countReports of Manager.
@@ -1165,7 +1175,7 @@ export async function Manager_CountCountReports(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Managers/:id/countReports/count",
     urlParams: _urlParams,
@@ -1173,6 +1183,7 @@ export async function Manager_CountCountReports(
       id,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries eventDashboards of Manager.
@@ -1209,7 +1220,7 @@ export async function Manager_CountEventDashboards(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Managers/:id/eventDashboards/count",
     urlParams: _urlParams,
@@ -1217,6 +1228,7 @@ export async function Manager_CountEventDashboards(
       id,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries peopleCounterReports of Manager.
@@ -1253,7 +1265,7 @@ export async function Manager_CountPeopleCounterReports(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Managers/:id/peopleCounterReports/count",
     urlParams: _urlParams,
@@ -1261,6 +1273,7 @@ export async function Manager_CountPeopleCounterReports(
       id,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries reports of Manager.
@@ -1297,7 +1310,7 @@ export async function Manager_CountReports(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Managers/:id/reports/count",
     urlParams: _urlParams,
@@ -1305,6 +1318,7 @@ export async function Manager_CountReports(
       id,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries storeVideoAnalyticDashboards of Manager.
@@ -1341,7 +1355,7 @@ export async function Manager_CountStoreVideoAnalyticDashboards(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Managers/:id/storeVideoAnalyticDashboards/count",
     urlParams: _urlParams,
@@ -1349,6 +1363,7 @@ export async function Manager_CountStoreVideoAnalyticDashboards(
       id,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries trafficFlowAnalysis of Manager.
@@ -1385,7 +1400,7 @@ export async function Manager_CountTrafficFlowAnalysis(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Managers/:id/trafficFlowAnalysis/count",
     urlParams: _urlParams,
@@ -1393,6 +1408,7 @@ export async function Manager_CountTrafficFlowAnalysis(
       id,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries views of Manager.
@@ -1429,7 +1445,7 @@ export async function Manager_CountViews(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Managers/:id/views/count",
     urlParams: _urlParams,
@@ -1437,6 +1453,7 @@ export async function Manager_CountViews(
       id,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Create a new instance of the model and persist it into the data source.

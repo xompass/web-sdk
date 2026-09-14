@@ -1,4 +1,4 @@
-import { ApiFetch, Filter } from "../core/ApiFetch";
+import { ApiFetch, Filter, unwrapCount } from "../core/ApiFetch";
 import { Asset } from "../models/Asset";
 import { EventDashboard_GetDisabledEventTriggersResponse } from "../models/EndpointTypes";
 import {
@@ -234,7 +234,7 @@ export async function EventDashboard_CountAssets(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/EventDashboards/:id/assets/count",
     urlParams: _urlParams,
@@ -242,6 +242,7 @@ export async function EventDashboard_CountAssets(
       id,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries eventDashboardEventTriggers of EventDashboard.
@@ -300,7 +301,7 @@ export async function EventDashboard_CountEventTriggers(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/EventDashboards/:id/eventTriggers/count",
     urlParams: _urlParams,
@@ -308,6 +309,7 @@ export async function EventDashboard_CountEventTriggers(
       id,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries managers of EventDashboard.
@@ -344,7 +346,7 @@ export async function EventDashboard_CountManagers(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/EventDashboards/:id/managers/count",
     urlParams: _urlParams,
@@ -352,6 +354,7 @@ export async function EventDashboard_CountManagers(
       id,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Find a model instance by {{id}} from the data source.
@@ -411,10 +414,17 @@ export async function EventDashboard_GetEvents(
  */
 export async function EventDashboard_GetDisabledEventTriggers(
   id: string,
+  filter?: Filter<EventDashboard_GetDisabledEventTriggersResponse>,
 ): Promise<EventDashboard_GetDisabledEventTriggersResponse> {
+  const _urlParams: any = {};
+  if (filter != null) {
+    _urlParams["filter"] = filter;
+  }
+
   return ApiFetch({
     method: "GET",
     url: "/EventDashboards/:id/disabledEventTriggers",
+    urlParams: _urlParams,
     routeParams: {
       id,
     },

@@ -1,4 +1,4 @@
-import { ApiFetch, Filter } from "../core/ApiFetch";
+import { ApiFetch, Filter, unwrapCount } from "../core/ApiFetch";
 import { EdgeAgentTemplate } from "../models/EdgeAgentTemplate";
 import { EdgeAgentTemplateTag } from "../models/EdgeAgentTemplateTag";
 
@@ -54,7 +54,7 @@ export async function EdgeAgentTemplate_CountTags(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/EdgeAgentTemplates/:id/tags/count",
     urlParams: _urlParams,
@@ -62,6 +62,7 @@ export async function EdgeAgentTemplate_CountTags(
       id,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Find a model instance by {{id}} from the data source.
@@ -115,11 +116,12 @@ export async function EdgeAgentTemplate_count(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/EdgeAgentTemplates/count",
     urlParams: _urlParams,
   });
+  return unwrapCount(result);
 }
 /**
  * Find all templates

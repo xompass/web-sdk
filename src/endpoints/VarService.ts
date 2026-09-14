@@ -1,4 +1,10 @@
-import { ApiFetch, Filter, UploadFile, UploadableFile } from "../core/ApiFetch";
+import {
+  ApiFetch,
+  Filter,
+  UploadFile,
+  UploadableFile,
+  unwrapCount,
+} from "../core/ApiFetch";
 import { Admin } from "../models/Admin";
 import { AssetType } from "../models/AssetType";
 import { Country } from "../models/Country";
@@ -229,7 +235,7 @@ export async function Var_CountAdmins(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Vars/:id/admins/count",
     urlParams: _urlParams,
@@ -237,6 +243,7 @@ export async function Var_CountAdmins(
       id,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries customers of Var.
@@ -290,7 +297,7 @@ export async function Var_CountCustomers(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Vars/:id/customers/count",
     urlParams: _urlParams,
@@ -298,6 +305,7 @@ export async function Var_CountCustomers(
       id,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries toolkitTemplates of Var.
@@ -334,7 +342,7 @@ export async function Var_CountToolkitTemplates(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Vars/:id/toolkitTemplates/count",
     urlParams: _urlParams,
@@ -342,6 +350,7 @@ export async function Var_CountToolkitTemplates(
       id,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries toolkits of Var.
@@ -378,7 +387,7 @@ export async function Var_CountToolkits(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Vars/:id/toolkits/count",
     urlParams: _urlParams,
@@ -386,6 +395,7 @@ export async function Var_CountToolkits(
       id,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Find a model instance by {{id}} from the data source.
@@ -857,7 +867,7 @@ export async function Var_CountToolkitsAdminTools(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Vars/:id/toolkits/:nk/adminTools/count",
     urlParams: _urlParams,
@@ -866,6 +876,7 @@ export async function Var_CountToolkitsAdminTools(
       nk,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries tools of Toolkit.
@@ -905,7 +916,7 @@ export async function Var_CountToolkitsTools(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Vars/:id/toolkits/:nk/tools/count",
     urlParams: _urlParams,
@@ -914,4 +925,5 @@ export async function Var_CountToolkitsTools(
       nk,
     },
   });
+  return unwrapCount(result);
 }

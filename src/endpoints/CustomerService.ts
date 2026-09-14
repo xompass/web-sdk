@@ -1,4 +1,10 @@
-import { ApiFetch, Filter, UploadFile, UploadableFile } from "../core/ApiFetch";
+import {
+  ApiFetch,
+  Filter,
+  UploadFile,
+  UploadableFile,
+  unwrapCount,
+} from "../core/ApiFetch";
 import { Admin } from "../models/Admin";
 import { ApiKey } from "../models/ApiKey";
 import { Asset } from "../models/Asset";
@@ -993,7 +999,7 @@ export async function Customer_CountAssets(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Customers/:id/assets/count",
     urlParams: _urlParams,
@@ -1001,6 +1007,7 @@ export async function Customer_CountAssets(
       id,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries assetTemplates of Customer.
@@ -1037,7 +1044,7 @@ export async function Customer_CountAssetTemplates(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Customers/:id/assetTemplates/count",
     urlParams: _urlParams,
@@ -1045,6 +1052,7 @@ export async function Customer_CountAssetTemplates(
       id,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries countReports of Customer.
@@ -1103,7 +1111,7 @@ export async function Customer_CountCredentials(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Customers/:id/credentials/count",
     urlParams: _urlParams,
@@ -1111,6 +1119,7 @@ export async function Customer_CountCredentials(
       id,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries apiKeys of Customer.
@@ -1164,7 +1173,7 @@ export async function Customer_CountApiKeys(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Customers/:id/apiKeys/count",
     urlParams: _urlParams,
@@ -1172,6 +1181,7 @@ export async function Customer_CountApiKeys(
       id,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries operabilitySummaries of Customer.
@@ -1208,7 +1218,7 @@ export async function Customer_CountOperabilitySummaries(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Customers/:id/operabilitySummaries/count",
     urlParams: _urlParams,
@@ -1216,6 +1226,7 @@ export async function Customer_CountOperabilitySummaries(
       id,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries defaultEventComments of Customer.
@@ -1269,7 +1280,7 @@ export async function Customer_CountDefaultEventComments(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Customers/:id/defaultEventComments/count",
     urlParams: _urlParams,
@@ -1277,6 +1288,7 @@ export async function Customer_CountDefaultEventComments(
       id,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries devices of Customer.
@@ -1330,7 +1342,7 @@ export async function Customer_CountDevices(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Customers/:id/devices/count",
     urlParams: _urlParams,
@@ -1338,6 +1350,7 @@ export async function Customer_CountDevices(
       id,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries deviceEventTypes of Customer.
@@ -1374,7 +1387,7 @@ export async function Customer_CountDeviceEventTypes(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Customers/:id/deviceEventTypes/count",
     urlParams: _urlParams,
@@ -1382,6 +1395,7 @@ export async function Customer_CountDeviceEventTypes(
       id,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries edgeAgents of Customer.
@@ -1435,7 +1449,7 @@ export async function Customer_CountEdgeAgents(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Customers/:id/edgeAgents/count",
     urlParams: _urlParams,
@@ -1443,6 +1457,7 @@ export async function Customer_CountEdgeAgents(
       id,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries emergencyContacts of Customer.
@@ -1496,7 +1511,7 @@ export async function Customer_CountEmergencyContacts(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Customers/:id/emergencyContacts/count",
     urlParams: _urlParams,
@@ -1504,6 +1519,7 @@ export async function Customer_CountEmergencyContacts(
       id,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries events of Customer.
@@ -1579,7 +1595,7 @@ export async function Customer_CountEventStates(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Customers/:id/eventStates/count",
     urlParams: _urlParams,
@@ -1587,6 +1603,7 @@ export async function Customer_CountEventStates(
       id,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries managers of Customer.
@@ -1640,7 +1657,7 @@ export async function Customer_CountManagers(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Customers/:id/managers/count",
     urlParams: _urlParams,
@@ -1648,6 +1665,7 @@ export async function Customer_CountManagers(
       id,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries projects of Customer.
@@ -1684,7 +1702,7 @@ export async function Customer_CountProjects(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Customers/:id/projects/count",
     urlParams: _urlParams,
@@ -1692,6 +1710,7 @@ export async function Customer_CountProjects(
       id,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries storylines of Customer.
@@ -1767,7 +1786,7 @@ export async function Customer_CountStorylineCategories(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Customers/:id/storylineCategories/count",
     urlParams: _urlParams,
@@ -1775,6 +1794,7 @@ export async function Customer_CountStorylineCategories(
       id,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries telegramChats of Customer.
@@ -1828,7 +1848,7 @@ export async function Customer_CountTelegramChats(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Customers/:id/telegramChats/count",
     urlParams: _urlParams,
@@ -1836,6 +1856,7 @@ export async function Customer_CountTelegramChats(
       id,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries toolkits of Customer.
@@ -1872,7 +1893,7 @@ export async function Customer_CountToolkits(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Customers/:id/toolkits/count",
     urlParams: _urlParams,
@@ -1880,6 +1901,7 @@ export async function Customer_CountToolkits(
       id,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries yoloClasses of Customer.
@@ -1916,7 +1938,7 @@ export async function Customer_CountYoloClasses(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Customers/:id/yoloClasses/count",
     urlParams: _urlParams,
@@ -1924,6 +1946,7 @@ export async function Customer_CountYoloClasses(
       id,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Find a model instance by {{id}} from the data source.
@@ -3432,7 +3455,7 @@ export async function Customer_CountAssetsAssets(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Customers/:id/assets/:nk/assets/count",
     urlParams: _urlParams,
@@ -3441,6 +3464,7 @@ export async function Customer_CountAssetsAssets(
       nk,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries staffs of Asset.
@@ -3499,7 +3523,7 @@ export async function Customer_CountAssetsStaffs(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Customers/:id/assets/:nk/staffs/count",
     urlParams: _urlParams,
@@ -3508,6 +3532,7 @@ export async function Customer_CountAssetsStaffs(
       nk,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries assetStates of Asset.
@@ -3566,7 +3591,7 @@ export async function Customer_CountAssetsAssetStates(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Customers/:id/assets/:nk/assetStates/count",
     urlParams: _urlParams,
@@ -3575,6 +3600,7 @@ export async function Customer_CountAssetsAssetStates(
       nk,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries credentials of Asset.
@@ -3614,7 +3640,7 @@ export async function Customer_CountAssetsCredentials(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Customers/:id/assets/:nk/credentials/count",
     urlParams: _urlParams,
@@ -3623,6 +3649,7 @@ export async function Customer_CountAssetsCredentials(
       nk,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries admins of Asset.
@@ -3662,7 +3689,7 @@ export async function Customer_CountAssetsAdmins(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Customers/:id/assets/:nk/admins/count",
     urlParams: _urlParams,
@@ -3671,6 +3698,7 @@ export async function Customer_CountAssetsAdmins(
       nk,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries events of Asset.
@@ -3710,7 +3738,7 @@ export async function Customer_CountAssetsEvents(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Customers/:id/assets/:nk/events/count",
     urlParams: _urlParams,
@@ -3719,6 +3747,7 @@ export async function Customer_CountAssetsEvents(
       nk,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries eventGroups of Asset.
@@ -3777,7 +3806,7 @@ export async function Customer_CountAssetsEventGroups(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Customers/:id/assets/:nk/eventGroups/count",
     urlParams: _urlParams,
@@ -3786,6 +3815,7 @@ export async function Customer_CountAssetsEventGroups(
       nk,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries eventTriggers of Asset.
@@ -3844,7 +3874,7 @@ export async function Customer_CountAssetsEventTriggers(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Customers/:id/assets/:nk/eventTriggers/count",
     urlParams: _urlParams,
@@ -3853,6 +3883,7 @@ export async function Customer_CountAssetsEventTriggers(
       nk,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries healthcheckEvents of Asset.
@@ -3892,7 +3923,7 @@ export async function Customer_CountAssetsHealthcheckEvents(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Customers/:id/assets/:nk/healthcheckEvents/count",
     urlParams: _urlParams,
@@ -3901,6 +3932,7 @@ export async function Customer_CountAssetsHealthcheckEvents(
       nk,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries managers of Asset.
@@ -3940,7 +3972,7 @@ export async function Customer_CountAssetsManagers(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Customers/:id/assets/:nk/managers/count",
     urlParams: _urlParams,
@@ -3949,6 +3981,7 @@ export async function Customer_CountAssetsManagers(
       nk,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries sensors of Asset.
@@ -4007,7 +4040,7 @@ export async function Customer_CountAssetsSensors(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Customers/:id/assets/:nk/sensors/count",
     urlParams: _urlParams,
@@ -4016,6 +4049,7 @@ export async function Customer_CountAssetsSensors(
       nk,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries sensorUptimes of Asset.
@@ -4055,7 +4089,7 @@ export async function Customer_CountAssetsSensorUptimes(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Customers/:id/assets/:nk/sensorUptimes/count",
     urlParams: _urlParams,
@@ -4064,6 +4098,7 @@ export async function Customer_CountAssetsSensorUptimes(
       nk,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries sensorUptimeCollectors of Asset.
@@ -4103,7 +4138,7 @@ export async function Customer_CountAssetsSensorUptimeCollectors(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Customers/:id/assets/:nk/sensorUptimeCollectors/count",
     urlParams: _urlParams,
@@ -4112,6 +4147,7 @@ export async function Customer_CountAssetsSensorUptimeCollectors(
       nk,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries summaries of Asset.
@@ -4151,7 +4187,7 @@ export async function Customer_CountAssetsSummaries(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Customers/:id/assets/:nk/summaries/count",
     urlParams: _urlParams,
@@ -4160,6 +4196,7 @@ export async function Customer_CountAssetsSummaries(
       nk,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Fetches hasOne relation config.
@@ -4545,7 +4582,7 @@ export async function Customer_CountAssetTemplatesAssetTemplates(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Customers/:id/assetTemplates/:nk/assetTemplates/count",
     urlParams: _urlParams,
@@ -4554,6 +4591,7 @@ export async function Customer_CountAssetTemplatesAssetTemplates(
       nk,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries assetStateTemplates of AssetTemplate.
@@ -4612,7 +4650,7 @@ export async function Customer_CountAssetTemplatesAssetStateTemplates(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Customers/:id/assetTemplates/:nk/assetStateTemplates/count",
     urlParams: _urlParams,
@@ -4621,6 +4659,7 @@ export async function Customer_CountAssetTemplatesAssetStateTemplates(
       nk,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries defaultResponsibleAdmins of AssetTemplate.
@@ -4660,7 +4699,7 @@ export async function Customer_CountAssetTemplatesDefaultResponsibleAdmins(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Customers/:id/assetTemplates/:nk/defaultResponsibleAdmins/count",
     urlParams: _urlParams,
@@ -4669,6 +4708,7 @@ export async function Customer_CountAssetTemplatesDefaultResponsibleAdmins(
       nk,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries eventGroupTemplates of AssetTemplate.
@@ -4727,7 +4767,7 @@ export async function Customer_CountAssetTemplatesEventGroupTemplates(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Customers/:id/assetTemplates/:nk/eventGroupTemplates/count",
     urlParams: _urlParams,
@@ -4736,6 +4776,7 @@ export async function Customer_CountAssetTemplatesEventGroupTemplates(
       nk,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries eventTriggerTemplates of AssetTemplate.
@@ -4794,7 +4835,7 @@ export async function Customer_CountAssetTemplatesEventTriggerTemplates(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Customers/:id/assetTemplates/:nk/eventTriggerTemplates/count",
     urlParams: _urlParams,
@@ -4803,6 +4844,7 @@ export async function Customer_CountAssetTemplatesEventTriggerTemplates(
       nk,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries defaultResponsibleManagers of AssetTemplate.
@@ -4842,7 +4884,7 @@ export async function Customer_CountAssetTemplatesDefaultResponsibleManagers(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Customers/:id/assetTemplates/:nk/defaultResponsibleManagers/count",
     urlParams: _urlParams,
@@ -4851,6 +4893,7 @@ export async function Customer_CountAssetTemplatesDefaultResponsibleManagers(
       nk,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries sensorTemplates of AssetTemplate.
@@ -4909,7 +4952,7 @@ export async function Customer_CountAssetTemplatesSensorTemplates(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Customers/:id/assetTemplates/:nk/sensorTemplates/count",
     urlParams: _urlParams,
@@ -4918,6 +4961,7 @@ export async function Customer_CountAssetTemplatesSensorTemplates(
       nk,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Delete a related item by id for assets.
@@ -6032,7 +6076,7 @@ export async function Customer_CountProjectsAssets(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Customers/:id/projects/:nk/assets/count",
     urlParams: _urlParams,
@@ -6041,6 +6085,7 @@ export async function Customer_CountProjectsAssets(
       nk,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries assetTemplates of Project.
@@ -6099,7 +6144,7 @@ export async function Customer_CountProjectsAssetTemplates(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Customers/:id/projects/:nk/assetTemplates/count",
     urlParams: _urlParams,
@@ -6108,6 +6153,7 @@ export async function Customer_CountProjectsAssetTemplates(
       nk,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries countReports of Project.
@@ -6166,7 +6212,7 @@ export async function Customer_CountProjectsCountReports(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Customers/:id/projects/:nk/countReports/count",
     urlParams: _urlParams,
@@ -6175,6 +6221,7 @@ export async function Customer_CountProjectsCountReports(
       nk,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries healthcheckEvents of Project.
@@ -6214,7 +6261,7 @@ export async function Customer_CountProjectsHealthcheckEvents(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Customers/:id/projects/:nk/healthcheckEvents/count",
     urlParams: _urlParams,
@@ -6223,6 +6270,7 @@ export async function Customer_CountProjectsHealthcheckEvents(
       nk,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries cctvDashboards of Project.
@@ -6281,7 +6329,7 @@ export async function Customer_CountProjectsCctvDashboards(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Customers/:id/projects/:nk/cctvDashboards/count",
     urlParams: _urlParams,
@@ -6290,6 +6338,7 @@ export async function Customer_CountProjectsCctvDashboards(
       nk,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries eventDashboards of Project.
@@ -6348,7 +6397,7 @@ export async function Customer_CountProjectsEventDashboards(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Customers/:id/projects/:nk/eventDashboards/count",
     urlParams: _urlParams,
@@ -6357,6 +6406,7 @@ export async function Customer_CountProjectsEventDashboards(
       nk,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries embeddedReports of Project.
@@ -6415,7 +6465,7 @@ export async function Customer_CountProjectsEmbeddedReports(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Customers/:id/projects/:nk/embeddedReports/count",
     urlParams: _urlParams,
@@ -6424,6 +6474,7 @@ export async function Customer_CountProjectsEmbeddedReports(
       nk,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries biPanels of Project.
@@ -6482,7 +6533,7 @@ export async function Customer_CountProjectsBiPanels(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Customers/:id/projects/:nk/biPanels/count",
     urlParams: _urlParams,
@@ -6491,6 +6542,7 @@ export async function Customer_CountProjectsBiPanels(
       nk,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries peopleCounterReports of Project.
@@ -6549,7 +6601,7 @@ export async function Customer_CountProjectsPeopleCounterReports(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Customers/:id/projects/:nk/peopleCounterReports/count",
     urlParams: _urlParams,
@@ -6558,6 +6610,7 @@ export async function Customer_CountProjectsPeopleCounterReports(
       nk,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries tags of Project.
@@ -6597,7 +6650,7 @@ export async function Customer_CountProjectsTags(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Customers/:id/projects/:nk/tags/count",
     urlParams: _urlParams,
@@ -6606,6 +6659,7 @@ export async function Customer_CountProjectsTags(
       nk,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries reports of Project.
@@ -6664,7 +6718,7 @@ export async function Customer_CountProjectsReports(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Customers/:id/projects/:nk/reports/count",
     urlParams: _urlParams,
@@ -6673,6 +6727,7 @@ export async function Customer_CountProjectsReports(
       nk,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries allowedSensorTypes of Project.
@@ -6712,7 +6767,7 @@ export async function Customer_CountProjectsAllowedSensorTypes(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Customers/:id/projects/:nk/allowedSensorTypes/count",
     urlParams: _urlParams,
@@ -6721,6 +6776,7 @@ export async function Customer_CountProjectsAllowedSensorTypes(
       nk,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries storeVideoAnalyticDashboards of Project.
@@ -6779,7 +6835,7 @@ export async function Customer_CountProjectsStoreVideoAnalyticDashboards(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Customers/:id/projects/:nk/storeVideoAnalyticDashboards/count",
     urlParams: _urlParams,
@@ -6788,6 +6844,7 @@ export async function Customer_CountProjectsStoreVideoAnalyticDashboards(
       nk,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries storylines of Project.
@@ -6846,7 +6903,7 @@ export async function Customer_CountProjectsStorylines(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Customers/:id/projects/:nk/storylines/count",
     urlParams: _urlParams,
@@ -6855,6 +6912,7 @@ export async function Customer_CountProjectsStorylines(
       nk,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries adminTools of Project.
@@ -6894,7 +6952,7 @@ export async function Customer_CountProjectsAdminTools(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Customers/:id/projects/:nk/adminTools/count",
     urlParams: _urlParams,
@@ -6903,6 +6961,7 @@ export async function Customer_CountProjectsAdminTools(
       nk,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries tools of Project.
@@ -6942,7 +7001,7 @@ export async function Customer_CountProjectsTools(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Customers/:id/projects/:nk/tools/count",
     urlParams: _urlParams,
@@ -6951,6 +7010,7 @@ export async function Customer_CountProjectsTools(
       nk,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries trafficFlowAnalysis of Project.
@@ -7009,7 +7069,7 @@ export async function Customer_CountProjectsTrafficFlowAnalysis(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Customers/:id/projects/:nk/trafficFlowAnalysis/count",
     urlParams: _urlParams,
@@ -7018,6 +7078,7 @@ export async function Customer_CountProjectsTrafficFlowAnalysis(
       nk,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries virtualExpressions of Project.
@@ -7057,7 +7118,7 @@ export async function Customer_CountProjectsVirtualExpressions(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Customers/:id/projects/:nk/virtualExpressions/count",
     urlParams: _urlParams,
@@ -7066,6 +7127,7 @@ export async function Customer_CountProjectsVirtualExpressions(
       nk,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries virtualGroups of Project.
@@ -7124,7 +7186,7 @@ export async function Customer_CountProjectsVirtualGroups(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Customers/:id/projects/:nk/virtualGroups/count",
     urlParams: _urlParams,
@@ -7133,6 +7195,7 @@ export async function Customer_CountProjectsVirtualGroups(
       nk,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries virtualVariables of Project.
@@ -7172,7 +7235,7 @@ export async function Customer_CountProjectsVirtualVariables(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Customers/:id/projects/:nk/virtualVariables/count",
     urlParams: _urlParams,
@@ -7181,6 +7244,7 @@ export async function Customer_CountProjectsVirtualVariables(
       nk,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries yoloClasses of Project.
@@ -7220,7 +7284,7 @@ export async function Customer_CountProjectsYoloClasses(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Customers/:id/projects/:nk/yoloClasses/count",
     urlParams: _urlParams,
@@ -7229,6 +7293,7 @@ export async function Customer_CountProjectsYoloClasses(
       nk,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Creates a telegram bot if not already created
@@ -7597,7 +7662,7 @@ export async function Customer_CountDevicesEdgeAgents(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Customers/:id/devices/:nk/edgeAgents/count",
     urlParams: _urlParams,
@@ -7606,6 +7671,7 @@ export async function Customer_CountDevicesEdgeAgents(
       nk,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Add a related item by id for assets.

@@ -1,4 +1,4 @@
-import { ApiFetch, Filter } from "../core/ApiFetch";
+import { ApiFetch, Filter, unwrapCount } from "../core/ApiFetch";
 import { AssetStateTemplate } from "../models/AssetStateTemplate";
 import { SensorAssetStateTemplate } from "../models/SensorAssetStateTemplate";
 import { SensorTemplate } from "../models/SensorTemplate";
@@ -144,7 +144,7 @@ export async function SensorTemplate_CountAssetStateTemplates(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/SensorTemplates/:id/assetStateTemplates/count",
     urlParams: _urlParams,
@@ -152,6 +152,7 @@ export async function SensorTemplate_CountAssetStateTemplates(
       id,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries stateTemplates of SensorTemplate.
@@ -188,7 +189,7 @@ export async function SensorTemplate_CountStateTemplates(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/SensorTemplates/:id/stateTemplates/count",
     urlParams: _urlParams,
@@ -196,6 +197,7 @@ export async function SensorTemplate_CountStateTemplates(
       id,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Check whether a model instance exists in the data source.

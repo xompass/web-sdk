@@ -1,4 +1,4 @@
-import { ApiFetch, Filter } from "../core/ApiFetch";
+import { ApiFetch, Filter, unwrapCount } from "../core/ApiFetch";
 import { DeviceEvent } from "../models/DeviceEvent";
 import { Log } from "../models/Log";
 
@@ -54,7 +54,7 @@ export async function DeviceEvent_CountTrackingLogs(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/DeviceEvents/:id/trackingLogs/count",
     urlParams: _urlParams,
@@ -62,6 +62,7 @@ export async function DeviceEvent_CountTrackingLogs(
       id,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Create a new instance of the model and persist it into the data source.
@@ -170,11 +171,12 @@ export async function DeviceEvent_count(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/DeviceEvents/count",
     urlParams: _urlParams,
   });
+  return unwrapCount(result);
 }
 /**
  * Patch attributes for a model instance and persist it into the data source.

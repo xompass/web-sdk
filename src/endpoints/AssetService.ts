@@ -1,4 +1,10 @@
-import { ApiFetch, Filter, UploadFile, UploadableFile } from "../core/ApiFetch";
+import {
+  ApiFetch,
+  Filter,
+  UploadFile,
+  UploadableFile,
+  unwrapCount,
+} from "../core/ApiFetch";
 import { Asset, AssetStorageContainer } from "../models/Asset";
 import { AssetOperabilitySummary } from "../models/AssetOperabilitySummary";
 import { AssetRestrictionTable } from "../models/AssetRestrictionTable";
@@ -251,7 +257,7 @@ export async function Asset_CountOperabilitySummaries(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Assets/:id/operabilitySummaries/count",
     urlParams: _urlParams,
@@ -259,6 +265,7 @@ export async function Asset_CountOperabilitySummaries(
       id,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries datasets of Asset.
@@ -295,7 +302,7 @@ export async function Asset_CountDatasets(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Assets/:id/datasets/count",
     urlParams: _urlParams,
@@ -303,6 +310,7 @@ export async function Asset_CountDatasets(
       id,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries edgeAgents of Asset.
@@ -339,7 +347,7 @@ export async function Asset_CountEdgeAgents(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Assets/:id/edgeAgents/count",
     urlParams: _urlParams,
@@ -347,6 +355,7 @@ export async function Asset_CountEdgeAgents(
       id,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries events of Asset.

@@ -1,4 +1,10 @@
-import { ApiFetch, Filter, UploadFile, UploadableFile } from "../core/ApiFetch";
+import {
+  ApiFetch,
+  Filter,
+  UploadFile,
+  UploadableFile,
+  unwrapCount,
+} from "../core/ApiFetch";
 import { Admin, AdminStorageContainer } from "../models/Admin";
 import { Asset } from "../models/Asset";
 import { CommonAccessToken } from "../models/CommonAccessToken";
@@ -201,7 +207,7 @@ export async function Admin_CountCredentials(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Admins/:id/credentials/count",
     urlParams: _urlParams,
@@ -209,6 +215,7 @@ export async function Admin_CountCredentials(
       id,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries assets of Admin.
@@ -245,7 +252,7 @@ export async function Admin_CountAssets(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Admins/:id/assets/count",
     urlParams: _urlParams,
@@ -253,6 +260,7 @@ export async function Admin_CountAssets(
       id,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries activityLogs of Admin.
@@ -289,7 +297,7 @@ export async function Admin_CountActivityLogs(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Admins/:id/activityLogs/count",
     urlParams: _urlParams,
@@ -297,6 +305,7 @@ export async function Admin_CountActivityLogs(
       id,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Create a new instance of the model and persist it into the data source.

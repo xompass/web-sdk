@@ -1,4 +1,4 @@
-import { ApiFetch, Filter } from "../core/ApiFetch";
+import { ApiFetch, Filter, unwrapCount } from "../core/ApiFetch";
 import { CommonAccessToken } from "../models/CommonAccessToken";
 import { Country } from "../models/Country";
 import { Log } from "../models/Log";
@@ -117,7 +117,7 @@ export async function SuperAdmin_CountActivityLogs(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/SuperAdmins/:id/activityLogs/count",
     urlParams: _urlParams,
@@ -125,6 +125,7 @@ export async function SuperAdmin_CountActivityLogs(
       id,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries trackingLogs of SuperAdmin.
@@ -161,7 +162,7 @@ export async function SuperAdmin_CountTrackingLogs(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/SuperAdmins/:id/trackingLogs/count",
     urlParams: _urlParams,
@@ -169,6 +170,7 @@ export async function SuperAdmin_CountTrackingLogs(
       id,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Create a new instance of the model and persist it into the data source.
@@ -294,11 +296,12 @@ export async function SuperAdmin_count(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/SuperAdmins/count",
     urlParams: _urlParams,
   });
+  return unwrapCount(result);
 }
 /**
  * Patch attributes for a model instance and persist it into the data source.

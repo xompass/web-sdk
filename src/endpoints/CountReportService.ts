@@ -1,4 +1,4 @@
-import { ApiFetch, Filter } from "../core/ApiFetch";
+import { ApiFetch, Filter, unwrapCount } from "../core/ApiFetch";
 import { CountReportSection } from "../models/CountReport";
 import { Manager } from "../models/Manager";
 
@@ -124,7 +124,7 @@ export async function CountReport_CountSections(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/CountReports/:id/sections/count",
     urlParams: _urlParams,
@@ -132,6 +132,7 @@ export async function CountReport_CountSections(
       id,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries managers of CountReport.
@@ -168,7 +169,7 @@ export async function CountReport_CountManagers(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/CountReports/:id/managers/count",
     urlParams: _urlParams,
@@ -176,4 +177,5 @@ export async function CountReport_CountManagers(
       id,
     },
   });
+  return unwrapCount(result);
 }

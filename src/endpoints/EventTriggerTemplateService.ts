@@ -1,4 +1,4 @@
-import { ApiFetch, Filter } from "../core/ApiFetch";
+import { ApiFetch, Filter, unwrapCount } from "../core/ApiFetch";
 import { AssetStateTemplate } from "../models/AssetStateTemplate";
 import { EventTriggerAssetStateTemplate } from "../models/EventTriggerAssetStateTemplate";
 import { EventTriggerRuleTemplate } from "../models/EventTriggerRuleTemplate";
@@ -197,7 +197,7 @@ export async function EventTriggerTemplate_CountAssetStateTemplates(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/EventTriggerTemplates/:id/assetStateTemplates/count",
     urlParams: _urlParams,
@@ -205,6 +205,7 @@ export async function EventTriggerTemplate_CountAssetStateTemplates(
       id,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries stateTemplates of EventTriggerTemplate.
@@ -241,7 +242,7 @@ export async function EventTriggerTemplate_CountStateTemplates(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/EventTriggerTemplates/:id/stateTemplates/count",
     urlParams: _urlParams,
@@ -249,6 +250,7 @@ export async function EventTriggerTemplate_CountStateTemplates(
       id,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries ruleTemplates of EventTriggerTemplate.
@@ -302,7 +304,7 @@ export async function EventTriggerTemplate_CountRuleTemplates(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/EventTriggerTemplates/:id/ruleTemplates/count",
     urlParams: _urlParams,
@@ -310,4 +312,5 @@ export async function EventTriggerTemplate_CountRuleTemplates(
       id,
     },
   });
+  return unwrapCount(result);
 }

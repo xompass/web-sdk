@@ -1,4 +1,4 @@
-import { ApiFetch, Filter } from "../core/ApiFetch";
+import { ApiFetch, Filter, unwrapCount } from "../core/ApiFetch";
 import { Asset } from "../models/Asset";
 import { AssetOperabilitySummary } from "../models/AssetOperabilitySummary";
 import {
@@ -306,7 +306,7 @@ export async function Project_CountEventSubjects(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Projects/:id/eventSubjects/count",
     urlParams: _urlParams,
@@ -314,6 +314,7 @@ export async function Project_CountEventSubjects(
       id,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries assetOperabilitySummaries of Project.
@@ -350,7 +351,7 @@ export async function Project_CountAssetOperabilitySummaries(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Projects/:id/assetOperabilitySummaries/count",
     urlParams: _urlParams,
@@ -358,6 +359,7 @@ export async function Project_CountAssetOperabilitySummaries(
       id,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries faceDatabases of Project.
@@ -411,7 +413,7 @@ export async function Project_CountFaceDatabases(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Projects/:id/faceDatabases/count",
     urlParams: _urlParams,
@@ -419,6 +421,7 @@ export async function Project_CountFaceDatabases(
       id,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries faceSubjects of Project.
@@ -455,7 +458,7 @@ export async function Project_CountFaceSubjects(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Projects/:id/faceSubjects/count",
     urlParams: _urlParams,
@@ -463,6 +466,7 @@ export async function Project_CountFaceSubjects(
       id,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries events of Project.
@@ -499,7 +503,7 @@ export async function Project_CountEvents(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Projects/:id/events/count",
     urlParams: _urlParams,
@@ -507,6 +511,7 @@ export async function Project_CountEvents(
       id,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries operabilitySummaries of Project.
@@ -543,7 +548,7 @@ export async function Project_CountOperabilitySummaries(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Projects/:id/operabilitySummaries/count",
     urlParams: _urlParams,
@@ -551,6 +556,7 @@ export async function Project_CountOperabilitySummaries(
       id,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries responseProtocols of Project.
@@ -604,7 +610,7 @@ export async function Project_CountResponseProtocols(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Projects/:id/responseProtocols/count",
     urlParams: _urlParams,
@@ -612,6 +618,7 @@ export async function Project_CountResponseProtocols(
       id,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Suscribe to web-socket service (WSS)
@@ -1197,7 +1204,7 @@ export async function Project_CountResponseProtocolsAssets(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Projects/:id/responseProtocols/:nk/assets/count",
     urlParams: _urlParams,
@@ -1206,4 +1213,5 @@ export async function Project_CountResponseProtocolsAssets(
       nk,
     },
   });
+  return unwrapCount(result);
 }

@@ -1,4 +1,4 @@
-import { ApiFetch, Filter } from "../core/ApiFetch";
+import { ApiFetch, Filter, unwrapCount } from "../core/ApiFetch";
 import { Alert } from "../models/Alert";
 import { AlertHistory } from "../models/AlertHistory";
 import { Asset } from "../models/Asset";
@@ -379,7 +379,7 @@ export async function Sensor_CountDatasets(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Sensors/:id/datasets/count",
     urlParams: _urlParams,
@@ -387,6 +387,7 @@ export async function Sensor_CountDatasets(
       id,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries alerts of Sensor.
@@ -423,7 +424,7 @@ export async function Sensor_CountAlerts(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Sensors/:id/alerts/count",
     urlParams: _urlParams,
@@ -431,6 +432,7 @@ export async function Sensor_CountAlerts(
       id,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries alertHistory of Sensor.
@@ -467,7 +469,7 @@ export async function Sensor_CountAlertHistory(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Sensors/:id/alertHistory/count",
     urlParams: _urlParams,
@@ -475,6 +477,7 @@ export async function Sensor_CountAlertHistory(
       id,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries assetStates of Sensor.
@@ -511,7 +514,7 @@ export async function Sensor_CountAssetStates(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Sensors/:id/assetStates/count",
     urlParams: _urlParams,
@@ -519,6 +522,7 @@ export async function Sensor_CountAssetStates(
       id,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries states of Sensor.
@@ -555,7 +559,7 @@ export async function Sensor_CountStates(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Sensors/:id/states/count",
     urlParams: _urlParams,
@@ -563,6 +567,7 @@ export async function Sensor_CountStates(
       id,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries summaries of Sensor.
@@ -599,7 +604,7 @@ export async function Sensor_CountSummaries(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Sensors/:id/summaries/count",
     urlParams: _urlParams,
@@ -607,6 +612,7 @@ export async function Sensor_CountSummaries(
       id,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Check whether a model instance exists in the data source.
@@ -911,7 +917,7 @@ export async function Sensor_CountDatasetsData(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Sensors/:id/datasets/:nk/data/count",
     urlParams: _urlParams,
@@ -920,4 +926,5 @@ export async function Sensor_CountDatasetsData(
       nk,
     },
   });
+  return unwrapCount(result);
 }

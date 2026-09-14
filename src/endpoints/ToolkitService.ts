@@ -1,4 +1,4 @@
-import { ApiFetch, Filter } from "../core/ApiFetch";
+import { ApiFetch, Filter, unwrapCount } from "../core/ApiFetch";
 import { Log } from "../models/Log";
 import { Toolkit } from "../models/Toolkit";
 
@@ -54,7 +54,7 @@ export async function Toolkit_CountTrackingLogs(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Toolkits/:id/trackingLogs/count",
     urlParams: _urlParams,
@@ -62,6 +62,7 @@ export async function Toolkit_CountTrackingLogs(
       id,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Check whether a model instance exists in the data source.
@@ -146,9 +147,10 @@ export async function Toolkit_count(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Toolkits/count",
     urlParams: _urlParams,
   });
+  return unwrapCount(result);
 }

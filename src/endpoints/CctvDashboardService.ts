@@ -1,4 +1,4 @@
-import { ApiFetch, Filter } from "../core/ApiFetch";
+import { ApiFetch, Filter, unwrapCount } from "../core/ApiFetch";
 import { Asset } from "../models/Asset";
 import { Manager } from "../models/Manager";
 
@@ -122,7 +122,7 @@ export async function CctvDashboard_CountAssets(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/CctvDashboards/:id/assets/count",
     urlParams: _urlParams,
@@ -130,6 +130,7 @@ export async function CctvDashboard_CountAssets(
       id,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries managers of CctvDashboard.
@@ -166,7 +167,7 @@ export async function CctvDashboard_CountManagers(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/CctvDashboards/:id/managers/count",
     urlParams: _urlParams,
@@ -174,4 +175,5 @@ export async function CctvDashboard_CountManagers(
       id,
     },
   });
+  return unwrapCount(result);
 }

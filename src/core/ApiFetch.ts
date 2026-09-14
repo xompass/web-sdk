@@ -444,6 +444,17 @@ async function parseJSONResponse(
 }
 
 /**
+ * LoopBack count remoting returns `{ count: number }` unless `root: true`.
+ * Count SDK methods are typed as `number`, so unwrap the envelope when present.
+ */
+export function unwrapCount(result: unknown): number {
+  if (result !== null && typeof result === "object" && "count" in result) {
+    return (result as { count: number }).count;
+  }
+  return result as number;
+}
+
+/**
  * A generic fetch function to call the API
  */
 export async function ApiFetch(options: ApiFetchOptions): Promise<any> {

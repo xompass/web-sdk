@@ -1,4 +1,4 @@
-import { ApiFetch, Filter } from "../core/ApiFetch";
+import { ApiFetch, Filter, unwrapCount } from "../core/ApiFetch";
 import { ProjectTag } from "../models/ProjectTag";
 
 /**
@@ -84,9 +84,10 @@ export async function ProjectTag_count(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/ProjectTags/count",
     urlParams: _urlParams,
   });
+  return unwrapCount(result);
 }

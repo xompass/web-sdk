@@ -1,4 +1,4 @@
-import { ApiFetch, Filter } from "../core/ApiFetch";
+import { ApiFetch, Filter, unwrapCount } from "../core/ApiFetch";
 import { AssetState } from "../models/AssetState";
 import { EmergencyContact } from "../models/EmergencyContact";
 import { Event, EventData } from "../models/Event";
@@ -326,7 +326,7 @@ export async function EventTrigger_CountEmergencyContacts(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/EventTriggers/:id/emergencyContacts/count",
     urlParams: _urlParams,
@@ -334,6 +334,7 @@ export async function EventTrigger_CountEmergencyContacts(
       id,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries events of EventTrigger.
@@ -370,7 +371,7 @@ export async function EventTrigger_CountEvents(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/EventTriggers/:id/events/count",
     urlParams: _urlParams,
@@ -378,6 +379,7 @@ export async function EventTrigger_CountEvents(
       id,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries assetStates of EventTrigger.
@@ -414,7 +416,7 @@ export async function EventTrigger_CountAssetStates(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/EventTriggers/:id/assetStates/count",
     urlParams: _urlParams,
@@ -422,6 +424,7 @@ export async function EventTrigger_CountAssetStates(
       id,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries states of EventTrigger.
@@ -458,7 +461,7 @@ export async function EventTrigger_CountStates(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/EventTriggers/:id/states/count",
     urlParams: _urlParams,
@@ -466,6 +469,7 @@ export async function EventTrigger_CountStates(
       id,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries rules of EventTrigger.
@@ -519,7 +523,7 @@ export async function EventTrigger_CountRules(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/EventTriggers/:id/rules/count",
     urlParams: _urlParams,
@@ -527,6 +531,7 @@ export async function EventTrigger_CountRules(
       id,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Close an event so the next EventTrigger data ingestion opens a new event instead of grouping
@@ -773,7 +778,7 @@ export async function EventTrigger_CountEventsComments(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/EventTriggers/:id/events/:nk/comments/count",
     urlParams: _urlParams,
@@ -782,6 +787,7 @@ export async function EventTrigger_CountEventsComments(
       nk,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries data of Event.
@@ -821,7 +827,7 @@ export async function EventTrigger_CountEventsData(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/EventTriggers/:id/events/:nk/data/count",
     urlParams: _urlParams,
@@ -830,6 +836,7 @@ export async function EventTrigger_CountEventsData(
       nk,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries stateChanges of Event.
@@ -888,7 +895,7 @@ export async function EventTrigger_CountEventsStateChanges(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/EventTriggers/:id/events/:nk/stateChanges/count",
     urlParams: _urlParams,
@@ -897,4 +904,5 @@ export async function EventTrigger_CountEventsStateChanges(
       nk,
     },
   });
+  return unwrapCount(result);
 }

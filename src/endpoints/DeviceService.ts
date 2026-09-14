@@ -1,4 +1,4 @@
-import { ApiFetch, Filter } from "../core/ApiFetch";
+import { ApiFetch, Filter, unwrapCount } from "../core/ApiFetch";
 import { DeviceConfig } from "../models/Device";
 import { DeviceEvent } from "../models/DeviceEvent";
 import { DeviceEventComment } from "../models/DeviceEventComment";
@@ -159,7 +159,7 @@ export async function Device_CountEvents(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Devices/:id/events/count",
     urlParams: _urlParams,
@@ -167,6 +167,7 @@ export async function Device_CountEvents(
       id,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Restart Device, using the Command Center
@@ -352,7 +353,7 @@ export async function Device_CountEventsComments(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Devices/:id/events/:nk/comments/count",
     urlParams: _urlParams,
@@ -361,6 +362,7 @@ export async function Device_CountEventsComments(
       nk,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries data of DeviceEvent.
@@ -400,7 +402,7 @@ export async function Device_CountEventsData(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Devices/:id/events/:nk/data/count",
     urlParams: _urlParams,
@@ -409,6 +411,7 @@ export async function Device_CountEventsData(
       nk,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries stateChanges of DeviceEvent.
@@ -467,7 +470,7 @@ export async function Device_CountEventsStateChanges(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Devices/:id/events/:nk/stateChanges/count",
     urlParams: _urlParams,
@@ -476,4 +479,5 @@ export async function Device_CountEventsStateChanges(
       nk,
     },
   });
+  return unwrapCount(result);
 }

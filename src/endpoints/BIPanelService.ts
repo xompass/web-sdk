@@ -1,4 +1,4 @@
-import { ApiFetch, Filter } from "../core/ApiFetch";
+import { ApiFetch, Filter, unwrapCount } from "../core/ApiFetch";
 import { BIPanelSerie } from "../models/BIPanel";
 
 /**
@@ -106,7 +106,7 @@ export async function BIPanel_CountSeries(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/BIPanels/:id/series/count",
     urlParams: _urlParams,
@@ -114,4 +114,5 @@ export async function BIPanel_CountSeries(
       id,
     },
   });
+  return unwrapCount(result);
 }

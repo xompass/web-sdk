@@ -1,5 +1,10 @@
 import { afterEach, beforeEach, describe, expect, it } from "vitest";
-import { ApiFetch, FetchError, getHTTPErrorMessage } from "./ApiFetch";
+import {
+  ApiFetch,
+  FetchError,
+  getHTTPErrorMessage,
+  unwrapCount,
+} from "./ApiFetch";
 import { setLocalStorageValue } from "./LocalStorage";
 import {
   configureWebSdkRuntime,
@@ -58,5 +63,15 @@ describe("ApiFetch errors", () => {
     });
 
     expect(getHTTPErrorMessage(error)).toBe("Invalid credentials");
+  });
+});
+
+describe("unwrapCount", () => {
+  it("returns the count property from a LoopBack envelope", () => {
+    expect(unwrapCount({ count: 4 })).toBe(4);
+  });
+
+  it("passes through a bare number", () => {
+    expect(unwrapCount(4)).toBe(4);
   });
 });

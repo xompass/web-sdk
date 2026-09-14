@@ -1,4 +1,4 @@
-import { ApiFetch, Filter } from "../core/ApiFetch";
+import { ApiFetch, Filter, unwrapCount } from "../core/ApiFetch";
 import { EdgeAgentTemplate } from "../models/EdgeAgentTemplate";
 
 /**
@@ -53,7 +53,7 @@ export async function AssetWizardType_CountEdgeAgentTemplates(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/AssetWizardTypes/:id/edgeAgentTemplates/count",
     urlParams: _urlParams,
@@ -61,4 +61,5 @@ export async function AssetWizardType_CountEdgeAgentTemplates(
       id,
     },
   });
+  return unwrapCount(result);
 }

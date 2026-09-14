@@ -9,6 +9,9 @@ export type EventDashboard_GetDisabledEventTriggersResponse = {
     assetId: string;
     states: { id: string; assetStateId: string }[];
   }[];
+  total?: number;
+  limit?: number;
+  skip?: number;
 };
 
 export type Project_GetCommonAssetStates_Response = {

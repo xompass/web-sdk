@@ -1,4 +1,4 @@
-import { ApiFetch, Filter } from "../core/ApiFetch";
+import { ApiFetch, Filter, unwrapCount } from "../core/ApiFetch";
 import { Keyword } from "../models/Keyword";
 
 /**
@@ -84,9 +84,10 @@ export async function Keyword_count(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Keywords/count",
     urlParams: _urlParams,
   });
+  return unwrapCount(result);
 }

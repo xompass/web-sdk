@@ -1,4 +1,4 @@
-import { ApiFetch, Filter } from "../core/ApiFetch";
+import { ApiFetch, Filter, unwrapCount } from "../core/ApiFetch";
 import { TimeZone } from "../models/TimeZone";
 
 /**
@@ -84,9 +84,10 @@ export async function TimeZone_count(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/TimeZones/count",
     urlParams: _urlParams,
   });
+  return unwrapCount(result);
 }

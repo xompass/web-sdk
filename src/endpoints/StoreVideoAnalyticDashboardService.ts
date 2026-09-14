@@ -1,4 +1,10 @@
-import { ApiFetch, Filter, UploadFile, UploadableFile } from "../core/ApiFetch";
+import {
+  ApiFetch,
+  Filter,
+  UploadFile,
+  UploadableFile,
+  unwrapCount,
+} from "../core/ApiFetch";
 import { Manager } from "../models/Manager";
 import { StoreVideoAnalyticDashboardStorageContainer } from "../models/StoreVideoAnalyticDashboard";
 
@@ -69,7 +75,7 @@ export async function StoreVideoAnalyticDashboard_CountManagers(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/StoreVideoAnalyticDashboards/:id/managers/count",
     urlParams: _urlParams,
@@ -77,6 +83,7 @@ export async function StoreVideoAnalyticDashboard_CountManagers(
       id,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Delete a file within a given container by name

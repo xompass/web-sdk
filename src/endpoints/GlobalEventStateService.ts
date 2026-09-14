@@ -1,4 +1,4 @@
-import { ApiFetch, Filter } from "../core/ApiFetch";
+import { ApiFetch, Filter, unwrapCount } from "../core/ApiFetch";
 import { GlobalEventState } from "../models/GlobalEventState";
 
 /**
@@ -84,9 +84,10 @@ export async function GlobalEventState_count(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/GlobalEventStates/count",
     urlParams: _urlParams,
   });
+  return unwrapCount(result);
 }

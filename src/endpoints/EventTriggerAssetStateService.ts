@@ -1,4 +1,4 @@
-import { ApiFetch, Filter } from "../core/ApiFetch";
+import { ApiFetch, Filter, unwrapCount } from "../core/ApiFetch";
 import { EventTriggerRule } from "../models/EventTriggerRule";
 
 /**
@@ -142,7 +142,7 @@ export async function EventTriggerAssetState_CountRules(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/EventTriggerAssetStates/:id/rules/count",
     urlParams: _urlParams,
@@ -150,4 +150,5 @@ export async function EventTriggerAssetState_CountRules(
       id,
     },
   });
+  return unwrapCount(result);
 }

@@ -1,4 +1,4 @@
-import { ApiFetch, Filter } from "../core/ApiFetch";
+import { ApiFetch, Filter, unwrapCount } from "../core/ApiFetch";
 import { Manager } from "../models/Manager";
 import {
   TrafficFlowAnalysisKPI,
@@ -163,7 +163,7 @@ export async function TrafficFlowAnalysis_CountManagers(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/TrafficFlowAnalysis/:id/managers/count",
     urlParams: _urlParams,
@@ -171,6 +171,7 @@ export async function TrafficFlowAnalysis_CountManagers(
       id,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries kpis of TrafficFlowAnalysis.
@@ -224,7 +225,7 @@ export async function TrafficFlowAnalysis_CountKpis(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/TrafficFlowAnalysis/:id/kpis/count",
     urlParams: _urlParams,
@@ -232,6 +233,7 @@ export async function TrafficFlowAnalysis_CountKpis(
       id,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries vertices of TrafficFlowAnalysis.
@@ -285,7 +287,7 @@ export async function TrafficFlowAnalysis_CountVertices(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/TrafficFlowAnalysis/:id/vertices/count",
     urlParams: _urlParams,
@@ -293,4 +295,5 @@ export async function TrafficFlowAnalysis_CountVertices(
       id,
     },
   });
+  return unwrapCount(result);
 }

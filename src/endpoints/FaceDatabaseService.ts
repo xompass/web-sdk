@@ -1,4 +1,10 @@
-import { ApiFetch, Filter, UploadFile, UploadableFile } from "../core/ApiFetch";
+import {
+  ApiFetch,
+  Filter,
+  UploadFile,
+  UploadableFile,
+  unwrapCount,
+} from "../core/ApiFetch";
 import { FaceDatabase } from "../models/FaceDatabase";
 import { FaceDatabaseFaceSubject, FaceSubject } from "../models/FaceSubject";
 
@@ -143,7 +149,7 @@ export async function FaceDatabase_CountFaceSubjects(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/FaceDatabases/:id/faceSubjects/count",
     urlParams: _urlParams,
@@ -151,6 +157,7 @@ export async function FaceDatabase_CountFaceSubjects(
       id,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Create a new instance of the model and persist it into the data source.
@@ -314,13 +321,13 @@ export async function FaceDatabase_countFaceImages(
   id: string,
   nk: string,
   where?: Filter<FaceSubject>["where"],
-): Promise<any> {
+): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/FaceDatabases/:id/faceSubjects/:nk/images/count",
     urlParams: _urlParams,
@@ -329,6 +336,7 @@ export async function FaceDatabase_countFaceImages(
       nk,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Deletes a face image globally from a face subject.

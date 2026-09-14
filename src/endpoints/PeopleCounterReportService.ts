@@ -1,4 +1,4 @@
-import { ApiFetch, Filter } from "../core/ApiFetch";
+import { ApiFetch, Filter, unwrapCount } from "../core/ApiFetch";
 import { Manager } from "../models/Manager";
 import { PeopleCounterReportSerie } from "../models/PeopleCounterReport";
 
@@ -107,7 +107,7 @@ export async function PeopleCounterReport_CountManagers(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/PeopleCounterReports/:id/managers/count",
     urlParams: _urlParams,
@@ -115,6 +115,7 @@ export async function PeopleCounterReport_CountManagers(
       id,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries series of PeopleCounterReport.
@@ -168,7 +169,7 @@ export async function PeopleCounterReport_CountSeries(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/PeopleCounterReports/:id/series/count",
     urlParams: _urlParams,
@@ -176,4 +177,5 @@ export async function PeopleCounterReport_CountSeries(
       id,
     },
   });
+  return unwrapCount(result);
 }

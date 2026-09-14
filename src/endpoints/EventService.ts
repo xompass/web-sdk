@@ -1,4 +1,4 @@
-import { ApiFetch, Filter } from "../core/ApiFetch";
+import { ApiFetch, Filter, unwrapCount } from "../core/ApiFetch";
 import { Log } from "../models/Log";
 
 /**
@@ -53,7 +53,7 @@ export async function Event_CountTrackingLogs(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Events/:id/trackingLogs/count",
     urlParams: _urlParams,
@@ -61,4 +61,5 @@ export async function Event_CountTrackingLogs(
       id,
     },
   });
+  return unwrapCount(result);
 }

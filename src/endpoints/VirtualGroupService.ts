@@ -1,4 +1,4 @@
-import { ApiFetch, Filter } from "../core/ApiFetch";
+import { ApiFetch, Filter, unwrapCount } from "../core/ApiFetch";
 import { VirtualExpression } from "../models/VirtualExpression";
 import { VirtualVariable } from "../models/VirtualVariable";
 
@@ -160,7 +160,7 @@ export async function VirtualGroup_CountVirtualExpressions(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/VirtualGroups/:id/virtualExpressions/count",
     urlParams: _urlParams,
@@ -168,6 +168,7 @@ export async function VirtualGroup_CountVirtualExpressions(
       id,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries virtualVariables of VirtualGroup.
@@ -221,7 +222,7 @@ export async function VirtualGroup_CountVirtualVariables(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/VirtualGroups/:id/virtualVariables/count",
     urlParams: _urlParams,
@@ -229,4 +230,5 @@ export async function VirtualGroup_CountVirtualVariables(
       id,
     },
   });
+  return unwrapCount(result);
 }

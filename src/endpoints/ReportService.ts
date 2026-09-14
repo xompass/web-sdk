@@ -1,4 +1,4 @@
-import { ApiFetch, Filter } from "../core/ApiFetch";
+import { ApiFetch, Filter, unwrapCount } from "../core/ApiFetch";
 import { Asset } from "../models/Asset";
 import { Manager } from "../models/Manager";
 
@@ -122,7 +122,7 @@ export async function Report_CountManagers(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Reports/:id/managers/count",
     urlParams: _urlParams,
@@ -130,6 +130,7 @@ export async function Report_CountManagers(
       id,
     },
   });
+  return unwrapCount(result);
 }
 /**
  * Queries assets of Report.
@@ -166,7 +167,7 @@ export async function Report_CountAssets(
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Reports/:id/assets/count",
     urlParams: _urlParams,
@@ -174,4 +175,5 @@ export async function Report_CountAssets(
       id,
     },
   });
+  return unwrapCount(result);
 }
