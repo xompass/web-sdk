@@ -1,4 +1,9 @@
-import { ApiFetch, Filter } from "../core/ApiFetch";
+import {
+  ApiFetch,
+  ApiRequestOptions,
+  Filter,
+  unwrapCount,
+} from "../core/ApiFetch";
 import { Log } from "../models/Log";
 
 /**
@@ -8,6 +13,7 @@ import { Log } from "../models/Log";
 export async function HealthcheckEvent_FindByIdTrackingLogs(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<Log> {
   return ApiFetch({
     method: "GET",
@@ -16,6 +22,7 @@ export async function HealthcheckEvent_FindByIdTrackingLogs(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -25,6 +32,7 @@ export async function HealthcheckEvent_FindByIdTrackingLogs(
 export async function HealthcheckEvent_GetTrackingLogs(
   id: string,
   filter?: Filter<Log>,
+  options?: ApiRequestOptions,
 ): Promise<Log[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -38,6 +46,7 @@ export async function HealthcheckEvent_GetTrackingLogs(
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -47,18 +56,21 @@ export async function HealthcheckEvent_GetTrackingLogs(
 export async function HealthcheckEvent_CountTrackingLogs(
   id: string,
   where?: Filter<Log>["where"],
+  options?: ApiRequestOptions,
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/HealthcheckEvents/:id/trackingLogs/count",
     urlParams: _urlParams,
     routeParams: {
       id,
     },
+    ...options,
   });
+  return unwrapCount(result);
 }

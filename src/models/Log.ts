@@ -13,7 +13,6 @@ export type Log = {
   accessThrough?: string;
   created?: Date;
   modified?: Date;
-  deleted?: Date;
   id?: string;
   trackingModelName?: string;
   trackingModelId?: string;

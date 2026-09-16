@@ -1,4 +1,9 @@
-import { ApiFetch, Filter } from "../core/ApiFetch";
+import {
+  ApiFetch,
+  ApiRequestOptions,
+  Filter,
+  unwrapCount,
+} from "../core/ApiFetch";
 import { VirtualExpression } from "../models/VirtualExpression";
 import { VirtualVariable } from "../models/VirtualVariable";
 
@@ -9,6 +14,7 @@ import { VirtualVariable } from "../models/VirtualVariable";
 export async function VirtualGroup_FindByIdVirtualExpressions(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<VirtualExpression> {
   return ApiFetch({
     method: "GET",
@@ -17,6 +23,7 @@ export async function VirtualGroup_FindByIdVirtualExpressions(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -26,6 +33,7 @@ export async function VirtualGroup_FindByIdVirtualExpressions(
 export async function VirtualGroup_DestroyByIdVirtualExpressions(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<void> {
   return ApiFetch({
     method: "DELETE",
@@ -34,6 +42,7 @@ export async function VirtualGroup_DestroyByIdVirtualExpressions(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -44,6 +53,7 @@ export async function VirtualGroup_UpdateByIdVirtualExpressions(
   id: string,
   fk: string,
   data?: any,
+  options?: ApiRequestOptions,
 ): Promise<VirtualExpression> {
   return ApiFetch({
     method: "PUT",
@@ -53,6 +63,7 @@ export async function VirtualGroup_UpdateByIdVirtualExpressions(
       fk,
     },
     body: data,
+    ...options,
   });
 }
 /**
@@ -62,6 +73,7 @@ export async function VirtualGroup_UpdateByIdVirtualExpressions(
 export async function VirtualGroup_FindByIdVirtualVariables(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<VirtualVariable> {
   return ApiFetch({
     method: "GET",
@@ -70,6 +82,7 @@ export async function VirtualGroup_FindByIdVirtualVariables(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -79,6 +92,7 @@ export async function VirtualGroup_FindByIdVirtualVariables(
 export async function VirtualGroup_DestroyByIdVirtualVariables(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<void> {
   return ApiFetch({
     method: "DELETE",
@@ -87,6 +101,7 @@ export async function VirtualGroup_DestroyByIdVirtualVariables(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -97,6 +112,7 @@ export async function VirtualGroup_UpdateByIdVirtualVariables(
   id: string,
   fk: string,
   data?: any,
+  options?: ApiRequestOptions,
 ): Promise<VirtualVariable> {
   return ApiFetch({
     method: "PUT",
@@ -106,6 +122,7 @@ export async function VirtualGroup_UpdateByIdVirtualVariables(
       fk,
     },
     body: data,
+    ...options,
   });
 }
 /**
@@ -115,6 +132,7 @@ export async function VirtualGroup_UpdateByIdVirtualVariables(
 export async function VirtualGroup_GetVirtualExpressions(
   id: string,
   filter?: Filter<VirtualExpression>,
+  options?: ApiRequestOptions,
 ): Promise<VirtualExpression[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -128,6 +146,7 @@ export async function VirtualGroup_GetVirtualExpressions(
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -137,6 +156,7 @@ export async function VirtualGroup_GetVirtualExpressions(
 export async function VirtualGroup_CreateVirtualExpressions(
   id: string,
   data?: any,
+  options?: ApiRequestOptions,
 ): Promise<VirtualExpression> {
   return ApiFetch({
     method: "POST",
@@ -145,6 +165,7 @@ export async function VirtualGroup_CreateVirtualExpressions(
       id,
     },
     body: data,
+    ...options,
   });
 }
 /**
@@ -154,20 +175,23 @@ export async function VirtualGroup_CreateVirtualExpressions(
 export async function VirtualGroup_CountVirtualExpressions(
   id: string,
   where?: Filter<VirtualExpression>["where"],
+  options?: ApiRequestOptions,
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/VirtualGroups/:id/virtualExpressions/count",
     urlParams: _urlParams,
     routeParams: {
       id,
     },
+    ...options,
   });
+  return unwrapCount(result);
 }
 /**
  * Queries virtualVariables of VirtualGroup.
@@ -176,6 +200,7 @@ export async function VirtualGroup_CountVirtualExpressions(
 export async function VirtualGroup_GetVirtualVariables(
   id: string,
   filter?: Filter<VirtualVariable>,
+  options?: ApiRequestOptions,
 ): Promise<VirtualVariable[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -189,6 +214,7 @@ export async function VirtualGroup_GetVirtualVariables(
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -198,6 +224,7 @@ export async function VirtualGroup_GetVirtualVariables(
 export async function VirtualGroup_CreateVirtualVariables(
   id: string,
   data?: any,
+  options?: ApiRequestOptions,
 ): Promise<VirtualVariable> {
   return ApiFetch({
     method: "POST",
@@ -206,6 +233,7 @@ export async function VirtualGroup_CreateVirtualVariables(
       id,
     },
     body: data,
+    ...options,
   });
 }
 /**
@@ -215,18 +243,21 @@ export async function VirtualGroup_CreateVirtualVariables(
 export async function VirtualGroup_CountVirtualVariables(
   id: string,
   where?: Filter<VirtualVariable>["where"],
+  options?: ApiRequestOptions,
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/VirtualGroups/:id/virtualVariables/count",
     urlParams: _urlParams,
     routeParams: {
       id,
     },
+    ...options,
   });
+  return unwrapCount(result);
 }

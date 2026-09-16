@@ -16,7 +16,6 @@ export type DeviceEvent = {
   currentState?: "OPENED" | "IN_PROGRESS" | "RESOLVED" | "CLOSED";
   created?: Date;
   modified?: Date;
-  deleted?: Date;
   deviceId?: string;
   _comments?: DeviceEventComment[];
   _stateChanges?: DeviceEventStateChange[];

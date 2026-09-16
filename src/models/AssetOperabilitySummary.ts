@@ -12,7 +12,6 @@ export type AssetOperabilitySummary = {
   operability?: number;
   created?: Date;
   modified?: Date;
-  deleted?: Date;
   id?: string;
   assetId?: string;
   projectId?: string;

@@ -1,8 +1,17 @@
-import { ApiFetch, Filter, UploadFile, UploadableFile } from "../core/ApiFetch";
+import {
+  ApiFetch,
+  ApiRequestOptions,
+  Filter,
+  UploadFile,
+  UploadableFile,
+  unwrapCount,
+} from "../core/ApiFetch";
 import { Admin } from "../models/Admin";
 import { AssetType } from "../models/AssetType";
 import { Country } from "../models/Country";
 import { Customer } from "../models/Customer";
+import { SupportAdmin } from "../models/SupportAdmin";
+import { SupportAdminVar } from "../models/SupportAdminVar";
 import { Tool } from "../models/Tool";
 import { Toolkit } from "../models/Toolkit";
 import { ToolkitTemplate } from "../models/ToolkitTemplate";
@@ -15,6 +24,7 @@ import { Var, VarStorageContainer } from "../models/Var";
 export async function Var_FindByIdAdmins(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<Admin> {
   return ApiFetch({
     method: "GET",
@@ -23,6 +33,26 @@ export async function Var_FindByIdAdmins(
       id,
       fk,
     },
+    ...options,
+  });
+}
+/**
+ * Delete a related item by id for customers.
+ * /Vars/:id/customers/:fk
+ */
+export async function Var_DestroyByIdCustomers(
+  id: string,
+  fk: string,
+  options?: ApiRequestOptions,
+): Promise<void> {
+  return ApiFetch({
+    method: "DELETE",
+    url: "/Vars/:id/customers/:fk",
+    routeParams: {
+      id,
+      fk,
+    },
+    ...options,
   });
 }
 /**
@@ -33,6 +63,7 @@ export async function Var_UpdateByIdCustomers(
   id: string,
   fk: string,
   data?: any,
+  options?: ApiRequestOptions,
 ): Promise<Customer> {
   return ApiFetch({
     method: "PUT",
@@ -42,19 +73,24 @@ export async function Var_UpdateByIdCustomers(
       fk,
     },
     body: data,
+    ...options,
   });
 }
 /**
  * Fetches belongsTo relation country.
  * /Vars/:id/country
  */
-export async function Var_GetCountry(id: string): Promise<Country> {
+export async function Var_GetCountry(
+  id: string,
+  options?: ApiRequestOptions,
+): Promise<Country> {
   return ApiFetch({
     method: "GET",
     url: "/Vars/:id/country",
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -64,6 +100,7 @@ export async function Var_GetCountry(id: string): Promise<Country> {
 export async function Var_LinkToolkitTemplates(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<ToolkitTemplate> {
   return ApiFetch({
     method: "PUT",
@@ -72,6 +109,7 @@ export async function Var_LinkToolkitTemplates(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -81,6 +119,7 @@ export async function Var_LinkToolkitTemplates(
 export async function Var_UnlinkToolkitTemplates(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<void> {
   return ApiFetch({
     method: "DELETE",
@@ -89,6 +128,7 @@ export async function Var_UnlinkToolkitTemplates(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -99,6 +139,7 @@ export async function Var_UpdateByIdToolkits(
   id: string,
   fk: string,
   data?: any,
+  options?: ApiRequestOptions,
 ): Promise<Toolkit> {
   return ApiFetch({
     method: "PUT",
@@ -108,6 +149,47 @@ export async function Var_UpdateByIdToolkits(
       fk,
     },
     body: data,
+    ...options,
+  });
+}
+/**
+ * Add a related item by id for supportAdmins.
+ * /Vars/:id/supportAdmins/rel/:fk
+ */
+export async function Var_LinkSupportAdmins(
+  id: string,
+  fk: string,
+  data?: any,
+  options?: ApiRequestOptions,
+): Promise<SupportAdminVar> {
+  return ApiFetch({
+    method: "PUT",
+    url: "/Vars/:id/supportAdmins/rel/:fk",
+    routeParams: {
+      id,
+      fk,
+    },
+    body: data,
+    ...options,
+  });
+}
+/**
+ * Remove the supportAdmins relation to an item by id.
+ * /Vars/:id/supportAdmins/rel/:fk
+ */
+export async function Var_UnlinkSupportAdmins(
+  id: string,
+  fk: string,
+  options?: ApiRequestOptions,
+): Promise<void> {
+  return ApiFetch({
+    method: "DELETE",
+    url: "/Vars/:id/supportAdmins/rel/:fk",
+    routeParams: {
+      id,
+      fk,
+    },
+    ...options,
   });
 }
 /**
@@ -116,6 +198,7 @@ export async function Var_UpdateByIdToolkits(
  */
 export async function Var_GetContainer(
   id: string,
+  options?: ApiRequestOptions,
 ): Promise<VarStorageContainer> {
   return ApiFetch({
     method: "GET",
@@ -123,6 +206,7 @@ export async function Var_GetContainer(
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -132,6 +216,7 @@ export async function Var_GetContainer(
 export async function Var_GetAdmins(
   id: string,
   filter?: Filter<Admin>,
+  options?: ApiRequestOptions,
 ): Promise<Admin[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -145,13 +230,18 @@ export async function Var_GetAdmins(
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
  * Creates a new instance in admins of this model.
  * /Vars/:id/admins
  */
-export async function Var_CreateAdmins(id: string, data?: any): Promise<Admin> {
+export async function Var_CreateAdmins(
+  id: string,
+  data?: any,
+  options?: ApiRequestOptions,
+): Promise<Admin> {
   return ApiFetch({
     method: "POST",
     url: "/Vars/:id/admins",
@@ -159,6 +249,7 @@ export async function Var_CreateAdmins(id: string, data?: any): Promise<Admin> {
       id,
     },
     body: data,
+    ...options,
   });
 }
 /**
@@ -168,20 +259,23 @@ export async function Var_CreateAdmins(id: string, data?: any): Promise<Admin> {
 export async function Var_CountAdmins(
   id: string,
   where?: Filter<Admin>["where"],
+  options?: ApiRequestOptions,
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Vars/:id/admins/count",
     urlParams: _urlParams,
     routeParams: {
       id,
     },
+    ...options,
   });
+  return unwrapCount(result);
 }
 /**
  * Queries customers of Var.
@@ -190,6 +284,7 @@ export async function Var_CountAdmins(
 export async function Var_GetCustomers(
   id: string,
   filter?: Filter<Customer>,
+  options?: ApiRequestOptions,
 ): Promise<Customer[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -203,6 +298,7 @@ export async function Var_GetCustomers(
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -212,6 +308,7 @@ export async function Var_GetCustomers(
 export async function Var_CreateCustomers(
   id: string,
   data?: any,
+  options?: ApiRequestOptions,
 ): Promise<Customer> {
   return ApiFetch({
     method: "POST",
@@ -220,6 +317,7 @@ export async function Var_CreateCustomers(
       id,
     },
     body: data,
+    ...options,
   });
 }
 /**
@@ -229,20 +327,23 @@ export async function Var_CreateCustomers(
 export async function Var_CountCustomers(
   id: string,
   where?: Filter<Customer>["where"],
+  options?: ApiRequestOptions,
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Vars/:id/customers/count",
     urlParams: _urlParams,
     routeParams: {
       id,
     },
+    ...options,
   });
+  return unwrapCount(result);
 }
 /**
  * Queries toolkitTemplates of Var.
@@ -251,6 +352,7 @@ export async function Var_CountCustomers(
 export async function Var_GetToolkitTemplates(
   id: string,
   filter?: Filter<ToolkitTemplate>,
+  options?: ApiRequestOptions,
 ): Promise<ToolkitTemplate[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -264,6 +366,7 @@ export async function Var_GetToolkitTemplates(
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -273,20 +376,23 @@ export async function Var_GetToolkitTemplates(
 export async function Var_CountToolkitTemplates(
   id: string,
   where?: Filter<ToolkitTemplate>["where"],
+  options?: ApiRequestOptions,
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Vars/:id/toolkitTemplates/count",
     urlParams: _urlParams,
     routeParams: {
       id,
     },
+    ...options,
   });
+  return unwrapCount(result);
 }
 /**
  * Queries toolkits of Var.
@@ -295,6 +401,7 @@ export async function Var_CountToolkitTemplates(
 export async function Var_GetToolkits(
   id: string,
   filter?: Filter<Toolkit>,
+  options?: ApiRequestOptions,
 ): Promise<Toolkit[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -308,6 +415,7 @@ export async function Var_GetToolkits(
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -317,20 +425,23 @@ export async function Var_GetToolkits(
 export async function Var_CountToolkits(
   id: string,
   where?: Filter<Toolkit>["where"],
+  options?: ApiRequestOptions,
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Vars/:id/toolkits/count",
     urlParams: _urlParams,
     routeParams: {
       id,
     },
+    ...options,
   });
+  return unwrapCount(result);
 }
 /**
  * Find a model instance by {{id}} from the data source.
@@ -339,6 +450,7 @@ export async function Var_CountToolkits(
 export async function Var_findById(
   id: string,
   filter?: Filter<Var>,
+  options?: ApiRequestOptions,
 ): Promise<Var> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -352,13 +464,17 @@ export async function Var_findById(
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
  * Find all instances of the model matched by filter from the data source.
  * /Vars
  */
-export async function Var_find(filter?: Filter<Var>): Promise<Var[]> {
+export async function Var_find(
+  filter?: Filter<Var>,
+  options?: ApiRequestOptions,
+): Promise<Var[]> {
   const _urlParams: any = {};
   if (filter != null) {
     _urlParams["filter"] = filter;
@@ -368,6 +484,7 @@ export async function Var_find(filter?: Filter<Var>): Promise<Var[]> {
     method: "GET",
     url: "/Vars",
     urlParams: _urlParams,
+    ...options,
   });
 }
 /**
@@ -377,6 +494,7 @@ export async function Var_find(filter?: Filter<Var>): Promise<Var[]> {
 export async function Var_patchAttributes(
   id: string,
   data?: any,
+  options?: ApiRequestOptions,
 ): Promise<Var> {
   return ApiFetch({
     method: "PUT",
@@ -385,6 +503,7 @@ export async function Var_patchAttributes(
       id,
     },
     body: data,
+    ...options,
   });
 }
 /**
@@ -395,6 +514,7 @@ export async function Var_InstantiateToolkitTemplates(
   id: string,
   fk: string,
   data?: Toolkit,
+  options?: ApiRequestOptions,
 ): Promise<Toolkit> {
   return ApiFetch({
     method: "POST",
@@ -404,6 +524,7 @@ export async function Var_InstantiateToolkitTemplates(
       fk,
     },
     body: data,
+    ...options,
   });
 }
 /**
@@ -413,6 +534,7 @@ export async function Var_InstantiateToolkitTemplates(
 export async function Var_GetAdminTools(
   id: string,
   filter?: Filter<Tool>,
+  options?: ApiRequestOptions,
 ): Promise<Tool[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -426,6 +548,7 @@ export async function Var_GetAdminTools(
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -435,6 +558,7 @@ export async function Var_GetAdminTools(
 export async function Var_GetTools(
   id: string,
   filter?: Filter<Tool>,
+  options?: ApiRequestOptions,
 ): Promise<Tool[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -448,6 +572,7 @@ export async function Var_GetTools(
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -458,6 +583,7 @@ export async function Var_GetToolkitTemplatesAssetTypes(
   id: string,
   fk: string,
   filter?: Filter<AssetType>,
+  options?: ApiRequestOptions,
 ): Promise<AssetType[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -472,6 +598,7 @@ export async function Var_GetToolkitTemplatesAssetTypes(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -482,6 +609,7 @@ export async function Var_GetToolkitsAssetTypes(
   id: string,
   fk: string,
   filter?: Filter<AssetType>,
+  options?: ApiRequestOptions,
 ): Promise<AssetType[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -496,39 +624,76 @@ export async function Var_GetToolkitsAssetTypes(
       id,
       fk,
     },
+    ...options,
+  });
+}
+/**
+ * List the SupportAdmins linked to this Var
+ * /Vars/:id/linkedSupportAdmins
+ */
+export async function Var_getSupportAdmins(
+  id: string,
+  filter?: Filter<SupportAdmin>,
+  options?: ApiRequestOptions,
+): Promise<SupportAdmin[]> {
+  const _urlParams: any = {};
+  if (filter != null) {
+    _urlParams["filter"] = filter;
+  }
+
+  return ApiFetch({
+    method: "GET",
+    url: "/Vars/:id/linkedSupportAdmins",
+    urlParams: _urlParams,
+    routeParams: {
+      id,
+    },
+    ...options,
   });
 }
 /**
  * Get information about specified container
  * /Vars/:id/container/info
  */
-export async function Var_getContainerInfo(id: string): Promise<any> {
+export async function Var_getContainerInfo(
+  id: string,
+  options?: ApiRequestOptions,
+): Promise<any> {
   return ApiFetch({
     method: "GET",
     url: "/Vars/:id/container/info",
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
  * List all files within specified container
  * /Vars/:id/container/files
  */
-export async function Var_getFiles(id: string): Promise<any[]> {
+export async function Var_getFiles(
+  id: string,
+  options?: ApiRequestOptions,
+): Promise<any[]> {
   return ApiFetch({
     method: "GET",
     url: "/Vars/:id/container/files",
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
  * Get information for specified file within specified container
  * /Vars/:id/container/files/:file
  */
-export async function Var_getFile(id: string, file: string): Promise<any> {
+export async function Var_getFile(
+  id: string,
+  file: string,
+  options?: ApiRequestOptions,
+): Promise<any> {
   return ApiFetch({
     method: "GET",
     url: "/Vars/:id/container/files/:file",
@@ -536,6 +701,7 @@ export async function Var_getFile(id: string, file: string): Promise<any> {
       id,
       file,
     },
+    ...options,
   });
 }
 /**
@@ -546,6 +712,7 @@ export async function Var_removeFile(
   id: string,
   property: string,
   file: string,
+  options?: ApiRequestOptions,
 ): Promise<void> {
   const _urlParams: any = {};
   if (property != null) {
@@ -560,6 +727,7 @@ export async function Var_removeFile(
       id,
       file,
     },
+    ...options,
   });
 }
 /**
@@ -571,6 +739,7 @@ export async function Var_upload(
   property: string,
   file: UploadableFile,
   onProgress?: (progress: number) => void,
+  options?: ApiRequestOptions,
 ): Promise<any> {
   const _urlParams: any = {};
   if (property != null) {
@@ -585,6 +754,7 @@ export async function Var_upload(
     },
     file: file,
     onProgress: onProgress,
+    ...options,
   });
 }
 /**
@@ -595,6 +765,7 @@ export async function Var_download(
   id: string,
   property: string,
   file: string,
+  options?: ApiRequestOptions,
 ): Promise<any> {
   const _urlParams: any = {};
   if (property != null) {
@@ -609,6 +780,26 @@ export async function Var_download(
       id,
       file,
     },
+    ...options,
+  });
+}
+/**
+ * Verify toolkit template unlink
+ * /Vars/:id/toolkitTemplates/:fk/verifyUnlink
+ */
+export async function Var_verifyToolKitTemplateUnlink(
+  id: string,
+  fk: string,
+  options?: ApiRequestOptions,
+): Promise<any> {
+  return ApiFetch({
+    method: "GET",
+    url: "/Vars/:id/toolkitTemplates/:fk/verifyUnlink",
+    routeParams: {
+      id,
+      fk,
+    },
+    ...options,
   });
 }
 /**
@@ -619,6 +810,7 @@ export async function Var_FindByIdToolkitsAdminTools(
   id: string,
   nk: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<Tool> {
   return ApiFetch({
     method: "GET",
@@ -628,6 +820,7 @@ export async function Var_FindByIdToolkitsAdminTools(
       nk,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -638,6 +831,7 @@ export async function Var_LinkToolkitsAdminTools(
   id: string,
   nk: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<Tool> {
   return ApiFetch({
     method: "PUT",
@@ -647,6 +841,7 @@ export async function Var_LinkToolkitsAdminTools(
       nk,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -657,6 +852,7 @@ export async function Var_UnlinkToolkitsAdminTools(
   id: string,
   nk: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<void> {
   return ApiFetch({
     method: "DELETE",
@@ -666,6 +862,7 @@ export async function Var_UnlinkToolkitsAdminTools(
       nk,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -676,6 +873,7 @@ export async function Var_FindByIdToolkitsTools(
   id: string,
   nk: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<Tool> {
   return ApiFetch({
     method: "GET",
@@ -685,6 +883,7 @@ export async function Var_FindByIdToolkitsTools(
       nk,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -695,6 +894,7 @@ export async function Var_LinkToolkitsTools(
   id: string,
   nk: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<Tool> {
   return ApiFetch({
     method: "PUT",
@@ -704,6 +904,7 @@ export async function Var_LinkToolkitsTools(
       nk,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -714,6 +915,7 @@ export async function Var_UnlinkToolkitsTools(
   id: string,
   nk: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<void> {
   return ApiFetch({
     method: "DELETE",
@@ -723,6 +925,7 @@ export async function Var_UnlinkToolkitsTools(
       nk,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -733,6 +936,7 @@ export async function Var_GetToolkitsAdminTools(
   id: string,
   nk: string,
   filter?: Filter<Tool>,
+  options?: ApiRequestOptions,
 ): Promise<Tool[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -747,6 +951,7 @@ export async function Var_GetToolkitsAdminTools(
       id,
       nk,
     },
+    ...options,
   });
 }
 /**
@@ -757,13 +962,14 @@ export async function Var_CountToolkitsAdminTools(
   id: string,
   nk: string,
   where?: Filter<Toolkit>["where"],
+  options?: ApiRequestOptions,
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Vars/:id/toolkits/:nk/adminTools/count",
     urlParams: _urlParams,
@@ -771,7 +977,9 @@ export async function Var_CountToolkitsAdminTools(
       id,
       nk,
     },
+    ...options,
   });
+  return unwrapCount(result);
 }
 /**
  * Queries tools of Toolkit.
@@ -781,6 +989,7 @@ export async function Var_GetToolkitsTools(
   id: string,
   nk: string,
   filter?: Filter<Tool>,
+  options?: ApiRequestOptions,
 ): Promise<Tool[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -795,6 +1004,7 @@ export async function Var_GetToolkitsTools(
       id,
       nk,
     },
+    ...options,
   });
 }
 /**
@@ -805,13 +1015,14 @@ export async function Var_CountToolkitsTools(
   id: string,
   nk: string,
   where?: Filter<Toolkit>["where"],
+  options?: ApiRequestOptions,
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Vars/:id/toolkits/:nk/tools/count",
     urlParams: _urlParams,
@@ -819,5 +1030,7 @@ export async function Var_CountToolkitsTools(
       id,
       nk,
     },
+    ...options,
   });
+  return unwrapCount(result);
 }

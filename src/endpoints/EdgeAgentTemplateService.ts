@@ -1,4 +1,9 @@
-import { ApiFetch, Filter } from "../core/ApiFetch";
+import {
+  ApiFetch,
+  ApiRequestOptions,
+  Filter,
+  unwrapCount,
+} from "../core/ApiFetch";
 import { EdgeAgentTemplate } from "../models/EdgeAgentTemplate";
 import { EdgeAgentTemplateTag } from "../models/EdgeAgentTemplateTag";
 
@@ -9,6 +14,7 @@ import { EdgeAgentTemplateTag } from "../models/EdgeAgentTemplateTag";
 export async function EdgeAgentTemplate_FindByIdTags(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<EdgeAgentTemplateTag> {
   return ApiFetch({
     method: "GET",
@@ -17,6 +23,7 @@ export async function EdgeAgentTemplate_FindByIdTags(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -26,6 +33,7 @@ export async function EdgeAgentTemplate_FindByIdTags(
 export async function EdgeAgentTemplate_GetTags(
   id: string,
   filter?: Filter<EdgeAgentTemplateTag>,
+  options?: ApiRequestOptions,
 ): Promise<EdgeAgentTemplateTag[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -39,6 +47,7 @@ export async function EdgeAgentTemplate_GetTags(
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -48,20 +57,23 @@ export async function EdgeAgentTemplate_GetTags(
 export async function EdgeAgentTemplate_CountTags(
   id: string,
   where?: Filter<EdgeAgentTemplateTag>["where"],
+  options?: ApiRequestOptions,
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/EdgeAgentTemplates/:id/tags/count",
     urlParams: _urlParams,
     routeParams: {
       id,
     },
+    ...options,
   });
+  return unwrapCount(result);
 }
 /**
  * Find a model instance by {{id}} from the data source.
@@ -70,6 +82,7 @@ export async function EdgeAgentTemplate_CountTags(
 export async function EdgeAgentTemplate_findById(
   id: string,
   filter?: Filter<EdgeAgentTemplate>,
+  options?: ApiRequestOptions,
 ): Promise<EdgeAgentTemplate> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -83,6 +96,7 @@ export async function EdgeAgentTemplate_findById(
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -91,6 +105,7 @@ export async function EdgeAgentTemplate_findById(
  */
 export async function EdgeAgentTemplate_find(
   filter?: Filter<EdgeAgentTemplate>,
+  options?: ApiRequestOptions,
 ): Promise<EdgeAgentTemplate[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -101,6 +116,7 @@ export async function EdgeAgentTemplate_find(
     method: "GET",
     url: "/EdgeAgentTemplates",
     urlParams: _urlParams,
+    ...options,
   });
 }
 /**
@@ -109,39 +125,49 @@ export async function EdgeAgentTemplate_find(
  */
 export async function EdgeAgentTemplate_count(
   where?: Filter<EdgeAgentTemplate>["where"],
+  options?: ApiRequestOptions,
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/EdgeAgentTemplates/count",
     urlParams: _urlParams,
+    ...options,
   });
+  return unwrapCount(result);
 }
 /**
  * Find all templates
  * /EdgeAgentTemplates/v2
  */
-export async function EdgeAgentTemplate_v2Find(): Promise<any[]> {
+export async function EdgeAgentTemplate_v2Find(
+  options?: ApiRequestOptions,
+): Promise<any[]> {
   return ApiFetch({
     method: "GET",
     url: "/EdgeAgentTemplates/v2",
+    ...options,
   });
 }
 /**
  * Find a template by id
  * /EdgeAgentTemplates/v2/:id
  */
-export async function EdgeAgentTemplate_v2FindById(id: string): Promise<any> {
+export async function EdgeAgentTemplate_v2FindById(
+  id: string,
+  options?: ApiRequestOptions,
+): Promise<any> {
   return ApiFetch({
     method: "GET",
     url: "/EdgeAgentTemplates/v2/:id",
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -150,6 +176,7 @@ export async function EdgeAgentTemplate_v2FindById(id: string): Promise<any> {
  */
 export async function EdgeAgentTemplate_v2GetTemplateTags(
   id: string,
+  options?: ApiRequestOptions,
 ): Promise<any[]> {
   return ApiFetch({
     method: "GET",
@@ -157,6 +184,7 @@ export async function EdgeAgentTemplate_v2GetTemplateTags(
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -166,6 +194,7 @@ export async function EdgeAgentTemplate_v2GetTemplateTags(
 export async function EdgeAgentTemplate_v2GetTemplateTagById(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<any> {
   return ApiFetch({
     method: "GET",
@@ -174,6 +203,7 @@ export async function EdgeAgentTemplate_v2GetTemplateTagById(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -184,6 +214,7 @@ export async function EdgeAgentTemplate_v2Generate(
   id: string,
   fk: string,
   params: any,
+  options?: ApiRequestOptions,
 ): Promise<any> {
   return ApiFetch({
     method: "POST",
@@ -193,5 +224,6 @@ export async function EdgeAgentTemplate_v2Generate(
       fk,
     },
     body: params,
+    ...options,
   });
 }

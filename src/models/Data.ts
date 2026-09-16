@@ -9,6 +9,7 @@ import { CrossLineMultiRecognitionContent } from "./sensorTypes/CrossLineMultiRe
 import { CrossLineRecognitionContent } from "./sensorTypes/CrossLineRecognition/CrossLineRecognitionContent";
 import { CrossedBarriersDetectionContent } from "./sensorTypes/CrossedBarriersDetection/CrossedBarriersDetectionContent";
 import { DebugContent } from "./sensorTypes/Debug/DebugContent";
+import { ExternalDataContent } from "./sensorTypes/ExternalData/ExternalDataContent";
 import { FaceDetectionContent } from "./sensorTypes/FaceDetection/FaceDetectionContent";
 import { FaceMaskDetectionContent } from "./sensorTypes/FaceMaskDetection/FaceMaskDetectionContent";
 import { FaceRecognitionContent } from "./sensorTypes/FaceRecognition/FaceRecognitionContent";
@@ -93,6 +94,10 @@ export type Data = {
   | {
       type: SensorTypeLabels["Debug"];
       content: DebugContent;
+    }
+  | {
+      type: SensorTypeLabels["ExternalData"];
+      content: ExternalDataContent;
     }
   | {
       type: SensorTypeLabels["FaceDetection"];

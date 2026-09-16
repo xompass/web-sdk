@@ -8,6 +8,7 @@ import { Threshold } from "./Threshold";
 import { ColorPresenceTrigger } from "./sensorTypes/ColorPresence/ColorPresenceTrigger";
 import { ConcentrationAlertTrigger } from "./sensorTypes/ConcentrationAlert/ConcentrationAlertTrigger";
 import { CrossLineMultiRecognitionTrigger } from "./sensorTypes/CrossLineMultiRecognition/CrossLineMultiRecognitionTrigger";
+import { ExternalDataTrigger } from "./sensorTypes/ExternalData/ExternalDataTrigger";
 import { FaceDetectionTrigger } from "./sensorTypes/FaceDetection/FaceDetectionTrigger";
 import { FaceMaskDetectionTrigger } from "./sensorTypes/FaceMaskDetection/FaceMaskDetectionTrigger";
 import { FaceRecognitionTrigger } from "./sensorTypes/FaceRecognition/FaceRecognitionTrigger";
@@ -44,6 +45,7 @@ export type SensorAssetState = {
     | ColorPresenceTrigger
     | ConcentrationAlertTrigger
     | CrossLineMultiRecognitionTrigger
+    | ExternalDataTrigger
     | FaceDetectionTrigger
     | FaceMaskDetectionTrigger
     | FaceRecognitionTrigger
@@ -74,7 +76,6 @@ export type SensorAssetState = {
   notification?: Notification;
   created?: Date;
   modified?: Date;
-  deleted?: Date;
   id?: string;
   assetStateId?: string;
   sensorId?: string;

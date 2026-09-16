@@ -5,7 +5,6 @@ import { Event } from "./Event";
 import { EventDashboard } from "./EventDashboard";
 import { EventGroup } from "./EventGroup";
 import { EventSubject } from "./EventSubject";
-import { EventSummary } from "./EventSummary";
 import { EventTriggerAssetState } from "./EventTriggerAssetState";
 import { EventTriggerRule } from "./EventTriggerRule";
 import { EventTriggerTemplate } from "./EventTriggerTemplate";
@@ -15,6 +14,7 @@ import { TelegramChat } from "./TelegramChat";
 export type EventTrigger = {
   type: string;
   name: string;
+  normalizedName?: string;
   description?: string;
   customerId?: string;
   projectId?: string;
@@ -43,7 +43,6 @@ export type EventTrigger = {
   rules?: EventTriggerRule[];
   states?: EventTriggerAssetState[];
   subjectType?: EventSubject;
-  summaries?: EventSummary[];
   telegramChats?: TelegramChat[];
   template?: EventTriggerTemplate;
   trackingLogs?: Log[];

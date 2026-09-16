@@ -1,17 +1,26 @@
-import { ApiFetch, Filter } from "../core/ApiFetch";
+import {
+  ApiFetch,
+  ApiRequestOptions,
+  Filter,
+  unwrapCount,
+} from "../core/ApiFetch";
 import { Keyword } from "../models/Keyword";
 
 /**
  * Check whether a model instance exists in the data source.
  * /Keywords/:id/exists
  */
-export async function Keyword_exists(id: string): Promise<boolean> {
+export async function Keyword_exists(
+  id: string,
+  options?: ApiRequestOptions,
+): Promise<boolean> {
   return ApiFetch({
     method: "GET",
     url: "/Keywords/:id/exists",
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -21,6 +30,7 @@ export async function Keyword_exists(id: string): Promise<boolean> {
 export async function Keyword_findById(
   id: string,
   filter?: Filter<Keyword>,
+  options?: ApiRequestOptions,
 ): Promise<Keyword> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -34,6 +44,7 @@ export async function Keyword_findById(
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -42,6 +53,7 @@ export async function Keyword_findById(
  */
 export async function Keyword_find(
   filter?: Filter<Keyword>,
+  options?: ApiRequestOptions,
 ): Promise<Keyword[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -52,6 +64,7 @@ export async function Keyword_find(
     method: "GET",
     url: "/Keywords",
     urlParams: _urlParams,
+    ...options,
   });
 }
 /**
@@ -60,6 +73,7 @@ export async function Keyword_find(
  */
 export async function Keyword_findOne(
   filter?: Filter<Keyword>,
+  options?: ApiRequestOptions,
 ): Promise<Keyword> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -70,6 +84,7 @@ export async function Keyword_findOne(
     method: "GET",
     url: "/Keywords/findOne",
     urlParams: _urlParams,
+    ...options,
   });
 }
 /**
@@ -78,15 +93,18 @@ export async function Keyword_findOne(
  */
 export async function Keyword_count(
   where?: Filter<Keyword>["where"],
+  options?: ApiRequestOptions,
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/Keywords/count",
     urlParams: _urlParams,
+    ...options,
   });
+  return unwrapCount(result);
 }

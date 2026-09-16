@@ -1,4 +1,9 @@
-import { ApiFetch, Filter } from "../core/ApiFetch";
+import {
+  ApiFetch,
+  ApiRequestOptions,
+  Filter,
+  unwrapCount,
+} from "../core/ApiFetch";
 import { EventTriggerRuleTemplate } from "../models/EventTriggerRuleTemplate";
 
 /**
@@ -8,6 +13,7 @@ import { EventTriggerRuleTemplate } from "../models/EventTriggerRuleTemplate";
 export async function EventTriggerAssetStateTemplate_FindByIdRuleTemplates(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<EventTriggerRuleTemplate> {
   return ApiFetch({
     method: "GET",
@@ -16,6 +22,7 @@ export async function EventTriggerAssetStateTemplate_FindByIdRuleTemplates(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -25,6 +32,7 @@ export async function EventTriggerAssetStateTemplate_FindByIdRuleTemplates(
 export async function EventTriggerAssetStateTemplate_DestroyByIdRuleTemplates(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<void> {
   return ApiFetch({
     method: "DELETE",
@@ -33,6 +41,7 @@ export async function EventTriggerAssetStateTemplate_DestroyByIdRuleTemplates(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -43,6 +52,7 @@ export async function EventTriggerAssetStateTemplate_UpdateByIdRuleTemplates(
   id: string,
   fk: string,
   data?: any,
+  options?: ApiRequestOptions,
 ): Promise<EventTriggerRuleTemplate> {
   return ApiFetch({
     method: "PUT",
@@ -52,6 +62,7 @@ export async function EventTriggerAssetStateTemplate_UpdateByIdRuleTemplates(
       fk,
     },
     body: data,
+    ...options,
   });
 }
 /**
@@ -61,6 +72,7 @@ export async function EventTriggerAssetStateTemplate_UpdateByIdRuleTemplates(
 export async function EventTriggerAssetStateTemplate_GetRuleTemplates(
   id: string,
   filter?: Filter<EventTriggerRuleTemplate>,
+  options?: ApiRequestOptions,
 ): Promise<EventTriggerRuleTemplate[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -74,6 +86,7 @@ export async function EventTriggerAssetStateTemplate_GetRuleTemplates(
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -83,6 +96,7 @@ export async function EventTriggerAssetStateTemplate_GetRuleTemplates(
 export async function EventTriggerAssetStateTemplate_CreateRuleTemplates(
   id: string,
   data?: any,
+  options?: ApiRequestOptions,
 ): Promise<EventTriggerRuleTemplate> {
   return ApiFetch({
     method: "POST",
@@ -91,6 +105,7 @@ export async function EventTriggerAssetStateTemplate_CreateRuleTemplates(
       id,
     },
     body: data,
+    ...options,
   });
 }
 /**
@@ -100,18 +115,21 @@ export async function EventTriggerAssetStateTemplate_CreateRuleTemplates(
 export async function EventTriggerAssetStateTemplate_CountRuleTemplates(
   id: string,
   where?: Filter<EventTriggerRuleTemplate>["where"],
+  options?: ApiRequestOptions,
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/EventTriggerAssetStateTemplates/:id/ruleTemplates/count",
     urlParams: _urlParams,
     routeParams: {
       id,
     },
+    ...options,
   });
+  return unwrapCount(result);
 }

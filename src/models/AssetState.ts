@@ -8,7 +8,8 @@ import { Sensor } from "./Sensor";
 import { SensorAssetState } from "./SensorAssetState";
 
 export type AssetState = {
-  name?: string;
+  name: string;
+  normalizedName?: string;
   schedulerType: "NONE" | "CRON";
   scheduler?: any;
   created?: Date;

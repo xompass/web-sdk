@@ -11,6 +11,8 @@ import { CrossLineMultiRecognitionParameters } from "./sensorTypes/CrossLineMult
 import { CrossLineMultiRecognitionTrigger } from "./sensorTypes/CrossLineMultiRecognition/CrossLineMultiRecognitionTrigger";
 import { CrossLineRecognitionParameters } from "./sensorTypes/CrossLineRecognition/CrossLineRecognitionParameters";
 import { CrossedBarriersDetectionParameters } from "./sensorTypes/CrossedBarriersDetection/CrossedBarriersDetectionParameters";
+import { ExternalDataParameters } from "./sensorTypes/ExternalData/ExternalDataParameters";
+import { ExternalDataTrigger } from "./sensorTypes/ExternalData/ExternalDataTrigger";
 import { FaceDetectionParameters } from "./sensorTypes/FaceDetection/FaceDetectionParameters";
 import { FaceDetectionTrigger } from "./sensorTypes/FaceDetection/FaceDetectionTrigger";
 import { FaceMaskDetectionParameters } from "./sensorTypes/FaceMaskDetection/FaceMaskDetectionParameters";
@@ -69,7 +71,8 @@ import { StoppedObjectsDetectorTrigger } from "./sensorTypes/StoppedObjectsDetec
 
 export type SensorTemplate = {
   type: SensorTypeLabel;
-  name?: string;
+  name: string;
+  normalizedName?: string;
   description?: string;
   relativeId?: string;
   enabled?: boolean;
@@ -81,6 +84,7 @@ export type SensorTemplate = {
     | CrossedBarriersDetectionParameters
     | CrossLineMultiRecognitionParameters
     | CrossLineRecognitionParameters
+    | ExternalDataParameters
     | FaceDetectionParameters
     | FaceMaskDetectionParameters
     | FaceRecognitionParameters
@@ -114,6 +118,7 @@ export type SensorTemplate = {
     | ColorPresenceTrigger
     | ConcentrationAlertTrigger
     | CrossLineMultiRecognitionTrigger
+    | ExternalDataTrigger
     | FaceDetectionTrigger
     | FaceMaskDetectionTrigger
     | FaceRecognitionTrigger

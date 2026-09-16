@@ -1,4 +1,11 @@
-import { ApiFetch, Filter, UploadFile, UploadableFile } from "../core/ApiFetch";
+import {
+  ApiFetch,
+  ApiRequestOptions,
+  Filter,
+  UploadFile,
+  UploadableFile,
+  unwrapCount,
+} from "../core/ApiFetch";
 import { Manager } from "../models/Manager";
 import { StoreVideoAnalyticDashboardStorageContainer } from "../models/StoreVideoAnalyticDashboard";
 
@@ -9,6 +16,7 @@ import { StoreVideoAnalyticDashboardStorageContainer } from "../models/StoreVide
 export async function StoreVideoAnalyticDashboard_FindByIdManagers(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<Manager> {
   return ApiFetch({
     method: "GET",
@@ -17,6 +25,7 @@ export async function StoreVideoAnalyticDashboard_FindByIdManagers(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -25,6 +34,7 @@ export async function StoreVideoAnalyticDashboard_FindByIdManagers(
  */
 export async function StoreVideoAnalyticDashboard_GetContainer(
   id: string,
+  options?: ApiRequestOptions,
 ): Promise<StoreVideoAnalyticDashboardStorageContainer> {
   return ApiFetch({
     method: "GET",
@@ -32,6 +42,7 @@ export async function StoreVideoAnalyticDashboard_GetContainer(
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -41,6 +52,7 @@ export async function StoreVideoAnalyticDashboard_GetContainer(
 export async function StoreVideoAnalyticDashboard_GetManagers(
   id: string,
   filter?: Filter<Manager>,
+  options?: ApiRequestOptions,
 ): Promise<Manager[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -54,6 +66,7 @@ export async function StoreVideoAnalyticDashboard_GetManagers(
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -63,20 +76,23 @@ export async function StoreVideoAnalyticDashboard_GetManagers(
 export async function StoreVideoAnalyticDashboard_CountManagers(
   id: string,
   where?: Filter<Manager>["where"],
+  options?: ApiRequestOptions,
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/StoreVideoAnalyticDashboards/:id/managers/count",
     urlParams: _urlParams,
     routeParams: {
       id,
     },
+    ...options,
   });
+  return unwrapCount(result);
 }
 /**
  * Delete a file within a given container by name
@@ -86,6 +102,7 @@ export async function StoreVideoAnalyticDashboard_removeFile(
   id: string,
   property: string,
   file: string,
+  options?: ApiRequestOptions,
 ): Promise<void> {
   const _urlParams: any = {};
   if (property != null) {
@@ -100,6 +117,7 @@ export async function StoreVideoAnalyticDashboard_removeFile(
       id,
       file,
     },
+    ...options,
   });
 }
 /**
@@ -111,6 +129,7 @@ export async function StoreVideoAnalyticDashboard_upload(
   property: string,
   file: UploadableFile,
   onProgress?: (progress: number) => void,
+  options?: ApiRequestOptions,
 ): Promise<any> {
   const _urlParams: any = {};
   if (property != null) {
@@ -125,6 +144,7 @@ export async function StoreVideoAnalyticDashboard_upload(
     },
     file: file,
     onProgress: onProgress,
+    ...options,
   });
 }
 /**
@@ -135,6 +155,7 @@ export async function StoreVideoAnalyticDashboard_download(
   id: string,
   property: string,
   file: string,
+  options?: ApiRequestOptions,
 ): Promise<any> {
   const _urlParams: any = {};
   if (property != null) {
@@ -149,5 +170,6 @@ export async function StoreVideoAnalyticDashboard_download(
       id,
       file,
     },
+    ...options,
   });
 }

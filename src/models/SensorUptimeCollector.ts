@@ -17,7 +17,6 @@ export type SensorUptimeCollector = {
   methodString?: string;
   created?: Date;
   modified?: Date;
-  deleted?: Date;
   id?: string;
   assetId?: string;
   customerId?: string;

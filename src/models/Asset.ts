@@ -17,8 +17,6 @@ import { Dataset } from "./Dataset";
 import { EdgeAgent } from "./EdgeAgent";
 import { Event } from "./Event";
 import { EventGroup } from "./EventGroup";
-import { EventSummary } from "./EventSummary";
-import { EventSummaryForAsset } from "./EventSummaryForAsset";
 import { EventTrigger } from "./EventTrigger";
 import { FileMetadata } from "./FileMetadata";
 import { HealthcheckEvent } from "./HealthcheckEvent";
@@ -34,7 +32,8 @@ import { Summary } from "./Summary";
 
 export type Asset = {
   type: string;
-  name?: string;
+  name: string;
+  normalizedName?: string;
   icon?: string;
   description?: string;
   referenceId?: string;
@@ -74,8 +73,6 @@ export type Asset = {
   datasets?: Dataset[];
   edgeAgents?: EdgeAgent[];
   eventGroups?: EventGroup[];
-  eventSummaries?: EventSummary[];
-  eventSummaryForAssets?: EventSummaryForAsset[];
   eventTriggers?: EventTrigger[];
   events?: Event[];
   healthcheckEvents?: HealthcheckEvent[];
@@ -101,6 +98,8 @@ export type AssetCurrentStatusDetails = {
   lastNotification?: Date;
   requested?: AssetStatusDetails;
   referenceImage?: AssetStatusDetails;
+  blackedImage?: AssetStatusDetails;
+  frozenImage?: AssetStatusDetails;
   healthcheckSensors?: any[];
   created?: Date;
   modified?: Date;

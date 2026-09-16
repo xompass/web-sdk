@@ -3,6 +3,7 @@ import { Project } from "./Project";
 
 export type EmbeddedReport = {
   name: string;
+  normalizedName?: string;
   description?: string;
   source: string;
   created?: Date;

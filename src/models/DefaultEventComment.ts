@@ -6,7 +6,6 @@ export type DefaultEventComment = {
   content: string;
   created?: Date;
   modified?: Date;
-  deleted?: Date;
   id?: string;
   customerId?: string;
   customer?: Customer;

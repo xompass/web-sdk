@@ -41,6 +41,54 @@ export type ObjectRecognitionContent = {
   };
   objects?: {
     class: YoloClassLabel;
+    subclasses?: string[];
+    attributes?: Record<string, string>;
+    tags?: string[];
+    text?: string;
+    probability: number;
+    frame: {
+      x: number;
+      y: number;
+      w: number;
+      h: number;
+    };
+    points?: any[][];
+    colors?: {
+      percentage: number;
+      label:
+        | "white"
+        | "gray"
+        | "black"
+        | "red"
+        | "yellow"
+        | "brown"
+        | "green"
+        | "cyan"
+        | "blue"
+        | "purple";
+    }[];
+    colorExperimental?: {
+      rgb: {
+        r: number;
+        g: number;
+        b: number;
+      };
+      clusterSizeRatio: number;
+    }[];
+    filteredBy?: {
+      ZONE?: boolean;
+      CLASS?: boolean;
+      BLACKLIST?: boolean;
+      PERSISTENCE?: boolean;
+    };
+    trackId?: number;
+    meta?: Record<string, any>;
+  }[];
+  userAddedObjects?: {
+    class: YoloClassLabel;
+    subclasses?: string[];
+    attributes?: Record<string, string>;
+    tags?: string[];
     text?: string;
     probability: number;
     frame: {

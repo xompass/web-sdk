@@ -1,4 +1,9 @@
-import { ApiFetch, Filter } from "../core/ApiFetch";
+import {
+  ApiFetch,
+  ApiRequestOptions,
+  Filter,
+  unwrapCount,
+} from "../core/ApiFetch";
 import { AssetStateTemplate } from "../models/AssetStateTemplate";
 import { SensorAssetStateTemplate } from "../models/SensorAssetStateTemplate";
 import { SensorTemplate } from "../models/SensorTemplate";
@@ -10,6 +15,7 @@ import { SensorTemplate } from "../models/SensorTemplate";
 export async function SensorTemplate_FindByIdAssetStateTemplates(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<AssetStateTemplate> {
   return ApiFetch({
     method: "GET",
@@ -18,6 +24,7 @@ export async function SensorTemplate_FindByIdAssetStateTemplates(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -28,6 +35,7 @@ export async function SensorTemplate_LinkAssetStateTemplates(
   id: string,
   fk: string,
   data?: any,
+  options?: ApiRequestOptions,
 ): Promise<SensorAssetStateTemplate> {
   return ApiFetch({
     method: "PUT",
@@ -37,6 +45,7 @@ export async function SensorTemplate_LinkAssetStateTemplates(
       fk,
     },
     body: data,
+    ...options,
   });
 }
 /**
@@ -46,6 +55,7 @@ export async function SensorTemplate_LinkAssetStateTemplates(
 export async function SensorTemplate_UnlinkAssetStateTemplates(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<void> {
   return ApiFetch({
     method: "DELETE",
@@ -54,6 +64,7 @@ export async function SensorTemplate_UnlinkAssetStateTemplates(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -63,6 +74,7 @@ export async function SensorTemplate_UnlinkAssetStateTemplates(
 export async function SensorTemplate_ExistsAssetStateTemplates(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<boolean> {
   return ApiFetch({
     method: "HEAD",
@@ -71,6 +83,7 @@ export async function SensorTemplate_ExistsAssetStateTemplates(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -80,6 +93,7 @@ export async function SensorTemplate_ExistsAssetStateTemplates(
 export async function SensorTemplate_FindByIdStateTemplates(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<SensorAssetStateTemplate> {
   return ApiFetch({
     method: "GET",
@@ -88,6 +102,7 @@ export async function SensorTemplate_FindByIdStateTemplates(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -98,6 +113,7 @@ export async function SensorTemplate_UpdateByIdStateTemplates(
   id: string,
   fk: string,
   data?: any,
+  options?: ApiRequestOptions,
 ): Promise<SensorAssetStateTemplate> {
   return ApiFetch({
     method: "PUT",
@@ -107,6 +123,7 @@ export async function SensorTemplate_UpdateByIdStateTemplates(
       fk,
     },
     body: data,
+    ...options,
   });
 }
 /**
@@ -116,6 +133,7 @@ export async function SensorTemplate_UpdateByIdStateTemplates(
 export async function SensorTemplate_GetAssetStateTemplates(
   id: string,
   filter?: Filter<AssetStateTemplate>,
+  options?: ApiRequestOptions,
 ): Promise<AssetStateTemplate[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -129,6 +147,7 @@ export async function SensorTemplate_GetAssetStateTemplates(
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -138,20 +157,23 @@ export async function SensorTemplate_GetAssetStateTemplates(
 export async function SensorTemplate_CountAssetStateTemplates(
   id: string,
   where?: Filter<AssetStateTemplate>["where"],
+  options?: ApiRequestOptions,
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/SensorTemplates/:id/assetStateTemplates/count",
     urlParams: _urlParams,
     routeParams: {
       id,
     },
+    ...options,
   });
+  return unwrapCount(result);
 }
 /**
  * Queries stateTemplates of SensorTemplate.
@@ -160,6 +182,7 @@ export async function SensorTemplate_CountAssetStateTemplates(
 export async function SensorTemplate_GetStateTemplates(
   id: string,
   filter?: Filter<SensorAssetStateTemplate>,
+  options?: ApiRequestOptions,
 ): Promise<SensorAssetStateTemplate[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -173,6 +196,7 @@ export async function SensorTemplate_GetStateTemplates(
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -182,32 +206,39 @@ export async function SensorTemplate_GetStateTemplates(
 export async function SensorTemplate_CountStateTemplates(
   id: string,
   where?: Filter<SensorAssetStateTemplate>["where"],
+  options?: ApiRequestOptions,
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/SensorTemplates/:id/stateTemplates/count",
     urlParams: _urlParams,
     routeParams: {
       id,
     },
+    ...options,
   });
+  return unwrapCount(result);
 }
 /**
  * Check whether a model instance exists in the data source.
  * /SensorTemplates/:id/exists
  */
-export async function SensorTemplate_exists(id: string): Promise<boolean> {
+export async function SensorTemplate_exists(
+  id: string,
+  options?: ApiRequestOptions,
+): Promise<boolean> {
   return ApiFetch({
     method: "GET",
     url: "/SensorTemplates/:id/exists",
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -217,6 +248,7 @@ export async function SensorTemplate_exists(id: string): Promise<boolean> {
 export async function SensorTemplate_findById(
   id: string,
   filter?: Filter<SensorTemplate>,
+  options?: ApiRequestOptions,
 ): Promise<SensorTemplate> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -230,5 +262,6 @@ export async function SensorTemplate_findById(
     routeParams: {
       id,
     },
+    ...options,
   });
 }

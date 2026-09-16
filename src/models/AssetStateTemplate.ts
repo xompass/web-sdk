@@ -5,7 +5,8 @@ import { SensorAssetStateTemplate } from "./SensorAssetStateTemplate";
 import { SensorTemplate } from "./SensorTemplate";
 
 export type AssetStateTemplate = {
-  name?: string;
+  name: string;
+  normalizedName?: string;
   schedulerType: "NONE" | "CRON";
   scheduler?: any;
   created?: Date;

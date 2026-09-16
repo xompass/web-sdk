@@ -13,7 +13,8 @@ import { SensorTemplate } from "./SensorTemplate";
 
 export type AssetTemplate = {
   type: string;
-  name?: string;
+  name: string;
+  normalizedName?: string;
   icon?: string;
   description?: string;
   uri?: string;

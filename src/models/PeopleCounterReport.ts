@@ -4,6 +4,7 @@ import { Project } from "./Project";
 
 export type PeopleCounterReport = {
   name: string;
+  normalizedName?: string;
   description?: string;
   chart?: PeopleCounterReportChart;
   created?: Date;

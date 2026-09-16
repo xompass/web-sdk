@@ -5,6 +5,7 @@ import { Project } from "./Project";
 
 export type CountReport = {
   name: string;
+  normalizedName?: string;
   description?: string;
   created?: Date;
   modified?: Date;

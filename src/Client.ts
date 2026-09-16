@@ -1,4 +1,4 @@
-import { Filter, Include } from "./core/ApiFetch";
+import { FetchError, Include } from "./core/ApiFetch";
 import {
   getLocalStorageValue,
   setLocalStorageValue,
@@ -28,14 +28,146 @@ import {
   SupportAdmin_login,
   SupportAdmin_logout,
 } from "./endpoints/SupportAdminService";
-import { Admin } from "./models/Admin";
 import { CommonAccessToken } from "./models/CommonAccessToken";
-import { Manager } from "./models/Manager";
-import { SuperAdmin } from "./models/SuperAdmin";
-import { SupportAdmin } from "./models/SupportAdmin";
+
+export type TwoFactorMethod = "totp" | "recovery";
+
+export type TwoFactorChallenge = {
+  challengeId: string;
+  methods?: TwoFactorMethod[];
+  expiresIn?: number;
+};
+
+export type LoginResult =
+  | { status: "authenticated"; user: User }
+  | {
+      status: "otp-required";
+      credentials: UserCrendentials;
+      challenge?: TwoFactorChallenge;
+    };
+
+export class OtpRequiredError extends Error {
+  public readonly code = "TWO_FACTOR_REQUIRED";
+
+  constructor(
+    public readonly credentials: UserCrendentials,
+    public readonly challenge?: TwoFactorChallenge,
+  ) {
+    super("A second factor is required to complete login.");
+    this.name = "OtpRequiredError";
+  }
+}
+
+export class PrincipalTypeMismatchError extends Error {
+  public readonly code = "PRINCIPAL_TYPE_MISMATCH";
+
+  constructor(
+    public readonly expected: UserType,
+    public readonly received: string,
+  ) {
+    super(`Login returned ${received}; expected ${expected}.`);
+    this.name = "PrincipalTypeMismatchError";
+  }
+}
+
+type LoginEndpoint = (credentials: any, include?: any) => Promise<any>;
+
+const principalTypes: UserType[] = [
+  "Admin",
+  "Manager",
+  "SuperAdmin",
+  "SupportAdmin",
+];
+
+function isPrincipalType(value: unknown): value is UserType {
+  return (
+    typeof value === "string" && principalTypes.includes(value as UserType)
+  );
+}
+
+function getErrorDetails(value: unknown): any {
+  if (!value || typeof value !== "object") {
+    return undefined;
+  }
+  const envelope = value as {
+    error?: { details?: unknown };
+    details?: unknown;
+  };
+  if (envelope.error && typeof envelope.error === "object") {
+    return envelope.error.details ?? envelope.error;
+  }
+  return envelope.details;
+}
+
+export function isTwoFactorRequiredError(error: unknown): error is FetchError {
+  return error instanceof FetchError && error.code === "TWO_FACTOR_REQUIRED";
+}
+
+export function getTwoFactorChallenge(
+  error: unknown,
+): TwoFactorChallenge | undefined {
+  if (!isTwoFactorRequiredError(error)) {
+    return undefined;
+  }
+
+  const details = getErrorDetails(error.details);
+  if (!details || typeof details.challengeId !== "string") {
+    return { challengeId: "" };
+  }
+
+  return {
+    challengeId: details.challengeId,
+    methods: Array.isArray(details.methods) ? details.methods : undefined,
+    expiresIn:
+      typeof details.expiresIn === "number" ? details.expiresIn : undefined,
+  };
+}
+
+function getUserInclude(principalType: UserType): Include<any> {
+  const userIncludes =
+    principalType === "Admin" || principalType === "SupportAdmin"
+      ? ["container"]
+      : principalType === "Manager"
+        ? ["container", "permission"]
+        : undefined;
+
+  return {
+    relation: "user",
+    scope: userIncludes ? { include: userIncludes } : undefined,
+  };
+}
+
+function getLoginFunction(principalType: UserType): LoginEndpoint {
+  switch (principalType) {
+    case "Admin":
+      return Admin_login;
+    case "Manager":
+      return Manager_login;
+    case "SuperAdmin":
+      return SuperAdmin_login;
+    case "SupportAdmin":
+      return SupportAdmin_login;
+    default:
+      throw new Error("Invalid user type");
+  }
+}
+
+function normalizeCredentials(credentials: UserCrendentials): UserCrendentials {
+  if ("username" in credentials && credentials.username.includes("@")) {
+    return { email: credentials.username, password: credentials.password };
+  }
+
+  return credentials;
+}
+
+function setUserType(user: User, principalType: UserType): User {
+  (user as User & { type?: UserType }).type = principalType;
+  return user;
+}
 
 export class ApiClient {
   private cachedUser: User | undefined;
+
   constructor(
     private readonly baseUrl: string,
     private accessToken?: string,
@@ -103,19 +235,24 @@ export class ApiClient {
             throw new Error("Invalid user type");
         }
       } catch {
-        // Ignore errors
+        // Logout must clear local state even if the server is unavailable.
       }
     }
 
     this.accessToken = undefined;
     this.userId = undefined;
     this.principalType = undefined;
+    this.cachedUser = undefined;
 
     setLocalStorageValue("vsaas$accessToken", undefined);
     setLocalStorageValue("vsaas$userId", undefined);
     setLocalStorageValue("vsaas$principalType", undefined);
   }
 
+  /**
+   * Backwards-compatible login API. When the backend requires 2FA, callers
+   * should catch OtpRequiredError and continue with loginWithOtp().
+   */
   public async login(): Promise<User>;
   public async login(
     credentials: UserCrendentials,
@@ -125,193 +262,215 @@ export class ApiClient {
     credentials?: UserCrendentials,
     principalType?: UserType,
   ): Promise<User> {
-    const defaultTTL = 48 * 60 * 60;
-
     if (credentials && principalType) {
-      // Check if the principal type is valid
-      if (
-        ["Admin", "Manager", "SuperAdmin", "SupportAdmin"].indexOf(
-          principalType,
-        ) === -1
-      ) {
-        throw new Error("Invalid user type");
+      const result = await this.loginWithCredentials(
+        credentials,
+        principalType,
+      );
+      if (result.status === "otp-required") {
+        throw new OtpRequiredError(result.credentials, result.challenge);
       }
 
-      // Check if the credentials are valid
-      const username =
-        "username" in credentials
-          ? credentials.username
-          : "email" in credentials
-            ? credentials.email
-            : undefined;
-
-      if (!credentials.password || !username) {
-        throw new Error("Invalid credentials");
-      }
-
-      let loginFunc: (
-        credentials:
-          | {
-              username: string;
-              password: string;
-            }
-          | {
-              email: string;
-              password: string;
-            },
-        include: any,
-      ) => Promise<CommonAccessToken>;
-
-      // Choose the correct login function based on the principal type
-
-      let userInclude: string[] | undefined;
-      switch (principalType) {
-        case "Admin":
-          loginFunc = Admin_login;
-          userInclude = ["container"];
-          break;
-        case "Manager":
-          loginFunc = Manager_login;
-          userInclude = ["container", "permission"];
-          break;
-        case "SuperAdmin":
-          loginFunc = SuperAdmin_login;
-          break;
-        case "SupportAdmin":
-          loginFunc = SupportAdmin_login;
-          userInclude = ["container"];
-          break;
-        default:
-          throw new Error("Invalid user type");
-      }
-
-      const token = await loginFunc(credentials, {
-        include: {
-          relation: "user",
-          scope: userInclude
-            ? {
-                include: userInclude,
-              }
-            : undefined,
-        },
-      });
-
-      this.accessToken = token.id;
-      this.userId = token.userId;
-      this.principalType = token.principalType as UserType;
-
-      const ttl = this.getTokenTTL(token);
-
-      setLocalStorageValue("vsaas$accessToken", this.accessToken, ttl);
-      setLocalStorageValue("vsaas$userId", this.userId, ttl);
-      setLocalStorageValue("vsaas$principalType", this.principalType, ttl);
-
-      const user = token.user as User | undefined;
-      if (!user) {
-        return this.login();
-      }
-
-      user.type = this.principalType;
-
-      this.cachedUser = user;
-
-      return user;
+      return result.user;
     }
 
-    if (!this.accessToken || !this.userId || !this.principalType) {
-      throw new Error("access token, user id, and principal type required");
-    }
+    return this.restoreLogin();
+  }
 
-    if (
-      ["Admin", "Manager", "SuperAdmin", "SupportAdmin"].indexOf(
-        this.principalType,
-      ) === -1
-    ) {
-      throw new Error("Invalid user type");
-    }
+  /**
+   * Performs the password step. A successful response is authenticated; a
+   * TWO_FACTOR_REQUIRED error is returned without persisting a partial token.
+   */
+  public async loginWithCredentials(
+    credentials: UserCrendentials,
+    principalType: UserType,
+  ): Promise<LoginResult> {
+    this.assertPrincipalType(principalType);
+    const normalizedCredentials = normalizeCredentials(credentials);
+    const login = getLoginFunction(principalType);
+    this.principalType = principalType;
 
     try {
-      // We set the access token, user id, and principal type in local storage
-      // This is temporary, we will check the access token validity
-      // and update the TTL if needed
-      setLocalStorageValue("vsaas$accessToken", this.accessToken, defaultTTL);
-      setLocalStorageValue("vsaas$userId", this.userId, defaultTTL);
-      setLocalStorageValue(
-        "vsaas$principalType",
-        this.principalType,
-        defaultTTL,
+      const response = await login(
+        normalizedCredentials,
+        getUserInclude(principalType),
       );
 
-      let GetToken: (
-        id: string,
-        include?: Include<CommonAccessToken>,
-      ) => Promise<CommonAccessToken>;
-
-      let GetPrincipal: (
-        id: string,
-        filter: Filter<Manager | Admin | SuperAdmin | SupportAdmin>,
-      ) => Promise<Manager | Admin | SuperAdmin | SupportAdmin>;
-
-      let userInclude: Include<Manager> | undefined = [
-        { relation: "container" },
-      ];
-
-      switch (this.principalType) {
-        case "Admin":
-          GetToken = Admin_getCurrentToken;
-          GetPrincipal = Admin_findById;
-          break;
-        case "Manager":
-          GetToken = Manager_getCurrentToken;
-          GetPrincipal = Manager_findById;
-          userInclude.push({ relation: "permission" });
-          break;
-        case "SuperAdmin":
-          GetToken = SuperAdmin_getCurrentToken;
-          GetPrincipal = SuperAdmin_findById;
-          userInclude = undefined;
-          break;
-        case "SupportAdmin":
-          GetToken = SupportAdmin_getCurrentToken;
-          GetPrincipal = SupportAdmin_findById;
-          break;
-        default:
-          throw new Error("Invalid user type");
+      return {
+        status: "authenticated",
+        user: await this.finishTokenLogin(response, principalType),
+      };
+    } catch (error) {
+      const challenge = getTwoFactorChallenge(error);
+      if (!challenge) {
+        throw error;
       }
 
-      // Fetch the access token and user information
-      const [token, user] = await Promise.all([
-        GetToken(this.userId),
-        GetPrincipal(this.userId, {
-          include: userInclude,
-        }),
-      ]);
+      return {
+        status: "otp-required",
+        credentials: normalizedCredentials,
+        challenge,
+      };
+    }
+  }
 
-      // If the request was successful, we update the access token with the correct ttl
-      const ttl = this.getTokenTTL(token);
-      setLocalStorageValue("vsaas$accessToken", this.accessToken, ttl);
-      setLocalStorageValue("vsaas$userId", this.userId, ttl);
-      setLocalStorageValue("vsaas$principalType", this.principalType, ttl);
+  /**
+   * Completes a password login after the framework requested a second factor.
+   * Native `login` accepts `twoFactorMethod` and `twoFactorCode`.
+   */
+  public async loginWithOtp(
+    credentials: UserCrendentials,
+    code: string,
+    principalType: UserType,
+    method: TwoFactorMethod = "totp",
+  ): Promise<User> {
+    this.assertPrincipalType(principalType);
+    if (!code.trim()) {
+      throw new Error("OTP code is required");
+    }
 
-      const _user = user as User;
-      _user.type = this.principalType as UserType;
+    const normalizedCredentials = normalizeCredentials(credentials);
+    const login = getLoginFunction(principalType);
+    this.principalType = principalType;
 
-      this.cachedUser = _user;
-      return _user;
+    try {
+      const response = await login(
+        {
+          ...normalizedCredentials,
+          twoFactorMethod: method,
+          twoFactorCode: code,
+        },
+        getUserInclude(principalType),
+      );
+
+      return this.finishTokenLogin(response, principalType);
     } catch (error) {
-      this.logout();
+      const challenge = getTwoFactorChallenge(error);
+      if (challenge) {
+        throw new OtpRequiredError(normalizedCredentials, challenge);
+      }
+
       throw error;
     }
   }
 
-  getTokenTTL(token: CommonAccessToken): number {
-    const now = Date.now();
-    const expiresAt = new Date(token.created!).getTime() + token.ttl! * 1000;
+  public getTokenTTL(token: CommonAccessToken): number {
+    if (!token.created || token.ttl == null) {
+      throw new Error("Login response did not contain token expiration data.");
+    }
 
-    if (now > expiresAt) {
+    const now = Date.now();
+    const expiresAt = new Date(token.created).getTime() + token.ttl * 1000;
+
+    if (!Number.isFinite(expiresAt) || now > expiresAt) {
       throw new Error("Access token is expired");
     }
 
     return (expiresAt - now) / 1000;
+  }
+
+  private assertPrincipalType(principalType: UserType): void {
+    if (!isPrincipalType(principalType)) {
+      throw new Error("Invalid user type");
+    }
+  }
+
+  private async finishTokenLogin(
+    response: unknown,
+    expectedPrincipalType: UserType,
+  ): Promise<User> {
+    const token = response as CommonAccessToken & { user?: User };
+    if (!token.id || !token.userId) {
+      throw new Error(
+        "Login response did not contain a complete access token.",
+      );
+    }
+
+    if (token.principalType && token.principalType !== expectedPrincipalType) {
+      throw new PrincipalTypeMismatchError(
+        expectedPrincipalType,
+        token.principalType,
+      );
+    }
+
+    const ttl = this.getTokenTTL(token);
+    this.accessToken = token.id;
+    this.userId = token.userId;
+    this.principalType = expectedPrincipalType;
+
+    setLocalStorageValue("vsaas$accessToken", token.id, ttl);
+    setLocalStorageValue("vsaas$userId", token.userId, ttl);
+    setLocalStorageValue("vsaas$principalType", expectedPrincipalType, ttl);
+
+    if (token.user) {
+      const user = setUserType(token.user, expectedPrincipalType);
+      this.cachedUser = user;
+      return user;
+    }
+
+    // Some backend responses omit the included user. Reuse the validated
+    // token to fetch the principal instead of dereferencing token.user.
+    return this.restoreLogin();
+  }
+
+  private async restoreLogin(): Promise<User> {
+    const defaultTTL = 48 * 60 * 60;
+    if (!this.accessToken || !this.userId || !this.principalType) {
+      throw new Error("access token, user id, and principal type required");
+    }
+
+    this.assertPrincipalType(this.principalType);
+    const principalType = this.principalType;
+
+    try {
+      setLocalStorageValue("vsaas$accessToken", this.accessToken, defaultTTL);
+      setLocalStorageValue("vsaas$userId", this.userId, defaultTTL);
+      setLocalStorageValue("vsaas$principalType", principalType, defaultTTL);
+
+      let getToken: (id: string, include?: any) => Promise<CommonAccessToken>;
+      let getPrincipal: (id: string, filter?: any) => Promise<any>;
+      let userInclude: Include<any> | undefined = [{ relation: "container" }];
+
+      switch (principalType) {
+        case "Admin":
+          getToken = Admin_getCurrentToken;
+          getPrincipal = Admin_findById;
+          break;
+        case "Manager":
+          getToken = Manager_getCurrentToken;
+          getPrincipal = Manager_findById;
+          userInclude.push({ relation: "permission" });
+          break;
+        case "SuperAdmin":
+          getToken = SuperAdmin_getCurrentToken;
+          getPrincipal = SuperAdmin_findById;
+          userInclude = undefined;
+          break;
+        case "SupportAdmin":
+          getToken = SupportAdmin_getCurrentToken;
+          getPrincipal = SupportAdmin_findById;
+          break;
+        default:
+          throw new Error("Invalid user type");
+      }
+
+      const [token, user] = await Promise.all([
+        getToken(this.userId),
+        getPrincipal(this.userId, { include: userInclude }),
+      ]);
+
+      const ttl = this.getTokenTTL(token);
+      setLocalStorageValue("vsaas$accessToken", this.accessToken, ttl);
+      setLocalStorageValue("vsaas$userId", this.userId, ttl);
+      setLocalStorageValue("vsaas$principalType", principalType, ttl);
+
+      const authenticatedUser = setUserType(user as User, principalType);
+      this.cachedUser = authenticatedUser;
+      return authenticatedUser;
+    } catch (error) {
+      // A restore failure is not necessarily an expired session. The host
+      // application owns token validation and decides whether to log out.
+      throw error;
+    }
   }
 }

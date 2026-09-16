@@ -7,7 +7,6 @@ export type GlobalEventState = {
   colors: any;
   created?: Date;
   modified?: Date;
-  deleted?: Date;
   id?: string;
   trackingLogs?: Log[];
 };

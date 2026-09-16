@@ -1,17 +1,26 @@
-import { ApiFetch, Filter } from "../core/ApiFetch";
+import {
+  ApiFetch,
+  ApiRequestOptions,
+  Filter,
+  unwrapCount,
+} from "../core/ApiFetch";
 import { GlobalEventState } from "../models/GlobalEventState";
 
 /**
  * Check whether a model instance exists in the data source.
  * /GlobalEventStates/:id/exists
  */
-export async function GlobalEventState_exists(id: string): Promise<boolean> {
+export async function GlobalEventState_exists(
+  id: string,
+  options?: ApiRequestOptions,
+): Promise<boolean> {
   return ApiFetch({
     method: "GET",
     url: "/GlobalEventStates/:id/exists",
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -21,6 +30,7 @@ export async function GlobalEventState_exists(id: string): Promise<boolean> {
 export async function GlobalEventState_findById(
   id: string,
   filter?: Filter<GlobalEventState>,
+  options?: ApiRequestOptions,
 ): Promise<GlobalEventState> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -34,6 +44,7 @@ export async function GlobalEventState_findById(
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -42,6 +53,7 @@ export async function GlobalEventState_findById(
  */
 export async function GlobalEventState_find(
   filter?: Filter<GlobalEventState>,
+  options?: ApiRequestOptions,
 ): Promise<GlobalEventState[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -52,6 +64,7 @@ export async function GlobalEventState_find(
     method: "GET",
     url: "/GlobalEventStates",
     urlParams: _urlParams,
+    ...options,
   });
 }
 /**
@@ -60,6 +73,7 @@ export async function GlobalEventState_find(
  */
 export async function GlobalEventState_findOne(
   filter?: Filter<GlobalEventState>,
+  options?: ApiRequestOptions,
 ): Promise<GlobalEventState> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -70,6 +84,7 @@ export async function GlobalEventState_findOne(
     method: "GET",
     url: "/GlobalEventStates/findOne",
     urlParams: _urlParams,
+    ...options,
   });
 }
 /**
@@ -78,15 +93,18 @@ export async function GlobalEventState_findOne(
  */
 export async function GlobalEventState_count(
   where?: Filter<GlobalEventState>["where"],
+  options?: ApiRequestOptions,
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/GlobalEventStates/count",
     urlParams: _urlParams,
+    ...options,
   });
+  return unwrapCount(result);
 }

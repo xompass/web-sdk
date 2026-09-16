@@ -4,6 +4,7 @@ import { Project } from "./Project";
 
 export type TrafficFlowAnalysis = {
   name: string;
+  normalizedName?: string;
   description?: string;
   edges?: TrafficFlowAnalysisEdge[];
   created?: Date;

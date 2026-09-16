@@ -33,9 +33,12 @@ import { YoloClass } from "./YoloClass";
 
 export type Customer = {
   name: string;
+  normalizedName?: string;
   businessName?: string;
   description?: string;
   address?: string;
+  language?: "en" | "es";
+  varId: string;
   created?: Date;
   modified?: Date;
   deleted?: Date;
@@ -44,7 +47,6 @@ export type Customer = {
   _config?: CustomerConfig;
   timeZoneId?: string;
   toolkitIds?: string[];
-  varId?: string;
   activeDirectory?: CustomerActiveDirectory;
   apiKeys?: ApiKey[];
   assetStateChanges?: AssetStateChange[];

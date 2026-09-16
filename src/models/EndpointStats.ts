@@ -25,7 +25,6 @@ export type EndpointStats = {
   uploadCount?: number;
   created?: Date;
   modified?: Date;
-  deleted?: Date;
   id?: string;
   trackingLogs?: Log[];
 };

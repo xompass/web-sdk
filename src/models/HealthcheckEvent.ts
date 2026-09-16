@@ -12,7 +12,6 @@ export type HealthcheckEvent = {
   healthStatus?: "ONLINE" | "OFFLINE" | "OUTDATED" | "UNKNOWN";
   created?: Date;
   modified?: Date;
-  deleted?: Date;
   id?: string;
   assetId?: string;
   _comments?: EventComment[];
@@ -33,6 +32,8 @@ export type HealthcheckEventData = {
   requested?: AssetStatusDetails;
   referenceImage?: AssetStatusDetails;
   healthcheckSensors?: AssetStatusDetails;
+  blackedImage?: AssetStatusDetails;
+  frozenImage?: AssetStatusDetails;
   created?: Date;
   modified?: Date;
   deleted?: Date;

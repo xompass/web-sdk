@@ -16,8 +16,9 @@ export type Admin = {
   created?: Date;
   modified?: Date;
   deleted?: Date;
-  otpEnabled?: boolean;
   disabledPasswordLogin?: boolean;
+  mustChangePassword?: boolean;
+  verificationTokenCreatedAt?: Date;
   username?: string;
   email: string;
   emailVerified?: boolean;

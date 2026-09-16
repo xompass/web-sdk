@@ -7,7 +7,6 @@ export type AssetStateChange = {
   changeAt: Date;
   created?: Date;
   modified?: Date;
-  deleted?: Date;
   id?: string;
   assetId?: string;
   assetStateId?: string;

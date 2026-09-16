@@ -4,12 +4,12 @@ import { Log } from "./Log";
 
 export type EventState = {
   name: string;
+  normalizedName?: string;
   description?: string;
   type: string;
   colors: any;
   created?: Date;
   modified?: Date;
-  deleted?: Date;
   id?: string;
   customerId?: string;
   globalEventStateId?: string;

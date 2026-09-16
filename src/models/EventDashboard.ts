@@ -7,6 +7,7 @@ import { Project } from "./Project";
 export type EventDashboard = {
   type: "AUTO" | "COVID_19" | "GENERIC" | "SAFE_CITY" | "STORE_ANOMALIES";
   name: string;
+  normalizedName?: string;
   description?: string;
   created?: Date;
   modified?: Date;
@@ -27,7 +28,6 @@ export type EventDashboardEventTrigger = {
   config?: any;
   created?: Date;
   modified?: Date;
-  deleted?: Date;
   id?: string;
   eventDashboardId?: string;
   eventTriggerId?: string;

@@ -10,7 +10,6 @@ import { EmbeddedReport } from "./EmbeddedReport";
 import { Event } from "./Event";
 import { EventDashboard } from "./EventDashboard";
 import { EventSubject } from "./EventSubject";
-import { EventSummaryForProject } from "./EventSummaryForProject";
 import { FaceDatabase } from "./FaceDatabase";
 import { FaceSubject } from "./FaceSubject";
 import { HealthcheckEvent } from "./HealthcheckEvent";
@@ -36,7 +35,8 @@ import { VirtualVariable } from "./VirtualVariable";
 import { YoloClass } from "./YoloClass";
 
 export type Project = {
-  name?: string;
+  name: string;
+  normalizedName?: string;
   description?: string;
   logo?: string;
   sector?: string;
@@ -64,7 +64,6 @@ export type Project = {
   embeddedReports?: EmbeddedReport[];
   eventDashboards?: EventDashboard[];
   eventSubjects?: EventSubject[];
-  eventSummaryForProjects?: EventSummaryForProject[];
   events?: Event[];
   faceDatabases?: FaceDatabase[];
   faceSubjects?: FaceSubject[];

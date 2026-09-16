@@ -12,7 +12,6 @@ export type DeviceEventData = {
   level?: "ERROR" | "INFO" | "WARNING" | "DEBUG" | "FATAL" | "NONE";
   created?: Date;
   modified?: Date;
-  deleted?: Date;
   deviceId?: string;
   deviceEventId?: string;
   device?: Device;

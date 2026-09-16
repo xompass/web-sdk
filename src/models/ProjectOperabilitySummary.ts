@@ -17,7 +17,6 @@ export type ProjectOperabilitySummary = {
   averageOperability?: number;
   created?: Date;
   modified?: Date;
-  deleted?: Date;
   id?: string;
   projectId?: string;
   project?: Project;

@@ -7,11 +7,11 @@ import { VirtualGroup } from "./VirtualGroup";
 export type VirtualVariable = {
   type?: string;
   name: string;
+  normalizedName?: string;
   description?: string;
   value?: number;
   created?: Date;
   modified?: Date;
-  deleted?: Date;
   id?: string;
   projectId?: string;
   sensorId?: string;

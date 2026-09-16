@@ -5,7 +5,6 @@ import { SensorType } from "./SensorType";
 export type ProjectAllowedSensorType = {
   created?: Date;
   modified?: Date;
-  deleted?: Date;
   id?: string;
   projectId?: string;
   sensorTypeId?: string;

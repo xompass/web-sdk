@@ -10,12 +10,22 @@ export type ObjectRecognitionBasedOnRulesTRCParameters = {
         minProbability?: number;
       };
     };
+    ambulance?: {
+      thresholds?: {
+        minProbability?: number;
+      };
+    };
     car?: {
       thresholds?: {
         minProbability?: number;
       };
     };
     motorbike?: {
+      thresholds?: {
+        minProbability?: number;
+      };
+    };
+    scooter?: {
       thresholds?: {
         minProbability?: number;
       };
@@ -46,6 +56,11 @@ export type ObjectRecognitionBasedOnRulesTRCParameters = {
       };
     };
     pistol?: {
+      thresholds?: {
+        minProbability?: number;
+      };
+    };
+    rifle?: {
       thresholds?: {
         minProbability?: number;
       };
@@ -101,6 +116,11 @@ export type ObjectRecognitionBasedOnRulesTRCParameters = {
       };
     };
     truck?: {
+      thresholds?: {
+        minProbability?: number;
+      };
+    };
+    van?: {
       thresholds?: {
         minProbability?: number;
       };
@@ -330,6 +350,11 @@ export type ObjectRecognitionBasedOnRulesTRCParameters = {
         minProbability?: number;
       };
     };
+    waste_container?: {
+      thresholds?: {
+        minProbability?: number;
+      };
+    };
     snack?: {
       thresholds?: {
         minProbability?: number;
@@ -356,11 +381,6 @@ export type ObjectRecognitionBasedOnRulesTRCParameters = {
       };
     };
     sculpture?: {
-      thresholds?: {
-        minProbability?: number;
-      };
-    };
-    monitor?: {
       thresholds?: {
         minProbability?: number;
       };
@@ -430,27 +450,7 @@ export type ObjectRecognitionBasedOnRulesTRCParameters = {
         minProbability?: number;
       };
     };
-    products?: {
-      thresholds?: {
-        minProbability?: number;
-      };
-    };
-    bucket?: {
-      thresholds?: {
-        minProbability?: number;
-      };
-    };
-    mope?: {
-      thresholds?: {
-        minProbability?: number;
-      };
-    };
     donut?: {
-      thresholds?: {
-        minProbability?: number;
-      };
-    };
-    panera?: {
       thresholds?: {
         minProbability?: number;
       };
@@ -466,6 +466,16 @@ export type ObjectRecognitionBasedOnRulesTRCParameters = {
       };
     };
     sausage?: {
+      thresholds?: {
+        minProbability?: number;
+      };
+    };
+    "open-door"?: {
+      thresholds?: {
+        minProbability?: number;
+      };
+    };
+    "safety-vest"?: {
       thresholds?: {
         minProbability?: number;
       };

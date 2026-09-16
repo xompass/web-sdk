@@ -5,6 +5,7 @@ import { Project } from "./Project";
 
 export type StoreVideoAnalyticDashboard = {
   name: string;
+  normalizedName?: string;
   description?: string;
   layers?: any;
   created?: Date;

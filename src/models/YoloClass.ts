@@ -5,7 +5,6 @@ export type YoloClass = {
   name: YoloClassLabel;
   created?: Date;
   modified?: Date;
-  deleted?: Date;
   id?: string;
   trackingLogs?: Log[];
 };

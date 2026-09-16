@@ -7,7 +7,6 @@ export type SupportAdminVar = {
   supportAdminId: string;
   created?: Date;
   modified?: Date;
-  deleted?: Date;
   id?: string;
   supportAdmin?: SupportAdmin;
   trackingLogs?: Log[];

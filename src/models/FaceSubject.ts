@@ -26,7 +26,6 @@ export type FaceSubject = {
 export type FaceDatabaseFaceSubject = {
   created?: Date;
   modified?: Date;
-  deleted?: Date;
   id?: string;
   faceDatabaseId?: string;
   faceSubjectId?: string;

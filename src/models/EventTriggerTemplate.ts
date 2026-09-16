@@ -9,6 +9,7 @@ import { Log } from "./Log";
 export type EventTriggerTemplate = {
   type: string;
   name: string;
+  normalizedName?: string;
   description?: string;
   subject?: string;
   enabled: boolean;

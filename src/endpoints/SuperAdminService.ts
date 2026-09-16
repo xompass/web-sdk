@@ -1,4 +1,9 @@
-import { ApiFetch, Filter } from "../core/ApiFetch";
+import {
+  ApiFetch,
+  ApiRequestOptions,
+  Filter,
+  unwrapCount,
+} from "../core/ApiFetch";
 import { CommonAccessToken } from "../models/CommonAccessToken";
 import { Country } from "../models/Country";
 import { Log } from "../models/Log";
@@ -12,6 +17,7 @@ import { TimeZone } from "../models/TimeZone";
 export async function SuperAdmin_FindByIdAccessTokens(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<CommonAccessToken> {
   return ApiFetch({
     method: "GET",
@@ -20,6 +26,7 @@ export async function SuperAdmin_FindByIdAccessTokens(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -29,6 +36,7 @@ export async function SuperAdmin_FindByIdAccessTokens(
 export async function SuperAdmin_FindByIdActivityLogs(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<Log> {
   return ApiFetch({
     method: "GET",
@@ -37,6 +45,7 @@ export async function SuperAdmin_FindByIdActivityLogs(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -46,6 +55,7 @@ export async function SuperAdmin_FindByIdActivityLogs(
 export async function SuperAdmin_FindByIdTrackingLogs(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<Log> {
   return ApiFetch({
     method: "GET",
@@ -54,32 +64,41 @@ export async function SuperAdmin_FindByIdTrackingLogs(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
  * Fetches belongsTo relation country.
  * /SuperAdmins/:id/country
  */
-export async function SuperAdmin_GetCountry(id: string): Promise<Country> {
+export async function SuperAdmin_GetCountry(
+  id: string,
+  options?: ApiRequestOptions,
+): Promise<Country> {
   return ApiFetch({
     method: "GET",
     url: "/SuperAdmins/:id/country",
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
  * Fetches belongsTo relation timeZone.
  * /SuperAdmins/:id/timeZone
  */
-export async function SuperAdmin_GetTimeZone(id: string): Promise<TimeZone> {
+export async function SuperAdmin_GetTimeZone(
+  id: string,
+  options?: ApiRequestOptions,
+): Promise<TimeZone> {
   return ApiFetch({
     method: "GET",
     url: "/SuperAdmins/:id/timeZone",
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -89,6 +108,7 @@ export async function SuperAdmin_GetTimeZone(id: string): Promise<TimeZone> {
 export async function SuperAdmin_GetActivityLogs(
   id: string,
   filter?: Filter<Log>,
+  options?: ApiRequestOptions,
 ): Promise<Log[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -102,6 +122,7 @@ export async function SuperAdmin_GetActivityLogs(
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -111,20 +132,23 @@ export async function SuperAdmin_GetActivityLogs(
 export async function SuperAdmin_CountActivityLogs(
   id: string,
   where?: Filter<Log>["where"],
+  options?: ApiRequestOptions,
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/SuperAdmins/:id/activityLogs/count",
     urlParams: _urlParams,
     routeParams: {
       id,
     },
+    ...options,
   });
+  return unwrapCount(result);
 }
 /**
  * Queries trackingLogs of SuperAdmin.
@@ -133,6 +157,7 @@ export async function SuperAdmin_CountActivityLogs(
 export async function SuperAdmin_GetTrackingLogs(
   id: string,
   filter?: Filter<Log>,
+  options?: ApiRequestOptions,
 ): Promise<Log[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -146,6 +171,7 @@ export async function SuperAdmin_GetTrackingLogs(
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -155,43 +181,54 @@ export async function SuperAdmin_GetTrackingLogs(
 export async function SuperAdmin_CountTrackingLogs(
   id: string,
   where?: Filter<Log>["where"],
+  options?: ApiRequestOptions,
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/SuperAdmins/:id/trackingLogs/count",
     urlParams: _urlParams,
     routeParams: {
       id,
     },
+    ...options,
   });
+  return unwrapCount(result);
 }
 /**
  * Create a new instance of the model and persist it into the data source.
  * /SuperAdmins
  */
-export async function SuperAdmin_create(data?: any): Promise<SuperAdmin> {
+export async function SuperAdmin_create(
+  data?: any,
+  options?: ApiRequestOptions,
+): Promise<SuperAdmin> {
   return ApiFetch({
     method: "POST",
     url: "/SuperAdmins",
     body: data,
+    ...options,
   });
 }
 /**
  * Check whether a model instance exists in the data source.
  * /SuperAdmins/:id/exists
  */
-export async function SuperAdmin_exists(id: string): Promise<boolean> {
+export async function SuperAdmin_exists(
+  id: string,
+  options?: ApiRequestOptions,
+): Promise<boolean> {
   return ApiFetch({
     method: "GET",
     url: "/SuperAdmins/:id/exists",
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -201,6 +238,7 @@ export async function SuperAdmin_exists(id: string): Promise<boolean> {
 export async function SuperAdmin_findById(
   id: string,
   filter?: Filter<SuperAdmin>,
+  options?: ApiRequestOptions,
 ): Promise<SuperAdmin> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -214,6 +252,7 @@ export async function SuperAdmin_findById(
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -223,6 +262,7 @@ export async function SuperAdmin_findById(
 export async function SuperAdmin_replaceById(
   id: string,
   data?: any,
+  options?: ApiRequestOptions,
 ): Promise<SuperAdmin> {
   return ApiFetch({
     method: "POST",
@@ -231,6 +271,7 @@ export async function SuperAdmin_replaceById(
       id,
     },
     body: data,
+    ...options,
   });
 }
 /**
@@ -239,6 +280,7 @@ export async function SuperAdmin_replaceById(
  */
 export async function SuperAdmin_find(
   filter?: Filter<SuperAdmin>,
+  options?: ApiRequestOptions,
 ): Promise<SuperAdmin[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -249,6 +291,7 @@ export async function SuperAdmin_find(
     method: "GET",
     url: "/SuperAdmins",
     urlParams: _urlParams,
+    ...options,
   });
 }
 /**
@@ -257,6 +300,7 @@ export async function SuperAdmin_find(
  */
 export async function SuperAdmin_findOne(
   filter?: Filter<SuperAdmin>,
+  options?: ApiRequestOptions,
 ): Promise<SuperAdmin> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -267,19 +311,24 @@ export async function SuperAdmin_findOne(
     method: "GET",
     url: "/SuperAdmins/findOne",
     urlParams: _urlParams,
+    ...options,
   });
 }
 /**
  * Delete a model instance by {{id}} from the data source.
  * /SuperAdmins/:id
  */
-export async function SuperAdmin_deleteById(id: string): Promise<void> {
+export async function SuperAdmin_deleteById(
+  id: string,
+  options?: ApiRequestOptions,
+): Promise<void> {
   return ApiFetch({
     method: "DELETE",
     url: "/SuperAdmins/:id",
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -288,17 +337,20 @@ export async function SuperAdmin_deleteById(id: string): Promise<void> {
  */
 export async function SuperAdmin_count(
   where?: Filter<SuperAdmin>["where"],
+  options?: ApiRequestOptions,
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/SuperAdmins/count",
     urlParams: _urlParams,
+    ...options,
   });
+  return unwrapCount(result);
 }
 /**
  * Patch attributes for a model instance and persist it into the data source.
@@ -307,6 +359,7 @@ export async function SuperAdmin_count(
 export async function SuperAdmin_patchAttributes(
   id: string,
   data?: any,
+  options?: ApiRequestOptions,
 ): Promise<SuperAdmin> {
   return ApiFetch({
     method: "PUT",
@@ -315,6 +368,7 @@ export async function SuperAdmin_patchAttributes(
       id,
     },
     body: data,
+    ...options,
   });
 }
 /**
@@ -322,10 +376,13 @@ export async function SuperAdmin_patchAttributes(
  * /SuperAdmins/login
  */
 export async function SuperAdmin_login(
-  credentials:
-    | { username: string; password: string }
-    | { email: string; password: string },
+  credentials: ({ username: string } | { email: string }) & {
+    password: string;
+    twoFactorMethod?: "totp" | "recovery";
+    twoFactorCode?: string;
+  },
   include?: Filter<SuperAdmin>["include"],
+  options?: ApiRequestOptions,
 ): Promise<any> {
   const _urlParams: any = {};
   if (include != null) {
@@ -337,29 +394,37 @@ export async function SuperAdmin_login(
     url: "/SuperAdmins/login",
     urlParams: _urlParams,
     body: { ...credentials },
+    ...options,
   });
 }
 /**
  * Logout a user with access token.
  * /SuperAdmins/logout
  */
-export async function SuperAdmin_logout(): Promise<any> {
+export async function SuperAdmin_logout(
+  options?: ApiRequestOptions,
+): Promise<any> {
   return ApiFetch({
     method: "POST",
     url: "/SuperAdmins/logout",
+    ...options,
   });
 }
 /**
  * Trigger user's identity verification with configured verifyOptions
  * /SuperAdmins/:id/verify
  */
-export async function SuperAdmin_verify(id: string): Promise<any> {
+export async function SuperAdmin_verify(
+  id: string,
+  options?: ApiRequestOptions,
+): Promise<any> {
   return ApiFetch({
     method: "POST",
     url: "/SuperAdmins/:id/verify",
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -370,7 +435,8 @@ export async function SuperAdmin_confirm(
   uid: string,
   token: string,
   redirect?: string,
-): Promise<any> {
+  options?: ApiRequestOptions,
+): Promise<CommonAccessToken> {
   const _urlParams: any = {};
   if (uid != null) {
     _urlParams["uid"] = uid;
@@ -386,17 +452,22 @@ export async function SuperAdmin_confirm(
     method: "GET",
     url: "/SuperAdmins/confirm",
     urlParams: _urlParams,
+    ...options,
   });
 }
 /**
  * Reset password for a user with email.
  * /SuperAdmins/reset
  */
-export async function SuperAdmin_resetPassword(options: any): Promise<any> {
+export async function SuperAdmin_resetPassword(
+  options: any,
+  requestOptions?: ApiRequestOptions,
+): Promise<any> {
   return ApiFetch({
     method: "POST",
     url: "/SuperAdmins/reset",
     body: options,
+    ...requestOptions,
   });
 }
 /**
@@ -406,11 +477,13 @@ export async function SuperAdmin_resetPassword(options: any): Promise<any> {
 export async function SuperAdmin_changePassword(
   oldPassword: string,
   newPassword: string,
+  options?: ApiRequestOptions,
 ): Promise<any> {
   return ApiFetch({
     method: "POST",
     url: "/SuperAdmins/change-password",
     body: { oldPassword, newPassword },
+    ...options,
   });
 }
 /**
@@ -419,11 +492,13 @@ export async function SuperAdmin_changePassword(
  */
 export async function SuperAdmin_setPassword(
   newPassword: string,
+  options?: ApiRequestOptions,
 ): Promise<any> {
   return ApiFetch({
     method: "POST",
     url: "/SuperAdmins/reset-password",
     body: { newPassword },
+    ...options,
   });
 }
 /**
@@ -433,6 +508,7 @@ export async function SuperAdmin_setPassword(
 export async function SuperAdmin_getCurrentToken(
   id: string,
   include?: Filter<CommonAccessToken>["include"],
+  options?: ApiRequestOptions,
 ): Promise<CommonAccessToken> {
   const _urlParams: any = {};
   if (include != null) {
@@ -446,39 +522,7 @@ export async function SuperAdmin_getCurrentToken(
     routeParams: {
       id,
     },
-  });
-}
-/**
- * Login a user with username/email, password and OTP.
- * /SuperAdmins/otp/login
- */
-export async function SuperAdmin_otpLogin(
-  credentials: any,
-  include?: Filter<SuperAdmin>["include"],
-): Promise<any> {
-  const _urlParams: any = {};
-  if (include != null) {
-    _urlParams["include"] = include;
-  }
-
-  return ApiFetch({
-    method: "POST",
-    url: "/SuperAdmins/otp/login",
-    urlParams: _urlParams,
-    body: { ...credentials },
-  });
-}
-/**
- * Disable OTP for the currently logged in user.
- * /SuperAdmins/:id/otp/disable
- */
-export async function SuperAdmin_otpDisable(id: string): Promise<any> {
-  return ApiFetch({
-    method: "PATCH",
-    url: "/SuperAdmins/:id/otp/disable",
-    routeParams: {
-      id,
-    },
+    ...options,
   });
 }
 /**
@@ -487,6 +531,7 @@ export async function SuperAdmin_otpDisable(id: string): Promise<any> {
  */
 export async function SuperAdmin_getMiniAppUserSessionsActive(
   id: string,
+  options?: ApiRequestOptions,
 ): Promise<any[]> {
   return ApiFetch({
     method: "GET",
@@ -494,6 +539,7 @@ export async function SuperAdmin_getMiniAppUserSessionsActive(
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -503,6 +549,7 @@ export async function SuperAdmin_getMiniAppUserSessionsActive(
 export async function SuperAdmin_MiniAppUserSessionActiveLogout(
   id: string,
   data: any,
+  options?: ApiRequestOptions,
 ): Promise<any> {
   return ApiFetch({
     method: "POST",
@@ -511,59 +558,34 @@ export async function SuperAdmin_MiniAppUserSessionActiveLogout(
       id,
     },
     body: data,
-  });
-}
-/**
- * Check if the user has the OTP authentication enabled.
- * /SuperAdmins/:id/otp/check
- */
-export async function SuperAdmin_otpCheck(id: string): Promise<any> {
-  return ApiFetch({
-    method: "GET",
-    url: "/SuperAdmins/:id/otp/check",
-    routeParams: {
-      id,
-    },
-  });
-}
-/**
- * Generate the OTP url for the currently logged in user.
- * /SuperAdmins/:id/otp/generate
- */
-export async function SuperAdmin_otpGenerate(id: string): Promise<any> {
-  return ApiFetch({
-    method: "GET",
-    url: "/SuperAdmins/:id/otp/generate",
-    routeParams: {
-      id,
-    },
-  });
-}
-/**
- * Verify the OTP for the currently logged in user.
- * /SuperAdmins/:id/otp/verify
- */
-export async function SuperAdmin_otpVerify(
-  id: string,
-  obj?: any,
-): Promise<any> {
-  return ApiFetch({
-    method: "POST",
-    url: "/SuperAdmins/:id/otp/verify",
-    routeParams: {
-      id,
-    },
-    body: { ...obj },
+    ...options,
   });
 }
 /**
  * Verify account for a user with email.
  * /SuperAdmins/verify
  */
-export async function SuperAdmin_verifyAccount(options: any): Promise<any> {
+export async function SuperAdmin_verifyAccount(
+  options: any,
+  requestOptions?: ApiRequestOptions,
+): Promise<any> {
   return ApiFetch({
     method: "POST",
     url: "/SuperAdmins/verify",
     body: options,
+    ...requestOptions,
+  });
+}
+/**
+ * Whether this environment requires email verification for this user type.
+ * /SuperAdmins/emailVerificationRequired
+ */
+export async function SuperAdmin_getEmailVerificationRequired(
+  options?: ApiRequestOptions,
+): Promise<any> {
+  return ApiFetch({
+    method: "GET",
+    url: "/SuperAdmins/emailVerificationRequired",
+    ...options,
   });
 }

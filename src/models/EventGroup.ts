@@ -5,6 +5,7 @@ import { Log } from "./Log";
 
 export type EventGroup = {
   name: string;
+  normalizedName?: string;
   description?: string;
   color?: string;
   icon?: string;

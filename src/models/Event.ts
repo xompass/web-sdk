@@ -2,7 +2,6 @@ import { Asset } from "./Asset";
 import { Customer } from "./Customer";
 import { EventComment } from "./EventComment";
 import { EventStateChange } from "./EventStateChange";
-import { EventSummary } from "./EventSummary";
 import { EventTrigger } from "./EventTrigger";
 import { Point } from "./GeoJSON";
 import { Log } from "./Log";
@@ -19,6 +18,8 @@ import { CrossLineMultiRecognitionEventContent } from "./sensorTypes/CrossLineMu
 import { CrossLineRecognitionEventContent } from "./sensorTypes/CrossLineRecognition/CrossLineRecognitionEventContent";
 import { CrossedBarriersDetectionEventContent } from "./sensorTypes/CrossedBarriersDetection/CrossedBarriersDetectionEventContent";
 import { DebugEventContent } from "./sensorTypes/Debug/DebugEventContent";
+import { ExternalDataEventContent } from "./sensorTypes/ExternalData/ExternalDataEventContent";
+import { ExternalDataFeedback } from "./sensorTypes/ExternalData/ExternalDataFeedback";
 import { FaceDetectionEventContent } from "./sensorTypes/FaceDetection/FaceDetectionEventContent";
 import { FaceDetectionFeedback } from "./sensorTypes/FaceDetection/FaceDetectionFeedback";
 import { FaceMaskDetectionEventContent } from "./sensorTypes/FaceMaskDetection/FaceMaskDetectionEventContent";
@@ -91,19 +92,25 @@ export type Event = {
   hidden: boolean;
   starred: boolean;
   filtered?: boolean;
+  historyContext?: EventHistoryContext;
+  filteredRevision?: number;
+  lastFilteredReceivedAt?: Date;
+  lastFilteredOccurredAt?: Date;
+  reviewedFilteredDataRevision?: number;
+  filteredDataReviewedAt?: Date;
+  closed?: boolean;
   archived?: boolean;
   expiresAt?: Date;
   forwardedTo?: any[];
+  summaryId?: string;
   created?: Date;
   modified?: Date;
-  deleted?: Date;
   assetId?: string;
   customerId?: string;
   _comments?: EventComment[];
   _data?: EventData[];
   _lastData?: EventData;
   _stateChanges?: EventStateChange[];
-  summaryId?: string;
   eventTriggerId?: string;
   projectId?: string;
   asset?: Asset;
@@ -114,7 +121,6 @@ export type Event = {
   lastData?: EventData[];
   project?: Project;
   stateChanges?: EventStateChange[];
-  summary?: EventSummary;
   trackingLogs?: Log[];
 };
 
@@ -135,6 +141,7 @@ export type EventData = {
     | CrossLineMultiRecognitionEventContent
     | CrossLineRecognitionEventContent
     | DebugEventContent
+    | ExternalDataEventContent
     | FaceDetectionEventContent
     | FaceMaskDetectionEventContent
     | FaceRecognitionEventContent
@@ -174,6 +181,7 @@ export type EventData = {
   feedback?:
     | ColorPresenceFeedback
     | ConcentrationAlertFeedback
+    | ExternalDataFeedback
     | FaceDetectionFeedback
     | FaceMaskDetectionFeedback
     | FaceRecognitionFeedback
@@ -208,4 +216,33 @@ export type EventData = {
   modified?: Date;
   deleted?: Date;
   trackingLogs?: Log[];
+};
+
+export type EventHistoryContext = {
+  version: number;
+  asset?: EventHistoryContextAsset;
+  eventTrigger?: EventHistoryContextTrigger;
+  eventGroup?: EventHistoryContextGroup;
+  id?: string;
+};
+
+export type EventHistoryContextAsset = {
+  name?: string;
+  address?: string;
+  id?: string;
+};
+
+export type EventHistoryContextGroup = {
+  id?: string;
+  name?: string;
+  normalizedName?: string;
+  color?: string;
+  priority?: number;
+};
+
+export type EventHistoryContextTrigger = {
+  name?: string;
+  normalizedName?: string;
+  subjectTypeId?: string;
+  id?: string;
 };

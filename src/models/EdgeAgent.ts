@@ -34,7 +34,6 @@ export type EdgeAgent = {
 export type EdgeAgentAsset = {
   created?: Date;
   modified?: Date;
-  deleted?: Date;
   id?: string;
   edgeAgentId?: string;
   assetId?: string;

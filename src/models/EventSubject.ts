@@ -10,7 +10,6 @@ export type EventSubject = {
   description?: string;
   created?: Date;
   modified?: Date;
-  deleted?: Date;
   id?: string;
   customerId?: string;
   projectId?: string;

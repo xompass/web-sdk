@@ -1,4 +1,10 @@
-import { ApiFetch, Filter, UploadFile, UploadableFile } from "../core/ApiFetch";
+import {
+  ApiFetch,
+  ApiRequestOptions,
+  Filter,
+  UploadFile,
+  UploadableFile,
+} from "../core/ApiFetch";
 import { AssetTemplateStorageContainer } from "../models/AssetTemplate";
 import { EventTriggerAssetStateTemplate } from "../models/EventTriggerAssetStateTemplate";
 import { SensorAssetStateTemplate } from "../models/SensorAssetStateTemplate";
@@ -9,6 +15,7 @@ import { SensorAssetStateTemplate } from "../models/SensorAssetStateTemplate";
  */
 export async function AssetTemplate_GetContainer(
   id: string,
+  options?: ApiRequestOptions,
 ): Promise<AssetTemplateStorageContainer> {
   return ApiFetch({
     method: "GET",
@@ -16,6 +23,7 @@ export async function AssetTemplate_GetContainer(
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -25,6 +33,7 @@ export async function AssetTemplate_GetContainer(
 export async function AssetTemplate_subscribe(
   id: string,
   socketId: string,
+  options?: ApiRequestOptions,
 ): Promise<any> {
   return ApiFetch({
     method: "PUT",
@@ -33,6 +42,7 @@ export async function AssetTemplate_subscribe(
       id,
       socketId,
     },
+    ...options,
   });
 }
 /**
@@ -42,6 +52,7 @@ export async function AssetTemplate_subscribe(
 export async function AssetTemplate_unsubscribe(
   id: string,
   socketId: string,
+  options?: ApiRequestOptions,
 ): Promise<void> {
   return ApiFetch({
     method: "DELETE",
@@ -50,32 +61,41 @@ export async function AssetTemplate_unsubscribe(
       id,
       socketId,
     },
+    ...options,
   });
 }
 /**
  * Get information about specified container
  * /AssetTemplates/:id/container/info
  */
-export async function AssetTemplate_getContainerInfo(id: string): Promise<any> {
+export async function AssetTemplate_getContainerInfo(
+  id: string,
+  options?: ApiRequestOptions,
+): Promise<any> {
   return ApiFetch({
     method: "GET",
     url: "/AssetTemplates/:id/container/info",
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
  * List all files within specified container
  * /AssetTemplates/:id/container/files
  */
-export async function AssetTemplate_getFiles(id: string): Promise<any[]> {
+export async function AssetTemplate_getFiles(
+  id: string,
+  options?: ApiRequestOptions,
+): Promise<any[]> {
   return ApiFetch({
     method: "GET",
     url: "/AssetTemplates/:id/container/files",
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -85,6 +105,7 @@ export async function AssetTemplate_getFiles(id: string): Promise<any[]> {
 export async function AssetTemplate_getFile(
   id: string,
   file: string,
+  options?: ApiRequestOptions,
 ): Promise<any> {
   return ApiFetch({
     method: "GET",
@@ -93,6 +114,7 @@ export async function AssetTemplate_getFile(
       id,
       file,
     },
+    ...options,
   });
 }
 /**
@@ -103,6 +125,7 @@ export async function AssetTemplate_removeFile(
   id: string,
   property: string,
   file: string,
+  options?: ApiRequestOptions,
 ): Promise<void> {
   const _urlParams: any = {};
   if (property != null) {
@@ -117,6 +140,7 @@ export async function AssetTemplate_removeFile(
       id,
       file,
     },
+    ...options,
   });
 }
 /**
@@ -128,6 +152,7 @@ export async function AssetTemplate_upload(
   property: string,
   file: UploadableFile,
   onProgress?: (progress: number) => void,
+  options?: ApiRequestOptions,
 ): Promise<any> {
   const _urlParams: any = {};
   if (property != null) {
@@ -142,6 +167,7 @@ export async function AssetTemplate_upload(
     },
     file: file,
     onProgress: onProgress,
+    ...options,
   });
 }
 /**
@@ -152,6 +178,7 @@ export async function AssetTemplate_download(
   id: string,
   property: string,
   file: string,
+  options?: ApiRequestOptions,
 ): Promise<any> {
   const _urlParams: any = {};
   if (property != null) {
@@ -166,6 +193,7 @@ export async function AssetTemplate_download(
       id,
       file,
     },
+    ...options,
   });
 }
 /**
@@ -175,6 +203,7 @@ export async function AssetTemplate_download(
 export async function AssetTemplate_instantiate(
   id: string,
   options?: any,
+  requestOptions?: ApiRequestOptions,
 ): Promise<any> {
   return ApiFetch({
     method: "POST",
@@ -183,6 +212,7 @@ export async function AssetTemplate_instantiate(
       id,
     },
     body: options,
+    ...requestOptions,
   });
 }
 /**
@@ -193,6 +223,7 @@ export async function AssetTemplate_GetAssetStateTemplatesEventTriggerAssetState
   id: string,
   nk: string,
   filter?: Filter<EventTriggerAssetStateTemplate>,
+  options?: ApiRequestOptions,
 ): Promise<EventTriggerAssetStateTemplate[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -207,6 +238,7 @@ export async function AssetTemplate_GetAssetStateTemplatesEventTriggerAssetState
       id,
       nk,
     },
+    ...options,
   });
 }
 /**
@@ -217,6 +249,7 @@ export async function AssetTemplate_GetAssetStateTemplatesStateTemplates(
   id: string,
   nk: string,
   filter?: Filter<SensorAssetStateTemplate>,
+  options?: ApiRequestOptions,
 ): Promise<SensorAssetStateTemplate[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -231,5 +264,6 @@ export async function AssetTemplate_GetAssetStateTemplatesStateTemplates(
       id,
       nk,
     },
+    ...options,
   });
 }

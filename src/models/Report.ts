@@ -5,6 +5,7 @@ import { Project } from "./Project";
 
 export type BaseReport = {
   name: string;
+  normalizedName?: string;
   description?: string;
   emails?: string[];
   scheduler?: {

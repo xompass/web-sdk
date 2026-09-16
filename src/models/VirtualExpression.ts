@@ -5,11 +5,11 @@ import { VirtualVariable } from "./VirtualVariable";
 
 export type VirtualExpression = {
   name: string;
+  normalizedName?: string;
   description?: string;
   expression: string;
   created?: Date;
   modified?: Date;
-  deleted?: Date;
   id?: string;
   projectId?: string;
   virtualGroupId?: string;

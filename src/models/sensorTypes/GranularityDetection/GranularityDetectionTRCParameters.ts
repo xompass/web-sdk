@@ -10,12 +10,22 @@ export type GranularityDetectionBasedOnRulesTRCParameters = {
         minProbability?: number;
       };
     };
+    ambulance?: {
+      thresholds?: {
+        minProbability?: number;
+      };
+    };
     car?: {
       thresholds?: {
         minProbability?: number;
       };
     };
     motorbike?: {
+      thresholds?: {
+        minProbability?: number;
+      };
+    };
+    scooter?: {
       thresholds?: {
         minProbability?: number;
       };
@@ -46,6 +56,11 @@ export type GranularityDetectionBasedOnRulesTRCParameters = {
       };
     };
     pistol?: {
+      thresholds?: {
+        minProbability?: number;
+      };
+    };
+    rifle?: {
       thresholds?: {
         minProbability?: number;
       };
@@ -96,6 +111,11 @@ export type GranularityDetectionBasedOnRulesTRCParameters = {
       };
     };
     truck?: {
+      thresholds?: {
+        minProbability?: number;
+      };
+    };
+    van?: {
       thresholds?: {
         minProbability?: number;
       };
@@ -166,6 +186,11 @@ export type GranularityDetectionBasedOnRulesTRCParameters = {
       };
     };
     desmonte?: {
+      thresholds?: {
+        minProbability?: number;
+      };
+    };
+    waste_container?: {
       thresholds?: {
         minProbability?: number;
       };

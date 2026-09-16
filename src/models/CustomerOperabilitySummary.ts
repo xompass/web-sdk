@@ -17,7 +17,6 @@ export type CustomerOperabilitySummary = {
   connectedAssetsStartPeriod?: number;
   created?: Date;
   modified?: Date;
-  deleted?: Date;
   id?: string;
   customerId?: string;
   customer?: Customer;

@@ -17,7 +17,6 @@ export type Dataset = {
   isHealthcheck?: boolean;
   created?: Date;
   modified?: Date;
-  deleted?: Date;
   assetId?: string;
   _data?: Data[];
   sensorId?: string;

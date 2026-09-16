@@ -2,14 +2,17 @@ export type GranularityDetectionTrigger = {
   classes?: (
     | "bicycle"
     | "bus"
+    | "ambulance"
     | "car"
     | "motorbike"
+    | "scooter"
     | "person"
     | "license_plate"
     | "shoebox"
     | "socks"
     | "deliverybag"
     | "pistol"
+    | "rifle"
     | "box"
     | "label"
     | "bag"
@@ -20,6 +23,7 @@ export type GranularityDetectionTrigger = {
     | "inspector"
     | "helmet"
     | "truck"
+    | "van"
     | "machinery"
     | "red_light"
     | "green_light"
@@ -34,6 +38,7 @@ export type GranularityDetectionTrigger = {
     | "mercaderia"
     | "rock"
     | "desmonte"
+    | "waste_container"
   )[];
   value?: number;
   operator?: "eq" | "neq" | "gt" | "gte" | "lt" | "lte" | "null";

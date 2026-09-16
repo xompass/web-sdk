@@ -12,6 +12,7 @@ import { CrossLineMultiRecognitionSummary } from "./sensorTypes/CrossLineMultiRe
 import { CrossLineRecognitionSummary } from "./sensorTypes/CrossLineRecognition/CrossLineRecognitionSummary";
 import { CrossedBarriersDetectionSummary } from "./sensorTypes/CrossedBarriersDetection/CrossedBarriersDetectionSummary";
 import { DebugSummary } from "./sensorTypes/Debug/DebugSummary";
+import { ExternalDataSummary } from "./sensorTypes/ExternalData/ExternalDataSummary";
 import { FaceDetectionSummary } from "./sensorTypes/FaceDetection/FaceDetectionSummary";
 import { FaceMaskDetectionSummary } from "./sensorTypes/FaceMaskDetection/FaceMaskDetectionSummary";
 import { FaceRecognitionSummary } from "./sensorTypes/FaceRecognition/FaceRecognitionSummary";
@@ -66,6 +67,7 @@ export type SummaryForAsset = {
     | CrossLineMultiRecognitionSummary
     | CrossLineRecognitionSummary
     | DebugSummary
+    | ExternalDataSummary
     | FaceDetectionSummary
     | FaceMaskDetectionSummary
     | FaceRecognitionSummary
@@ -104,7 +106,6 @@ export type SummaryForAsset = {
   updated: boolean;
   created?: Date;
   modified?: Date;
-  deleted?: Date;
   assetId?: string;
   summaryForProjectId?: string;
   asset?: Asset;

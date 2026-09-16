@@ -1,4 +1,4 @@
-import { ApiFetch, Filter } from "../core/ApiFetch";
+import { ApiFetch, ApiRequestOptions, Filter } from "../core/ApiFetch";
 import { FaceSubject } from "../models/FaceSubject";
 
 /**
@@ -8,6 +8,7 @@ import { FaceSubject } from "../models/FaceSubject";
 export async function FaceSubject_findById(
   id: string,
   filter?: Filter<FaceSubject>,
+  options?: ApiRequestOptions,
 ): Promise<FaceSubject> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -21,5 +22,6 @@ export async function FaceSubject_findById(
     routeParams: {
       id,
     },
+    ...options,
   });
 }

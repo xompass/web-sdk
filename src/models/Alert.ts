@@ -20,7 +20,6 @@ export type Alert = {
   sensorInfo?: any;
   created?: Date;
   modified?: Date;
-  deleted?: Date;
   id?: string;
   assetId?: string;
   assetStateId?: string;

@@ -9,6 +9,7 @@ const SensorTypeLabels = {
   CrossLineRecognition: "CrossLineRecognition",
   CrossedBarriersDetection: "CrossedBarriersDetection",
   Debug: "Debug",
+  ExternalData: "ExternalData",
   FaceDetection: "FaceDetection",
   FaceMaskDetection: "FaceMaskDetection",
   FaceRecognition: "FaceRecognition",

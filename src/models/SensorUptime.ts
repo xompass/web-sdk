@@ -11,7 +11,6 @@ export type SensorUptime = {
   to: Date;
   created?: Date;
   modified?: Date;
-  deleted?: Date;
   id?: string;
   assetId?: string;
   customerId?: string;

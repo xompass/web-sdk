@@ -15,7 +15,6 @@ export type EventTriggerAssetStateTemplate = {
   notifications?: any;
   created?: Date;
   modified?: Date;
-  deleted?: Date;
   id?: string;
   assetStateTemplateId?: string;
   eventTriggerTemplateId?: string;

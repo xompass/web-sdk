@@ -1,4 +1,9 @@
-import { ApiFetch, Filter } from "../core/ApiFetch";
+import {
+  ApiFetch,
+  ApiRequestOptions,
+  Filter,
+  unwrapCount,
+} from "../core/ApiFetch";
 import { EventTriggerRule } from "../models/EventTriggerRule";
 
 /**
@@ -9,6 +14,7 @@ export async function EventTriggerAssetState_LinkEmergencyContacts(
   id: string,
   fk: string,
   data?: any,
+  options?: ApiRequestOptions,
 ): Promise<any> {
   return ApiFetch({
     method: "PUT",
@@ -18,6 +24,7 @@ export async function EventTriggerAssetState_LinkEmergencyContacts(
       fk,
     },
     body: data,
+    ...options,
   });
 }
 /**
@@ -27,6 +34,7 @@ export async function EventTriggerAssetState_LinkEmergencyContacts(
 export async function EventTriggerAssetState_UnlinkEmergencyContacts(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<void> {
   return ApiFetch({
     method: "DELETE",
@@ -35,6 +43,7 @@ export async function EventTriggerAssetState_UnlinkEmergencyContacts(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -44,6 +53,7 @@ export async function EventTriggerAssetState_UnlinkEmergencyContacts(
 export async function EventTriggerAssetState_FindByIdRules(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<EventTriggerRule> {
   return ApiFetch({
     method: "GET",
@@ -52,6 +62,7 @@ export async function EventTriggerAssetState_FindByIdRules(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -61,6 +72,7 @@ export async function EventTriggerAssetState_FindByIdRules(
 export async function EventTriggerAssetState_DestroyByIdRules(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<void> {
   return ApiFetch({
     method: "DELETE",
@@ -69,6 +81,7 @@ export async function EventTriggerAssetState_DestroyByIdRules(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -79,6 +92,7 @@ export async function EventTriggerAssetState_UpdateByIdRules(
   id: string,
   fk: string,
   data?: any,
+  options?: ApiRequestOptions,
 ): Promise<EventTriggerRule> {
   return ApiFetch({
     method: "PUT",
@@ -88,6 +102,7 @@ export async function EventTriggerAssetState_UpdateByIdRules(
       fk,
     },
     body: data,
+    ...options,
   });
 }
 /**
@@ -97,6 +112,7 @@ export async function EventTriggerAssetState_UpdateByIdRules(
 export async function EventTriggerAssetState_GetRules(
   id: string,
   filter?: Filter<EventTriggerRule>,
+  options?: ApiRequestOptions,
 ): Promise<EventTriggerRule[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -110,6 +126,7 @@ export async function EventTriggerAssetState_GetRules(
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -119,6 +136,7 @@ export async function EventTriggerAssetState_GetRules(
 export async function EventTriggerAssetState_CreateRules(
   id: string,
   data?: any,
+  options?: ApiRequestOptions,
 ): Promise<EventTriggerRule> {
   return ApiFetch({
     method: "POST",
@@ -127,6 +145,7 @@ export async function EventTriggerAssetState_CreateRules(
       id,
     },
     body: data,
+    ...options,
   });
 }
 /**
@@ -136,18 +155,21 @@ export async function EventTriggerAssetState_CreateRules(
 export async function EventTriggerAssetState_CountRules(
   id: string,
   where?: Filter<EventTriggerRule>["where"],
+  options?: ApiRequestOptions,
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
     _urlParams["where"] = where;
   }
 
-  return ApiFetch({
+  const result = await ApiFetch({
     method: "GET",
     url: "/EventTriggerAssetStates/:id/rules/count",
     urlParams: _urlParams,
     routeParams: {
       id,
     },
+    ...options,
   });
+  return unwrapCount(result);
 }
