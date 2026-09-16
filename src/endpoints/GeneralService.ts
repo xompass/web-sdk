@@ -1,4 +1,4 @@
-import { ApiFetch } from "../core/ApiFetch";
+import { ApiFetch, ApiRequestOptions } from "../core/ApiFetch";
 
 type GeocodeResponse = {
   address: string;
@@ -11,7 +11,10 @@ type GeocodeResponse = {
  * activityLogs consultas de Admin.
  * /geocode
  */
-export async function Geocode(address: string): Promise<GeocodeResponse> {
+export async function Geocode(
+  address: string,
+  options?: ApiRequestOptions,
+): Promise<GeocodeResponse> {
   const _urlParams: any = {};
   if (address) {
     _urlParams["address"] = address;
@@ -22,5 +25,6 @@ export async function Geocode(address: string): Promise<GeocodeResponse> {
     url: "/geocode",
     urlParams: _urlParams,
     routeParams: {},
+    ...options,
   });
 }

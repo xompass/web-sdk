@@ -1,4 +1,9 @@
-import { ApiFetch, Filter, unwrapCount } from "../core/ApiFetch";
+import {
+  ApiFetch,
+  ApiRequestOptions,
+  Filter,
+  unwrapCount,
+} from "../core/ApiFetch";
 import { Manager } from "../models/Manager";
 import { PeopleCounterReportSerie } from "../models/PeopleCounterReport";
 
@@ -9,6 +14,7 @@ import { PeopleCounterReportSerie } from "../models/PeopleCounterReport";
 export async function PeopleCounterReport_FindByIdManagers(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<Manager> {
   return ApiFetch({
     method: "GET",
@@ -17,6 +23,7 @@ export async function PeopleCounterReport_FindByIdManagers(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -26,6 +33,7 @@ export async function PeopleCounterReport_FindByIdManagers(
 export async function PeopleCounterReport_FindByIdSeries(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<PeopleCounterReportSerie> {
   return ApiFetch({
     method: "GET",
@@ -34,6 +42,7 @@ export async function PeopleCounterReport_FindByIdSeries(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -43,6 +52,7 @@ export async function PeopleCounterReport_FindByIdSeries(
 export async function PeopleCounterReport_DestroyByIdSeries(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<void> {
   return ApiFetch({
     method: "DELETE",
@@ -51,6 +61,7 @@ export async function PeopleCounterReport_DestroyByIdSeries(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -61,6 +72,7 @@ export async function PeopleCounterReport_UpdateByIdSeries(
   id: string,
   fk: string,
   data?: any,
+  options?: ApiRequestOptions,
 ): Promise<PeopleCounterReportSerie> {
   return ApiFetch({
     method: "PUT",
@@ -70,6 +82,7 @@ export async function PeopleCounterReport_UpdateByIdSeries(
       fk,
     },
     body: data,
+    ...options,
   });
 }
 /**
@@ -79,6 +92,7 @@ export async function PeopleCounterReport_UpdateByIdSeries(
 export async function PeopleCounterReport_GetManagers(
   id: string,
   filter?: Filter<Manager>,
+  options?: ApiRequestOptions,
 ): Promise<Manager[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -92,6 +106,7 @@ export async function PeopleCounterReport_GetManagers(
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -101,6 +116,7 @@ export async function PeopleCounterReport_GetManagers(
 export async function PeopleCounterReport_CountManagers(
   id: string,
   where?: Filter<Manager>["where"],
+  options?: ApiRequestOptions,
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -114,6 +130,7 @@ export async function PeopleCounterReport_CountManagers(
     routeParams: {
       id,
     },
+    ...options,
   });
   return unwrapCount(result);
 }
@@ -124,6 +141,7 @@ export async function PeopleCounterReport_CountManagers(
 export async function PeopleCounterReport_GetSeries(
   id: string,
   filter?: Filter<PeopleCounterReportSerie>,
+  options?: ApiRequestOptions,
 ): Promise<PeopleCounterReportSerie[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -137,6 +155,7 @@ export async function PeopleCounterReport_GetSeries(
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -146,6 +165,7 @@ export async function PeopleCounterReport_GetSeries(
 export async function PeopleCounterReport_CreateSeries(
   id: string,
   data?: any,
+  options?: ApiRequestOptions,
 ): Promise<PeopleCounterReportSerie> {
   return ApiFetch({
     method: "POST",
@@ -154,6 +174,7 @@ export async function PeopleCounterReport_CreateSeries(
       id,
     },
     body: data,
+    ...options,
   });
 }
 /**
@@ -163,6 +184,7 @@ export async function PeopleCounterReport_CreateSeries(
 export async function PeopleCounterReport_CountSeries(
   id: string,
   where?: Filter<PeopleCounterReportSerie>["where"],
+  options?: ApiRequestOptions,
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -176,6 +198,7 @@ export async function PeopleCounterReport_CountSeries(
     routeParams: {
       id,
     },
+    ...options,
   });
   return unwrapCount(result);
 }

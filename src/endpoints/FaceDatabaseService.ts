@@ -1,5 +1,6 @@
 import {
   ApiFetch,
+  ApiRequestOptions,
   Filter,
   UploadFile,
   UploadableFile,
@@ -15,6 +16,7 @@ import { FaceDatabaseFaceSubject, FaceSubject } from "../models/FaceSubject";
 export async function FaceDatabase_FindByIdFaceSubjects(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<FaceSubject> {
   return ApiFetch({
     method: "GET",
@@ -23,6 +25,7 @@ export async function FaceDatabase_FindByIdFaceSubjects(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -33,6 +36,7 @@ export async function FaceDatabase_UpdateByIdFaceSubjects(
   id: string,
   fk: string,
   data?: any,
+  options?: ApiRequestOptions,
 ): Promise<FaceSubject> {
   return ApiFetch({
     method: "PUT",
@@ -42,6 +46,7 @@ export async function FaceDatabase_UpdateByIdFaceSubjects(
       fk,
     },
     body: data,
+    ...options,
   });
 }
 /**
@@ -52,6 +57,7 @@ export async function FaceDatabase_LinkFaceSubjects(
   id: string,
   fk: string,
   data?: any,
+  options?: ApiRequestOptions,
 ): Promise<FaceDatabaseFaceSubject> {
   return ApiFetch({
     method: "PUT",
@@ -61,6 +67,7 @@ export async function FaceDatabase_LinkFaceSubjects(
       fk,
     },
     body: data,
+    ...options,
   });
 }
 /**
@@ -70,6 +77,7 @@ export async function FaceDatabase_LinkFaceSubjects(
 export async function FaceDatabase_UnlinkFaceSubjects(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<void> {
   return ApiFetch({
     method: "DELETE",
@@ -78,6 +86,7 @@ export async function FaceDatabase_UnlinkFaceSubjects(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -87,6 +96,7 @@ export async function FaceDatabase_UnlinkFaceSubjects(
 export async function FaceDatabase_ExistsFaceSubjects(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<boolean> {
   return ApiFetch({
     method: "HEAD",
@@ -95,6 +105,7 @@ export async function FaceDatabase_ExistsFaceSubjects(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -104,6 +115,7 @@ export async function FaceDatabase_ExistsFaceSubjects(
 export async function FaceDatabase_GetFaceSubjects(
   id: string,
   filter?: Filter<FaceSubject>,
+  options?: ApiRequestOptions,
 ): Promise<FaceSubject[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -117,6 +129,7 @@ export async function FaceDatabase_GetFaceSubjects(
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -126,6 +139,7 @@ export async function FaceDatabase_GetFaceSubjects(
 export async function FaceDatabase_CreateFaceSubjects(
   id: string,
   data?: any,
+  options?: ApiRequestOptions,
 ): Promise<FaceSubject> {
   return ApiFetch({
     method: "POST",
@@ -134,6 +148,7 @@ export async function FaceDatabase_CreateFaceSubjects(
       id,
     },
     body: data,
+    ...options,
   });
 }
 /**
@@ -143,6 +158,7 @@ export async function FaceDatabase_CreateFaceSubjects(
 export async function FaceDatabase_CountFaceSubjects(
   id: string,
   where?: Filter<FaceSubject>["where"],
+  options?: ApiRequestOptions,
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -156,6 +172,7 @@ export async function FaceDatabase_CountFaceSubjects(
     routeParams: {
       id,
     },
+    ...options,
   });
   return unwrapCount(result);
 }
@@ -163,24 +180,32 @@ export async function FaceDatabase_CountFaceSubjects(
  * Create a new instance of the model and persist it into the data source.
  * /FaceDatabases
  */
-export async function FaceDatabase_create(data?: any): Promise<FaceDatabase> {
+export async function FaceDatabase_create(
+  data?: any,
+  options?: ApiRequestOptions,
+): Promise<FaceDatabase> {
   return ApiFetch({
     method: "POST",
     url: "/FaceDatabases",
     body: data,
+    ...options,
   });
 }
 /**
  * Check whether a model instance exists in the data source.
  * /FaceDatabases/:id/exists
  */
-export async function FaceDatabase_exists(id: string): Promise<boolean> {
+export async function FaceDatabase_exists(
+  id: string,
+  options?: ApiRequestOptions,
+): Promise<boolean> {
   return ApiFetch({
     method: "GET",
     url: "/FaceDatabases/:id/exists",
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -190,6 +215,7 @@ export async function FaceDatabase_exists(id: string): Promise<boolean> {
 export async function FaceDatabase_findById(
   id: string,
   filter?: Filter<FaceDatabase>,
+  options?: ApiRequestOptions,
 ): Promise<FaceDatabase> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -203,6 +229,7 @@ export async function FaceDatabase_findById(
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -211,6 +238,7 @@ export async function FaceDatabase_findById(
  */
 export async function FaceDatabase_find(
   filter?: Filter<FaceDatabase>,
+  options?: ApiRequestOptions,
 ): Promise<FaceDatabase[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -221,19 +249,24 @@ export async function FaceDatabase_find(
     method: "GET",
     url: "/FaceDatabases",
     urlParams: _urlParams,
+    ...options,
   });
 }
 /**
  * Delete a model instance by {{id}} from the data source.
  * /FaceDatabases/:id
  */
-export async function FaceDatabase_deleteById(id: string): Promise<void> {
+export async function FaceDatabase_deleteById(
+  id: string,
+  options?: ApiRequestOptions,
+): Promise<void> {
   return ApiFetch({
     method: "DELETE",
     url: "/FaceDatabases/:id",
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -243,6 +276,7 @@ export async function FaceDatabase_deleteById(id: string): Promise<void> {
 export async function FaceDatabase_patchAttributes(
   id: string,
   data?: any,
+  options?: ApiRequestOptions,
 ): Promise<FaceDatabase> {
   return ApiFetch({
     method: "PUT",
@@ -251,6 +285,7 @@ export async function FaceDatabase_patchAttributes(
       id,
     },
     body: data,
+    ...options,
   });
 }
 /**
@@ -260,6 +295,7 @@ export async function FaceDatabase_patchAttributes(
 export async function FaceDatabase_removeFaceSubject(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<void> {
   return ApiFetch({
     method: "DELETE",
@@ -268,6 +304,7 @@ export async function FaceDatabase_removeFaceSubject(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -278,6 +315,7 @@ export async function FaceDatabase_listFaceImages(
   id: string,
   nk: string,
   filter?: Filter<FaceSubject>,
+  options?: ApiRequestOptions,
 ): Promise<any[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -292,6 +330,7 @@ export async function FaceDatabase_listFaceImages(
       id,
       nk,
     },
+    ...options,
   });
 }
 /**
@@ -302,6 +341,7 @@ export async function FaceDatabase_findFaceImageById(
   id: string,
   nk: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<any> {
   return ApiFetch({
     method: "GET",
@@ -311,6 +351,7 @@ export async function FaceDatabase_findFaceImageById(
       nk,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -321,6 +362,7 @@ export async function FaceDatabase_countFaceImages(
   id: string,
   nk: string,
   where?: Filter<FaceSubject>["where"],
+  options?: ApiRequestOptions,
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -335,6 +377,7 @@ export async function FaceDatabase_countFaceImages(
       id,
       nk,
     },
+    ...options,
   });
   return unwrapCount(result);
 }
@@ -346,6 +389,7 @@ export async function FaceDatabase_deleteFaceImage(
   id: string,
   nk: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<void> {
   return ApiFetch({
     method: "DELETE",
@@ -355,6 +399,7 @@ export async function FaceDatabase_deleteFaceImage(
       nk,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -366,6 +411,7 @@ export async function FaceDatabase_uploadFaceSubject(
   fk: string,
   file: UploadableFile,
   onProgress?: (progress: number) => void,
+  options?: ApiRequestOptions,
 ): Promise<any> {
   return UploadFile({
     url: "/FaceDatabases/:id/faceSubjects/:fk/upload",
@@ -375,6 +421,7 @@ export async function FaceDatabase_uploadFaceSubject(
     },
     file: file,
     onProgress: onProgress,
+    ...options,
   });
 }
 /**
@@ -385,6 +432,7 @@ export async function FaceDatabase_downloadFaceImage(
   id: string,
   nk: string,
   file: string,
+  options?: ApiRequestOptions,
 ): Promise<any> {
   return ApiFetch({
     method: "GET",
@@ -394,6 +442,7 @@ export async function FaceDatabase_downloadFaceImage(
       nk,
       file,
     },
+    ...options,
   });
 }
 /**
@@ -403,6 +452,7 @@ export async function FaceDatabase_downloadFaceImage(
 export async function FaceDatabase_syncFaceSubject(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<any> {
   return ApiFetch({
     method: "POST",
@@ -411,18 +461,23 @@ export async function FaceDatabase_syncFaceSubject(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
  * Sync entire FaceDatabase with subjects
  * /FaceDatabases/:id/sync
  */
-export async function FaceDatabase_syncFaceDatabase(id: string): Promise<any> {
+export async function FaceDatabase_syncFaceDatabase(
+  id: string,
+  options?: ApiRequestOptions,
+): Promise<any> {
   return ApiFetch({
     method: "POST",
     url: "/FaceDatabases/:id/sync",
     routeParams: {
       id,
     },
+    ...options,
   });
 }

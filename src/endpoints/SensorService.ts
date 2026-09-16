@@ -1,4 +1,9 @@
-import { ApiFetch, Filter, unwrapCount } from "../core/ApiFetch";
+import {
+  ApiFetch,
+  ApiRequestOptions,
+  Filter,
+  unwrapCount,
+} from "../core/ApiFetch";
 import { Alert } from "../models/Alert";
 import { AlertHistory } from "../models/AlertHistory";
 import { Asset } from "../models/Asset";
@@ -14,13 +19,17 @@ import { Summary } from "../models/Summary";
  * Fetches belongsTo relation asset.
  * /Sensors/:id/asset
  */
-export async function Sensor_GetAsset(id: string): Promise<Asset> {
+export async function Sensor_GetAsset(
+  id: string,
+  options?: ApiRequestOptions,
+): Promise<Asset> {
   return ApiFetch({
     method: "GET",
     url: "/Sensors/:id/asset",
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -30,6 +39,7 @@ export async function Sensor_GetAsset(id: string): Promise<Asset> {
 export async function Sensor_FindByIdDatasets(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<Dataset> {
   return ApiFetch({
     method: "GET",
@@ -38,6 +48,7 @@ export async function Sensor_FindByIdDatasets(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -48,6 +59,7 @@ export async function Sensor_UpdateByIdDatasets(
   id: string,
   fk: string,
   data?: any,
+  options?: ApiRequestOptions,
 ): Promise<Dataset> {
   return ApiFetch({
     method: "PUT",
@@ -57,6 +69,7 @@ export async function Sensor_UpdateByIdDatasets(
       fk,
     },
     body: data,
+    ...options,
   });
 }
 /**
@@ -66,6 +79,7 @@ export async function Sensor_UpdateByIdDatasets(
 export async function Sensor_FindByIdAlerts(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<Alert> {
   return ApiFetch({
     method: "GET",
@@ -74,6 +88,7 @@ export async function Sensor_FindByIdAlerts(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -84,6 +99,7 @@ export async function Sensor_UpdateByIdAlerts(
   id: string,
   fk: string,
   data?: any,
+  options?: ApiRequestOptions,
 ): Promise<Alert> {
   return ApiFetch({
     method: "PUT",
@@ -93,6 +109,7 @@ export async function Sensor_UpdateByIdAlerts(
       fk,
     },
     body: data,
+    ...options,
   });
 }
 /**
@@ -102,6 +119,7 @@ export async function Sensor_UpdateByIdAlerts(
 export async function Sensor_FindByIdAlertHistory(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<AlertHistory> {
   return ApiFetch({
     method: "GET",
@@ -110,6 +128,7 @@ export async function Sensor_FindByIdAlertHistory(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -120,6 +139,7 @@ export async function Sensor_UpdateByIdAlertHistory(
   id: string,
   fk: string,
   data?: any,
+  options?: ApiRequestOptions,
 ): Promise<AlertHistory> {
   return ApiFetch({
     method: "PUT",
@@ -129,45 +149,58 @@ export async function Sensor_UpdateByIdAlertHistory(
       fk,
     },
     body: data,
+    ...options,
   });
 }
 /**
  * Fetches hasOne relation lastData.
  * /Sensors/:id/lastData
  */
-export async function Sensor_GetLastData(id: string): Promise<Data> {
+export async function Sensor_GetLastData(
+  id: string,
+  options?: ApiRequestOptions,
+): Promise<Data> {
   return ApiFetch({
     method: "GET",
     url: "/Sensors/:id/lastData",
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
  * Deletes lastData of this model.
  * /Sensors/:id/lastData
  */
-export async function Sensor_DestroyLastData(id: string): Promise<void> {
+export async function Sensor_DestroyLastData(
+  id: string,
+  options?: ApiRequestOptions,
+): Promise<void> {
   return ApiFetch({
     method: "DELETE",
     url: "/Sensors/:id/lastData",
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
  * Fetches hasOne relation rateLimit.
  * /Sensors/:id/rateLimit
  */
-export async function Sensor_GetRateLimit(id: string): Promise<RateLimit> {
+export async function Sensor_GetRateLimit(
+  id: string,
+  options?: ApiRequestOptions,
+): Promise<RateLimit> {
   return ApiFetch({
     method: "GET",
     url: "/Sensors/:id/rateLimit",
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -177,6 +210,7 @@ export async function Sensor_GetRateLimit(id: string): Promise<RateLimit> {
 export async function Sensor_CreateRateLimit(
   id: string,
   data?: any,
+  options?: ApiRequestOptions,
 ): Promise<RateLimit> {
   return ApiFetch({
     method: "POST",
@@ -185,6 +219,7 @@ export async function Sensor_CreateRateLimit(
       id,
     },
     body: data,
+    ...options,
   });
 }
 /**
@@ -194,6 +229,7 @@ export async function Sensor_CreateRateLimit(
 export async function Sensor_UpdateRateLimit(
   id: string,
   data?: any,
+  options?: ApiRequestOptions,
 ): Promise<RateLimit> {
   return ApiFetch({
     method: "PUT",
@@ -202,6 +238,7 @@ export async function Sensor_UpdateRateLimit(
       id,
     },
     body: data,
+    ...options,
   });
 }
 /**
@@ -211,6 +248,7 @@ export async function Sensor_UpdateRateLimit(
 export async function Sensor_FindByIdAssetStates(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<AssetState> {
   return ApiFetch({
     method: "GET",
@@ -219,6 +257,7 @@ export async function Sensor_FindByIdAssetStates(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -229,6 +268,7 @@ export async function Sensor_LinkAssetStates(
   id: string,
   fk: string,
   data?: any,
+  options?: ApiRequestOptions,
 ): Promise<SensorAssetState> {
   return ApiFetch({
     method: "PUT",
@@ -238,6 +278,7 @@ export async function Sensor_LinkAssetStates(
       fk,
     },
     body: data,
+    ...options,
   });
 }
 /**
@@ -247,6 +288,7 @@ export async function Sensor_LinkAssetStates(
 export async function Sensor_UnlinkAssetStates(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<void> {
   return ApiFetch({
     method: "DELETE",
@@ -255,6 +297,7 @@ export async function Sensor_UnlinkAssetStates(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -264,6 +307,7 @@ export async function Sensor_UnlinkAssetStates(
 export async function Sensor_ExistsAssetStates(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<boolean> {
   return ApiFetch({
     method: "HEAD",
@@ -272,6 +316,7 @@ export async function Sensor_ExistsAssetStates(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -281,6 +326,7 @@ export async function Sensor_ExistsAssetStates(
 export async function Sensor_FindByIdStates(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<SensorAssetState> {
   return ApiFetch({
     method: "GET",
@@ -289,6 +335,7 @@ export async function Sensor_FindByIdStates(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -299,6 +346,7 @@ export async function Sensor_UpdateByIdStates(
   id: string,
   fk: string,
   data?: any,
+  options?: ApiRequestOptions,
 ): Promise<SensorAssetState> {
   return ApiFetch({
     method: "PUT",
@@ -308,6 +356,7 @@ export async function Sensor_UpdateByIdStates(
       fk,
     },
     body: data,
+    ...options,
   });
 }
 /**
@@ -317,6 +366,7 @@ export async function Sensor_UpdateByIdStates(
 export async function Sensor_FindByIdSummaries(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<Summary> {
   return ApiFetch({
     method: "GET",
@@ -325,6 +375,7 @@ export async function Sensor_FindByIdSummaries(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -334,6 +385,7 @@ export async function Sensor_FindByIdSummaries(
 export async function Sensor_GetDatasets(
   id: string,
   filter?: Filter<Dataset>,
+  options?: ApiRequestOptions,
 ): Promise<Dataset[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -347,6 +399,7 @@ export async function Sensor_GetDatasets(
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -356,6 +409,7 @@ export async function Sensor_GetDatasets(
 export async function Sensor_CreateDatasets(
   id: string,
   data?: any,
+  options?: ApiRequestOptions,
 ): Promise<Dataset> {
   return ApiFetch({
     method: "POST",
@@ -364,6 +418,7 @@ export async function Sensor_CreateDatasets(
       id,
     },
     body: data,
+    ...options,
   });
 }
 /**
@@ -373,6 +428,7 @@ export async function Sensor_CreateDatasets(
 export async function Sensor_CountDatasets(
   id: string,
   where?: Filter<Dataset>["where"],
+  options?: ApiRequestOptions,
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -386,6 +442,7 @@ export async function Sensor_CountDatasets(
     routeParams: {
       id,
     },
+    ...options,
   });
   return unwrapCount(result);
 }
@@ -396,6 +453,7 @@ export async function Sensor_CountDatasets(
 export async function Sensor_GetAlerts(
   id: string,
   filter?: Filter<Alert>,
+  options?: ApiRequestOptions,
 ): Promise<Alert[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -409,6 +467,7 @@ export async function Sensor_GetAlerts(
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -418,6 +477,7 @@ export async function Sensor_GetAlerts(
 export async function Sensor_CountAlerts(
   id: string,
   where?: Filter<Alert>["where"],
+  options?: ApiRequestOptions,
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -431,6 +491,7 @@ export async function Sensor_CountAlerts(
     routeParams: {
       id,
     },
+    ...options,
   });
   return unwrapCount(result);
 }
@@ -441,6 +502,7 @@ export async function Sensor_CountAlerts(
 export async function Sensor_GetAlertHistory(
   id: string,
   filter?: Filter<AlertHistory>,
+  options?: ApiRequestOptions,
 ): Promise<AlertHistory[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -454,6 +516,7 @@ export async function Sensor_GetAlertHistory(
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -463,6 +526,7 @@ export async function Sensor_GetAlertHistory(
 export async function Sensor_CountAlertHistory(
   id: string,
   where?: Filter<AlertHistory>["where"],
+  options?: ApiRequestOptions,
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -476,6 +540,7 @@ export async function Sensor_CountAlertHistory(
     routeParams: {
       id,
     },
+    ...options,
   });
   return unwrapCount(result);
 }
@@ -486,6 +551,7 @@ export async function Sensor_CountAlertHistory(
 export async function Sensor_GetAssetStates(
   id: string,
   filter?: Filter<AssetState>,
+  options?: ApiRequestOptions,
 ): Promise<AssetState[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -499,6 +565,7 @@ export async function Sensor_GetAssetStates(
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -508,6 +575,7 @@ export async function Sensor_GetAssetStates(
 export async function Sensor_CountAssetStates(
   id: string,
   where?: Filter<AssetState>["where"],
+  options?: ApiRequestOptions,
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -521,6 +589,7 @@ export async function Sensor_CountAssetStates(
     routeParams: {
       id,
     },
+    ...options,
   });
   return unwrapCount(result);
 }
@@ -531,6 +600,7 @@ export async function Sensor_CountAssetStates(
 export async function Sensor_GetStates(
   id: string,
   filter?: Filter<SensorAssetState>,
+  options?: ApiRequestOptions,
 ): Promise<SensorAssetState[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -544,6 +614,7 @@ export async function Sensor_GetStates(
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -553,6 +624,7 @@ export async function Sensor_GetStates(
 export async function Sensor_CountStates(
   id: string,
   where?: Filter<SensorAssetState>["where"],
+  options?: ApiRequestOptions,
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -566,6 +638,7 @@ export async function Sensor_CountStates(
     routeParams: {
       id,
     },
+    ...options,
   });
   return unwrapCount(result);
 }
@@ -576,6 +649,7 @@ export async function Sensor_CountStates(
 export async function Sensor_GetSummaries(
   id: string,
   filter?: Filter<Summary>,
+  options?: ApiRequestOptions,
 ): Promise<Summary[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -589,6 +663,7 @@ export async function Sensor_GetSummaries(
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -598,6 +673,7 @@ export async function Sensor_GetSummaries(
 export async function Sensor_CountSummaries(
   id: string,
   where?: Filter<Summary>["where"],
+  options?: ApiRequestOptions,
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -611,6 +687,7 @@ export async function Sensor_CountSummaries(
     routeParams: {
       id,
     },
+    ...options,
   });
   return unwrapCount(result);
 }
@@ -618,13 +695,17 @@ export async function Sensor_CountSummaries(
  * Check whether a model instance exists in the data source.
  * /Sensors/:id/exists
  */
-export async function Sensor_exists(id: string): Promise<boolean> {
+export async function Sensor_exists(
+  id: string,
+  options?: ApiRequestOptions,
+): Promise<boolean> {
   return ApiFetch({
     method: "GET",
     url: "/Sensors/:id/exists",
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -634,6 +715,7 @@ export async function Sensor_exists(id: string): Promise<boolean> {
 export async function Sensor_findById(
   id: string,
   filter?: Filter<Sensor>,
+  options?: ApiRequestOptions,
 ): Promise<Sensor> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -647,13 +729,17 @@ export async function Sensor_findById(
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
  * Find all instances of the model matched by filter from the data source.
  * /Sensors
  */
-export async function Sensor_find(filter?: Filter<Sensor>): Promise<Sensor[]> {
+export async function Sensor_find(
+  filter?: Filter<Sensor>,
+  options?: ApiRequestOptions,
+): Promise<Sensor[]> {
   const _urlParams: any = {};
   if (filter != null) {
     _urlParams["filter"] = filter;
@@ -663,13 +749,17 @@ export async function Sensor_find(filter?: Filter<Sensor>): Promise<Sensor[]> {
     method: "GET",
     url: "/Sensors",
     urlParams: _urlParams,
+    ...options,
   });
 }
 /**
  * Find first instance of the model matched by filter from the data source.
  * /Sensors/findOne
  */
-export async function Sensor_findOne(filter?: Filter<Sensor>): Promise<Sensor> {
+export async function Sensor_findOne(
+  filter?: Filter<Sensor>,
+  options?: ApiRequestOptions,
+): Promise<Sensor> {
   const _urlParams: any = {};
   if (filter != null) {
     _urlParams["filter"] = filter;
@@ -679,6 +769,7 @@ export async function Sensor_findOne(filter?: Filter<Sensor>): Promise<Sensor> {
     method: "GET",
     url: "/Sensors/findOne",
     urlParams: _urlParams,
+    ...options,
   });
 }
 /**
@@ -690,6 +781,7 @@ export async function Sensor_DownloadDatasets(
   nk: string,
   file: string,
   datasourceName?: string,
+  options?: ApiRequestOptions,
 ): Promise<any> {
   const _urlParams: any = {};
   if (datasourceName != null) {
@@ -705,6 +797,7 @@ export async function Sensor_DownloadDatasets(
       nk,
       file,
     },
+    ...options,
   });
 }
 /**
@@ -716,6 +809,7 @@ export async function Sensor_GetSignedUrlDatasets(
   nk: string,
   file: string,
   datasourceName?: string,
+  options?: ApiRequestOptions,
 ): Promise<any> {
   const _urlParams: any = {};
   if (datasourceName != null) {
@@ -731,19 +825,24 @@ export async function Sensor_GetSignedUrlDatasets(
       nk,
       file,
     },
+    ...options,
   });
 }
 /**
  * Get last sensor data
  * /Sensors/:id/data/last
  */
-export async function Sensor_LastData(id: string): Promise<Data> {
+export async function Sensor_LastData(
+  id: string,
+  options?: ApiRequestOptions,
+): Promise<Data> {
   return ApiFetch({
     method: "GET",
     url: "/Sensors/:id/data/last",
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -752,6 +851,7 @@ export async function Sensor_LastData(id: string): Promise<Data> {
  */
 export async function Sensor_getCurrentState(
   id: string,
+  options?: ApiRequestOptions,
 ): Promise<SensorAssetState> {
   return ApiFetch({
     method: "GET",
@@ -759,6 +859,7 @@ export async function Sensor_getCurrentState(
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -768,6 +869,7 @@ export async function Sensor_getCurrentState(
 export async function Sensor_withCurrentState(
   id: string,
   filter?: Filter<Sensor>,
+  options?: ApiRequestOptions,
 ): Promise<Sensor> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -781,6 +883,7 @@ export async function Sensor_withCurrentState(
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -789,6 +892,7 @@ export async function Sensor_withCurrentState(
  */
 export async function Sensor_spamming(
   where?: Filter<Sensor>["where"],
+  options?: ApiRequestOptions,
 ): Promise<any> {
   const _urlParams: any = {};
   if (where != null) {
@@ -799,6 +903,7 @@ export async function Sensor_spamming(
     method: "GET",
     url: "/Sensors/spamming",
     urlParams: _urlParams,
+    ...options,
   });
 }
 /**
@@ -809,6 +914,7 @@ export async function Sensor_FindByIdDatasetsData(
   id: string,
   nk: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<Data> {
   return ApiFetch({
     method: "GET",
@@ -818,6 +924,7 @@ export async function Sensor_FindByIdDatasetsData(
       nk,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -828,6 +935,7 @@ export async function Sensor_DestroyByIdDatasetsData(
   id: string,
   nk: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<void> {
   return ApiFetch({
     method: "DELETE",
@@ -837,6 +945,7 @@ export async function Sensor_DestroyByIdDatasetsData(
       nk,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -848,6 +957,7 @@ export async function Sensor_UpdateByIdDatasetsData(
   nk: string,
   fk: string,
   data?: any,
+  options?: ApiRequestOptions,
 ): Promise<Data> {
   return ApiFetch({
     method: "PUT",
@@ -858,6 +968,7 @@ export async function Sensor_UpdateByIdDatasetsData(
       fk,
     },
     body: data,
+    ...options,
   });
 }
 /**
@@ -868,6 +979,7 @@ export async function Sensor_GetDatasetsData(
   id: string,
   nk: string,
   filter?: Filter<Data>,
+  options?: ApiRequestOptions,
 ): Promise<Data[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -882,6 +994,7 @@ export async function Sensor_GetDatasetsData(
       id,
       nk,
     },
+    ...options,
   });
 }
 /**
@@ -892,6 +1005,7 @@ export async function Sensor_CreateDatasetsData(
   id: string,
   nk: string,
   data?: any,
+  options?: ApiRequestOptions,
 ): Promise<Data> {
   return ApiFetch({
     method: "POST",
@@ -901,6 +1015,7 @@ export async function Sensor_CreateDatasetsData(
       nk,
     },
     body: data,
+    ...options,
   });
 }
 /**
@@ -911,6 +1026,7 @@ export async function Sensor_CountDatasetsData(
   id: string,
   nk: string,
   where?: Filter<Dataset>["where"],
+  options?: ApiRequestOptions,
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -925,6 +1041,7 @@ export async function Sensor_CountDatasetsData(
       id,
       nk,
     },
+    ...options,
   });
   return unwrapCount(result);
 }

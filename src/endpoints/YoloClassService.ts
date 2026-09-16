@@ -1,17 +1,26 @@
-import { ApiFetch, Filter, unwrapCount } from "../core/ApiFetch";
+import {
+  ApiFetch,
+  ApiRequestOptions,
+  Filter,
+  unwrapCount,
+} from "../core/ApiFetch";
 import { YoloClass } from "../models/YoloClass";
 
 /**
  * Check whether a model instance exists in the data source.
  * /YoloClasses/:id/exists
  */
-export async function YoloClass_exists(id: string): Promise<boolean> {
+export async function YoloClass_exists(
+  id: string,
+  options?: ApiRequestOptions,
+): Promise<boolean> {
   return ApiFetch({
     method: "GET",
     url: "/YoloClasses/:id/exists",
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -21,6 +30,7 @@ export async function YoloClass_exists(id: string): Promise<boolean> {
 export async function YoloClass_findById(
   id: string,
   filter?: Filter<YoloClass>,
+  options?: ApiRequestOptions,
 ): Promise<YoloClass> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -34,6 +44,7 @@ export async function YoloClass_findById(
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -42,6 +53,7 @@ export async function YoloClass_findById(
  */
 export async function YoloClass_find(
   filter?: Filter<YoloClass>,
+  options?: ApiRequestOptions,
 ): Promise<YoloClass[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -52,6 +64,7 @@ export async function YoloClass_find(
     method: "GET",
     url: "/YoloClasses",
     urlParams: _urlParams,
+    ...options,
   });
 }
 /**
@@ -60,6 +73,7 @@ export async function YoloClass_find(
  */
 export async function YoloClass_findOne(
   filter?: Filter<YoloClass>,
+  options?: ApiRequestOptions,
 ): Promise<YoloClass> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -70,6 +84,7 @@ export async function YoloClass_findOne(
     method: "GET",
     url: "/YoloClasses/findOne",
     urlParams: _urlParams,
+    ...options,
   });
 }
 /**
@@ -78,6 +93,7 @@ export async function YoloClass_findOne(
  */
 export async function YoloClass_count(
   where?: Filter<YoloClass>["where"],
+  options?: ApiRequestOptions,
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -88,6 +104,7 @@ export async function YoloClass_count(
     method: "GET",
     url: "/YoloClasses/count",
     urlParams: _urlParams,
+    ...options,
   });
   return unwrapCount(result);
 }

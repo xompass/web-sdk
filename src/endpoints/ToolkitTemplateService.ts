@@ -1,4 +1,9 @@
-import { ApiFetch, Filter, unwrapCount } from "../core/ApiFetch";
+import {
+  ApiFetch,
+  ApiRequestOptions,
+  Filter,
+  unwrapCount,
+} from "../core/ApiFetch";
 import { Log } from "../models/Log";
 import { Tool } from "../models/Tool";
 import { ToolkitTemplate } from "../models/ToolkitTemplate";
@@ -10,6 +15,7 @@ import { ToolkitTemplate } from "../models/ToolkitTemplate";
 export async function ToolkitTemplate_FindByIdTrackingLogs(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<Log> {
   return ApiFetch({
     method: "GET",
@@ -18,6 +24,7 @@ export async function ToolkitTemplate_FindByIdTrackingLogs(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -27,6 +34,7 @@ export async function ToolkitTemplate_FindByIdTrackingLogs(
 export async function ToolkitTemplate_LinkAdminTools(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<Tool> {
   return ApiFetch({
     method: "PUT",
@@ -35,6 +43,7 @@ export async function ToolkitTemplate_LinkAdminTools(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -44,6 +53,7 @@ export async function ToolkitTemplate_LinkAdminTools(
 export async function ToolkitTemplate_UnlinkAdminTools(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<void> {
   return ApiFetch({
     method: "DELETE",
@@ -52,6 +62,7 @@ export async function ToolkitTemplate_UnlinkAdminTools(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -61,6 +72,7 @@ export async function ToolkitTemplate_UnlinkAdminTools(
 export async function ToolkitTemplate_LinkTools(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<Tool> {
   return ApiFetch({
     method: "PUT",
@@ -69,6 +81,7 @@ export async function ToolkitTemplate_LinkTools(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -78,6 +91,7 @@ export async function ToolkitTemplate_LinkTools(
 export async function ToolkitTemplate_UnlinkTools(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<void> {
   return ApiFetch({
     method: "DELETE",
@@ -86,6 +100,7 @@ export async function ToolkitTemplate_UnlinkTools(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -95,6 +110,7 @@ export async function ToolkitTemplate_UnlinkTools(
 export async function ToolkitTemplate_GetTrackingLogs(
   id: string,
   filter?: Filter<Log>,
+  options?: ApiRequestOptions,
 ): Promise<Log[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -108,6 +124,7 @@ export async function ToolkitTemplate_GetTrackingLogs(
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -117,6 +134,7 @@ export async function ToolkitTemplate_GetTrackingLogs(
 export async function ToolkitTemplate_CountTrackingLogs(
   id: string,
   where?: Filter<Log>["where"],
+  options?: ApiRequestOptions,
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -130,6 +148,7 @@ export async function ToolkitTemplate_CountTrackingLogs(
     routeParams: {
       id,
     },
+    ...options,
   });
   return unwrapCount(result);
 }
@@ -137,13 +156,17 @@ export async function ToolkitTemplate_CountTrackingLogs(
  * Check whether a model instance exists in the data source.
  * /ToolkitTemplates/:id/exists
  */
-export async function ToolkitTemplate_exists(id: string): Promise<boolean> {
+export async function ToolkitTemplate_exists(
+  id: string,
+  options?: ApiRequestOptions,
+): Promise<boolean> {
   return ApiFetch({
     method: "GET",
     url: "/ToolkitTemplates/:id/exists",
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -153,6 +176,7 @@ export async function ToolkitTemplate_exists(id: string): Promise<boolean> {
 export async function ToolkitTemplate_findById(
   id: string,
   filter?: Filter<ToolkitTemplate>,
+  options?: ApiRequestOptions,
 ): Promise<ToolkitTemplate> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -166,6 +190,7 @@ export async function ToolkitTemplate_findById(
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -174,6 +199,7 @@ export async function ToolkitTemplate_findById(
  */
 export async function ToolkitTemplate_find(
   filter?: Filter<ToolkitTemplate>,
+  options?: ApiRequestOptions,
 ): Promise<ToolkitTemplate[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -184,6 +210,7 @@ export async function ToolkitTemplate_find(
     method: "GET",
     url: "/ToolkitTemplates",
     urlParams: _urlParams,
+    ...options,
   });
 }
 /**
@@ -192,6 +219,7 @@ export async function ToolkitTemplate_find(
  */
 export async function ToolkitTemplate_findOne(
   filter?: Filter<ToolkitTemplate>,
+  options?: ApiRequestOptions,
 ): Promise<ToolkitTemplate> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -202,6 +230,7 @@ export async function ToolkitTemplate_findOne(
     method: "GET",
     url: "/ToolkitTemplates/findOne",
     urlParams: _urlParams,
+    ...options,
   });
 }
 /**
@@ -210,6 +239,7 @@ export async function ToolkitTemplate_findOne(
  */
 export async function ToolkitTemplate_count(
   where?: Filter<ToolkitTemplate>["where"],
+  options?: ApiRequestOptions,
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -220,6 +250,7 @@ export async function ToolkitTemplate_count(
     method: "GET",
     url: "/ToolkitTemplates/count",
     urlParams: _urlParams,
+    ...options,
   });
   return unwrapCount(result);
 }

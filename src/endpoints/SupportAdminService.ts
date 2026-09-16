@@ -1,5 +1,6 @@
 import {
   ApiFetch,
+  ApiRequestOptions,
   Filter,
   UploadFile,
   UploadableFile,
@@ -19,6 +20,7 @@ import {
 export async function SupportAdmin_FindByIdAccessTokens(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<CommonAccessToken> {
   return ApiFetch({
     method: "GET",
@@ -27,6 +29,7 @@ export async function SupportAdmin_FindByIdAccessTokens(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -36,6 +39,7 @@ export async function SupportAdmin_FindByIdAccessTokens(
 export async function SupportAdmin_FindByIdActivityLogs(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<Log> {
   return ApiFetch({
     method: "GET",
@@ -44,6 +48,7 @@ export async function SupportAdmin_FindByIdActivityLogs(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -52,6 +57,7 @@ export async function SupportAdmin_FindByIdActivityLogs(
  */
 export async function SupportAdmin_GetContainer(
   id: string,
+  options?: ApiRequestOptions,
 ): Promise<SupportAdminStorageContainer> {
   return ApiFetch({
     method: "GET",
@@ -59,6 +65,7 @@ export async function SupportAdmin_GetContainer(
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -68,6 +75,7 @@ export async function SupportAdmin_GetContainer(
 export async function SupportAdmin_GetActivityLogs(
   id: string,
   filter?: Filter<Log>,
+  options?: ApiRequestOptions,
 ): Promise<Log[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -81,6 +89,7 @@ export async function SupportAdmin_GetActivityLogs(
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -90,6 +99,7 @@ export async function SupportAdmin_GetActivityLogs(
 export async function SupportAdmin_CountActivityLogs(
   id: string,
   where?: Filter<Log>["where"],
+  options?: ApiRequestOptions,
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -103,6 +113,7 @@ export async function SupportAdmin_CountActivityLogs(
     routeParams: {
       id,
     },
+    ...options,
   });
   return unwrapCount(result);
 }
@@ -110,24 +121,32 @@ export async function SupportAdmin_CountActivityLogs(
  * Create a new instance of the model and persist it into the data source.
  * /SupportAdmins
  */
-export async function SupportAdmin_create(data?: any): Promise<SupportAdmin> {
+export async function SupportAdmin_create(
+  data?: any,
+  options?: ApiRequestOptions,
+): Promise<SupportAdmin> {
   return ApiFetch({
     method: "POST",
     url: "/SupportAdmins",
     body: data,
+    ...options,
   });
 }
 /**
  * Check whether a model instance exists in the data source.
  * /SupportAdmins/:id/exists
  */
-export async function SupportAdmin_exists(id: string): Promise<boolean> {
+export async function SupportAdmin_exists(
+  id: string,
+  options?: ApiRequestOptions,
+): Promise<boolean> {
   return ApiFetch({
     method: "GET",
     url: "/SupportAdmins/:id/exists",
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -137,6 +156,7 @@ export async function SupportAdmin_exists(id: string): Promise<boolean> {
 export async function SupportAdmin_findById(
   id: string,
   filter?: Filter<SupportAdmin>,
+  options?: ApiRequestOptions,
 ): Promise<SupportAdmin> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -150,6 +170,7 @@ export async function SupportAdmin_findById(
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -159,6 +180,7 @@ export async function SupportAdmin_findById(
 export async function SupportAdmin_replaceById(
   id: string,
   data?: any,
+  options?: ApiRequestOptions,
 ): Promise<SupportAdmin> {
   return ApiFetch({
     method: "POST",
@@ -167,6 +189,7 @@ export async function SupportAdmin_replaceById(
       id,
     },
     body: data,
+    ...options,
   });
 }
 /**
@@ -175,6 +198,7 @@ export async function SupportAdmin_replaceById(
  */
 export async function SupportAdmin_find(
   filter?: Filter<SupportAdmin>,
+  options?: ApiRequestOptions,
 ): Promise<SupportAdmin[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -185,6 +209,7 @@ export async function SupportAdmin_find(
     method: "GET",
     url: "/SupportAdmins",
     urlParams: _urlParams,
+    ...options,
   });
 }
 /**
@@ -193,6 +218,7 @@ export async function SupportAdmin_find(
  */
 export async function SupportAdmin_findOne(
   filter?: Filter<SupportAdmin>,
+  options?: ApiRequestOptions,
 ): Promise<SupportAdmin> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -203,19 +229,24 @@ export async function SupportAdmin_findOne(
     method: "GET",
     url: "/SupportAdmins/findOne",
     urlParams: _urlParams,
+    ...options,
   });
 }
 /**
  * Delete a model instance by {{id}} from the data source.
  * /SupportAdmins/:id
  */
-export async function SupportAdmin_deleteById(id: string): Promise<void> {
+export async function SupportAdmin_deleteById(
+  id: string,
+  options?: ApiRequestOptions,
+): Promise<void> {
   return ApiFetch({
     method: "DELETE",
     url: "/SupportAdmins/:id",
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -225,6 +256,7 @@ export async function SupportAdmin_deleteById(id: string): Promise<void> {
 export async function SupportAdmin_patchAttributes(
   id: string,
   data?: any,
+  options?: ApiRequestOptions,
 ): Promise<SupportAdmin> {
   return ApiFetch({
     method: "PUT",
@@ -233,6 +265,7 @@ export async function SupportAdmin_patchAttributes(
       id,
     },
     body: data,
+    ...options,
   });
 }
 /**
@@ -246,6 +279,7 @@ export async function SupportAdmin_login(
     twoFactorCode?: string;
   },
   include?: Filter<SupportAdmin>["include"],
+  options?: ApiRequestOptions,
 ): Promise<any> {
   const _urlParams: any = {};
   if (include != null) {
@@ -257,29 +291,37 @@ export async function SupportAdmin_login(
     url: "/SupportAdmins/login",
     urlParams: _urlParams,
     body: { ...credentials },
+    ...options,
   });
 }
 /**
  * Logout a user with access token.
  * /SupportAdmins/logout
  */
-export async function SupportAdmin_logout(): Promise<any> {
+export async function SupportAdmin_logout(
+  options?: ApiRequestOptions,
+): Promise<any> {
   return ApiFetch({
     method: "POST",
     url: "/SupportAdmins/logout",
+    ...options,
   });
 }
 /**
  * Trigger user's identity verification with configured verifyOptions
  * /SupportAdmins/:id/verify
  */
-export async function SupportAdmin_verify(id: string): Promise<any> {
+export async function SupportAdmin_verify(
+  id: string,
+  options?: ApiRequestOptions,
+): Promise<any> {
   return ApiFetch({
     method: "POST",
     url: "/SupportAdmins/:id/verify",
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -290,6 +332,7 @@ export async function SupportAdmin_confirm(
   uid: string,
   token: string,
   redirect?: string,
+  options?: ApiRequestOptions,
 ): Promise<CommonAccessToken> {
   const _urlParams: any = {};
   if (uid != null) {
@@ -306,17 +349,22 @@ export async function SupportAdmin_confirm(
     method: "GET",
     url: "/SupportAdmins/confirm",
     urlParams: _urlParams,
+    ...options,
   });
 }
 /**
  * Reset password for a user with email.
  * /SupportAdmins/reset
  */
-export async function SupportAdmin_resetPassword(options: any): Promise<any> {
+export async function SupportAdmin_resetPassword(
+  options: any,
+  requestOptions?: ApiRequestOptions,
+): Promise<any> {
   return ApiFetch({
     method: "POST",
     url: "/SupportAdmins/reset",
     body: options,
+    ...requestOptions,
   });
 }
 /**
@@ -326,11 +374,13 @@ export async function SupportAdmin_resetPassword(options: any): Promise<any> {
 export async function SupportAdmin_changePassword(
   oldPassword: string,
   newPassword: string,
+  options?: ApiRequestOptions,
 ): Promise<any> {
   return ApiFetch({
     method: "POST",
     url: "/SupportAdmins/change-password",
     body: { oldPassword, newPassword },
+    ...options,
   });
 }
 /**
@@ -339,11 +389,13 @@ export async function SupportAdmin_changePassword(
  */
 export async function SupportAdmin_setPassword(
   newPassword: string,
+  options?: ApiRequestOptions,
 ): Promise<any> {
   return ApiFetch({
     method: "POST",
     url: "/SupportAdmins/reset-password",
     body: { newPassword },
+    ...options,
   });
 }
 /**
@@ -353,6 +405,7 @@ export async function SupportAdmin_setPassword(
 export async function SupportAdmin_getCurrentToken(
   id: string,
   include?: Filter<CommonAccessToken>["include"],
+  options?: ApiRequestOptions,
 ): Promise<CommonAccessToken> {
   const _urlParams: any = {};
   if (include != null) {
@@ -366,6 +419,7 @@ export async function SupportAdmin_getCurrentToken(
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -374,6 +428,7 @@ export async function SupportAdmin_getCurrentToken(
  */
 export async function SupportAdmin_getMiniAppUserSessionsActive(
   id: string,
+  options?: ApiRequestOptions,
 ): Promise<any[]> {
   return ApiFetch({
     method: "GET",
@@ -381,6 +436,7 @@ export async function SupportAdmin_getMiniAppUserSessionsActive(
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -390,6 +446,7 @@ export async function SupportAdmin_getMiniAppUserSessionsActive(
 export async function SupportAdmin_MiniAppUserSessionActiveLogout(
   id: string,
   data: any,
+  options?: ApiRequestOptions,
 ): Promise<any> {
   return ApiFetch({
     method: "POST",
@@ -398,27 +455,35 @@ export async function SupportAdmin_MiniAppUserSessionActiveLogout(
       id,
     },
     body: data,
+    ...options,
   });
 }
 /**
  * Verify account for a user with email.
  * /SupportAdmins/verify
  */
-export async function SupportAdmin_verifyAccount(options: any): Promise<any> {
+export async function SupportAdmin_verifyAccount(
+  options: any,
+  requestOptions?: ApiRequestOptions,
+): Promise<any> {
   return ApiFetch({
     method: "POST",
     url: "/SupportAdmins/verify",
     body: options,
+    ...requestOptions,
   });
 }
 /**
  * Whether this environment requires email verification for this user type.
  * /SupportAdmins/emailVerificationRequired
  */
-export async function SupportAdmin_getEmailVerificationRequired(): Promise<any> {
+export async function SupportAdmin_getEmailVerificationRequired(
+  options?: ApiRequestOptions,
+): Promise<any> {
   return ApiFetch({
     method: "GET",
     url: "/SupportAdmins/emailVerificationRequired",
+    ...options,
   });
 }
 /**
@@ -430,6 +495,7 @@ export async function SupportAdmin_upload(
   property: string,
   file: UploadableFile,
   onProgress?: (progress: number) => void,
+  options?: ApiRequestOptions,
 ): Promise<any> {
   const _urlParams: any = {};
   if (property != null) {
@@ -444,6 +510,7 @@ export async function SupportAdmin_upload(
     },
     file: file,
     onProgress: onProgress,
+    ...options,
   });
 }
 /**
@@ -454,6 +521,7 @@ export async function SupportAdmin_download(
   id: string,
   property: string,
   file: string,
+  options?: ApiRequestOptions,
 ): Promise<any> {
   const _urlParams: any = {};
   if (property != null) {
@@ -468,5 +536,6 @@ export async function SupportAdmin_download(
       id,
       file,
     },
+    ...options,
   });
 }

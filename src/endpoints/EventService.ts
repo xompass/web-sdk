@@ -1,4 +1,9 @@
-import { ApiFetch, Filter, unwrapCount } from "../core/ApiFetch";
+import {
+  ApiFetch,
+  ApiRequestOptions,
+  Filter,
+  unwrapCount,
+} from "../core/ApiFetch";
 import { Log } from "../models/Log";
 
 /**
@@ -8,6 +13,7 @@ import { Log } from "../models/Log";
 export async function Event_FindByIdTrackingLogs(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<Log> {
   return ApiFetch({
     method: "GET",
@@ -16,6 +22,7 @@ export async function Event_FindByIdTrackingLogs(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -25,6 +32,7 @@ export async function Event_FindByIdTrackingLogs(
 export async function Event_GetTrackingLogs(
   id: string,
   filter?: Filter<Log>,
+  options?: ApiRequestOptions,
 ): Promise<Log[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -38,6 +46,7 @@ export async function Event_GetTrackingLogs(
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -47,6 +56,7 @@ export async function Event_GetTrackingLogs(
 export async function Event_CountTrackingLogs(
   id: string,
   where?: Filter<Log>["where"],
+  options?: ApiRequestOptions,
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -60,6 +70,7 @@ export async function Event_CountTrackingLogs(
     routeParams: {
       id,
     },
+    ...options,
   });
   return unwrapCount(result);
 }

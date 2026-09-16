@@ -1,5 +1,11 @@
 # @xompass/web-sdk
 
+## 0.36.0
+
+### Minor Changes
+
+- Several improvements and new endpoints
+
 ## 0.32.0
 
 ### Minor Changes

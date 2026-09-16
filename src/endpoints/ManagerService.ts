@@ -1,5 +1,6 @@
 import {
   ApiFetch,
+  ApiRequestOptions,
   Filter,
   UploadFile,
   UploadableFile,
@@ -33,6 +34,7 @@ import { View } from "../models/View";
 export async function Manager_FindByIdAccessTokens(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<CommonAccessToken> {
   return ApiFetch({
     method: "GET",
@@ -41,6 +43,7 @@ export async function Manager_FindByIdAccessTokens(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -50,6 +53,7 @@ export async function Manager_FindByIdAccessTokens(
 export async function Manager_FindByIdActivityLogs(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<Log> {
   return ApiFetch({
     method: "GET",
@@ -58,6 +62,7 @@ export async function Manager_FindByIdActivityLogs(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -67,6 +72,7 @@ export async function Manager_FindByIdActivityLogs(
 export async function Manager_FindByIdCredentials(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<Credential> {
   return ApiFetch({
     method: "GET",
@@ -75,6 +81,7 @@ export async function Manager_FindByIdCredentials(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -84,6 +91,7 @@ export async function Manager_FindByIdCredentials(
 export async function Manager_ExistsCredentials(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<boolean> {
   return ApiFetch({
     method: "HEAD",
@@ -92,32 +100,41 @@ export async function Manager_ExistsCredentials(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
  * Fetches belongsTo relation customer.
  * /Managers/:id/customer
  */
-export async function Manager_GetCustomer(id: string): Promise<Customer> {
+export async function Manager_GetCustomer(
+  id: string,
+  options?: ApiRequestOptions,
+): Promise<Customer> {
   return ApiFetch({
     method: "GET",
     url: "/Managers/:id/customer",
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
  * Fetches belongsTo relation country.
  * /Managers/:id/country
  */
-export async function Manager_GetCountry(id: string): Promise<Country> {
+export async function Manager_GetCountry(
+  id: string,
+  options?: ApiRequestOptions,
+): Promise<Country> {
   return ApiFetch({
     method: "GET",
     url: "/Managers/:id/country",
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -127,6 +144,7 @@ export async function Manager_GetCountry(id: string): Promise<Country> {
 export async function Manager_FindByIdAssets(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<Asset> {
   return ApiFetch({
     method: "GET",
@@ -135,6 +153,7 @@ export async function Manager_FindByIdAssets(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -144,6 +163,7 @@ export async function Manager_FindByIdAssets(
 export async function Manager_DestroyByIdAssets(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<void> {
   return ApiFetch({
     method: "DELETE",
@@ -152,6 +172,7 @@ export async function Manager_DestroyByIdAssets(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -162,6 +183,7 @@ export async function Manager_UpdateByIdAssets(
   id: string,
   fk: string,
   data?: any,
+  options?: ApiRequestOptions,
 ): Promise<Asset> {
   return ApiFetch({
     method: "PUT",
@@ -171,6 +193,7 @@ export async function Manager_UpdateByIdAssets(
       fk,
     },
     body: data,
+    ...options,
   });
 }
 /**
@@ -181,6 +204,7 @@ export async function Manager_LinkAssets(
   id: string,
   fk: string,
   data?: any,
+  options?: ApiRequestOptions,
 ): Promise<any> {
   return ApiFetch({
     method: "PUT",
@@ -190,6 +214,7 @@ export async function Manager_LinkAssets(
       fk,
     },
     body: data,
+    ...options,
   });
 }
 /**
@@ -199,6 +224,7 @@ export async function Manager_LinkAssets(
 export async function Manager_UnlinkAssets(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<void> {
   return ApiFetch({
     method: "DELETE",
@@ -207,6 +233,7 @@ export async function Manager_UnlinkAssets(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -216,6 +243,7 @@ export async function Manager_UnlinkAssets(
 export async function Manager_FindByIdCctvDashboards(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<CctvDashboard> {
   return ApiFetch({
     method: "GET",
@@ -224,6 +252,7 @@ export async function Manager_FindByIdCctvDashboards(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -233,6 +262,7 @@ export async function Manager_FindByIdCctvDashboards(
 export async function Manager_DestroyByIdCctvDashboards(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<void> {
   return ApiFetch({
     method: "DELETE",
@@ -241,6 +271,7 @@ export async function Manager_DestroyByIdCctvDashboards(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -251,6 +282,7 @@ export async function Manager_UpdateByIdCctvDashboards(
   id: string,
   fk: string,
   data?: any,
+  options?: ApiRequestOptions,
 ): Promise<CctvDashboard> {
   return ApiFetch({
     method: "PUT",
@@ -260,6 +292,7 @@ export async function Manager_UpdateByIdCctvDashboards(
       fk,
     },
     body: data,
+    ...options,
   });
 }
 /**
@@ -270,6 +303,7 @@ export async function Manager_LinkCctvDashboards(
   id: string,
   fk: string,
   data?: any,
+  options?: ApiRequestOptions,
 ): Promise<any> {
   return ApiFetch({
     method: "PUT",
@@ -279,6 +313,7 @@ export async function Manager_LinkCctvDashboards(
       fk,
     },
     body: data,
+    ...options,
   });
 }
 /**
@@ -288,6 +323,7 @@ export async function Manager_LinkCctvDashboards(
 export async function Manager_UnlinkCctvDashboards(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<void> {
   return ApiFetch({
     method: "DELETE",
@@ -296,6 +332,7 @@ export async function Manager_UnlinkCctvDashboards(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -305,6 +342,7 @@ export async function Manager_UnlinkCctvDashboards(
 export async function Manager_FindByIdCountReports(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<CountReport> {
   return ApiFetch({
     method: "GET",
@@ -313,6 +351,7 @@ export async function Manager_FindByIdCountReports(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -322,6 +361,7 @@ export async function Manager_FindByIdCountReports(
 export async function Manager_DestroyByIdCountReports(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<void> {
   return ApiFetch({
     method: "DELETE",
@@ -330,6 +370,7 @@ export async function Manager_DestroyByIdCountReports(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -340,6 +381,7 @@ export async function Manager_UpdateByIdCountReports(
   id: string,
   fk: string,
   data?: any,
+  options?: ApiRequestOptions,
 ): Promise<CountReport> {
   return ApiFetch({
     method: "PUT",
@@ -349,6 +391,7 @@ export async function Manager_UpdateByIdCountReports(
       fk,
     },
     body: data,
+    ...options,
   });
 }
 /**
@@ -359,6 +402,7 @@ export async function Manager_LinkCountReports(
   id: string,
   fk: string,
   data?: any,
+  options?: ApiRequestOptions,
 ): Promise<any> {
   return ApiFetch({
     method: "PUT",
@@ -368,6 +412,7 @@ export async function Manager_LinkCountReports(
       fk,
     },
     body: data,
+    ...options,
   });
 }
 /**
@@ -377,6 +422,7 @@ export async function Manager_LinkCountReports(
 export async function Manager_UnlinkCountReports(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<void> {
   return ApiFetch({
     method: "DELETE",
@@ -385,6 +431,7 @@ export async function Manager_UnlinkCountReports(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -394,6 +441,7 @@ export async function Manager_UnlinkCountReports(
 export async function Manager_FindByIdEventDashboards(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<EventDashboard> {
   return ApiFetch({
     method: "GET",
@@ -402,6 +450,7 @@ export async function Manager_FindByIdEventDashboards(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -411,6 +460,7 @@ export async function Manager_FindByIdEventDashboards(
 export async function Manager_DestroyByIdEventDashboards(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<void> {
   return ApiFetch({
     method: "DELETE",
@@ -419,6 +469,7 @@ export async function Manager_DestroyByIdEventDashboards(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -429,6 +480,7 @@ export async function Manager_UpdateByIdEventDashboards(
   id: string,
   fk: string,
   data?: any,
+  options?: ApiRequestOptions,
 ): Promise<EventDashboard> {
   return ApiFetch({
     method: "PUT",
@@ -438,6 +490,7 @@ export async function Manager_UpdateByIdEventDashboards(
       fk,
     },
     body: data,
+    ...options,
   });
 }
 /**
@@ -448,6 +501,7 @@ export async function Manager_LinkEventDashboards(
   id: string,
   fk: string,
   data?: any,
+  options?: ApiRequestOptions,
 ): Promise<any> {
   return ApiFetch({
     method: "PUT",
@@ -457,6 +511,7 @@ export async function Manager_LinkEventDashboards(
       fk,
     },
     body: data,
+    ...options,
   });
 }
 /**
@@ -466,6 +521,7 @@ export async function Manager_LinkEventDashboards(
 export async function Manager_UnlinkEventDashboards(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<void> {
   return ApiFetch({
     method: "DELETE",
@@ -474,6 +530,7 @@ export async function Manager_UnlinkEventDashboards(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -482,6 +539,7 @@ export async function Manager_UnlinkEventDashboards(
  */
 export async function Manager_GetContainer(
   id: string,
+  options?: ApiRequestOptions,
 ): Promise<ManagerStorageContainer> {
   return ApiFetch({
     method: "GET",
@@ -489,6 +547,7 @@ export async function Manager_GetContainer(
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -498,6 +557,7 @@ export async function Manager_GetContainer(
 export async function Manager_FindByIdPeopleCounterReports(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<PeopleCounterReport> {
   return ApiFetch({
     method: "GET",
@@ -506,6 +566,7 @@ export async function Manager_FindByIdPeopleCounterReports(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -515,6 +576,7 @@ export async function Manager_FindByIdPeopleCounterReports(
 export async function Manager_DestroyByIdPeopleCounterReports(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<void> {
   return ApiFetch({
     method: "DELETE",
@@ -523,6 +585,7 @@ export async function Manager_DestroyByIdPeopleCounterReports(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -533,6 +596,7 @@ export async function Manager_UpdateByIdPeopleCounterReports(
   id: string,
   fk: string,
   data?: any,
+  options?: ApiRequestOptions,
 ): Promise<PeopleCounterReport> {
   return ApiFetch({
     method: "PUT",
@@ -542,6 +606,7 @@ export async function Manager_UpdateByIdPeopleCounterReports(
       fk,
     },
     body: data,
+    ...options,
   });
 }
 /**
@@ -552,6 +617,7 @@ export async function Manager_LinkPeopleCounterReports(
   id: string,
   fk: string,
   data?: any,
+  options?: ApiRequestOptions,
 ): Promise<any> {
   return ApiFetch({
     method: "PUT",
@@ -561,6 +627,7 @@ export async function Manager_LinkPeopleCounterReports(
       fk,
     },
     body: data,
+    ...options,
   });
 }
 /**
@@ -570,6 +637,7 @@ export async function Manager_LinkPeopleCounterReports(
 export async function Manager_UnlinkPeopleCounterReports(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<void> {
   return ApiFetch({
     method: "DELETE",
@@ -578,19 +646,24 @@ export async function Manager_UnlinkPeopleCounterReports(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
  * Fetches hasOne relation permission.
  * /Managers/:id/permission
  */
-export async function Manager_GetPermission(id: string): Promise<Permission> {
+export async function Manager_GetPermission(
+  id: string,
+  options?: ApiRequestOptions,
+): Promise<Permission> {
   return ApiFetch({
     method: "GET",
     url: "/Managers/:id/permission",
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -600,6 +673,7 @@ export async function Manager_GetPermission(id: string): Promise<Permission> {
 export async function Manager_CreatePermission(
   id: string,
   data?: any,
+  options?: ApiRequestOptions,
 ): Promise<Permission> {
   return ApiFetch({
     method: "POST",
@@ -608,6 +682,7 @@ export async function Manager_CreatePermission(
       id,
     },
     body: data,
+    ...options,
   });
 }
 /**
@@ -617,6 +692,7 @@ export async function Manager_CreatePermission(
 export async function Manager_UpdatePermission(
   id: string,
   data?: any,
+  options?: ApiRequestOptions,
 ): Promise<Permission> {
   return ApiFetch({
     method: "PUT",
@@ -625,6 +701,7 @@ export async function Manager_UpdatePermission(
       id,
     },
     body: data,
+    ...options,
   });
 }
 /**
@@ -634,6 +711,7 @@ export async function Manager_UpdatePermission(
 export async function Manager_FindByIdReports(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<Report> {
   return ApiFetch({
     method: "GET",
@@ -642,6 +720,7 @@ export async function Manager_FindByIdReports(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -651,6 +730,7 @@ export async function Manager_FindByIdReports(
 export async function Manager_DestroyByIdReports(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<void> {
   return ApiFetch({
     method: "DELETE",
@@ -659,6 +739,7 @@ export async function Manager_DestroyByIdReports(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -669,6 +750,7 @@ export async function Manager_UpdateByIdReports(
   id: string,
   fk: string,
   data?: any,
+  options?: ApiRequestOptions,
 ): Promise<Report> {
   return ApiFetch({
     method: "PUT",
@@ -678,6 +760,7 @@ export async function Manager_UpdateByIdReports(
       fk,
     },
     body: data,
+    ...options,
   });
 }
 /**
@@ -688,6 +771,7 @@ export async function Manager_LinkReports(
   id: string,
   fk: string,
   data?: any,
+  options?: ApiRequestOptions,
 ): Promise<any> {
   return ApiFetch({
     method: "PUT",
@@ -697,6 +781,7 @@ export async function Manager_LinkReports(
       fk,
     },
     body: data,
+    ...options,
   });
 }
 /**
@@ -706,6 +791,7 @@ export async function Manager_LinkReports(
 export async function Manager_UnlinkReports(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<void> {
   return ApiFetch({
     method: "DELETE",
@@ -714,6 +800,7 @@ export async function Manager_UnlinkReports(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -723,6 +810,7 @@ export async function Manager_UnlinkReports(
 export async function Manager_FindByIdStoreVideoAnalyticDashboards(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<StoreVideoAnalyticDashboard> {
   return ApiFetch({
     method: "GET",
@@ -731,6 +819,7 @@ export async function Manager_FindByIdStoreVideoAnalyticDashboards(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -740,6 +829,7 @@ export async function Manager_FindByIdStoreVideoAnalyticDashboards(
 export async function Manager_DestroyByIdStoreVideoAnalyticDashboards(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<void> {
   return ApiFetch({
     method: "DELETE",
@@ -748,6 +838,7 @@ export async function Manager_DestroyByIdStoreVideoAnalyticDashboards(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -758,6 +849,7 @@ export async function Manager_UpdateByIdStoreVideoAnalyticDashboards(
   id: string,
   fk: string,
   data?: any,
+  options?: ApiRequestOptions,
 ): Promise<StoreVideoAnalyticDashboard> {
   return ApiFetch({
     method: "PUT",
@@ -767,6 +859,7 @@ export async function Manager_UpdateByIdStoreVideoAnalyticDashboards(
       fk,
     },
     body: data,
+    ...options,
   });
 }
 /**
@@ -777,6 +870,7 @@ export async function Manager_LinkStoreVideoAnalyticDashboards(
   id: string,
   fk: string,
   data?: any,
+  options?: ApiRequestOptions,
 ): Promise<any> {
   return ApiFetch({
     method: "PUT",
@@ -786,6 +880,7 @@ export async function Manager_LinkStoreVideoAnalyticDashboards(
       fk,
     },
     body: data,
+    ...options,
   });
 }
 /**
@@ -795,6 +890,7 @@ export async function Manager_LinkStoreVideoAnalyticDashboards(
 export async function Manager_UnlinkStoreVideoAnalyticDashboards(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<void> {
   return ApiFetch({
     method: "DELETE",
@@ -803,19 +899,24 @@ export async function Manager_UnlinkStoreVideoAnalyticDashboards(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
  * Fetches belongsTo relation timeZone.
  * /Managers/:id/timeZone
  */
-export async function Manager_GetTimeZone(id: string): Promise<TimeZone> {
+export async function Manager_GetTimeZone(
+  id: string,
+  options?: ApiRequestOptions,
+): Promise<TimeZone> {
   return ApiFetch({
     method: "GET",
     url: "/Managers/:id/timeZone",
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -825,6 +926,7 @@ export async function Manager_GetTimeZone(id: string): Promise<TimeZone> {
 export async function Manager_FindByIdTrafficFlowAnalysis(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<TrafficFlowAnalysis> {
   return ApiFetch({
     method: "GET",
@@ -833,6 +935,7 @@ export async function Manager_FindByIdTrafficFlowAnalysis(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -842,6 +945,7 @@ export async function Manager_FindByIdTrafficFlowAnalysis(
 export async function Manager_DestroyByIdTrafficFlowAnalysis(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<void> {
   return ApiFetch({
     method: "DELETE",
@@ -850,6 +954,7 @@ export async function Manager_DestroyByIdTrafficFlowAnalysis(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -860,6 +965,7 @@ export async function Manager_UpdateByIdTrafficFlowAnalysis(
   id: string,
   fk: string,
   data?: any,
+  options?: ApiRequestOptions,
 ): Promise<TrafficFlowAnalysis> {
   return ApiFetch({
     method: "PUT",
@@ -869,6 +975,7 @@ export async function Manager_UpdateByIdTrafficFlowAnalysis(
       fk,
     },
     body: data,
+    ...options,
   });
 }
 /**
@@ -879,6 +986,7 @@ export async function Manager_LinkTrafficFlowAnalysis(
   id: string,
   fk: string,
   data?: any,
+  options?: ApiRequestOptions,
 ): Promise<any> {
   return ApiFetch({
     method: "PUT",
@@ -888,6 +996,7 @@ export async function Manager_LinkTrafficFlowAnalysis(
       fk,
     },
     body: data,
+    ...options,
   });
 }
 /**
@@ -897,6 +1006,7 @@ export async function Manager_LinkTrafficFlowAnalysis(
 export async function Manager_UnlinkTrafficFlowAnalysis(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<void> {
   return ApiFetch({
     method: "DELETE",
@@ -905,6 +1015,7 @@ export async function Manager_UnlinkTrafficFlowAnalysis(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -914,6 +1025,7 @@ export async function Manager_UnlinkTrafficFlowAnalysis(
 export async function Manager_FindByIdViews(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<View> {
   return ApiFetch({
     method: "GET",
@@ -922,6 +1034,7 @@ export async function Manager_FindByIdViews(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -932,6 +1045,7 @@ export async function Manager_LinkViews(
   id: string,
   fk: string,
   data?: any,
+  options?: ApiRequestOptions,
 ): Promise<any> {
   return ApiFetch({
     method: "PUT",
@@ -941,6 +1055,7 @@ export async function Manager_LinkViews(
       fk,
     },
     body: data,
+    ...options,
   });
 }
 /**
@@ -950,6 +1065,7 @@ export async function Manager_LinkViews(
 export async function Manager_UnlinkViews(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<void> {
   return ApiFetch({
     method: "DELETE",
@@ -958,6 +1074,7 @@ export async function Manager_UnlinkViews(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -967,6 +1084,7 @@ export async function Manager_UnlinkViews(
 export async function Manager_GetActivityLogs(
   id: string,
   filter?: Filter<Log>,
+  options?: ApiRequestOptions,
 ): Promise<Log[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -980,6 +1098,7 @@ export async function Manager_GetActivityLogs(
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -989,6 +1108,7 @@ export async function Manager_GetActivityLogs(
 export async function Manager_CountActivityLogs(
   id: string,
   where?: Filter<Log>["where"],
+  options?: ApiRequestOptions,
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -1002,6 +1122,7 @@ export async function Manager_CountActivityLogs(
     routeParams: {
       id,
     },
+    ...options,
   });
   return unwrapCount(result);
 }
@@ -1012,6 +1133,7 @@ export async function Manager_CountActivityLogs(
 export async function Manager_GetCredentials(
   id: string,
   filter?: Filter<Credential>,
+  options?: ApiRequestOptions,
 ): Promise<Credential[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -1025,6 +1147,7 @@ export async function Manager_GetCredentials(
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -1034,6 +1157,7 @@ export async function Manager_GetCredentials(
 export async function Manager_CountCredentials(
   id: string,
   where?: Filter<Credential>["where"],
+  options?: ApiRequestOptions,
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -1047,6 +1171,7 @@ export async function Manager_CountCredentials(
     routeParams: {
       id,
     },
+    ...options,
   });
   return unwrapCount(result);
 }
@@ -1057,6 +1182,7 @@ export async function Manager_CountCredentials(
 export async function Manager_GetAssets(
   id: string,
   filter?: Filter<Asset>,
+  options?: ApiRequestOptions,
 ): Promise<Asset[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -1070,6 +1196,7 @@ export async function Manager_GetAssets(
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -1079,6 +1206,7 @@ export async function Manager_GetAssets(
 export async function Manager_CountAssets(
   id: string,
   where?: Filter<Asset>["where"],
+  options?: ApiRequestOptions,
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -1092,6 +1220,7 @@ export async function Manager_CountAssets(
     routeParams: {
       id,
     },
+    ...options,
   });
   return unwrapCount(result);
 }
@@ -1102,6 +1231,7 @@ export async function Manager_CountAssets(
 export async function Manager_GetCctvDashboards(
   id: string,
   filter?: Filter<CctvDashboard>,
+  options?: ApiRequestOptions,
 ): Promise<CctvDashboard[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -1115,6 +1245,7 @@ export async function Manager_GetCctvDashboards(
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -1124,6 +1255,7 @@ export async function Manager_GetCctvDashboards(
 export async function Manager_CountCctvDashboards(
   id: string,
   where?: Filter<CctvDashboard>["where"],
+  options?: ApiRequestOptions,
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -1137,6 +1269,7 @@ export async function Manager_CountCctvDashboards(
     routeParams: {
       id,
     },
+    ...options,
   });
   return unwrapCount(result);
 }
@@ -1147,6 +1280,7 @@ export async function Manager_CountCctvDashboards(
 export async function Manager_GetCountReports(
   id: string,
   filter?: Filter<CountReport>,
+  options?: ApiRequestOptions,
 ): Promise<CountReport[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -1160,6 +1294,7 @@ export async function Manager_GetCountReports(
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -1169,6 +1304,7 @@ export async function Manager_GetCountReports(
 export async function Manager_CountCountReports(
   id: string,
   where?: Filter<CountReport>["where"],
+  options?: ApiRequestOptions,
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -1182,6 +1318,7 @@ export async function Manager_CountCountReports(
     routeParams: {
       id,
     },
+    ...options,
   });
   return unwrapCount(result);
 }
@@ -1192,6 +1329,7 @@ export async function Manager_CountCountReports(
 export async function Manager_GetEventDashboards(
   id: string,
   filter?: Filter<EventDashboard>,
+  options?: ApiRequestOptions,
 ): Promise<EventDashboard[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -1205,6 +1343,7 @@ export async function Manager_GetEventDashboards(
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -1214,6 +1353,7 @@ export async function Manager_GetEventDashboards(
 export async function Manager_CountEventDashboards(
   id: string,
   where?: Filter<EventDashboard>["where"],
+  options?: ApiRequestOptions,
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -1227,6 +1367,7 @@ export async function Manager_CountEventDashboards(
     routeParams: {
       id,
     },
+    ...options,
   });
   return unwrapCount(result);
 }
@@ -1237,6 +1378,7 @@ export async function Manager_CountEventDashboards(
 export async function Manager_GetPeopleCounterReports(
   id: string,
   filter?: Filter<PeopleCounterReport>,
+  options?: ApiRequestOptions,
 ): Promise<PeopleCounterReport[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -1250,6 +1392,7 @@ export async function Manager_GetPeopleCounterReports(
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -1259,6 +1402,7 @@ export async function Manager_GetPeopleCounterReports(
 export async function Manager_CountPeopleCounterReports(
   id: string,
   where?: Filter<PeopleCounterReport>["where"],
+  options?: ApiRequestOptions,
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -1272,6 +1416,7 @@ export async function Manager_CountPeopleCounterReports(
     routeParams: {
       id,
     },
+    ...options,
   });
   return unwrapCount(result);
 }
@@ -1282,6 +1427,7 @@ export async function Manager_CountPeopleCounterReports(
 export async function Manager_GetReports(
   id: string,
   filter?: Filter<Report>,
+  options?: ApiRequestOptions,
 ): Promise<Report[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -1295,6 +1441,7 @@ export async function Manager_GetReports(
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -1304,6 +1451,7 @@ export async function Manager_GetReports(
 export async function Manager_CountReports(
   id: string,
   where?: Filter<Report>["where"],
+  options?: ApiRequestOptions,
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -1317,6 +1465,7 @@ export async function Manager_CountReports(
     routeParams: {
       id,
     },
+    ...options,
   });
   return unwrapCount(result);
 }
@@ -1327,6 +1476,7 @@ export async function Manager_CountReports(
 export async function Manager_GetStoreVideoAnalyticDashboards(
   id: string,
   filter?: Filter<StoreVideoAnalyticDashboard>,
+  options?: ApiRequestOptions,
 ): Promise<StoreVideoAnalyticDashboard[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -1340,6 +1490,7 @@ export async function Manager_GetStoreVideoAnalyticDashboards(
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -1349,6 +1500,7 @@ export async function Manager_GetStoreVideoAnalyticDashboards(
 export async function Manager_CountStoreVideoAnalyticDashboards(
   id: string,
   where?: Filter<StoreVideoAnalyticDashboard>["where"],
+  options?: ApiRequestOptions,
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -1362,6 +1514,7 @@ export async function Manager_CountStoreVideoAnalyticDashboards(
     routeParams: {
       id,
     },
+    ...options,
   });
   return unwrapCount(result);
 }
@@ -1372,6 +1525,7 @@ export async function Manager_CountStoreVideoAnalyticDashboards(
 export async function Manager_GetTrafficFlowAnalysis(
   id: string,
   filter?: Filter<TrafficFlowAnalysis>,
+  options?: ApiRequestOptions,
 ): Promise<TrafficFlowAnalysis[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -1385,6 +1539,7 @@ export async function Manager_GetTrafficFlowAnalysis(
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -1394,6 +1549,7 @@ export async function Manager_GetTrafficFlowAnalysis(
 export async function Manager_CountTrafficFlowAnalysis(
   id: string,
   where?: Filter<TrafficFlowAnalysis>["where"],
+  options?: ApiRequestOptions,
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -1407,6 +1563,7 @@ export async function Manager_CountTrafficFlowAnalysis(
     routeParams: {
       id,
     },
+    ...options,
   });
   return unwrapCount(result);
 }
@@ -1417,6 +1574,7 @@ export async function Manager_CountTrafficFlowAnalysis(
 export async function Manager_GetViews(
   id: string,
   filter?: Filter<View>,
+  options?: ApiRequestOptions,
 ): Promise<View[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -1430,6 +1588,7 @@ export async function Manager_GetViews(
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -1439,6 +1598,7 @@ export async function Manager_GetViews(
 export async function Manager_CountViews(
   id: string,
   where?: Filter<View>["where"],
+  options?: ApiRequestOptions,
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -1452,6 +1612,7 @@ export async function Manager_CountViews(
     routeParams: {
       id,
     },
+    ...options,
   });
   return unwrapCount(result);
 }
@@ -1459,11 +1620,15 @@ export async function Manager_CountViews(
  * Create a new instance of the model and persist it into the data source.
  * /Managers
  */
-export async function Manager_create(data?: any): Promise<Manager> {
+export async function Manager_create(
+  data?: any,
+  options?: ApiRequestOptions,
+): Promise<Manager> {
   return ApiFetch({
     method: "POST",
     url: "/Managers",
     body: data,
+    ...options,
   });
 }
 /**
@@ -1473,6 +1638,7 @@ export async function Manager_create(data?: any): Promise<Manager> {
 export async function Manager_findById(
   id: string,
   filter?: Filter<Manager>,
+  options?: ApiRequestOptions,
 ): Promise<Manager> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -1486,6 +1652,7 @@ export async function Manager_findById(
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -1495,6 +1662,7 @@ export async function Manager_findById(
 export async function Manager_replaceById(
   id: string,
   data?: any,
+  options?: ApiRequestOptions,
 ): Promise<Manager> {
   return ApiFetch({
     method: "POST",
@@ -1503,19 +1671,24 @@ export async function Manager_replaceById(
       id,
     },
     body: data,
+    ...options,
   });
 }
 /**
  * Delete a model instance by {{id}} from the data source.
  * /Managers/:id
  */
-export async function Manager_deleteById(id: string): Promise<void> {
+export async function Manager_deleteById(
+  id: string,
+  options?: ApiRequestOptions,
+): Promise<void> {
   return ApiFetch({
     method: "DELETE",
     url: "/Managers/:id",
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -1525,6 +1698,7 @@ export async function Manager_deleteById(id: string): Promise<void> {
 export async function Manager_patchAttributes(
   id: string,
   data?: any,
+  options?: ApiRequestOptions,
 ): Promise<Manager> {
   return ApiFetch({
     method: "PUT",
@@ -1533,6 +1707,7 @@ export async function Manager_patchAttributes(
       id,
     },
     body: data,
+    ...options,
   });
 }
 /**
@@ -1546,6 +1721,7 @@ export async function Manager_login(
     twoFactorCode?: string;
   },
   include?: Filter<Manager>["include"],
+  options?: ApiRequestOptions,
 ): Promise<any> {
   const _urlParams: any = {};
   if (include != null) {
@@ -1557,29 +1733,37 @@ export async function Manager_login(
     url: "/Managers/login",
     urlParams: _urlParams,
     body: { ...credentials },
+    ...options,
   });
 }
 /**
  * Logout a user with access token.
  * /Managers/logout
  */
-export async function Manager_logout(): Promise<any> {
+export async function Manager_logout(
+  options?: ApiRequestOptions,
+): Promise<any> {
   return ApiFetch({
     method: "POST",
     url: "/Managers/logout",
+    ...options,
   });
 }
 /**
  * Trigger user's identity verification with configured verifyOptions
  * /Managers/:id/verify
  */
-export async function Manager_verify(id: string): Promise<any> {
+export async function Manager_verify(
+  id: string,
+  options?: ApiRequestOptions,
+): Promise<any> {
   return ApiFetch({
     method: "POST",
     url: "/Managers/:id/verify",
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -1590,6 +1774,7 @@ export async function Manager_confirm(
   uid: string,
   token: string,
   redirect?: string,
+  options?: ApiRequestOptions,
 ): Promise<CommonAccessToken> {
   const _urlParams: any = {};
   if (uid != null) {
@@ -1606,17 +1791,22 @@ export async function Manager_confirm(
     method: "GET",
     url: "/Managers/confirm",
     urlParams: _urlParams,
+    ...options,
   });
 }
 /**
  * Reset password for a user with email.
  * /Managers/reset
  */
-export async function Manager_resetPassword(options: any): Promise<any> {
+export async function Manager_resetPassword(
+  options: any,
+  requestOptions?: ApiRequestOptions,
+): Promise<any> {
   return ApiFetch({
     method: "POST",
     url: "/Managers/reset",
     body: options,
+    ...requestOptions,
   });
 }
 /**
@@ -1626,22 +1816,28 @@ export async function Manager_resetPassword(options: any): Promise<any> {
 export async function Manager_changePassword(
   oldPassword: string,
   newPassword: string,
+  options?: ApiRequestOptions,
 ): Promise<any> {
   return ApiFetch({
     method: "POST",
     url: "/Managers/change-password",
     body: { oldPassword, newPassword },
+    ...options,
   });
 }
 /**
  * Reset user's password via a password-reset token.
  * /Managers/reset-password
  */
-export async function Manager_setPassword(newPassword: string): Promise<any> {
+export async function Manager_setPassword(
+  newPassword: string,
+  options?: ApiRequestOptions,
+): Promise<any> {
   return ApiFetch({
     method: "POST",
     url: "/Managers/reset-password",
     body: { newPassword },
+    ...options,
   });
 }
 /**
@@ -1651,6 +1847,7 @@ export async function Manager_setPassword(newPassword: string): Promise<any> {
 export async function Manager_getCurrentToken(
   id: string,
   include?: Filter<CommonAccessToken>["include"],
+  options?: ApiRequestOptions,
 ): Promise<CommonAccessToken> {
   const _urlParams: any = {};
   if (include != null) {
@@ -1664,6 +1861,7 @@ export async function Manager_getCurrentToken(
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -1672,6 +1870,7 @@ export async function Manager_getCurrentToken(
  */
 export async function Manager_getMiniAppUserSessionsActive(
   id: string,
+  options?: ApiRequestOptions,
 ): Promise<any[]> {
   return ApiFetch({
     method: "GET",
@@ -1679,6 +1878,7 @@ export async function Manager_getMiniAppUserSessionsActive(
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -1688,6 +1888,7 @@ export async function Manager_getMiniAppUserSessionsActive(
 export async function Manager_MiniAppUserSessionActiveLogout(
   id: string,
   data: any,
+  options?: ApiRequestOptions,
 ): Promise<any> {
   return ApiFetch({
     method: "POST",
@@ -1696,60 +1897,80 @@ export async function Manager_MiniAppUserSessionActiveLogout(
       id,
     },
     body: data,
+    ...options,
   });
 }
 /**
  * Verify account for a user with email.
  * /Managers/verify
  */
-export async function Manager_verifyAccount(options: any): Promise<any> {
+export async function Manager_verifyAccount(
+  options: any,
+  requestOptions?: ApiRequestOptions,
+): Promise<any> {
   return ApiFetch({
     method: "POST",
     url: "/Managers/verify",
     body: options,
+    ...requestOptions,
   });
 }
 /**
  * Whether this environment requires email verification for this user type.
  * /Managers/emailVerificationRequired
  */
-export async function Manager_getEmailVerificationRequired(): Promise<any> {
+export async function Manager_getEmailVerificationRequired(
+  options?: ApiRequestOptions,
+): Promise<any> {
   return ApiFetch({
     method: "GET",
     url: "/Managers/emailVerificationRequired",
+    ...options,
   });
 }
 /**
  * Get information about specified container
  * /Managers/:id/container/info
  */
-export async function Manager_getContainerInfo(id: string): Promise<any> {
+export async function Manager_getContainerInfo(
+  id: string,
+  options?: ApiRequestOptions,
+): Promise<any> {
   return ApiFetch({
     method: "GET",
     url: "/Managers/:id/container/info",
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
  * List all files within specified container
  * /Managers/:id/container/files
  */
-export async function Manager_getFiles(id: string): Promise<any[]> {
+export async function Manager_getFiles(
+  id: string,
+  options?: ApiRequestOptions,
+): Promise<any[]> {
   return ApiFetch({
     method: "GET",
     url: "/Managers/:id/container/files",
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
  * Get information for specified file within specified container
  * /Managers/:id/container/files/:file
  */
-export async function Manager_getFile(id: string, file: string): Promise<any> {
+export async function Manager_getFile(
+  id: string,
+  file: string,
+  options?: ApiRequestOptions,
+): Promise<any> {
   return ApiFetch({
     method: "GET",
     url: "/Managers/:id/container/files/:file",
@@ -1757,6 +1978,7 @@ export async function Manager_getFile(id: string, file: string): Promise<any> {
       id,
       file,
     },
+    ...options,
   });
 }
 /**
@@ -1767,6 +1989,7 @@ export async function Manager_removeFile(
   id: string,
   property: string,
   file: string,
+  options?: ApiRequestOptions,
 ): Promise<void> {
   const _urlParams: any = {};
   if (property != null) {
@@ -1781,6 +2004,7 @@ export async function Manager_removeFile(
       id,
       file,
     },
+    ...options,
   });
 }
 /**
@@ -1792,6 +2016,7 @@ export async function Manager_upload(
   property: string,
   file: UploadableFile,
   onProgress?: (progress: number) => void,
+  options?: ApiRequestOptions,
 ): Promise<any> {
   const _urlParams: any = {};
   if (property != null) {
@@ -1806,6 +2031,7 @@ export async function Manager_upload(
     },
     file: file,
     onProgress: onProgress,
+    ...options,
   });
 }
 /**
@@ -1816,6 +2042,7 @@ export async function Manager_download(
   id: string,
   property: string,
   file: string,
+  options?: ApiRequestOptions,
 ): Promise<any> {
   const _urlParams: any = {};
   if (property != null) {
@@ -1830,5 +2057,6 @@ export async function Manager_download(
       id,
       file,
     },
+    ...options,
   });
 }

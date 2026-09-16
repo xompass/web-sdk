@@ -1,4 +1,9 @@
-import { ApiFetch, Filter, unwrapCount } from "../core/ApiFetch";
+import {
+  ApiFetch,
+  ApiRequestOptions,
+  Filter,
+  unwrapCount,
+} from "../core/ApiFetch";
 import { DeviceConfig } from "../models/Device";
 import { DeviceEvent } from "../models/DeviceEvent";
 import { DeviceEventComment } from "../models/DeviceEventComment";
@@ -9,13 +14,17 @@ import { DeviceEventStateChange } from "../models/DeviceEventStateChange";
  * Fetches hasOne relation config.
  * /Devices/:id/config
  */
-export async function Device_GetConfig(id: string): Promise<DeviceConfig> {
+export async function Device_GetConfig(
+  id: string,
+  options?: ApiRequestOptions,
+): Promise<DeviceConfig> {
   return ApiFetch({
     method: "GET",
     url: "/Devices/:id/config",
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -25,6 +34,7 @@ export async function Device_GetConfig(id: string): Promise<DeviceConfig> {
 export async function Device_CreateConfig(
   id: string,
   data?: any,
+  options?: ApiRequestOptions,
 ): Promise<DeviceConfig> {
   return ApiFetch({
     method: "POST",
@@ -33,6 +43,7 @@ export async function Device_CreateConfig(
       id,
     },
     body: data,
+    ...options,
   });
 }
 /**
@@ -42,6 +53,7 @@ export async function Device_CreateConfig(
 export async function Device_UpdateConfig(
   id: string,
   data?: any,
+  options?: ApiRequestOptions,
 ): Promise<DeviceConfig> {
   return ApiFetch({
     method: "PUT",
@@ -50,6 +62,7 @@ export async function Device_UpdateConfig(
       id,
     },
     body: data,
+    ...options,
   });
 }
 /**
@@ -59,6 +72,7 @@ export async function Device_UpdateConfig(
 export async function Device_FindByIdEvents(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<DeviceEvent> {
   return ApiFetch({
     method: "GET",
@@ -67,6 +81,7 @@ export async function Device_FindByIdEvents(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -77,6 +92,7 @@ export async function Device_UpdateByIdEvents(
   id: string,
   fk: string,
   data?: any,
+  options?: ApiRequestOptions,
 ): Promise<DeviceEvent> {
   return ApiFetch({
     method: "PUT",
@@ -86,6 +102,7 @@ export async function Device_UpdateByIdEvents(
       fk,
     },
     body: data,
+    ...options,
   });
 }
 /**
@@ -96,6 +113,7 @@ export async function Device_LinkTelegramChats(
   id: string,
   fk: string,
   data?: any,
+  options?: ApiRequestOptions,
 ): Promise<any> {
   return ApiFetch({
     method: "PUT",
@@ -105,6 +123,7 @@ export async function Device_LinkTelegramChats(
       fk,
     },
     body: data,
+    ...options,
   });
 }
 /**
@@ -114,6 +133,7 @@ export async function Device_LinkTelegramChats(
 export async function Device_UnlinkTelegramChats(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<void> {
   return ApiFetch({
     method: "DELETE",
@@ -122,6 +142,7 @@ export async function Device_UnlinkTelegramChats(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -131,6 +152,7 @@ export async function Device_UnlinkTelegramChats(
 export async function Device_GetEvents(
   id: string,
   filter?: Filter<DeviceEvent>,
+  options?: ApiRequestOptions,
 ): Promise<DeviceEvent[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -144,6 +166,7 @@ export async function Device_GetEvents(
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -153,6 +176,7 @@ export async function Device_GetEvents(
 export async function Device_CountEvents(
   id: string,
   where?: Filter<DeviceEvent>["where"],
+  options?: ApiRequestOptions,
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -166,6 +190,7 @@ export async function Device_CountEvents(
     routeParams: {
       id,
     },
+    ...options,
   });
   return unwrapCount(result);
 }
@@ -173,13 +198,17 @@ export async function Device_CountEvents(
  * Restart Device, using the Command Center
  * /Devices/:id/cmdc/restart
  */
-export async function Device_cmdcRestart(id: string): Promise<any> {
+export async function Device_cmdcRestart(
+  id: string,
+  options?: ApiRequestOptions,
+): Promise<any> {
   return ApiFetch({
     method: "POST",
     url: "/Devices/:id/cmdc/restart",
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -189,6 +218,7 @@ export async function Device_cmdcRestart(id: string): Promise<any> {
 export async function Device_cmdcRestartModule(
   id: string,
   name: string,
+  options?: ApiRequestOptions,
 ): Promise<any> {
   return ApiFetch({
     method: "POST",
@@ -197,6 +227,7 @@ export async function Device_cmdcRestartModule(
       id,
       name,
     },
+    ...options,
   });
 }
 /**
@@ -207,6 +238,7 @@ export async function Device_FindByIdEventsComments(
   id: string,
   nk: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<DeviceEventComment> {
   return ApiFetch({
     method: "GET",
@@ -216,6 +248,7 @@ export async function Device_FindByIdEventsComments(
       nk,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -226,6 +259,7 @@ export async function Device_DestroyByIdEventsComments(
   id: string,
   nk: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<void> {
   return ApiFetch({
     method: "DELETE",
@@ -235,6 +269,7 @@ export async function Device_DestroyByIdEventsComments(
       nk,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -246,6 +281,7 @@ export async function Device_UpdateByIdEventsComments(
   nk: string,
   fk: string,
   data?: any,
+  options?: ApiRequestOptions,
 ): Promise<DeviceEventComment> {
   return ApiFetch({
     method: "PUT",
@@ -256,6 +292,7 @@ export async function Device_UpdateByIdEventsComments(
       fk,
     },
     body: data,
+    ...options,
   });
 }
 /**
@@ -266,6 +303,7 @@ export async function Device_FindByIdEventsData(
   id: string,
   nk: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<DeviceEventData> {
   return ApiFetch({
     method: "GET",
@@ -275,6 +313,7 @@ export async function Device_FindByIdEventsData(
       nk,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -285,6 +324,7 @@ export async function Device_FindByIdEventsStateChanges(
   id: string,
   nk: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<DeviceEventStateChange> {
   return ApiFetch({
     method: "GET",
@@ -294,6 +334,7 @@ export async function Device_FindByIdEventsStateChanges(
       nk,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -304,6 +345,7 @@ export async function Device_GetEventsComments(
   id: string,
   nk: string,
   filter?: Filter<DeviceEventComment>,
+  options?: ApiRequestOptions,
 ): Promise<DeviceEventComment[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -318,6 +360,7 @@ export async function Device_GetEventsComments(
       id,
       nk,
     },
+    ...options,
   });
 }
 /**
@@ -328,6 +371,7 @@ export async function Device_CreateEventsComments(
   id: string,
   nk: string,
   data?: any,
+  options?: ApiRequestOptions,
 ): Promise<DeviceEventComment> {
   return ApiFetch({
     method: "POST",
@@ -337,6 +381,7 @@ export async function Device_CreateEventsComments(
       nk,
     },
     body: data,
+    ...options,
   });
 }
 /**
@@ -347,6 +392,7 @@ export async function Device_CountEventsComments(
   id: string,
   nk: string,
   where?: Filter<DeviceEvent>["where"],
+  options?: ApiRequestOptions,
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -361,6 +407,7 @@ export async function Device_CountEventsComments(
       id,
       nk,
     },
+    ...options,
   });
   return unwrapCount(result);
 }
@@ -372,6 +419,7 @@ export async function Device_GetEventsData(
   id: string,
   nk: string,
   filter?: Filter<DeviceEventData>,
+  options?: ApiRequestOptions,
 ): Promise<DeviceEventData[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -386,6 +434,7 @@ export async function Device_GetEventsData(
       id,
       nk,
     },
+    ...options,
   });
 }
 /**
@@ -396,6 +445,7 @@ export async function Device_CountEventsData(
   id: string,
   nk: string,
   where?: Filter<DeviceEvent>["where"],
+  options?: ApiRequestOptions,
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -410,6 +460,7 @@ export async function Device_CountEventsData(
       id,
       nk,
     },
+    ...options,
   });
   return unwrapCount(result);
 }
@@ -421,6 +472,7 @@ export async function Device_GetEventsStateChanges(
   id: string,
   nk: string,
   filter?: Filter<DeviceEventStateChange>,
+  options?: ApiRequestOptions,
 ): Promise<DeviceEventStateChange[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -435,6 +487,7 @@ export async function Device_GetEventsStateChanges(
       id,
       nk,
     },
+    ...options,
   });
 }
 /**
@@ -445,6 +498,7 @@ export async function Device_CreateEventsStateChanges(
   id: string,
   nk: string,
   data?: any,
+  options?: ApiRequestOptions,
 ): Promise<DeviceEventStateChange> {
   return ApiFetch({
     method: "POST",
@@ -454,6 +508,7 @@ export async function Device_CreateEventsStateChanges(
       nk,
     },
     body: data,
+    ...options,
   });
 }
 /**
@@ -464,6 +519,7 @@ export async function Device_CountEventsStateChanges(
   id: string,
   nk: string,
   where?: Filter<DeviceEvent>["where"],
+  options?: ApiRequestOptions,
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -478,6 +534,7 @@ export async function Device_CountEventsStateChanges(
       id,
       nk,
     },
+    ...options,
   });
   return unwrapCount(result);
 }

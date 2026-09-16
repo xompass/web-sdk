@@ -1,4 +1,4 @@
-import { ApiFetch, Filter } from "../core/ApiFetch";
+import { ApiFetch, ApiRequestOptions, Filter } from "../core/ApiFetch";
 import { ApiKey } from "../models/ApiKey";
 import { RateLimit } from "../models/RateLimit";
 
@@ -6,13 +6,17 @@ import { RateLimit } from "../models/RateLimit";
  * Fetches hasOne relation rateLimit.
  * /ApiKeys/:id/rateLimit
  */
-export async function ApiKey_GetRateLimit(id: string): Promise<RateLimit> {
+export async function ApiKey_GetRateLimit(
+  id: string,
+  options?: ApiRequestOptions,
+): Promise<RateLimit> {
   return ApiFetch({
     method: "GET",
     url: "/ApiKeys/:id/rateLimit",
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -22,6 +26,7 @@ export async function ApiKey_GetRateLimit(id: string): Promise<RateLimit> {
 export async function ApiKey_UpdateRateLimit(
   id: string,
   data?: any,
+  options?: ApiRequestOptions,
 ): Promise<RateLimit> {
   return ApiFetch({
     method: "PUT",
@@ -30,6 +35,7 @@ export async function ApiKey_UpdateRateLimit(
       id,
     },
     body: data,
+    ...options,
   });
 }
 /**
@@ -39,6 +45,7 @@ export async function ApiKey_UpdateRateLimit(
 export async function ApiKey_findById(
   id: string,
   filter?: Filter<ApiKey>,
+  options?: ApiRequestOptions,
 ): Promise<ApiKey> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -52,5 +59,6 @@ export async function ApiKey_findById(
     routeParams: {
       id,
     },
+    ...options,
   });
 }

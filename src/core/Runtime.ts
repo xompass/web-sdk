@@ -8,6 +8,7 @@ export type FetchOptions = {
   method?: string;
   headers?: { [key: string]: string };
   body?: any;
+  signal?: AbortSignal;
 };
 
 export type FetchResponse = {
@@ -44,9 +45,11 @@ export type XMLHttpRequestAdapter = {
   upload: XMLHttpRequestUploadAdapter;
   onload: (() => void) | null;
   onerror: (() => void) | null;
+  onabort?: (() => void) | null;
   open(method: string, url: string, async?: boolean): void;
   setRequestHeader(name: string, value: string): void;
   send(body: any): void;
+  abort?(): void;
 };
 
 export type XMLHttpRequestConstructor = new () => XMLHttpRequestAdapter;

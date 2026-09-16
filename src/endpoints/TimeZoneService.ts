@@ -1,17 +1,26 @@
-import { ApiFetch, Filter, unwrapCount } from "../core/ApiFetch";
+import {
+  ApiFetch,
+  ApiRequestOptions,
+  Filter,
+  unwrapCount,
+} from "../core/ApiFetch";
 import { TimeZone } from "../models/TimeZone";
 
 /**
  * Check whether a model instance exists in the data source.
  * /TimeZones/:id/exists
  */
-export async function TimeZone_exists(id: string): Promise<boolean> {
+export async function TimeZone_exists(
+  id: string,
+  options?: ApiRequestOptions,
+): Promise<boolean> {
   return ApiFetch({
     method: "GET",
     url: "/TimeZones/:id/exists",
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -21,6 +30,7 @@ export async function TimeZone_exists(id: string): Promise<boolean> {
 export async function TimeZone_findById(
   id: string,
   filter?: Filter<TimeZone>,
+  options?: ApiRequestOptions,
 ): Promise<TimeZone> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -34,6 +44,7 @@ export async function TimeZone_findById(
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -42,6 +53,7 @@ export async function TimeZone_findById(
  */
 export async function TimeZone_find(
   filter?: Filter<TimeZone>,
+  options?: ApiRequestOptions,
 ): Promise<TimeZone[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -52,6 +64,7 @@ export async function TimeZone_find(
     method: "GET",
     url: "/TimeZones",
     urlParams: _urlParams,
+    ...options,
   });
 }
 /**
@@ -60,6 +73,7 @@ export async function TimeZone_find(
  */
 export async function TimeZone_findOne(
   filter?: Filter<TimeZone>,
+  options?: ApiRequestOptions,
 ): Promise<TimeZone> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -70,6 +84,7 @@ export async function TimeZone_findOne(
     method: "GET",
     url: "/TimeZones/findOne",
     urlParams: _urlParams,
+    ...options,
   });
 }
 /**
@@ -78,6 +93,7 @@ export async function TimeZone_findOne(
  */
 export async function TimeZone_count(
   where?: Filter<TimeZone>["where"],
+  options?: ApiRequestOptions,
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -88,6 +104,7 @@ export async function TimeZone_count(
     method: "GET",
     url: "/TimeZones/count",
     urlParams: _urlParams,
+    ...options,
   });
   return unwrapCount(result);
 }

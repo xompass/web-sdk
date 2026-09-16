@@ -1,4 +1,9 @@
-import { ApiFetch, Filter, unwrapCount } from "../core/ApiFetch";
+import {
+  ApiFetch,
+  ApiRequestOptions,
+  Filter,
+  unwrapCount,
+} from "../core/ApiFetch";
 import { Log } from "../models/Log";
 import { Toolkit } from "../models/Toolkit";
 
@@ -9,6 +14,7 @@ import { Toolkit } from "../models/Toolkit";
 export async function Toolkit_FindByIdTrackingLogs(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<Log> {
   return ApiFetch({
     method: "GET",
@@ -17,6 +23,7 @@ export async function Toolkit_FindByIdTrackingLogs(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -26,6 +33,7 @@ export async function Toolkit_FindByIdTrackingLogs(
 export async function Toolkit_GetTrackingLogs(
   id: string,
   filter?: Filter<Log>,
+  options?: ApiRequestOptions,
 ): Promise<Log[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -39,6 +47,7 @@ export async function Toolkit_GetTrackingLogs(
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -48,6 +57,7 @@ export async function Toolkit_GetTrackingLogs(
 export async function Toolkit_CountTrackingLogs(
   id: string,
   where?: Filter<Log>["where"],
+  options?: ApiRequestOptions,
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -61,6 +71,7 @@ export async function Toolkit_CountTrackingLogs(
     routeParams: {
       id,
     },
+    ...options,
   });
   return unwrapCount(result);
 }
@@ -68,13 +79,17 @@ export async function Toolkit_CountTrackingLogs(
  * Check whether a model instance exists in the data source.
  * /Toolkits/:id/exists
  */
-export async function Toolkit_exists(id: string): Promise<boolean> {
+export async function Toolkit_exists(
+  id: string,
+  options?: ApiRequestOptions,
+): Promise<boolean> {
   return ApiFetch({
     method: "GET",
     url: "/Toolkits/:id/exists",
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -84,6 +99,7 @@ export async function Toolkit_exists(id: string): Promise<boolean> {
 export async function Toolkit_findById(
   id: string,
   filter?: Filter<Toolkit>,
+  options?: ApiRequestOptions,
 ): Promise<Toolkit> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -97,6 +113,7 @@ export async function Toolkit_findById(
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -105,6 +122,7 @@ export async function Toolkit_findById(
  */
 export async function Toolkit_find(
   filter?: Filter<Toolkit>,
+  options?: ApiRequestOptions,
 ): Promise<Toolkit[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -115,6 +133,7 @@ export async function Toolkit_find(
     method: "GET",
     url: "/Toolkits",
     urlParams: _urlParams,
+    ...options,
   });
 }
 /**
@@ -123,6 +142,7 @@ export async function Toolkit_find(
  */
 export async function Toolkit_findOne(
   filter?: Filter<Toolkit>,
+  options?: ApiRequestOptions,
 ): Promise<Toolkit> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -133,6 +153,7 @@ export async function Toolkit_findOne(
     method: "GET",
     url: "/Toolkits/findOne",
     urlParams: _urlParams,
+    ...options,
   });
 }
 /**
@@ -141,6 +162,7 @@ export async function Toolkit_findOne(
  */
 export async function Toolkit_count(
   where?: Filter<Toolkit>["where"],
+  options?: ApiRequestOptions,
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -151,6 +173,7 @@ export async function Toolkit_count(
     method: "GET",
     url: "/Toolkits/count",
     urlParams: _urlParams,
+    ...options,
   });
   return unwrapCount(result);
 }

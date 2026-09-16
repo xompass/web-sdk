@@ -1,4 +1,9 @@
-import { ApiFetch, Filter, unwrapCount } from "../core/ApiFetch";
+import {
+  ApiFetch,
+  ApiRequestOptions,
+  Filter,
+  unwrapCount,
+} from "../core/ApiFetch";
 import { Asset } from "../models/Asset";
 import { Manager } from "../models/Manager";
 
@@ -9,6 +14,7 @@ import { Manager } from "../models/Manager";
 export async function Report_FindByIdManagers(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<Manager> {
   return ApiFetch({
     method: "GET",
@@ -17,6 +23,7 @@ export async function Report_FindByIdManagers(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -26,6 +33,7 @@ export async function Report_FindByIdManagers(
 export async function Report_FindByIdAssets(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<Asset> {
   return ApiFetch({
     method: "GET",
@@ -34,6 +42,7 @@ export async function Report_FindByIdAssets(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -43,6 +52,7 @@ export async function Report_FindByIdAssets(
 export async function Report_LinkAssets(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<Asset> {
   return ApiFetch({
     method: "PUT",
@@ -51,6 +61,7 @@ export async function Report_LinkAssets(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -60,6 +71,7 @@ export async function Report_LinkAssets(
 export async function Report_UnlinkAssets(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<void> {
   return ApiFetch({
     method: "DELETE",
@@ -68,6 +80,7 @@ export async function Report_UnlinkAssets(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -77,6 +90,7 @@ export async function Report_UnlinkAssets(
 export async function Report_ExistsAssets(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<boolean> {
   return ApiFetch({
     method: "HEAD",
@@ -85,6 +99,7 @@ export async function Report_ExistsAssets(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -94,6 +109,7 @@ export async function Report_ExistsAssets(
 export async function Report_GetManagers(
   id: string,
   filter?: Filter<Manager>,
+  options?: ApiRequestOptions,
 ): Promise<Manager[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -107,6 +123,7 @@ export async function Report_GetManagers(
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -116,6 +133,7 @@ export async function Report_GetManagers(
 export async function Report_CountManagers(
   id: string,
   where?: Filter<Manager>["where"],
+  options?: ApiRequestOptions,
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -129,6 +147,7 @@ export async function Report_CountManagers(
     routeParams: {
       id,
     },
+    ...options,
   });
   return unwrapCount(result);
 }
@@ -139,6 +158,7 @@ export async function Report_CountManagers(
 export async function Report_GetAssets(
   id: string,
   filter?: Filter<Asset>,
+  options?: ApiRequestOptions,
 ): Promise<Asset[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -152,6 +172,7 @@ export async function Report_GetAssets(
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -161,6 +182,7 @@ export async function Report_GetAssets(
 export async function Report_CountAssets(
   id: string,
   where?: Filter<Asset>["where"],
+  options?: ApiRequestOptions,
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -174,6 +196,7 @@ export async function Report_CountAssets(
     routeParams: {
       id,
     },
+    ...options,
   });
   return unwrapCount(result);
 }

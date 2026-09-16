@@ -1,4 +1,9 @@
-import { ApiFetch, Filter, unwrapCount } from "../core/ApiFetch";
+import {
+  ApiFetch,
+  ApiRequestOptions,
+  Filter,
+  unwrapCount,
+} from "../core/ApiFetch";
 import { Asset } from "../models/Asset";
 import { EventDashboard_GetDisabledEventTriggersResponse } from "../models/EndpointTypes";
 import {
@@ -15,6 +20,7 @@ import { Manager } from "../models/Manager";
 export async function EventDashboard_FindByIdAssets(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<Asset> {
   return ApiFetch({
     method: "GET",
@@ -23,6 +29,7 @@ export async function EventDashboard_FindByIdAssets(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -32,6 +39,7 @@ export async function EventDashboard_FindByIdAssets(
 export async function EventDashboard_LinkAssets(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<Asset> {
   return ApiFetch({
     method: "PUT",
@@ -40,6 +48,7 @@ export async function EventDashboard_LinkAssets(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -49,6 +58,7 @@ export async function EventDashboard_LinkAssets(
 export async function EventDashboard_UnlinkAssets(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<void> {
   return ApiFetch({
     method: "DELETE",
@@ -57,6 +67,7 @@ export async function EventDashboard_UnlinkAssets(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -66,6 +77,7 @@ export async function EventDashboard_UnlinkAssets(
 export async function EventDashboard_ExistsAssets(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<boolean> {
   return ApiFetch({
     method: "HEAD",
@@ -74,6 +86,7 @@ export async function EventDashboard_ExistsAssets(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -83,6 +96,7 @@ export async function EventDashboard_ExistsAssets(
 export async function EventDashboard_FindByIdEventDashboardEventTriggers(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<EventDashboardEventTrigger> {
   return ApiFetch({
     method: "GET",
@@ -91,6 +105,7 @@ export async function EventDashboard_FindByIdEventDashboardEventTriggers(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -101,6 +116,7 @@ export async function EventDashboard_UpdateByIdEventDashboardEventTriggers(
   id: string,
   fk: string,
   data?: any,
+  options?: ApiRequestOptions,
 ): Promise<EventDashboardEventTrigger> {
   return ApiFetch({
     method: "PUT",
@@ -110,6 +126,7 @@ export async function EventDashboard_UpdateByIdEventDashboardEventTriggers(
       fk,
     },
     body: data,
+    ...options,
   });
 }
 /**
@@ -119,6 +136,7 @@ export async function EventDashboard_UpdateByIdEventDashboardEventTriggers(
 export async function EventDashboard_FindByIdEventTriggers(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<EventTrigger> {
   return ApiFetch({
     method: "GET",
@@ -127,6 +145,7 @@ export async function EventDashboard_FindByIdEventTriggers(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -137,6 +156,7 @@ export async function EventDashboard_LinkEventTriggers(
   id: string,
   fk: string,
   data?: any,
+  options?: ApiRequestOptions,
 ): Promise<EventDashboardEventTrigger> {
   return ApiFetch({
     method: "PUT",
@@ -146,6 +166,7 @@ export async function EventDashboard_LinkEventTriggers(
       fk,
     },
     body: data,
+    ...options,
   });
 }
 /**
@@ -155,6 +176,7 @@ export async function EventDashboard_LinkEventTriggers(
 export async function EventDashboard_UnlinkEventTriggers(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<void> {
   return ApiFetch({
     method: "DELETE",
@@ -163,6 +185,7 @@ export async function EventDashboard_UnlinkEventTriggers(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -172,6 +195,7 @@ export async function EventDashboard_UnlinkEventTriggers(
 export async function EventDashboard_ExistsEventTriggers(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<boolean> {
   return ApiFetch({
     method: "HEAD",
@@ -180,6 +204,7 @@ export async function EventDashboard_ExistsEventTriggers(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -189,6 +214,7 @@ export async function EventDashboard_ExistsEventTriggers(
 export async function EventDashboard_FindByIdManagers(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<Manager> {
   return ApiFetch({
     method: "GET",
@@ -197,6 +223,7 @@ export async function EventDashboard_FindByIdManagers(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -206,6 +233,7 @@ export async function EventDashboard_FindByIdManagers(
 export async function EventDashboard_GetAssets(
   id: string,
   filter?: Filter<Asset>,
+  options?: ApiRequestOptions,
 ): Promise<Asset[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -219,6 +247,7 @@ export async function EventDashboard_GetAssets(
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -228,6 +257,7 @@ export async function EventDashboard_GetAssets(
 export async function EventDashboard_CountAssets(
   id: string,
   where?: Filter<Asset>["where"],
+  options?: ApiRequestOptions,
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -241,6 +271,7 @@ export async function EventDashboard_CountAssets(
     routeParams: {
       id,
     },
+    ...options,
   });
   return unwrapCount(result);
 }
@@ -251,6 +282,7 @@ export async function EventDashboard_CountAssets(
 export async function EventDashboard_GetEventDashboardEventTriggers(
   id: string,
   filter?: Filter<EventDashboardEventTrigger>,
+  options?: ApiRequestOptions,
 ): Promise<EventDashboardEventTrigger[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -264,6 +296,7 @@ export async function EventDashboard_GetEventDashboardEventTriggers(
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -273,6 +306,7 @@ export async function EventDashboard_GetEventDashboardEventTriggers(
 export async function EventDashboard_GetEventTriggers(
   id: string,
   filter?: Filter<EventTrigger>,
+  options?: ApiRequestOptions,
 ): Promise<EventTrigger[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -286,6 +320,7 @@ export async function EventDashboard_GetEventTriggers(
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -295,6 +330,7 @@ export async function EventDashboard_GetEventTriggers(
 export async function EventDashboard_CountEventTriggers(
   id: string,
   where?: Filter<EventTrigger>["where"],
+  options?: ApiRequestOptions,
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -308,6 +344,7 @@ export async function EventDashboard_CountEventTriggers(
     routeParams: {
       id,
     },
+    ...options,
   });
   return unwrapCount(result);
 }
@@ -318,6 +355,7 @@ export async function EventDashboard_CountEventTriggers(
 export async function EventDashboard_GetManagers(
   id: string,
   filter?: Filter<Manager>,
+  options?: ApiRequestOptions,
 ): Promise<Manager[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -331,6 +369,7 @@ export async function EventDashboard_GetManagers(
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -340,6 +379,7 @@ export async function EventDashboard_GetManagers(
 export async function EventDashboard_CountManagers(
   id: string,
   where?: Filter<Manager>["where"],
+  options?: ApiRequestOptions,
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -353,6 +393,7 @@ export async function EventDashboard_CountManagers(
     routeParams: {
       id,
     },
+    ...options,
   });
   return unwrapCount(result);
 }
@@ -363,6 +404,7 @@ export async function EventDashboard_CountManagers(
 export async function EventDashboard_findById(
   id: string,
   filter?: Filter<EventDashboard>,
+  options?: ApiRequestOptions,
 ): Promise<EventDashboard> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -376,6 +418,7 @@ export async function EventDashboard_findById(
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -387,6 +430,7 @@ export async function EventDashboard_GetEvents(
   filter?: Filter<EventDashboard>,
   eventTriggers?: boolean,
   assets?: boolean,
+  options?: ApiRequestOptions,
 ): Promise<any> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -406,6 +450,7 @@ export async function EventDashboard_GetEvents(
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -415,6 +460,7 @@ export async function EventDashboard_GetEvents(
 export async function EventDashboard_GetDisabledEventTriggers(
   id: string,
   filter?: Filter<EventDashboard_GetDisabledEventTriggersResponse>,
+  options?: ApiRequestOptions,
 ): Promise<EventDashboard_GetDisabledEventTriggersResponse> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -428,5 +474,6 @@ export async function EventDashboard_GetDisabledEventTriggers(
     routeParams: {
       id,
     },
+    ...options,
   });
 }

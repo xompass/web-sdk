@@ -1,4 +1,4 @@
-import { ApiFetch, Filter } from "../core/ApiFetch";
+import { ApiFetch, ApiRequestOptions, Filter } from "../core/ApiFetch";
 import { Asset } from "../models/Asset";
 import { EdgeAgentAsset } from "../models/EdgeAgent";
 
@@ -9,6 +9,7 @@ import { EdgeAgentAsset } from "../models/EdgeAgent";
 export async function EdgeAgent_FindByIdAssets(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<Asset> {
   return ApiFetch({
     method: "GET",
@@ -17,6 +18,7 @@ export async function EdgeAgent_FindByIdAssets(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -27,6 +29,7 @@ export async function EdgeAgent_LinkAssets(
   id: string,
   fk: string,
   data?: any,
+  options?: ApiRequestOptions,
 ): Promise<EdgeAgentAsset> {
   return ApiFetch({
     method: "PUT",
@@ -36,6 +39,7 @@ export async function EdgeAgent_LinkAssets(
       fk,
     },
     body: data,
+    ...options,
   });
 }
 /**
@@ -45,6 +49,7 @@ export async function EdgeAgent_LinkAssets(
 export async function EdgeAgent_UnlinkAssets(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<void> {
   return ApiFetch({
     method: "DELETE",
@@ -53,6 +58,7 @@ export async function EdgeAgent_UnlinkAssets(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -63,6 +69,7 @@ export async function EdgeAgent_LinkTelegramChats(
   id: string,
   fk: string,
   data?: any,
+  options?: ApiRequestOptions,
 ): Promise<any> {
   return ApiFetch({
     method: "PUT",
@@ -72,6 +79,7 @@ export async function EdgeAgent_LinkTelegramChats(
       fk,
     },
     body: data,
+    ...options,
   });
 }
 /**
@@ -81,6 +89,7 @@ export async function EdgeAgent_LinkTelegramChats(
 export async function EdgeAgent_UnlinkTelegramChats(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<void> {
   return ApiFetch({
     method: "DELETE",
@@ -89,6 +98,7 @@ export async function EdgeAgent_UnlinkTelegramChats(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -98,6 +108,7 @@ export async function EdgeAgent_UnlinkTelegramChats(
 export async function EdgeAgent_GetAssets(
   id: string,
   filter?: Filter<Asset>,
+  options?: ApiRequestOptions,
 ): Promise<Asset[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -111,6 +122,7 @@ export async function EdgeAgent_GetAssets(
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -120,6 +132,7 @@ export async function EdgeAgent_GetAssets(
 export async function EdgeAgent_BulkLinkAssets(
   id: string,
   where: Filter<Asset>["where"],
+  options?: ApiRequestOptions,
 ): Promise<any[]> {
   const _urlParams: any = {};
   if (where != null) {
@@ -133,6 +146,7 @@ export async function EdgeAgent_BulkLinkAssets(
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -142,6 +156,7 @@ export async function EdgeAgent_BulkLinkAssets(
 export async function EdgeAgent_BulkUnlinkAssets(
   id: string,
   where: Filter<Asset>["where"],
+  options?: ApiRequestOptions,
 ): Promise<void> {
   const _urlParams: any = {};
   if (where != null) {
@@ -155,5 +170,6 @@ export async function EdgeAgent_BulkUnlinkAssets(
     routeParams: {
       id,
     },
+    ...options,
   });
 }

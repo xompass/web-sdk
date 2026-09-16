@@ -1,4 +1,9 @@
-import { ApiFetch, Filter, unwrapCount } from "../core/ApiFetch";
+import {
+  ApiFetch,
+  ApiRequestOptions,
+  Filter,
+  unwrapCount,
+} from "../core/ApiFetch";
 import { DeviceEvent } from "../models/DeviceEvent";
 import { Log } from "../models/Log";
 
@@ -9,6 +14,7 @@ import { Log } from "../models/Log";
 export async function DeviceEvent_FindByIdTrackingLogs(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<Log> {
   return ApiFetch({
     method: "GET",
@@ -17,6 +23,7 @@ export async function DeviceEvent_FindByIdTrackingLogs(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -26,6 +33,7 @@ export async function DeviceEvent_FindByIdTrackingLogs(
 export async function DeviceEvent_GetTrackingLogs(
   id: string,
   filter?: Filter<Log>,
+  options?: ApiRequestOptions,
 ): Promise<Log[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -39,6 +47,7 @@ export async function DeviceEvent_GetTrackingLogs(
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -48,6 +57,7 @@ export async function DeviceEvent_GetTrackingLogs(
 export async function DeviceEvent_CountTrackingLogs(
   id: string,
   where?: Filter<Log>["where"],
+  options?: ApiRequestOptions,
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -61,6 +71,7 @@ export async function DeviceEvent_CountTrackingLogs(
     routeParams: {
       id,
     },
+    ...options,
   });
   return unwrapCount(result);
 }
@@ -68,24 +79,32 @@ export async function DeviceEvent_CountTrackingLogs(
  * Create a new instance of the model and persist it into the data source.
  * /DeviceEvents
  */
-export async function DeviceEvent_create(data?: any): Promise<DeviceEvent> {
+export async function DeviceEvent_create(
+  data?: any,
+  options?: ApiRequestOptions,
+): Promise<DeviceEvent> {
   return ApiFetch({
     method: "POST",
     url: "/DeviceEvents",
     body: data,
+    ...options,
   });
 }
 /**
  * Check whether a model instance exists in the data source.
  * /DeviceEvents/:id/exists
  */
-export async function DeviceEvent_exists(id: string): Promise<boolean> {
+export async function DeviceEvent_exists(
+  id: string,
+  options?: ApiRequestOptions,
+): Promise<boolean> {
   return ApiFetch({
     method: "GET",
     url: "/DeviceEvents/:id/exists",
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -95,6 +114,7 @@ export async function DeviceEvent_exists(id: string): Promise<boolean> {
 export async function DeviceEvent_findById(
   id: string,
   filter?: Filter<DeviceEvent>,
+  options?: ApiRequestOptions,
 ): Promise<DeviceEvent> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -108,6 +128,7 @@ export async function DeviceEvent_findById(
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -116,6 +137,7 @@ export async function DeviceEvent_findById(
  */
 export async function DeviceEvent_find(
   filter?: Filter<DeviceEvent>,
+  options?: ApiRequestOptions,
 ): Promise<DeviceEvent[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -126,6 +148,7 @@ export async function DeviceEvent_find(
     method: "GET",
     url: "/DeviceEvents",
     urlParams: _urlParams,
+    ...options,
   });
 }
 /**
@@ -134,6 +157,7 @@ export async function DeviceEvent_find(
  */
 export async function DeviceEvent_findOne(
   filter?: Filter<DeviceEvent>,
+  options?: ApiRequestOptions,
 ): Promise<DeviceEvent> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -144,19 +168,24 @@ export async function DeviceEvent_findOne(
     method: "GET",
     url: "/DeviceEvents/findOne",
     urlParams: _urlParams,
+    ...options,
   });
 }
 /**
  * Delete a model instance by {{id}} from the data source.
  * /DeviceEvents/:id
  */
-export async function DeviceEvent_deleteById(id: string): Promise<void> {
+export async function DeviceEvent_deleteById(
+  id: string,
+  options?: ApiRequestOptions,
+): Promise<void> {
   return ApiFetch({
     method: "DELETE",
     url: "/DeviceEvents/:id",
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -165,6 +194,7 @@ export async function DeviceEvent_deleteById(id: string): Promise<void> {
  */
 export async function DeviceEvent_count(
   where?: Filter<DeviceEvent>["where"],
+  options?: ApiRequestOptions,
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -175,6 +205,7 @@ export async function DeviceEvent_count(
     method: "GET",
     url: "/DeviceEvents/count",
     urlParams: _urlParams,
+    ...options,
   });
   return unwrapCount(result);
 }
@@ -185,6 +216,7 @@ export async function DeviceEvent_count(
 export async function DeviceEvent_patchAttributes(
   id: string,
   data?: any,
+  options?: ApiRequestOptions,
 ): Promise<DeviceEvent> {
   return ApiFetch({
     method: "PUT",
@@ -193,5 +225,6 @@ export async function DeviceEvent_patchAttributes(
       id,
     },
     body: data,
+    ...options,
   });
 }

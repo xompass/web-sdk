@@ -3,7 +3,7 @@
   "generatorVersion": "0.1.0",
   "profile": "cloud-api",
   "environment": "development",
-  "sourceFingerprint": "bdf0b539394d83ce",
+  "sourceFingerprint": "395a76214cc939ae",
   "files": {
     ".oxfmtrc.json": {
       "hash": "922a004cb28b203ab7e413f630bdc3e374f776898288ba3268dfc2267f95fc8b",
@@ -34,11 +34,11 @@
       "owner": "generator"
     },
     "src/core/ApiFetch.test.ts": {
-      "hash": "02cf6e7ebab380356ccbdd99b780bee4b27c531cfc24ee1df45dbc2e2803b6f7",
+      "hash": "594a9dc86531edeb3a806e60c37e865a28ada1e8dd785fef862af0ae19bf74bd",
       "owner": "generator"
     },
     "src/core/ApiFetch.ts": {
-      "hash": "7fb6ccb4432ef2ef2a095ec376556866c56087e7501c65d93d866944df584d91",
+      "hash": "0f56b1e15446905961e8b7c95662e6cfb7506f72b469efd55ea22115501c3843",
       "owner": "generator"
     },
     "src/core/LocalStorage.ts": {
@@ -50,7 +50,7 @@
       "owner": "generator"
     },
     "src/core/Runtime.ts": {
-      "hash": "244f1c710db68e30c7320ec2ca6f264d56029a21733fc07e8acaeb64cce27fd6",
+      "hash": "66d188520e4e2dc4c3e4b8c549c5af6e37a5faeb6b6e11f7323916ef77a9ba07",
       "owner": "generator"
     },
     "src/core/User.ts": {
@@ -58,191 +58,191 @@
       "owner": "generator"
     },
     "src/endpoints/AdminService.ts": {
-      "hash": "dc49c7b9dfeb6900a6e5fd69ec8134b434c3cf9b82e498ec161aa7165f1f293e",
+      "hash": "8560b75710a71c2cb8cbebf4aecaf04c6be1f61d2cc4d2139238789d5c8d2e40",
       "owner": "generator"
     },
     "src/endpoints/ApiKeyService.ts": {
-      "hash": "dc599b586c270ae7fda93590d1ad0d9b68fc7b8ef68be713d35f7010b94ea9f1",
+      "hash": "549d6f4c7e4380caf460876cdeb781084311709be91f48a097e7c02ad93645c9",
       "owner": "generator"
     },
     "src/endpoints/AssetService.ts": {
-      "hash": "4958d3d732eb403255d176a227d11831b9e31028ac087f655811a6027ea193b9",
+      "hash": "8193699081f38e17d2d2968dd370c3c5396f8027740b3e7b7f7646065bcf2255",
       "owner": "generator"
     },
     "src/endpoints/AssetTemplateService.ts": {
-      "hash": "635ce0d0ed03f815a07970298e0478b69b883487890bb83d7388ac56cf042e29",
+      "hash": "03e1b81a8980feabfb6bb3ee0628ef379dc7414e4e45c0def7ab197e363cab82",
       "owner": "generator"
     },
     "src/endpoints/AssetWizardTypeService.ts": {
-      "hash": "0c02be53392ca00656ecc9924c260ee82e07d9eb3a0473e89253682d8a0f3193",
+      "hash": "6ab8a822c4fd78e8fe5fd1288f816871f42c759602c696e4b76dc10fd252b73b",
       "owner": "generator"
     },
     "src/endpoints/BIPanelService.ts": {
-      "hash": "5350ffdd7be3804b99e07c1409de8ea2dd6b74a231436c5f34bd0726dce9842f",
+      "hash": "2c91f7672ca5fdbc1a7d0e6f583c83e84c28f51685218ad52a7796f44ab71986",
       "owner": "generator"
     },
     "src/endpoints/CctvDashboardService.ts": {
-      "hash": "d460661a8a2339d862b7d90f0bcd15da658429f1bd5a4f6c812ce23686bc44a4",
+      "hash": "4be821483be357a64b557da0f5e578d62644e8533ea501e351043378cb3f7e1e",
       "owner": "generator"
     },
     "src/endpoints/CountReportService.ts": {
-      "hash": "eddd7a908678f0130760aedbb497b35a3884810353deea301bc644c7cc511641",
+      "hash": "a27440afe1c0536bc5a2b34296022ee214a89bf16c58d46f85f8da7e4931f27e",
       "owner": "generator"
     },
     "src/endpoints/CountryService.ts": {
-      "hash": "1deb5ddc116327cf899e61399848dd078d02d68e599e5ff324ec09f72b824a08",
+      "hash": "445c718478871da249f394162d2b2925469f0b3eeee1c616380bedd483aac4af",
       "owner": "generator"
     },
     "src/endpoints/CustomerService.ts": {
-      "hash": "544d236264f1e87a5142b1f312dac6b98af6bee7462ab1d565bdc483f25ae60e",
+      "hash": "d186a6713c9c0c3e559fbefef8a43bcc9b6344a03f011489bb4e1a70dbac14c2",
       "owner": "generator"
     },
     "src/endpoints/DeviceEventService.ts": {
-      "hash": "835158e536cbfd064a94f9040eabcb6e0fccd603cff279e98ca07e124bc423a0",
+      "hash": "a2dd57c4160eb7379947fbd47c534381d17b92230c8a5464cc37dfdb04abcd97",
       "owner": "generator"
     },
     "src/endpoints/DeviceService.ts": {
-      "hash": "ed0bf4233d2331f51b26581c35046c8e83169e5ce110903de58e83f342586dbf",
+      "hash": "dae83a884c0edb07c6b66d7c8eb67e4e22dad7a5474d6d6332aac2f67058c6c1",
       "owner": "generator"
     },
     "src/endpoints/DispatchService.ts": {
-      "hash": "3ba126e71e4e01fbb8d4cd52c06922bc47321efd98b85487316301e3b24293da",
+      "hash": "07e08d31a6f9551482e2baebeb8921d2f65cc7312ef2e66cd9e3f3affb89b954",
       "owner": "generator"
     },
     "src/endpoints/EdgeAgentService.ts": {
-      "hash": "05e6ebae7c228066ed08adfce803bfd0775e1c2f2c0e384ad284c70ec8cd1dde",
+      "hash": "2cb7200f83b52bb38eb7e2580c2e61da45dc18a3bda23cfe4bdad6103fafe282",
       "owner": "generator"
     },
     "src/endpoints/EdgeAgentTemplateService.ts": {
-      "hash": "ca0d00b61c7bb39cbf1bb872c439ddbf016249e0ff36c120caef8cf8d674391f",
+      "hash": "3cf09279d50a62afcb38c635a80d80ada0d66272eb18573458cfcf8507fd1040",
       "owner": "generator"
     },
     "src/endpoints/EventDashboardService.ts": {
-      "hash": "66434100cbe09dc4973239e36f42694a412fab42e144e314ce7639bd2c538901",
+      "hash": "adc45ebb10f923ef6d9769b21869d4de8f4c578be19cf6bdb003d6f8b0557aaa",
       "owner": "generator"
     },
     "src/endpoints/EventService.ts": {
-      "hash": "f7ba1d0caf73645621fe063de9f65c0bf8086237bca1b4241d1cacb488461a73",
+      "hash": "ae7f02d78b58d7394c0545b4c8ad87d4b440ee90c6ddf66d6b7f7b9772f6dc0f",
       "owner": "generator"
     },
     "src/endpoints/EventTriggerAssetStateService.ts": {
-      "hash": "2bcc1bd61056912210ac5d2284634a8de6d3a50aa28732119da07fba8ec03f40",
+      "hash": "acfb10b4922583a44358c84e052155d6b89ee36b66445da60d3cc0fe09acc9e1",
       "owner": "generator"
     },
     "src/endpoints/EventTriggerAssetStateTemplateService.ts": {
-      "hash": "2f0d423a14a592f96f7b613bef4506aa7014639053b80d4c90706f4463befe43",
+      "hash": "a28344e2b53311ba70d6948d76a9b0f3043c60ca4bfd545c6c6b74fa9d4d41e0",
       "owner": "generator"
     },
     "src/endpoints/EventTriggerService.ts": {
-      "hash": "fedd6e05d6d21519f9289e2e209259dc610f037a2319fe74f5aafa1a20b532ab",
+      "hash": "5e4aa00fb1460ee1a18fa05614ae6f5aa93590f4b916ce4e52216fe3260ec1fb",
       "owner": "generator"
     },
     "src/endpoints/EventTriggerTemplateService.ts": {
-      "hash": "7dbeb27b134dd76fac754ce7607634b5c54e2e56933dc57669ef01386a82f608",
+      "hash": "5c920820cdf01a3fd1b5bf729725c131a32ae737704888fd31c6640785cc1bcf",
       "owner": "generator"
     },
     "src/endpoints/FaceDatabaseService.ts": {
-      "hash": "055ec0748d0c516a6d066f606f113c1d9fcdd81bc30c7ea1e6b2ea4b11cc4072",
+      "hash": "7affefa29f80e4a2a4a5f5b32ea3270c6a2ce5ae58e22a385e8341e1f5925dcf",
       "owner": "generator"
     },
     "src/endpoints/FaceSubjectService.ts": {
-      "hash": "5df69c65bce21de31a5abdc2259407dd5158614e397f4d65a664947cc7e97d74",
+      "hash": "189d195dd877b614030acb213d5d2f7a68f0ea3fd6f57b8498501d94446f8804",
       "owner": "generator"
     },
     "src/endpoints/GeneralService.ts": {
-      "hash": "96b51b622d967012dee65eee359c4832be7525faf62b7f6d7d221253ab57e5e2",
+      "hash": "8408146d069e60656492c28de4dc87bff1798762ba1ff2be692dbfe2fa5262be",
       "owner": "generator"
     },
     "src/endpoints/GlobalEventStateService.ts": {
-      "hash": "f9b6ef710025898c562b3ac4f4af814235ecf8b53dcb9730770454b4df0ed08f",
+      "hash": "905eca0ac6a629c4db336b97a44138132fd18143f36acc0f72ec67f2f1fa5340",
       "owner": "generator"
     },
     "src/endpoints/HealthcheckEventService.ts": {
-      "hash": "e5e7c18649445d696cffef9de9bf799f850779ca6295682f71c188859bedb70f",
+      "hash": "c4be3cbca0cc1b72a3c5fa99333493458f21f9095b990ee80812b23637c18846",
       "owner": "generator"
     },
     "src/endpoints/KeywordService.ts": {
-      "hash": "12fe9fe7bc79c662029071eb87d59facf264a5588d55f9079cfc603e0b0739ed",
+      "hash": "8de62a798c11fcc8cef4f0e064c1037aba7bf0da78efe37e09079963ae0ddce1",
       "owner": "generator"
     },
     "src/endpoints/ManagerService.ts": {
-      "hash": "4a421185e99d864265976ce955f3144554d0aefb5ccd60c160d18c70e74115bb",
+      "hash": "edd096a85b9205ee836a54672ff59269c438e767ceff05e12ca71c40dd8c69fa",
       "owner": "generator"
     },
     "src/endpoints/PeopleCounterReportService.ts": {
-      "hash": "b0de18079dc6eb764dfa8a93b75c0bf4d4bf3c9fdf8094bc69e205f891bf5575",
+      "hash": "38f7ae7ec9a6c018107289f2f3f4dc84a744d62031712a9dd81a2fd3a1c92c4e",
       "owner": "generator"
     },
     "src/endpoints/ProjectService.ts": {
-      "hash": "6ddb89651aeaf5ff5dd8621d634ef7d722e9c8f3232787eedf8813d40e807312",
+      "hash": "28638e2461e0eebd31c3c1b9f06c8f38fec0beb2620f1744be881fd4c34006b5",
       "owner": "generator"
     },
     "src/endpoints/ProjectTagService.ts": {
-      "hash": "93de6e8efb0296892fa2bb303bac6497f7397c9a7995537994c45a48eb583060",
+      "hash": "5ac05c7bbe8f98bd25e85bb9c4096d8187d2b71de7d0716643e0fa45db0deea6",
       "owner": "generator"
     },
     "src/endpoints/ReportService.ts": {
-      "hash": "2d0ecf460ba94c0a9bba8fc1838eadc29754716241dc3c1e0ff8d2875a6e89fc",
+      "hash": "0d2fa0499773ea03d7e1da20e1febe2e731a2ad67292539d33f6383501ed7bed",
       "owner": "generator"
     },
     "src/endpoints/SensorService.ts": {
-      "hash": "5574e0ec1752daa7938b93a17ce53a5f891eaccfddd20fabc0648497c7fb8a5d",
+      "hash": "68dc7b02757aac226134f13d855126b6a5d0d6ecd1e8546756649e69c75140e4",
       "owner": "generator"
     },
     "src/endpoints/SensorTemplateService.ts": {
-      "hash": "f707746343910d202b2cf585e67c9995da15089bf9add50ba64d7508d15ed810",
+      "hash": "43643dee6c3f1db43c563418850a4a8e76fe44cad364cade5f3044082acc7c90",
       "owner": "generator"
     },
     "src/endpoints/SensorTypeService.ts": {
-      "hash": "4abcbcbea59de491effb2d0a882158326f247bfea1c9762f23e8fb9fbe6587bc",
+      "hash": "20831fd0dd3cf85a3a227e12cfabe2dd5535967fe32fbb9489b8c2d75f710acb",
       "owner": "generator"
     },
     "src/endpoints/StoreVideoAnalyticDashboardService.ts": {
-      "hash": "56c2940a995a505a443b339e2ff770c0ec8d3407bb8b4d5c75333283205d593d",
+      "hash": "4fd25bb56877f6276930b1abdf76af6e1dbeded3f3b8ee9bf783841a852f9df3",
       "owner": "generator"
     },
     "src/endpoints/SuperAdminService.ts": {
-      "hash": "eb3c994d290fc5b433bb51e10fbb8c6ab43b299c6fa546e385cb52315f1e6691",
+      "hash": "42bdacd3164035904f750b477335472120df52bd667956e20a3054e304c8941c",
       "owner": "generator"
     },
     "src/endpoints/SupportAdminService.ts": {
-      "hash": "2d8e0003a67fc2f885d3a34cbc2a7591cab7f4d18dd7f719f946a3d5b298d0f3",
+      "hash": "aad1255ce8aaabec01a0e112fa2df134b87466fd89cb28e6f376808827982e75",
       "owner": "generator"
     },
     "src/endpoints/TimeZoneService.ts": {
-      "hash": "3f597b2d7e355aed48b7276e72e8f993e3d822c8995aec05ef53a0196c7a283f",
+      "hash": "4e555ce69990b79a5317a2ba61882292bb20f1248da6c9c43806976bfc01f403",
       "owner": "generator"
     },
     "src/endpoints/ToolService.ts": {
-      "hash": "b96721cffb7c3fa77925c281ad7e0063aed91e16aa601a437a721d94af8ce207",
+      "hash": "aa3aa3f5c67552219966cd68945d734c6f5c0117152f76dd48f087682ad1ae3f",
       "owner": "generator"
     },
     "src/endpoints/ToolkitService.ts": {
-      "hash": "e7b2ac155367ff80b3121a0d04e7fffc04e7bebc720f5ddcfe934c6c1c4e7c5d",
+      "hash": "4be9a5efa1127c218e6765c187d01887988508e3852d1d1ba7244d29fa1b9c45",
       "owner": "generator"
     },
     "src/endpoints/ToolkitTemplateService.ts": {
-      "hash": "27b738eb161f46f18299d9828b7a1e6dac3e389efc9f31d8e2acc2b4f99e1eda",
+      "hash": "99b06c2b3c4bc01a9f167fea575a71b53b046be00e8cb500aae9aa863487dfaf",
       "owner": "generator"
     },
     "src/endpoints/TrafficFlowAnalysisService.ts": {
-      "hash": "0c84386d0010e8a15779252b43e9ab970fd0cbf3a8aeec83aca683bcce660ba5",
+      "hash": "d6dba28d7eafee4c912c25c9bc870cdf1a65bac645affb6e806ac587f9984c92",
       "owner": "generator"
     },
     "src/endpoints/VarService.ts": {
-      "hash": "dc9adeac2a081a40bb074aacfaff4d9760a2ba72e9b5c9c6af825f38218778ae",
+      "hash": "1a095a2c66c8eafab9cedf5094ad84502ff1b34678c6b2384f216282770a59c4",
       "owner": "generator"
     },
     "src/endpoints/ViewService.ts": {
-      "hash": "36b2a7fc3be3c37a7a40333a2030e9e64c3365d017974cf3bc229034b1e794f5",
+      "hash": "d5d91bde9f08e42ad5fe286f85560a611721973437b6deba3f3f4d9d7bd1588c",
       "owner": "generator"
     },
     "src/endpoints/VirtualGroupService.ts": {
-      "hash": "873e3102c4fae09553d34c4fafbc51e3a4af64fb0e0f84a86b2a65753473d376",
+      "hash": "3209436fb2a050fff51435774fb1ea69b06c356dfb68621bf78f6d981f362d5a",
       "owner": "generator"
     },
     "src/endpoints/YoloClassService.ts": {
-      "hash": "6b0bc6b1fa81325d43f25a98c003948814301d20313fafb3b2886846113ef9da",
+      "hash": "13e02b90e07ff694a50d8e2146a5699b128ff9ea0fc096f896ef38b0145ebaed",
       "owner": "generator"
     },
     "src/index.ts": {
@@ -286,7 +286,7 @@
       "owner": "generator"
     },
     "src/models/AssetRestrictionTable.ts": {
-      "hash": "5a5eb2acf37938b5bb4528ccfb33852dcd9c70f1b076ca822b8d2d24fe0e748a",
+      "hash": "f8f57395419a81b71aa542af53481bd4564982b728502b5c3ac20f7d30229e97",
       "owner": "generator"
     },
     "src/models/AssetStaff.ts": {
@@ -362,7 +362,7 @@
       "owner": "generator"
     },
     "src/models/CustomerRestrictionTable.ts": {
-      "hash": "0a4ba91537698e9e90ac4da599db1ba018c9df2fe2d546e33cb9d66d95efaf2d",
+      "hash": "a567cd90e7b5c2cdbbcce39e23ba4766520149dab4670a138de84223a1715673",
       "owner": "generator"
     },
     "src/models/Dashboard.ts": {
@@ -566,7 +566,7 @@
       "owner": "generator"
     },
     "src/models/ProjectRestrictionTable.ts": {
-      "hash": "82b67edb85827350862841300dc6cc111095d7d1678034d4099fc613bce6af61",
+      "hash": "18707aad4b53d8597b0dece059e0a382d15ff6435e1a85666fd3eacb2f135ee1",
       "owner": "generator"
     },
     "src/models/ProjectTag.ts": {

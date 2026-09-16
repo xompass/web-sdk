@@ -5,6 +5,7 @@ import {
   getFetchAdapter,
   getFormDataConstructor,
   getXMLHttpRequestConstructor,
+  type FetchOptions,
 } from "./Runtime";
 
 // List of operators
@@ -153,13 +154,23 @@ export type ApiFetchUrlParams = {
     | { [key: string]: any };
 };
 
+/**
+ * Per-request options accepted by every SDK endpoint.
+ */
+export type ApiRequestOptions = {
+  /** Abort the request after this many milliseconds. */
+  timeout?: number;
+  /** AbortSignal used to cancel the request. */
+  signal?: AbortSignal;
+};
+
 export type ApiFetchOptions = {
   method: ApiFetchMethod;
   url: string;
   routeParams?: ApiFetchRouteParams;
   urlParams?: ApiFetchUrlParams;
   body?: any;
-};
+} & ApiRequestOptions;
 
 export type UploadableFile =
   | ArrayBuffer
@@ -454,11 +465,155 @@ export function unwrapCount(result: unknown): number {
   return result as number;
 }
 
+function requestTimeoutMs(timeout: number | undefined): number | undefined {
+  return typeof timeout === "number" && Number.isFinite(timeout) && timeout > 0
+    ? timeout
+    : undefined;
+}
+
+function errorName(error: unknown): string {
+  return error && typeof error === "object" && "name" in error
+    ? String((error as { name: unknown }).name)
+    : "";
+}
+
+function errorMessage(error: unknown): string {
+  return error && typeof error === "object" && "message" in error
+    ? String((error as { message: unknown }).message)
+    : String(error);
+}
+
+function abortError(timedOut: boolean, cause?: unknown): FetchError {
+  if (timedOut) {
+    return new FetchError(0, "Timeout", "The request timed out", cause);
+  }
+  return new FetchError(
+    0,
+    "Aborted",
+    errorMessage(cause) || "The request was aborted",
+    cause,
+  );
+}
+
+function wrapFetchError(
+  error: unknown,
+  timedOut: boolean,
+  wrapUnknown: boolean,
+): unknown {
+  if (error instanceof FetchError) {
+    if (timedOut && error.code === "Aborted") {
+      return abortError(true, error);
+    }
+    return error;
+  }
+  if (timedOut || errorName(error) === "TimeoutError") {
+    return abortError(true, error);
+  }
+  if (errorName(error) === "AbortError") {
+    return abortError(false, error);
+  }
+  if (!wrapUnknown) {
+    return error;
+  }
+  return new FetchError(0, "Unknown", errorMessage(error), error);
+}
+
+function createRequestControl(options?: ApiRequestOptions): {
+  signal: AbortSignal | undefined;
+  didTimeout: () => boolean;
+  cleanup: () => void;
+} {
+  const userSignal = options?.signal;
+  const timeout = requestTimeoutMs(options?.timeout);
+
+  if (!userSignal && timeout == null) {
+    return { signal: undefined, didTimeout: () => false, cleanup() {} };
+  }
+
+  if (timeout == null) {
+    return {
+      signal: userSignal,
+      didTimeout: () => false,
+      cleanup() {},
+    };
+  }
+
+  const controller = new AbortController();
+  let timedOut = false;
+  const onUserAbort = () => {
+    if (!controller.signal.aborted) {
+      controller.abort(userSignal?.reason);
+    }
+  };
+
+  if (userSignal) {
+    if (userSignal.aborted) {
+      onUserAbort();
+    } else {
+      userSignal.addEventListener("abort", onUserAbort);
+    }
+  }
+
+  const timeoutId = setTimeout(() => {
+    timedOut = true;
+    if (!controller.signal.aborted) {
+      controller.abort();
+    }
+  }, timeout);
+
+  return {
+    signal: controller.signal,
+    didTimeout: () => timedOut,
+    cleanup() {
+      clearTimeout(timeoutId);
+      userSignal?.removeEventListener("abort", onUserAbort);
+    },
+  };
+}
+
+async function runWithRequestControl<T>(
+  options: ApiRequestOptions | undefined,
+  run: (signal: AbortSignal | undefined) => Promise<T>,
+  wrapUnknown = true,
+): Promise<T> {
+  const control = createRequestControl(options);
+  let settled = false;
+  try {
+    if (control.signal?.aborted) {
+      throw abortError(control.didTimeout(), control.signal.reason);
+    }
+
+    if (!control.signal) {
+      return await run(undefined);
+    }
+
+    const abortPromise = new Promise<never>((_, reject) => {
+      const onAbort = () => {
+        if (!settled) {
+          reject(abortError(control.didTimeout(), control.signal?.reason));
+        }
+      };
+      if (control.signal!.aborted) {
+        onAbort();
+        return;
+      }
+      control.signal!.addEventListener("abort", onAbort, { once: true });
+    });
+
+    return await Promise.race([run(control.signal), abortPromise]);
+  } catch (error) {
+    throw wrapFetchError(error, control.didTimeout(), wrapUnknown);
+  } finally {
+    settled = true;
+    control.cleanup();
+  }
+}
+
 /**
  * A generic fetch function to call the API
  */
 export async function ApiFetch(options: ApiFetchOptions): Promise<any> {
-  const { method, routeParams, urlParams, body } = options;
+  const { method, routeParams, urlParams, body, timeout, signal } = options;
   const baseUrl = getLocalStorageValue("vsaas$baseUrl");
 
   const url = prepareUrl(baseUrl + options.url, routeParams, urlParams);
@@ -470,7 +625,7 @@ export async function ApiFetch(options: ApiFetchOptions): Promise<any> {
     headers["Authorization"] = accessToken;
   }
 
-  const fetchOptions: { [key: string]: any } = {
+  const fetchOptions: FetchOptions = {
     method,
     headers,
   };
@@ -480,18 +635,14 @@ export async function ApiFetch(options: ApiFetchOptions): Promise<any> {
     fetchOptions.body = JSON.stringify(body);
   }
 
-  try {
+  return runWithRequestControl({ timeout, signal }, async (requestSignal) => {
     const fetchImplementation = getFetchImplementation();
-    const res = await fetchImplementation(url, fetchOptions);
-
-    return parseJSONResponse(res.status, res.statusText, () => res.text());
-  } catch (e: any) {
-    if (e instanceof FetchError) {
-      throw e;
+    if (requestSignal) {
+      fetchOptions.signal = requestSignal;
     }
-
-    throw new FetchError(0, "Unknown", e.message, e);
-  }
+    const res = await fetchImplementation(url, fetchOptions);
+    return parseJSONResponse(res.status, res.statusText, () => res.text());
+  });
 }
 
 type UploadFileOptions = {
@@ -500,13 +651,13 @@ type UploadFileOptions = {
   routeParams?: ApiFetchRouteParams;
   urlParams?: ApiFetchUrlParams;
   onProgress?: (progress: number) => void;
-};
+} & ApiRequestOptions;
 
 /**
  * Upload a file to the API
  */
 export async function UploadFile(options: UploadFileOptions): Promise<any> {
-  const { file, routeParams, urlParams, onProgress } = options;
+  const { file, routeParams, urlParams, onProgress, timeout, signal } = options;
   const baseUrl = getLocalStorageValue("vsaas$baseUrl");
   const accessToken = getLocalStorageValue("vsaas$accessToken");
 
@@ -527,64 +678,89 @@ export async function UploadFile(options: UploadFileOptions): Promise<any> {
     form.append("file", normalizedFile.value);
   });
 
+  const requestOptions = { timeout, signal };
   const XMLHttpRequestConstructor = getXMLHttpRequestConstructor();
   if (XMLHttpRequestConstructor) {
-    const xhr = new XMLHttpRequestConstructor();
-    xhr.open("POST", url, true);
+    return runWithRequestControl(
+      requestOptions,
+      (requestSignal) => {
+        const xhr = new XMLHttpRequestConstructor();
+        xhr.open("POST", url, true);
 
-    if (accessToken) {
-      xhr.setRequestHeader("Authorization", accessToken);
-    }
+        if (accessToken) {
+          xhr.setRequestHeader("Authorization", accessToken);
+        }
 
-    xhr.upload.onprogress = (e) => {
-      if (e.lengthComputable && onProgress) {
-        onProgress((e.loaded / e.total) * 100);
-      }
-    };
+        xhr.upload.onprogress = (e) => {
+          if (e.lengthComputable && onProgress) {
+            onProgress((e.loaded / e.total) * 100);
+          }
+        };
 
-    return new Promise((resolve, reject) => {
-      xhr.onload = () => {
-        if (xhr.status < 200 || xhr.status >= 300) {
-          reject(xhr.statusText);
-        } else {
-          try {
-            resolve(JSON.parse(xhr.responseText, Reviver));
-          } catch {
-            resolve(xhr.responseText);
+        if (requestSignal) {
+          const abortXhr = () => xhr.abort?.();
+          if (requestSignal.aborted) {
+            abortXhr();
+          } else {
+            requestSignal.addEventListener("abort", abortXhr, { once: true });
           }
         }
-      };
 
-      xhr.onerror = () => {
-        reject(xhr.statusText);
-      };
+        return new Promise((resolve, reject) => {
+          xhr.onload = () => {
+            if (xhr.status < 200 || xhr.status >= 300) {
+              reject(xhr.statusText);
+            } else {
+              try {
+                resolve(JSON.parse(xhr.responseText, Reviver));
+              } catch {
+                resolve(xhr.responseText);
+              }
+            }
+          };
 
-      xhr.send(form);
+          xhr.onerror = () => {
+            reject(xhr.statusText);
+          };
+
+          xhr.onabort = () => {
+            const error = new Error("The request was aborted");
+            error.name = "AbortError";
+            reject(error);
+          };
+
+          xhr.send(form);
+        });
+      },
+      false,
+    );
+  }
+
+  return runWithRequestControl(requestOptions, async (requestSignal) => {
+    const fetchImplementation = getFetchImplementation();
+    const headers: { [key: string]: string } = {};
+
+    if (accessToken) {
+      headers["Authorization"] = accessToken;
+    }
+
+    const res = await fetchImplementation(url, {
+      method: "POST",
+      headers,
+      body: form,
+      signal: requestSignal,
     });
-  }
 
-  const fetchImplementation = getFetchImplementation();
-  const headers: { [key: string]: string } = {};
+    const data = await parseJSONResponse(res.status, res.statusText, () =>
+      res.text(),
+    );
 
-  if (accessToken) {
-    headers["Authorization"] = accessToken;
-  }
+    if (onProgress) {
+      onProgress(100);
+    }
 
-  const res = await fetchImplementation(url, {
-    method: "POST",
-    headers,
-    body: form,
+    return data;
   });
-
-  const data = await parseJSONResponse(res.status, res.statusText, () =>
-    res.text(),
-  );
-
-  if (onProgress) {
-    onProgress(100);
-  }
-
-  return data;
 }
 
 function prepareOrderFilter<T>(order: Order<T>) {

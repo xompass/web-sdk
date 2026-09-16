@@ -10,6 +10,7 @@ import {
   configureWebSdkRuntime,
   createMemoryStorage,
   resetWebSdkRuntime,
+  type FetchOptions,
 } from "./Runtime";
 
 describe("ApiFetch errors", () => {
@@ -73,5 +74,99 @@ describe("unwrapCount", () => {
 
   it("passes through a bare number", () => {
     expect(unwrapCount(4)).toBe(4);
+  });
+});
+
+function hangingFetch(init?: FetchOptions) {
+  return new Promise<never>((_resolve, reject) => {
+    init?.signal?.addEventListener("abort", () => {
+      const error = new Error("The operation was aborted");
+      error.name = "AbortError";
+      reject(error);
+    });
+  });
+}
+
+describe("ApiFetch request options", () => {
+  beforeEach(() => {
+    configureWebSdkRuntime({
+      storage: createMemoryStorage(),
+    });
+    setLocalStorageValue("vsaas$baseUrl", "https://api.example.test");
+  });
+
+  afterEach(() => {
+    resetWebSdkRuntime();
+  });
+
+  it("forwards a caller AbortSignal to fetch", async () => {
+    const controller = new AbortController();
+    let received: AbortSignal | undefined;
+    configureWebSdkRuntime({
+      fetch: async (_url, init) => {
+        received = init?.signal;
+        return {
+          status: 200,
+          statusText: "OK",
+          text: async () => "{}",
+        };
+      },
+    });
+
+    await ApiFetch({
+      method: "GET",
+      url: "/ping",
+      signal: controller.signal,
+    });
+
+    expect(received).toBe(controller.signal);
+  });
+
+  it("rejects with Aborted when the caller signal aborts", async () => {
+    configureWebSdkRuntime({
+      fetch: async (_url, init) => hangingFetch(init),
+    });
+    const controller = new AbortController();
+    const request = ApiFetch({
+      method: "GET",
+      url: "/ping",
+      signal: controller.signal,
+    });
+
+    await Promise.resolve();
+    controller.abort();
+
+    await expect(request).rejects.toMatchObject({
+      code: "Aborted",
+      status: 0,
+    });
+  });
+
+  it("rejects with Timeout when the request exceeds timeout", async () => {
+    configureWebSdkRuntime({
+      fetch: async (_url, init) => hangingFetch(init),
+    });
+
+    await expect(
+      ApiFetch({ method: "GET", url: "/ping", timeout: 20 }),
+    ).rejects.toMatchObject({
+      code: "Timeout",
+      status: 0,
+      message: "The request timed out",
+    });
+  });
+
+  it("still completes when timeout is longer than the response", async () => {
+    configureWebSdkRuntime({
+      fetch: async () => ({
+        status: 200,
+        statusText: "OK",
+        text: async () => JSON.stringify({ ok: true }),
+      }),
+    });
+
+    await expect(
+      ApiFetch({ method: "GET", url: "/ping", timeout: 1_000 }),
+    ).resolves.toEqual({ ok: true });
   });
 });

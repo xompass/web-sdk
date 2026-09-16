@@ -1,4 +1,9 @@
-import { ApiFetch, Filter, unwrapCount } from "../core/ApiFetch";
+import {
+  ApiFetch,
+  ApiRequestOptions,
+  Filter,
+  unwrapCount,
+} from "../core/ApiFetch";
 import { Manager } from "../models/Manager";
 import { View } from "../models/View";
 
@@ -9,6 +14,7 @@ import { View } from "../models/View";
 export async function View_FindByIdManagers(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<Manager> {
   return ApiFetch({
     method: "GET",
@@ -17,6 +23,7 @@ export async function View_FindByIdManagers(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -26,6 +33,7 @@ export async function View_FindByIdManagers(
 export async function View_ExistsManagers(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<boolean> {
   return ApiFetch({
     method: "HEAD",
@@ -34,6 +42,7 @@ export async function View_ExistsManagers(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -43,6 +52,7 @@ export async function View_ExistsManagers(
 export async function View_GetManagers(
   id: string,
   filter?: Filter<Manager>,
+  options?: ApiRequestOptions,
 ): Promise<Manager[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -56,6 +66,7 @@ export async function View_GetManagers(
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -65,6 +76,7 @@ export async function View_GetManagers(
 export async function View_CountManagers(
   id: string,
   where?: Filter<Manager>["where"],
+  options?: ApiRequestOptions,
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -78,6 +90,7 @@ export async function View_CountManagers(
     routeParams: {
       id,
     },
+    ...options,
   });
   return unwrapCount(result);
 }
@@ -85,13 +98,17 @@ export async function View_CountManagers(
  * Check whether a model instance exists in the data source.
  * /Views/:id/exists
  */
-export async function View_exists(id: string): Promise<boolean> {
+export async function View_exists(
+  id: string,
+  options?: ApiRequestOptions,
+): Promise<boolean> {
   return ApiFetch({
     method: "GET",
     url: "/Views/:id/exists",
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -101,6 +118,7 @@ export async function View_exists(id: string): Promise<boolean> {
 export async function View_findById(
   id: string,
   filter?: Filter<View>,
+  options?: ApiRequestOptions,
 ): Promise<View> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -114,13 +132,17 @@ export async function View_findById(
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
  * Find all instances of the model matched by filter from the data source.
  * /Views
  */
-export async function View_find(filter?: Filter<View>): Promise<View[]> {
+export async function View_find(
+  filter?: Filter<View>,
+  options?: ApiRequestOptions,
+): Promise<View[]> {
   const _urlParams: any = {};
   if (filter != null) {
     _urlParams["filter"] = filter;
@@ -130,13 +152,17 @@ export async function View_find(filter?: Filter<View>): Promise<View[]> {
     method: "GET",
     url: "/Views",
     urlParams: _urlParams,
+    ...options,
   });
 }
 /**
  * Find first instance of the model matched by filter from the data source.
  * /Views/findOne
  */
-export async function View_findOne(filter?: Filter<View>): Promise<View> {
+export async function View_findOne(
+  filter?: Filter<View>,
+  options?: ApiRequestOptions,
+): Promise<View> {
   const _urlParams: any = {};
   if (filter != null) {
     _urlParams["filter"] = filter;
@@ -146,6 +172,7 @@ export async function View_findOne(filter?: Filter<View>): Promise<View> {
     method: "GET",
     url: "/Views/findOne",
     urlParams: _urlParams,
+    ...options,
   });
 }
 /**
@@ -154,6 +181,7 @@ export async function View_findOne(filter?: Filter<View>): Promise<View> {
  */
 export async function View_count(
   where?: Filter<View>["where"],
+  options?: ApiRequestOptions,
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -164,6 +192,7 @@ export async function View_count(
     method: "GET",
     url: "/Views/count",
     urlParams: _urlParams,
+    ...options,
   });
   return unwrapCount(result);
 }

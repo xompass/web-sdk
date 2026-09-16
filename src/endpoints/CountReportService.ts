@@ -1,4 +1,9 @@
-import { ApiFetch, Filter, unwrapCount } from "../core/ApiFetch";
+import {
+  ApiFetch,
+  ApiRequestOptions,
+  Filter,
+  unwrapCount,
+} from "../core/ApiFetch";
 import { CountReportSection } from "../models/CountReport";
 import { Manager } from "../models/Manager";
 
@@ -9,6 +14,7 @@ import { Manager } from "../models/Manager";
 export async function CountReport_FindByIdSections(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<CountReportSection> {
   return ApiFetch({
     method: "GET",
@@ -17,6 +23,7 @@ export async function CountReport_FindByIdSections(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -26,6 +33,7 @@ export async function CountReport_FindByIdSections(
 export async function CountReport_DestroyByIdSections(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<void> {
   return ApiFetch({
     method: "DELETE",
@@ -34,6 +42,7 @@ export async function CountReport_DestroyByIdSections(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -44,6 +53,7 @@ export async function CountReport_UpdateByIdSections(
   id: string,
   fk: string,
   data?: any,
+  options?: ApiRequestOptions,
 ): Promise<CountReportSection> {
   return ApiFetch({
     method: "PUT",
@@ -53,6 +63,7 @@ export async function CountReport_UpdateByIdSections(
       fk,
     },
     body: data,
+    ...options,
   });
 }
 /**
@@ -62,6 +73,7 @@ export async function CountReport_UpdateByIdSections(
 export async function CountReport_FindByIdManagers(
   id: string,
   fk: string,
+  options?: ApiRequestOptions,
 ): Promise<Manager> {
   return ApiFetch({
     method: "GET",
@@ -70,6 +82,7 @@ export async function CountReport_FindByIdManagers(
       id,
       fk,
     },
+    ...options,
   });
 }
 /**
@@ -79,6 +92,7 @@ export async function CountReport_FindByIdManagers(
 export async function CountReport_GetSections(
   id: string,
   filter?: Filter<CountReportSection>,
+  options?: ApiRequestOptions,
 ): Promise<CountReportSection[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -92,6 +106,7 @@ export async function CountReport_GetSections(
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -101,6 +116,7 @@ export async function CountReport_GetSections(
 export async function CountReport_CreateSections(
   id: string,
   data?: any,
+  options?: ApiRequestOptions,
 ): Promise<CountReportSection> {
   return ApiFetch({
     method: "POST",
@@ -109,6 +125,7 @@ export async function CountReport_CreateSections(
       id,
     },
     body: data,
+    ...options,
   });
 }
 /**
@@ -118,6 +135,7 @@ export async function CountReport_CreateSections(
 export async function CountReport_CountSections(
   id: string,
   where?: Filter<CountReportSection>["where"],
+  options?: ApiRequestOptions,
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -131,6 +149,7 @@ export async function CountReport_CountSections(
     routeParams: {
       id,
     },
+    ...options,
   });
   return unwrapCount(result);
 }
@@ -141,6 +160,7 @@ export async function CountReport_CountSections(
 export async function CountReport_GetManagers(
   id: string,
   filter?: Filter<Manager>,
+  options?: ApiRequestOptions,
 ): Promise<Manager[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -154,6 +174,7 @@ export async function CountReport_GetManagers(
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -163,6 +184,7 @@ export async function CountReport_GetManagers(
 export async function CountReport_CountManagers(
   id: string,
   where?: Filter<Manager>["where"],
+  options?: ApiRequestOptions,
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -176,6 +198,7 @@ export async function CountReport_CountManagers(
     routeParams: {
       id,
     },
+    ...options,
   });
   return unwrapCount(result);
 }

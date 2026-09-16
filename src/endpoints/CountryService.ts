@@ -1,17 +1,26 @@
-import { ApiFetch, Filter, unwrapCount } from "../core/ApiFetch";
+import {
+  ApiFetch,
+  ApiRequestOptions,
+  Filter,
+  unwrapCount,
+} from "../core/ApiFetch";
 import { Country } from "../models/Country";
 
 /**
  * Check whether a model instance exists in the data source.
  * /Countries/:id/exists
  */
-export async function Country_exists(id: string): Promise<boolean> {
+export async function Country_exists(
+  id: string,
+  options?: ApiRequestOptions,
+): Promise<boolean> {
   return ApiFetch({
     method: "GET",
     url: "/Countries/:id/exists",
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -21,6 +30,7 @@ export async function Country_exists(id: string): Promise<boolean> {
 export async function Country_findById(
   id: string,
   filter?: Filter<Country>,
+  options?: ApiRequestOptions,
 ): Promise<Country> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -34,6 +44,7 @@ export async function Country_findById(
     routeParams: {
       id,
     },
+    ...options,
   });
 }
 /**
@@ -42,6 +53,7 @@ export async function Country_findById(
  */
 export async function Country_find(
   filter?: Filter<Country>,
+  options?: ApiRequestOptions,
 ): Promise<Country[]> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -52,6 +64,7 @@ export async function Country_find(
     method: "GET",
     url: "/Countries",
     urlParams: _urlParams,
+    ...options,
   });
 }
 /**
@@ -60,6 +73,7 @@ export async function Country_find(
  */
 export async function Country_findOne(
   filter?: Filter<Country>,
+  options?: ApiRequestOptions,
 ): Promise<Country> {
   const _urlParams: any = {};
   if (filter != null) {
@@ -70,6 +84,7 @@ export async function Country_findOne(
     method: "GET",
     url: "/Countries/findOne",
     urlParams: _urlParams,
+    ...options,
   });
 }
 /**
@@ -78,6 +93,7 @@ export async function Country_findOne(
  */
 export async function Country_count(
   where?: Filter<Country>["where"],
+  options?: ApiRequestOptions,
 ): Promise<number> {
   const _urlParams: any = {};
   if (where != null) {
@@ -88,6 +104,7 @@ export async function Country_count(
     method: "GET",
     url: "/Countries/count",
     urlParams: _urlParams,
+    ...options,
   });
   return unwrapCount(result);
 }
