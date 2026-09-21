@@ -10,6 +10,7 @@ import { Asset } from "../models/Asset";
 import { AssetState } from "../models/AssetState";
 import { Data } from "../models/Data";
 import { Dataset } from "../models/Dataset";
+import { UpdateDatasetDataUserAddedObjectsBody } from "../models/EndpointTypes";
 import { RateLimit } from "../models/RateLimit";
 import { Sensor } from "../models/Sensor";
 import { SensorAssetState } from "../models/SensorAssetState";
@@ -883,6 +884,29 @@ export async function Sensor_withCurrentState(
     routeParams: {
       id,
     },
+    ...options,
+  });
+}
+/**
+ * Replace the user-added objects of one Data record
+ * /Sensors/:id/datasets/:datasetId/data/:dataId/user-added-objects
+ */
+export async function Sensor_updateDatasetDataUserAddedObjects(
+  id: string,
+  datasetId: string,
+  dataId: string,
+  body: UpdateDatasetDataUserAddedObjectsBody,
+  options?: ApiRequestOptions,
+): Promise<Data> {
+  return ApiFetch({
+    method: "PUT",
+    url: "/Sensors/:id/datasets/:datasetId/data/:dataId/user-added-objects",
+    routeParams: {
+      id,
+      datasetId,
+      dataId,
+    },
+    body: body,
     ...options,
   });
 }

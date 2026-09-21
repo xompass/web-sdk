@@ -3,7 +3,7 @@
   "generatorVersion": "0.1.0",
   "profile": "cloud-api",
   "environment": "development",
-  "sourceFingerprint": "395a76214cc939ae",
+  "sourceFingerprint": "eaec15ef13e4e4eb",
   "files": {
     ".oxfmtrc.json": {
       "hash": "922a004cb28b203ab7e413f630bdc3e374f776898288ba3268dfc2267f95fc8b",
@@ -14,7 +14,7 @@
       "owner": "generator"
     },
     "package.json": {
-      "hash": "88dd286a8b35a7eb580320c013a9c9e80256e35069ce1a858f94096ffb72a7d5",
+      "hash": "db36c66f6f716fc5192e3faa0a3004bf1c6de55c964b080aa7119c919674bdee",
       "owner": "generator"
     },
     "pnpm-lock.yaml": {
@@ -94,7 +94,7 @@
       "owner": "generator"
     },
     "src/endpoints/CustomerService.ts": {
-      "hash": "d186a6713c9c0c3e559fbefef8a43bcc9b6344a03f011489bb4e1a70dbac14c2",
+      "hash": "4ff49fac4ddb3ad7a215665c93a849ec16781f3e36278c5331c714fb4406edbe",
       "owner": "generator"
     },
     "src/endpoints/DeviceEventService.ts": {
@@ -186,7 +186,7 @@
       "owner": "generator"
     },
     "src/endpoints/SensorService.ts": {
-      "hash": "68dc7b02757aac226134f13d855126b6a5d0d6ecd1e8546756649e69c75140e4",
+      "hash": "f15fdb641c75a392f31465c66977b3bb609b5817c9f6baac0ceceb961d3def1d",
       "owner": "generator"
     },
     "src/endpoints/SensorTemplateService.ts": {
@@ -446,7 +446,7 @@
       "owner": "generator"
     },
     "src/models/EndpointTypes.ts": {
-      "hash": "99b24a565e550ac1a26af63a7dd68a4d8e3ed51e0c3e3378e0599c164c90f399",
+      "hash": "1e38290734dbb91e171fdeab19ad8a0f6032031647b64fe0c97f530734dc5ffe",
       "owner": "generator"
     },
     "src/models/Event.ts": {

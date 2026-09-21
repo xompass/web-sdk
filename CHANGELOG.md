@@ -1,5 +1,11 @@
 # @xompass/web-sdk
 
+## 0.37.0
+
+### Minor Changes
+
+- Add new endpoints to save custom annotations in datasets data
+
 ## 0.36.0
 
 ### Minor Changes

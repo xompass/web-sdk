@@ -1,5 +1,47 @@
 import type { Event } from "./Event";
 
+export type UserAddedDetectionObject = {
+  class: string;
+  subclasses?: string[];
+  attributes?: Record<string, string>;
+  tags?: string[];
+  text?: string | null;
+  probability: number;
+  frame: {
+    x: number;
+    y: number;
+    w: number;
+    h: number;
+  };
+  points?: [number, number][] | null;
+  colors?: {
+    percentage: number;
+    label: string;
+  }[];
+  colorExperimental?: {
+    rgb: {
+      r: number;
+      g: number;
+      b: number;
+    };
+    clusterSizeRatio: number;
+  }[];
+  filteredBy?: {
+    ZONE?: boolean;
+    CLASS?: boolean;
+    BLACKLIST?: boolean | null;
+    PERSISTENCE?: boolean | null;
+  };
+  trackId?: number;
+  meta?: Record<string, string | number | boolean>;
+};
+
+export type UpdateDatasetDataUserAddedObjectsBody = {
+  /** An array, including an empty one, stores the review. `null` removes it. */
+  userAddedObjects: UserAddedDetectionObject[] | null;
+  expectedModified: Date | string;
+};
+
 export type EventDashboard_GetDisabledEventTriggersResponse = {
   assetStates?: { id: string; name: string }[];
   eventTriggers: {

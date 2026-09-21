@@ -2895,7 +2895,7 @@ export async function Customer_unsubscribeDevices(
 export async function Customer_unsubscribeDevicesWithWhere(
   id: string,
   socketId: string,
-  where: any,
+  where: Filter<Device>["where"],
   options?: ApiRequestOptions,
 ): Promise<any> {
   return ApiFetch({
